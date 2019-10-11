@@ -1,0 +1,27 @@
+--- 
+title: "Cell Atlas"
+author: "Jensen Lab"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Introduction
+
+The fundamental unit of life is the cell – a contained self-replicating assembly. For many species, including all bacteria and archaea, the organism consists of a single cell. And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell. As you’ll see, the details of these cells vary, but every cell on Earth is the same at heart – a DNA-based replicator machine built from four macromolecules: nucleic acids, proteins, lipids and carbohydrates.
+
+Imagine that you’re a structural engineer tasked with building one of these cells. What’s the first step? Let’s start with the container. No matter what the first self-replicating molecules were (likely RNA), they didn’t constitute a cell until they became packaged in a container. You’d probably want a flexible container that allowed you to sort a subset of molecules from the environment. Evolution agrees. All cells are enclosed by a selectively permeable membrane, made of lipids and proteins [Schematic – Lipid bilayer](#bilayer), that allows them to differentiate their contents from the environment. This selectivity is a critical feature for the life of the cell [Schematic – ATP synthase](#atp). The compartment enclosed by a cell’s membrane is called the cytoplasm (“cell mold,” the membrane being the container for the mold).
+
+Almost all archaea and many bacteria, like these Mycoplasma genitalium cells, are monoderms (“single skin”). This means that their cytoplasm is enclosed by a single membrane. At the resolution of this image, the membrane looks like a single dark line, but remember that it’s really a bilayer, as you’ll see in some later images.
+
+```{R, echo=FALSE,screenshot.alt="img/2_1_Mgenitalium.jpg"}
+library(doivideo)
+doivideo("10.22002/D1.1278",0)
+```
+
+Video goes above.

@@ -1,10 +1,9 @@
-Template for software repositories by the Caltech Library
+Cell atlas
 =====================================================
 
-This is a template README file for software repositories.  This first paragraph of the README should summarize your software in a concise fashion, preferably using no more than one or two sentences.
+Creating a cell atlas using bookdown
 
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg?style=flat-square)](https://choosealicense.com/licenses/bsd-3-clause)
-[![Latest release](https://img.shields.io/badge/Latest_release-1.1.0-b44e88.svg?style=flat-square)](http://shields.io)
 
 
 Table of contents
@@ -24,24 +23,12 @@ Table of contents
 Introduction
 ------------
 
-This repository is a GitHub template repostory for creating software project repositories at the Caltech Library.  The [associated wiki page](https://github.com/caltechlibrary/template/wiki/Using-this-template-repo) explains how to use the template repository.
-
-This README file is in Markdown format, and is meant to provide a template for README files as well an illustration of what the README file can be expected to look like.  For a software project, this [Introduction](#introduction) section &ndash; which you are presently reading &ndash; should provide background for the project, a brief explanation of what the project is about, and optionally, pointers to resources that can help orient readers.  Ideally, this section should be short.
-
+This project was started using the bookdown demo https://github.com/rstudio/bookdown-demo
 
 Installation
 ------------
 
-Begin this section by mentioning any prerequisites that may be important for users to have before they can use your software.  Examples include hardware and operating system requirements.
-
-Next, provide step-by-step instructions for installing the software, preferably with command examples that can be copy-pasted by readers into their software environments. For example:
-
-```bash
-a command-line command here
-```
-
-Sometimes, subsections may be needed for different operating systems or particularly complicated installations.
- 
+Install R and Rstudio 
 
 Usage
 -----
