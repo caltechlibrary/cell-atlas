@@ -1,4 +1,4 @@
-﻿[1_Mycoplasma genitalium]
+[1_Mycoplasma genitalium]
 
 The fundamental unit of life is the cell –  a contained self-replicating assembly.  For many species, including all Bacteria and Archaea, the organism consists of a single cell.  And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell.  As you'll see, the details of these cells vary, but every cell on Earth is the same at heart – a DNA-based replicator machine built from just four macromolecules:  nucleic acids, proteins, lipids and carbohydrates.
 
@@ -6,12 +6,10 @@ Imagine that you're a structural engineer tasked with building one of these cell
 
 Almost all archaea and many bacteria, like these Mycoplasma genitalium cells, are monoderms ("single skin"). This means that their cytoplasm is enclosed by a single membrane. At the resolution of this image, the membrane looks like a single dark line, but remember that it's really a bilayer, as you'll see in some later images.
 
-2_1_1
-[Schematic:  Lipid bilayer]
+2_1_1 Schematic:  Lipid bilayer
 Lipids have a hydrophilic head (red/orange in the schematic) and hydrophobic tails (gray); in water they spontaneously pack together side-by-side to shield their tails from unfavorable interactions with water, forming closed double-layered bags. Proteins with regions of amino acids containing hydrophobic side groups embed these regions in lipid bilayers. Other proteins are fused to lipids, tethering them to the membrane.  In fact, cells' "lipid" membranes actually constitute roughly equal fractions of lipids and proteins. One key difference between archaea and bacteria (and with them, eukaryotes) is the lipid that makes up their membranes. Hybrid membranes containing both these lipid types can be made artificially, and it's possible that the last universal common ancestor of all cells on Earth contained both types, with specialization later occurring in different lineages.
 
-2_1_2
-[Schematic:  ATP synthase and energy production]
+2_1_2 Schematic:  ATP synthase and energy production
 The chemical properties of lipids make membranes impermeable to ions and large or hydrophilic molecules (but not to water). Cells take advantage of this property to establish an ion gradient across the membrane, using a chain of electron-carrying proteins in the membrane to pump protons out of the cell. Protein complexes in the membrane called ATP synthases (like this one from Escherichia coli) use the resulting ion potential to generate energy. The machine provides a conduit for protons to flow down their potential, producing a "proton-motive force" that spins the machine's rotor, generating energy that is chemically stored in ATP, the energetic currency of the cell.
 
 
@@ -40,16 +38,14 @@ Why stop at one membrane, though? Think about how the bacteria you've just seen 
 
 Compared to the inner membrane, the outer membrane has some unique properties. It is more permeable and not proton-tight (so it can't be used to generate ATP). It is often asymmetric, with a different composition of lipids and proteins in each of the two leaflets. The outer membrane is anchored to the sacculus [Schematic – Braun's lipoprotein]. And the sacculus itself is different. Rather than containing many layers of peptidoglycan like in the Listeria monocytogenes cell you just saw, the diderm sacculus consists largely of a single-layered peptidoglycan mesh [More – Diderm sacculus architecture], which you can see here as a thin line in the periplasm. This difference in the sacculus enables a well-known bacterial classification system: the Gram stain, which binds peptidoglycan. Gram-positive cells, typically monoderm, contain much more peptidoglycan than Gram-negative cells, which are typically diderm. Thinking about this thin defense against turgor pressure underscores a major challenge for cell growth. To insert new material, existing bonds in the sacculus must be broken, without bursting the cell in the process [Schematic – Sacculus remodeling].
 
-2_3_1
-Schematic:  Braun's lipoprotein
+2_3_1 Schematic:  Braun's lipoprotein
 Lipoproteins are hybrid molecules, formed by covalently linked lipid and protein pieces. The lipid allows them to embed into a membrane, tethering the attached protein to function nearby. Braun's lipoprotein, which is one of the most abundant molecules in the outer membrane of cells like Escherichia coli, uses its tethered protein portion to bind the peptidoglycan cell wall, creating a link between the outer membrane and the cell wall (adding up, for a typical E. coli cell, to about 100,000 links). These links determine the distance between these two components. Not all diderms use Braun's lipoprotein, though, and some bacteria have notably labile outer membranes [More – Outer membrane lability].
 
 [3a_Escherichia coli]
 More:  Diderm sacculus architecture
 Compare this diderm sacculus purified from Escherichia coli to the monoderm sacculus on the last page. Since this one is thinner; we can make out more details. Instead of inferring how the glycan strands are oriented, we can now see them running around the circumference of the cell. The main difference between the two types of sacculi seems to be whether they have largely a single layer of peptidoglycan (diderm) or many layers (monoderm). So even though the two cell walls look different, their architecture is fundamentally the same. In some circumstances, cells can even switch between the two forms, as you'll see in Chapter 7.
 
-2_3_2
-Schematic: Sacculus remodeling
+2_3_2 Schematic: Sacculus remodeling
 Encasing your cell in a rigid scaffold presents a problem: how can it grow? It's easy to make membranes larger simply by adding more lipids. But to add more peptidoglycan strands, they have to be linked into the existing network, which means breaking existing links to accommodate them. In fact, cells remodel their sacculi with the tools you'd expect: an enzyme that links glycan sugars into strands, an enzyme that links strands together with peptide bonds, and an enzyme that cuts these peptide links. Remember, though, that your cell, with its solute-rich interior, has a turgor pressure pushing outward with a force of maybe 3 atmospheres, equivalent to what we would feel at a depth of 20 meters in the ocean. This is more than enough to lyse an exposed bacterial membrane. So these tools must be used carefully to ensure that the cell doesn't burst. We're still figuring out exactly how this works, with help from computer simulations like this one. Here you see a model of an Escherichia coli sacculus being enlarged using the three enzyme tools we just described. This simulation was run to test whether just having the tools function in a complex rather than separately might give enough coordination for smooth, safe growth. (The answer was yes.)
 
 //ignore for now
@@ -90,8 +86,7 @@ Evolution is endlessly creative, providing exceptions to nearly every classifica
 
 When you look at the schematic, you'll see another layer outside the outer membrane. This layer, the capsule, isn't visible in the movie of the cell, though. It is made up of "Extracellular Polymeric Substance," abbreviated EPS, or long chains of sugars, sometimes linked to the outer membrane and sometimes free-floating. These sugars don't interact strongly with electrons, so the capsule is usually invisible by electron microscopy. But in fact, many bacteria (mostly diderm, but also some monoderm) have a capsule. The capsule can help bacteria attach onto surfaces and offers an extra layer of protection, trapping water to prevent desiccation and making it more difficult for hydrophobic molecules like detergents to get through to disrupt the membranes. It also makes it more difficult for viruses to reach the cell, and for eukaryotic "predators" like macrophages to eat it. 
 
-2_5_1
-Schematic – Mycobacterial architecture
+2_5_1 Schematic – Mycobacterial architecture
 A unique architecture encloses Mycobacterial cells. Note the outer membrane, with lipids only in the outer leaflet, and mycolic acids forming the inner. Note also the multiple strata of sugars in the cell wall. Also note the capsule depicted outside the outer membrane. 
 //
 
@@ -106,8 +101,7 @@ How else can you protect your cell from the rigors of a harsh world? What about 
 
 S-layers are crystalline lattices, and they can be striking in appearance, as on this Caulobacter crescentus cell. Amazingly, the lattice is made from (many copies of) a single protein [Schematic – S-layer architecture]. The pinwheel-like subunits interact laterally, leaving pores large enough for nutrients to pass through, but not large enough for viruses. The modular nature of the lattice means that units can be popped in as the cell grows, or popped out to allow a cell appendage to poke through. In general, S-layers are quite accommodating; they don't even interfere with the production of outer membrane vesicles [More – Nanopods]. S-layer proteins can also be modified to alter their properties; for instance attachment of a sugar can enable them to stick the cell to a surface.
 
-2_6_1
-Schematic – S-layer architecture
+2_6_1 Schematic – S-layer architecture
 A single protein forms the S-layer you just saw in Caulobacter crescentus. The protein has two domains. The bottom domain anchors to lipoproteins attached to the outer membrane. The top domain forms the canopy of the S-layer, organizing hierarchically into hexameric rosettes like this that in turn pack into a larger hexameric lattice. This lattice is flexible enough to curve around even narrow regions of the cell (more on this stalk in Chapter 3).
 
 
