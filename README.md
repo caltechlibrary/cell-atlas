@@ -32,6 +32,7 @@ Install R and Rstudio
 Usage
 -----
 
+python format_text.py 02_Envelope.txt 
 
 
 Getting help

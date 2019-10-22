@@ -11,7 +11,11 @@ link-citations: yes
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
 
-# Introduction
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Introduction {#bilayer}
 
 The fundamental unit of life is the cell – a contained self-replicating assembly. For many species, including all bacteria and archaea, the organism consists of a single cell. And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell. As you’ll see, the details of these cells vary, but every cell on Earth is the same at heart – a DNA-based replicator machine built from four macromolecules: nucleic acids, proteins, lipids and carbohydrates.
 
@@ -19,9 +23,27 @@ Imagine that you’re a structural engineer tasked with building one of these ce
 
 Almost all archaea and many bacteria, like these Mycoplasma genitalium cells, are monoderms (“single skin”). This means that their cytoplasm is enclosed by a single membrane. At the resolution of this image, the membrane looks like a single dark line, but remember that it’s really a bilayer, as you’ll see in some later images.
 
-```{R, echo=FALSE,screenshot.alt="img/2_1_Mgenitalium.jpg"}
+```{R, echo=FALSE,screenshot.alt="img/02_static/2_1_Mgenitalium.jpg"}
 library(doivideo)
 doivideo("10.22002/D1.1278",0)
 ```
 
-Video goes above.
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(bilayer). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].

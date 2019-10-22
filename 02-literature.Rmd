@@ -1,3 +1,0 @@
-# Schematic - ATP synthase {#atp}
-
-Here is a review of existing methods.

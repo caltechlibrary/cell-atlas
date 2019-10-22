@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Listeria monocytogenes | Cell Atlas</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Listeria monocytogenes | Cell Atlas" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Listeria monocytogenes | Cell Atlas" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Jensen Lab" />
+
+
+<meta name="date" content="2019-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bilayer.html"/>
+<link rel="next" href="borrelia-burgdorferi.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/CL-0.1.2/CL.js"></script>
+<script src="libs/doivideo-binding-0.0.0.9000/doivideo.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="bilayer.html"><a href="bilayer.html"><i class="fa fa-check"></i><b>2</b> Schematic – Lipid bilayer</a><ul>
+<li class="chapter" data-level="2.1" data-path="bilayer.html"><a href="bilayer.html#envelope-mycoplasma-genitalium"><i class="fa fa-check"></i><b>2.1</b> Envelope# Mycoplasma genitalium</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html"><i class="fa fa-check"></i><b>3</b> Listeria monocytogenes</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html#bacillus-subtilis"><i class="fa fa-check"></i><b>3.0.1</b> Bacillus subtilis</a></li>
+<li class="chapter" data-level="3.0.2" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html#methanobacterium-formicicum"><i class="fa fa-check"></i><b>3.0.2</b> Methanobacterium formicicum</a></li>
+<li class="chapter" data-level="3.0.3" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html#escherichia-coli"><i class="fa fa-check"></i><b>3.0.3</b> Escherichia coli</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html"><i class="fa fa-check"></i><b>4</b> Borrelia burgdorferi</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html#borrelia-burgdorferi-1"><i class="fa fa-check"></i><b>4.0.1</b> Borrelia burgdorferi</a></li>
+<li class="chapter" data-level="4.0.2" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html#myxococcus-xanthus"><i class="fa fa-check"></i><b>4.0.2</b> Myxococcus xanthus</a></li>
+<li class="chapter" data-level="4.0.3" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html#prosthecobacter-debontii"><i class="fa fa-check"></i><b>4.0.3</b> Prosthecobacter debontii</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="caulobacter-crescentus.html"><a href="caulobacter-crescentus.html"><i class="fa fa-check"></i><b>5</b> Caulobacter crescentus</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="caulobacter-crescentus.html"><a href="caulobacter-crescentus.html#delftia-acidovorans"><i class="fa fa-check"></i><b>5.0.1</b> Delftia acidovorans</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html"><i class="fa fa-check"></i><b>6</b> Sulfolobus solfataricus</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#methylomicrobium-alcaliphilum"><i class="fa fa-check"></i><b>6.0.1</b> Methylomicrobium alcaliphilum</a></li>
+<li class="chapter" data-level="6.0.2" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#clostridium-thermocellum"><i class="fa fa-check"></i><b>6.0.2</b> Clostridium thermocellum</a></li>
+<li class="chapter" data-level="6.0.3" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#nitrosopumilis-maritimus"><i class="fa fa-check"></i><b>6.0.3</b> Nitrosopumilis maritimus</a></li>
+<li class="chapter" data-level="6.0.4" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#methanoregula-formicica"><i class="fa fa-check"></i><b>6.0.4</b> Methanoregula formicica</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="methanospirillum-hungatei.html"><a href="methanospirillum-hungatei.html"><i class="fa fa-check"></i><b>7</b> Methanospirillum hungatei</a></li>
+<li class="chapter" data-level="8" data-path="haloarcula-argentinensis.html"><a href="haloarcula-argentinensis.html"><i class="fa fa-check"></i><b>8</b> Haloarcula argentinensis</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="haloarcula-argentinensis.html"><a href="haloarcula-argentinensis.html#bdellovibrio-bacteriovorus"><i class="fa fa-check"></i><b>8.0.1</b> Bdellovibrio bacteriovorus</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>9</b> Methods</a></li>
+<li class="chapter" data-level="10" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>10</b> Applications</a><ul>
+<li class="chapter" data-level="10.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>10.1</b> Example one</a></li>
+<li class="chapter" data-level="10.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>10.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>11</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cell Atlas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="listeria-monocytogenes" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Listeria monocytogenes</h1>
+<p>Being able to selectively move things into your cell enables it to do some powerful things. It also poses a structural problem, though. Remember that water can pass freely through the membrane, which means that increasing the solute concentration inside relative to the environment will cause water to rush in as well, introducing a pressure (known as turgor pressure) on the membrane. Lipid bilayers, though, are unable to withstand much pressure. If your cell lives exclusively in a consistent, and fairly high-osmolarity, environment (like our bodies, in the case of the Mycoplasma genitalium you just saw), it can balance internal and external osmolarity to minimize turgor pressure on the membrane. But most cells experience much more variable environments. How can you keep your cell from bursting in such conditions?</p>
+<p>You’ll probably want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this using a material called peptidoglycan: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its sacculus, or cell wall. Some archaea also have cell walls, made of a molecule similar to peptidoglycan, but chemically distinct. Most archaea, though, rely on a different structure for support, as you’ll see later in this chapter.</p>
+<p>In monoderm bacteria like this Listeria monocytogenes, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which can’t be seen individually at the resolution of this image, so the cell wall appears as a uniformly textured layer [More – Peptidoglycan architecture]. It’s still a mystery how large molecules can pass through this dense layer on their way to and from the cell. Not all bacterial cell walls are chemically identical [More – Methanobacterium formicicum]. And in some conditions, cells can lose their walls [More – L-form bacteria].</p>
+<div id="bacillus-subtilis" class="section level3">
+<h3><span class="header-section-number">3.0.1</span> Bacillus subtilis</h3>
+<p>More: Peptidoglycan architecture The sacculus is so robust that it persists even after cells are lysed and their other components digested. This sacculus isolated from a Bacillus subtilis cell has retained its shape, simply flattening with the release of contents and pressure from inside. By observing how these purified sacculi rip and curl, we can infer something about the architecture of the cell wall; we think that the long glycan strands are oriented in hoops circling the short axis of the cylindrical cell and the short peptide crosslinks are more or less aligned with the long axis.</p>
+</div>
+<div id="methanobacterium-formicicum" class="section level3">
+<h3><span class="header-section-number">3.0.2</span> Methanobacterium formicicum</h3>
+<p>More: Methanobacterium formicicum These methane-producing bacteria, found in the rumen of animals like cows, have a cell wall with a slightly different chemical composition than peptidoglycan, but a similar structure.</p>
+<p>[static image 2_2_1 in schematics] More: L-form bacteria There is no universal adaptation in Nature; advantages in one environment can become liabilities in another. This concept is exemplified by an adaptation of some bacteria which lose their cell walls in certain conditions, such as in the presence of antibiotics (the cell wall is a common target of antibiotics). This state is called the L-form (named for the Lister Institute where it were discovered). As you can see in these Bacillus subtilis, cells in this state are pleomorphic, exhibiting a variety of sizes and shapes. As you would expect, L-form cells are more sensitive to environmental conditions. In the lab, they’re protected from lysis by increasing the osmotic pressure of the environment, for instance by adding sucrose. The environment in your body, though, would have the same effect, as we discussed for Mycoplasma genitalium. L-form bacteria are interesting for many reasons (including human health), one of which is that they give us a fascinating window into how early cells – prior to the evolution of the cell wall – might have looked and behaved. # Cupriavidus necator</p>
+<p>Why stop at one membrane, though? Think about how the bacteria you’ve just seen compare with eukaryotic cells. The eukaryotic cells are much larger (maybe 100-1,000 times larger in volume), and they contain many internal membranes that form specialized subcompartments, like the nucleus and mitochondria. Bacteria and archaea don’t have membrane-bound organelles inside, but in fact many bacteria do create an additional compartment outside the cell with another, outer, membrane. These bacteria, like the Cupriavidus necator cell you see here, are called diderms (“double skin”). The extra compartment between their membranes is known as the periplasm (“mold between”). This antechamber contains a unique subset of proteins, many of which function in escorting things into and out of the main cell, as you’ll see in later chapters.</p>
+<p>Compared to the inner membrane, the outer membrane has some unique properties. It is more permeable and not proton-tight (so it can’t be used to generate ATP). It is often asymmetric, with a different composition of lipids and proteins in each of the two leaflets. The outer membrane is anchored to the sacculus [Schematic – Braun’s lipoprotein]. And the sacculus itself is different. Rather than containing many layers of peptidoglycan like in the Listeria monocytogenes cell you just saw, the diderm sacculus consists largely of a single-layered peptidoglycan mesh [More – Diderm sacculus architecture], which you can see here as a thin line in the periplasm. This difference in the sacculus enables a well-known bacterial classification system: the Gram stain, which binds peptidoglycan. Gram-positive cells, typically monoderm, contain much more peptidoglycan than Gram-negative cells, which are typically diderm. Thinking about this thin defense against turgor pressure underscores a major challenge for cell growth. To insert new material, existing bonds in the sacculus must be broken, without bursting the cell in the process [Schematic – Sacculus remodeling].</p>
+<p><img src="img/02_schematic/2_3_1_BLP.png" /><!-- --> Lipoproteins are hybrid molecules, formed by covalently linked lipid and protein pieces. The lipid allows them to embed into a membrane, tethering the attached protein to function nearby. Braun’s lipoprotein, which is one of the most abundant molecules in the outer membrane of cells like Escherichia coli, uses its tethered protein portion to bind the peptidoglycan cell wall, creating a link between the outer membrane and the cell wall (adding up, for a typical E. coli cell, to about 100,000 links). These links determine the distance between these two components. Not all diderms use Braun’s lipoprotein, though, and some bacteria have notably labile outer membranes [More – Outer membrane lability].</p>
+</div>
+<div id="escherichia-coli" class="section level3">
+<h3><span class="header-section-number">3.0.3</span> Escherichia coli</h3>
+<p>More: Diderm sacculus architecture Compare this diderm sacculus purified from Escherichia coli to the monoderm sacculus on the last page. Since this one is thinner; we can make out more details. Instead of inferring how the glycan strands are oriented, we can now see them running around the circumference of the cell. The main difference between the two types of sacculi seems to be whether they have largely a single layer of peptidoglycan (diderm) or many layers (monoderm). So even though the two cell walls look different, their architecture is fundamentally the same. In some circumstances, cells can even switch between the two forms, as you’ll see in Chapter 7.</p>
+<p><img src="img/02_schematic/2_3_2_SacculusRemodeling.jpg" /><!-- --> Encasing your cell in a rigid scaffold presents a problem: how can it grow? It’s easy to make membranes larger simply by adding more lipids. But to add more peptidoglycan strands, they have to be linked into the existing network, which means breaking existing links to accommodate them. In fact, cells remodel their sacculi with the tools you’d expect: an enzyme that links glycan sugars into strands, an enzyme that links strands together with peptide bonds, and an enzyme that cuts these peptide links. Remember, though, that your cell, with its solute-rich interior, has a turgor pressure pushing outward with a force of maybe 3 atmospheres, equivalent to what we would feel at a depth of 20 meters in the ocean. This is more than enough to lyse an exposed bacterial membrane. So these tools must be used carefully to ensure that the cell doesn’t burst. We’re still figuring out exactly how this works, with help from computer simulations like this one. Here you see a model of an Escherichia coli sacculus being enlarged using the three enzyme tools we just described. This simulation was run to test whether just having the tools function in a complex rather than separately might give enough coordination for smooth, safe growth. (The answer was yes.)</p>
+<p>//ignore for now More: Outer membrane lability H. pylori? Since your diderm cell has an inner membrane, and structural support from its cell wall, you have some more flexibility with its outer membrane. This flexibility can be useful for several things, as you’ll see on the next page and in later chapters, and many bacteria have evolved relatively loose outer membranes. Demonstrating this property, this Helicobacter pylori cell has curled up on itself, zipping its outer membrane into a smaller enclosing sheath. How could this help your cell? Many viruses target molecules on the surface of bacteria. Similarly, our immune systems have learned to detect molecules exposed on the surface of bacterial pathogens. In either case, your cell could slough off some of its outer membrane to act as a decoy. Or it could fuse its outer membrane with another cell, mixing the antigens into what might be a more incognito combination. As with many properties of cells, there are probably other major advantageous functions; we just haven’t figured them out yet.</p>
+<p>More: Diderm archaea Nearly all diderm cells are bacteria. Not all, though. As you see here, Ignicoccus hospitalis, an archaeon, has an outer membrane that appears very loosely associated with the cell, forming an extra large periplasm. You can see membrane-bound vesicles shuttling cargo across this vast space (more about vesicles on the next page). Interestingly, this is also an exception to the rule that the inner membrane of diderms is “energized” (proton-tight). In I. hospitalis, it is the outer membrane that contains the ATP synthases. These unusual characteristics suggest a symbiotic origin for this species; perhaps its ancestor used to live inside a host cell, which was eventually reduced to a mere membrane. //</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bilayer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="borrelia-burgdorferi.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02_Envelope.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

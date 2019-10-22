@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Borrelia burgdorferi | Cell Atlas</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Borrelia burgdorferi | Cell Atlas" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Borrelia burgdorferi | Cell Atlas" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Jensen Lab" />
+
+
+<meta name="date" content="2019-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="listeria-monocytogenes.html"/>
+<link rel="next" href="caulobacter-crescentus.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/CL-0.1.2/CL.js"></script>
+<script src="libs/doivideo-binding-0.0.0.9000/doivideo.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="bilayer.html"><a href="bilayer.html"><i class="fa fa-check"></i><b>2</b> Schematic – Lipid bilayer</a><ul>
+<li class="chapter" data-level="2.1" data-path="bilayer.html"><a href="bilayer.html#envelope-mycoplasma-genitalium"><i class="fa fa-check"></i><b>2.1</b> Envelope# Mycoplasma genitalium</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html"><i class="fa fa-check"></i><b>3</b> Listeria monocytogenes</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html#bacillus-subtilis"><i class="fa fa-check"></i><b>3.0.1</b> Bacillus subtilis</a></li>
+<li class="chapter" data-level="3.0.2" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html#methanobacterium-formicicum"><i class="fa fa-check"></i><b>3.0.2</b> Methanobacterium formicicum</a></li>
+<li class="chapter" data-level="3.0.3" data-path="listeria-monocytogenes.html"><a href="listeria-monocytogenes.html#escherichia-coli"><i class="fa fa-check"></i><b>3.0.3</b> Escherichia coli</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html"><i class="fa fa-check"></i><b>4</b> Borrelia burgdorferi</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html#borrelia-burgdorferi-1"><i class="fa fa-check"></i><b>4.0.1</b> Borrelia burgdorferi</a></li>
+<li class="chapter" data-level="4.0.2" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html#myxococcus-xanthus"><i class="fa fa-check"></i><b>4.0.2</b> Myxococcus xanthus</a></li>
+<li class="chapter" data-level="4.0.3" data-path="borrelia-burgdorferi.html"><a href="borrelia-burgdorferi.html#prosthecobacter-debontii"><i class="fa fa-check"></i><b>4.0.3</b> Prosthecobacter debontii</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="caulobacter-crescentus.html"><a href="caulobacter-crescentus.html"><i class="fa fa-check"></i><b>5</b> Caulobacter crescentus</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="caulobacter-crescentus.html"><a href="caulobacter-crescentus.html#delftia-acidovorans"><i class="fa fa-check"></i><b>5.0.1</b> Delftia acidovorans</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html"><i class="fa fa-check"></i><b>6</b> Sulfolobus solfataricus</a><ul>
+<li class="chapter" data-level="6.0.1" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#methylomicrobium-alcaliphilum"><i class="fa fa-check"></i><b>6.0.1</b> Methylomicrobium alcaliphilum</a></li>
+<li class="chapter" data-level="6.0.2" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#clostridium-thermocellum"><i class="fa fa-check"></i><b>6.0.2</b> Clostridium thermocellum</a></li>
+<li class="chapter" data-level="6.0.3" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#nitrosopumilis-maritimus"><i class="fa fa-check"></i><b>6.0.3</b> Nitrosopumilis maritimus</a></li>
+<li class="chapter" data-level="6.0.4" data-path="sulfolobus-solfataricus.html"><a href="sulfolobus-solfataricus.html#methanoregula-formicica"><i class="fa fa-check"></i><b>6.0.4</b> Methanoregula formicica</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="methanospirillum-hungatei.html"><a href="methanospirillum-hungatei.html"><i class="fa fa-check"></i><b>7</b> Methanospirillum hungatei</a></li>
+<li class="chapter" data-level="8" data-path="haloarcula-argentinensis.html"><a href="haloarcula-argentinensis.html"><i class="fa fa-check"></i><b>8</b> Haloarcula argentinensis</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="haloarcula-argentinensis.html"><a href="haloarcula-argentinensis.html#bdellovibrio-bacteriovorus"><i class="fa fa-check"></i><b>8.0.1</b> Bdellovibrio bacteriovorus</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>9</b> Methods</a></li>
+<li class="chapter" data-level="10" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>10</b> Applications</a><ul>
+<li class="chapter" data-level="10.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>10.1</b> Example one</a></li>
+<li class="chapter" data-level="10.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>10.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>11</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cell Atlas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="borrelia-burgdorferi" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Borrelia burgdorferi</h1>
+<p>What else can you do with an extra membrane? Since membranes make excellent containers for molecules, why not get into the shipping business? In the coming chapters (especially Chapter 8), you’ll see some of the ways that cells interact with each other and their environment. For diderm bacteria, many of these interactions are made possible by outer membrane vesicles (“little bladders”)–self-contained pockets budded off the membrane. The vesicles may carry cargo of antibiotics to inhibit competitors’ growth, or toxins to lyse neighboring cells. Or enzymes to digest those lysed remains into nutrients that your cell can easily take up as food. Alternatively, they may carry emergency kits (first aid and survival factors) for other members of a community biofilm. The appearance of these vesicles varies as much as their contents [More: Vesicle morphologies]. They are usually spherical, of a consistent size, and often come off the cell at one or a few sites, forming chains, as you can see in this Borrelia burgdorferi cell.</p>
+<p>Not all diderms produce outer membrane vesicles, and even for the ones that do, we still don’t know exactly how they do it. Maybe it happens spontaneously due to the physics of lipids and proteins in a certain configuration. Or maybe there’s a dedicated protein machine in the membrane, blowing bubbles. Some archaea (monoderms) also produce membrane vesicles. They’re less studied than their bacterial counterparts, but likely serve similar roles in metabolism and community interactions.</p>
+<div id="borrelia-burgdorferi-1" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> Borrelia burgdorferi</h3>
+<p>More: Vesicle morphologies Different species can produce outer membrane vesicles that look very different. The same species can also produce vesicles that look very different. Sometimes they come off the cell as a chain of spheres; sometimes the spheres remain connected, like a string of pearls; sometimes vesicles form long tubes instead, like from this Borrelia burgdorferi cell. Sometimes the same chain can be tubular in one section (usually at the base, connected to the cell), and a string of spheres in another.</p>
+</div>
+<div id="myxococcus-xanthus" class="section level3">
+<h3><span class="header-section-number">4.0.2</span> Myxococcus xanthus</h3>
+<p>More: Inner membrane vesicles Not all vesicles come from the outer membrane. The cytoplasmic or inner membrane can also form vesicles that are released into the cytoplasm, as in this Myxococcus xanthus cell, or into the periplasm. This seems to be a less regulated process than outer membrane vesicle formation, and we see it in many species when they are stressed by low nutrients or high cell density, suggesting that it is a general phenomenon. Cells shrink in harsh conditions (more on that in Chapter 7), so cytoplasmic or periplasmic vesicles may simply offer a place to put the extra membrane or, more optimistically, to store it until the time comes to grow again. Just as with outer membrane vesicles, the appearance of cytoplasmic vesicles can vary widely [More – Cytoplasmic vesicle variety].</p>
+</div>
+<div id="prosthecobacter-debontii" class="section level3">
+<h3><span class="header-section-number">4.0.3</span> Prosthecobacter debontii</h3>
+<p>More: Cytoplasmic vesicle variety Cytoplasmic vesicles exhibit a variety of sizes and shapes. Some are nested, with vesicles inside vesicles. In this Prosthecobacter debontii cell, you can see two other morphologies. One is a large, flattened horseshoe-shaped vesicle. Another is a more typical spherical shape, but is decorated with what looks like protein complexes.</p>
+<p>This cell also has unusual structures on its surface that have yet to be identified.</p>
+<p>//ignore for now # Mycoplasma marinum [Substitute with Clostridium thermocellum?]</p>
+<p>Evolution is endlessly creative, providing exceptions to nearly every classification rule. We’ve just described a neat breakdown of bacteria into monoderms (one membrane, thick sacculus, positive Gram stain) and diderms (two membranes, thin sacculus, negative Gram stain). But some cells, like this Mycobacterium marinum, defy classification. Mycobacteria are diderm, with an inner and an outer membrane, and a cell wall. But they have unique molecules (named mycolic acids in their honor) in the outer membrane. These acids interfere with Gram staining, yielding an intermediate result between positive and negative. And their sacculus consists of three layers, each with a unique molecular composition [Schematic – Mycobacterial architecture]. In this case, the middle layer is the familiar peptidoglycan.</p>
+<p>When you look at the schematic, you’ll see another layer outside the outer membrane. This layer, the capsule, isn’t visible in the movie of the cell, though. It is made up of “Extracellular Polymeric Substance,” abbreviated EPS, or long chains of sugars, sometimes linked to the outer membrane and sometimes free-floating. These sugars don’t interact strongly with electrons, so the capsule is usually invisible by electron microscopy. But in fact, many bacteria (mostly diderm, but also some monoderm) have a capsule. The capsule can help bacteria attach onto surfaces and offers an extra layer of protection, trapping water to prevent desiccation and making it more difficult for hydrophobic molecules like detergents to get through to disrupt the membranes. It also makes it more difficult for viruses to reach the cell, and for eukaryotic “predators” like macrophages to eat it.</p>
+<p><img src="img/02_schematic/2_5_1_Mycobacteria.png" /><!-- --> A unique architecture encloses Mycobacterial cells. Note the outer membrane, with lipids only in the outer leaflet, and mycolic acids forming the inner. Note also the multiple strata of sugars in the cell wall. Also note the capsule depicted outside the outer membrane. //</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="listeria-monocytogenes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="caulobacter-crescentus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02_Envelope.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
