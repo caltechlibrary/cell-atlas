@@ -86,7 +86,7 @@ Evolution is endlessly creative, providing exceptions to nearly every classifica
 
 When you look at the schematic, you'll see another layer outside the outer membrane. This layer, the capsule, isn't visible in the movie of the cell, though. It is made up of "Extracellular Polymeric Substance," abbreviated EPS, or long chains of sugars, sometimes linked to the outer membrane and sometimes free-floating. These sugars don't interact strongly with electrons, so the capsule is usually invisible by electron microscopy. But in fact, many bacteria (mostly diderm, but also some monoderm) have a capsule. The capsule can help bacteria attach onto surfaces and offers an extra layer of protection, trapping water to prevent desiccation and making it more difficult for hydrophobic molecules like detergents to get through to disrupt the membranes. It also makes it more difficult for viruses to reach the cell, and for eukaryotic "predators" like macrophages to eat it. 
 
-2_5_1 Schematic – Mycobacterial architecture
+2_5_1 Schematic: Mycobacterial architecture
 A unique architecture encloses Mycobacterial cells. Note the outer membrane, with lipids only in the outer leaflet, and mycolic acids forming the inner. Note also the multiple strata of sugars in the cell wall. Also note the capsule depicted outside the outer membrane. 
 //
 
@@ -101,7 +101,7 @@ How else can you protect your cell from the rigors of a harsh world? What about 
 
 S-layers are crystalline lattices, and they can be striking in appearance, as on this Caulobacter crescentus cell. Amazingly, the lattice is made from (many copies of) a single protein [Schematic – S-layer architecture]. The pinwheel-like subunits interact laterally, leaving pores large enough for nutrients to pass through, but not large enough for viruses. The modular nature of the lattice means that units can be popped in as the cell grows, or popped out to allow a cell appendage to poke through. In general, S-layers are quite accommodating; they don't even interfere with the production of outer membrane vesicles [More – Nanopods]. S-layer proteins can also be modified to alter their properties; for instance attachment of a sugar can enable them to stick the cell to a surface.
 
-2_6_1 Schematic – S-layer architecture
+2_6_1 Schematic: S-layer architecture
 A single protein forms the S-layer you just saw in Caulobacter crescentus. The protein has two domains. The bottom domain anchors to lipoproteins attached to the outer membrane. The top domain forms the canopy of the S-layer, organizing hierarchically into hexameric rosettes like this that in turn pack into a larger hexameric lattice. This lattice is flexible enough to curve around even narrow regions of the cell (more on this stalk in Chapter 3).
 
 
