@@ -37,6 +37,13 @@ par(mar = c(4, 4, .1, .1))
 plot(pressure, type = 'b', pch = 19)
 ```
 
+```{python py-fig, fig.cap='Here is a nice python figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel('some numbers')
+plt.show()
+```
+
 Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
 
 ```{r nice-tab, tidy=FALSE}
