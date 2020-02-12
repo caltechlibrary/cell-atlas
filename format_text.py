@@ -1,10 +1,14 @@
-import argparse, os, re
+import argparse, os, re, csv
 import glob
 
 def insert_figure(file_path,label,caption):
     return "```{R "+label+', fig.cap="'+caption+\
         '"}\nknitr::include_graphics("'+file_path+'")\n```\n'
 
+def insert_movie(doi,image_path):
+    return "```{R "+doi+", echo=FALSE, screenshot.alt='"+\
+            image_path+"'}\nlibrary(doivideo)\ndoivideo('"+\
+            doi+"',0)\n```\n"
 
 parser = argparse.ArgumentParser(description=\
         "Transform text file chapters to Rmarkdown")
@@ -15,6 +19,17 @@ args = parser.parse_args()
 
 schema_mapping = {}
 working_copy = []
+
+#Get dictionary of DOIs
+dois = {}
+doi_file = "dois.csv"
+with open(doi_file,'r') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        split = row['movie'].split('_')
+        label = split[0]+'_'+split[1]
+        dois[label] = row["DOI"]
+
 
 for filen in args.chapter_file:
     split = filen.split('_')
@@ -27,8 +42,13 @@ for filen in args.chapter_file:
     for line in infile.readlines():
         # Section headings
         if re.search(r"^\[\d_" ,line):
-            section = line.split('_')[1].replace(']','')
+            split = line.split('_')
+            number = split[0].split('[')[1]
+            section = split[1].replace(']','')
             working_copy.append('## '+section)
+            doi = dois[chapter_number.lstrip("0")+'_'+number]
+            image = 'img/02_static/2_1_Mgenitalium.jpg' 
+            working_copy.append(insert_movie(doi,image))
         # Subsection headings
         elif re.search(r"^\[\d" ,line):
             section = line.split('_')[1].replace(']','')

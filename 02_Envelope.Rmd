@@ -1,5 +1,10 @@
 # Envelope
+
 ## Mycoplasma genitalium
+```{R 10.22002/1350, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1350',0)
+```
 
 The fundamental unit of life is the cell –  a contained self-replicating assembly.  For many species, including all Bacteria and Archaea, the organism consists of a single cell.  And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell.  As you'll see, the details of these cells vary, but every cell on Earth is the same at heart – a DNA-based replicator machine built from just four macromolecules:  nucleic acids, proteins, lipids and carbohydrates.
 
@@ -19,6 +24,10 @@ The chemical properties of lipids make membranes impermeable to ions and large o
 
 
 ## Listeria monocytogenes
+```{R 10.22002/1351, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1351',0)
+```
 
 Being able to selectively move things into your cell enables it to do some powerful things.  It also poses a structural problem, though. Remember that water can pass freely through the membrane, which means that increasing the solute concentration inside relative to the environment will cause water to rush in as well, introducing a pressure (known as turgor pressure) on the membrane.  Lipid bilayers, though, are unable to withstand much pressure. If your cell lives exclusively in a consistent, and fairly high-osmolarity, environment (like our bodies, in the case of the Mycoplasma genitalium you just saw), it can balance internal and external osmolarity to minimize turgor pressure on the membrane. But most cells experience much more variable environments. How can you keep your cell from bursting in such conditions?
 
@@ -38,6 +47,10 @@ These methane-producing bacteria, found in the rumen of animals like cows, have 
 More:  L-form bacteria
 There is no universal adaptation in Nature; advantages in one environment can become liabilities in another. This concept is exemplified by an adaptation of some bacteria which lose their cell walls in certain conditions, such as in the presence of antibiotics (the cell wall is a common target of antibiotics). This state is called the L-form (named for the Lister Institute where it were discovered). As you can see in these Bacillus subtilis, cells in this state are pleomorphic, exhibiting a variety of sizes and shapes. As you would expect, L-form cells are more sensitive to environmental conditions. In the lab, they're protected from lysis by increasing the osmotic pressure of the environment, for instance by adding sucrose. The environment in your body, though, would have the same effect, as we discussed for Mycoplasma genitalium.  L-form bacteria are interesting for many reasons (including human health), one of which is that they give us a fascinating window into how early cells – prior to the evolution of the cell wall – might have looked and behaved.
 ## Cupriavidus necator
+```{R 10.22002/1352, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1352',0)
+```
 
 Why stop at one membrane, though? Think about how the bacteria you've just seen compare with eukaryotic cells. The eukaryotic cells are much larger (maybe 100-1,000 times larger in volume), and they contain many internal membranes that form specialized subcompartments, like the nucleus and mitochondria. Bacteria and archaea don't have membrane-bound organelles inside, but in fact many bacteria do create an additional compartment outside the cell with another, outer, membrane. These bacteria, like the Cupriavidus necator cell you see here, are called diderms ("double skin"). The extra compartment between their membranes is known as the periplasm ("mold between"). This antechamber contains a unique subset of proteins, many of which function in escorting things into and out of the main cell, as you'll see in later chapters.
 
@@ -67,6 +80,10 @@ Nearly all diderm cells are bacteria. Not all, though. As you see here, Ignicocc
 //
 
 ## Borrelia burgdorferi
+```{R 10.22002/1353, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1353',0)
+```
 
 What else can you do with an extra membrane? Since membranes make excellent containers for molecules, why not get into the shipping business? In the coming chapters (especially Chapter 8), you'll see some of the ways that cells interact with each other and their environment. For diderm bacteria, many of these interactions are made possible by outer membrane vesicles ("little bladders")–self-contained pockets budded off the membrane. The vesicles may carry cargo of antibiotics to inhibit competitors' growth, or toxins to lyse neighboring cells. Or enzymes to digest those lysed remains into nutrients that your cell can easily take up as food. Alternatively, they may carry emergency kits (first aid and survival factors) for other members of a community biofilm. The appearance of these vesicles varies as much as their contents [More: Vesicle morphologies]. They are usually spherical, of a consistent size, and often come off the cell at one or a few sites, forming chains, as you can see in this Borrelia burgdorferi cell.
 
@@ -89,6 +106,10 @@ This cell also has unusual structures on its surface that have yet to be identif
 
 //ignore for now
 ## Mycoplasma marinum
+```{R 10.22002/1354, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1354',0)
+```
 [Substitute with Clostridium thermocellum?]
 
 Evolution is endlessly creative, providing exceptions to nearly every classification rule. We've just described a neat breakdown of bacteria into monoderms (one membrane, thick sacculus, positive Gram stain) and diderms (two membranes, thin sacculus, negative Gram stain). But some cells, like this Mycobacterium marinum, defy classification. Mycobacteria are diderm, with an inner and an outer membrane, and a cell wall. But they have unique molecules (named mycolic acids in their honor) in the outer membrane. These acids interfere with Gram staining, yielding an intermediate result between positive and negative. And their sacculus consists of three layers, each with a unique molecular composition [Schematic – Mycobacterial architecture](#fig:2-5-1). In this case, the middle layer is the familiar peptidoglycan.
@@ -107,6 +128,10 @@ A unique architecture encloses Mycobacterial cells. Note the outer membrane, wit
 
 
 ## Caulobacter crescentus
+```{R 10.22002/1355, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1355',0)
+```
 
 How else can you protect your cell from the rigors of a harsh world? What about encasing it in an armored shell a la the armadillo? Many bacteria (both monoderms and diderms) and archaea use modular proteins for this purpose, interlocking Lego-block-like pieces into a shell called the Surface Layer, or S-layer. You can guess that this must offer a significant evolutionary advantage since up to 15% of the total protein in the cell can be found in the structure. In fact, S-layers play many roles for cells, some of which you'll see on the next page, but one of their main functions is as a gatekeeper, preventing large things like viruses from reaching the membrane.
 
@@ -133,6 +158,10 @@ Archaea and diderm bacteria with S-layers produce characteristic outer membrane 
 
 
 ## Sulfolobus solfataricus
+```{R 10.22002/1356, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1356',0)
+```
 
 One of the most striking features of the S-layer is how different it can look in different species. For instance, compare this archaeal Sulfolobus solfataricus cell to the bacterium on the last page, or to other diderm [More – M. alcaliphilum] or monoderm [More – C. thermocellum] bacteria, or archaea [More – N. maritimus] [More – Methanoregula formicica]. All S-layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
 
@@ -162,6 +191,10 @@ More – Methanoregula formicica
 
 
 ## Methanospirillum hungatei
+```{R 10.22002/1357, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1357',0)
+```
 
 Why stop with a single layer of protein? For proof that Nature is endlessly inventive, consider this Methanospirillum hungatei cell. These archaea encase themselves in an S-layer, and then an additional protein layer that forms a highly impermeable sheath. The sheath is also very resistant to pressure, which could be important in the cells' line of work. M. hungatei were discovered in sewage, where they break down organic waste, producing methane. One theory is that the sheath acts as a pressure regulator; when enough methane builds up inside the cell, the pressure expands the sheath, opening its pores wide enough to allow the methane to dissipate and new metabolic substrates like hydrogen and carbon dioxide to enter.
 
@@ -170,6 +203,10 @@ The rules of architecture remain the same, though. Just as in the bacterial cell
 
 
 ## Haloarcula argentinensis
+```{R 10.22002/1358, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+library(doivideo)
+doivideo('10.22002/1358',0)
+```
 
 All the layers we've just discussed collectively make up the container, or envelope, of a cell. As you've seen, different species use different combinations of these components to form their envelopes; the only constant is the cytoplasmic (or inner, for diderms) membrane. Before we move on, let's talk briefly about what these envelopes contain. In addition to water and small molecules, you've already seen some large protein complexes like motility machineries. You've also seen the ribosomes – the protein/RNA complexes responsible for translation. But you might have been surprised not to see something else: DNA. The replicating molecule containing the instructions for the life of the cell is of paramount importance but often invisible by microscopy. But not always. 
 
