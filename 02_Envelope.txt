@@ -25,9 +25,11 @@ In monoderm bacteria like this Listeria monocytogenes, the cell wall is signific
 More:  Peptidoglycan architecture
 The sacculus is so robust that it persists even after cells are lysed and their other components digested. This sacculus isolated from a Bacillus subtilis cell has retained its shape, simply flattening with the release of contents and pressure from inside.  By observing how these purified sacculi rip and curl, we can infer something about the architecture of the cell wall; we think that the long glycan strands are oriented in hoops circling the short axis of the cylindrical cell and the short peptide crosslinks are more or less aligned with the long axis.
 
-[2b_Methanobacterium formicicum]
-More: Methanobacterium formicicum
-These methane-producing bacteria, found in the rumen of animals like cows, have a cell wall with a slightly different chemical composition than peptidoglycan, but a similar structure.
+---
+#[2b_Methanobacterium formicicum]
+#More: Methanobacterium formicicum
+#These methane-producing bacteria, found in the rumen of animals like cows, have a cell wall with a slightly different chemical composition than peptidoglycan, but a similar structure.
+---
 
 [static image 2_2_1 in schematics]
 More:  L-form bacteria
@@ -48,14 +50,16 @@ Compare this diderm sacculus purified from Escherichia coli to the monoderm sacc
 2_3_2 Schematic: Sacculus remodeling
 Encasing your cell in a rigid scaffold presents a problem: how can it grow? It's easy to make membranes larger simply by adding more lipids. But to add more peptidoglycan strands, they have to be linked into the existing network, which means breaking existing links to accommodate them. In fact, cells remodel their sacculi with the tools you'd expect: an enzyme that links glycan sugars into strands, an enzyme that links strands together with peptide bonds, and an enzyme that cuts these peptide links. Remember, though, that your cell, with its solute-rich interior, has a turgor pressure pushing outward with a force of maybe 3 atmospheres, equivalent to what we would feel at a depth of 20 meters in the ocean. This is more than enough to lyse an exposed bacterial membrane. So these tools must be used carefully to ensure that the cell doesn't burst. We're still figuring out exactly how this works, with help from computer simulations like this one. Here you see a model of an Escherichia coli sacculus being enlarged using the three enzyme tools we just described. This simulation was run to test whether just having the tools function in a complex rather than separately might give enough coordination for smooth, safe growth. (The answer was yes.)
 
-//ignore for now
-More: Outer membrane lability
-H. pylori?
-Since your diderm cell has an inner membrane, and structural support from its cell wall, you have some more flexibility with its outer membrane.  This flexibility can be useful for several things, as you'll see on the next page and in later chapters, and many bacteria have evolved relatively loose outer membranes. Demonstrating this property, this Helicobacter pylori cell has curled up on itself, zipping its outer membrane into a smaller enclosing sheath. How could this help your cell? Many viruses target molecules on the surface of bacteria. Similarly, our immune systems have learned to detect molecules exposed on the surface of bacterial pathogens. In either case, your cell could slough off some of its outer membrane to act as a decoy. Or it could fuse its outer membrane with another cell, mixing the antigens into what might be a more incognito combination. As with many properties of cells, there are probably other major advantageous functions; we just haven't figured them out yet.
+---
+#//ignore for now
+#More: Outer membrane lability
+#H. pylori?
+#Since your diderm cell has an inner membrane, and structural support from its cell wall, you have some more flexibility with its outer membrane.  This flexibility can be useful for several things, as you'll see on the next page and in later chapters, and many bacteria have evolved relatively loose outer membranes. Demonstrating this property, this Helicobacter pylori cell has curled up on itself, zipping its outer membrane into a smaller enclosing sheath. How could this help your cell? Many viruses target molecules on the surface of bacteria. Similarly, our immune systems have learned to detect molecules exposed on the surface of bacterial pathogens. In either case, your cell could slough off some of its outer membrane to act as a decoy. Or it could fuse its outer membrane with another cell, mixing the antigens into what might be a more incognito combination. As with many properties of cells, there are probably other major advantageous functions; we just haven't figured them out yet.
+---
 
 More: Diderm archaea
 Nearly all diderm cells are bacteria. Not all, though. As you see here, Ignicoccus hospitalis, an archaeon, has an outer membrane that appears very loosely associated with the cell, forming an extra large periplasm. You can see membrane-bound vesicles shuttling cargo across this vast space (more about vesicles on the next page). Interestingly, this is also an exception to the rule that the inner membrane of diderms is "energized" (proton-tight). In I. hospitalis, it is the outer membrane that contains the ATP synthases. These unusual characteristics suggest a symbiotic origin for this species; perhaps its ancestor used to live inside a host cell, which was eventually reduced to a mere membrane.
-//
+
 
 [4_Borrelia burgdorferi]
 
@@ -64,11 +68,11 @@ What else can you do with an extra membrane? Since membranes make excellent cont
 Not all diderms produce outer membrane vesicles, and even for the ones that do, we still don't know exactly how they do it. Maybe it happens spontaneously due to the physics of lipids and proteins in a certain configuration. Or maybe there's a dedicated protein machine in the membrane, blowing bubbles. Some archaea (monoderms) also produce membrane vesicles. They're less studied than their bacterial counterparts, but likely serve similar roles in metabolism and community interactions.
 
 [4a_Borrelia burgdorferi]
-More: Vesicle morphologies 
-Different species can produce outer membrane vesicles that look very different. The same species can also produce vesicles that look very different. Sometimes they come off the cell as a chain of spheres; sometimes the spheres remain connected, like a string of pearls; sometimes vesicles form long tubes instead, like from this Borrelia burgdorferi cell. Sometimes the same chain can be tubular in one section (usually at the base, connected to the cell), and a string of spheres in another. 
+More: Vesicle morphologies
+Different species can produce outer membrane vesicles that look very different. The same species can also produce vesicles that look very different. Sometimes they come off the cell as a chain of spheres; sometimes the spheres remain connected, like a string of pearls; sometimes vesicles form long tubes instead, like from this Borrelia burgdorferi cell. Sometimes the same chain can be tubular in one section (usually at the base, connected to the cell), and a string of spheres in another.
 
 [4b_Myxococcus xanthus]
-More: Inner membrane vesicles 
+More: Inner membrane vesicles
 Not all vesicles come from the outer membrane. The cytoplasmic or inner membrane can also form vesicles that are released into the cytoplasm, as in this Myxococcus xanthus cell, or into the periplasm. This seems to be a less regulated process than outer membrane vesicle formation, and we see it in many species when they are stressed by low nutrients or high cell density, suggesting that it is a general phenomenon. Cells shrink in harsh conditions (more on that in Chapter 7), so cytoplasmic or periplasmic vesicles may simply offer a place to put the extra membrane or, more optimistically, to store it until the time comes to grow again. Just as with outer membrane vesicles, the appearance of cytoplasmic vesicles can vary widely [More – Cytoplasmic vesicle variety].
 
 [4c_Prosthecobacter debontii]
@@ -77,17 +81,19 @@ Cytoplasmic vesicles exhibit a variety of sizes and shapes. Some are nested, wit
 
 This cell also has unusual structures on its surface that have yet to be identified.
 
+---
+#//ignore for now
+#[Substitute with Clostridium thermocellum?]
+---
 
-//ignore for now
 [5_Mycoplasma marinum]
-[Substitute with Clostridium thermocellum?]
 
 Evolution is endlessly creative, providing exceptions to nearly every classification rule. We've just described a neat breakdown of bacteria into monoderms (one membrane, thick sacculus, positive Gram stain) and diderms (two membranes, thin sacculus, negative Gram stain). But some cells, like this Mycobacterium marinum, defy classification. Mycobacteria are diderm, with an inner and an outer membrane, and a cell wall. But they have unique molecules (named mycolic acids in their honor) in the outer membrane. These acids interfere with Gram staining, yielding an intermediate result between positive and negative. And their sacculus consists of three layers, each with a unique molecular composition [Schematic – Mycobacterial architecture]. In this case, the middle layer is the familiar peptidoglycan.
 
-When you look at the schematic, you'll see another layer outside the outer membrane. This layer, the capsule, isn't visible in the movie of the cell, though. It is made up of "Extracellular Polymeric Substance," abbreviated EPS, or long chains of sugars, sometimes linked to the outer membrane and sometimes free-floating. These sugars don't interact strongly with electrons, so the capsule is usually invisible by electron microscopy. But in fact, many bacteria (mostly diderm, but also some monoderm) have a capsule. The capsule can help bacteria attach onto surfaces and offers an extra layer of protection, trapping water to prevent desiccation and making it more difficult for hydrophobic molecules like detergents to get through to disrupt the membranes. It also makes it more difficult for viruses to reach the cell, and for eukaryotic "predators" like macrophages to eat it. 
+When you look at the schematic, you'll see another layer outside the outer membrane. This layer, the capsule, isn't visible in the movie of the cell, though. It is made up of "Extracellular Polymeric Substance," abbreviated EPS, or long chains of sugars, sometimes linked to the outer membrane and sometimes free-floating. These sugars don't interact strongly with electrons, so the capsule is usually invisible by electron microscopy. But in fact, many bacteria (mostly diderm, but also some monoderm) have a capsule. The capsule can help bacteria attach onto surfaces and offers an extra layer of protection, trapping water to prevent desiccation and making it more difficult for hydrophobic molecules like detergents to get through to disrupt the membranes. It also makes it more difficult for viruses to reach the cell, and for eukaryotic "predators" like macrophages to eat it.
 
 2_5_1 Schematic: Mycobacterial architecture
-A unique architecture encloses Mycobacterial cells. Note the outer membrane, with lipids only in the outer leaflet, and mycolic acids forming the inner. Note also the multiple strata of sugars in the cell wall. Also note the capsule depicted outside the outer membrane. 
+A unique architecture encloses Mycobacterial cells. Note the outer membrane, with lipids only in the outer leaflet, and mycolic acids forming the inner. Note also the multiple strata of sugars in the cell wall. Also note the capsule depicted outside the outer membrane.
 //
 
 
@@ -107,7 +113,7 @@ A single protein forms the S-layer you just saw in Caulobacter crescentus. The p
 
 [6a_Delftia acidovorans]
 More – Nanopods
-Archaea and diderm bacteria with S-layers produce characteristic outer membrane vesicles: they bud off with the S-layer attached. Delftia acidovorans, like this produce so-called nanopods: chains of outer membrane vesicles ensheathed in S-layer. 
+Archaea and diderm bacteria with S-layers produce characteristic outer membrane vesicles: they bud off with the S-layer attached. Delftia acidovorans, like this produce so-called nanopods: chains of outer membrane vesicles ensheathed in S-layer.
 
 
 
@@ -123,7 +129,7 @@ Archaea and diderm bacteria with S-layers produce characteristic outer membrane 
 
 One of the most striking features of the S-layer is how different it can look in different species. For instance, compare this archaeal Sulfolobus solfataricus cell to the bacterium on the last page, or to other diderm [More – M. alcaliphilum] or monoderm [More – C. thermocellum] bacteria, or archaea [More – N. maritimus] [More – Methanoregula formicica]. All S-layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
 
-S-layers are very common in archaea like this cell. Most archaea don't have cell walls, but the S-layer provides the same function of external scaffolding. Remember, too, that nearly all archaea are monoderms, lacking the extra periplasmic compartment that diderms have. Here again the S-layer serves a similar function, enclosing a space around the cell's membrane called the pseudo-periplasmic space. Just as with the bacterial periplasm, this space serves as an antechamber for the cell, restricting access by large molecules. In some cases, the pseudo-periplasmic space also contains specific proteins that function in metabolism. 
+S-layers are very common in archaea like this cell. Most archaea don't have cell walls, but the S-layer provides the same function of external scaffolding. Remember, too, that nearly all archaea are monoderms, lacking the extra periplasmic compartment that diderms have. Here again the S-layer serves a similar function, enclosing a space around the cell's membrane called the pseudo-periplasmic space. Just as with the bacterial periplasm, this space serves as an antechamber for the cell, restricting access by large molecules. In some cases, the pseudo-periplasmic space also contains specific proteins that function in metabolism.
 
 
 
@@ -131,9 +137,11 @@ S-layers are very common in archaea like this cell. Most archaea don't have cell
 More – M. alcaliphilum
 In Methylomicrobium alcaliphilum, V-shaped S-layer proteins come together to form cups that pack into a hexagonal pattern.
 
-[7b_Clostridium thermocellum]
-[More – Clostridium thermocellum]
-Not only diderm bacteria have S-layers, as you can see on this Clostridium thermocellum cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
+---
+#[7b_Clostridium thermocellum]
+#[More – Clostridium thermocellum]
+#Not only diderm bacteria have S-layers, as you can see on this Clostridium thermocellum cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
+---
 
 [7c_Nitrosopumilis maritimus]
 More – N. maritimus
@@ -158,9 +166,9 @@ The rules of architecture remain the same, though. Just as in the bacterial cell
 
 [9_Haloarcula argentinensis]
 
-All the layers we've just discussed collectively make up the container, or envelope, of a cell. As you've seen, different species use different combinations of these components to form their envelopes; the only constant is the cytoplasmic (or inner, for diderms) membrane. Before we move on, let's talk briefly about what these envelopes contain. In addition to water and small molecules, you've already seen some large protein complexes like motility machineries. You've also seen the ribosomes – the protein/RNA complexes responsible for translation. But you might have been surprised not to see something else: DNA. The replicating molecule containing the instructions for the life of the cell is of paramount importance but often invisible by microscopy. But not always. 
+All the layers we've just discussed collectively make up the container, or envelope, of a cell. As you've seen, different species use different combinations of these components to form their envelopes; the only constant is the cytoplasmic (or inner, for diderms) membrane. Before we move on, let's talk briefly about what these envelopes contain. In addition to water and small molecules, you've already seen some large protein complexes like motility machineries. You've also seen the ribosomes – the protein/RNA complexes responsible for translation. But you might have been surprised not to see something else: DNA. The replicating molecule containing the instructions for the life of the cell is of paramount importance but often invisible by microscopy. But not always.
 
-Thin filaments of DNA, only about 2 nm wide, blend in with the dense cytoplasm of the cell. When a cell lyses, though, its cytoplasm diffuses into the environment and the DNA filaments stand out against the now-much-reduced background. You can get an idea of the sheer abundance of DNA in a cell from this Haloarcula argentinensis where the envelope has ruptured and the contents are spilling out. 
+Thin filaments of DNA, only about 2 nm wide, blend in with the dense cytoplasm of the cell. When a cell lyses, though, its cytoplasm diffuses into the environment and the DNA filaments stand out against the now-much-reduced background. You can get an idea of the sheer abundance of DNA in a cell from this Haloarcula argentinensis where the envelope has ruptured and the contents are spilling out.
 
 
 

@@ -2,6 +2,7 @@
 
 set -ev
 
+python3 format_text.py "02_Envelope.txt"
 Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
 Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::tufte_book2')"
 Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::epub_book')"

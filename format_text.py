@@ -3,12 +3,12 @@ import glob
 
 def insert_figure(file_path,label,caption):
     return "```{R "+label+', fig.cap="'+caption+\
-        '"}\nknitr::include_graphics("'+file_path+'")\n```\n'
+        '"}\nknitr::include_graphics("'+file_path+'")\n```\n\n'
 
 def insert_movie(doi,image_path):
     return "```{R "+doi+", echo=FALSE, screenshot.alt='"+\
             image_path+"'}\nlibrary(doivideo)\ndoivideo('"+\
-            doi+"',0)\n```\n"
+            doi+"',0)\n```\n\n"
 
 parser = argparse.ArgumentParser(description=\
         "Transform text file chapters to Rmarkdown")
@@ -39,22 +39,35 @@ for filen in args.chapter_file:
     oname = os.path.splitext(filen)[0]+'.Rmd'
     outfile = open(oname,'w')
     outfile.write('# '+title+'\n')
+    doi = ''
+    image = 'img/02_static/2_1_Mgenitalium.jpg'
     for line in infile.readlines():
         # Section headings
         if re.search(r"^\[\d_" ,line):
+            #Put in movie from last section
+            if doi != '':
+                working_copy.append(insert_movie(doi,image))
             split = line.split('_')
             number = split[0].split('[')[1]
             section = split[1].replace(']','')
             working_copy.append('## '+section)
             doi = dois[chapter_number.lstrip("0")+'_'+number]
-            image = 'img/02_static/2_1_Mgenitalium.jpg' 
-            working_copy.append(insert_movie(doi,image))
         # Subsection headings
         elif re.search(r"^\[\d" ,line):
-            section = line.split('_')[1].replace(']','')
+            #Put in movie from last section
+            if doi != '':
+                working_copy.append(insert_movie(doi,image))
+            split = line.split('_')
+            number = split[0].split('[')[1]
+            section = split[1].replace(']','')
             working_copy.append('### '+section)
+            doi = dois[chapter_number.lstrip("0")+'_'+number]
         # Schematics
         elif re.search(r"^\d_" ,line):
+            #Put in movie from last section
+            if doi != '':
+                working_copy.append(insert_movie(doi,image))
+            doi = ''
             split = line.split(' ')
             schema_num = split[0]
             split = line.split('Schematic:')
