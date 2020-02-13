@@ -1,0 +1,16 @@
+---
+title: "Cell Atlas"
+output: 
+  html_document:
+    theme: null
+    highlight: null
+    mathjax: null
+    css: site.css
+    includes:
+      before_body: header.html
+      after_body: footer.html
+---
+
+# Coming Soon
+
+
