@@ -19,10 +19,10 @@ Being able to selectively move things into your cell enables it to do some power
 
 You'll probably want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this using a material called peptidoglycan: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its sacculus, or cell wall. Some archaea also have cell walls, made of a molecule similar to peptidoglycan, but chemically distinct. Most archaea, though, rely on a different structure for support, as you'll see later in this chapter.
 
-In monoderm bacteria like this Listeria monocytogenes, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which can't be seen individually at the resolution of this image, so the cell wall appears as a uniformly textured layer [More – Peptidoglycan architecture]. It's still a mystery how large molecules can pass through this dense layer on their way to and from the cell. Not all bacterial cell walls are chemically identical [More – Methanobacterium formicicum]. And in some conditions, cells can lose their walls [More – L-form bacteria].
+In monoderm bacteria like this Listeria monocytogenes, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which can't be seen individually at the resolution of this image, so the cell wall appears as a uniformly textured layer [More: Peptidoglycan architecture]. It's still a mystery how large molecules can pass through this dense layer on their way to and from the cell. Not all bacterial cell walls are chemically identical [More: Methanobacterium formicicum]. And in some conditions, cells can lose their walls [More: L-form bacteria].
 
-[2a_Bacillus subtilis]
-More:  Peptidoglycan architecture
+[2a_Bacillus subtilis] More:  Peptidoglycan architecture
+
 The sacculus is so robust that it persists even after cells are lysed and their other components digested. This sacculus isolated from a Bacillus subtilis cell has retained its shape, simply flattening with the release of contents and pressure from inside.  By observing how these purified sacculi rip and curl, we can infer something about the architecture of the cell wall; we think that the long glycan strands are oriented in hoops circling the short axis of the cylindrical cell and the short peptide crosslinks are more or less aligned with the long axis.
 
 ---
@@ -31,20 +31,20 @@ The sacculus is so robust that it persists even after cells are lysed and their 
 #These methane-producing bacteria, found in the rumen of animals like cows, have a cell wall with a slightly different chemical composition than peptidoglycan, but a similar structure.
 ---
 
-[static image 2_2_1 in schematics]
-More:  L-form bacteria
+2_2_1 Schematic:  L-form bacteria
 There is no universal adaptation in Nature; advantages in one environment can become liabilities in another. This concept is exemplified by an adaptation of some bacteria which lose their cell walls in certain conditions, such as in the presence of antibiotics (the cell wall is a common target of antibiotics). This state is called the L-form (named for the Lister Institute where it were discovered). As you can see in these Bacillus subtilis, cells in this state are pleomorphic, exhibiting a variety of sizes and shapes. As you would expect, L-form cells are more sensitive to environmental conditions. In the lab, they're protected from lysis by increasing the osmotic pressure of the environment, for instance by adding sucrose. The environment in your body, though, would have the same effect, as we discussed for Mycoplasma genitalium.  L-form bacteria are interesting for many reasons (including human health), one of which is that they give us a fascinating window into how early cells – prior to the evolution of the cell wall – might have looked and behaved.
+
 [3_Cupriavidus necator]
 
 Why stop at one membrane, though? Think about how the bacteria you've just seen compare with eukaryotic cells. The eukaryotic cells are much larger (maybe 100-1,000 times larger in volume), and they contain many internal membranes that form specialized subcompartments, like the nucleus and mitochondria. Bacteria and archaea don't have membrane-bound organelles inside, but in fact many bacteria do create an additional compartment outside the cell with another, outer, membrane. These bacteria, like the Cupriavidus necator cell you see here, are called diderms ("double skin"). The extra compartment between their membranes is known as the periplasm ("mold between"). This antechamber contains a unique subset of proteins, many of which function in escorting things into and out of the main cell, as you'll see in later chapters.
 
-Compared to the inner membrane, the outer membrane has some unique properties. It is more permeable and not proton-tight (so it can't be used to generate ATP). It is often asymmetric, with a different composition of lipids and proteins in each of the two leaflets. The outer membrane is anchored to the sacculus [Schematic – Braun's lipoprotein]. And the sacculus itself is different. Rather than containing many layers of peptidoglycan like in the Listeria monocytogenes cell you just saw, the diderm sacculus consists largely of a single-layered peptidoglycan mesh [More – Diderm sacculus architecture], which you can see here as a thin line in the periplasm. This difference in the sacculus enables a well-known bacterial classification system: the Gram stain, which binds peptidoglycan. Gram-positive cells, typically monoderm, contain much more peptidoglycan than Gram-negative cells, which are typically diderm. Thinking about this thin defense against turgor pressure underscores a major challenge for cell growth. To insert new material, existing bonds in the sacculus must be broken, without bursting the cell in the process [Schematic – Sacculus remodeling].
+Compared to the inner membrane, the outer membrane has some unique properties. It is more permeable and not proton-tight (so it can't be used to generate ATP). It is often asymmetric, with a different composition of lipids and proteins in each of the two leaflets. The outer membrane is anchored to the sacculus [Schematic – Braun's lipoprotein]. And the sacculus itself is different. Rather than containing many layers of peptidoglycan like in the Listeria monocytogenes cell you just saw, the diderm sacculus consists largely of a single-layered peptidoglycan mesh [More: Diderm sacculus architecture], which you can see here as a thin line in the periplasm. This difference in the sacculus enables a well-known bacterial classification system: the Gram stain, which binds peptidoglycan. Gram-positive cells, typically monoderm, contain much more peptidoglycan than Gram-negative cells, which are typically diderm. Thinking about this thin defense against turgor pressure underscores a major challenge for cell growth. To insert new material, existing bonds in the sacculus must be broken, without bursting the cell in the process [Schematic – Sacculus remodeling].
 
 2_3_1 Schematic:  Braun's lipoprotein
-Lipoproteins are hybrid molecules, formed by covalently linked lipid and protein pieces. The lipid allows them to embed into a membrane, tethering the attached protein to function nearby. Braun's lipoprotein, which is one of the most abundant molecules in the outer membrane of cells like Escherichia coli, uses its tethered protein portion to bind the peptidoglycan cell wall, creating a link between the outer membrane and the cell wall (adding up, for a typical E. coli cell, to about 100,000 links). These links determine the distance between these two components. Not all diderms use Braun's lipoprotein, though, and some bacteria have notably labile outer membranes [More – Outer membrane lability].
+Lipoproteins are hybrid molecules, formed by covalently linked lipid and protein pieces. The lipid allows them to embed into a membrane, tethering the attached protein to function nearby. Braun's lipoprotein, which is one of the most abundant molecules in the outer membrane of cells like Escherichia coli, uses its tethered protein portion to bind the peptidoglycan cell wall, creating a link between the outer membrane and the cell wall (adding up, for a typical E. coli cell, to about 100,000 links). These links determine the distance between these two components. Not all diderms use Braun's lipoprotein, though, and some bacteria have notably labile outer membranes [More: Outer membrane lability].
 
-[3a_Escherichia coli]
-More:  Diderm sacculus architecture
+[3a_Escherichia coli] More:  Diderm sacculus architecture
+
 Compare this diderm sacculus purified from Escherichia coli to the monoderm sacculus on the last page. Since this one is thinner; we can make out more details. Instead of inferring how the glycan strands are oriented, we can now see them running around the circumference of the cell. The main difference between the two types of sacculi seems to be whether they have largely a single layer of peptidoglycan (diderm) or many layers (monoderm). So even though the two cell walls look different, their architecture is fundamentally the same. In some circumstances, cells can even switch between the two forms, as you'll see in Chapter 7.
 
 2_3_2 Schematic: Sacculus remodeling
@@ -67,16 +67,16 @@ What else can you do with an extra membrane? Since membranes make excellent cont
 
 Not all diderms produce outer membrane vesicles, and even for the ones that do, we still don't know exactly how they do it. Maybe it happens spontaneously due to the physics of lipids and proteins in a certain configuration. Or maybe there's a dedicated protein machine in the membrane, blowing bubbles. Some archaea (monoderms) also produce membrane vesicles. They're less studied than their bacterial counterparts, but likely serve similar roles in metabolism and community interactions.
 
-[4a_Borrelia burgdorferi]
-More: Vesicle morphologies
+[4a_Borrelia burgdorferi] More: Vesicle morphologies
+
 Different species can produce outer membrane vesicles that look very different. The same species can also produce vesicles that look very different. Sometimes they come off the cell as a chain of spheres; sometimes the spheres remain connected, like a string of pearls; sometimes vesicles form long tubes instead, like from this Borrelia burgdorferi cell. Sometimes the same chain can be tubular in one section (usually at the base, connected to the cell), and a string of spheres in another.
 
-[4b_Myxococcus xanthus]
-More: Inner membrane vesicles
-Not all vesicles come from the outer membrane. The cytoplasmic or inner membrane can also form vesicles that are released into the cytoplasm, as in this Myxococcus xanthus cell, or into the periplasm. This seems to be a less regulated process than outer membrane vesicle formation, and we see it in many species when they are stressed by low nutrients or high cell density, suggesting that it is a general phenomenon. Cells shrink in harsh conditions (more on that in Chapter 7), so cytoplasmic or periplasmic vesicles may simply offer a place to put the extra membrane or, more optimistically, to store it until the time comes to grow again. Just as with outer membrane vesicles, the appearance of cytoplasmic vesicles can vary widely [More – Cytoplasmic vesicle variety].
+[4b_Myxococcus xanthus] More: Inner membrane vesicles
 
-[4c_Prosthecobacter debontii]
-More: Cytoplasmic vesicle variety
+Not all vesicles come from the outer membrane. The cytoplasmic or inner membrane can also form vesicles that are released into the cytoplasm, as in this Myxococcus xanthus cell, or into the periplasm. This seems to be a less regulated process than outer membrane vesicle formation, and we see it in many species when they are stressed by low nutrients or high cell density, suggesting that it is a general phenomenon. Cells shrink in harsh conditions (more on that in Chapter 7), so cytoplasmic or periplasmic vesicles may simply offer a place to put the extra membrane or, more optimistically, to store it until the time comes to grow again. Just as with outer membrane vesicles, the appearance of cytoplasmic vesicles can vary widely [More: Cytoplasmic vesicle variety].
+
+[4c_Prosthecobacter debontii] More: Cytoplasmic vesicle variety
+
 Cytoplasmic vesicles exhibit a variety of sizes and shapes. Some are nested, with vesicles inside vesicles. In this Prosthecobacter debontii cell, you can see two other morphologies.  One is a large, flattened horseshoe-shaped vesicle. Another is a more typical spherical shape, but is decorated with what looks like protein complexes.
 
 This cell also has unusual structures on its surface that have yet to be identified.
@@ -94,47 +94,31 @@ When you look at the schematic, you'll see another layer outside the outer membr
 
 2_5_1 Schematic: Mycobacterial architecture
 A unique architecture encloses Mycobacterial cells. Note the outer membrane, with lipids only in the outer leaflet, and mycolic acids forming the inner. Note also the multiple strata of sugars in the cell wall. Also note the capsule depicted outside the outer membrane.
-//
-
-
-
-
-
 
 [6_Caulobacter crescentus]
 
 How else can you protect your cell from the rigors of a harsh world? What about encasing it in an armored shell a la the armadillo? Many bacteria (both monoderms and diderms) and archaea use modular proteins for this purpose, interlocking Lego-block-like pieces into a shell called the Surface Layer, or S-layer. You can guess that this must offer a significant evolutionary advantage since up to 15% of the total protein in the cell can be found in the structure. In fact, S-layers play many roles for cells, some of which you'll see on the next page, but one of their main functions is as a gatekeeper, preventing large things like viruses from reaching the membrane.
 
-S-layers are crystalline lattices, and they can be striking in appearance, as on this Caulobacter crescentus cell. Amazingly, the lattice is made from (many copies of) a single protein [Schematic – S-layer architecture]. The pinwheel-like subunits interact laterally, leaving pores large enough for nutrients to pass through, but not large enough for viruses. The modular nature of the lattice means that units can be popped in as the cell grows, or popped out to allow a cell appendage to poke through. In general, S-layers are quite accommodating; they don't even interfere with the production of outer membrane vesicles [More – Nanopods]. S-layer proteins can also be modified to alter their properties; for instance attachment of a sugar can enable them to stick the cell to a surface.
+S-layers are crystalline lattices, and they can be striking in appearance, as on this Caulobacter crescentus cell. Amazingly, the lattice is made from (many copies of) a single protein [Schematic – S-layer architecture]. The pinwheel-like subunits interact laterally, leaving pores large enough for nutrients to pass through, but not large enough for viruses. The modular nature of the lattice means that units can be popped in as the cell grows, or popped out to allow a cell appendage to poke through. In general, S-layers are quite accommodating; they don't even interfere with the production of outer membrane vesicles [More: Nanopods]. S-layer proteins can also be modified to alter their properties; for instance attachment of a sugar can enable them to stick the cell to a surface.
 
 2_6_1 Schematic: S-layer architecture
 A single protein forms the S-layer you just saw in Caulobacter crescentus. The protein has two domains. The bottom domain anchors to lipoproteins attached to the outer membrane. The top domain forms the canopy of the S-layer, organizing hierarchically into hexameric rosettes like this that in turn pack into a larger hexameric lattice. This lattice is flexible enough to curve around even narrow regions of the cell (more on this stalk in Chapter 3).
 
 
-[6a_Delftia acidovorans]
-More – Nanopods
+[6a_Delftia acidovorans] More: Nanopods
+
 Archaea and diderm bacteria with S-layers produce characteristic outer membrane vesicles: they bud off with the S-layer attached. Delftia acidovorans, like this produce so-called nanopods: chains of outer membrane vesicles ensheathed in S-layer.
-
-
-
-
-
-
-
-
-
-
 
 [7_Sulfolobus solfataricus]
 
-One of the most striking features of the S-layer is how different it can look in different species. For instance, compare this archaeal Sulfolobus solfataricus cell to the bacterium on the last page, or to other diderm [More – M. alcaliphilum] or monoderm [More – C. thermocellum] bacteria, or archaea [More – N. maritimus] [More – Methanoregula formicica]. All S-layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
+One of the most striking features of the S-layer is how different it can look in different species. For instance, compare this archaeal Sulfolobus solfataricus cell to the bacterium on the last page, or to other diderm [More: M. alcaliphilum] or monoderm [More: C. thermocellum] bacteria, or archaea [More: N. maritimus] [More: Methanoregula formicica]. All S-layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
 
 S-layers are very common in archaea like this cell. Most archaea don't have cell walls, but the S-layer provides the same function of external scaffolding. Remember, too, that nearly all archaea are monoderms, lacking the extra periplasmic compartment that diderms have. Here again the S-layer serves a similar function, enclosing a space around the cell's membrane called the pseudo-periplasmic space. Just as with the bacterial periplasm, this space serves as an antechamber for the cell, restricting access by large molecules. In some cases, the pseudo-periplasmic space also contains specific proteins that function in metabolism.
 
 
 
-[7a_Methylomicrobium alcaliphilum]
-More – M. alcaliphilum
+[7a_Methylomicrobium alcaliphilum] More: M. alcaliphilum
+
 In Methylomicrobium alcaliphilum, V-shaped S-layer proteins come together to form cups that pack into a hexagonal pattern.
 
 ---
@@ -143,12 +127,11 @@ In Methylomicrobium alcaliphilum, V-shaped S-layer proteins come together to for
 #Not only diderm bacteria have S-layers, as you can see on this Clostridium thermocellum cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
 ---
 
-[7c_Nitrosopumilis maritimus]
-More – N. maritimus
+[7c_Nitrosopumilis maritimus] More: N. maritimus
+
 In Nitrosopumilis maritimus, S-layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
 
-[7d_Methanoregula formicica]
-More – Methanoregula formicica
+[7d_Methanoregula formicica] More: Methanoregula formicica
 
 
 

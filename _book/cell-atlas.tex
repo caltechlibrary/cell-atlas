@@ -67,7 +67,7 @@
 % title / author / date
 \title{Cell Atlas}
 \author{Jensen Lab}
-\date{2020-02-13}
+\date{2020-02-14}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -89,106 +89,7 @@
 \tableofcontents
 }
 
-\hypertarget{bilayer}{\chapter{Introduction}\label{bilayer}}
-
-The fundamental unit of life is the cell -- a contained self-replicating
-assembly. For many species, including all bacteria and archaea, the
-organism consists of a single cell. And for nearly all species, no
-matter how many cells an organism eventually contains (probably around
-10 trillion in your case), it started life as a single cell. As you'll
-see, the details of these cells vary, but every cell on Earth is the
-same at heart -- a DNA-based replicator machine built from four
-macromolecules: nucleic acids, proteins, lipids and carbohydrates.
-
-Imagine that you're a structural engineer tasked with building one of
-these cells. What's the first step? Let's start with the container. No
-matter what the first self-replicating molecules were (likely RNA), they
-didn't constitute a cell until they became packaged in a container.
-You'd probably want a flexible container that allowed you to sort a
-subset of molecules from the environment. Evolution agrees. All cells
-are enclosed by a selectively permeable membrane, made of lipids and
-proteins \protect\hyperlink{bilayer}{Schematic -- Lipid bilayer}, that
-allows them to differentiate their contents from the environment. This
-selectivity is a critical feature for the life of the cell
-\protect\hyperlink{atp}{Schematic -- ATP synthase}. The compartment
-enclosed by a cell's membrane is called the cytoplasm (``cell mold,''
-the membrane being the container for the mold).
-
-Almost all archaea and many bacteria, like these Mycoplasma genitalium
-cells, are monoderms (``single skin''). This means that their cytoplasm
-is enclosed by a single membrane. At the resolution of this image, the
-membrane looks like a single dark line, but remember that it's really a
-bilayer, as you'll see in some later images.
-
-\includegraphics{img/02_static/2_1_Mgenitalium}
-
-You can label chapter and section titles using \texttt{\{\#label\}}
-after them, e.g., we can reference Chapter \ref{bilayer}.
-
-Figures and tables with captions will be placed in \texttt{figure} and
-\texttt{table} environments, respectively.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{cell-atlas_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption[Here is a nice figure!]{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{cell-atlas_files/figure-latex/py-fig-1} 
-
-}
-
-\caption[Here is a nice python figure!]{Here is a nice python figure!}\label{fig:py-fig}
-\end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:}
-prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
-reference tables generated from \texttt{knitr::kable()}, e.g., see Table
-\ref{tab:nice-tab}.
-
-\begin{table}[t]
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-You can write citations, too. For example, we are using the
-\textbf{bookdown} package \citep{R-bookdown} in this sample book, which
-was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
+\chapter{Introduction}\label{introduction}
 
 \chapter{Envelope}\label{envelope}
 
@@ -288,45 +189,50 @@ In monoderm bacteria like this Listeria monocytogenes, the cell wall is
 significantly thicker than the membrane. It comprises several layers of
 peptidoglycan, which can't be seen individually at the resolution of
 this image, so the cell wall appears as a uniformly textured layer
-{[}More -- Peptidoglycan architecture{]}. It's still a mystery how large
-molecules can pass through this dense layer on their way to and from the
-cell. Not all bacterial cell walls are chemically identical {[}More --
-Methanobacterium formicicum{]}. And in some conditions, cells can lose
-their walls {[}More -- L-form bacteria{]}.
+\protect\hyperlink{Peptidoglycan_architecture}{More: Peptidoglycan
+architecture}. It's still a mystery how large molecules can pass through
+this dense layer on their way to and from the cell. Not all bacterial
+cell walls are chemically identical \protect\hyperlink{}{More:
+Methanobacterium formicicum}. And in some conditions, cells can lose
+their walls \protect\hyperlink{}{More: L-form bacteria}.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
-\subsection{Bacillus subtilis}\label{bacillus-subtilis}
+\hypertarget{Peptidoglycan_architecture}{\subsection{Bacillus
+subtilis}\label{Peptidoglycan_architecture}}
 
-More: Peptidoglycan architecture The sacculus is so robust that it
-persists even after cells are lysed and their other components digested.
-This sacculus isolated from a Bacillus subtilis cell has retained its
-shape, simply flattening with the release of contents and pressure from
-inside. By observing how these purified sacculi rip and curl, we can
-infer something about the architecture of the cell wall; we think that
-the long glycan strands are oriented in hoops circling the short axis of
-the cylindrical cell and the short peptide crosslinks are more or less
-aligned with the long axis.
+The sacculus is so robust that it persists even after cells are lysed
+and their other components digested. This sacculus isolated from a
+Bacillus subtilis cell has retained its shape, simply flattening with
+the release of contents and pressure from inside. By observing how these
+purified sacculi rip and curl, we can infer something about the
+architecture of the cell wall; we think that the long glycan strands are
+oriented in hoops circling the short axis of the cylindrical cell and
+the short peptide crosslinks are more or less aligned with the long
+axis.
 
-{[}static image 2\_2\_1 in schematics{]} More: L-form bacteria There is
-no universal adaptation in Nature; advantages in one environment can
-become liabilities in another. This concept is exemplified by an
-adaptation of some bacteria which lose their cell walls in certain
-conditions, such as in the presence of antibiotics (the cell wall is a
-common target of antibiotics). This state is called the L-form (named
-for the Lister Institute where it were discovered). As you can see in
-these Bacillus subtilis, cells in this state are pleomorphic, exhibiting
-a variety of sizes and shapes. As you would expect, L-form cells are
-more sensitive to environmental conditions. In the lab, they're
-protected from lysis by increasing the osmotic pressure of the
+\includegraphics{img/02_static/2_1_Mgenitalium}
+
+\begin{figure}
+\includegraphics{img/02_schematic/2_2_1_L_form_bacteria} \caption[L-form bacteria]{L-form bacteria}\label{fig:2-2-1}
+\end{figure}
+
+There is no universal adaptation in Nature; advantages in one
+environment can become liabilities in another. This concept is
+exemplified by an adaptation of some bacteria which lose their cell
+walls in certain conditions, such as in the presence of antibiotics (the
+cell wall is a common target of antibiotics). This state is called the
+L-form (named for the Lister Institute where it were discovered). As you
+can see in these Bacillus subtilis, cells in this state are pleomorphic,
+exhibiting a variety of sizes and shapes. As you would expect, L-form
+cells are more sensitive to environmental conditions. In the lab,
+they're protected from lysis by increasing the osmotic pressure of the
 environment, for instance by adding sucrose. The environment in your
 body, though, would have the same effect, as we discussed for Mycoplasma
 genitalium. L-form bacteria are interesting for many reasons (including
 human health), one of which is that they give us a fascinating window
 into how early cells -- prior to the evolution of the cell wall -- might
 have looked and behaved.
-
-\includegraphics{img/02_static/2_1_Mgenitalium}
 
 \section{Cupriavidus necator}\label{cupriavidus-necator}
 
@@ -352,14 +258,15 @@ outer membrane is anchored to the sacculus
 sacculus itself is different. Rather than containing many layers of
 peptidoglycan like in the Listeria monocytogenes cell you just saw, the
 diderm sacculus consists largely of a single-layered peptidoglycan mesh
-{[}More -- Diderm sacculus architecture{]}, which you can see here as a
-thin line in the periplasm. This difference in the sacculus enables a
-well-known bacterial classification system: the Gram stain, which binds
-peptidoglycan. Gram-positive cells, typically monoderm, contain much
-more peptidoglycan than Gram-negative cells, which are typically diderm.
-Thinking about this thin defense against turgor pressure underscores a
-major challenge for cell growth. To insert new material, existing bonds
-in the sacculus must be broken, without bursting the cell in the process
+\protect\hyperlink{Diderm_sacculus_architecture}{More: Diderm sacculus
+architecture}, which you can see here as a thin line in the periplasm.
+This difference in the sacculus enables a well-known bacterial
+classification system: the Gram stain, which binds peptidoglycan.
+Gram-positive cells, typically monoderm, contain much more peptidoglycan
+than Gram-negative cells, which are typically diderm. Thinking about
+this thin defense against turgor pressure underscores a major challenge
+for cell growth. To insert new material, existing bonds in the sacculus
+must be broken, without bursting the cell in the process
 \protect\hyperlink{fig:2-3-2}{Schematic -- Sacculus remodeling}.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
@@ -377,21 +284,22 @@ the peptidoglycan cell wall, creating a link between the outer membrane
 and the cell wall (adding up, for a typical E. coli cell, to about
 100,000 links). These links determine the distance between these two
 components. Not all diderms use Braun's lipoprotein, though, and some
-bacteria have notably labile outer membranes {[}More -- Outer membrane
-lability{]}.
+bacteria have notably labile outer membranes \protect\hyperlink{}{More:
+Outer membrane lability}.
 
-\subsection{Escherichia coli}\label{escherichia-coli}
+\hypertarget{Diderm_sacculus_architecture}{\subsection{Escherichia
+coli}\label{Diderm_sacculus_architecture}}
 
-More: Diderm sacculus architecture Compare this diderm sacculus purified
-from Escherichia coli to the monoderm sacculus on the last page. Since
-this one is thinner; we can make out more details. Instead of inferring
-how the glycan strands are oriented, we can now see them running around
-the circumference of the cell. The main difference between the two types
-of sacculi seems to be whether they have largely a single layer of
-peptidoglycan (diderm) or many layers (monoderm). So even though the two
-cell walls look different, their architecture is fundamentally the same.
-In some circumstances, cells can even switch between the two forms, as
-you'll see in Chapter 7.
+Compare this diderm sacculus purified from Escherichia coli to the
+monoderm sacculus on the last page. Since this one is thinner; we can
+make out more details. Instead of inferring how the glycan strands are
+oriented, we can now see them running around the circumference of the
+cell. The main difference between the two types of sacculi seems to be
+whether they have largely a single layer of peptidoglycan (diderm) or
+many layers (monoderm). So even though the two cell walls look
+different, their architecture is fundamentally the same. In some
+circumstances, cells can even switch between the two forms, as you'll
+see in Chapter 7.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
@@ -444,9 +352,10 @@ enzymes to digest those lysed remains into nutrients that your cell can
 easily take up as food. Alternatively, they may carry emergency kits
 (first aid and survival factors) for other members of a community
 biofilm. The appearance of these vesicles varies as much as their
-contents {[}More: Vesicle morphologies{]}. They are usually spherical,
-of a consistent size, and often come off the cell at one or a few sites,
-forming chains, as you can see in this Borrelia burgdorferi cell.
+contents \protect\hyperlink{Vesicle_morphologies}{More: Vesicle
+morphologies}. They are usually spherical, of a consistent size, and
+often come off the cell at one or a few sites, forming chains, as you
+can see in this Borrelia burgdorferi cell.
 
 Not all diderms produce outer membrane vesicles, and even for the ones
 that do, we still don't know exactly how they do it. Maybe it happens
@@ -459,44 +368,46 @@ interactions.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
-\subsection{Borrelia burgdorferi}\label{borrelia-burgdorferi-1}
+\hypertarget{Vesicle_morphologies}{\subsection{Borrelia
+burgdorferi}\label{Vesicle_morphologies}}
 
-More: Vesicle morphologies Different species can produce outer membrane
-vesicles that look very different. The same species can also produce
-vesicles that look very different. Sometimes they come off the cell as a
-chain of spheres; sometimes the spheres remain connected, like a string
-of pearls; sometimes vesicles form long tubes instead, like from this
-Borrelia burgdorferi cell. Sometimes the same chain can be tubular in
-one section (usually at the base, connected to the cell), and a string
-of spheres in another.
-
-\includegraphics{img/02_static/2_1_Mgenitalium}
-
-\subsection{Myxococcus xanthus}\label{myxococcus-xanthus}
-
-More: Inner membrane vesicles Not all vesicles come from the outer
-membrane. The cytoplasmic or inner membrane can also form vesicles that
-are released into the cytoplasm, as in this Myxococcus xanthus cell, or
-into the periplasm. This seems to be a less regulated process than outer
-membrane vesicle formation, and we see it in many species when they are
-stressed by low nutrients or high cell density, suggesting that it is a
-general phenomenon. Cells shrink in harsh conditions (more on that in
-Chapter 7), so cytoplasmic or periplasmic vesicles may simply offer a
-place to put the extra membrane or, more optimistically, to store it
-until the time comes to grow again. Just as with outer membrane
-vesicles, the appearance of cytoplasmic vesicles can vary widely {[}More
--- Cytoplasmic vesicle variety{]}.
+Different species can produce outer membrane vesicles that look very
+different. The same species can also produce vesicles that look very
+different. Sometimes they come off the cell as a chain of spheres;
+sometimes the spheres remain connected, like a string of pearls;
+sometimes vesicles form long tubes instead, like from this Borrelia
+burgdorferi cell. Sometimes the same chain can be tubular in one section
+(usually at the base, connected to the cell), and a string of spheres in
+another.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
-\subsection{Prosthecobacter debontii}\label{prosthecobacter-debontii}
+\subsection{Myxococcus xanthus}\label{Inner_membrane_vesicles}
 
-More: Cytoplasmic vesicle variety Cytoplasmic vesicles exhibit a variety
-of sizes and shapes. Some are nested, with vesicles inside vesicles. In
-this Prosthecobacter debontii cell, you can see two other morphologies.
-One is a large, flattened horseshoe-shaped vesicle. Another is a more
-typical spherical shape, but is decorated with what looks like protein
-complexes.
+Not all vesicles come from the outer membrane. The cytoplasmic or inner
+membrane can also form vesicles that are released into the cytoplasm, as
+in this Myxococcus xanthus cell, or into the periplasm. This seems to be
+a less regulated process than outer membrane vesicle formation, and we
+see it in many species when they are stressed by low nutrients or high
+cell density, suggesting that it is a general phenomenon. Cells shrink
+in harsh conditions (more on that in Chapter 7), so cytoplasmic or
+periplasmic vesicles may simply offer a place to put the extra membrane
+or, more optimistically, to store it until the time comes to grow again.
+Just as with outer membrane vesicles, the appearance of cytoplasmic
+vesicles can vary widely
+\protect\hyperlink{Cytoplasmic_vesicle_variety}{More: Cytoplasmic
+vesicle variety}.
+
+\includegraphics{img/02_static/2_1_Mgenitalium}
+
+\hypertarget{Cytoplasmic_vesicle_variety}{\subsection{Prosthecobacter
+debontii}\label{Cytoplasmic_vesicle_variety}}
+
+Cytoplasmic vesicles exhibit a variety of sizes and shapes. Some are
+nested, with vesicles inside vesicles. In this Prosthecobacter debontii
+cell, you can see two other morphologies. One is a large, flattened
+horseshoe-shaped vesicle. Another is a more typical spherical shape, but
+is decorated with what looks like protein complexes.
 
 This cell also has unusual structures on its surface that have yet to be
 identified.
@@ -542,7 +453,7 @@ eukaryotic ``predators'' like macrophages to eat it.
 A unique architecture encloses Mycobacterial cells. Note the outer
 membrane, with lipids only in the outer leaflet, and mycolic acids
 forming the inner. Note also the multiple strata of sugars in the cell
-wall. Also note the capsule depicted outside the outer membrane. //
+wall. Also note the capsule depicted outside the outer membrane.
 
 \section{Caulobacter crescentus}\label{caulobacter-crescentus}
 
@@ -566,10 +477,10 @@ for nutrients to pass through, but not large enough for viruses. The
 modular nature of the lattice means that units can be popped in as the
 cell grows, or popped out to allow a cell appendage to poke through. In
 general, S-layers are quite accommodating; they don't even interfere
-with the production of outer membrane vesicles {[}More -- Nanopods{]}.
-S-layer proteins can also be modified to alter their properties; for
-instance attachment of a sugar can enable them to stick the cell to a
-surface.
+with the production of outer membrane vesicles
+\protect\hyperlink{Nanopods}{More: Nanopods}. S-layer proteins can also
+be modified to alter their properties; for instance attachment of a
+sugar can enable them to stick the cell to a surface.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
@@ -585,12 +496,12 @@ like this that in turn pack into a larger hexameric lattice. This
 lattice is flexible enough to curve around even narrow regions of the
 cell (more on this stalk in Chapter 3).
 
-\subsection{Delftia acidovorans}\label{delftia-acidovorans}
+\hypertarget{Nanopods}{\subsection{Delftia acidovorans}\label{Nanopods}}
 
-More -- Nanopods Archaea and diderm bacteria with S-layers produce
-characteristic outer membrane vesicles: they bud off with the S-layer
-attached. Delftia acidovorans, like this produce so-called nanopods:
-chains of outer membrane vesicles ensheathed in S-layer.
+Archaea and diderm bacteria with S-layers produce characteristic outer
+membrane vesicles: they bud off with the S-layer attached. Delftia
+acidovorans, like this produce so-called nanopods: chains of outer
+membrane vesicles ensheathed in S-layer.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
@@ -599,16 +510,18 @@ chains of outer membrane vesicles ensheathed in S-layer.
 One of the most striking features of the S-layer is how different it can
 look in different species. For instance, compare this archaeal
 Sulfolobus solfataricus cell to the bacterium on the last page, or to
-other diderm {[}More -- M. alcaliphilum{]} or monoderm {[}More -- C.
-thermocellum{]} bacteria, or archaea {[}More -- N. maritimus{]} {[}More
--- Methanoregula formicica{]}. All S-layers are crystalline lattices of
-a single--or in a few cases, two--proteins, but the particular pattern
-of the lattice depends on the shape of this building block and how it
-multimerizes into a higher-order structure. The shape of the building
-block varies considerably; there is almost no sequence homology between
-S-layer proteins from different species. And shapes come together in
-different ways, forming repeating units of one, two, three (as on this
-cell), four, or six blocks.
+other diderm \protect\hyperlink{M._alcaliphilum}{More: M. alcaliphilum}
+or monoderm \protect\hyperlink{}{More: C. thermocellum} bacteria, or
+archaea \protect\hyperlink{N._maritimus}{More: N. maritimus}
+\protect\hyperlink{Methanoregula_formicica}{More: Methanoregula
+formicica}. All S-layers are crystalline lattices of a single--or in a
+few cases, two--proteins, but the particular pattern of the lattice
+depends on the shape of this building block and how it multimerizes into
+a higher-order structure. The shape of the building block varies
+considerably; there is almost no sequence homology between S-layer
+proteins from different species. And shapes come together in different
+ways, forming repeating units of one, two, three (as on this cell),
+four, or six blocks.
 
 S-layers are very common in archaea like this cell. Most archaea don't
 have cell walls, but the S-layer provides the same function of external
@@ -623,25 +536,24 @@ in metabolism.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
-\subsection{Methylomicrobium
-alcaliphilum}\label{methylomicrobium-alcaliphilum}
+\hypertarget{M._alcaliphilum}{\subsection{Methylomicrobium
+alcaliphilum}\label{M._alcaliphilum}}
 
-More -- M. alcaliphilum In Methylomicrobium alcaliphilum, V-shaped
-S-layer proteins come together to form cups that pack into a hexagonal
-pattern.
-
-\includegraphics{img/02_static/2_1_Mgenitalium}
-
-\subsection{Nitrosopumilis maritimus}\label{nitrosopumilis-maritimus}
-
-More -- N. maritimus In Nitrosopumilis maritimus, S-layer proteins form
-hexagonal rosettes that in turn pack into a hexagonal lattice.
+In Methylomicrobium alcaliphilum, V-shaped S-layer proteins come
+together to form cups that pack into a hexagonal pattern.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
-\subsection{Methanoregula formicica}\label{methanoregula-formicica}
+\hypertarget{N._maritimus}{\subsection{Nitrosopumilis
+maritimus}\label{N._maritimus}}
 
-More -- Methanoregula formicica
+In Nitrosopumilis maritimus, S-layer proteins form hexagonal rosettes
+that in turn pack into a hexagonal lattice.
+
+\includegraphics{img/02_static/2_1_Mgenitalium}
+
+\hypertarget{Methanoregula_formicica}{\subsection{Methanoregula
+formicica}\label{Methanoregula_formicica}}
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
@@ -692,8 +604,7 @@ has ruptured and the contents are spilling out.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
-\subsection{Bdellovibrio
-bacteriovorus}\label{bdellovibrio-bacteriovorus}
+\section{Bdellovibrio bacteriovorus}\label{bdellovibrio-bacteriovorus}
 
 Cells contain enormous amounts of DNA. The single, circular chromosome
 of this Bdellovibrio bacteriovorus cell contains 3,782,950 individual
@@ -718,6 +629,8 @@ approach is simply to pack the chromosome so tightly that the
 transcriptional machinery can't access the genes. That's what this cell
 is doing, condensing its nucleoid into a dense twisted braid we can
 easily visualize.
+
+\includegraphics{img/02_static/2_1_Mgenitalium}
 
 \bibliography{book.bib,packages.bib}
 

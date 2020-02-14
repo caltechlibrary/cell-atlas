@@ -18,6 +18,7 @@ parser.add_argument('chapter_file', nargs='*', help=\
 args = parser.parse_args()
 
 schema_mapping = {}
+subsection_mapping = {}
 working_copy = []
 
 #Get dictionary of DOIs
@@ -43,7 +44,7 @@ for filen in args.chapter_file:
     image = 'img/02_static/2_1_Mgenitalium.jpg'
     for line in infile.readlines():
         # Section headings
-        if re.search(r"^\[\d_" ,line):
+        if re.search(r"^\[\d+_" ,line):
             #Put in movie from last section
             if doi != '':
                 working_copy.append(insert_movie(doi,image))
@@ -59,8 +60,13 @@ for filen in args.chapter_file:
                 working_copy.append(insert_movie(doi,image))
             split = line.split('_')
             number = split[0].split('[')[1]
-            section = split[1].replace(']','')
-            working_copy.append('### '+section)
+            cleaned = split[1].replace(']','')
+            split = cleaned.split('More:')
+            section = split[0]
+            link = split[1].strip()
+            short_link = link.replace(' ','_')
+            working_copy.append('### '+section+'{#'+short_link+'}')
+            subsection_mapping[link]=short_link
             doi = dois[chapter_number.lstrip("0")+'_'+number]
         # Schematics
         elif re.search(r"^\d_" ,line):
@@ -81,6 +87,10 @@ for filen in args.chapter_file:
                 working_copy.append(insert_figure(file_path[0],schema_num,schema_name))
         else:
             working_copy.append(line)
+    #Put in movie from last section
+    if doi != '':
+        working_copy.append(insert_movie(doi,image))
+    doi = ''
     infile.close()
     #Now go over text again to add links
     for line in working_copy:
@@ -95,5 +105,16 @@ for filen in args.chapter_file:
             link_end = match.span()[1]+offset
             line = line[:link_end]+'(#fig:'+link_value+')'+line[link_end:]
             offset = offset + 7 + len(link_value)
+        r = re.compile(r"\[More: .*?]")
+        offset = 0
+        for match in re.finditer(r,line):
+            link_value = ''
+            for key, value in subsection_mapping.items():
+                title = match.group().split('More:')[1].strip(" ]")
+                if title in key:
+                    link_value = value
+            link_end = match.span()[1]+offset
+            line = line[:link_end]+'(#'+link_value+')'+line[link_end:]
+            offset = offset + 3 + len(link_value)
         outfile.write(line)
 

@@ -2,3 +2,4 @@ Word export
 Use "Schematic:" to indicate schematics (: instead of -)
 Put schematic description on same line as numbers without brackets
 No .tif images; png or jpg are fine
+Put "More:" link for sub-sections on same line as title and use (: instead of -)
