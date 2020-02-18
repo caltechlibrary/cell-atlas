@@ -1,0 +1,5 @@
+dependencies:
+  - name: CL
+    version: 0.1.2
+    src: htmlwidgets/lib
+    script: CL.js
