@@ -1,13 +1,16 @@
 Package: doivideo
-Title: What the Package Does (One Line, Title Case)
+Title: Embed video from DOI using htmlwidget
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Thomas",
+           family = "Morrell",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "tmorrell@caltech.edu",
+           comment = c(ORCID = "0000-0001-9266-5146"))
+Description: Embed video player that takes a DOI.
+Imports:
+    htmlwidget
+License: BSD-3-Clause
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.0.2
