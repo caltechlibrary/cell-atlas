@@ -67,7 +67,7 @@
 % title / author / date
 \title{Cell Atlas}
 \author{Jensen Lab}
-\date{2020-02-19}
+\date{2020-02-21}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -89,7 +89,117 @@
 \tableofcontents
 }
 
-\chapter{Introduction}\label{introduction}
+\chapter*{Introduction}\label{introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+In the 1960s, electron microscopes were opening a new window in biology,
+allowing scientists to look not just at cells, but into them. This
+revealed a rich world of ultrastructures too fine to resolve with light
+microscopes, including organelles inside eukaryotic cells. To share this
+new vista with scientists and medical students who didn't have
+microscopes to look for themselves, authors like Don Fawcett and John
+Dodge created atlases of electron microscopy images that remain valuable
+resources for biology and medical novices, as well as experts.
+
+Fifty years later, we are once again enjoying an expanded view of
+biology, thanks to another great advance in electron microscopy. The
+development of cryogenic electron microscopy, or cryoEM, allows us to
+look inside cells in their native state, without the sample dehydration,
+staining and embedding required previously. This has opened up even the
+smallest cells for examination, and revealed some surprising things.
+Bacteria and archaea in particular, orders of magnitude smaller than
+eukaryotic cells and lacking prominent organelles, previously seemed to
+be relatively unstructured bags of nucleic acids and protein. In the
+last decade, cryoEM has challenged this view, revealing a startling
+degree of structure in these tiny cells. And so, inspired by the atlases
+of eukaryotic cell structure from the 1960s, we offer an atlas of
+bacterial and archaeal cell structure.
+
+Just as the technology of electron microscopy has advanced in the
+intervening decades, the technology of sharing information has similarly
+evolved. Taking advantage of a digital medium, we can share not just
+two-dimensional slices through cells, but their full three-dimensional
+volumes. This medium also allows you to tailor your experience. If you
+want a basic overview, simply follow the main narrative. If you want to
+go into more depth on a topic, follow the ``More'' links to see
+additional examples and details. If you're interested in comparative
+evolution, explore the book from the phylogenetic tree. If you?re
+interested in a particular structure, explore from the index.
+
+If you're new to cryoEM, we suggest starting with Chapter 1, which
+describes the methods used in structural biology, particularly cryoEM.
+If you're already an expert, or pressed for time, go straight to the
+cells in Chapter 2. Before you do, though, please watch this short
+introductory video.
+
+{[}1\_1\_Introduction{]}
+
+As Charles Darwin wrote in 1837, ``I shall always feel respect for every
+one who has written a book, let it be what it may, for I had no idea of
+the trouble which trying to write common English could cost one.'' The
+task was made immeasurably easier for us by the help of many minds and
+hands \protect\hyperlink{acknowledgments}{Acknowledgments}.
+
+\hypertarget{acknowledgments}{\section*{Acknowledgments}\label{acknowledgments}}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+We are grateful to Rob Phillips, our colleague at Caltech, for
+introducing Grant to Fawcett's Atlas and encouraging him to create
+another. Readers of early drafts gave us useful feedback to improve this
+experience. In particular, we thank Lydia Jensen and Natalie Jensen, who
+acted as test readers, as well as many past and present Jensen Lab
+members for advice and feedback. We are grateful to Ashley Jensen and
+Tony Kukavica for help with research. We are deeply grateful to Travis
+Alvarez, Camille Ogilvie, Natalie Jensen and Aditee Prabhutendolkar, who
+created most of the movies. And we are most grateful of all to our
+colleagues whose work at the microscope filled these pages. Click on
+their names throughout the book to learn a little bit more about them.
+
+We used the IMOD software package (developed by David Mastronarde, Rick
+Gaudette, Sue Held, Jim Kremer, Quanren Xiong, John Heumann and others
+at the University of Colorado with support from the NIH) to create and
+visualize tomographic datasets, and we are grateful to David Mastronarde
+for tireless support, including improving a function to help us make
+these movies. We used UCSF Chimera (developed by the Resource for
+Biocomputing, Visualization, and Informatics at the University of
+California, San Francisco, with support from NIH P41 GM103311) to create
+the visualizations of atomic models from the Worldwide Protein Data Bank
+(wwPDB). We thank Lam Nguyen for generating the atomic model of a lipid
+bilayer. Schematics and atomic models of proteins are the work of many
+labs; full references appear at the end of each chapter.
+
+The Caltech Library, particularly Thomas Morrell, Kristin Briney,
+Stephen Davison, and Donna Wrublewski, supported and enabled our vision
+of open access publishing and we are enormously grateful for their work
+and ingenuity in creating a platform tailored to the content and our
+shared vision of open accessibility. The textbook is built on the
+excellent bookdown platform from Rstudio (\citet{xie2015}).
+
+\chapter{Methods}\label{methods}
+
+\section{Light microscopy}\label{light-microscopy}
+
+\section{Fluorescence light
+microscopy}\label{fluorescence-light-microscopy}
+
+\section{Electron microscopy}\label{electron-microscopy}
+
+\section{Thin-section TEM}\label{thin-section-tem}
+
+\section{Cryo-EM}\label{cryo-em}
+
+\section{Cryo-ET}\label{cryo-et}
+
+\section{Subtomogram averaging}\label{subtomogram-averaging}
+
+\section{CLEM}\label{clem}
+
+\section{Single-particle
+reconstruction}\label{single-particle-reconstruction}
+
+\section{X-ray crystallography}\label{x-ray-crystallography}
+
+\section{Visual proteomics}\label{visual-proteomics}
 
 \chapter{Envelope}\label{envelope}
 
@@ -127,6 +237,8 @@ bilayer, as you'll see in some later images.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
+\subsection{Lipid bilayer}\label{lipid-bilayer}
+
 \begin{figure}
 \includegraphics{img/02_schematic/2_1_1_LipidBilayer} \caption[Lipid bilayer]{Lipid bilayer}\label{fig:2-1-1}
 \end{figure}
@@ -144,6 +256,9 @@ that makes up their membranes. Hybrid membranes containing both these
 lipid types can be made artificially, and it's possible that the last
 universal common ancestor of all cells on Earth contained both types,
 with specialization later occurring in different lineages.
+
+\subsection{ATP synthase and energy
+production}\label{atp-synthase-and-energy-production}
 
 \begin{figure}
 \includegraphics{img/02_schematic/2_1_2_ATPsynthase} \caption[ATP synthase and energy production]{ATP synthase and energy production}\label{fig:2-1-2}
@@ -213,6 +328,8 @@ axis.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
+\subsection{L-form bacteria}\label{l-form-bacteria}
+
 \begin{figure}
 \includegraphics{img/02_schematic/2_2_1_L_form_bacteria} \caption[L-form bacteria]{L-form bacteria}\label{fig:2-2-1}
 \end{figure}
@@ -271,6 +388,8 @@ must be broken, without bursting the cell in the process
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
+\subsection{Braun's lipoprotein}\label{brauns-lipoprotein}
+
 \begin{figure}
 \includegraphics{img/02_schematic/2_3_1_BLP} \caption[Braun's lipoprotein]{Braun's lipoprotein}\label{fig:2-3-1}
 \end{figure}
@@ -302,6 +421,8 @@ circumstances, cells can even switch between the two forms, as you'll
 see in Chapter 7.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
+
+\subsection{Sacculus remodeling}\label{sacculus-remodeling}
 
 \begin{figure}
 \includegraphics{img/02_schematic/2_3_2_SacculusRemodeling} \caption[Sacculus remodeling]{Sacculus remodeling}\label{fig:2-3-2}
@@ -446,6 +567,9 @@ eukaryotic ``predators'' like macrophages to eat it.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
 
+\subsection{Mycobacterial
+architecture}\label{mycobacterial-architecture}
+
 \begin{figure}
 \includegraphics{img/02_schematic/2_5_1_Mycobacteria} \caption[Mycobacterial architecture]{Mycobacterial architecture}\label{fig:2-5-1}
 \end{figure}
@@ -483,6 +607,8 @@ be modified to alter their properties; for instance attachment of a
 sugar can enable them to stick the cell to a surface.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
+
+\subsection{S-layer architecture}\label{s-layer-architecture}
 
 \begin{figure}
 \includegraphics{img/02_schematic/2_6_1_SLayerTop} \caption[S-layer architecture]{S-layer architecture}\label{fig:2-6-1}
@@ -631,6 +757,8 @@ is doing, condensing its nucleoid into a dense twisted braid we can
 easily visualize.
 
 \includegraphics{img/02_static/2_1_Mgenitalium}
+
+\chapter{Shape}\label{shape}
 
 \bibliography{book.bib,packages.bib}
 

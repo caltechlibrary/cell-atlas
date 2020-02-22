@@ -1,4 +1,7 @@
 # Envelope
+
+
+
 ## Mycoplasma genitalium
 
 The fundamental unit of life is the cell –  a contained self-replicating assembly.  For many species, including all *Bacteria* and Archaea, the organism consists of a single cell.  And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell.  As you'll see, the details of these cells vary, but every cell on Earth is the same at heart – a DNA-based replicator machine built from just four macromolecules:  nucleic acids, proteins, lipids and carbohydrates.
@@ -12,12 +15,14 @@ library(doivideo)
 doivideo('10.22002/1350',0)
 ```
 
+### Lipid bilayer
 ```{R 2-1-1, fig.cap="Lipid bilayer"}
 knitr::include_graphics("img/02_schematic/2_1_1_LipidBilayer.png")
 ```
 
 Lipids have a hydrophilic head (red/orange in the schematic) and hydrophobic tails (gray); in water they spontaneously pack together side-by-side to shield their tails from unfavorable interactions with water, forming closed double-layered bags. Proteins with regions of amino acids containing hydrophobic side groups embed these regions in lipid bilayers. Other proteins are fused to lipids, tethering them to the membrane.  In fact, cells' "lipid" membranes actually constitute roughly equal fractions of lipids and proteins. One key difference between archaea and bacteria (and with them, eukaryotes) is the lipid that makes up their membranes. Hybrid membranes containing both these lipid types can be made artificially, and it's possible that the last universal common ancestor of all cells on Earth contained both types, with specialization later occurring in different lineages.
 
+### ATP synthase and energy production
 ```{R 2-1-2, fig.cap="ATP synthase and energy production"}
 knitr::include_graphics("img/02_schematic/2_1_2_ATPsynthase.png")
 ```
@@ -52,6 +57,7 @@ library(doivideo)
 doivideo('10.22002/1360',0)
 ```
 
+### L-form bacteria
 ```{R 2-2-1, fig.cap="L-form bacteria"}
 knitr::include_graphics("img/02_schematic/2_2_1_L_form_bacteria.jpeg")
 ```
@@ -69,6 +75,7 @@ library(doivideo)
 doivideo('10.22002/1352',0)
 ```
 
+### Braun's lipoprotein
 ```{R 2-3-1, fig.cap="Braun's lipoprotein"}
 knitr::include_graphics("img/02_schematic/2_3_1_BLP.png")
 ```
@@ -83,6 +90,7 @@ library(doivideo)
 doivideo('10.22002/1362',0)
 ```
 
+### Sacculus remodeling
 ```{R 2-3-2, fig.cap="Sacculus remodeling"}
 knitr::include_graphics("img/02_schematic/2_3_2_SacculusRemodeling.jpg")
 ```
@@ -153,6 +161,7 @@ library(doivideo)
 doivideo('10.22002/1354',0)
 ```
 
+### Mycobacterial architecture
 ```{R 2-5-1, fig.cap="Mycobacterial architecture"}
 knitr::include_graphics("img/02_schematic/2_5_1_Mycobacteria.png")
 ```
@@ -170,6 +179,7 @@ library(doivideo)
 doivideo('10.22002/1355',0)
 ```
 
+### S-layer architecture
 ```{R 2-6-1, fig.cap="S-layer architecture"}
 knitr::include_graphics("img/02_schematic/2_6_1_SLayerTop.png")
 ```

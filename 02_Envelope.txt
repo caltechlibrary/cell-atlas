@@ -1,3 +1,6 @@
+
+
+
 [1_Mycoplasma genitalium]
 
 The fundamental unit of life is the cell –  a contained self-replicating assembly.  For many species, including all *Bacteria* and Archaea, the organism consists of a single cell.  And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell.  As you'll see, the details of these cells vary, but every cell on Earth is the same at heart – a DNA-based replicator machine built from just four macromolecules:  nucleic acids, proteins, lipids and carbohydrates.

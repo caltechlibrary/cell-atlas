@@ -2,7 +2,7 @@ import argparse, os, re, csv
 import glob
 
 def insert_figure(file_path,label,caption):
-    return "```{R "+label+', fig.cap="'+caption+\
+    return "### "+caption+"\n```{R "+label+', fig.cap="'+caption+\
         '"}\nknitr::include_graphics("'+file_path+'")\n```\n\n'
 
 def insert_movie(doi,image_path):
@@ -42,6 +42,7 @@ for filen in args.chapter_file:
     outfile.write('# '+title+'\n')
     doi = ''
     image = 'img/02_static/2_1_Mgenitalium.jpg'
+    print(filen)
     for line in infile.readlines():
         # Section headings
         if re.search(r"^\[\d+_" ,line):
@@ -52,7 +53,9 @@ for filen in args.chapter_file:
             number = split[0].split('[')[1]
             section = split[1].replace(']','')
             working_copy.append('## '+section)
-            doi = dois[chapter_number.lstrip("0")+'_'+number]
+            movie_label = chapter_number.lstrip("0")+'_'+number
+            if movie_label in dois:
+                doi = dois[movie_label]
         # Subsection headings
         elif re.search(r"^\[\d" ,line):
             #Put in movie from last section
@@ -67,7 +70,9 @@ for filen in args.chapter_file:
             short_link = link.replace(' ','_')
             working_copy.append('### '+section+'{#'+short_link+'}')
             subsection_mapping[link]=short_link
-            doi = dois[chapter_number.lstrip("0")+'_'+number]
+            movie_label = chapter_number.lstrip("0")+'_'+number
+            if movie_label in dois:
+                doi = dois[movie_label]
         # Schematics
         elif re.search(r"^\d_" ,line):
             #Put in movie from last section
@@ -117,4 +122,8 @@ for filen in args.chapter_file:
             line = line[:link_end]+'(#'+link_value+')'+line[link_end:]
             offset = offset + 3 + len(link_value)
         outfile.write(line)
+    
+    schema_mapping = {}
+    subsection_mapping = {}
+    working_copy = []
 
