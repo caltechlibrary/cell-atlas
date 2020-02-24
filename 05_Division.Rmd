@@ -1,4 +1,5 @@
-[1_Thiomonas intermedia]
+# Division
+## Thiomonas intermedia
 
 Growth only gets you so far. If your cell is coccoid, growth increases volume more rapidly than surface area, which is a problem if your cell relies on nutrients imported from the environment. Even if your cell is rod-shaped (so its surface area to volume ratio remains relatively constant), increased volume increases diffusion times, making metabolism less efficient. So what can you do to keep your cell thriving?
 
@@ -7,7 +8,7 @@ It may be time to divide. In essence, division simply splits a cell, the "mother
 What about a low copy-number component? Look at the poly-phosphate storage granules in the same cell. To ensure each daughter cell gets the same number, they're evenly spaced along the length of the cell, ready for division in the middle.
 
 
-[2_Caulobacter crescentus]
+## Caulobacter crescentus
 
 The most important low-copy number component in your cell is its genome; without the instructions, nothing gets built. Reflecting its importance, cells have evolved complex mechanisms to coordinate DNA replication and segregation in time as well as space. The details are beyond our scope here, but let's examine some general structural principles. If your cell divides by splitting in the middle, what's the easiest way to get one complete genome copy to each daughter? Assume your cell has a single chromosome (like most bacteria and archaea). Why not just tether each chromosome copy to an opposite pole of the cell? Nearly all bacteria, and many archaea, have a protein called ParB (for Partitioning) that recognizes a specific sequence (ParS) on the chromosome, creating a molecular handle. In Caulobacter crescentus like this cell, ParB also binds a scaffolding protein at the pole called PopZ, hooking the handle to the pole. The PopZ scaffold isn't highly ordered, so we see it as a diffuse blob of DNA and protein, noticeable because it excludes other large protein complexes like ribosomes. Several species of bacteria use PopZ or other hub-organizing proteins to tether a genome copy, as well as other things like chemosensory machinery, to the cell pole. Other species use a different mechanism involving many copies of a dynamic protein called ParA that bind and release ParB, ratcheting the ParS handle of the chromosome across the cell. Other components, like the storage granules you just saw, piggyback on this machinery for segregation.
 
@@ -16,18 +17,16 @@ Remember that your cell's chromosome is colossal, so getting the ParS handle to 
 
 
 
-[3_Hyphomonas neptunium]
+## Hyphomonas neptunium
 
 What if your cell divides a different way? Some bacteria divide not by fission, but by budding, like this Hyphomonas neptunium cell. These cells have a stalk [More – Hyphomonas stalk] and concentrate their growth at the end of the stalk, producing a daughter cell like blowing a bubble. When the bud becomes big enough, they divide at the end of the stalk to release it [More – Hyphomonas life cycle]. First, though, they have to make sure all the necessary components make it into the bud. The process is most dramatic for the genome; here you can see a copy being transferred through the stalk. The chromosome here resembles a single double-stranded DNA helix, but it's actually a higher-order structure of supercoiled DNA. (The crossbands aren't hydrogen-bonded bases, but rather proteins that help pack the DNA.)
 
 Several other bacterial species divide by budding, although not all have stalks; some simply bud from the main cell body, as you’ll see later in this chapter.
 
-[3a_Hyphomonas neptunium] More: Hyphomonas stalk
-
+### Hyphomonas neptunium {#Hyphomonas_stalk}
 Hyphomonas neptunium grow a single stalk from one end of their cell body, similar to the Caulobacter crescentus you saw in Chapter 3. The function of this stalk, though, is very different, as you’ll see.
 
-[3b_Hyphomonas neptunium] More: Hyphomonas life cycle
-
+### Hyphomonas neptunium {#Hyphomonas_life_cycle}
 Hyphomonas neptunium have evolved a program of stages they pass through in the course of their life. When a newborn cell like this one is released, it is in the "swarmer" stage, using its flagellum (discussed in the next chapter) to swim away to a new location. After a while, it settles down, jettisoning its flagellum and growing a stalk to ultimately make its own bud–the next generation. Once a cell settles down into the stalked stage, it spends the rest of its life sending off buds as long as conditions are good. Only new cells are equipped with flagella to go adventuring. We'll discuss how lifecycles like this can be a beneficial strategy in Chapter 8.
 
 
@@ -40,7 +39,7 @@ Once your cell has gotten everything where it needs to go, how can it actually d
 
 
 
-[5_Tetrasphaera remsis]
+## Tetrasphaera remsis
 
 The septum grows in from the periphery of the dividing cell toward the middle, drawing the membrane with it. When it reaches the middle, the membrane seals off on each side and the septum separates to release the two cells. The Tetrasphaera remsis cell at the bottom is at a fairly late stage of this process. This cell also illustrates another point about division: the division plane isn’t always exactly in the middle of the cell. Depending on the species, the two daughter cells may be different sizes.
 
@@ -49,37 +48,34 @@ There can also be more than two daughter cells. Some species undergo simultaneou
 
 
 
-[6_Idiomarina loihiensis]
+## Idiomarina loihiensis
 
 The division process is similar for diderm bacteria, as you can see in this Idiomarina loihiensis cell, with the cell wall and inner membrane building inward. The process is almost complete here, with just a thin channel of cytoplasm connecting the daughter cells in the very middle. You can see the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More–Sphingopyxis alaskensis division]. For a later example, check out [More–Chloroflexi]. In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the T. intermedia cell at the beginning of this chapter. In others, including this one and S. alaskensis, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate [More–Caulobacter crescentus division].
 
-[6a_Sphingopyxis alaskensis] More: Sphingopyxis alaskensis division
-This diderm cell is about halfway through division. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall are drawing in all around.
+### Sphingopyxis alaskensis {#Sphingopyxis_alaskensis_division}This diderm cell is about halfway through division. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall are drawing in all around.
 
-[6b_Chloroflexi] More: Chloroflexi division
-
+### Chloroflexi {#Chloroflexi_division}
 This diderm cell is in the final stage of division. The cytoplasm of the two daughter cells is completely separated by inner membrane and cell wall. The outer membrane, though, has not yet divided.
 
 
 
 
-[7_Caulobacter crescentus]
+## Caulobacter crescentus
 
 In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the T. intermedia cell at the beginning of this chapter. In others, including the cells you saw on the last page, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate. In Caulobacter crescentus, the outer membrane constricts along with the inner membrane and cell wall. At the end of division, though, the inner membrane seals off before the outer membrane, as you can see in this cell, which is at the very end stage of division. For an even later stage, check out [More–Caulobacter division].
 
-[7a_Caulobacter crescentus] More: Caulobacter division
-
+### Caulobacter crescentus {#Caulobacter_division}
 These daughter cells have completely separated their mother’s inner membrane and cell wall, but not yet the outer membrane and surface layer.
 
 
 
-[8_Agrobacterium tumefaciens]
+## Agrobacterium tumefaciens
 
 Like monoderms, most diderms divide into roughly equally-sized daughter cells, but not all do. Just like the Tetrasphaera remsis you saw earlier, some diderm species produce one larger, and one smaller, daughter, like this Agrobacterium tumefaciens cell. In this case, it’s because the smaller daughter is actually a bud. A. tumefaciens concentrate their growth on one pole, pushing out a bud that, once it’s large enough, is pinched off and released. The process is very similar to what you saw in Hyphomonas neptunium, just without the stalk.
 
 
 
-[9_Cupriavidus necator]
+## Cupriavidus necator
 
 Division can also be asymmetric in a different way: how constricted one side of the cell is relative to the other. You can see that in this Cupriavidus necator cell. Asymmetric constriction is most common early in division, but sometimes it persists for a while [More–Asymmetric constriction]. To understand how this happens, let’s take a closer look at how your cell divides.
 
@@ -89,8 +85,7 @@ How does FtsZ find the right spot? There are multiple mechanisms, but an elegant
 
 Once everything’s ready (the cell is long enough and the nucleoid’s out of the way), FtsZ filaments form at the division site. Initially, a single, short filament (or a few) appears. Already, this is enough to begin constricting the cell which explains why many bacterial cells, like this one, start to constrict only on one side. FtsZ filaments run parallel to the cell membrane, so they appear as dots in cross-section; but if we rotate the cell around, we can see them. Note: we can’t see the membrane (and any associated FtsZ filaments) all the way around the cell due to the “missing wedge” of information in this imaging technique – see Chapter 1 for an explanation.
 
-[9a_Cupriavidus necator] More: Asymmetric constriction
-
+### Cupriavidus necator {#Asymmetric_constriction}
 This C. necator cell is at a later stage of division. In most cells, as you’ll see on the next page, constriction is more or less uniform around the circumference by now, but in some cells, including this one, the asymmetry persists.
 
 5_9_1 Schematic: FtsZ structure
@@ -99,24 +94,24 @@ While the structure of FtsZ is known, its mechanism is not. It is an enzyme, so 
 
 
 
-[10_Caulobacter crescentus]
+## Caulobacter crescentus
 
 As division progresses, FtsZ filaments keep assembling and growing, and soon they form a complete ring of long, overlapping filaments all around the circumference of the cell. This drives further constriction, more or less uniformly. In this Caulobacter crescentus cell in a later stage of division, you can see many FtsZ filaments lined up in cross-section – the dots on both sides of the division plane; if we rotate the cell around, you can see filaments extending on both sides as far as the membrane is visible (see note on the previous page about why we can’t see the membrane all the way around). They will continue to pull the membrane inward, and direct cell wall to be built behind it, until division is complete.
 
 
 
-[11_Sulfolobus acidocaldarius]
+## Sulfolobus acidocaldarius
 
-Nearly all bacteria, and many archaea use FtsZ to divide. Other species of archaea, belonging to the Crenarchaeota phylum, use a different cytoskeletal system called Cdv (for Cell division). Cdv proteins are homologous to  proteins of the Endosomal Sorting Complexes Required for Transport (ESCRT). ESCRT proteins were discovered in eukaryotes, where they are involved in many processes that involve cinching off membranes, from the final stage of cell division, to virus budding, to endocytosis (hence the name), where cells take things in from the environment. Again, despite its fundamental importance, we still don’t know exactly how the ESCRT machinery works to constrict membranes. In archaeal cells like this Sulfolobus acidocaldarius, Cdv proteins form a belt of parallel filaments around the middle of the cell, defining the division plane [Schematic – ESCRT structure]. Notice that the rigid surface layer is dismantled outside the belt so that the membrane can be pulled inward.
+Nearly all bacteria, and many archaea use FtsZ to divide. Other species of archaea, belonging to the Crenarchaeota phylum, use a different cytoskeletal system called Cdv (for Cell division). Cdv proteins are homologous to  proteins of the Endosomal Sorting Complexes Required for Transport (ESCRT). ESCRT proteins were discovered in eukaryotes, where they are involved in many processes that involve cinching off membranes, from the final stage of cell division, to virus budding, to endocytosis (hence the name), where cells take things in from the environment. Again, despite its fundamental importance, we still don’t know exactly how the ESCRT machinery works to constrict membranes. In archaeal cells like this Sulfolobus acidocaldarius, Cdv proteins form a belt of parallel filaments around the middle of the cell, defining the division plane [Schematic – ESCRT structure](#ESCRT_structure). Notice that the rigid surface layer is dismantled outside the belt so that the membrane can be pulled inward.
 
 
 5_11_1 Schematic: ESCRT structure
 
 
 
-[12_Sulfolobus acidocaldarius]
+## Sulfolobus acidocaldarius
 
-The Cdv filaments then pull the membrane inward, constricting the cell, as you can see in this Sulfolobus acidocaldarius cell in a later stage of division. Again, the mechanism isn’t known, but it may be that the filaments slide against each other into a tightening spiral on either side [Schematic – Hourglass model].
+The Cdv filaments then pull the membrane inward, constricting the cell, as you can see in this Sulfolobus acidocaldarius cell in a later stage of division. Again, the mechanism isn’t known, but it may be that the filaments slide against each other into a tightening spiral on either side [Schematic – Hourglass model](#Hourglass_model).
 
 The majority of cells divide by one of these two mechanisms–FtsZ and Cdv–but not all do. Some bacterial and archaeal species have neither FtsZ nor Cdv, and we’re still figuring out how they divide.
 

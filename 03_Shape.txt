@@ -1,10 +1,10 @@
-﻿[1_Simkania negevensis]
+[1_Simkania negevensis]
 
 What kind of life do you envision for your cell? Just as the design of buildings reflects their purpose, different cell shapes suit different lifestyles. Does your cell need to soak up sunlight for photosynthesis? Burrow through tissue? Chase down prey? Each driving function is best served by a particular form [Schematic – Cell shape diversity].
 
 How can you give your cell a particular form? The final shape of a building is determined by a façade erected around a system of internal beams and joists–its skeleton. Cells determine their shape using a similar system–the cyto-("cell") skeleton–in concert with the rigid exoskeleton of the sacculus. The cytoskeleton of bacteria and archaea consists of a set of proteins that form filaments or other superstructures that move or scaffold other material in the cell. In many cases, this cytoskeletal scaffolding is dynamic and ever-changing, appropriate for a living building.
 
-Let's start with a cell like this Simkania negevensis. It's a sphere–the default shape for a membrane in water, uniformly resistant to pressure, and the best shape if you want to maximize your volume relative to surface area. We refer to this spherical shape as coccoid ("berry-like"). To grow, a coccoid cell can just randomly insert new glycan strands into its sacculus, expanding into a larger sphere [Schematic – Spherical growth]. 
+Let's start with a cell like this Simkania negevensis. It's a sphere–the default shape for a membrane in water, uniformly resistant to pressure, and the best shape if you want to maximize your volume relative to surface area. We refer to this spherical shape as coccoid ("berry-like"). To grow, a coccoid cell can just randomly insert new glycan strands into its sacculus, expanding into a larger sphere [Schematic – Spherical growth].
 
 3_1_1 Schematic: Cell shape diversity
 Archaea and bacteria adopt a staggeringly diverse set of shapes. Here are some examples just of bacteria. Note also the range of sizes; what might at first look like a hill at the bottom is the edge of a cell drawn to scale.
@@ -26,6 +26,7 @@ Not all rod-shaped bacteria use MreB, and we're still figuring out how the shape
 3_2_1 Schematic: Rod-shaped growth
 
 [2a_Brucella abortus] More: Rod variety
+
 Rod-shaped species aren't always perfect rods. For instance, they might be more pear-shaped, like this Brucella abortus cell. This is one of the bacterial species that doesn't use MreB.
 
 [2b_Methanoregula formicica] More: Archaeal rods
@@ -33,13 +34,13 @@ Rod-shaped species aren't always perfect rods. For instance, they might be more 
 
 [3_Hylemonella gracilis]
 
-Rod-shaped cells have a useful property: they can grow by extending their length without significantly changing the ratio of their surface area to volume, which would in turn change how efficiently they can take up nutrients from the environment. This property enables an impressive range of lengths for rod-shaped cells, from the short C. necator you just saw, to this much longer Hylemonella gracilis. 
+Rod-shaped cells have a useful property: they can grow by extending their length without significantly changing the ratio of their surface area to volume, which would in turn change how efficiently they can take up nutrients from the environment. This property enables an impressive range of lengths for rod-shaped cells, from the short C. necator you just saw, to this much longer Hylemonella gracilis.
 
-The length of a cell (or, more generally, its size) varies depending on the environment or its stage of the lifecycle. But not that much. Size tends to be strongly conserved within a species, varying not much more than the factor of two dictated by division. Sizes between species vary much more widely, as you'll see throughout the book. 
+The length of a cell (or, more generally, its size) varies depending on the environment or its stage of the lifecycle. But not that much. Size tends to be strongly conserved within a species, varying not much more than the factor of two dictated by division. Sizes between species vary much more widely, as you'll see throughout the book.
 
 [4_Caulobacter crescentus]
 
-What if you want to curve your rod-shaped cell into a comma? Vibrioid shape (named for the genus Vibrio, where it is common) may help cells swim faster. For Caulobacter crescentus like this one, it can help them stay close to a surface as liquid flows past, increasing the chance that their progeny can attach before they're swept away. To make a vibrioid sacculus, you can imagine the contractor simply telling the workers to incorporate more material on one side of the rod relative to the other [Schematic – Vibrioid growth]. This is the function of a cytoskeletal protein called (for an obvious reason) Crescentin. Crescentin inhibits cell wall synthesis. It also localizes to one side of the cell, resulting in more peptidoglycan incorporation on the opposite side, and a curved cell. 
+What if you want to curve your rod-shaped cell into a comma? Vibrioid shape (named for the genus Vibrio, where it is common) may help cells swim faster. For Caulobacter crescentus like this one, it can help them stay close to a surface as liquid flows past, increasing the chance that their progeny can attach before they're swept away. To make a vibrioid sacculus, you can imagine the contractor simply telling the workers to incorporate more material on one side of the rod relative to the other [Schematic – Vibrioid growth]. This is the function of a cytoskeletal protein called (for an obvious reason) Crescentin. Crescentin inhibits cell wall synthesis. It also localizes to one side of the cell, resulting in more peptidoglycan incorporation on the opposite side, and a curved cell.
 
 Checks and balances are a common theme in Nature. In this case, a second contractor makes sure the process doesn't get out of hand. The cytoskeletal protein CTP synthase inhibits Crescentin, fine-tuning the process and making sure the cell doesn't curve too much. As its name implies, CTP synthase has another, metabolic, function in the cell [Schematic – CTP synthase]. In C. crescentus like this, the CTP synthase is easy to see as a bundle of filaments. Crescentin is more elusive; we only see obvious filaments when it is artificially overexpressed, so its exact form in the cell remains unclear.
 
@@ -60,6 +61,7 @@ Why stop at a quarter turn when you can twist your cell into a full wave or even
 It's tempting to group species with a common characteristic, but appearances are often deceiving about relatedness. Helical shape, for instance, was not a one-shot invention; it was invented independently multiple times. This is true of other bacterial and archaeal cell shapes as well. For helical shape, these independent origins are reflected in diverse mechanisms of creating it. Some species, like C. jejuni, use dedicated proteins to regulate the pattern of peptidoglycan insertion–a continuation of the theme we've been discussing. Other species take different approaches [More – Borrelia burgdorferi].
 
 [5a_Borrelia burgdorferi] More: Borrelia burgdorferi
+
 Borrelia burgdorferi like this cell use the long filaments of their motility machinery (flagella, discussed in Chapter 6) as a kind of cytoskeleton. A bundle of flagella wraps around the cell in the periplasm, between the sacculus and the outer membrane. As motors at their base spin them, these filaments impart a helical wave pattern to the sacculus; without their rotation the cells develop a rod shape. B. burgdorferi aren't actually helical; rather they are wave-shaped, a 2-dimensional curve instead of a 3-dimensional one.
 
 
@@ -78,6 +80,7 @@ Prosthecae offer a challenge for the architect: thin extensions are delicate. Pr
 3_6_1 Schematic: Bactofilin
 
 [6a_Prosthecobacter vanneervenii] More: Bacterial microtubules
+
 Some bacterial species with prosthecae express structures similar to eukaryotic microtubules, made from two proteins called BtubA and BtubB to reflect their homology to eukaryotic tubulins. Eukaryotic microtubules are hollow tubes formed by 13 protofilaments; bacterial microtubules are smaller, with only ~5 protofilaments. Cells commonly contain a bundle of microtubules in their prostheca, like this Prosthecobacter vanneervenii cell, which has a bundle of four.
 
 Prosthecobacter belong to an evolutionarily unique group of species that share characteristics unusual in the rest of the bacterial phylogenetic tree. We refer to the collective group as the PVC superphylum (because it contains Planctomycetes, Verrucomicrobia, and Chlamydiae). Having homologs of eukaryotic microtubule proteins is one of these unique characteristics; so far, Btubs have only been identified in species of Prosthecobacter. They seem to have come from a horizontal gene transfer from a eukaryotic cell (meaning that microtubules evolved first in eukaryotes and were later borrowed by the bacteria).
@@ -90,9 +93,10 @@ Prosthecobacter belong to an evolutionarily unique group of species that share c
 
 All the cells whose shape we've discussed so far have been bacteria, but archaea hold their own in the specialized shape competition. In fact, one of the most extreme examples of maximizing surface area relative to volume comes from this archaeon, Haloquadratum walsbyi, which grows as thin, square tiles. Very thin, square tiles. This property helps keep them oriented with their broad sides to the sun, whose light they convert to energy. They divide in this plane, too, with their progeny extending the sheet of tiles. Gas vesicles [More – Gas vesicles] keep the cells buoyant in the super-salty lakes where they live.
 
-It's still not exactly clear how this shape is determined, but at least part of the mechanism seems to involve glycoproteins on the cell surface. 
+It's still not exactly clear how this shape is determined, but at least part of the mechanism seems to involve glycoproteins on the cell surface.
 
 [7a_Halobacterium salinarum] More: Gas vesicles
+
 Some species of archaea and bacteria use gas vesicles to control their buoyancy. This can allow them to rise or fall in a water column, which can be a great advantage. Halobacterium salinarum like this one produce gas vesicles in response to cues from the environment, lifting themselves out of the sediment and into more favorable conditions of oxygen or sunlight for photosynthesis. This cell has just started producing gas vesicles, so they are small and isolated. Later, the vesicles will elongate into cylinders with conical ends [Schematic – Gas vesicles]. Each cell might contain dozens of vesicles, and they often cluster together.
 
 3_7_1 Schematic: Gas vesicles
@@ -101,12 +105,9 @@ Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a sin
 
 
 
-
+---
 #[8_Mycoplasma pneumoniae?]
-
 #[can we get a tomogram of Spiroplasma melliferum?]
 #Shape can be a transient, rather than a fixed, property, as you'll see in a few pages. You also don't need a sacculus to have a fancy shape. Spiroplasma melliferum like this one don't have a cell wall. They do have an impressive cytoskeletal structure: three bundles of filaments forming a flat ribbon that extends the length of the cell. These filaments seem to act as elastic bands, with the outermost bundles alternately extending and contracting. (The central bundle, which may consist of MreB filaments, likely acts as a coupler for the tensors on either side.) This torques the cell into a helix. Switching which bundle is extended and which contracted switches the handedness of the helix, introducing a kink whose propagation down the length of the cell may drive the cell forward through semi-solid material [Schematic – Spiroplasma motility].
-
-
 #Mycoplasma flask-shaped cells?
-
+---

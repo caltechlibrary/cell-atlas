@@ -95,8 +95,12 @@ for filen in args.chapter_file:
             schema_mapping[schema_name] = short_name
             if len(file_path)>1:
                 print("Matched multiple files")
-            else:
+                working_copy.append(line)
+            elif len(file_path) == 1:
                 working_copy.append(insert_figure(file_path[0],short_name,schema_name))
+            else:
+                print("Matched no files")
+                working_copy.append(line)
         else:
             working_copy.append(line)
     #Put in movie from last section
