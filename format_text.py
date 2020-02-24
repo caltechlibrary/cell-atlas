@@ -2,13 +2,21 @@ import argparse, os, re, csv
 import glob
 
 def insert_figure(file_path,label,caption):
-    return "### "+caption+"\n```{R "+label+', fig.cap="'+caption+\
-        '"}\nknitr::include_graphics("'+file_path+'")\n```\n\n'
+    return "### "+caption+" {#"+label+"}\n```{R}\nknitr::include_graphics('"+\
+            file_path+"')\n```\n\n"
 
-def insert_movie(doi,image_path):
-    return "```{R "+doi+", echo=FALSE, screenshot.alt='"+\
-            image_path+"'}\nlibrary(doivideo)\ndoivideo('"+\
-            doi+"',0)\n```\n\n"
+def insert_movie(doi):
+    #DOI object has DOI, movie, and collector values
+    doiv = doi['DOI']
+    collector = doi['collector']
+    filev = doi['movie']
+    title = doi['title']
+    image_path = 'img/'+filev.split('.mp4')[0]+'.jpg'
+    return "```{R echo=FALSE, screenshot.alt='"+\
+            image_path+"' , fig.cap= '"+title+" Collected by: "+collector+\
+            " ["+doiv+"](https://doi.org/"+doiv+\
+            ")'}\nlibrary(doivideo)\ndoivideo('"+\
+            doiv+"',0)\n```\n\n"
 
 parser = argparse.ArgumentParser(description=\
         "Transform text file chapters to Rmarkdown")
@@ -29,7 +37,7 @@ with open(doi_file,'r') as csvfile:
     for row in reader:
         split = row['movie'].split('_')
         label = split[0]+'_'+split[1]
-        dois[label] = row["DOI"]
+        dois[label] = row
 
 
 for filen in args.chapter_file:
@@ -41,14 +49,13 @@ for filen in args.chapter_file:
     outfile = open(oname,'w')
     outfile.write('# '+title+'\n')
     doi = ''
-    image = 'img/02_static/2_1_Mgenitalium.jpg'
     print(filen)
     for line in infile.readlines():
         # Section headings
         if re.search(r"^\[\d+_" ,line):
             #Put in movie from last section
             if doi != '':
-                working_copy.append(insert_movie(doi,image))
+                working_copy.append(insert_movie(doi))
             split = line.split('_')
             number = split[0].split('[')[1]
             section = split[1].replace(']','')
@@ -60,14 +67,14 @@ for filen in args.chapter_file:
         elif re.search(r"^\[\d" ,line):
             #Put in movie from last section
             if doi != '':
-                working_copy.append(insert_movie(doi,image))
+                working_copy.append(insert_movie(doi))
             split = line.split('_')
             number = split[0].split('[')[1]
             cleaned = split[1].replace(']','')
             split = cleaned.split('More:')
             section = split[0]
             link = split[1].strip()
-            short_link = link.replace(' ','_')
+            short_link = link.replace(' ','_').replace("'","")
             working_copy.append('### '+section+'{#'+short_link+'}')
             subsection_mapping[link]=short_link
             movie_label = chapter_number.lstrip("0")+'_'+number
@@ -77,24 +84,24 @@ for filen in args.chapter_file:
         elif re.search(r"^\d_" ,line):
             #Put in movie from last section
             if doi != '':
-                working_copy.append(insert_movie(doi,image))
+                working_copy.append(insert_movie(doi))
             doi = ''
             split = line.split(' ')
             schema_num = split[0]
             split = line.split('Schematic:')
             schema_name = split[1].strip()
             file_path = glob.glob('img/'+chapter_number+'_schematic/'+schema_num+'*')
-            schema_num = schema_num.replace('_','-')
-            schema_mapping[schema_name] = schema_num
+            short_name = schema_name.replace(' ','_').replace("'","")
+            schema_mapping[schema_name] = short_name
             if len(file_path)>1:
                 print("Matched multiple files")
             else:
-                working_copy.append(insert_figure(file_path[0],schema_num,schema_name))
+                working_copy.append(insert_figure(file_path[0],short_name,schema_name))
         else:
             working_copy.append(line)
     #Put in movie from last section
     if doi != '':
-        working_copy.append(insert_movie(doi,image))
+        working_copy.append(insert_movie(doi))
     doi = ''
     infile.close()
     #Now go over text again to add links
@@ -108,8 +115,8 @@ for filen in args.chapter_file:
                 if title in key:
                     link_value = value
             link_end = match.span()[1]+offset
-            line = line[:link_end]+'(#fig:'+link_value+')'+line[link_end:]
-            offset = offset + 7 + len(link_value)
+            line = line[:link_end]+'(#'+link_value+')'+line[link_end:]
+            offset = offset + 3 + len(link_value)
         r = re.compile(r"\[More: .*?]")
         offset = 0
         for match in re.finditer(r,line):

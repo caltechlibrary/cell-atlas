@@ -19,7 +19,7 @@ if os.path.isfile(doi_file):
             existing.append(row['movie'])
 else:
     with open(doi_file,'w') as csvfile:
-        fieldnames = ['DOI', 'movie']
+        fieldnames = ['DOI', 'movie', 'collector', 'title']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -54,6 +54,7 @@ with open(filename, encoding="utf-8-sig") as csvfile:
             metadata["creators"] = creators
 
             # contributors
+            contributor_string = ''
             names = row["Contributor Name"].split(";")
             roles = row["Contributor Role"].split(";")
             contributors = []
@@ -65,10 +66,13 @@ with open(filename, encoding="utf-8-sig") as csvfile:
                 contributor["givenName"] = " ".join(split[0:-1])
                 contributor["contributorType"] = roles[count]
                 contributors.append(contributor)
+                if roles[count] == 'Data Collector':
+                    contributor_string = contributor_string + names[count]
             metadata["contributors"] = contributors
 
             # title
-            metadata["titles"] = [{"title": row["Title"]}]
+            title = row["Title"]
+            metadata["titles"] = [{"title": title}]
 
             # keywords
             keywords = row["Keywords"].split(";")
@@ -118,4 +122,4 @@ with open(filename, encoding="utf-8-sig") as csvfile:
                 rec_id = response.split('/')[-1].split('.')[0]
                 with open(doi_file,'a') as csvfile:
                     writer = csv.writer(csvfile)
-                    writer.writerow(['10.22002/'+rec_id,row["Filename"]])
+                    writer.writerow(['10.22002/D1.'+rec_id,row["Filename"],contributor_string,title])

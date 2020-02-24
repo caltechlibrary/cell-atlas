@@ -6,25 +6,25 @@
 
 The fundamental unit of life is the cell –  a contained self-replicating assembly.  For many species, including all *Bacteria* and Archaea, the organism consists of a single cell.  And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell.  As you'll see, the details of these cells vary, but every cell on Earth is the same at heart – a DNA-based replicator machine built from just four macromolecules:  nucleic acids, proteins, lipids and carbohydrates.
 
-Imagine that you're a structural engineer tasked with building one of these cells. What's the first step?  Let's start with the container.  No matter what the first self-replicating molecules were (likely RNA), they didn't constitute a cell until they became packaged in a container. You'd probably want a flexible container that allowed you to sort a subset of molecules from the environment.  Evolution agrees.  All cells are enclosed by a selectively permeable membrane, made of lipids and proteins [Schematic – Lipid bilayer](#fig:2-1-1), that allows them to differentiate their contents from the environment.  This selectivity is a critical feature for the life of the cell [Schematic – ATP synthase](#fig:2-1-2). The compartment enclosed by a cell's membrane is called the cytoplasm ("cell mold" [the membrane being the container that shapes the mold]).
+Imagine that you're a structural engineer tasked with building one of these cells. What's the first step?  Let's start with the container.  No matter what the first self-replicating molecules were (likely RNA), they didn't constitute a cell until they became packaged in a container. You'd probably want a flexible container that allowed you to sort a subset of molecules from the environment.  Evolution agrees.  All cells are enclosed by a selectively permeable membrane, made of lipids and proteins [Schematic – Lipid bilayer](#Lipid_bilayer), that allows them to differentiate their contents from the environment.  This selectivity is a critical feature for the life of the cell [Schematic – ATP synthase](#ATP_synthase_and_energy_production). The compartment enclosed by a cell's membrane is called the cytoplasm ("cell mold" [the membrane being the container that shapes the mold]).
 
 Almost all archaea and many bacteria, like these Mycoplasma genitalium cells, are monoderms ("single skin"). This means that their cytoplasm is enclosed by a single membrane. At the resolution of this image, the membrane looks like a single dark line, but remember that it's really a bilayer, as you'll see in some later images.
 
-```{R 10.22002/1350, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_1_Mgenitalium.jpg' , fig.cap= 'Mycoplasma genitalium Collected by: Gregory Henderson [10.22002/D1.1350](https://doi.org/10.22002/D1.1350)'}
 library(doivideo)
-doivideo('10.22002/1350',0)
+doivideo('10.22002/D1.1350',0)
 ```
 
-### Lipid bilayer
-```{R 2-1-1, fig.cap="Lipid bilayer"}
-knitr::include_graphics("img/02_schematic/2_1_1_LipidBilayer.png")
+### Lipid bilayer {#Lipid_bilayer}
+```{R}
+knitr::include_graphics('img/02_schematic/2_1_1_LipidBilayer.png')
 ```
 
 Lipids have a hydrophilic head (red/orange in the schematic) and hydrophobic tails (gray); in water they spontaneously pack together side-by-side to shield their tails from unfavorable interactions with water, forming closed double-layered bags. Proteins with regions of amino acids containing hydrophobic side groups embed these regions in lipid bilayers. Other proteins are fused to lipids, tethering them to the membrane.  In fact, cells' "lipid" membranes actually constitute roughly equal fractions of lipids and proteins. One key difference between archaea and bacteria (and with them, eukaryotes) is the lipid that makes up their membranes. Hybrid membranes containing both these lipid types can be made artificially, and it's possible that the last universal common ancestor of all cells on Earth contained both types, with specialization later occurring in different lineages.
 
-### ATP synthase and energy production
-```{R 2-1-2, fig.cap="ATP synthase and energy production"}
-knitr::include_graphics("img/02_schematic/2_1_2_ATPsynthase.png")
+### ATP synthase and energy production {#ATP_synthase_and_energy_production}
+```{R}
+knitr::include_graphics('img/02_schematic/2_1_2_ATPsynthase.png')
 ```
 
 The chemical properties of lipids make membranes impermeable to ions and large or hydrophilic molecules (but not to water). Cells take advantage of this property to establish an ion gradient across the membrane, using a chain of electron-carrying proteins in the membrane to pump protons out of the cell. Protein complexes in the membrane called ATP synthases (like this one from Escherichia coli) use the resulting ion potential to generate energy. The machine provides a conduit for protons to flow down their potential, producing a "proton-motive force" that spins the machine's rotor, generating energy that is chemically stored in ATP, the energetic currency of the cell.
@@ -36,11 +36,11 @@ Being able to selectively move things into your cell enables it to do some power
 
 You'll probably want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this using a material called peptidoglycan: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its sacculus, or cell wall. Some archaea also have cell walls, made of a molecule similar to peptidoglycan, but chemically distinct. Most archaea, though, rely on a different structure for support, as you'll see later in this chapter.
 
-In monoderm bacteria like this Listeria monocytogenes, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which can't be seen individually at the resolution of this image, so the cell wall appears as a uniformly textured layer [More: Peptidoglycan architecture](#Peptidoglycan_architecture). It's still a mystery how large molecules can pass through this dense layer on their way to and from the cell. Not all bacterial cell walls are chemically identical [More: Methanobacterium formicicum](#). And in some conditions, cells can lose their walls [More: L-form bacteria](#).
+In monoderm bacteria like this Listeria monocytogenes, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which can't be seen individually at the resolution of this image, so the cell wall appears as a uniformly textured layer [More: Peptidoglycan architecture](#Peptidoglycan_architecture). It's still a mystery how large molecules can pass through this dense layer on their way to and from the cell. Not all bacterial cell walls are chemically identical [More: Methanobacterium formicicum](#). And in some conditions, cells can lose their walls [Schematic - L-form bacteria].
 
-```{R 10.22002/1351, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_2_Lmonocytogenes.jpg' , fig.cap= 'Listeria monocytogenes Collected by: Ariane Briegel [10.22002/D1.1351](https://doi.org/10.22002/D1.1351)'}
 library(doivideo)
-doivideo('10.22002/1351',0)
+doivideo('10.22002/D1.1351',0)
 ```
 
 ### Bacillus subtilis {#Peptidoglycan_architecture}
@@ -52,14 +52,14 @@ The sacculus is so robust that it persists even after cells are lysed and their 
 #These methane-producing bacteria, found in the rumen of animals like cows, have a cell wall with a slightly different chemical composition than peptidoglycan, but a similar structure.
 ---
 
-```{R 10.22002/1360, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_2a_Bsubtilis.jpg' , fig.cap= 'Bacillus subtilis Collected by: Morgan Beeby [10.22002/D1.1360](https://doi.org/10.22002/D1.1360)'}
 library(doivideo)
-doivideo('10.22002/1360',0)
+doivideo('10.22002/D1.1360',0)
 ```
 
-### L-form bacteria
-```{R 2-2-1, fig.cap="L-form bacteria"}
-knitr::include_graphics("img/02_schematic/2_2_1_L_form_bacteria.jpeg")
+### L-form bacteria {#L-form_bacteria}
+```{R}
+knitr::include_graphics('img/02_schematic/2_2_1_L_form_bacteria.jpeg')
 ```
 
 There is no universal adaptation in Nature; advantages in one environment can become liabilities in another. This concept is exemplified by an adaptation of some bacteria which lose their cell walls in certain conditions, such as in the presence of antibiotics (the cell wall is a common target of antibiotics). This state is called the L-form (named for the Lister Institute where it were discovered). As you can see in these Bacillus subtilis, cells in this state are pleomorphic, exhibiting a variety of sizes and shapes. As you would expect, L-form cells are more sensitive to environmental conditions. In the lab, they're protected from lysis by increasing the osmotic pressure of the environment, for instance by adding sucrose. The environment in your body, though, would have the same effect, as we discussed for Mycoplasma genitalium.  L-form bacteria are interesting for many reasons (including human health), one of which is that they give us a fascinating window into how early cells – prior to the evolution of the cell wall – might have looked and behaved.
@@ -68,16 +68,16 @@ There is no universal adaptation in Nature; advantages in one environment can be
 
 Why stop at one membrane, though? Think about how the bacteria you've just seen compare with eukaryotic cells. The eukaryotic cells are much larger (maybe 100-1,000 times larger in volume), and they contain many internal membranes that form specialized subcompartments, like the nucleus and mitochondria. Bacteria and archaea don't have membrane-bound organelles inside, but in fact many bacteria do create an additional compartment outside the cell with another, outer, membrane. These bacteria, like the Cupriavidus necator cell you see here, are called diderms ("double skin"). The extra compartment between their membranes is known as the periplasm ("mold between"). This antechamber contains a unique subset of proteins, many of which function in escorting things into and out of the main cell, as you'll see in later chapters.
 
-Compared to the inner membrane, the outer membrane has some unique properties! It is more permeable and not proton-tight (so it can't be used to generate ATP). It is often asymmetric, with a different composition of lipids and proteins in each of the two leaflets. The outer membrane is anchored to the sacculus [Schematic – Braun's lipoprotein](#fig:2-3-1). And the sacculus itself is different. Rather than containing many layers of peptidoglycan like in the Listeria monocytogenes cell you just saw, the diderm sacculus consists largely of a single-layered peptidoglycan mesh [More: Diderm sacculus architecture](#Diderm_sacculus_architecture), which you can see here as a thin line in the periplasm. This difference in the sacculus enables a well-known bacterial classification system: the Gram stain, which binds peptidoglycan. Gram-positive cells, typically monoderm, contain much more peptidoglycan than Gram-negative cells, which are typically diderm. Thinking about this thin defense against turgor pressure underscores a major challenge for cell growth. To insert new material, existing bonds in the sacculus must be broken, without bursting the cell in the process [Schematic – Sacculus remodeling](#fig:2-3-2).
+Compared to the inner membrane, the outer membrane has some unique properties! It is more permeable and not proton-tight (so it can't be used to generate ATP). It is often asymmetric, with a different composition of lipids and proteins in each of the two leaflets. The outer membrane is anchored to the sacculus [Schematic – Braun's lipoprotein](#Brauns_lipoprotein). And the sacculus itself is different. Rather than containing many layers of peptidoglycan like in the Listeria monocytogenes cell you just saw, the diderm sacculus consists largely of a single-layered peptidoglycan mesh [More: Diderm sacculus architecture](#Diderm_sacculus_architecture), which you can see here as a thin line in the periplasm. This difference in the sacculus enables a well-known bacterial classification system: the Gram stain, which binds peptidoglycan. Gram-positive cells, typically monoderm, contain much more peptidoglycan than Gram-negative cells, which are typically diderm. Thinking about this thin defense against turgor pressure underscores a major challenge for cell growth. To insert new material, existing bonds in the sacculus must be broken, without bursting the cell in the process [Schematic – Sacculus remodeling](#Sacculus_remodeling).
 
-```{R 10.22002/1352, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_3_Hcrunogenus.jpg' , fig.cap= 'Hydrogenovibrio crunogenus Collected by: Cristina Iancu [10.22002/D1.1352](https://doi.org/10.22002/D1.1352)'}
 library(doivideo)
-doivideo('10.22002/1352',0)
+doivideo('10.22002/D1.1352',0)
 ```
 
-### Braun's lipoprotein
-```{R 2-3-1, fig.cap="Braun's lipoprotein"}
-knitr::include_graphics("img/02_schematic/2_3_1_BLP.png")
+### Braun's lipoprotein {#Brauns_lipoprotein}
+```{R}
+knitr::include_graphics('img/02_schematic/2_3_1_BLP.png')
 ```
 
 Lipoproteins are hybrid molecules, formed by covalently linked lipid and protein pieces. The lipid allows them to embed into a membrane, tethering the attached protein to function nearby. Braun's lipoprotein, which is one of the most abundant molecules in the outer membrane of cells like Escherichia coli, uses its tethered protein portion to bind the peptidoglycan cell wall, creating a link between the outer membrane and the cell wall (adding up, for a typical E. coli cell, to about 100,000 links). These links determine the distance between these two components. Not all diderms use Braun's lipoprotein, though, and some bacteria have notably labile outer membranes [More: Outer membrane lability](#).
@@ -85,14 +85,14 @@ Lipoproteins are hybrid molecules, formed by covalently linked lipid and protein
 ### Escherichia coli {#Diderm_sacculus_architecture}
 Compare this diderm sacculus purified from Escherichia coli to the monoderm sacculus on the last page. Since this one is thinner; we can make out more details. Instead of inferring how the glycan strands are oriented, we can now see them running around the circumference of the cell. The main difference between the two types of sacculi seems to be whether they have largely a single layer of peptidoglycan (diderm) or many layers (monoderm). So even though the two cell walls look different, their architecture is fundamentally the same. In some circumstances, cells can even switch between the two forms, as you'll see in Chapter 7.
 
-```{R 10.22002/1362, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_3a_Ecoli.jpg' , fig.cap= 'Escherichia coli Collected by: Lu Gan [10.22002/D1.1362](https://doi.org/10.22002/D1.1362)'}
 library(doivideo)
-doivideo('10.22002/1362',0)
+doivideo('10.22002/D1.1362',0)
 ```
 
-### Sacculus remodeling
-```{R 2-3-2, fig.cap="Sacculus remodeling"}
-knitr::include_graphics("img/02_schematic/2_3_2_SacculusRemodeling.jpg")
+### Sacculus remodeling {#Sacculus_remodeling}
+```{R}
+knitr::include_graphics('img/02_schematic/2_3_2_SacculusRemodeling.jpg')
 ```
 
 Encasing your cell in a rigid scaffold presents a problem: how can it grow? It's easy to make membranes larger simply by adding more lipids. But to add more peptidoglycan strands, they have to be linked into the existing network, which means breaking existing links to accommodate them. In fact, cells remodel their sacculi with the tools you'd expect: an enzyme that links glycan sugars into strands, an enzyme that links strands together with peptide bonds, and an enzyme that cuts these peptide links. Remember, though, that your cell, with its solute-rich interior, has a turgor pressure pushing outward with a force of maybe 3 atmospheres, equivalent to what we would feel at a depth of 20 meters in the ocean. This is more than enough to lyse an exposed bacterial membrane. So these tools must be used carefully to ensure that the cell doesn't burst. We're still figuring out exactly how this works, with help from computer simulations like this one. Here you see a model of an Escherichia coli sacculus being enlarged using the three enzyme tools we just described. This simulation was run to test whether just having the tools function in a complex rather than separately might give enough coordination for smooth, safe growth. (The answer was yes.)
@@ -114,25 +114,25 @@ What else can you do with an extra membrane? Since membranes make excellent cont
 
 Not all diderms produce outer membrane vesicles, and even for the ones that do, we still don't know exactly how they do it. Maybe it happens spontaneously due to the physics of lipids and proteins in a certain configuration. Or maybe there's a dedicated protein machine in the membrane, blowing bubbles. Some archaea (monoderms) also produce membrane vesicles. They're less studied than their bacterial counterparts, but likely serve similar roles in metabolism and community interactions.
 
-```{R 10.22002/1353, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_4_Bburgdorferi.jpg' , fig.cap= 'Borrelia burgdorferi Collected by: Ariane Briegel [10.22002/D1.1353](https://doi.org/10.22002/D1.1353)'}
 library(doivideo)
-doivideo('10.22002/1353',0)
+doivideo('10.22002/D1.1353',0)
 ```
 
 ### Borrelia burgdorferi {#Vesicle_morphologies}
 Different species can produce outer membrane vesicles that look very different. The same species can also produce vesicles that look very different. Sometimes they come off the cell as a chain of spheres; sometimes the spheres remain connected, like a string of pearls; sometimes vesicles form long tubes instead, like from this Borrelia burgdorferi cell. Sometimes the same chain can be tubular in one section (usually at the base, connected to the cell), and a string of spheres in another.
 
-```{R 10.22002/1363, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_4a_Bburgdorferi.jpg' , fig.cap= 'Borrelia burgdorferi 2 Collected by: Ariane Briegel [10.22002/D1.1363](https://doi.org/10.22002/D1.1363)'}
 library(doivideo)
-doivideo('10.22002/1363',0)
+doivideo('10.22002/D1.1363',0)
 ```
 
 ### Myxococcus xanthus {#Inner_membrane_vesicles}
 Not all vesicles come from the outer membrane. The cytoplasmic or inner membrane can also form vesicles that are released into the cytoplasm, as in this Myxococcus xanthus cell, or into the periplasm. This seems to be a less regulated process than outer membrane vesicle formation, and we see it in many species when they are stressed by low nutrients or high cell density, suggesting that it is a general phenomenon. Cells shrink in harsh conditions (more on that in Chapter 7), so cytoplasmic or periplasmic vesicles may simply offer a place to put the extra membrane or, more optimistically, to store it until the time comes to grow again. Just as with outer membrane vesicles, the appearance of cytoplasmic vesicles can vary widely [More: Cytoplasmic vesicle variety](#Cytoplasmic_vesicle_variety).
 
-```{R 10.22002/1364, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_4b_Mxanthus.jpg' , fig.cap= 'Myxococcus xanthus Collected by: Matthew Swulius [10.22002/D1.1364](https://doi.org/10.22002/D1.1364)'}
 library(doivideo)
-doivideo('10.22002/1364',0)
+doivideo('10.22002/D1.1364',0)
 ```
 
 ### Prosthecobacter debontii {#Cytoplasmic_vesicle_variety}
@@ -145,25 +145,25 @@ This cell also has unusual structures on its surface that have yet to be identif
 #[Substitute with Clostridium thermocellum?]
 ---
 
-```{R 10.22002/1365, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_4c_Pdebontii.jpg' , fig.cap= 'Prosthecobacter debontii Collected by: Martin Pilhofer [10.22002/D1.1365](https://doi.org/10.22002/D1.1365)'}
 library(doivideo)
-doivideo('10.22002/1365',0)
+doivideo('10.22002/D1.1365',0)
 ```
 
 ## Mycoplasma marinum
 
-Evolution is endlessly creative, providing exceptions to nearly every classification rule. We've just described a neat breakdown of bacteria into monoderms (one membrane, thick sacculus, positive Gram stain) and diderms (two membranes, thin sacculus, negative Gram stain). But some cells, like this Mycobacterium marinum, defy classification. Mycobacteria are diderm, with an inner and an outer membrane, and a cell wall. But they have unique molecules (named mycolic acids in their honor) in the outer membrane. These acids interfere with Gram staining, yielding an intermediate result between positive and negative. And their sacculus consists of three layers, each with a unique molecular composition [Schematic – Mycobacterial architecture](#fig:2-5-1). In this case, the middle layer is the familiar peptidoglycan.
+Evolution is endlessly creative, providing exceptions to nearly every classification rule. We've just described a neat breakdown of bacteria into monoderms (one membrane, thick sacculus, positive Gram stain) and diderms (two membranes, thin sacculus, negative Gram stain). But some cells, like this Mycobacterium marinum, defy classification. Mycobacteria are diderm, with an inner and an outer membrane, and a cell wall. But they have unique molecules (named mycolic acids in their honor) in the outer membrane. These acids interfere with Gram staining, yielding an intermediate result between positive and negative. And their sacculus consists of three layers, each with a unique molecular composition [Schematic – Mycobacterial architecture](#Mycobacterial_architecture). In this case, the middle layer is the familiar peptidoglycan.
 
 When you look at the schematic, you'll see another layer outside the outer membrane. This layer, the capsule, isn't visible in the movie of the cell, though. It is made up of "Extracellular Polymeric Substance," abbreviated EPS, or long chains of sugars, sometimes linked to the outer membrane and sometimes free-floating. These sugars don't interact strongly with electrons, so the capsule is usually invisible by electron microscopy. But in fact, many bacteria (mostly diderm, but also some monoderm) have a capsule. The capsule can help bacteria attach onto surfaces and offers an extra layer of protection, trapping water to prevent desiccation and making it more difficult for hydrophobic molecules like detergents to get through to disrupt the membranes. It also makes it more difficult for viruses to reach the cell, and for eukaryotic "predators" like macrophages to eat it.
 
-```{R 10.22002/1354, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_5_Mmarinum.jpg' , fig.cap= 'Mycobacterium marinum Collected by: Elitza Tocheva [10.22002/D1.1354](https://doi.org/10.22002/D1.1354)'}
 library(doivideo)
-doivideo('10.22002/1354',0)
+doivideo('10.22002/D1.1354',0)
 ```
 
-### Mycobacterial architecture
-```{R 2-5-1, fig.cap="Mycobacterial architecture"}
-knitr::include_graphics("img/02_schematic/2_5_1_Mycobacteria.png")
+### Mycobacterial architecture {#Mycobacterial_architecture}
+```{R}
+knitr::include_graphics('img/02_schematic/2_5_1_Mycobacteria.png')
 ```
 
 A unique architecture encloses Mycobacterial cells. Note the outer membrane, with lipids only in the outer leaflet, and mycolic acids forming the inner. Note also the multiple strata of sugars in the cell wall. Also note the capsule depicted outside the outer membrane.
@@ -172,16 +172,16 @@ A unique architecture encloses Mycobacterial cells. Note the outer membrane, wit
 
 How else can you protect your cell from the rigors of a harsh world? What about encasing it in an armored shell a la the armadillo? Many bacteria (both monoderms and diderms) and archaea use modular proteins for this purpose, interlocking Lego-block-like pieces into a shell called the Surface Layer, or S-layer. You can guess that this must offer a significant evolutionary advantage since up to 15% of the total protein in the cell can be found in the structure. In fact, S-layers play many roles for cells, some of which you'll see on the next page, but one of their main functions is as a gatekeeper, preventing large things like viruses from reaching the membrane.
 
-S-layers are crystalline lattices, and they can be striking in appearance, as on this Caulobacter crescentus cell. Amazingly, the lattice is made from (many copies of) a single protein [Schematic – S-layer architecture](#fig:2-6-1). The pinwheel-like subunits interact laterally, leaving pores large enough for nutrients to pass through, but not large enough for viruses. The modular nature of the lattice means that units can be popped in as the cell grows, or popped out to allow a cell appendage to poke through. In general, S-layers are quite accommodating; they don't even interfere with the production of outer membrane vesicles [More: Nanopods](#Nanopods). S-layer proteins can also be modified to alter their properties; for instance attachment of a sugar can enable them to stick the cell to a surface.
+S-layers are crystalline lattices, and they can be striking in appearance, as on this Caulobacter crescentus cell. Amazingly, the lattice is made from (many copies of) a single protein [Schematic – S-layer architecture](#S-layer_architecture). The pinwheel-like subunits interact laterally, leaving pores large enough for nutrients to pass through, but not large enough for viruses. The modular nature of the lattice means that units can be popped in as the cell grows, or popped out to allow a cell appendage to poke through. In general, S-layers are quite accommodating; they don't even interfere with the production of outer membrane vesicles [More: Nanopods](#Nanopods). S-layer proteins can also be modified to alter their properties; for instance attachment of a sugar can enable them to stick the cell to a surface.
 
-```{R 10.22002/1355, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_6_Ccrescentus.jpg' , fig.cap= 'Caulobacter crescentus Collected by: Ariane Briegel [10.22002/D1.1355](https://doi.org/10.22002/D1.1355)'}
 library(doivideo)
-doivideo('10.22002/1355',0)
+doivideo('10.22002/D1.1355',0)
 ```
 
-### S-layer architecture
-```{R 2-6-1, fig.cap="S-layer architecture"}
-knitr::include_graphics("img/02_schematic/2_6_1_SLayerTop.png")
+### S-layer architecture {#S-layer_architecture}
+```{R}
+knitr::include_graphics('img/02_schematic/2_6_1_SLayerTop.png')
 ```
 
 A single protein forms the S-layer you just saw in Caulobacter crescentus. The protein has two domains. The bottom domain anchors to lipoproteins attached to the outer membrane. The top domain forms the canopy of the S-layer, organizing hierarchically into hexameric rosettes like this that in turn pack into a larger hexameric lattice. This lattice is flexible enough to curve around even narrow regions of the cell (more on this stalk in Chapter 3).
@@ -190,9 +190,9 @@ A single protein forms the S-layer you just saw in Caulobacter crescentus. The p
 ### Delftia acidovorans {#Nanopods}
 Archaea and diderm bacteria with S-layers produce characteristic outer membrane vesicles: they bud off with the S-layer attached. Delftia acidovorans, like this produce so-called nanopods: chains of outer membrane vesicles ensheathed in S-layer.
 
-```{R 10.22002/1366, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_6a_Dacidovorans.jpg' , fig.cap= 'Delftia acidovorans Collected by: Elitza Tocheva [10.22002/D1.1366](https://doi.org/10.22002/D1.1366)'}
 library(doivideo)
-doivideo('10.22002/1366',0)
+doivideo('10.22002/D1.1366',0)
 ```
 
 ## Sulfolobus solfataricus
@@ -203,9 +203,9 @@ S-layers are very common in archaea like this cell. Most archaea don't have cell
 
 
 
-```{R 10.22002/1356, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_7_Ssolfataricus.jpg' , fig.cap= 'Sulfolobus solfataricus Collected by: Lu Gan [10.22002/D1.1356](https://doi.org/10.22002/D1.1356)'}
 library(doivideo)
-doivideo('10.22002/1356',0)
+doivideo('10.22002/D1.1356',0)
 ```
 
 ### Methylomicrobium alcaliphilum {#M._alcaliphilum}
@@ -217,17 +217,17 @@ In Methylomicrobium alcaliphilum, V-shaped S-layer proteins come together to for
 #Not only diderm bacteria have S-layers, as you can see on this Clostridium thermocellum cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
 ---
 
-```{R 10.22002/1367, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_7a_Malcaliphilum.jpg' , fig.cap= 'Methylomicrobium alcaliphilum Collected by: Songye Chen [10.22002/D1.1367](https://doi.org/10.22002/D1.1367)'}
 library(doivideo)
-doivideo('10.22002/1367',0)
+doivideo('10.22002/D1.1367',0)
 ```
 
 ### Nitrosopumilis maritimus {#N._maritimus}
 In Nitrosopumilis maritimus, S-layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
 
-```{R 10.22002/1368, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_7c_Nmaritimus.jpg' , fig.cap= 'Nitrosopumilis maritimus Collected by: Rasika Ramdasi [10.22002/D1.1368](https://doi.org/10.22002/D1.1368)'}
 library(doivideo)
-doivideo('10.22002/1368',0)
+doivideo('10.22002/D1.1368',0)
 ```
 
 ### Methanoregula formicica {#Methanoregula_formicica}
@@ -237,9 +237,9 @@ doivideo('10.22002/1368',0)
 
 
 
-```{R 10.22002/1369, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_7d_Mformicica.jpg' , fig.cap= 'Methanoregula formicica Collected by: Ariane Briegel [10.22002/D1.1369](https://doi.org/10.22002/D1.1369)'}
 library(doivideo)
-doivideo('10.22002/1369',0)
+doivideo('10.22002/D1.1369',0)
 ```
 
 ## Methanospirillum hungatei
@@ -250,9 +250,9 @@ The rules of architecture remain the same, though. Just as in the bacterial cell
 
 
 
-```{R 10.22002/1357, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_8_Mhungatei.jpg' , fig.cap= 'Methanospirillum hungatei Collected by: Ariane Briegel [10.22002/D1.1357](https://doi.org/10.22002/D1.1357)'}
 library(doivideo)
-doivideo('10.22002/1357',0)
+doivideo('10.22002/D1.1357',0)
 ```
 
 ## Haloarcula argentinensis
@@ -265,9 +265,9 @@ Thin filaments of DNA, only about 2 nm wide, blend in with the dense cytoplasm o
 
 
 
-```{R 10.22002/1358, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_9_Hargentinensis.jpg' , fig.cap= 'Haloarcula argentinensis Collected by: Ariane Briegel [10.22002/D1.1358](https://doi.org/10.22002/D1.1358)'}
 library(doivideo)
-doivideo('10.22002/1358',0)
+doivideo('10.22002/D1.1358',0)
 ```
 
 ## Bdellovibrio bacteriovorus
@@ -276,8 +276,8 @@ Cells contain enormous amounts of DNA. The single, circular chromosome of this B
 
 At times, the nucleoid becomes easier to see. Imagine that you want to decrease gene expression in your cell. Don't worry yet about why – we'll discuss that in Chapter 8 – for now, just think about how. One approach is simply to pack the chromosome so tightly that the transcriptional machinery can't access the genes. That's what this cell is doing, condensing its nucleoid into a dense twisted braid we can easily visualize.
 
-```{R 10.22002/1359, echo=FALSE, screenshot.alt='img/02_static/2_1_Mgenitalium.jpg'}
+```{R echo=FALSE, screenshot.alt='img/2_10_Bbacteriovorus.jpg' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1359](https://doi.org/10.22002/D1.1359)'}
 library(doivideo)
-doivideo('10.22002/1359',0)
+doivideo('10.22002/D1.1359',0)
 ```
 

@@ -1,21 +1,21 @@
-DOI,movie
-10.22002/1350,2_1_Mgenitalium.mp4
-10.22002/1351,2_2_Lmonocytogenes.mp4
-10.22002/1352,2_3_Hcrunogenus.mp4
-10.22002/1353,2_4_Bburgdorferi.mp4
-10.22002/1354,2_5_Mmarinum.mp4
-10.22002/1355,2_6_Ccrescentus.mp4
-10.22002/1356,2_7_Ssolfataricus.mp4
-10.22002/1357,2_8_Mhungatei.mp4
-10.22002/1358,2_9_Hargentinensis.mp4
-10.22002/1359,2_10_Bbacteriovorus.mp4
-10.22002/1360,2_2a_Bsubtilis.mp4
-10.22002/1361,2_2c_Mformicicum.mp4
-10.22002/1362,2_3a_Ecoli.mp4
-10.22002/1363,2_4a_Bburgdorferi.mp4
-10.22002/1364,2_4b_Mxanthus.mp4
-10.22002/1365,2_4c_Pdebontii.mp4
-10.22002/1366,2_6a_Dacidovorans.mp4
-10.22002/1367,2_7a_Malcaliphilum.mp4
-10.22002/1368,2_7c_Nmaritimus.mp4
-10.22002/1369,2_7d_Mformicica.mp4
+DOI,movie,collector,title
+10.22002/D1.1350,2_1_Mgenitalium.mp4,Gregory Henderson,Mycoplasma genitalium
+10.22002/D1.1351,2_2_Lmonocytogenes.mp4,Ariane Briegel,Listeria monocytogenes
+10.22002/D1.1352,2_3_Hcrunogenus.mp4,Cristina Iancu,Hydrogenovibrio crunogenus
+10.22002/D1.1353,2_4_Bburgdorferi.mp4,Ariane Briegel,Borrelia burgdorferi
+10.22002/D1.1354,2_5_Mmarinum.mp4,Elitza Tocheva,Mycobacterium marinum
+10.22002/D1.1355,2_6_Ccrescentus.mp4,Ariane Briegel,Caulobacter crescentus
+10.22002/D1.1356,2_7_Ssolfataricus.mp4,Lu Gan,Sulfolobus solfataricus
+10.22002/D1.1357,2_8_Mhungatei.mp4,Ariane Briegel,Methanospirillum hungatei
+10.22002/D1.1358,2_9_Hargentinensis.mp4,Ariane Briegel,Haloarcula argentinensis
+10.22002/D1.1359,2_10_Bbacteriovorus.mp4,Yi-Wei Chang,Bdellovibrio bacteriovorus
+10.22002/D1.1360,2_2a_Bsubtilis.mp4,Morgan Beeby,Bacillus subtilis
+10.22002/D1.1361,2_2c_Mformicicum.mp4,Elitza Tocheva,Methanobacterium formicicum
+10.22002/D1.1362,2_3a_Ecoli.mp4,Lu Gan,Escherichia coli
+10.22002/D1.1363,2_4a_Bburgdorferi.mp4,Ariane Briegel,Borrelia burgdorferi 2
+10.22002/D1.1364,2_4b_Mxanthus.mp4,Matthew Swulius,Myxococcus xanthus
+10.22002/D1.1365,2_4c_Pdebontii.mp4,Martin Pilhofer,Prosthecobacter debontii
+10.22002/D1.1366,2_6a_Dacidovorans.mp4,Elitza Tocheva,Delftia acidovorans
+10.22002/D1.1367,2_7a_Malcaliphilum.mp4,Songye Chen,Methylomicrobium alcaliphilum
+10.22002/D1.1368,2_7c_Nmaritimus.mp4,Rasika Ramdasi,Nitrosopumilis maritimus
+10.22002/D1.1369,2_7d_Mformicica.mp4,Ariane Briegel,Methanoregula formicica
