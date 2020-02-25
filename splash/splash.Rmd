@@ -1,5 +1,4 @@
 ---
-title: "Cell Atlas"
 output: 
   html_document:
     theme: null
@@ -10,6 +9,8 @@ output:
       before_body: header.html
       after_body: footer.html
 ---
+
+![](HeaderImage.jpg)
 
 # Coming Soon
 
