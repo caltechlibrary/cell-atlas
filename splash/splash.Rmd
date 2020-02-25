@@ -12,6 +12,8 @@ output:
 
 ![](HeaderImage.jpg)
 
+A visual tour of the microbial cell
+
 # Coming Soon
 
 
