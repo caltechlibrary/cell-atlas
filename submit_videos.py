@@ -3,7 +3,7 @@ import os, json, csv, datetime
 # from datacite import DataCiteMDSClient,schema40
 from caltechdata_api import caltechdata_write
 
-filename = "02_Metadata.csv"
+filename = "MovieMetadata.csv"
 
 # Get access token from TIND sed as environment variable with source token.bash
 token = os.environ["TINDTOK"]
@@ -28,6 +28,7 @@ with open(filename, encoding="utf-8-sig") as csvfile:
     for row in reader:
         if row["Filename"] not in existing:
             fnames = ["videos/" + row["Filename"]]
+            print(fnames)
 
             metadata = {}
 
@@ -64,10 +65,13 @@ with open(filename, encoding="utf-8-sig") as csvfile:
                 split = names[count].split(" ")
                 contributor["familyName"] = split[-1]
                 contributor["givenName"] = " ".join(split[0:-1])
-                contributor["contributorType"] = roles[count]
+                role = roles[count].strip()
+                if role == 'Data Collector':
+                    contributor["contributorType"] = 'DataCollector'
+                    contributor_string = contributor_string + names[count].strip()
+                if role == 'Data Curator':
+                    contributor["contributorType"] = 'DataCurator'
                 contributors.append(contributor)
-                if roles[count] == 'Data Collector':
-                    contributor_string = contributor_string + names[count]
             metadata["contributors"] = contributors
 
             # title
@@ -99,7 +103,6 @@ with open(filename, encoding="utf-8-sig") as csvfile:
                 {"funderName": "Agouron Institute"},
                 {"funderName": "John Templeton Foundation"},
                 ]
-            metadata["embargo_date"] = "2020-12-31"
 
             # description
             metadata["descriptions"] = [
@@ -115,8 +118,8 @@ with open(filename, encoding="utf-8-sig") as csvfile:
                 ]
 
             response = caltechdata_write(metadata, token, fnames, production)
+            print(response)
             if 'Successfully' not in response:
-                print(response)
                 exit()
             else:
                 rec_id = response.split('/')[-1].split('.')[0]

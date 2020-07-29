@@ -3,19 +3,19 @@ import os, json, csv, datetime
 from datacite import DataCiteMDSClient,schema40
 from caltechdata_api import caltechdata_edit, caltechdata_unembargo
 
-filename = "02_Metadata.csv"
+filename = "Temp_Metadata.csv"
 
 # Get access token from TIND sed as environment variable with source token.bash
 token = os.environ["TINDTOK"]
 
 production = True
 
-counter = 1350
+counter = 1462
 
 with open(filename, encoding="utf-8-sig") as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        if row["Filename"] != '2_1_Mgenitalium.mp4':
+        if row["Filename"] != 'LALA.mp4':
             fnames = ["videos/" + row["Filename"]]
 
             metadata = {}
@@ -109,7 +109,7 @@ with open(filename, encoding="utf-8-sig") as csvfile:
             #print(response)
             #response = caltechdata_edit(token, counter, metadata, fnames, {'mp4'}, production)
             #print(response)
-            valid =  schema40.validate(metadata)
+            #valid =  schema40.validate(metadata)
             #Debugging if verification fails
             #if valid == False:
             #    v = schema40.validator.validate(metadata)
