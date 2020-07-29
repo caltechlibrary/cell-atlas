@@ -71,7 +71,13 @@ for filen in args.chapter_file:
             split = line.split('_')
             number = split[0].split('[')[1]
             cleaned = split[1].replace(']','')
-            split = cleaned.split('More:')
+            if 'More:' in cleaned:
+                split = cleaned.split('More:')
+            elif 'More-' in cleaned:
+                split = cleaned.split('More:')
+            else:
+                print(f'missing line: {cleaned}')
+                exit()
             section = split[0]
             link = split[1].strip()
             short_link = link.replace(' ','_').replace("'","")
@@ -88,7 +94,11 @@ for filen in args.chapter_file:
             doi = ''
             split = line.split(' ')
             schema_num = split[0]
-            split = line.split('Schematic:')
+            if 'Schematic:' in line:
+                split = line.split('Schematic:')
+            else:
+                print(f'missing schematic {line}')
+                exit()
             schema_name = split[1].strip()
             file_path = glob.glob('img/'+chapter_number+'_schematic/'+schema_num+'*')
             short_name = schema_name.replace(' ','_').replace("'","")
