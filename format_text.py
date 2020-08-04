@@ -11,7 +11,8 @@ def insert_movie(doi):
     collector = doi['collector']
     filev = doi['movie']
     title = doi['title']
-    image_path = 'img/'+filev.split('.mp4')[0]+'.jpg'
+    split = filev.split('_')
+    image_path = f'movie_stills/{split[0]}_{split[1]}.png'
     return "```{R echo=FALSE, screenshot.alt='"+\
             image_path+"' , fig.cap= '"+title+" Collected by: "+collector+\
             " ["+doiv+"](https://doi.org/"+doiv+\
@@ -57,8 +58,8 @@ for filen in args.chapter_file:
             if doi != '':
                 working_copy.append(insert_movie(doi))
             split = line.split('_')
-            number = split[0].split('[')[1]
-            section = split[1].replace(']','')
+            number = split[1]
+            section = line.split(']')[1].strip()
             working_copy.append('## '+section)
             movie_label = chapter_number.lstrip("0")+'_'+number
             if movie_label in dois:
@@ -69,12 +70,12 @@ for filen in args.chapter_file:
             if doi != '':
                 working_copy.append(insert_movie(doi))
             split = line.split('_')
-            number = split[0].split('[')[1]
-            cleaned = split[1].replace(']','')
+            number = split[1]
+            cleaned = split[2]
             if 'More:' in cleaned:
                 split = cleaned.split('More:')
             elif 'More-' in cleaned:
-                split = cleaned.split('More:')
+                split = cleaned.split('More-')
             else:
                 print(f'missing line: {cleaned}')
                 exit()
@@ -100,7 +101,7 @@ for filen in args.chapter_file:
                 print(f'missing schematic {line}')
                 exit()
             schema_name = split[1].strip()
-            file_path = glob.glob('img/'+chapter_number+'_schematic/'+schema_num+'*')
+            file_path = glob.glob('img/schematics/'+schema_num+'*')
             short_name = schema_name.replace(' ','_').replace("'","")
             schema_mapping[schema_name] = short_name
             if len(file_path)>1:
@@ -111,6 +112,13 @@ for filen in args.chapter_file:
             else:
                 print("Matched no files")
                 working_copy.append(line)
+        # References
+        elif re.search(r"^#" ,line):
+            #Put in movie from last section
+            if doi != '':
+                working_copy.append(insert_movie(doi))
+            doi = ''
+            working_copy.append(line)
         else:
             working_copy.append(line)
     #Put in movie from last section
