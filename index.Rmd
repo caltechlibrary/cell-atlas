@@ -1,6 +1,6 @@
 --- 
-title: "Cell Atlas"
-author: "Jensen Lab"
+title: "Atlas of Bacterial and Archaeal Cell Structure"
+author: "Catherine M. Oikonomou and Grant J. Jensen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,8 +8,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib, AtlasBibTeX.bib]
 biblio-style: apalike
 link-citations: yes
-description: "An atlas produced by the Jensen Lab."
-cover-image: 'splash/HeaderImage.jpg'
+description: "A visual tour of the microbial cell."
+cover-image: 'img/AtlasLogo.png'
 always_allow_html: true
 ---
 
@@ -20,9 +20,9 @@ knitr::opts_chunk$set(echo = FALSE)
 # Introduction {-#introduction}
 
 “It is very easy to answer many of these fundamental biological questions; you just *look at the thing!*”
-- Richard Feynman @feynman1959
+- Richard Feynman [@feynman1959]
 
-In the 1960s, electron microscopes were opening a new window in biology, allowing scientists to look not just *at* cells, but *into* them. This revealed a rich world of ultrastructures too small to resolve with light microscopes, including organelles inside eukaryotic cells. To share this new vista with scientists and medical students who did not have microscopes to look for themselves, authors like Don Fawcett @fawcett1966 and John Dodge @dodge1968 created atlases of electron microscopy images that remain valuable resources for biological and medical novices, as well as experts.
+In the 1960s, electron microscopes were opening a new window in biology, allowing scientists to look not just *at* cells, but *into* them. This revealed a rich world of ultrastructures too small to resolve with light microscopes, including organelles inside eukaryotic cells. To share this new vista with scientists and medical students who did not have microscopes to look for themselves, authors like Don Fawcett [@fawcett1966] and John Dodge [@dodge1968] created atlases of electron microscopy images that remain valuable resources for biological and medical novices, as well as experts.
 
 More than fifty years later, we are once again enjoying an expanded view of biology, thanks to another great advance in electron microscopy. The development of cryogenic electron microscopy, or cryoEM, allows us to look inside cells in their native state, without the sample dehydration, staining and resin-embedding required previously. This has opened up even the smallest cells for examination, and revealed some surprising things. In particular, bacteria and archaea, orders of magnitude smaller than eukaryotic cells and lacking prominent organelles, previously seemed to be relatively unstructured bags of nucleic acids and protein. In the last decade, cryoEM has challenged this idea, revealing a startling degree of structure in these tiny cells. And so, inspired by the atlases of eukaryotic cell structure from the 1960s, we offer an atlas of bacterial and archaeal cell structure.
 
@@ -34,15 +34,15 @@ If you are new to cryoEM, we suggest starting with Chapter 1, which describes th
 library(doivideo)
 doivideo('10.22002/D1.1462',0)
 ```
-As Charles Darwin wrote in 1837, "I shall always feel respect for every one who has written a book, let it be what it may, for I had no idea of the trouble which trying to write common English could cost one" @darwin1888.  The task was made immeasurably easier for us by the help of many minds and hands [Acknowledgments].
+As Charles Darwin wrote in 1837, "I shall always feel respect for every one who has written a book, let it be what it may, for I had no idea of the trouble which trying to write common English could cost one" [@darwin1888].  The task was made immeasurably easier for us by the help of many minds and hands [Acknowledgments].
 
 
 ## Acknowledgments {-#acknowledgments}
 
 We are grateful to Rob Phillips, our colleague at Caltech, for introducing Grant to Fawcett's *Atlas* and encouraging him to create another. Readers of early drafts gave us useful feedback to improve this experience. In particular, we thank Lydia Jensen and Natalie Jensen, who served as test readers, as well as many past and present Jensen Lab members for advice and feedback. We are grateful to Ashley Jensen and Tony Kukavica for help with research. We are deeply grateful to Travis Alvarez, Camille Ogilvie, Natalie Jensen and Aditee Prabhutendolkar, who created most of the movies. And we are most grateful of all to our colleagues whose work at the microscope filled these pages. Click on their names throughout the book to learn a little bit more about them.
 
-All of the images in this book were acquired in the course of research projects. Major funding for these projects in the Jensen Lab has come from the National Institutes of Health (NIH), Howard Hughes Medical Institute, Beckman Institute, Gordon and Betty Moore Foundation, Agouron Institute, and John Templeton Foundation. Most of these projects were also collaborative, and we thank the researchers who provided the cells we imaged, from the laboratories of [list here…].
+All of the images in this book were acquired in the course of research projects. Major funding for these projects in the Jensen Lab has come from the National Institutes of Health (NIH), Howard Hughes Medical Institute, Beckman Institute, Gordon and Betty Moore Foundation, Agouron Institute, and John Templeton Foundation. Most of these projects were also collaborative, and we thank the researchers who provided the cells we imaged, from the groups of Gladys Alexandre, Yannick Bomble, Sean Crosson, Mike Dyall-Smith, Moh El-Naggar, Robert Gunsalus, Alan Hauser, Chris Hayes, Bill Hickey, Matthias Horn, Jack Johnson, Marina Kalyuzhnaya, Arash Komeili, Jared Leadbetter, Eric Matson, Sarkis Mazmanian, John Mekalanos, Dianne Newman, Victoria Orphan, Tracy Palmer, Kit Pogliano, Eric Reynolds, Carrie Shaffer, Nicholas Shikuma, Liz Sockett, Lotte Sogaard-Andersen, David Stahl, Ronald Taylor, Martin Thanbichler, Kasthuri Venkateswaran, Joseph Vogel, Matthew Waldor, Kylie Watts, Douglas Weibel, and Patricia Zambryski.
 
-We used the IMOD software package (developed by David Mastronarde, Rick Gaudette, Sue Held, Jim Kremer, Quanren Xiong, John Heumann and others at the University of Colorado with support from the NIH) to create and visualize tomographic datasets, and we are grateful to David Mastronarde for his tireless support of the software, including improving a function to help us make these movies. We used UCSF Chimera (developed by the Resource for Biocomputing, Visualization, and Informatics at the University of California, San Francisco, with support from NIH grant P41 GM103311) to create the visualizations of atomic models from the Worldwide Protein Data Bank (wwPDB). We thank Lam Nguyen for generating the atomic model of a lipid bilayer. Schematics and atomic models of proteins are the work of many labs; references appear at the end of each chapter, along with suggestions for further reading.
+We used the IMOD software package (developed by David Mastronarde, Rick Gaudette, Sue Held, Jim Kremer, Quanren Xiong, John Heumann and others at the University of Colorado with support from the NIH) to create and visualize tomographic datasets, and we are grateful to David Mastronarde for his tireless support of the software, including improving a function to help us make these movies. We used UCSF Chimera (developed by the Resource for Biocomputing, Visualization, and Informatics at the University of California, San Francisco, with support from NIH grant P41 GM103311) to create the visualizations of atomic models from the Worldwide Protein Data Bank (wwPDB). We generated and visualized the phylogenetic tree with phyloT and iTOL [@letunic2019]. We thank Lam Nguyen for generating the atomic model of a lipid bilayer. Schematics and atomic models of proteins are the work of many labs; references appear at the end of each chapter, along with suggestions for further reading.
 
-The Caltech Library, particularly Thomas Morrell, Kristin Briney, Stephen Davison, and Donna Wrublewski, supported and enabled our vision of open access publishing and we are enormously grateful for their work and ingenuity in creating a platform tailored to the content and our shared vision of open accessibility. The textbook is built on the bookdown platform from Rstudio @xie2016.
+The Caltech Library, particularly Thomas Morrell, Kristin Briney, Stephen Davison, and Donna Wrublewski, supported and enabled our vision of open access publishing and we are enormously grateful for their work and ingenuity in creating a platform tailored to the content and our shared vision of open accessibility. The textbook is built on the bookdown platform from Rstudio [@xie2016].
