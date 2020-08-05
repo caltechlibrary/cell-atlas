@@ -82,3 +82,5 @@ __pycache__
 .Rproj.user
 
 videos
+_book/cell-atlas.epub
+_book/cell-atlas.pdf
