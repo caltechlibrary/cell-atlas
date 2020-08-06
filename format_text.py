@@ -70,8 +70,8 @@ for filen in args.chapter_file:
             if doi != '':
                 working_copy.append(insert_movie(doi))
             split = line.split('_')
-            number = split[1]
-            cleaned = split[2]
+            number = split[0].replace('[','')
+            cleaned = split[1].replace(']','')
             if 'More:' in cleaned:
                 split = cleaned.split('More:')
             elif 'More-' in cleaned:
@@ -82,13 +82,14 @@ for filen in args.chapter_file:
             section = split[0]
             link = split[1].strip()
             short_link = link.replace(' ','_').replace("'","")
-            working_copy.append('### '+section+'{#'+short_link+'}')
+            working_copy.append('#### '+section+'{#'+short_link+'}')
             subsection_mapping[link]=short_link
             movie_label = chapter_number.lstrip("0")+'_'+number
             if movie_label in dois:
                 doi = dois[movie_label]
         # Schematics
-        elif re.search(r"^\d_" ,line):
+        elif line[0].isdigit():
+            print('schematic')
             #Put in movie from last section
             if doi != '':
                 working_copy.append(insert_movie(doi))
@@ -105,8 +106,9 @@ for filen in args.chapter_file:
             short_name = schema_name.replace(' ','_').replace("'","")
             schema_mapping[schema_name] = short_name
             if len(file_path)>1:
-                print("Matched multiple files")
-                working_copy.append(line)
+                #Use gif version
+                fname = 'img/schematics/'+schema_num+'.gif'
+                working_copy.append(insert_figure(fname,short_name,schema_name))
             elif len(file_path) == 1:
                 working_copy.append(insert_figure(file_path[0],short_name,schema_name))
             else:
@@ -119,6 +121,11 @@ for filen in args.chapter_file:
                 working_copy.append(insert_movie(doi))
             doi = ''
             working_copy.append(line)
+        #Quote at beginning
+        elif line[0] == "“":
+            working_copy.append('> '+line)
+        elif len(line) > 1 and line[1] == "“":
+            working_copy.append('> '+line[1:])
         else:
             working_copy.append(line)
     #Put in movie from last section

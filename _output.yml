@@ -1,9 +1,12 @@
+
 bookdown::gitbook:
   css: style.css
+  split_by: "section+number"
+  split_bib: False
   config:
     toc:
       before: |
-        <li><a href="./">Cell Atlas</a></li>
+        <li><a href="./">Bacterial and Archaeal Cell Atlas</a></li>
       after: |
         <li><a href="https://www.library.caltech.edu" target="blank">Published by Caltech Library</a><li>
       collapse: section
