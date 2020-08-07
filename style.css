@@ -1,4 +1,4 @@
-p.caption {
+.caption {
   color: #777;
   margin-top: 10px;
 }
@@ -12,6 +12,9 @@ pre {
 pre code {
   white-space: inherit;
 }
-.level4 {
-  background: #B0B0B0;
+.level3 {
+  background: #D3D3D3;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px;
 }

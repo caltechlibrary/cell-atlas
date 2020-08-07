@@ -32,7 +32,7 @@ library(doivideo)
 doivideo('10.22002/D1.1526',0)
 ```
 
-#### Bdellovibrio bacteriovorus {#Flagellar_motor_structure}
+### Flagellar motor structure{#Flagellar_motor_structure}
 This is an average of the flagellar motors from more than one thousand *Bdellovibrio bacteriovorus* cells. Working upward from the base, the major parts of the rotor are the C-ring (for <u>C</u>ytoplasmic), the MS-ring (for <u>M</u>embrane and <u>S</u>upramembrane), the rod, the hook, and finally the filament. They are surrounded by stationary parts: the stator ring (which is dynamic, so we cannot resolve the stators as they cross the inner membrane and connect to the C-ring) and a series of bushings that allow rotation within the cell wall (the <u>P</u>eriplasmic or P-ring) and outer membrane (<u>L</u>ipopolysaccharide or L-ring). Additional cytoplasmic components form the export apparatus, which is involved in assembly (discussed on the next page).
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/6_2a.png' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1537](https://doi.org/10.22002/D1.1537)'}
@@ -57,7 +57,7 @@ library(doivideo)
 doivideo('10.22002/D1.1527',0)
 ```
 
-#### Pseudomonas aeruginosa {#Flagellar_motor_disassembly}
+### Flagellar motor disassembly{#Flagellar_motor_disassembly}
 When flagella break (or in some species, like *Caulobacter crescentus*, are ejected so the cell can attach to a surface), the motor is disassembled, usually beginning with the export apparatus. Not everything is dismantled, though; the P- and L-rings remain in place in the cell wall and outer membrane, respectively, as you can see in this *Pseudomonas aeruginosa* cell. We do not know if the cell has a reason for leaving them there, but one possibility is that they may function as a plug for the outer membrane when the hook is no longer present.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/6_3a.png' , fig.cap= 'Pseudomonas aeruginosa Collected by: Ariane Briegel [10.22002/D1.1538](https://doi.org/10.22002/D1.1538)'}
@@ -73,7 +73,7 @@ library(doivideo)
 doivideo('10.22002/D1.1528',0)
 ```
 
-#### Helicobacter pylori {#Lophotrichous_bacteria}
+### Lophotrichous bacteria{#Lophotrichous_bacteria}
 Many lophotrichous species, like the *Hylemonella gracilis* you saw in Chapter 3–Length or this *Helicobacter pylori*, have a tuft of flagella at their cell pole. In some species, though, the tuft is located elsewhere; for example, a clump of flagella on the concave side of banana-shaped *Selenomonas artemidis* pushes the cells sideways in a seesawing swimming pattern.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/6_4a.png' , fig.cap= 'Helicobacter pylori Collected by: Yi-Wei Chang [10.22002/D1.1539](https://doi.org/10.22002/D1.1539)'}
@@ -89,7 +89,7 @@ library(doivideo)
 doivideo('10.22002/D1.1529',0)
 ```
 
-#### Proteus mirabilis {#Proteus_mirabilis_flagella}
+### Proteus mirabilis flagella{#Proteus_mirabilis_flagella}
 *Proteus mirabilis* adapt their motility machinery to their environment. In liquid, the short rod-shaped cells swim with the help of a handful of flagella distributed peritrichously around their cell body. When they encounter a solid surface, the cells elongate and build many more flagella, as you can see on this cell. Instead of swimming, they now use their flagella to propel themselves in groups across the surface, a motility mode known as “swarming.” This is an example of a differentiated lifecycle, which will come up again in Chapter 8.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/6_5a.png' , fig.cap= 'Proteus mirabilis Collected by: Qing Yao [10.22002/D1.1540](https://doi.org/10.22002/D1.1540)'}
@@ -113,7 +113,7 @@ library(doivideo)
 doivideo('10.22002/D1.1531',0)
 ```
 
-#### Treponema primitia {#Treponema_primitia}
+### Treponema primitia{#Treponema_primitia}
 *Treponema primitia* like this are commensal residents of the termite gut, helping break down cellulose. In addition to two periplasmic flagella, the cells have arrays of bowl- and hook-like structures on their surface, the function of which, likely related to motility, remains mysterious.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/6_7.png' , fig.cap= 'Borrelia burgdorferi Collected by: Ariane Briegel [10.22002/D1.1531](https://doi.org/10.22002/D1.1531)'}
@@ -145,7 +145,7 @@ library(doivideo)
 doivideo('10.22002/D1.1533',0)
 ```
 
-#### Thermococcus kodakaraensis {#Cone_structure}
+### Cone structure{#Cone_structure}
 The archaellar plate does not come to a point at the tip, but rather is a conical frustum (open at the top), resembling a lampshade. In the center of the tip is a small ring, as you can see in a top view in this lysed, flattened *Thermococcus kodakaraensis* cell. The function of the ring remains unknown; perhaps it helps nucleate the rest of the structure?
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/6_9a.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1542](https://doi.org/10.22002/D1.1542)'}
@@ -153,7 +153,7 @@ library(doivideo)
 doivideo('10.22002/D1.1542',0)
 ```
 
-#### Thermococcus kodakaraensis {#Organizing_center}
+### Organizing center{#Organizing_center}
 As you can see more clearly in this partially-lysed, flattened *Thermococcus kodakaraensis* cell, the conical plate in the cytoplasm is attached to more than just the archaella. It is also associated with chemosensory arrays (discussed in the next chapter) and DNA, as you can see from the ribosome-excluding zone. This structure may therefore perform an analogous function to bacterial organizing proteins such as PopZ, tethering cellular components into a *de facto* pole for the (in this case round) cell.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/6_9b.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1543](https://doi.org/10.22002/D1.1543)'}

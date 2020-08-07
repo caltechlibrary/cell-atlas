@@ -82,7 +82,7 @@ for filen in args.chapter_file:
             section = split[0]
             link = split[1].strip()
             short_link = link.replace(' ','_').replace("'","")
-            working_copy.append('#### '+section+'{#'+short_link+'}')
+            working_copy.append('### '+link+'{#'+short_link+'}')
             subsection_mapping[link]=short_link
             movie_label = chapter_number.lstrip("0")+'_'+number
             if movie_label in dois:

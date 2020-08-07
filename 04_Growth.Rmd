@@ -40,7 +40,7 @@ knitr::include_graphics('img/schematics/4_3_1.gif')
 *PDB: 6KGX*
 Light-harvesting photocomplexes can comprise hundreds of individual proteins and reach tens of nanometers in size, as you can see in this complex from a red alga (the machinery is closely related to that found in cyanobacteria) [@ma2020]. Physically tethering enzymes that function in the same pathway increases efficiency by allowing enzymes that catalyze subsequent steps to hand off substrates. You will see more examples of this theme in the following pages; metabolic enzymes in the cell often cluster together into relay teams.
 
-#### Methyloprofundus sedimenti {#ICM_variety}
+### ICM variety{#ICM_variety}
 In some species, like this *Methyloprofundus sedimenti*, the intracytoplasmic membrane is very extensive and appears to be fully separated from the cell membrane. As you can see, it occupies much of the cytoplasmic space.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/4_3a.png' , fig.cap= 'Methyloprofundus sedimenti Collected by: Elitza Tocheva [10.22002/D1.1499](https://doi.org/10.22002/D1.1499)'}
@@ -100,7 +100,7 @@ library(doivideo)
 doivideo('10.22002/D1.1495',0)
 ```
 
-#### Halothiobacillus neapolitanus {#Carboxysome_variety}
+### Carboxysome variety{#Carboxysome_variety}
 Most carboxysomes look like the ones you saw on the last page, but not all. Some are less regular polyhedra, as in this *Halothiobacillus neapolitanus* cell. And some are stranger still [More: Long carboxysomes](#Long_carboxysomes).
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/4_7a.png' , fig.cap= 'Halothiobacillus neapolitanus Collected by: Cristina Iancu [10.22002/D1.1500](https://doi.org/10.22002/D1.1500)'}
@@ -108,7 +108,7 @@ library(doivideo)
 doivideo('10.22002/D1.1500',0)
 ```
 
-#### Hydrogenovibrio crunogenus {#Long_carboxysomes}
+### Long carboxysomes{#Long_carboxysomes}
 The carboxysomes in this *Hydrogenovibrio crunogenus* have grown abnormally long, extending across the full width of the cell. These are unusual, but less dramatic elongations are common.
 
 This cell also highlights the lability in the outer membrane common in some bacterial species, particularly pathogens. Note how the cell has curled inside its loose outer membrane. You can also see part of it stretching across to another cell in a neighboring hole; they were probably just finishing division when they were pulled apart by sample preparation.
@@ -128,7 +128,7 @@ library(doivideo)
 doivideo('10.22002/D1.1496',0)
 ```
 
-#### Lysobacter antibioticus {#Storage_granule_growth}
+### Storage granule growth{#Storage_granule_growth}
 Storage granules expand and contract to accommodate their contents. This *Lysobacter antibioticus* cell exhibits a typical range of sizes of poly-phosphate granules.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/4_8a.png' , fig.cap= 'Lysobacter antibioticus Collected by: Morgan Beeby [10.22002/D1.1502](https://doi.org/10.22002/D1.1502)'}
@@ -148,7 +148,7 @@ library(doivideo)
 doivideo('10.22002/D1.1497',0)
 ```
 
-#### Hydrogenovibrio crunogenus {#Granule-containing_carboxysomes}
+### Granule-containing carboxysomes{#Granule-containing_carboxysomes}
 Small poly-phosphate storage granules are sometimes seen *inside* carboxysomes, as in this *Hydrogenovibrio crunogenus* cell. Their purpose is unknown.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/4_9a.png' , fig.cap= 'Hydrogenovibrio crunogenus Collected by: Cristina Iancu [10.22002/D1.1503](https://doi.org/10.22002/D1.1503)'}
@@ -156,7 +156,7 @@ library(doivideo)
 doivideo('10.22002/D1.1503',0)
 ```
 
-#### Halothiobacillus neapolitanus {#Carboxysomes-granule_connections}
+### Carboxysomes-granule connections{#Carboxysomes-granule_connections}
 We sometimes see comb-like structures connecting external poly-phosphate storage granules with carboxysomes, as in this *Halothiobacillus neapolitanus* cell. The nature of the relationship between the structures, and the identity and function of the combs, remains a mystery.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/4_9b.png' , fig.cap= 'Halothiobacillus neapolitanus Collected by: Cristina Iancu [10.22002/D1.1504](https://doi.org/10.22002/D1.1504)'}
@@ -172,7 +172,7 @@ library(doivideo)
 doivideo('10.22002/D1.1498',0)
 ```
 
-#### Haloferax gibbonsii {#Haloferax_gibbonsii_granules}
+### Haloferax gibbonsii granules{#Haloferax_gibbonsii_granules}
 Some archaeal cells, like this *Haloferax gibbonsii*, contain many small granules. We do not yet know what they store, but it may be a carbon source.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/4_10a.png' , fig.cap= 'Haloferax gibbonsii Collected by: Ariane Briegel [10.22002/D1.1505](https://doi.org/10.22002/D1.1505)'}
@@ -180,7 +180,7 @@ library(doivideo)
 doivideo('10.22002/D1.1505',0)
 ```
 
-#### Halohasta litchfieldiae {#Halohasta_litchfieldiae_granules}
+### Halohasta litchfieldiae granules{#Halohasta_litchfieldiae_granules}
 This *Halohasta litchfieldiae* cell has more unusual granules. The high electron-density (darkness) of these punctate structures suggests that they contain metal.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/4_10b.png' , fig.cap= 'Halohasta litchfieldiae Collected by: Zhuo Li [10.22002/D1.1506](https://doi.org/10.22002/D1.1506)'}

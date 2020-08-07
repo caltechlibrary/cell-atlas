@@ -1,6 +1,6 @@
 # Division
 "… la rêve de la bactérie : produire deux bactéries."
-*the dream of the bacterium: to generate two bacteria*
+\*the dream of the bacterium: to generate two bacteria*
 - François Jacob [@jacob2002a]
 
 ## Segregation
@@ -37,7 +37,7 @@ library(doivideo)
 doivideo('10.22002/D1.1509',0)
 ```
 
-#### Hyphomonas neptunium {#Hyphomonas_stalk}
+### Hyphomonas stalk{#Hyphomonas_stalk}
 *Hyphomonas neptunium* grow a single stalk from one end of their cell body, similar to the *Caulobacter crescentus* you saw in Chapter 3. The function of the stalk, though, is different in this budding bacterium than in *C. crescentus*, which divide by more conventional fission.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/5_3a.png' , fig.cap= 'Hyphomonas neptunium Collected by: Jian Shi [10.22002/D1.1519](https://doi.org/10.22002/D1.1519)'}
@@ -45,7 +45,7 @@ library(doivideo)
 doivideo('10.22002/D1.1519',0)
 ```
 
-#### Hyphomonas neptunium {#Hyphomonas_lifecycle}
+### Hyphomonas lifecycle{#Hyphomonas_lifecycle}
 *Hyphomonas neptunium* have evolved a program of stages they pass through in the course of their life. When a newborn cell like this one is released, it is in the "swarmer" stage, using its flagellum (discussed in the next chapter) to swim away to a new location. After a while, it settles down, jettisoning its flagellum and growing a stalk with which to make its own bud–the next generation. Once a cell settles down into the stalked stage, it spends the rest of its life sending off buds as long as conditions are good. Only newborn cells are equipped with flagella to go adventuring. We will discuss more lifecycles in Chapter 8.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/5_3b.png' , fig.cap= 'Hyphomonas neptunium Collected by: Jian Shi [10.22002/D1.1520](https://doi.org/10.22002/D1.1520)'}
@@ -79,7 +79,7 @@ library(doivideo)
 doivideo('10.22002/D1.1512',0)
 ```
 
-#### Sphingopyxis alaskensis {#Sphingopyxis_alaskensis_division}
+### Sphingopyxis alaskensis division{#Sphingopyxis_alaskensis_division}
 This diderm cell is about halfway through cytokinesis. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall are drawing in all around.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/5_6a.png' , fig.cap= 'Sphingopyxis alaskensis Collected by: Morgan Beeby [10.22002/D1.1521](https://doi.org/10.22002/D1.1521)'}
@@ -87,7 +87,7 @@ library(doivideo)
 doivideo('10.22002/D1.1521',0)
 ```
 
-#### Chloroflexi {#Chloroflexi_division}
+### Chloroflexi division{#Chloroflexi_division}
 This diderm cell is in the final stage of cytokinesis. The cytoplasm of the two daughter cells is completely separated by inner membrane and cell wall. The outer membrane, though, has not yet divided.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/5_6b.png' , fig.cap= 'Chloroflexi Collected by: Elitza Tocheva [10.22002/D1.1522](https://doi.org/10.22002/D1.1522)'}
@@ -103,7 +103,7 @@ library(doivideo)
 doivideo('10.22002/D1.1513',0)
 ```
 
-#### Caulobacter crescentus {#Caulobacter_division}
+### Caulobacter division{#Caulobacter_division}
 These daughter cells have completely separated their mother’s inner membrane and cell wall, but not yet the outer membrane and surface layer.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/5_7a.png' , fig.cap= 'Caulobacter crescentus Collected by: Qing Yao [10.22002/D1.1523](https://doi.org/10.22002/D1.1523)'}
@@ -133,7 +133,7 @@ library(doivideo)
 doivideo('10.22002/D1.1515',0)
 ```
 
-#### Cupriavidus necator {#Asymmetric_constriction}
+### Asymmetric constriction{#Asymmetric_constriction}
 This *C. necator* cell is at a late stage of cytokinesis. In most cells, constriction would be more or less uniform around the circumference by now, but in some cells, including this one, the asymmetry persists.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/5_9a.png' , fig.cap= 'Cupriavidus necator Collected by: Morgan Beeby [10.22002/D1.1524](https://doi.org/10.22002/D1.1524)'}

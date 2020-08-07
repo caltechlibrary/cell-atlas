@@ -26,7 +26,7 @@ library(doivideo)
 doivideo('10.22002/D1.1478',0)
 ```
 
-#### Brucella abortus {#Rod_variety}
+### Rod variety{#Rod_variety}
 Not all rod-shaped cells are perfectly cylindrical. For instance, *Brucella abortus* like this one are pear-shaped. This is one of the rod-shaped bacterial species that do not use MreB.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/3_2a.png' , fig.cap= 'Brucella abortus Collected by: Ariane Briegel [10.22002/D1.1484](https://doi.org/10.22002/D1.1484)'}
@@ -34,7 +34,7 @@ library(doivideo)
 doivideo('10.22002/D1.1484',0)
 ```
 
-#### Methanoregula formicica {#Archaeal_rods}
+### Archaeal rods{#Archaeal_rods}
 Some archaeal species, like this *Methanoregula formicica*, are rod-shaped. The rigid surface layer seems to help define the shape, but the details are still unknown.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/3_2b.png' , fig.cap= 'Methanoregula formicica Collected by: Ariane Briegel [10.22002/D1.1485](https://doi.org/10.22002/D1.1485)'}
@@ -80,7 +80,7 @@ library(doivideo)
 doivideo('10.22002/D1.1481',0)
 ```
 
-#### Borrelia burgdorferi {#Borrelia_burgdorferi}
+### Borrelia burgdorferi{#Borrelia_burgdorferi}
 *Borrelia burgdorferi* like this cell use the long filaments of their motility machinery (flagella, discussed in Chapter 6) as a kind of cytoskeleton. A bundle of flagella wraps around the cell in the periplasm, between the cell wall and the outer membrane. Spun by motors at their base (more on that in Chapter 6), the filaments impart a wave pattern to the growing sacculus. Without the motors’ rotation, the cells develop a rod shape. Note that *B. burgdorferi* are not helical, but rather adopt a two-dimensional waveform.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/3_5a.png' , fig.cap= 'Borrelia burgdorferi Collected by: Ariane Briegel [10.22002/D1.1486](https://doi.org/10.22002/D1.1486)'}
@@ -106,7 +106,7 @@ knitr::include_graphics('img/schematics/3_6_1.gif')
 *PDB: 6RIB*
 Bactofilins are found in many species of bacteria and archaea, suggesting that they perform diverse (and currently unknown) functions. They polymerize into very stable filaments with a triangular beta-helical structure, like this one from *Thermus thermophilus* [@deng2019]. Bactofilin filaments lack two hallmarks of actin- and tubulin-based cytoskeletal elements: polarity and dynamic assembly/disassembly. In this way, they are similar to intermediate filaments in eukaryotic cytoskeletons.
 
-#### Prosthecobacter vanneervenii {#Bacterial_microtubules}
+### Bacterial microtubules{#Bacterial_microtubules}
 Some bacterial species with prosthecae express structures similar to eukaryotic microtubules, made from two proteins called BtubA and BtubB to reflect their homology to eukaryotic tubulins. Eukaryotic microtubules are hollow tubes formed by 13 protofilaments; bacterial microtubules are smaller, with only ~5 protofilaments. Cells commonly contain a bundle of microtubules in their prostheca, like this *Prosthecobacter vanneervenii* cell, which has a bundle of four.
 
 *Prosthecobacter* belong to an evolutionarily unique group of species that share characteristics unusual in the rest of the bacterial phylogenetic tree. We refer to the collective group as the PVC superphylum (because it contains *Planctomycetes*, *Verrucomicrobia*, and *Chlamydiae*). Having homologs of eukaryotic microtubule proteins is one of these unique characteristics; so far, Btubs have only been identified in species of *Prosthecobacter*. They seem to have come from a horizontal gene transfer from a eukaryotic cell (meaning that microtubules evolved first in eukaryotes and were later borrowed by the bacteria).
@@ -126,7 +126,7 @@ library(doivideo)
 doivideo('10.22002/D1.1483',0)
 ```
 
-#### Halobacterium salinarum {#Gas_vesicles}
+### Gas vesicles{#Gas_vesicles}
 Some species of archaea and bacteria use gas vesicles to control their buoyancy. This can allow them to rise or fall in a water column, which can be a great advantage. *Halobacterium salinarum* like this one produce gas vesicles in response to cues from the environment, lifting themselves out of the sediment and into more favorable conditions of oxygen or sunlight for photosynthesis. This cell has just started producing gas vesicles, so they are small and isolated. Later, the vesicles will elongate into cylinders with conical ends, as you saw in *Haloquadratum walsbyi*. Each cell might contain dozens of vesicles, and they often cluster together.
 
 Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a single layer of protein. (Sometimes some additional proteins reinforce the shell.) Gas vesicles do not actively store gas; they simply allow gas dissolved in the cytoplasm to diffuse in, while forming a tight barrier against anything else, like water. They are fragile and prone to collapse with even a slight increase in the surrounding pressure.

@@ -36,7 +36,7 @@ library(doivideo)
 doivideo('10.22002/D1.1556',0)
 ```
 
-#### Prosthecobacter vanneervenii {#Holdfast}
+### Holdfast{#Holdfast}
 *Prosthecobacter vanneervenii* is a close relative of Caulobacter crescentus, and attaches to surfaces by the same mechanism: a sticky ball of holdfast at the tip of its stalk. Here you see four cells whose stalks have attached to one another. Unlike its cousin *C. crescentus*, however, *P. vanneervenii* is non-motile (no flagellum) and does not have a dimorphic life cycle. It divides symmetrically to produce two daughters, each with their own stalk.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/8_4a.png' , fig.cap= 'Prosthecobacter vanneervenii Collected by: Martin Pilhofer [10.22002/D1.1564](https://doi.org/10.22002/D1.1564)'}
@@ -56,7 +56,7 @@ library(doivideo)
 doivideo('10.22002/D1.1557',0)
 ```
 
-#### Bacillus subtilis {#Sporulation_septum_formation}
+### Sporulation septum formation{#Sporulation_septum_formation}
 From hundreds of sporulating *Bacillus subtilis* we imaged by cryoET, this is the only cell captured in the process of forming a septum. As you can see, it is at a very early stage in the process. The fact that we do not see more intermediates suggests that once the septum starts to form, it quickly proceeds to completion.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/8_5a.png' , fig.cap= 'Bacillus subtilis Collected by: Elitza Tocheva [10.22002/D1.1565](https://doi.org/10.22002/D1.1565)'}
@@ -74,7 +74,7 @@ library(doivideo)
 doivideo('10.22002/D1.1558',0)
 ```
 
-#### Bacillus subtilis {#Spore_engulfment}
+### Spore engulfment{#Spore_engulfment}
 The process of spore engulfment by the mother cell membrane culminates in closure of the membranes, creating an outer spore membrane and an inner spore membrane on either side of the sporulation septum. The final point of separation is usually at the center of the cell pole, but not always, as you can see in this *Bacillus subtilis* spore being engulfed from the side of the mother cell. The layer to the right of the developing spore may be a precursor of the coat [More: Spore coating](#Spore_coating).
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/8_6a.png' , fig.cap= 'Bacillus subtilis Collected by: Elitza Tocheva [10.22002/D1.1566](https://doi.org/10.22002/D1.1566)'}
@@ -82,7 +82,7 @@ library(doivideo)
 doivideo('10.22002/D1.1566',0)
 ```
 
-#### Bacillus subtilis {#Spore_coating}
+### Spore coating{#Spore_coating}
 In this later stage of sporulation, you can see that the *Bacillus subtilis* spore has now separated completely from the mother cell envelope. It has also moved away from the cell pole (this sometimes occurs even as the envelopes are still attached [More: Spore engulfment](#Spore_engulfment)). The layer flanking the spore on the right may be the assembling spore coat.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/8_6b.png' , fig.cap= 'Bacillus subtilis Collected by: Elitza Tocheva [10.22002/D1.1567](https://doi.org/10.22002/D1.1567)'}
@@ -128,7 +128,7 @@ library(doivideo)
 doivideo('10.22002/D1.1562',0)
 ```
 
-#### Acetonema longum {#Complete_engulfment}
+### Complete engulfment{#Complete_engulfment}
 This *Acetonema longum* cell has completed engulfment, creating a “forespore.” *Acetonema longum* forespores (and mature spores) typically contain several granules, likely storing poly-phosphate. These may help power outgrowth when the spore germinates. Spores from other species, though, like *Bacillus subtilis*, do not contain obvious storage granules so they may serve another, species-specific role.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/8_10a.png' , fig.cap= 'Acetonema longum Collected by: Elitza Tocheva [10.22002/D1.1568](https://doi.org/10.22002/D1.1568)'}
@@ -136,7 +136,7 @@ library(doivideo)
 doivideo('10.22002/D1.1568',0)
 ```
 
-#### Acetonema longum {#Mature_spore}
+### Mature spore{#Mature_spore}
 This mature *Acetonema longum* spore has been released by lysis of its mother cell. Note its extensive armor: a thick cortex between the membranes, and a multilayered protein coat.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/8_10b.png' , fig.cap= 'Acetonema longum Collected by: Elitza Tocheva [10.22002/D1.1569](https://doi.org/10.22002/D1.1569)'}
@@ -144,7 +144,7 @@ library(doivideo)
 doivideo('10.22002/D1.1569',0)
 ```
 
-#### Sporomusa acidovorans {#Sporomusa_acidovorans_sporulation}
+### Sporomusa acidovorans sporulation{#Sporomusa_acidovorans_sporulation}
 This diderm *Sporomusa acidovorans* cell is in the process of forming an ovoid endospore. Note also what may be an early stage of cortex formation at the end of the spore, as well as novel structures at the points of cell wall remodeling. We do not know what they are, but they may be involved in engulfment.
 
 ```{R echo=FALSE, screenshot.alt='movie_stills/8_10c.png' , fig.cap= 'Sporomusa acidovorans Collected by: Elitza Tocheva [10.22002/D1.1570](https://doi.org/10.22002/D1.1570)'}
