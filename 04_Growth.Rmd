@@ -191,6 +191,9 @@ doivideo('10.22002/D1.1506',0)
 ## Further Reading
 
 [@barry2011]
+
 [@hoppert1999]
+
 [@kerfeld2018]
+
 [@oostergetel2010]

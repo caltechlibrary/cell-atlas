@@ -167,6 +167,9 @@ doivideo('10.22002/D1.1563',0)
 ## Further Reading
 
 [@fendrihan2006]
+
 [@pletnev2015]
+
 [@tocheva2016]
+
 [@vreeland2000]

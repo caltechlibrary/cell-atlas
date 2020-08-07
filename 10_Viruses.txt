@@ -64,5 +64,7 @@ Defense can also be structural. Surface layers may protect cells from some phage
 ## Further Reading
 
 [@keen2015]
+
 [@prangishvili2017]
+
 [@rohwer2014]

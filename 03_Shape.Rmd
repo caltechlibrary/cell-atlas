@@ -139,6 +139,9 @@ doivideo('10.22002/D1.1488',0)
 ## Further Reading
 
 [@barry2011]
+
 [@pfeifer2012]
+
 [@pilhofer2013]
+
 [@young2006]

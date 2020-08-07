@@ -201,7 +201,11 @@ doivideo('10.22002/D1.1536',0)
 ## Further Reading
 
 [@albers2018]
+
 [@berg2003]
+
 [@jarrell2008]
+
 [@munoz-dorado2016]
+
 [@shrivastava2015]

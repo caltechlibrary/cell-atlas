@@ -94,6 +94,9 @@ Sporulation may seem like a highly specialized function practiced by relatively 
 ## Further Reading
 
 [@fendrihan2006]
+
 [@pletnev2015]
+
 [@tocheva2016]
+
 [@vreeland2000]

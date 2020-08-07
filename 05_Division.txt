@@ -101,6 +101,9 @@ The majority of cells divide by one of these two mechanisms–FtsZ or Cdv–but 
 ## Further Reading
 
 [@badrinarayanan2015]
+
 [@hirsch1974]
+
 [@laloux2014]
+
 [@reyes-lamothe2012]

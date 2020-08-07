@@ -86,6 +86,9 @@ To identify the location of a component within a large macromolecular complex, d
 ## Further Reading
 
 [@chalfie1994]
+
 [@jensen]
+
 [@oikonomou2017]
+
 [@ruska1987]

@@ -208,6 +208,9 @@ doivideo('10.22002/D1.1581',0)
 ## Further Reading
 
 [@christie2019]
+
 [@flemming2016]
+
 [@patz2019]
+
 [@sockett2009]

@@ -258,6 +258,9 @@ doivideo('10.22002/D1.1359',0)
 ## Further Reading
 
 [@errington2013]
+
 [@ptacin2013]
+
 [@sleytr1999]
+
 [@strahl2017]

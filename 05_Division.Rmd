@@ -178,6 +178,9 @@ doivideo('10.22002/D1.1518',0)
 ## Further Reading
 
 [@badrinarayanan2015]
+
 [@hirsch1974]
+
 [@laloux2014]
+
 [@reyes-lamothe2012]
