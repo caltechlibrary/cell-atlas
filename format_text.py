@@ -12,8 +12,10 @@ def insert_movie(doi):
     filev = doi['movie']
     title = doi['title']
     split = filev.split('_')
-    image_path = f'movie_stills/{split[0]}_{split[1]}.png'
-    return "```{R echo=FALSE, screenshot.alt='"+\
+    label = f'{split[0]}-{split[1]}'
+    filen = f'{split[0]}_{split[1]}'
+    image_path = f'movie_stills/{filen}.png'
+    return "```{R "+label+", echo=FALSE, screenshot.alt='"+\
             image_path+"' , fig.cap= '"+title+" Collected by: "+collector+\
             " ["+doiv+"](https://doi.org/"+doiv+\
             ")'}\nlibrary(doivideo)\ndoivideo('"+\
@@ -89,7 +91,6 @@ for filen in args.chapter_file:
                 doi = dois[movie_label]
         # Schematics
         elif line[0].isdigit():
-            print('schematic')
             #Put in movie from last section
             if doi != '':
                 working_copy.append(insert_movie(doi))

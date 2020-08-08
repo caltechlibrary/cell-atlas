@@ -9,7 +9,7 @@ Most bacteria and archaea live in liquid, so motility means swimming. When you a
 
 Nearly all bacteria that swim use the same propeller: a rotary motor embedded in their envelope that spins a long helical fiber called a flagellum [Schematic: Flagellum structure]. A universal joint called the hook connects the filament to the motor, translating the rotation. Flagella, like the one on this *Campylobacter jejuni*, are typically many times longer than the cell and take the form of a three-dimensional wave. The filament is highly dynamic, as you would expect, and throughout this book, you will see examples caught in various conformations: straight, curved, or in a typical loose helical waveform like this.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_1.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1525](https://doi.org/10.22002/D1.1525)'}
+```{R 6-1, echo=FALSE, screenshot.alt='movie_stills/6_1.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1525](https://doi.org/10.22002/D1.1525)'}
 library(doivideo)
 doivideo('10.22002/D1.1525',0)
 ```
@@ -27,7 +27,7 @@ The motor that spins the flagellum is a complicated molecular machine made of ma
 
 While the basic plan of the motor is the same in every species that has flagella, there are structural differences that reflect the different environments species encounter [Schematic: Flagellar motor diversity].
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_2.png' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1526](https://doi.org/10.22002/D1.1526)'}
+```{R 6-2, echo=FALSE, screenshot.alt='movie_stills/6_2.png' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1526](https://doi.org/10.22002/D1.1526)'}
 library(doivideo)
 doivideo('10.22002/D1.1526',0)
 ```
@@ -35,7 +35,7 @@ doivideo('10.22002/D1.1526',0)
 ### Flagellar motor structure{#Flagellar_motor_structure}
 This is an average of the flagellar motors from more than one thousand *Bdellovibrio bacteriovorus* cells. Working upward from the base, the major parts of the rotor are the C-ring (for <u>C</u>ytoplasmic), the MS-ring (for <u>M</u>embrane and <u>S</u>upramembrane), the rod, the hook, and finally the filament. They are surrounded by stationary parts: the stator ring (which is dynamic, so we cannot resolve the stators as they cross the inner membrane and connect to the C-ring) and a series of bushings that allow rotation within the cell wall (the <u>P</u>eriplasmic or P-ring) and outer membrane (<u>L</u>ipopolysaccharide or L-ring). Additional cytoplasmic components form the export apparatus, which is involved in assembly (discussed on the next page).
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_2a.png' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1537](https://doi.org/10.22002/D1.1537)'}
+```{R 6-2a, echo=FALSE, screenshot.alt='movie_stills/6_2a.png' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1537](https://doi.org/10.22002/D1.1537)'}
 library(doivideo)
 doivideo('10.22002/D1.1537',0)
 ```
@@ -52,7 +52,7 @@ Operating the flagellar motor is impressive, but so is building it in the first 
 
 So the flagellar motor is not just a machine for motility; it is also a machine to secrete molecules outside the cell. Bacteria and archaea contain many such “secretion systems,” each specialized to transport specific macromolecules (e.g. DNA or a protein toxin) across cell envelopes–both their own and sometimes others. Secretion systems are classified by evolutionary relatedness; there are currently ~10 types recognized in bacteria, some of which are also present in archaea. The flagellar motor is an example of a Type III Secretion System. You will see another member of this family in Chapter 9, and examples of many other types in the rest of the book, starting in just a few pages.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_3.png' , fig.cap= 'Hylemonella gracilis Collected by: Yi-Wei Chang [10.22002/D1.1527](https://doi.org/10.22002/D1.1527)'}
+```{R 6-3, echo=FALSE, screenshot.alt='movie_stills/6_3.png' , fig.cap= 'Hylemonella gracilis Collected by: Yi-Wei Chang [10.22002/D1.1527](https://doi.org/10.22002/D1.1527)'}
 library(doivideo)
 doivideo('10.22002/D1.1527',0)
 ```
@@ -60,7 +60,7 @@ doivideo('10.22002/D1.1527',0)
 ### Flagellar motor disassembly{#Flagellar_motor_disassembly}
 When flagella break (or in some species, like *Caulobacter crescentus*, are ejected so the cell can attach to a surface), the motor is disassembled, usually beginning with the export apparatus. Not everything is dismantled, though; the P- and L-rings remain in place in the cell wall and outer membrane, respectively, as you can see in this *Pseudomonas aeruginosa* cell. We do not know if the cell has a reason for leaving them there, but one possibility is that they may function as a plug for the outer membrane when the hook is no longer present.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_3a.png' , fig.cap= 'Pseudomonas aeruginosa Collected by: Ariane Briegel [10.22002/D1.1538](https://doi.org/10.22002/D1.1538)'}
+```{R 6-3a, echo=FALSE, screenshot.alt='movie_stills/6_3a.png' , fig.cap= 'Pseudomonas aeruginosa Collected by: Ariane Briegel [10.22002/D1.1538](https://doi.org/10.22002/D1.1538)'}
 library(doivideo)
 doivideo('10.22002/D1.1538',0)
 ```
@@ -68,7 +68,7 @@ doivideo('10.22002/D1.1538',0)
 ## Flagella Patterns
 Once assembled, flagella can work in different ways. The motor is bidirectional, and can rotate either clockwise or counterclockwise. Depending on the number and location of flagella on the cell (and the cell’s shape), this can push the cell, pull it, or give rise to even more complicated swimming behavior. Some bacterial species, like the *Bdellovibrio bacteriovorus* you just saw, are monotrichous (“single haired”), with one flagellum located at one pole to push/pull the cell. Other species, like the *Campylobacter jejuni* here, have bipolar flagella–one at each end. Still others are lophotrichous (“crest-haired”), with a clump of flagella [More: Lophotrichous bacteria](#Lophotrichous_bacteria).
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_4.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1528](https://doi.org/10.22002/D1.1528)'}
+```{R 6-4, echo=FALSE, screenshot.alt='movie_stills/6_4.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1528](https://doi.org/10.22002/D1.1528)'}
 library(doivideo)
 doivideo('10.22002/D1.1528',0)
 ```
@@ -76,7 +76,7 @@ doivideo('10.22002/D1.1528',0)
 ### Lophotrichous bacteria{#Lophotrichous_bacteria}
 Many lophotrichous species, like the *Hylemonella gracilis* you saw in Chapter 3–Length or this *Helicobacter pylori*, have a tuft of flagella at their cell pole. In some species, though, the tuft is located elsewhere; for example, a clump of flagella on the concave side of banana-shaped *Selenomonas artemidis* pushes the cells sideways in a seesawing swimming pattern.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_4a.png' , fig.cap= 'Helicobacter pylori Collected by: Yi-Wei Chang [10.22002/D1.1539](https://doi.org/10.22002/D1.1539)'}
+```{R 6-4a, echo=FALSE, screenshot.alt='movie_stills/6_4a.png' , fig.cap= 'Helicobacter pylori Collected by: Yi-Wei Chang [10.22002/D1.1539](https://doi.org/10.22002/D1.1539)'}
 library(doivideo)
 doivideo('10.22002/D1.1539',0)
 ```
@@ -84,7 +84,7 @@ doivideo('10.22002/D1.1539',0)
 ## Flagella Patterns (cont’d.)
 Still other species are peritrichous (“hair around”), with multiple flagella distributed randomly around the cell, as you can see on this *Pseudomonas flexibilis*. The number of flagella varies between different species, from relatively few here to considerably more [More: Proteus mirabilis flagella](#Proteus_mirabilis_flagella). The well-known model system *Escherichia coli* is also peritrichously flagellated. In this arrangement, when the flagellar motors are all rotating one direction (counter-clockwise), the flagella form a whip-like bundle that propels the cell to “run” in a straight line. When one or more motors switch to clockwise rotation, the flagella dissociate from the bundle and “tumble” the cell to face a new direction. In the next chapter, you will see how cells use this behavior to seek out favorable spots.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_5.png' , fig.cap= 'Pseudomonas flexibilis Collected by: Morgan Beeby [10.22002/D1.1529](https://doi.org/10.22002/D1.1529)'}
+```{R 6-5, echo=FALSE, screenshot.alt='movie_stills/6_5.png' , fig.cap= 'Pseudomonas flexibilis Collected by: Morgan Beeby [10.22002/D1.1529](https://doi.org/10.22002/D1.1529)'}
 library(doivideo)
 doivideo('10.22002/D1.1529',0)
 ```
@@ -92,7 +92,7 @@ doivideo('10.22002/D1.1529',0)
 ### Proteus mirabilis flagella{#Proteus_mirabilis_flagella}
 *Proteus mirabilis* adapt their motility machinery to their environment. In liquid, the short rod-shaped cells swim with the help of a handful of flagella distributed peritrichously around their cell body. When they encounter a solid surface, the cells elongate and build many more flagella, as you can see on this cell. Instead of swimming, they now use their flagella to propel themselves in groups across the surface, a motility mode known as “swarming.” This is an example of a differentiated lifecycle, which will come up again in Chapter 8.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_5a.png' , fig.cap= 'Proteus mirabilis Collected by: Qing Yao [10.22002/D1.1540](https://doi.org/10.22002/D1.1540)'}
+```{R 6-5a, echo=FALSE, screenshot.alt='movie_stills/6_5a.png' , fig.cap= 'Proteus mirabilis Collected by: Qing Yao [10.22002/D1.1540](https://doi.org/10.22002/D1.1540)'}
 library(doivideo)
 doivideo('10.22002/D1.1540',0)
 ```
@@ -100,7 +100,7 @@ doivideo('10.22002/D1.1540',0)
 ## Sheathed Flagella
 You may have noticed that some of the flagella in this chapter were enclosed within the outer membrane of the cell. We call these “sheathed” flagella. It is a common adaptation in pathogenic species, like this *Helicobacter hepaticus*. Flagella offer pathogens a great advantage in colonizing their hosts; hosts in turn have learned to use them to identify potential invaders. As a result, the innate immune response of many eukaryotes, from plants to insects to humans, has evolved to recognize the telltale and abundant signal of flagellin proteins in the long filament. If your cell aims to take up residence in such a host, it could therefore benefit from cloaking this strongly antigenic feature.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_6.png' , fig.cap= 'Helicobacter hepaticus Collected by: Ariane Briegel [10.22002/D1.1530](https://doi.org/10.22002/D1.1530)'}
+```{R 6-6, echo=FALSE, screenshot.alt='movie_stills/6_6.png' , fig.cap= 'Helicobacter hepaticus Collected by: Ariane Briegel [10.22002/D1.1530](https://doi.org/10.22002/D1.1530)'}
 library(doivideo)
 doivideo('10.22002/D1.1530',0)
 ```
@@ -108,7 +108,7 @@ doivideo('10.22002/D1.1530',0)
 ## Periplasmic Flagella
 If your cell *is* a pathogen, swimming can be very useful, but so can burrowing, for instance between cells in host tissue. To do this, why not turn your cell into a corkscrew with the equipment at hand? Some cells do just this, wrapping their flagellum around their body to back out of a tight spot, or burrow into one. Other, diderm species like the *Borrelia burgdorferi* here have turned the temporary adaptation into a permanent one: they assemble their flagella *inside* the cell envelope, with the filaments wrapping around between the cell wall and outer membrane. These “periplasmic” flagella are usually multiple, arising from one or both ends of the cell, and pack together, forming a helical ribbon. The helical ribbon helps give these Spirochetes (“spiral haired”) their characteristic shape; mutants that cannot make flagella are simple rods. Some spirochetes also have additional features that may help them move around in animal hosts [More: Treponema primitia](#Treponema_primitia)
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_7.png' , fig.cap= 'Borrelia burgdorferi Collected by: Ariane Briegel [10.22002/D1.1531](https://doi.org/10.22002/D1.1531)'}
+```{R 6-7, echo=FALSE, screenshot.alt='movie_stills/6_7.png' , fig.cap= 'Borrelia burgdorferi Collected by: Ariane Briegel [10.22002/D1.1531](https://doi.org/10.22002/D1.1531)'}
 library(doivideo)
 doivideo('10.22002/D1.1531',0)
 ```
@@ -116,15 +116,15 @@ doivideo('10.22002/D1.1531',0)
 ### Treponema primitia{#Treponema_primitia}
 *Treponema primitia* like this are commensal residents of the termite gut, helping break down cellulose. In addition to two periplasmic flagella, the cells have arrays of bowl- and hook-like structures on their surface, the function of which, likely related to motility, remains mysterious.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_7.png' , fig.cap= 'Borrelia burgdorferi Collected by: Ariane Briegel [10.22002/D1.1531](https://doi.org/10.22002/D1.1531)'}
+```{R 6-7a, echo=FALSE, screenshot.alt='movie_stills/6_7a.png' , fig.cap= 'Treponema primitia Collected by: Gavin Murphy [10.22002/D1.1541](https://doi.org/10.22002/D1.1541)'}
 library(doivideo)
-doivideo('10.22002/D1.1531',0)
+doivideo('10.22002/D1.1541',0)
 ```
 
 ## Archaellum
 Archaea swim, too. And as you might expect, they use similar machinery to do so: an envelope-embedded motor that spins a long extracellular filament. Despite the structural similarity, the machinery evolved independently, another indication of the strong advantage conferred by swimming. To reflect this similar-but-not-the-same character, we call the archaeal analogue of the bacterial flagellum the archaellum. Unlike the flagellum, which is a Type III Secretion System, the archaellum is a Type II Secretion System. As you can see on this *Methanoregula formicica* cell, archaella are narrower than flagella [Schematic: Archaellum structure]. The motor is also different, and uses the ATPase at the base not just for assembly, but also to power rotation for swimming. Like flagella, archaellar motors can rotate in either direction, resulting in the filaments pushing or pulling the cell.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_8.png' , fig.cap= 'Methanoregula formicica Collected by: Ariane Briegel [10.22002/D1.1532](https://doi.org/10.22002/D1.1532)'}
+```{R 6-8, echo=FALSE, screenshot.alt='movie_stills/6_8.png' , fig.cap= 'Methanoregula formicica Collected by: Ariane Briegel [10.22002/D1.1532](https://doi.org/10.22002/D1.1532)'}
 library(doivideo)
 doivideo('10.22002/D1.1532',0)
 ```
@@ -140,7 +140,7 @@ The overall architecture of the helical archaellum is similar to that of the bac
 ## Archaella Patterns
 Similar to flagella in bacteria, different archaeal species employ different numbers and patterns of archaella. Some species have one, others have many, either distributed peritrichously (all around) as in the *Methanoregula formicica* you just saw, or lophotrichously (clumped) as in this *Thermococcus kodakaraensis*. In *T. kodakaraensis* and related species, an additional structure–a large conical plate–is seen in the cytoplasm, perhaps providing leverage for the multiple motors. The plate has a unique structure [More: Cone structure](#Cone_structure) and may act as an organizing center akin to the polar PopZ structure we discussed in the last chapter [More: Organizing center](#Organizing_center). Note the two peaks on this cone; it may be in the process of replicating in preparation for division.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_9.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1533](https://doi.org/10.22002/D1.1533)'}
+```{R 6-9, echo=FALSE, screenshot.alt='movie_stills/6_9.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1533](https://doi.org/10.22002/D1.1533)'}
 library(doivideo)
 doivideo('10.22002/D1.1533',0)
 ```
@@ -148,7 +148,7 @@ doivideo('10.22002/D1.1533',0)
 ### Cone structure{#Cone_structure}
 The archaellar plate does not come to a point at the tip, but rather is a conical frustum (open at the top), resembling a lampshade. In the center of the tip is a small ring, as you can see in a top view in this lysed, flattened *Thermococcus kodakaraensis* cell. The function of the ring remains unknown; perhaps it helps nucleate the rest of the structure?
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_9a.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1542](https://doi.org/10.22002/D1.1542)'}
+```{R 6-9a, echo=FALSE, screenshot.alt='movie_stills/6_9a.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1542](https://doi.org/10.22002/D1.1542)'}
 library(doivideo)
 doivideo('10.22002/D1.1542',0)
 ```
@@ -156,7 +156,7 @@ doivideo('10.22002/D1.1542',0)
 ### Organizing center{#Organizing_center}
 As you can see more clearly in this partially-lysed, flattened *Thermococcus kodakaraensis* cell, the conical plate in the cytoplasm is attached to more than just the archaella. It is also associated with chemosensory arrays (discussed in the next chapter) and DNA, as you can see from the ribosome-excluding zone. This structure may therefore perform an analogous function to bacterial organizing proteins such as PopZ, tethering cellular components into a *de facto* pole for the (in this case round) cell.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_9b.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1543](https://doi.org/10.22002/D1.1543)'}
+```{R 6-9b, echo=FALSE, screenshot.alt='movie_stills/6_9b.png' , fig.cap= 'Thermococcus kodakaraensis Collected by: Ariane Briegel [10.22002/D1.1543](https://doi.org/10.22002/D1.1543)'}
 library(doivideo)
 doivideo('10.22002/D1.1543',0)
 ```
@@ -166,7 +166,7 @@ If your cell lives on a surface, what is the best way to get around? How about u
 
 In addition to attaching to a surface, the pili can also attach to other *M. xanthus* cells. This enables the cells to move over surfaces *en masse*. Combined with their practice of eating other bacteria, this property has led them to be compared to packs of wolves hunting down their prey.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_10.png' , fig.cap= 'Myxococcus xanthus Collected by: Yi-Wei Chang [10.22002/D1.1534](https://doi.org/10.22002/D1.1534)'}
+```{R 6-10, echo=FALSE, screenshot.alt='movie_stills/6_10.png' , fig.cap= 'Myxococcus xanthus Collected by: Yi-Wei Chang [10.22002/D1.1534](https://doi.org/10.22002/D1.1534)'}
 library(doivideo)
 doivideo('10.22002/D1.1534',0)
 ```
@@ -181,7 +181,7 @@ A series of rings anchor the Type IV Pilus basal body in the cell envelope. This
 ## Type IX Secretion System
 Other bacteria use different machinery to move over surfaces. *Flavobacterium johnsoniae* like this cell use a Type IX Secretion System to secrete adhesive filaments. These filaments move on a helical track around the cell, and thereby the cell moves forward on a surface. The power for this gliding movement is thought to come from rotary motors anchored in the cell wall that propel the adhesins along their track in a rack-and-pinion fashion, but we still do not understand the mechanism in detail.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_11.png' , fig.cap= 'Flavobacterium johnsoniae Collected by: Gregory Henderson [10.22002/D1.1535](https://doi.org/10.22002/D1.1535)'}
+```{R 6-11, echo=FALSE, screenshot.alt='movie_stills/6_11.png' , fig.cap= 'Flavobacterium johnsoniae Collected by: Gregory Henderson [10.22002/D1.1535](https://doi.org/10.22002/D1.1535)'}
 library(doivideo)
 doivideo('10.22002/D1.1535',0)
 ```
@@ -193,7 +193,7 @@ The skeleton-like terminal organelle gives these cells their characteristic flas
 
 Keep in mind that these are simply *some* of the ways we know bacteria and archaea get around, and we continue to discover new ones.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/6_12.png' , fig.cap= 'Mycoplasma pneumoniae Collected by: Gregory Henderson [10.22002/D1.1536](https://doi.org/10.22002/D1.1536)'}
+```{R 6-12, echo=FALSE, screenshot.alt='movie_stills/6_12.png' , fig.cap= 'Mycoplasma pneumoniae Collected by: Gregory Henderson [10.22002/D1.1536](https://doi.org/10.22002/D1.1536)'}
 library(doivideo)
 doivideo('10.22002/D1.1536',0)
 ```

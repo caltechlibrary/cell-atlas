@@ -11,7 +11,7 @@ Bacteria and archaea are, with very few exceptions, invisible to our eyes. As yo
 
 The cells here were imaged by light microscopy, captured on film by David Rogers in the 1950s [@hill]. They illustrate how light microscopy can reveal general properties, such as the shape, of cells.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_1.png' , fig.cap= 'Staphylococcus aureus Collected by: David Rogers [10.22002/D1.1463](https://doi.org/10.22002/D1.1463)'}
+```{R 1-1, echo=FALSE, screenshot.alt='movie_stills/1_1.png' , fig.cap= 'Staphylococcus aureus Collected by: David Rogers [10.22002/D1.1463](https://doi.org/10.22002/D1.1463)'}
 library(doivideo)
 doivideo('10.22002/D1.1463',0)
 ```
@@ -28,7 +28,7 @@ The addition of fluorescence to light microscopy allows us to look not just *at*
 
 As an example, this movie from Howard Berg’s lab [@berg] [@turner2000] shows *Escherichia coli* cells stained by a fluorescent dye that binds to and highlights their flagella – long, thin appendages that propel them through their environment. (We will discuss this and other ways cells move in Chapter 6.)
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_2.png' , fig.cap= 'Escherichia coli Collected by: Howard Berg [10.22002/D1.1464](https://doi.org/10.22002/D1.1464)'}
+```{R 1-2, echo=FALSE, screenshot.alt='movie_stills/1_2.png' , fig.cap= 'Escherichia coli Collected by: Howard Berg [10.22002/D1.1464](https://doi.org/10.22002/D1.1464)'}
 library(doivideo)
 doivideo('10.22002/D1.1464',0)
 ```
@@ -40,7 +40,7 @@ One way to get around the resolution barrier is to use an imaging beam of higher
 
 There are two main types of electron microscopes [Schematic: Electron microscopy modes]. In a Scanning Electron Microscope (SEM), we detect electrons that are scattered backward from the sample, producing an image of the surface of the sample. The *Shewanella oneidensis* cells you see here were imaged by SEM. Note the magnified details of the cells’ shape and flagella compared to the light microscopy you just saw.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_3.png' , fig.cap= 'Shewanella oneidensis Collected by: Sahand Pirbadian [10.22002/D1.1465](https://doi.org/10.22002/D1.1465)'}
+```{R 1-3, echo=FALSE, screenshot.alt='movie_stills/1_3.png' , fig.cap= 'Shewanella oneidensis Collected by: Sahand Pirbadian [10.22002/D1.1465](https://doi.org/10.22002/D1.1465)'}
 library(doivideo)
 doivideo('10.22002/D1.1465',0)
 ```
@@ -58,7 +58,7 @@ Electron microscopy, whether SEM or TEM, relies on the interactions of electrons
 
 There are more elaborate (and structure-altering) sample preparation methods for TEM, involving fixing the sample by chemical crosslinking or freezing under high pressure, dehydrating it, embedding it in resin, staining it, and slicing it into thin sections. With these methods, electron microscopists were able to discover many details of eukaryotic cells such as their internal organelles. Bacteria and archaea are much smaller, though, and lack many robust prominent structures like organelles. As a result, until the twenty-first century, we thought bacteria and archaea were structurally unexciting, little more than water balloons filled with small molecules. How wrong we were.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_4.png' , fig.cap= 'Shewanella oneidensis Collected by: Mohammed Kaplan [10.22002/D1.1466](https://doi.org/10.22002/D1.1466)'}
+```{R 1-4, echo=FALSE, screenshot.alt='movie_stills/1_4.png' , fig.cap= 'Shewanella oneidensis Collected by: Mohammed Kaplan [10.22002/D1.1466](https://doi.org/10.22002/D1.1466)'}
 library(doivideo)
 doivideo('10.22002/D1.1466',0)
 ```
@@ -70,7 +70,7 @@ Here you see a projection image of a *Caulobacter crescentus* cell imaged by cry
 
 With cryoEM, we can start to see the true structure of cells. Compared to the images you have already seen, note the added level of detail visible here, including the cell’s multi-layered envelope, and the braided texture of its flagellum.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_5.png' , fig.cap= 'Caulobacter crescentus Collected by: Steven Wang [10.22002/D1.1467](https://doi.org/10.22002/D1.1467)'}
+```{R 1-5, echo=FALSE, screenshot.alt='movie_stills/1_5.png' , fig.cap= 'Caulobacter crescentus Collected by: Steven Wang [10.22002/D1.1467](https://doi.org/10.22002/D1.1467)'}
 library(doivideo)
 doivideo('10.22002/D1.1467',0)
 ```
@@ -82,7 +82,7 @@ Here you see a *Caulobacter crescentus* cell that was imaged by cryo-electron to
 
 Since the early 2000s, cryoET has transformed our understanding of microbial cells, revealing their structural richness and diversity, as you will see in the chapters that follow.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_6.png' , fig.cap= 'Caulobacter crescentus Collected by: Steven Wang [10.22002/D1.1468](https://doi.org/10.22002/D1.1468)'}
+```{R 1-6, echo=FALSE, screenshot.alt='movie_stills/1_6.png' , fig.cap= 'Caulobacter crescentus Collected by: Steven Wang [10.22002/D1.1468](https://doi.org/10.22002/D1.1468)'}
 library(doivideo)
 doivideo('10.22002/D1.1468',0)
 ```
@@ -97,7 +97,7 @@ Think again about how a tilt-series is made: by taking images from different ang
 ## Sub-Tomogram Averaging
 What if we want to zoom in further to examine a particular structure more closely? While in theory electron microscopy can resolve atoms, in practice the resolution is limited by the thickness of the sample. For relatively thick samples like the (small) bacterium on the last page, we can achieve ~5 nm resolution, enough to see the shapes and arrangement of large macromolecular complexes. To boost our resolving power further, we can gather strength in numbers. By averaging multiple copies of a structure, either from the same tomogram, or from multiple cells in different tomograms, we can build up the signal relative to the noise. Here you see an example of this approach, called sub-tomogram averaging, applied to the motor that spins the flagellum. Hundreds of *Campylobacter jejuni* cells were imaged by cryoET and their individual flagellar motors were extracted from the resulting tomograms and averaged to produce a higher-resolution view. Note how densities that vary between motors, indicating that they are not stably associated with the structure, get washed out, while densities that appear in the same place in each motor reinforce one another. This approach only works for structures, and parts of structures, that are fairly rigid, but it can be a powerful tool to study structures inside the cell.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_7.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1469](https://doi.org/10.22002/D1.1469)'}
+```{R 1-7, echo=FALSE, screenshot.alt='movie_stills/1_7.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1469](https://doi.org/10.22002/D1.1469)'}
 library(doivideo)
 doivideo('10.22002/D1.1469',0)
 ```
@@ -107,7 +107,7 @@ If a structure can be purified out of the cell, we can zoom in even further. For
 
 You will see many examples of high-resolution structures solved by this technique in the pages to come. It is mainly applied to large proteins and complexes, since most of the individual proteins in the cell are too small to be accurately aligned for reconstruction.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_8.png' , fig.cap= 'Campylobacter jejuni Collected by: Matthias WolfFadel Samatey [10.22002/D1.1470](https://doi.org/10.22002/D1.1470)'}
+```{R 1-8, echo=FALSE, screenshot.alt='movie_stills/1_8.png' , fig.cap= 'Campylobacter jejuni Collected by: Matthias WolfFadel Samatey [10.22002/D1.1470](https://doi.org/10.22002/D1.1470)'}
 library(doivideo)
 doivideo('10.22002/D1.1470',0)
 ```
@@ -117,7 +117,7 @@ For smaller protein complexes, we can use a different technique, based on photon
 
 Not every protein can be induced to form large, well-ordered crystals, but many can, and as of 2020, X-ray crystallography has been used to solve nearly 150,000 structures, including the one you see here, of a protein called FlgK from *Campylobacter jejuni* [@bulieris2017]. 11 copies of this protein form a ring that caps the flagellar hook, acting as an adaptor between the hook joint and the long filament.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_9.png' , fig.cap= 'Campylobacter jejuni Collected by: Fadel Samatey [10.22002/D1.1471](https://doi.org/10.22002/D1.1471)'}
+```{R 1-9, echo=FALSE, screenshot.alt='movie_stills/1_9.png' , fig.cap= 'Campylobacter jejuni Collected by: Fadel Samatey [10.22002/D1.1471](https://doi.org/10.22002/D1.1471)'}
 library(doivideo)
 doivideo('10.22002/D1.1471',0)
 ```
@@ -131,7 +131,7 @@ knitr::include_graphics('img/schematics/1_9_1.png')
 ## Putting It All Together
 Science benefits from collaboration, and structural biology is no exception. This extends to our tools. To understand cells across their full length scale, we need to combine what we learn from different techniques. Consider this *Bdellovibrio bacteriovorus* cell. We can visualize its overall structure by cryoET. We can identify particular substructures with the help of fluorescence light microscopy (this approach is called “correlated light and electron microscopy”). We can get a higher-resolution view of an individual substructure by sub-tomogram averaging. We can then use genetics to identify the rough locations of individual components in that substructure by imaging mutants [More: Difference mapping](#Difference_mapping). Combining this analysis with positional clues from other biochemistry methods, we can place high-resolution structures of components solved by X-ray crystallography and single particle reconstruction into their correct context. In this way, we can begin to build up a full picture, from individual atoms to complete cells. We still have a long way to go, but someday we hope to be able to map the location and interactions of every protein in a bacterium or archaeon, creating a true atlas of the cell.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_10.png' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1472](https://doi.org/10.22002/D1.1472)'}
+```{R 1-10, echo=FALSE, screenshot.alt='movie_stills/1_10.png' , fig.cap= 'Bdellovibrio bacteriovorus Collected by: Yi-Wei Chang [10.22002/D1.1472](https://doi.org/10.22002/D1.1472)'}
 library(doivideo)
 doivideo('10.22002/D1.1472',0)
 ```
@@ -139,7 +139,7 @@ doivideo('10.22002/D1.1472',0)
 ### Difference mapping{#Difference_mapping}
 To identify the location of a component within a large macromolecular complex, difference mapping can be helpful. In this approach, the gene corresponding to that component is either knocked out or a tag is added, like GFP, that will make the protein larger. A subtomogram average of the complex is produced, and compared to a subtomogram average of the complex from wild-type (unmodified) cells. Often, a difference in the structure is visible, corresponding to the missing or altered component. Here you see an example of how this was used to locate a component of the flagellar motor, a protein called FliI, in *Campylobacter jejuni*.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/1_10a.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1473](https://doi.org/10.22002/D1.1473)'}
+```{R 1-10a, echo=FALSE, screenshot.alt='movie_stills/1_10a.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1473](https://doi.org/10.22002/D1.1473)'}
 library(doivideo)
 doivideo('10.22002/D1.1473',0)
 ```

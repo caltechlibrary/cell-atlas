@@ -7,7 +7,7 @@ So far we have largely ignored a major part of a cell’s environment: other org
 
 To attach to a biofilm, cells use strategies we have already discussed, including Tad pili and holdfast. *Agrobacterium tumefaciens* like this one use a holdfast-like polymer called <u>U</u>ni<u>p</u>olar <u>p</u>olysaccharide, or UPP. Some bacteria, including this one, also contribute to the superstructure of the biofilm by secreting cellulose fibers that help form the non-living matrix of the community.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_1.png' , fig.cap= 'Agrobacterium tumefaciens Collected by: Elitza Tocheva [10.22002/D1.1571](https://doi.org/10.22002/D1.1571)'}
+```{R 9-1, echo=FALSE, screenshot.alt='movie_stills/9_1.png' , fig.cap= 'Agrobacterium tumefaciens Collected by: Elitza Tocheva [10.22002/D1.1571](https://doi.org/10.22002/D1.1571)'}
 library(doivideo)
 doivideo('10.22002/D1.1571',0)
 ```
@@ -15,7 +15,7 @@ doivideo('10.22002/D1.1571',0)
 ## Biofilm (cont’d.)
 Individual cellulose fibers associate into bundles to form a 3D matrix for the cells, as you can see in this thin slice through a *Gluconacetobacter hansenii* biofilm. Not all biofilms contain cellulose, but all have an extracellular matrix, typically made of proteins secreted by the component cells. These proteins have properties that help them aggregate, like the unipolar polysaccharide you just saw. They may also have other properties useful to the community; for instance, *Bacillus subtilis* secretes a hydrophobic protein that forms a resistant coat around the biofilm. Matrices also contain lipids and extracellular DNA, and dead cells contribute material to the superstructure. Keep in mind that the lab-grown biofilm you see here consists of a single species, but in Nature a biofilm often contains multiple species.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_2.png' , fig.cap= 'Gluconacetobacter hansenii Collected by: William Nicolas [10.22002/D1.1572](https://doi.org/10.22002/D1.1572)'}
+```{R 9-2, echo=FALSE, screenshot.alt='movie_stills/9_2.png' , fig.cap= 'Gluconacetobacter hansenii Collected by: William Nicolas [10.22002/D1.1572](https://doi.org/10.22002/D1.1572)'}
 library(doivideo)
 doivideo('10.22002/D1.1572',0)
 ```
@@ -31,7 +31,7 @@ Unlike the secretion systems in Chapter 6, the T2SS does not build an extracellu
 
 This *L. pneumophila* cell is not unusual; it is common for pathogenic bacteria to employ multiple types of secretion systems. The bristling arsenal of bacteria is a fearsome thing.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_3.png' , fig.cap= 'Legionella pneumophila Collected by: Debnath Ghosal [10.22002/D1.1573](https://doi.org/10.22002/D1.1573)'}
+```{R 9-3, echo=FALSE, screenshot.alt='movie_stills/9_3.png' , fig.cap= 'Legionella pneumophila Collected by: Debnath Ghosal [10.22002/D1.1573](https://doi.org/10.22002/D1.1573)'}
 library(doivideo)
 doivideo('10.22002/D1.1573',0)
 ```
@@ -55,7 +55,7 @@ This average of type IV secretion systems from many *Legionella pneumophila* cel
 ### Helicobacter pylori tubes{#Helicobacter_pylori_tubes}
 This *Helicobacter pylori* cell was cultured together with human gastric epithelial cells, its target for infection. It contains inactive type IV secretion systems, as well as several mysterious tubes. The tubes are formed from the outer membrane, but we do not know what scaffolds them (they have a constant diameter of 37 nm), or what makes the portals along their length. The fact that we sometimes see tubes near primed T4SSs, and the fact that the tubes are missing from mutant cells lacking T4SS components suggests a relationship, but the details are unclear. Much remains mysterious about this structure and its potential role in infection.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_3a.png' , fig.cap= 'Helicobacter pylori Collected by: Yi-Wei Chang [10.22002/D1.1582](https://doi.org/10.22002/D1.1582)'}
+```{R 9-3a, echo=FALSE, screenshot.alt='movie_stills/9_3a.png' , fig.cap= 'Helicobacter pylori Collected by: Yi-Wei Chang [10.22002/D1.1582](https://doi.org/10.22002/D1.1582)'}
 library(doivideo)
 doivideo('10.22002/D1.1582',0)
 ```
@@ -67,7 +67,7 @@ What if your cell wanted to go a step further and deliver toxins directly into i
 
 T3SSs are closely related to type II secretion systems (T2SSs) and share a common element: the channel embedded in the outer membrane, formed by many copies of a protein called a secretin [Schematic: Secretin structure]. As you can see, though, the rest of the machine looks very different.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_4.png' , fig.cap= 'Pseudomonas aeruginosa Collected by: Steven Wang [10.22002/D1.1574](https://doi.org/10.22002/D1.1574)'}
+```{R 9-4, echo=FALSE, screenshot.alt='movie_stills/9_4.png' , fig.cap= 'Pseudomonas aeruginosa Collected by: Steven Wang [10.22002/D1.1574](https://doi.org/10.22002/D1.1574)'}
 library(doivideo)
 doivideo('10.22002/D1.1574',0)
 ```
@@ -95,7 +95,7 @@ To deliver the toxin to the target, the cells use type V secretion systems (T5SS
 
 *This cell belongs to a strain that is normally incapable of CDI, but has been genetically engineered to produce the T5SS components. Once again, this lets us image the machines more easily; in this case, the CDI-practicing strain has a thicker layer of extracellular proteins, which obscure the needles in a visual haystack.*
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_5.png' , fig.cap= 'Escherichia coli Collected by: Poorna Subramanian [10.22002/D1.1575](https://doi.org/10.22002/D1.1575)'}
+```{R 9-5, echo=FALSE, screenshot.alt='movie_stills/9_5.png' , fig.cap= 'Escherichia coli Collected by: Poorna Subramanian [10.22002/D1.1575](https://doi.org/10.22002/D1.1575)'}
 library(doivideo)
 doivideo('10.22002/D1.1575',0)
 ```
@@ -105,7 +105,7 @@ How else could your cell deliver a toxin to a nearby competitor? As usual, Natur
 
 This primed T6SS consists of a hollow outer tube, with a narrower dart inside [Schematic: Primed T6SS structure]. The effector protein is loaded at the tip of the dart, where the machine is anchored in the cell envelope. In a few cells, including this one, we see additional filaments flanking the primed T6SS. They are lacking in other cells even of the same species, and their identity and function remain unknown.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_6.png' , fig.cap= 'Myxococcus xanthus Collected by: Yi-Wei Chang [10.22002/D1.1576](https://doi.org/10.22002/D1.1576)'}
+```{R 9-6, echo=FALSE, screenshot.alt='movie_stills/9_6.png' , fig.cap= 'Myxococcus xanthus Collected by: Yi-Wei Chang [10.22002/D1.1576](https://doi.org/10.22002/D1.1576)'}
 library(doivideo)
 doivideo('10.22002/D1.1576',0)
 ```
@@ -123,7 +123,7 @@ When the T6SS fires, the helical outer sheath twists into a shorter, wider form,
 
 These contractile weapons evolved from the “tail” structure viruses called phage use to inject their genetic material into bacteria and archaea (more on that in the next chapter). Some related bacterial weapons are even closer to the phage tail, in that they are released to the environment in a primed state, waiting to bump into a target cell to fire. The target is recognized by filamentous proteins called “tail fibers,” the same identification mechanism used by phage. Other members of this evolutionary family are even stranger, like the <u>M</u>orphogenesis-<u>A</u>ssociated <u>C</u>ontractile structures (MACs) released by a marine bacterium which play a key role in the lifecycle of a (eukaryotic) worm [More: MACs](#MACs) [Schematic: MAC array structure].
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_7.png' , fig.cap= 'Vibrio cholerae Collected by: Martin Pilhofer [10.22002/D1.1577](https://doi.org/10.22002/D1.1577)'}
+```{R 9-7, echo=FALSE, screenshot.alt='movie_stills/9_7.png' , fig.cap= 'Vibrio cholerae Collected by: Martin Pilhofer [10.22002/D1.1577](https://doi.org/10.22002/D1.1577)'}
 library(doivideo)
 doivideo('10.22002/D1.1577',0)
 ```
@@ -139,7 +139,7 @@ A conformational change in the T6SS sheath provides the energy to fire the inner
 ### T6SS battery{#T6SS_battery}
 Some cells assemble a few, scattered type VI secretion systems. Other species, like this *Amoebophilus asiaticus* build ordered arrays of parallel machines. These diderm bacteria live symbiotically inside amoebae. Their T6SS batteries help them colonize their host, perhaps by rupturing the membrane of the host phagosome that encloses them after they are engulfed, releasing them into the host cytoplasm. The number of T6SSs in each array varies, but can reach a few dozen.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_7a.png' , fig.cap= 'Amoebophilus asiaticus Collected by: Martin Pilhofer [10.22002/D1.1583](https://doi.org/10.22002/D1.1583)'}
+```{R 9-7a, echo=FALSE, screenshot.alt='movie_stills/9_7a.png' , fig.cap= 'Amoebophilus asiaticus Collected by: Martin Pilhofer [10.22002/D1.1583](https://doi.org/10.22002/D1.1583)'}
 library(doivideo)
 doivideo('10.22002/D1.1583',0)
 ```
@@ -149,7 +149,7 @@ doivideo('10.22002/D1.1583',0)
 
 *Note that this MAC array was produced by a cell lacking genes encoding other contractile weaponry (type VI secretion systems and bacteriocins). This was done to make it easier to identify the MACs.*
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_7b.png' , fig.cap= 'Pseudoalteromonas luteoviolacea Collected by: Martin Pilhofer [10.22002/D1.1584](https://doi.org/10.22002/D1.1584)'}
+```{R 9-7b, echo=FALSE, screenshot.alt='movie_stills/9_7b.png' , fig.cap= 'Pseudoalteromonas luteoviolacea Collected by: Martin Pilhofer [10.22002/D1.1584](https://doi.org/10.22002/D1.1584)'}
 library(doivideo)
 doivideo('10.22002/D1.1584',0)
 ```
@@ -166,7 +166,7 @@ Instead of going to all the trouble of launching a weapon, why not just turn you
 
 In Chapter 6 you saw another T9SS with a very different function, in the gliding motility of *Flavobacterium johnsoniae*. In that case, instead of gingipains, the machine secretes adhesive filaments that are also anchored to the cell surface.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_8.png' , fig.cap= 'Porphyromonas gingivalis Collected by: Poorna Subramanian [10.22002/D1.1578](https://doi.org/10.22002/D1.1578)'}
+```{R 9-8, echo=FALSE, screenshot.alt='movie_stills/9_8.png' , fig.cap= 'Porphyromonas gingivalis Collected by: Poorna Subramanian [10.22002/D1.1578](https://doi.org/10.22002/D1.1578)'}
 library(doivideo)
 doivideo('10.22002/D1.1578',0)
 ```
@@ -174,7 +174,7 @@ doivideo('10.22002/D1.1578',0)
 ## Predation
 Some bacteria take the strategy of eating the neighbors to a whole new level. Remember the pack-based hunting of *Myxococcus xanthus* in Chapter 7 (chasing their prey with type IV pilus (T4P)-based twitching motility)? There are also solitary hunters, like *Bdellovibrio bacteriovorus*, which has evolved an elaborate vampiric lifestyle centered around its prey. You have already seen examples of *B. bacteriovorus* cells on the prowl, in what is called “attack phase”. Their bodies are ideally shaped and sized for rapid flagellum-propelled swimming and all superfluous functions like growth and division are halted (remember the highly condensed nucleoid you saw at the end of Chapter 2). When a cell finds a diderm bacterium–*Vibrio cholerae* in this case–it uses its type IV pili to lock on and pull itself closer, as you can see here.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_9.png' , fig.cap= 'Bdellovibrio bacteriovorus / Vibrio cholerae Collected by: Yi-Wei Chang [10.22002/D1.1579](https://doi.org/10.22002/D1.1579)'}
+```{R 9-9, echo=FALSE, screenshot.alt='movie_stills/9_9.png' , fig.cap= 'Bdellovibrio bacteriovorus / Vibrio cholerae Collected by: Yi-Wei Chang [10.22002/D1.1579](https://doi.org/10.22002/D1.1579)'}
 library(doivideo)
 doivideo('10.22002/D1.1579',0)
 ```
@@ -184,7 +184,7 @@ Once a *Bdellovibrio bacteriovorus* like this one has latched onto its unfortuna
 
 *Note that the prey here–the small, round cell–comes from a mutant strain of *Escherichia coli* that has an altered form of the shape-regulating protein MreB, which results in thinner cells. It is also lacking the Min system that positions the division plane at midcell. As a result, division occurs randomly along the length of the cell. The cells that divide near the pole produce “minicells” like this one. Minicells do not contain a genome and are not viable cells, but they can be useful for experiments. In this case, the reduced thickness of the sample improves the quality of cryoET imaging. It also lets us capture intermediates in the *B. bacteriovorus* entry process.*
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_10.png' , fig.cap= 'Bdellovibrio bacteriovorus / Escherichia coli Collected by: Yi-Wei Chang [10.22002/D1.1580](https://doi.org/10.22002/D1.1580)'}
+```{R 9-10, echo=FALSE, screenshot.alt='movie_stills/9_10.png' , fig.cap= 'Bdellovibrio bacteriovorus / Escherichia coli Collected by: Yi-Wei Chang [10.22002/D1.1580](https://doi.org/10.22002/D1.1580)'}
 library(doivideo)
 doivideo('10.22002/D1.1580',0)
 ```
@@ -192,7 +192,7 @@ doivideo('10.22002/D1.1580',0)
 ### Bdellovibrio bacteriovorus entry{#Bdellovibrio_bacteriovorus_entry}
 We still do not know exactly how *Bdellovibrio bacteriovorus* enters its host, but the process is extremely rapid. In order to catch a snapshot, we mixed *B. bacteriovorus* with miniaturized prey (see details on the main page). As the *B. bacteriovorus* cell cannot fit inside the prey, it remains stuck half-in and half-out. Note the tight collar of host outer membrane around the invader. How this seal is maintained throughout invasion remains a mystery.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_10a.png' , fig.cap= 'Bdellovibrio bacteriovorus / Escherichia coli Collected by: Yi-Wei Chang [10.22002/D1.1585](https://doi.org/10.22002/D1.1585)'}
+```{R 9-10a, echo=FALSE, screenshot.alt='movie_stills/9_10a.png' , fig.cap= 'Bdellovibrio bacteriovorus / Escherichia coli Collected by: Yi-Wei Chang [10.22002/D1.1585](https://doi.org/10.22002/D1.1585)'}
 library(doivideo)
 doivideo('10.22002/D1.1585',0)
 ```
@@ -200,7 +200,7 @@ doivideo('10.22002/D1.1585',0)
 ## Predation (cont’d.)
 Once inside its host, *Bdellovibrio bacteriovorus* has the leisure to grow and replicate. From its position in the periplasm, the *B. bacteriovorus* cell proceeds to digest the contents of the host cytoplasm, which shrinks down to a dense ball of (presumably undigestible) material. This meal provides the fuel necessary for the *B. bacteriovorus* to grow to several times its original length and undergo a synchronous division to produce several (usually between 2 and 7) daughters. The number of progeny depends on the size of the host cell: two in the case of this relatively small *Vibrio cholerae*. The progeny, reset to the attack phase (note the condensed nucleoids), finally lyse what is left of the host to escape and swim off in search of their next victims.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/9_11.png' , fig.cap= 'Bdellovibrio bacteriovorus / Vibrio cholerae Collected by: Yi-Wei Chang [10.22002/D1.1581](https://doi.org/10.22002/D1.1581)'}
+```{R 9-11, echo=FALSE, screenshot.alt='movie_stills/9_11.png' , fig.cap= 'Bdellovibrio bacteriovorus / Vibrio cholerae Collected by: Yi-Wei Chang [10.22002/D1.1581](https://doi.org/10.22002/D1.1581)'}
 library(doivideo)
 doivideo('10.22002/D1.1581',0)
 ```
