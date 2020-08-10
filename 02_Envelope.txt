@@ -105,11 +105,11 @@ Archaea and bacteria with surface layers produce characteristic outer membrane v
 
 [2_7_Sulfolobus solfataricus] Surface Layer Variety
 
-One of the most striking features of the surface layer is how different it can look in different species. For instance, compare this archaeal *Sulfolobus solfataricus* cell to the bacterium on the last page, or to other diderm [More: Methylomicrobium alcaliphilum] or monoderm [More: Clostridium thermocellum] bacteria, or archaea [More: Nitrosopumilis maritimus] [More: Methanoregula formicica]. All surface layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
+One of the most striking features of the surface layer is how different it can look in different species. For instance, compare this archaeal *Sulfolobus solfataricus* cell to the bacterium on the last page, or to other diderm [More: Methylomicrobium alcaliphilum] or monoderm [More: Clostridium thermocellum] bacteria, or archaea [More: Nitrosopumilus maritimus] [More: Methanoregula formicica]. All surface layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
 
 S-layers are very common in archaea like this *S. solfataricus*. Most archaea lack cell walls, so the surface layer functions as external scaffolding. Remember, too, that nearly all archaea are monoderms, lacking the extra periplasmic compartment that diderms have. Here again the surface layer serves a similar function, enclosing a space around the cell's membrane called the pseudo-periplasmic space. Just as with the bacterial periplasm, this space serves as an antechamber for the cell, restricting access by large molecules. In some cases, the pseudo-periplasmic space also contains specific proteins that function in metabolism.
 
-[7a_Methylomicrobium alcaliphilum] More: M. alcaliphilum
+[7a_Methylomicrobium alcaliphilum] More: Methylomicrobium alcaliphilum
 
 In *Methylomicrobium alcaliphilum*, V-shaped surface layer proteins come together to form cups that pack into a hexagonal pattern.
 
@@ -117,9 +117,9 @@ In *Methylomicrobium alcaliphilum*, V-shaped surface layer proteins come togethe
 
 Not only diderm bacteria have surface layers, as you can see on this monoderm *Clostridium thermocellum* cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
 
-[7c_Nitrosopumilis maritimus] More: N. maritimus
+[7c_Nitrosopumilus maritimus] More: Nitrosopumilus maritimus
 
-In *Nitrosopumilis maritimus*, surface layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
+In *Nitrosopumilus maritimus*, surface layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
 
 [7d_Methanoregula formicica] More: Methanoregula formicica
 

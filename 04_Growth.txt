@@ -87,7 +87,7 @@ You might expect a close relationship between cellular factories and storage dep
 
 Small poly-phosphate storage granules are sometimes seen *inside* carboxysomes, as in this *Hydrogenovibrio crunogenus* cell. Their purpose is unknown.
 
-[9b_Halothiobacillus neapolitanus] More: Carboxysomes-granule connections
+[9b_Halothiobacillus neapolitanus] More: Carboxysome-granule connections
 
 We sometimes see comb-like structures connecting external poly-phosphate storage granules with carboxysomes, as in this *Halothiobacillus neapolitanus* cell. The nature of the relationship between the structures, and the identity and function of the combs, remains a mystery.
 
