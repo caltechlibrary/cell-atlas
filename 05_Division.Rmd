@@ -10,7 +10,7 @@ It may be time to divide. In essence, division simply splits a cell, the "mother
 
 What about low copy-number components? Look at the poly-phosphate storage granules in the same cell. To ensure each daughter cell gets the same number, they are evenly spaced along the length of the cell, ready for division in the middle.
 
-```{R 5-1, echo=FALSE, screenshot.alt='movie_stills/5_1.png' , fig.cap= 'Thiomonas intermedia Collected by: Cristina Iancu [10.22002/D1.1507](https://doi.org/10.22002/D1.1507)'}
+```{R 5-1, echo=FALSE, screenshot.alt='movie_stills/5_1.png' , fig.cap= 'Thiomonas intermedia Collected by: [Cristina Iancu](#cristina_iancu) Movie DOI: [10.22002/D1.1507](https://doi.org/10.22002/D1.1507)'}
 library(doivideo)
 doivideo('10.22002/D1.1507',0)
 ```
@@ -22,7 +22,7 @@ If your cell divides by splitting in the middle, what is the easiest way to get 
 
 Remember that your cell's chromosome is colossal, so getting the ParS handle to one side is only part of the battle. An army of other proteins work to condense the chromosome to a more manageable volume and wrangle with the division machinery to make sure no straggling loops get caught off-sides.
 
-```{R 5-2, echo=FALSE, screenshot.alt='movie_stills/5_2.png' , fig.cap= 'Caulobacter crescentus Collected by: Ariane Briegel [10.22002/D1.1508](https://doi.org/10.22002/D1.1508)'}
+```{R 5-2, echo=FALSE, screenshot.alt='movie_stills/5_2.png' , fig.cap= 'Caulobacter crescentus Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1508](https://doi.org/10.22002/D1.1508)'}
 library(doivideo)
 doivideo('10.22002/D1.1508',0)
 ```
@@ -32,7 +32,7 @@ What if your cell divides a different way? Some bacteria divide not by fission, 
 
 Several other bacterial species divide by budding, although not all have stalks. Some simply bud from the main cell body; you will see an example later in this chapter.
 
-```{R 5-3, echo=FALSE, screenshot.alt='movie_stills/5_3.png' , fig.cap= 'Hyphomonas neptunium Collected by: Jian Shi [10.22002/D1.1509](https://doi.org/10.22002/D1.1509)'}
+```{R 5-3, echo=FALSE, screenshot.alt='movie_stills/5_3.png' , fig.cap= 'Hyphomonas neptunium Collected by: [Jian Shi](#jian_shi) Movie DOI: [10.22002/D1.1509](https://doi.org/10.22002/D1.1509)'}
 library(doivideo)
 doivideo('10.22002/D1.1509',0)
 ```
@@ -40,7 +40,7 @@ doivideo('10.22002/D1.1509',0)
 ### Hyphomonas stalk{#Hyphomonas_stalk}
 *Hyphomonas neptunium* grow a single stalk from one end of their cell body, similar to the *Caulobacter crescentus* you saw in Chapter 3. The function of the stalk, though, is different in this budding bacterium than in *C. crescentus*, which divide by more conventional fission.
 
-```{R 5-3a, echo=FALSE, screenshot.alt='movie_stills/5_3a.png' , fig.cap= 'Hyphomonas neptunium Collected by: Jian Shi [10.22002/D1.1519](https://doi.org/10.22002/D1.1519)'}
+```{R 5-3a, echo=FALSE, screenshot.alt='movie_stills/5_3a.png' , fig.cap= 'Hyphomonas neptunium Collected by: [Jian Shi](#jian_shi) Movie DOI: [10.22002/D1.1519](https://doi.org/10.22002/D1.1519)'}
 library(doivideo)
 doivideo('10.22002/D1.1519',0)
 ```
@@ -48,7 +48,7 @@ doivideo('10.22002/D1.1519',0)
 ### Hyphomonas lifecycle{#Hyphomonas_lifecycle}
 *Hyphomonas neptunium* have evolved a program of stages they pass through in the course of their life. When a newborn cell like this one is released, it is in the "swarmer" stage, using its flagellum (discussed in the next chapter) to swim away to a new location. After a while, it settles down, jettisoning its flagellum and growing a stalk with which to make its own bud–the next generation. Once a cell settles down into the stalked stage, it spends the rest of its life sending off buds as long as conditions are good. Only newborn cells are equipped with flagella to go adventuring. We will discuss more lifecycles in Chapter 8.
 
-```{R 5-3b, echo=FALSE, screenshot.alt='movie_stills/5_3b.png' , fig.cap= 'Hyphomonas neptunium Collected by: Jian Shi [10.22002/D1.1520](https://doi.org/10.22002/D1.1520)'}
+```{R 5-3b, echo=FALSE, screenshot.alt='movie_stills/5_3b.png' , fig.cap= 'Hyphomonas neptunium Collected by: [Jian Shi](#jian_shi) Movie DOI: [10.22002/D1.1520](https://doi.org/10.22002/D1.1520)'}
 library(doivideo)
 doivideo('10.22002/D1.1520',0)
 ```
@@ -56,7 +56,7 @@ doivideo('10.22002/D1.1520',0)
 ## Monoderm Cytokinesis
 Once your cell has gotten everything where it needs to go, how can it actually divide? Just as fences separate neighbors, why not use the cell wall to build a septum (“fence”) between the two daughters? That’s what this *Staphylococcus aureus* cell is doing, using its cell wall to begin cytokinesis–the physical division of the cytoplasm. In monoderm bacteria like this, with a thick cell wall, the septum is easy to see.
 
-```{R 5-4, echo=FALSE, screenshot.alt='movie_stills/5_4.png' , fig.cap= 'Staphylococcus aureus Collected by: Georges Chreifi [10.22002/D1.1510](https://doi.org/10.22002/D1.1510)'}
+```{R 5-4, echo=FALSE, screenshot.alt='movie_stills/5_4.png' , fig.cap= 'Staphylococcus aureus Collected by: [Georges Chreifi](#georges_chreifi) Movie DOI: [10.22002/D1.1510](https://doi.org/10.22002/D1.1510)'}
 library(doivideo)
 doivideo('10.22002/D1.1510',0)
 ```
@@ -66,7 +66,7 @@ The division septum grows in from the periphery of the dividing cell toward the 
 
 There can also be more than two daughter cells. Some species undergo simultaneous divisions, with two or more septa forming more or less at the same time. The genus of *<u>Tetrasphaera</u> remsis* gets its name from this property–cells can either divide into two (as in this case) or four roughly spherical cells.
 
-```{R 5-5, echo=FALSE, screenshot.alt='movie_stills/5_5.png' , fig.cap= 'Tetrasphaera remsis Collected by: Ariane Briegel [10.22002/D1.1511](https://doi.org/10.22002/D1.1511)'}
+```{R 5-5, echo=FALSE, screenshot.alt='movie_stills/5_5.png' , fig.cap= 'Tetrasphaera remsis Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1511](https://doi.org/10.22002/D1.1511)'}
 library(doivideo)
 doivideo('10.22002/D1.1511',0)
 ```
@@ -74,7 +74,7 @@ doivideo('10.22002/D1.1511',0)
 ## Diderm Cytokinesis
 The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: Sphingopyxis alaskensis division](#Sphingopyxis_alaskensis_division). For a later example, check out [More: Chloroflexi division](#Chloroflexi_division).
 
-```{R 5-6, echo=FALSE, screenshot.alt='movie_stills/5_6.png' , fig.cap= 'Idiomarina loihiensis Collected by: Morgan Beeby [10.22002/D1.1512](https://doi.org/10.22002/D1.1512)'}
+```{R 5-6, echo=FALSE, screenshot.alt='movie_stills/5_6.png' , fig.cap= 'Idiomarina loihiensis Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1512](https://doi.org/10.22002/D1.1512)'}
 library(doivideo)
 doivideo('10.22002/D1.1512',0)
 ```
@@ -82,7 +82,7 @@ doivideo('10.22002/D1.1512',0)
 ### Sphingopyxis alaskensis division{#Sphingopyxis_alaskensis_division}
 This diderm cell is about halfway through cytokinesis. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall are drawing in all around.
 
-```{R 5-6a, echo=FALSE, screenshot.alt='movie_stills/5_6a.png' , fig.cap= 'Sphingopyxis alaskensis Collected by: Morgan Beeby [10.22002/D1.1521](https://doi.org/10.22002/D1.1521)'}
+```{R 5-6a, echo=FALSE, screenshot.alt='movie_stills/5_6a.png' , fig.cap= 'Sphingopyxis alaskensis Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1521](https://doi.org/10.22002/D1.1521)'}
 library(doivideo)
 doivideo('10.22002/D1.1521',0)
 ```
@@ -90,7 +90,7 @@ doivideo('10.22002/D1.1521',0)
 ### Chloroflexi division{#Chloroflexi_division}
 This diderm cell is in the final stage of cytokinesis. The cytoplasm of the two daughter cells is completely separated by inner membrane and cell wall. The outer membrane, though, has not yet divided.
 
-```{R 5-6b, echo=FALSE, screenshot.alt='movie_stills/5_6b.png' , fig.cap= 'Chloroflexi Collected by: Elitza Tocheva [10.22002/D1.1522](https://doi.org/10.22002/D1.1522)'}
+```{R 5-6b, echo=FALSE, screenshot.alt='movie_stills/5_6b.png' , fig.cap= 'Chloroflexi Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1522](https://doi.org/10.22002/D1.1522)'}
 library(doivideo)
 doivideo('10.22002/D1.1522',0)
 ```
@@ -98,7 +98,7 @@ doivideo('10.22002/D1.1522',0)
 ## Diderm Cytokinesis (cont’d.)
 In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the *T. intermedia* cell at the beginning of this chapter. In others, including the cells you saw on the last page, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate. In *Caulobacter crescentus*, the outer membrane constricts along with the inner membrane and cell wall. At the end of division, though, the inner membrane seals off before the outer membrane, as you can see in this cell, which is at the very end stage of division. For an even later stage, check out [More: Caulobacter division](#Caulobacter_division).
 
-```{R 5-7, echo=FALSE, screenshot.alt='movie_stills/5_7.png' , fig.cap= 'Caulobacter crescentus Collected by: Zhuo Li [10.22002/D1.1513](https://doi.org/10.22002/D1.1513)'}
+```{R 5-7, echo=FALSE, screenshot.alt='movie_stills/5_7.png' , fig.cap= 'Caulobacter crescentus Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1513](https://doi.org/10.22002/D1.1513)'}
 library(doivideo)
 doivideo('10.22002/D1.1513',0)
 ```
@@ -106,7 +106,7 @@ doivideo('10.22002/D1.1513',0)
 ### Caulobacter division{#Caulobacter_division}
 These daughter cells have completely separated their mother’s inner membrane and cell wall, but not yet the outer membrane and surface layer.
 
-```{R 5-7a, echo=FALSE, screenshot.alt='movie_stills/5_7a.png' , fig.cap= 'Caulobacter crescentus Collected by: Qing Yao [10.22002/D1.1523](https://doi.org/10.22002/D1.1523)'}
+```{R 5-7a, echo=FALSE, screenshot.alt='movie_stills/5_7a.png' , fig.cap= 'Caulobacter crescentus Collected by: [Qing Yao](#qing_yao) Movie DOI: [10.22002/D1.1523](https://doi.org/10.22002/D1.1523)'}
 library(doivideo)
 doivideo('10.22002/D1.1523',0)
 ```
@@ -114,7 +114,7 @@ doivideo('10.22002/D1.1523',0)
 ## Budding (cont’d.)
 Like monoderms, most diderms divide into roughly equally-sized daughter cells, but not all do. Just like the *Tetrasphaera remsis* you saw earlier, some diderm species produce one larger, and one smaller, daughter, like this *Agrobacterium tumefaciens* cell. In this case, this is because the smaller daughter is technically a bud. *A. tumefaciens* concentrate their growth at one pole, pushing out a bud that, once it becomes large enough, is pinched off and released. The process is very similar to what you saw in *Hyphomonas neptunium*, just without the intervening stalk.
 
-```{R 5-8, echo=FALSE, screenshot.alt='movie_stills/5_8.png' , fig.cap= 'Agrobacterium tumefaciens Collected by: Elitza Tocheva [10.22002/D1.1514](https://doi.org/10.22002/D1.1514)'}
+```{R 5-8, echo=FALSE, screenshot.alt='movie_stills/5_8.png' , fig.cap= 'Agrobacterium tumefaciens Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1514](https://doi.org/10.22002/D1.1514)'}
 library(doivideo)
 doivideo('10.22002/D1.1514',0)
 ```
@@ -128,7 +128,7 @@ How does FtsZ find the right spot? There are multiple mechanisms, but an elegant
 
 Once everything is ready (the cell is long enough and the nucleoid out of the way), FtsZ filaments form at the division site. Initially, a single, short filament (or a few) appears. Already, this is enough to begin constricting the cell, which explains why many bacterial cells, including this one, start to constrict on one side only. FtsZ filaments run parallel to the cell membrane, so they appear as dots in cross-section; if we rotate the cell around to look down its long axis, we can see them. *Note: we cannot see the membrane (and any associated FtsZ filaments) all the way around the cell due to the “missing wedge” of information in cryoET imaging–see Chapter 1 for an explanation.*
 
-```{R 5-9, echo=FALSE, screenshot.alt='movie_stills/5_9.png' , fig.cap= 'Cupriavidus necator Collected by: Morgan Beeby [10.22002/D1.1515](https://doi.org/10.22002/D1.1515)'}
+```{R 5-9, echo=FALSE, screenshot.alt='movie_stills/5_9.png' , fig.cap= 'Cupriavidus necator Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1515](https://doi.org/10.22002/D1.1515)'}
 library(doivideo)
 doivideo('10.22002/D1.1515',0)
 ```
@@ -136,7 +136,7 @@ doivideo('10.22002/D1.1515',0)
 ### Asymmetric constriction{#Asymmetric_constriction}
 This *C. necator* cell is at a late stage of cytokinesis. In most cells, constriction would be more or less uniform around the circumference by now, but in some cells, including this one, the asymmetry persists.
 
-```{R 5-9a, echo=FALSE, screenshot.alt='movie_stills/5_9a.png' , fig.cap= 'Cupriavidus necator Collected by: Morgan Beeby [10.22002/D1.1524](https://doi.org/10.22002/D1.1524)'}
+```{R 5-9a, echo=FALSE, screenshot.alt='movie_stills/5_9a.png' , fig.cap= 'Cupriavidus necator Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1524](https://doi.org/10.22002/D1.1524)'}
 library(doivideo)
 doivideo('10.22002/D1.1524',0)
 ```
@@ -152,7 +152,7 @@ While the structure of FtsZ is known, as seen here from *Staphylococcus aureus* 
 ## FtsZ (cont’d.)
 As cytokinesis progresses, FtsZ filaments keep assembling and growing, soon forming a complete ring of long, overlapping filaments around the full circumference of the cell. This drives further constriction more or less uniformly. In this *Caulobacter crescentus* cell in a later stage of division, you can see many FtsZ filaments lined up in cross-section–the dots on both sides of the division plane; if we rotate the cell around, you can see filaments extending on both sides as far as the membrane is visible (*see note on the previous page about why we cannot trace the membrane and filaments all the way around*). They will continue to pull the membrane inward, and direct cell wall to be built behind it, until cytokinesis is complete.
 
-```{R 5-10, echo=FALSE, screenshot.alt='movie_stills/5_10.png' , fig.cap= 'Caulobacter crescentus Collected by: Qing Yao [10.22002/D1.1516](https://doi.org/10.22002/D1.1516)'}
+```{R 5-10, echo=FALSE, screenshot.alt='movie_stills/5_10.png' , fig.cap= 'Caulobacter crescentus Collected by: [Qing Yao](#qing_yao) Movie DOI: [10.22002/D1.1516](https://doi.org/10.22002/D1.1516)'}
 library(doivideo)
 doivideo('10.22002/D1.1516',0)
 ```
@@ -160,7 +160,7 @@ doivideo('10.22002/D1.1516',0)
 ## ESCRT
 Nearly all bacteria, and many archaea, use FtsZ to divide. Other species of archaea, belonging to the Crenarchaeota phylum, use a different cytoskeletal system called Cdv (for <u>C</u>ell <u>d</u>i<u>v</u>ision). Cdv proteins are homologous to  proteins of the <u>E</u>ndosomal <u>S</u>orting <u>C</u>omplexes <u>R</u>equired for <u>T</u>ransport (ESCRT). ESCRT proteins were discovered in eukaryotes, where they are involved in many processes that involve cinching off membranes, from the final stage of cell division to virus budding to endocytosis (hence the name), by which cells engulf things from the environment. Again, despite its fundamental importance, we still do not know exactly *how* the ESCRT machinery works to constrict membranes. In archaeal cells like this *Sulfolobus acidocaldarius*, Cdv proteins form a belt of parallel filaments around the middle of the cell, defining the division plane. Notice that the rigid surface layer is dismantled outside the belt so that the membrane can be pulled inward.
 
-```{R 5-11, echo=FALSE, screenshot.alt='movie_stills/5_11.png' , fig.cap= 'Sulfolobus acidocaldarius Collected by: Shrawan Mageswaran [10.22002/D1.1517](https://doi.org/10.22002/D1.1517)'}
+```{R 5-11, echo=FALSE, screenshot.alt='movie_stills/5_11.png' , fig.cap= 'Sulfolobus acidocaldarius Collected by: [Shrawan Mageswaran](#shrawan_mageswaran) Movie DOI: [10.22002/D1.1517](https://doi.org/10.22002/D1.1517)'}
 library(doivideo)
 doivideo('10.22002/D1.1517',0)
 ```
@@ -170,7 +170,7 @@ The Cdv filaments then pull the membrane inward, constricting the cell, as you c
 
 The majority of cells divide by one of these two mechanisms–FtsZ or Cdv–but not all do. Some bacterial and archaeal species have neither FtsZ nor Cdv, and we are still figuring out how they divide.
 
-```{R 5-12, echo=FALSE, screenshot.alt='movie_stills/5_12.png' , fig.cap= 'Sulfolobus acidocaldarius Collected by: Shrawan Mageswaran [10.22002/D1.1518](https://doi.org/10.22002/D1.1518)'}
+```{R 5-12, echo=FALSE, screenshot.alt='movie_stills/5_12.png' , fig.cap= 'Sulfolobus acidocaldarius Collected by: [Shrawan Mageswaran](#shrawan_mageswaran) Movie DOI: [10.22002/D1.1518](https://doi.org/10.22002/D1.1518)'}
 library(doivideo)
 doivideo('10.22002/D1.1518',0)
 ```

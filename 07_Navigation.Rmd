@@ -9,7 +9,7 @@ For chemotaxis (“taxis,” or ordered movement, in response to chemicals) the 
 
 Chemosensory systems form arrays containing many copies of the proteins. As in this *S. oneidensis* cell, arrays are usually located near the flagella they control, with the tips of the chemoreceptors sticking through the membrane into the periplasm or extracellular space where they can detect signals from the environment. At the other end of the array, the associated kinases interact with the response regulators. These kinases, along with an additional structural protein that helps organize the array, form a layer that we see as a dense line in the cytoplasm.
 
-```{R 7-1, echo=FALSE, screenshot.alt='movie_stills/7_1.png' , fig.cap= 'Shewanella oneidensis Collected by: Mohammed Kaplan [10.22002/D1.1545](https://doi.org/10.22002/D1.1545)'}
+```{R 7-1, echo=FALSE, screenshot.alt='movie_stills/7_1.png' , fig.cap= 'Shewanella oneidensis Collected by: [Mohammed Kaplan](#mohammed_kaplan) Movie DOI: [10.22002/D1.1545](https://doi.org/10.22002/D1.1545)'}
 library(doivideo)
 doivideo('10.22002/D1.1545',0)
 ```
@@ -25,7 +25,7 @@ Chemoreceptors take the form of long rods. A single protein zips back along itse
 ## Chemosensory Array
 Chemosensory arrays are highly ordered, as you can best see from a bird’s-eye view, as in this lysed *Salmonella typhimurium* cell. Chemoreceptors come together as dimers, which in turn organize into trimers, which are further packed into the extensive hexagonal honeycombed array you see here. The hexagonal arrangement comes from the baseplate, where the kinases and coupling proteins bind into an ordered array [Schematic: Chemosensory array architecture]. In what should be a familiar theme by now, organization provides a great benefit. Bacteria and archaea have a tremendous sense of smell, responding to as few as one or two molecules of an attractant, or many more. In fact, the range of chemical concentrations they can sense extends over 5 orders of magnitude. But how can a single receptor transmit a signal efficiently? Perhaps it should pass on the message to its neighbors. The interlocking network of chemoreceptors enables just this kind of amplification; a target binding to one receptor may translate into activation of 36 adjacent receptors, enormously boosting the gain of the signal.
 
-```{R 7-2, echo=FALSE, screenshot.alt='movie_stills/7_2.png' , fig.cap= 'Salmonella typhimurium Collected by: Morgan Beeby [10.22002/D1.1546](https://doi.org/10.22002/D1.1546)'}
+```{R 7-2, echo=FALSE, screenshot.alt='movie_stills/7_2.png' , fig.cap= 'Salmonella typhimurium Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1546](https://doi.org/10.22002/D1.1546)'}
 library(doivideo)
 doivideo('10.22002/D1.1546',0)
 ```
@@ -41,7 +41,7 @@ Here you see two of the basic units of a chemosensory array from *Escherichia co
 ## Chemosensory Array Conservation
 The hexagonal array structure of chemosensory systems is invariant across species, and even across domains. As you can see in this *Methanospirillum hungatei* cell, the arrays have the same architecture in archaea as in bacteria, with 12 nm center-to-center spacing between the hexagons. This strong conservation indicates the importance of chemotaxis for cells’ fitness, and suggests that evolution had already honed it to a relatively optimal form in the common ancestor of all these cells.
 
-```{R 7-3, echo=FALSE, screenshot.alt='movie_stills/7_3.png' , fig.cap= 'Methanospirillum hungatei Collected by: Ariane Briegel [10.22002/D1.1547](https://doi.org/10.22002/D1.1547)'}
+```{R 7-3, echo=FALSE, screenshot.alt='movie_stills/7_3.png' , fig.cap= 'Methanospirillum hungatei Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1547](https://doi.org/10.22002/D1.1547)'}
 library(doivideo)
 doivideo('10.22002/D1.1547',0)
 ```
@@ -49,7 +49,7 @@ doivideo('10.22002/D1.1547',0)
 ## Chemoreceptors
 While there is only one architectural style for chemosensory systems, there are many different building materials. Each chemoreceptor senses one, or perhaps two related, types of chemicals. This means that if your cell wants to sense multiple chemicals in its environment, it needs a matching assortment of chemoreceptors. This can quickly get complicated. Some signals need to go to the flagella, some to the pili, and others to the transcriptional machinery to turn on or off genes. How can you keep the wires from getting crossed? The simplest approach is just to separate them, and that seems to be exactly what cells do. Chemoreceptors that signal to different systems have different lengths, which sorts them into separate arrays in the cell, as you can see in this *Vibrio cholerae*. The shorter array signals to the flagellar motor, and the longer array signals to a different target we have not yet identified. Even when multiple chemosensory systems signal to the same target, arrays that respond to different environmental cues are kept separate by length differences in the receptors [More: Azospirillum brasilense aerotaxis](#Azospirillum_brasilense_aerotaxis).
 
-```{R 7-4, echo=FALSE, screenshot.alt='movie_stills/7_4.png' , fig.cap= 'Vibrio cholerae Collected by: Ariane Briegel [10.22002/D1.1548](https://doi.org/10.22002/D1.1548)'}
+```{R 7-4, echo=FALSE, screenshot.alt='movie_stills/7_4.png' , fig.cap= 'Vibrio cholerae Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1548](https://doi.org/10.22002/D1.1548)'}
 library(doivideo)
 doivideo('10.22002/D1.1548',0)
 ```
@@ -57,7 +57,7 @@ doivideo('10.22002/D1.1548',0)
 ### Azospirillum brasilense aerotaxis{#Azospirillum_brasilense_aerotaxis}
 A length difference of as little as 2 nm is enough to separate receptors, like these in *Azospirillum brasilense* that sense oxygen (28 nm array) and sources of energy like malate (30 nm array). Both receptors send signals to the single flagellar motor, promoting runs or direction switches to guide the bacterium through a combination of chemotaxis and aerotaxis (ordered movement in an oxygen gradient) to its target: plant roots. *A. brasilense* fixes nitrogen, boosting the growth of plants it colonizes.
 
-```{R 7-4a, echo=FALSE, screenshot.alt='movie_stills/7_4a.png' , fig.cap= 'Azospirillum brasilense Collected by: Ariane Briegel [10.22002/D1.1551](https://doi.org/10.22002/D1.1551)'}
+```{R 7-4a, echo=FALSE, screenshot.alt='movie_stills/7_4a.png' , fig.cap= 'Azospirillum brasilense Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1551](https://doi.org/10.22002/D1.1551)'}
 library(doivideo)
 doivideo('10.22002/D1.1551',0)
 ```
@@ -65,7 +65,7 @@ doivideo('10.22002/D1.1551',0)
 ## Cytoplasmic Chemosensory Array
 In addition to their extensive repertoire of membrane-embedded chemoreceptors, cells may also have another, cytoplasmic, type. Many species of bacteria and archaea, like this *Methanoregula formicica*, contain cytoplasmic chemosensory arrays. The receptors lack membrane insertion patches. Instead, they interact end-to-end with each other at their chemical-sensing tips, zippering into a double-layered sandwich, with a baseplate of kinases and coupling proteins on either side. In some species, the arrays are curved like this; in others, they are straight. What these systems sense remains a mystery; one idea is that they monitor the internal state of the cell (e.g. the levels of various metabolites) to fine-tune signaling responses to meet the current needs of the cell. They are often found along with, and often quite close to, membrane-embedded chemosensory arrays [More: Vibrio cholerae chemosensory arrays](#Vibrio_cholerae_chemosensory_arrays).
 
-```{R 7-5, echo=FALSE, screenshot.alt='movie_stills/7_5.png' , fig.cap= 'Methanoregula formicica Collected by: Ariane Briegel [10.22002/D1.1549](https://doi.org/10.22002/D1.1549)'}
+```{R 7-5, echo=FALSE, screenshot.alt='movie_stills/7_5.png' , fig.cap= 'Methanoregula formicica Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1549](https://doi.org/10.22002/D1.1549)'}
 library(doivideo)
 doivideo('10.22002/D1.1549',0)
 ```
@@ -73,7 +73,7 @@ doivideo('10.22002/D1.1549',0)
 ### Vibrio cholerae chemosensory arrays{#Vibrio_cholerae_chemosensory_arrays}
 This *Vibrio cholerae* cell showcases a full repertoire of chemosensory systems: two membrane-embedded arrays (the shorter one signaling to the flagellar motor and the longer one signaling to a still-unknown target) and a cytoplasmic array (also with unknown function). In all cases, the basic architecture is identical: hexagonally-arranged trimers of chemoreceptor dimers.
 
-```{R 7-5a, echo=FALSE, screenshot.alt='movie_stills/7_5a.png' , fig.cap= 'Vibrio cholerae Collected by: Ariane Briegel [10.22002/D1.1552](https://doi.org/10.22002/D1.1552)'}
+```{R 7-5a, echo=FALSE, screenshot.alt='movie_stills/7_5a.png' , fig.cap= 'Vibrio cholerae Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1552](https://doi.org/10.22002/D1.1552)'}
 library(doivideo)
 doivideo('10.22002/D1.1552',0)
 ```
@@ -87,7 +87,7 @@ Magnetosomes first form with the creation of a pocket of inner membrane, as you 
 
 Much remains mysterious about these structures. For instance, what forms the membrane pockets? An even bigger question is how cells use their compass. One theory is that magnetosomes guide the aquatic bacteria vertically to the optimal height in the water column for, e.g. oxygen level. However, these species are also found at the magnetic equator, where the Earth’s field is horizontal. Another hypothesis is that magnetic orientation improves the efficiency of navigation by buffering the cell against Brownian motion that would knock it off course.
 
-```{R 7-6, echo=FALSE, screenshot.alt='movie_stills/7_6.png' , fig.cap= 'Magnetospirillum magneticum Collected by: Zhuo Li [10.22002/D1.1550](https://doi.org/10.22002/D1.1550)'}
+```{R 7-6, echo=FALSE, screenshot.alt='movie_stills/7_6.png' , fig.cap= 'Magnetospirillum magneticum Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1550](https://doi.org/10.22002/D1.1550)'}
 library(doivideo)
 doivideo('10.22002/D1.1550',0)
 ```
