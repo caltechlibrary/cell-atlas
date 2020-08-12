@@ -141,7 +141,7 @@ Some types of storage granules, like poly-phosphate and poly-hydroxybutyrate, ar
 
 In some species, like the *Cupriavidus necator* on the last page, storage granules seem to be positioned randomly in the cell. Other species have more regulated arrangements. *A. tumefaciens* cells always have one poly-phosphate storage granule located near the cell pole. Other species have one at each end of the cell. As we will discuss in Chapter 5, this arrangement can help mother cells deliver a storage granule to each of their daughters during division.
 
-You might expect a close relationship between cellular factories and storage depots. In fact, there does seem to be a relationship between carboxysomes and storage granules, although the details remain unclear [More: Granule-containing carboxysomes](#Granule-containing_carboxysomes) [More: Carboxysome-granule connections](#).
+You might expect a close relationship between cellular factories and storage depots. In fact, there does seem to be a relationship between carboxysomes and storage granules, although the details remain unclear [More: Granule-containing carboxysomes](#Granule-containing_carboxysomes) [More: Carboxysome-granule connections](#Carboxysome-granule_connections).
 
 ```{R 4-9, echo=FALSE, screenshot.alt='movie_stills/4_9.png' , fig.cap= 'Agrobacterium tumefaciens Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1497](https://doi.org/10.22002/D1.1497)'}
 library(doivideo)
@@ -156,7 +156,7 @@ library(doivideo)
 doivideo('10.22002/D1.1503',0)
 ```
 
-### Carboxysomes-granule connections{#Carboxysomes-granule_connections}
+### Carboxysome-granule connections{#Carboxysome-granule_connections}
 We sometimes see comb-like structures connecting external poly-phosphate storage granules with carboxysomes, as in this *Halothiobacillus neapolitanus* cell. The nature of the relationship between the structures, and the identity and function of the combs, remains a mystery.
 
 ```{R 4-9b, echo=FALSE, screenshot.alt='movie_stills/4_9b.png' , fig.cap= 'Halothiobacillus neapolitanus Collected by: [Cristina Iancu](#cristina_iancu) Movie DOI: [10.22002/D1.1504](https://doi.org/10.22002/D1.1504)'}
