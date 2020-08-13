@@ -213,10 +213,10 @@ doivideo('10.22002/D1.1518',0)
 
 ## Further Reading
 
-[@badrinarayanan2015]
+Badrinarayanan et al. (2015). *Bacterial chromosome organization and segregation*.[@badrinarayanan2015]
 
-[@hirsch1974]
+Hirsch (1974). *Budding bacteria*.[@hirsch1974]
 
-[@laloux2014]
+Laloux and Jacobs-Wagner (2014). *How do bacteria localize proteins to the cell pole?*[@laloux2014]
 
-[@reyes-lamothe2012]
+Reyes-Lamothe et al. (2012). *Chromosome replication and segregation in bacteria*.[@reyes-lamothe2012]

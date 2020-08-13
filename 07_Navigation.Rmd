@@ -118,10 +118,10 @@ MamK, like its eukaryotic homologue, actin, polymerizes into double-stranded fil
 
 ## Further Reading
 
-[@berg1988]
+Berg (1988). *A physicist looks at bacterial chemotaxis*.[@berg1988]
 
-[@hazelbauer2008]
+Hazelbauer et al. (2008). *Bacterial chemoreceptors: High-performance signaling in networked arrays*.[@hazelbauer2008]
 
-[@lower2013]
+Lower and Bazylinski (2013). *The bacterial magnetosome: A unique prokaryotic organelle*.[@lower2013]
 
-[@schuergers2016]
+Schuergers et al. (2016). *Cyanobacteria use micro-optics to sense light direction*.[@schuergers2016]

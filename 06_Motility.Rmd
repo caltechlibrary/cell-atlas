@@ -166,7 +166,7 @@ The overall architecture of the helical archaellum is similar to that of the bac
 ## Archaella Patterns
 Similar to flagella in bacteria, different archaeal species employ different numbers and patterns of archaella. Some species have one, others have many, either distributed peritrichously (all around) as in the *Methanoregula formicica* you just saw, or lophotrichously (clumped) as in this *Thermococcus kodakaraensis*. In *T. kodakaraensis* and related species, an additional structure–a large conical plate–is seen in the cytoplasm, perhaps providing leverage for the multiple motors. The plate has a unique structure [More: Cone structure](#Cone_structure) and may act as an organizing center akin to the polar PopZ structure we discussed in the last chapter [More: Organizing center](#Organizing_center). Note the two peaks on this cone; it may be in the process of replicating in preparation for division.
 
-Not all lophotrichous archaea use a cytoplasmic conical plate [More: Lophotrichous Halobacteria](#).
+Not all lophotrichous archaea use a cytoplasmic conical plate [More: Lophotrichous Halobacteria](#Lophotrichous_Halobacteria).
 
 (ref:6-9) Thermococcus kodakaraensis Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1533](https://doi.org/10.22002/D1.1533)
 
@@ -195,7 +195,8 @@ library(doivideo)
 doivideo('10.22002/D1.1543',0)
 ```
 
-## More: Lophotrichous HalobacteriaWhile a cytoplasmic plate may help distribute the force of multiple, closely-packed archaella, it is clearly not necessary since other species, like this Halobacterium salinarum do not use one.
+### Lophotrichous Halobacteria{#Lophotrichous_Halobacteria}
+While a cytoplasmic plate may help distribute the force of multiple, closely-packed archaella, it is clearly not necessary since other species, like this *Halobacterium salinarum* do not use one.
 
 (ref:6-9c) Halobacterium salinarum Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1544](https://doi.org/10.22002/D1.1544)
 
@@ -249,12 +250,12 @@ doivideo('10.22002/D1.1536',0)
 
 ## Further Reading
 
-[@albers2018]
+Albers and Jarrell (2018). *The archaellum: An update on the unique archaeal motility structure*.[@albers2018]
 
-[@berg2003]
+Berg (2003). *The rotary motor of bacterial flagella*.[@berg2003]
 
-[@jarrell2008]
+Jarrell and McBride (2008). *The surprisingly diverse ways that prokaryotes move*.[@jarrell2008]
 
-[@munoz-dorado2016]
+Muñoz-Dorado et al. (2016). *Myxobacteria: Moving, killing, feeding, and surviving together*.[@munoz-dorado2016]
 
-[@shrivastava2015]
+Shrivastava and Berg (2015). *Towards a model for Flavobacterium gliding*.[@shrivastava2015]
