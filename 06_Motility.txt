@@ -86,8 +86,9 @@ The archaellar plate does not come to a point at the tip, but rather is a conica
 
 As you can see more clearly in this partially-lysed, flattened *Thermococcus kodakaraensis* cell, the conical plate in the cytoplasm is attached to more than just the archaella. It is also associated with chemosensory arrays (discussed in the next chapter) and DNA, as you can see from the ribosome-excluding zone. This structure may therefore perform an analogous function to bacterial organizing proteins such as PopZ, tethering cellular components into a *de facto* pole for the (in this case round) cell.
 
-[6_9c_Halobacterium salinarum] More: Lophotrichous Halobacteria
-While a cytoplasmic plate may help distribute the force of multiple, closely-packed archaella, it is clearly not necessary since other species, like this Halobacterium salinarum do not use one.
+[9c_Halobacterium salinarum] More: Lophotrichous Halobacteria
+
+While a cytoplasmic plate may help distribute the force of multiple, closely-packed archaella, it is clearly not necessary since other species, like this *Halobacterium salinarum* do not use one.
 
 [6_10_Myxococcus xanthus] Type IV Pili
 
@@ -112,12 +113,12 @@ Keep in mind that these are simply *some* of the ways we know bacteria and archa
 
 ## Further Reading
 
-[@albers2018]
+Albers and Jarrell (2018). *The archaellum: An update on the unique archaeal motility structure*.[@albers2018]
 
-[@berg2003]
+Berg (2003). *The rotary motor of bacterial flagella*.[@berg2003]
 
-[@jarrell2008]
+Jarrell and McBride (2008). *The surprisingly diverse ways that prokaryotes move*.[@jarrell2008]
 
-[@munoz-dorado2016]
+Muñoz-Dorado et al. (2016). *Myxobacteria: Moving, killing, feeding, and surviving together*.[@munoz-dorado2016]
 
-[@shrivastava2015]
+Shrivastava and Berg (2015). *Towards a model for Flavobacterium gliding*.[@shrivastava2015]

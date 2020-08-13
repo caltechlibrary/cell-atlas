@@ -93,10 +93,10 @@ Sporulation may seem like a highly specialized function practiced by relatively 
 
 ## Further Reading
 
-[@fendrihan2006]
+Fendrihan et al. (2006). *Extremely halophilic archaea and the issue of long-term microbial survival*.[@fendrihan2006]
 
-[@pletnev2015]
+Pletnev et al. (2015). *Survival guide: Escherichia coli in the stationary phase*.[@pletnev2015]
 
-[@tocheva2016]
+Tocheva et al. (2016). *Sporulation, bacterial cell envelopes and the origin of life*.[@tocheva2016]
 
-[@vreeland2000]
+Vreeland et al. (2000). *Isolation of a 250 million-year-old halotolerant bacterium from a primary salt crystal*.[@vreeland2000]

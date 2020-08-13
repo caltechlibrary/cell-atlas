@@ -81,10 +81,10 @@ Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a sin
 
 ## Further Reading
 
-[@barry2011]
+Barry and Gitai (2011). *Self-assembling enzymes and the origins of the cytoskeleton*.[@barry2011]
 
-[@pfeifer2012]
+Pfeifer (2012). *Distribution, formation and regulation of gas vesicles*.[@pfeifer2012]
 
-[@pilhofer2013]
+Pilhofer and Jensen (2013). *The bacterial cytoskeleton: More than twisted filaments*.[@pilhofer2013]
 
-[@young2006]
+Young (2006). *The selective value of bacterial shape*.[@young2006]

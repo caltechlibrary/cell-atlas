@@ -118,10 +118,10 @@ Once inside its host, *Bdellovibrio bacteriovorus* has the leisure to grow and r
 
 ## Further Reading
 
-[@christie2019]
+Christie (2019). *The rich tapestry of bacterial protein translocation systems*.[@christie2019]
 
-[@flemming2016]
+Flemming et al. (2016). *Biofilms: An emergent form of bacterial life*.[@flemming2016]
 
-[@patz2019]
+Patz et al. (2019). *Phage tail-like particles are versatile bacterial nanomachines*.[@patz2019]
 
-[@sockett2009]
+Sockett (2009). *Predatory lifestyle of Bdellovibrio bacteriovorus*.[@sockett2009]
