@@ -17,9 +17,10 @@ def insert_movie(doi):
     image_path = f'movie_stills/{filen}.png'
     collector_label = collector.replace(' ','_').lower()
     collector_link = f'[{collector}](#{collector_label})'
-    return "```{R "+label+", echo=FALSE, screenshot.alt='"+\
-            image_path+"' , fig.cap= '"+title+" Collected by: "+collector_link+\
-            " Movie DOI: ["+doiv+"](https://doi.org/"+doiv+\
+    return "(ref:"+label+") "+title+" Collected by: "+collector_link+\
+            " Movie DOI: ["+doiv+"](https://doi.org/"+doiv+")\n\n"+\
+            "```{R "+label+", echo=FALSE, screenshot.alt='"+\
+            image_path+"' , fig.cap= '(ref:"+label+\
             ")'}\nlibrary(doivideo)\ndoivideo('"+\
             doiv+"',0)\n```\n\n"
 

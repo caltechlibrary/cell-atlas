@@ -1,93 +1,93 @@
 # Scientist Profiles 
-#### Morgan Beeby {#morgan_beeby}
+### Morgan Beeby {#morgan_beeby}
 
 
-#### Howard Berg {#howard_berg}
+### Howard Berg {#howard_berg}
 
 
-#### Ariane Briegel {#ariane_briegel}
+### Ariane Briegel {#ariane_briegel}
 
 
-#### Yi-Wei Chang {#yi-wei_chang}
+### Yi-Wei Chang {#yi-wei_chang}
 
 
-#### Songye Chen {#songye_chen}
+### Songye Chen {#songye_chen}
 
 
-#### Georges Chreifi {#georges_chreifi}
+### Georges Chreifi {#georges_chreifi}
 
 
-#### Prabha Dias {#prabha_dias}
+### Prabha Dias {#prabha_dias}
 
 
-#### Lu Gan {#lu_gan}
+### Lu Gan {#lu_gan}
 
 
-#### Debnath Ghosal {#debnath_ghosal}
+### Debnath Ghosal {#debnath_ghosal}
 
 
-#### Gregory Henderson {#gregory_henderson}
+### Gregory Henderson {#gregory_henderson}
 
 
-#### Cristina Iancu {#cristina_iancu}
+### Cristina Iancu {#cristina_iancu}
 
 
-#### Mohammed Kaplan {#mohammed_kaplan}
+### Mohammed Kaplan {#mohammed_kaplan}
 
 
-#### Zhuo Li {#zhuo_li}
+### Zhuo Li {#zhuo_li}
 
 
-#### Shrawan Mageswaran {#shrawan_mageswaran}
+### Shrawan Mageswaran {#shrawan_mageswaran}
 
 
-#### Alasdair McDowall {#alasdair_mcdowall}
+### Alasdair McDowall {#alasdair_mcdowall}
 
 
-#### Lauren Ann Metskas {#lauren_ann_metskas}
+### Lauren Ann Metskas {#lauren_ann_metskas}
 
 
-#### Gavin Murphy {#gavin_murphy}
+### Gavin Murphy {#gavin_murphy}
 
 
-#### William Nicolas {#william_nicolas}
+### William Nicolas {#william_nicolas}
 
 
-#### Martin Pilhofer {#martin_pilhofer}
+### Martin Pilhofer {#martin_pilhofer}
 
 
-#### Sahand Pirbadian {#sahand_pirbadian}
+### Sahand Pirbadian {#sahand_pirbadian}
 
 
-#### Rasika Ramdasi {#rasika_ramdasi}
+### Rasika Ramdasi {#rasika_ramdasi}
 
 
-#### David Rogers {#david_rogers}
+### David Rogers {#david_rogers}
 
 
-#### Fadel Samatey {#fadel_samatey}
+### Fadel Samatey {#fadel_samatey}
 
 
-#### Jian Shi {#jian_shi}
+### Jian Shi {#jian_shi}
 
 
-#### Poorna Subramanian {#poorna_subramanian}
+### Poorna Subramanian {#poorna_subramanian}
 
 
-#### Matthew Swulius {#matthew_swulius}
+### Matthew Swulius {#matthew_swulius}
 
 
-#### Elitza Tocheva {#elitza_tocheva}
+### Elitza Tocheva {#elitza_tocheva}
 
 
-#### Steven Wang {#steven_wang}
+### Steven Wang {#steven_wang}
 
 
-#### Matthias Wolf {#matthias_wolf}
+### Matthias Wolf {#matthias_wolf}
 
 
-#### Elizabeth Wright {#elizabeth_wright}
+### Elizabeth Wright {#elizabeth_wright}
 
 
-#### Qing Yao {#qing_yao}
+### Qing Yao {#qing_yao}
 
