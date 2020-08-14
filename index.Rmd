@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib, AtlasBibTeX.bib]
 csl: springer-socpsych-brackets.csl
 link-citations: yes
 description: "A visual tour of the microbial cell."
-cover-image: 'img/AtlasLogo.png'
+cover-image: 'img/Cover.png'
 always_allow_html: true
 ---
 
