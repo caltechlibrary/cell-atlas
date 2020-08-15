@@ -1,93 +1,79 @@
 # Scientist Profiles 
-### Morgan Beeby {#morgan_beeby}
 
+## Morgan Beeby {#morgan_beeby}
 
-### Howard Berg {#howard_berg}
+## Howard Berg {#howard_berg}
 
+## Ariane Briegel {#ariane_briegel}
 
-### Ariane Briegel {#ariane_briegel}
+## Yi-Wei Chang {#yi-wei_chang}
 
+## Songye Chen {#songye_chen}
 
-### Yi-Wei Chang {#yi-wei_chang}
+## Georges Chreifi {#georges_chreifi}
 
+## Prabha Dias {#prabha_dias}
 
-### Songye Chen {#songye_chen}
+## Lu Gan {#lu_gan}
 
+## Debnath Ghosal {#debnath_ghosal}
 
-### Georges Chreifi {#georges_chreifi}
+## Gregory Henderson {#gregory_henderson}
 
+## Cristina Iancu {#cristina_iancu}
 
-### Prabha Dias {#prabha_dias}
+## Grant Jensen {#grant_jensen}
 
+Grant J. Jensen is a Professor of Biology and Biophysics at Caltech. He earned his doctorate in Biophysics from Stanford, working on electron microscopy of RNA polymerase and other protein complexes with Dr. Roger Kornberg. He continued his work in protein electron microscopy as a Damon Runyon-Walter Winchell post-doctoral fellow under the supervision of Dr. Kenneth Downing at the Lawrence Berkeley National Lab. Here his interests expanded to include electron tomography of whole cells. Grant launched his own lab at Caltech in 2002, where his research has focused on three main areas: the ultrastructure of small cells, the structural biology of HIV, and the further development of cryo-EM technology. 
 
-### Lu Gan {#lu_gan}
+```{R}
+knitr::include_graphics('img/bios/grant_jensen.jpg')
+```
 
+## Mohammed Kaplan {#mohammed_kaplan}
 
-### Debnath Ghosal {#debnath_ghosal}
+## Zhuo Li {#zhuo_li}
 
+## Shrawan Mageswaran {#shrawan_mageswaran}
 
-### Gregory Henderson {#gregory_henderson}
+## Alasdair McDowall {#alasdair_mcdowall}
 
+## Lauren Ann Metskas {#lauren_ann_metskas}
 
-### Cristina Iancu {#cristina_iancu}
+## Gavin Murphy {#gavin_murphy}
 
+## William Nicolas {#william_nicolas}
 
-### Mohammed Kaplan {#mohammed_kaplan}
+## Catherine Oikonomou {#catherine_oikonomou}
 
+Catherine M. Oikonomou is a research scientist and science writer at Caltech. She received her doctorate from the Rockefeller University, where she worked with Dr. Frederick Cross on cell cycle control in budding yeast. In 2012, she joined the lab of Dr. Grant Jensen at Caltech, where she has been exploring microbial cell biology through electron cryotomography.
 
-### Zhuo Li {#zhuo_li}
+```{R}
+knitr::include_graphics('img/bios/catherine_oikonomou.jpg')
+```
 
+## Martin Pilhofer {#martin_pilhofer}
 
-### Shrawan Mageswaran {#shrawan_mageswaran}
+## Sahand Pirbadian {#sahand_pirbadian}
 
+## Rasika Ramdasi {#rasika_ramdasi}
 
-### Alasdair McDowall {#alasdair_mcdowall}
+## David Rogers {#david_rogers}
 
+## Fadel Samatey {#fadel_samatey}
 
-### Lauren Ann Metskas {#lauren_ann_metskas}
+## Jian Shi {#jian_shi}
 
+## Poorna Subramanian {#poorna_subramanian}
 
-### Gavin Murphy {#gavin_murphy}
+## Matthew Swulius {#matthew_swulius}
 
+## Elitza Tocheva {#elitza_tocheva}
 
-### William Nicolas {#william_nicolas}
+## Steven Wang {#steven_wang}
 
+## Matthias Wolf {#matthias_wolf}
 
-### Martin Pilhofer {#martin_pilhofer}
+## Elizabeth Wright {#elizabeth_wright}
 
-
-### Sahand Pirbadian {#sahand_pirbadian}
-
-
-### Rasika Ramdasi {#rasika_ramdasi}
-
-
-### David Rogers {#david_rogers}
-
-
-### Fadel Samatey {#fadel_samatey}
-
-
-### Jian Shi {#jian_shi}
-
-
-### Poorna Subramanian {#poorna_subramanian}
-
-
-### Matthew Swulius {#matthew_swulius}
-
-
-### Elitza Tocheva {#elitza_tocheva}
-
-
-### Steven Wang {#steven_wang}
-
-
-### Matthias Wolf {#matthias_wolf}
-
-
-### Elizabeth Wright {#elizabeth_wright}
-
-
-### Qing Yao {#qing_yao}
-
+## Qing Yao {#qing_yao}

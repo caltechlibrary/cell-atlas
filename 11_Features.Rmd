@@ -1,12 +1,15 @@
 # (APPENDIX) Appendix {-} 
 
 # Feature Index 
-**AdhE spirosomes**
+
+Click on a feature in the sidebar to see examples in different species.
+
+## **AdhE spirosomes**
 
 Clostridium thermocellum \@ref(fig:4-5)
 
 
-**Adhesion Complexes and Filaments**
+## **Adhesion Complexes and Filaments**
 
 Flavobacterium johnsoniae \@ref(fig:6-11)
 
@@ -15,7 +18,7 @@ Mycoplasma genitalium \@ref(fig:2-1)
 Mycoplasma pneumoniae \@ref(fig:6-12)
 
 
-**Archaella**
+## **Archaella**
 
 Halobacterium salinarum \@ref(fig:3-7a)
 
@@ -48,7 +51,7 @@ Thermococcus kodakaraensis \@ref(fig:6-9a)
 Thermococcus kodakaraensis \@ref(fig:6-9b)
 
 
-**Archaellar cone**
+## **Archaellar cone**
 
 Thermococcus kodakaraensis \@ref(fig:6-9)
 
@@ -59,7 +62,7 @@ Thermococcus kodakaraensis \@ref(fig:6-9b)
 Thermococcus kodakaraensis \@ref(fig:8-3)
 
 
-**Carboxysomes**
+## **Carboxysomes**
 
 Halothiobacillus neapolitanus \@ref(fig:4-7a)
 
@@ -74,14 +77,14 @@ Thiomonas intermedia \@ref(fig:4-7)
 Thiomonas intermedia \@ref(fig:5-1)
 
 
-**Cdv belt**
+## **Cdv belt**
 
 Sulfolobus acidocaldarius \@ref(fig:5-11)
 
 Sulfolobus acidocaldarius \@ref(fig:5-12)
 
 
-**Cell Wall (Diderm)**
+## **Cell Wall (Diderm)**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -278,7 +281,7 @@ Vibrio cholerae \@ref(fig:7-5a)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Cell Wall (Monoderm)**
+## **Cell Wall (Monoderm)**
 
 Bacillus subtilis \@ref(fig:2-2a)
 
@@ -305,14 +308,14 @@ Staphylococcus aureus \@ref(fig:5-4)
 Tetrasphaera remsis \@ref(fig:5-5)
 
 
-**Cellulose**
+## **Cellulose**
 
 Agrobacterium tumefaciens \@ref(fig:9-1)
 
 Gluconacetobacter hansenii \@ref(fig:9-2)
 
 
-**Chemosensory arrays (membrane-bound)**
+## **Chemosensory arrays (membrane-bound)**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -395,7 +398,7 @@ Vibrio cholerae \@ref(fig:7-5a)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Chemosensory arrays (cytoplasmic)**
+## **Chemosensory arrays (cytoplasmic)**
 
 Methanoregula formicica \@ref(fig:3-2b)
 
@@ -404,17 +407,17 @@ Methanoregula formicica \@ref(fig:7-5)
 Vibrio cholerae \@ref(fig:7-5a)
 
 
-**Chlorosomes**
+## **Chlorosomes**
 
 Chloroflexi \@ref(fig:4-4)
 
 
-**CTP synthase filaments**
+## **CTP synthase filaments**
 
 Caulobacter crescentus \@ref(fig:3-4)
 
 
-**Division Plane**
+## **Division Plane**
 
 Agrobacterium tumefaciens \@ref(fig:5-8)
 
@@ -451,12 +454,12 @@ Sulfolobus acidocaldarius \@ref(fig:5-12)
 Thiomonas intermedia \@ref(fig:5-1)
 
 
-**Division septum**
+## **Division septum**
 
 Tetrasphaera remsis \@ref(fig:5-5)
 
 
-**DNA**
+## **DNA**
 
 Haloarcula argentinensis \@ref(fig:2-9)
 
@@ -465,7 +468,7 @@ Hyphomonas neptunium \@ref(fig:5-3)
 Vibrio cholerae \@ref(fig:10-7)
 
 
-**Extracellular Vesicles**
+## **Extracellular Vesicles**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -518,7 +521,7 @@ Treponema primitia \@ref(fig:6-7a)
 Vibrio cholerae \@ref(fig:10-4)
 
 
-**Flagella (external, unsheathed)**
+## **Flagella (external, unsheathed)**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -579,7 +582,7 @@ Shewanella oneidensis \@ref(fig:7-1)
 Sporomusa acidovorans \@ref(fig:8-10c)
 
 
-**Flagella (periplasmic)**
+## **Flagella (periplasmic)**
 
 Borrelia burgdorferi \@ref(fig:2-4a)
 
@@ -592,7 +595,7 @@ Borrelia burgdorferi \@ref(fig:6-7)
 Treponema primitia \@ref(fig:6-7a)
 
 
-**Flagella (sheathed)**
+## **Flagella (sheathed)**
 
 Bdellovibrio bacteriovorus \@ref(fig:2-10)
 
@@ -611,12 +614,12 @@ Vibrio cholerae \@ref(fig:9-11)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Flagellar Motor (assembling)**
+## **Flagellar Motor (assembling)**
 
 Hylemonella gracilis \@ref(fig:6-3)
 
 
-**Flagellar Motor (disassembled)**
+## **Flagellar Motor (disassembled)**
 
 Caulobacter crescentus \@ref(fig:2-6)
 
@@ -633,7 +636,7 @@ Vibrio cholerae \@ref(fig:7-5a)
 Vibrio cholerae \@ref(fig:9-9)
 
 
-**Flagellar Motors**
+## **Flagellar Motors**
 
 Bdellovibrio bacteriovorus \@ref(fig:6-2a)
 
@@ -656,31 +659,31 @@ Vibrio cholerae \@ref(fig:7-4)
 Vibrio cholerae \@ref(fig:7-5a)
 
 
-**FtsZ Filaments**
+## **FtsZ Filaments**
 
 Caulobacter crescentus \@ref(fig:5-10)
 
 Cupriavidus necator \@ref(fig:5-9)
 
 
-**Gas Vesicles**
+## **Gas Vesicles**
 
 Halobacterium salinarum \@ref(fig:3-7a)
 
 Haloquadratum walsbyi \@ref(fig:3-7)
 
 
-**Gingipains**
+## **Gingipains**
 
 Porphyromonas gingivalis \@ref(fig:9-8)
 
 
-**Holdfast**
+## **Holdfast**
 
 Prosthecobacter vanneervenii \@ref(fig:8-4a)
 
 
-**Intracytoplasmic Membrane**
+## **Intracytoplasmic Membrane**
 
 Methylomicrobium alcaliphilum \@ref(fig:2-7a)
 
@@ -689,27 +692,27 @@ Methyloprofundus sedimenti \@ref(fig:4-3a)
 Rhodopseudomonas palustris \@ref(fig:4-3)
 
 
-**Invasion Portal**
+## **Invasion Portal**
 
 Bdellovibrio bacteriovorus \@ref(fig:9-10)
 
 
-**MACs**
+## **MACs**
 
 Pseudoalteromonas luteoviolacea \@ref(fig:9-7b)
 
 
-**Magnetosomes**
+## **Magnetosomes**
 
 Magnetospirillum magneticum \@ref(fig:7-6)
 
 
-**MamK filaments**
+## **MamK filaments**
 
 Magnetospirillum magneticum \@ref(fig:7-6)
 
 
-**Membrane (Inner)**
+## **Membrane (Inner)**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -904,7 +907,7 @@ Vibrio cholerae \@ref(fig:7-5a)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Membrane (Monoderm)**
+## **Membrane (Monoderm)**
 
 Bacillus subtilis \@ref(fig:8-5)
 
@@ -983,7 +986,7 @@ Thermococcus kodakaraensis \@ref(fig:6-9b)
 Thermococcus kodakaraensis \@ref(fig:8-3)
 
 
-**Membrane (Outer)**
+## **Membrane (Outer)**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -1182,19 +1185,19 @@ Vibrio cholerae \@ref(fig:7-5a)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Cellulose**
+## **Cellulose**
 
 Agrobacterium tumefaciens \@ref(fig:9-1)
 
 Gluconacetobacter hansenii \@ref(fig:9-2)
 
 
-**Metal deposits**
+## **Metal deposits**
 
 Shewanella oneidensis \@ref(fig:4-2)
 
 
-**Microtubules**
+## **Microtubules**
 
 Prosthecobacter debontii \@ref(fig:2-4d)
 
@@ -1203,17 +1206,17 @@ Prosthecobacter vanneervenii \@ref(fig:3-6a)
 Prosthecobacter vanneervenii \@ref(fig:8-4a)
 
 
-**Nanopods**
+## **Nanopods**
 
 Delftia acidovorans \@ref(fig:2-6a)
 
 
-**Nanowire**
+## **Nanowire**
 
 Shewanella oneidensis \@ref(fig:4-2)
 
 
-**Nucleoid**
+## **Nucleoid**
 
 Bdellovibrio bacteriovorus \@ref(fig:2-10)
 
@@ -1232,14 +1235,14 @@ Caulobacter crescentus \@ref(fig:8-1)
 Vibrio cholerae \@ref(fig:10-7)
 
 
-**Pdu microcompartments**
+## **Pdu microcompartments**
 
 Acetonema longum \@ref(fig:4-6)
 
 Acetonema longum \@ref(fig:8-9)
 
 
-**Phage capsids**
+## **Phage capsids**
 
 Bacteroidetes \@ref(fig:10-2)
 
@@ -1264,12 +1267,12 @@ Vibrio cholerae \@ref(fig:10-4)
 Vibrio cholerae \@ref(fig:10-7)
 
 
-**Phage head fibers**
+## **Phage head fibers**
 
 Caulobacter crescentus \@ref(fig:10-6)
 
 
-**Phage tail fibers**
+## **Phage tail fibers**
 
 Bacteroidetes \@ref(fig:10-2)
 
@@ -1282,7 +1285,7 @@ Shewanella oneidensis \@ref(fig:10-3)
 Vibrio cholerae \@ref(fig:10-4)
 
 
-**Phage tails**
+## **Phage tails**
 
 Bacteroidetes \@ref(fig:10-2)
 
@@ -1301,7 +1304,7 @@ Shewanella oneidensis \@ref(fig:10-3)
 Vibrio cholerae \@ref(fig:10-7)
 
 
-**Pili**
+## **Pili**
 
 Amoebophilus asiaticus \@ref(fig:9-7a)
 
@@ -1364,7 +1367,7 @@ Vibrio cholerae \@ref(fig:10-7)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Pili (Type IV)**
+## **Pili (Type IV)**
 
 Bdellovibrio bacteriovorus \@ref(fig:2-10)
 
@@ -1377,21 +1380,21 @@ Myxococcus xanthus \@ref(fig:6-10)
 Myxococcus xanthus \@ref(fig:9-6)
 
 
-**PopZ**
+## **PopZ**
 
 Caulobacter crescentus \@ref(fig:5-2)
 
 Caulobacter crescentus \@ref(fig:5-7)
 
 
-**RecA/RadA filaments**
+## **RecA/RadA filaments**
 
 Helicobacter pylori \@ref(fig:8-2)
 
 Thermococcus kodakaraensis \@ref(fig:8-3)
 
 
-**Ribosomes**
+## **Ribosomes**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -1626,14 +1629,14 @@ Vibrio cholerae \@ref(fig:7-5a)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Sheath**
+## **Sheath**
 
 Methanospirillum hungatei \@ref(fig:2-8)
 
 Methanospirillum hungatei \@ref(fig:7-3)
 
 
-**Spore coat**
+## **Spore coat**
 
 Acetonema longum \@ref(fig:8-10b)
 
@@ -1644,7 +1647,7 @@ Bacillus subtilis \@ref(fig:8-7)
 Bacillus subtilis \@ref(fig:8-8)
 
 
-**Spore cortex**
+## **Spore cortex**
 
 Acetonema longum \@ref(fig:8-10)
 
@@ -1659,7 +1662,7 @@ Bacillus subtilis \@ref(fig:8-7)
 Bacillus subtilis \@ref(fig:8-8)
 
 
-**Spore membrane (inner)**
+## **Spore membrane (inner)**
 
 Acetonema longum \@ref(fig:8-10)
 
@@ -1674,7 +1677,7 @@ Bacillus subtilis \@ref(fig:8-7)
 Bacillus subtilis \@ref(fig:8-8)
 
 
-**Spore membrane (outer)**
+## **Spore membrane (outer)**
 
 Acetonema longum \@ref(fig:8-10)
 
@@ -1689,12 +1692,12 @@ Bacillus subtilis \@ref(fig:8-7)
 Bacillus subtilis \@ref(fig:8-8)
 
 
-**Sporulation plane**
+## **Sporulation plane**
 
 Bacillus subtilis \@ref(fig:8-5a)
 
 
-**Sporulation septum**
+## **Sporulation septum**
 
 Acetonema longum \@ref(fig:8-9)
 
@@ -1705,12 +1708,12 @@ Bacillus subtilis \@ref(fig:8-6)
 Bacillus subtilis \@ref(fig:8-6a)
 
 
-**Stalk bands**
+## **Stalk bands**
 
 Caulobacter crescentus \@ref(fig:4-1)
 
 
-**Storage Granules**
+## **Storage Granules**
 
 Acetonema longum \@ref(fig:8-10)
 
@@ -1867,7 +1870,7 @@ Vibrio cholerae \@ref(fig:10-4)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Surface Layer**
+## **Surface Layer**
 
 Caulobacter crescentus \@ref(fig:10-6)
 
@@ -1952,14 +1955,14 @@ Thiomonas intermedia \@ref(fig:4-7)
 Thiomonas intermedia \@ref(fig:5-1)
 
 
-**Terminal Organelles**
+## **Terminal Organelles**
 
 Mycoplasma genitalium \@ref(fig:2-1)
 
 Mycoplasma pneumoniae \@ref(fig:6-12)
 
 
-**Type II secretion systems**
+## **Type II secretion systems**
 
 Legionella pneumophila \@ref(fig:9-3)
 
@@ -1968,24 +1971,24 @@ Shewanella oneidensis \@ref(fig:10-1)
 Vibrio cholerae \@ref(fig:10-4)
 
 
-**Type III secretion systems**
+## **Type III secretion systems**
 
 Pseudomonas aeruginosa \@ref(fig:9-4)
 
 
-**Type IV secretion systems**
+## **Type IV secretion systems**
 
 Helicobacter pylori \@ref(fig:9-3a)
 
 Legionella pneumophila \@ref(fig:9-3)
 
 
-**Type V secretion systems**
+## **Type V secretion systems**
 
 Escherichia coli \@ref(fig:9-5)
 
 
-**Type VI secretion systems**
+## **Type VI secretion systems**
 
 Agrobacterium tumefaciens \@ref(fig:9-1)
 
@@ -1998,17 +2001,17 @@ Proteus mirabilis \@ref(fig:6-5a)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Type IX secretion system**
+## **Type IX secretion system**
 
 Porphyromonas gingivalis \@ref(fig:9-8)
 
 
-**Unipolar polysaccharide**
+## **Unipolar polysaccharide**
 
 Agrobacterium tumefaciens \@ref(fig:9-1)
 
 
-**Unknown Structures**
+## **Unknown Structures**
 
 Acetonema longum \@ref(fig:4-6)
 
@@ -2103,7 +2106,7 @@ Vibrio cholerae \@ref(fig:10-7)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Vesicles (Cytoplasmic)**
+## **Vesicles (Cytoplasmic)**
 
 Acetonema longum \@ref(fig:8-9)
 
@@ -2180,7 +2183,7 @@ Treponema primitia \@ref(fig:6-7a)
 Vibrio cholerae \@ref(fig:9-7)
 
 
-**Vesicles (Periplasmic)**
+## **Vesicles (Periplasmic)**
 
 Agrobacterium tumefaciens \@ref(fig:5-8)
 
@@ -2189,7 +2192,7 @@ Hydrogenovibrio crunogenus \@ref(fig:4-7b)
 Prosthecobacter vanneervenii \@ref(fig:3-6a)
 
 
-**Virus-associated pyramids**
+## **Virus-associated pyramids**
 
 Sulfolobus solfataricus \@ref(fig:10-8)
 
