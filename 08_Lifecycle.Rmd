@@ -7,7 +7,7 @@ Your cell is fairly well optimized now. It can grow, divide, and find fuel to re
 
 (ref:8-1) Caulobacter crescentus Collected by: [Prabha Dias](#prabha_dias) Movie DOI: [10.22002/D1.1553](https://doi.org/10.22002/D1.1553)
 
-```{R 8-1, echo=FALSE, screenshot.alt='movie_stills/8_1.png' , fig.cap= '(ref:8-1)'}
+```{R 8-1, echo=FALSE, screenshot.alt='movie_stills/8_1.jpg' , fig.cap= '(ref:8-1)'}
 library(doivideo)
 doivideo('10.22002/D1.1553',0)
 ```
@@ -19,7 +19,7 @@ This cell exhibits other hallmarks of stationary phase: its shrinking membranes 
 
 (ref:8-2) Helicobacter pylori Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1554](https://doi.org/10.22002/D1.1554)
 
-```{R 8-2, echo=FALSE, screenshot.alt='movie_stills/8_2.png' , fig.cap= '(ref:8-2)'}
+```{R 8-2, echo=FALSE, screenshot.alt='movie_stills/8_2.jpg' , fig.cap= '(ref:8-2)'}
 library(doivideo)
 doivideo('10.22002/D1.1554',0)
 ```
@@ -29,7 +29,7 @@ Stationary phase in archaea looks much the same as in bacteria, as you can see i
 
 (ref:8-3) Thermococcus kodakaraensis Collected by: [Debnath Ghosal](#debnath_ghosal) Movie DOI: [10.22002/D1.1555](https://doi.org/10.22002/D1.1555)
 
-```{R 8-3, echo=FALSE, screenshot.alt='movie_stills/8_3.png' , fig.cap= '(ref:8-3)'}
+```{R 8-3, echo=FALSE, screenshot.alt='movie_stills/8_3.jpg' , fig.cap= '(ref:8-3)'}
 library(doivideo)
 doivideo('10.22002/D1.1555',0)
 ```
@@ -39,7 +39,7 @@ While all cells go through cycles of growth and quiescence in response to change
 
 (ref:8-4) Caulobacter crescentus Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1556](https://doi.org/10.22002/D1.1556)
 
-```{R 8-4, echo=FALSE, screenshot.alt='movie_stills/8_4.png' , fig.cap= '(ref:8-4)'}
+```{R 8-4, echo=FALSE, screenshot.alt='movie_stills/8_4.jpg' , fig.cap= '(ref:8-4)'}
 library(doivideo)
 doivideo('10.22002/D1.1556',0)
 ```
@@ -49,7 +49,7 @@ doivideo('10.22002/D1.1556',0)
 
 (ref:8-4a) Prosthecobacter vanneervenii Collected by: [Martin Pilhofer](#martin_pilhofer) Movie DOI: [10.22002/D1.1564](https://doi.org/10.22002/D1.1564)
 
-```{R 8-4a, echo=FALSE, screenshot.alt='movie_stills/8_4a.png' , fig.cap= '(ref:8-4a)'}
+```{R 8-4a, echo=FALSE, screenshot.alt='movie_stills/8_4a.jpg' , fig.cap= '(ref:8-4a)'}
 library(doivideo)
 doivideo('10.22002/D1.1564',0)
 ```
@@ -63,7 +63,7 @@ Note that this cell (and the ones on the next two pages) is narrower than normal
 
 (ref:8-5) Bacillus subtilis Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1557](https://doi.org/10.22002/D1.1557)
 
-```{R 8-5, echo=FALSE, screenshot.alt='movie_stills/8_5.png' , fig.cap= '(ref:8-5)'}
+```{R 8-5, echo=FALSE, screenshot.alt='movie_stills/8_5.jpg' , fig.cap= '(ref:8-5)'}
 library(doivideo)
 doivideo('10.22002/D1.1557',0)
 ```
@@ -73,7 +73,7 @@ From hundreds of sporulating *Bacillus subtilis* we imaged by cryoET, this is th
 
 (ref:8-5a) Bacillus subtilis Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1565](https://doi.org/10.22002/D1.1565)
 
-```{R 8-5a, echo=FALSE, screenshot.alt='movie_stills/8_5a.png' , fig.cap= '(ref:8-5a)'}
+```{R 8-5a, echo=FALSE, screenshot.alt='movie_stills/8_5a.jpg' , fig.cap= '(ref:8-5a)'}
 library(doivideo)
 doivideo('10.22002/D1.1565',0)
 ```
@@ -85,7 +85,7 @@ When the process of engulfment is finished, the spore’s cell wall is reinforce
 
 (ref:8-6) Bacillus subtilis Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1558](https://doi.org/10.22002/D1.1558)
 
-```{R 8-6, echo=FALSE, screenshot.alt='movie_stills/8_6.png' , fig.cap= '(ref:8-6)'}
+```{R 8-6, echo=FALSE, screenshot.alt='movie_stills/8_6.jpg' , fig.cap= '(ref:8-6)'}
 library(doivideo)
 doivideo('10.22002/D1.1558',0)
 ```
@@ -95,7 +95,7 @@ The process of spore engulfment by the mother cell membrane culminates in closur
 
 (ref:8-6a) Bacillus subtilis Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1566](https://doi.org/10.22002/D1.1566)
 
-```{R 8-6a, echo=FALSE, screenshot.alt='movie_stills/8_6a.png' , fig.cap= '(ref:8-6a)'}
+```{R 8-6a, echo=FALSE, screenshot.alt='movie_stills/8_6a.jpg' , fig.cap= '(ref:8-6a)'}
 library(doivideo)
 doivideo('10.22002/D1.1566',0)
 ```
@@ -105,7 +105,7 @@ In this later stage of sporulation, you can see that the *Bacillus subtilis* spo
 
 (ref:8-6b) Bacillus subtilis Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1567](https://doi.org/10.22002/D1.1567)
 
-```{R 8-6b, echo=FALSE, screenshot.alt='movie_stills/8_6b.png' , fig.cap= '(ref:8-6b)'}
+```{R 8-6b, echo=FALSE, screenshot.alt='movie_stills/8_6b.jpg' , fig.cap= '(ref:8-6b)'}
 library(doivideo)
 doivideo('10.22002/D1.1567',0)
 ```
@@ -117,7 +117,7 @@ Once released, the spore will remain dormant as long as necessary, protected by 
 
 (ref:8-7) Bacillus subtilis Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1559](https://doi.org/10.22002/D1.1559)
 
-```{R 8-7, echo=FALSE, screenshot.alt='movie_stills/8_7.png' , fig.cap= '(ref:8-7)'}
+```{R 8-7, echo=FALSE, screenshot.alt='movie_stills/8_7.jpg' , fig.cap= '(ref:8-7)'}
 library(doivideo)
 doivideo('10.22002/D1.1559',0)
 ```
@@ -129,7 +129,7 @@ The ready transition between a monoderm cell with a thick cell wall and a diderm
 
 (ref:8-8) Bacillus subtilis Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1560](https://doi.org/10.22002/D1.1560)
 
-```{R 8-8, echo=FALSE, screenshot.alt='movie_stills/8_8.png' , fig.cap= '(ref:8-8)'}
+```{R 8-8, echo=FALSE, screenshot.alt='movie_stills/8_8.jpg' , fig.cap= '(ref:8-8)'}
 library(doivideo)
 doivideo('10.22002/D1.1560',0)
 ```
@@ -139,7 +139,7 @@ Sporulation is not limited to monoderms. A few species of diderm bacteria also f
 
 (ref:8-9) Acetonema longum Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1561](https://doi.org/10.22002/D1.1561)
 
-```{R 8-9, echo=FALSE, screenshot.alt='movie_stills/8_9.png' , fig.cap= '(ref:8-9)'}
+```{R 8-9, echo=FALSE, screenshot.alt='movie_stills/8_9.jpg' , fig.cap= '(ref:8-9)'}
 library(doivideo)
 doivideo('10.22002/D1.1561',0)
 ```
@@ -151,7 +151,7 @@ As you saw in *Bacillus subtilis*, once engulfment is complete, the thin septal 
 
 (ref:8-10) Acetonema longum Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1562](https://doi.org/10.22002/D1.1562)
 
-```{R 8-10, echo=FALSE, screenshot.alt='movie_stills/8_10.png' , fig.cap= '(ref:8-10)'}
+```{R 8-10, echo=FALSE, screenshot.alt='movie_stills/8_10.jpg' , fig.cap= '(ref:8-10)'}
 library(doivideo)
 doivideo('10.22002/D1.1562',0)
 ```
@@ -161,7 +161,7 @@ This *Acetonema longum* cell has completed engulfment, creating a “forespore.�
 
 (ref:8-10a) Acetonema longum Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1568](https://doi.org/10.22002/D1.1568)
 
-```{R 8-10a, echo=FALSE, screenshot.alt='movie_stills/8_10a.png' , fig.cap= '(ref:8-10a)'}
+```{R 8-10a, echo=FALSE, screenshot.alt='movie_stills/8_10a.jpg' , fig.cap= '(ref:8-10a)'}
 library(doivideo)
 doivideo('10.22002/D1.1568',0)
 ```
@@ -171,7 +171,7 @@ This mature *Acetonema longum* spore has been released by lysis of its mother ce
 
 (ref:8-10b) Acetonema longum Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1569](https://doi.org/10.22002/D1.1569)
 
-```{R 8-10b, echo=FALSE, screenshot.alt='movie_stills/8_10b.png' , fig.cap= '(ref:8-10b)'}
+```{R 8-10b, echo=FALSE, screenshot.alt='movie_stills/8_10b.jpg' , fig.cap= '(ref:8-10b)'}
 library(doivideo)
 doivideo('10.22002/D1.1569',0)
 ```
@@ -181,7 +181,7 @@ This diderm *Sporomusa acidovorans* cell is in the process of forming an ovoid e
 
 (ref:8-10c) Sporomusa acidovorans Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1570](https://doi.org/10.22002/D1.1570)
 
-```{R 8-10c, echo=FALSE, screenshot.alt='movie_stills/8_10c.png' , fig.cap= '(ref:8-10c)'}
+```{R 8-10c, echo=FALSE, screenshot.alt='movie_stills/8_10c.jpg' , fig.cap= '(ref:8-10c)'}
 library(doivideo)
 doivideo('10.22002/D1.1570',0)
 ```
@@ -195,7 +195,7 @@ Sporulation may seem like a highly specialized function practiced by relatively 
 
 (ref:8-11) Acetonema longum Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1563](https://doi.org/10.22002/D1.1563)
 
-```{R 8-11, echo=FALSE, screenshot.alt='movie_stills/8_11.png' , fig.cap= '(ref:8-11)'}
+```{R 8-11, echo=FALSE, screenshot.alt='movie_stills/8_11.jpg' , fig.cap= '(ref:8-11)'}
 library(doivideo)
 doivideo('10.22002/D1.1563',0)
 ```

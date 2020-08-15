@@ -24,10 +24,11 @@ This phylogenetic tree shows the relatedness of the species in this book. The le
 </style>
 
 
-```{r echo=FALSE}
-knitr::asis_output(htmltools::htmlPreserve('
-<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+```{r tree, echo = FALSE}
+if (knitr:::is_html_output()){
+  knitr::asis_output(htmltools::htmlPreserve('
+  <!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1660 1342.7" style="enable-background:new 0 0 1660 1342.7;" xml:space="preserve">
   <g id="Archaea">
 	<path class="st0" d="M759.8,608.4c10.1-32-24.9-135.5-41.7-181.5c-17.5-47.6-68.3-298.7-154-300.3c-48-0.9-208.1,14.2-317.1,172.2
@@ -1280,6 +1281,7 @@ knitr::asis_output(htmltools::htmlPreserve('
 			<rect x="636.8" y="911" transform="matrix(0.9072 0.4208 -0.4208 0.9072 500.541 -175.1368)" class="st14" width="20.6" height="271.4"/>
 	</a>
   </g>
-</svg>
-'))
+  </svg>
+  '))
+} else {knitr::include_graphics('img/Tree.png')}
 ```

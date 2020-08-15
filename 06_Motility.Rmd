@@ -11,7 +11,7 @@ Nearly all bacteria that swim use the same propeller: a rotary motor embedded in
 
 (ref:6-1) Campylobacter jejuni Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1525](https://doi.org/10.22002/D1.1525)
 
-```{R 6-1, echo=FALSE, screenshot.alt='movie_stills/6_1.png' , fig.cap= '(ref:6-1)'}
+```{R 6-1, echo=FALSE, screenshot.alt='movie_stills/6_1.jpg' , fig.cap= '(ref:6-1)'}
 library(doivideo)
 doivideo('10.22002/D1.1525',0)
 ```
@@ -31,7 +31,7 @@ While the basic plan of the motor is the same in every species that has flagella
 
 (ref:6-2) Bdellovibrio bacteriovorus Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1526](https://doi.org/10.22002/D1.1526)
 
-```{R 6-2, echo=FALSE, screenshot.alt='movie_stills/6_2.png' , fig.cap= '(ref:6-2)'}
+```{R 6-2, echo=FALSE, screenshot.alt='movie_stills/6_2.jpg' , fig.cap= '(ref:6-2)'}
 library(doivideo)
 doivideo('10.22002/D1.1526',0)
 ```
@@ -41,7 +41,7 @@ This is an average of the flagellar motors from more than one thousand *Bdellovi
 
 (ref:6-2a) Bdellovibrio bacteriovorus Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1537](https://doi.org/10.22002/D1.1537)
 
-```{R 6-2a, echo=FALSE, screenshot.alt='movie_stills/6_2a.png' , fig.cap= '(ref:6-2a)'}
+```{R 6-2a, echo=FALSE, screenshot.alt='movie_stills/6_2a.jpg' , fig.cap= '(ref:6-2a)'}
 library(doivideo)
 doivideo('10.22002/D1.1537',0)
 ```
@@ -60,7 +60,7 @@ So the flagellar motor is not just a machine for motility; it is also a machine 
 
 (ref:6-3) Hylemonella gracilis Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1527](https://doi.org/10.22002/D1.1527)
 
-```{R 6-3, echo=FALSE, screenshot.alt='movie_stills/6_3.png' , fig.cap= '(ref:6-3)'}
+```{R 6-3, echo=FALSE, screenshot.alt='movie_stills/6_3.jpg' , fig.cap= '(ref:6-3)'}
 library(doivideo)
 doivideo('10.22002/D1.1527',0)
 ```
@@ -70,7 +70,7 @@ When flagella break (or in some species, like *Caulobacter crescentus*, are ejec
 
 (ref:6-3a) Pseudomonas aeruginosa Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1538](https://doi.org/10.22002/D1.1538)
 
-```{R 6-3a, echo=FALSE, screenshot.alt='movie_stills/6_3a.png' , fig.cap= '(ref:6-3a)'}
+```{R 6-3a, echo=FALSE, screenshot.alt='movie_stills/6_3a.jpg' , fig.cap= '(ref:6-3a)'}
 library(doivideo)
 doivideo('10.22002/D1.1538',0)
 ```
@@ -80,7 +80,7 @@ Once assembled, flagella can work in different ways. The motor is bidirectional,
 
 (ref:6-4) Campylobacter jejuni Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1528](https://doi.org/10.22002/D1.1528)
 
-```{R 6-4, echo=FALSE, screenshot.alt='movie_stills/6_4.png' , fig.cap= '(ref:6-4)'}
+```{R 6-4, echo=FALSE, screenshot.alt='movie_stills/6_4.jpg' , fig.cap= '(ref:6-4)'}
 library(doivideo)
 doivideo('10.22002/D1.1528',0)
 ```
@@ -90,7 +90,7 @@ Many lophotrichous species, like the *Hylemonella gracilis* you saw in Chapter 3
 
 (ref:6-4a) Helicobacter pylori Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1539](https://doi.org/10.22002/D1.1539)
 
-```{R 6-4a, echo=FALSE, screenshot.alt='movie_stills/6_4a.png' , fig.cap= '(ref:6-4a)'}
+```{R 6-4a, echo=FALSE, screenshot.alt='movie_stills/6_4a.jpg' , fig.cap= '(ref:6-4a)'}
 library(doivideo)
 doivideo('10.22002/D1.1539',0)
 ```
@@ -100,7 +100,7 @@ Still other species are peritrichous (“hair around”), with multiple flagella
 
 (ref:6-5) Pseudomonas flexibilis Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1529](https://doi.org/10.22002/D1.1529)
 
-```{R 6-5, echo=FALSE, screenshot.alt='movie_stills/6_5.png' , fig.cap= '(ref:6-5)'}
+```{R 6-5, echo=FALSE, screenshot.alt='movie_stills/6_5.jpg' , fig.cap= '(ref:6-5)'}
 library(doivideo)
 doivideo('10.22002/D1.1529',0)
 ```
@@ -110,7 +110,7 @@ doivideo('10.22002/D1.1529',0)
 
 (ref:6-5a) Proteus mirabilis Collected by: [Qing Yao](#qing_yao) Movie DOI: [10.22002/D1.1540](https://doi.org/10.22002/D1.1540)
 
-```{R 6-5a, echo=FALSE, screenshot.alt='movie_stills/6_5a.png' , fig.cap= '(ref:6-5a)'}
+```{R 6-5a, echo=FALSE, screenshot.alt='movie_stills/6_5a.jpg' , fig.cap= '(ref:6-5a)'}
 library(doivideo)
 doivideo('10.22002/D1.1540',0)
 ```
@@ -120,7 +120,7 @@ You may have noticed that some of the flagella in this chapter were enclosed wit
 
 (ref:6-6) Helicobacter hepaticus Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1530](https://doi.org/10.22002/D1.1530)
 
-```{R 6-6, echo=FALSE, screenshot.alt='movie_stills/6_6.png' , fig.cap= '(ref:6-6)'}
+```{R 6-6, echo=FALSE, screenshot.alt='movie_stills/6_6.jpg' , fig.cap= '(ref:6-6)'}
 library(doivideo)
 doivideo('10.22002/D1.1530',0)
 ```
@@ -130,7 +130,7 @@ If your cell *is* a pathogen, swimming can be very useful, but so can burrowing,
 
 (ref:6-7) Borrelia burgdorferi Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1531](https://doi.org/10.22002/D1.1531)
 
-```{R 6-7, echo=FALSE, screenshot.alt='movie_stills/6_7.png' , fig.cap= '(ref:6-7)'}
+```{R 6-7, echo=FALSE, screenshot.alt='movie_stills/6_7.jpg' , fig.cap= '(ref:6-7)'}
 library(doivideo)
 doivideo('10.22002/D1.1531',0)
 ```
@@ -140,7 +140,7 @@ doivideo('10.22002/D1.1531',0)
 
 (ref:6-7a) Treponema primitia Collected by: [Gavin Murphy](#gavin_murphy) Movie DOI: [10.22002/D1.1541](https://doi.org/10.22002/D1.1541)
 
-```{R 6-7a, echo=FALSE, screenshot.alt='movie_stills/6_7a.png' , fig.cap= '(ref:6-7a)'}
+```{R 6-7a, echo=FALSE, screenshot.alt='movie_stills/6_7a.jpg' , fig.cap= '(ref:6-7a)'}
 library(doivideo)
 doivideo('10.22002/D1.1541',0)
 ```
@@ -150,7 +150,7 @@ Archaea swim, too. And as you might expect, they use similar machinery to do so:
 
 (ref:6-8) Methanoregula formicica Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1532](https://doi.org/10.22002/D1.1532)
 
-```{R 6-8, echo=FALSE, screenshot.alt='movie_stills/6_8.png' , fig.cap= '(ref:6-8)'}
+```{R 6-8, echo=FALSE, screenshot.alt='movie_stills/6_8.jpg' , fig.cap= '(ref:6-8)'}
 library(doivideo)
 doivideo('10.22002/D1.1532',0)
 ```
@@ -170,7 +170,7 @@ Not all lophotrichous archaea use a cytoplasmic conical plate [More: Lophotricho
 
 (ref:6-9) Thermococcus kodakaraensis Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1533](https://doi.org/10.22002/D1.1533)
 
-```{R 6-9, echo=FALSE, screenshot.alt='movie_stills/6_9.png' , fig.cap= '(ref:6-9)'}
+```{R 6-9, echo=FALSE, screenshot.alt='movie_stills/6_9.jpg' , fig.cap= '(ref:6-9)'}
 library(doivideo)
 doivideo('10.22002/D1.1533',0)
 ```
@@ -180,7 +180,7 @@ The archaellar plate does not come to a point at the tip, but rather is a conica
 
 (ref:6-9a) Thermococcus kodakaraensis Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1542](https://doi.org/10.22002/D1.1542)
 
-```{R 6-9a, echo=FALSE, screenshot.alt='movie_stills/6_9a.png' , fig.cap= '(ref:6-9a)'}
+```{R 6-9a, echo=FALSE, screenshot.alt='movie_stills/6_9a.jpg' , fig.cap= '(ref:6-9a)'}
 library(doivideo)
 doivideo('10.22002/D1.1542',0)
 ```
@@ -190,7 +190,7 @@ As you can see more clearly in this partially-lysed, flattened *Thermococcus kod
 
 (ref:6-9b) Thermococcus kodakaraensis Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1543](https://doi.org/10.22002/D1.1543)
 
-```{R 6-9b, echo=FALSE, screenshot.alt='movie_stills/6_9b.png' , fig.cap= '(ref:6-9b)'}
+```{R 6-9b, echo=FALSE, screenshot.alt='movie_stills/6_9b.jpg' , fig.cap= '(ref:6-9b)'}
 library(doivideo)
 doivideo('10.22002/D1.1543',0)
 ```
@@ -200,7 +200,7 @@ While a cytoplasmic plate may help distribute the force of multiple, closely-pac
 
 (ref:6-9c) Halobacterium salinarum Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1544](https://doi.org/10.22002/D1.1544)
 
-```{R 6-9c, echo=FALSE, screenshot.alt='movie_stills/6_9c.png' , fig.cap= '(ref:6-9c)'}
+```{R 6-9c, echo=FALSE, screenshot.alt='movie_stills/6_9c.jpg' , fig.cap= '(ref:6-9c)'}
 library(doivideo)
 doivideo('10.22002/D1.1544',0)
 ```
@@ -212,7 +212,7 @@ In addition to attaching to a surface, the pili can also attach to other *M. xan
 
 (ref:6-10) Myxococcus xanthus Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1534](https://doi.org/10.22002/D1.1534)
 
-```{R 6-10, echo=FALSE, screenshot.alt='movie_stills/6_10.png' , fig.cap= '(ref:6-10)'}
+```{R 6-10, echo=FALSE, screenshot.alt='movie_stills/6_10.jpg' , fig.cap= '(ref:6-10)'}
 library(doivideo)
 doivideo('10.22002/D1.1534',0)
 ```
@@ -229,7 +229,7 @@ Other bacteria use different machinery to move over surfaces. *Flavobacterium jo
 
 (ref:6-11) Flavobacterium johnsoniae Collected by: [Gregory Henderson](#gregory_henderson) Movie DOI: [10.22002/D1.1535](https://doi.org/10.22002/D1.1535)
 
-```{R 6-11, echo=FALSE, screenshot.alt='movie_stills/6_11.png' , fig.cap= '(ref:6-11)'}
+```{R 6-11, echo=FALSE, screenshot.alt='movie_stills/6_11.jpg' , fig.cap= '(ref:6-11)'}
 library(doivideo)
 doivideo('10.22002/D1.1535',0)
 ```
@@ -243,7 +243,7 @@ Keep in mind that these are simply *some* of the ways we know bacteria and archa
 
 (ref:6-12) Mycoplasma pneumoniae Collected by: [Gregory Henderson](#gregory_henderson) Movie DOI: [10.22002/D1.1536](https://doi.org/10.22002/D1.1536)
 
-```{R 6-12, echo=FALSE, screenshot.alt='movie_stills/6_12.png' , fig.cap= '(ref:6-12)'}
+```{R 6-12, echo=FALSE, screenshot.alt='movie_stills/6_12.jpg' , fig.cap= '(ref:6-12)'}
 library(doivideo)
 doivideo('10.22002/D1.1536',0)
 ```
