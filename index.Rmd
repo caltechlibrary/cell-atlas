@@ -26,14 +26,17 @@ In the 1960s, electron microscopes were opening a new window in biology, allowin
 
 More than fifty years later, we are once again enjoying an expanded view of biology, thanks to another great advance in electron microscopy. The development of cryogenic electron microscopy, or cryoEM, allows us to look inside cells in their native state, without the sample dehydration, staining and resin-embedding required previously. This has opened up even the smallest cells for examination, and revealed some surprising things. In particular, bacteria and archaea, orders of magnitude smaller than eukaryotic cells and lacking prominent organelles, previously seemed to be relatively unstructured bags of nucleic acids and protein. In the last decade, cryoEM has challenged this idea, revealing a startling degree of structure in these tiny cells. And so, inspired by the atlases of eukaryotic cell structure from the 1960s, we offer an atlas of bacterial and archaeal cell structure.
 
-Just as the technology of electron microscopy has advanced in the intervening decades, the technology of sharing information has similarly evolved. Taking advantage of a digital medium, we can share not just two-dimensional slices through cells, but their full three-dimensional volumes. This medium also allows you to tailor your experience. If you want a basic overview, simply follow the main narrative. If you want to go into more depth on a topic, follow the "More" links to see additional examples and details. If you are interested in a particular species, navigate from the *Phylogenetic Explorer*. If you are interested in a particular structure, try out the *Structure Explorer*. 
+Just as the technology of electron microscopy has advanced in the intervening decades, the technology of sharing information has similarly evolved. Taking advantage of a digital medium, we can share not just two-dimensional slices through cells, but their full three-dimensional volumes. This medium also allows you to tailor your experience. If you want a basic overview, simply follow the main narrative. If you want to go into more depth on a topic, follow the "More" links to see additional examples and details. If you are interested in a particular species, navigate from the [Phylogenetic Tree]. If you are interested in a particular structure, try out the [Feature Index]. 
 
 If you are new to cryoEM, we suggest starting with Chapter 1, which describes the methods used in structural biology, particularly cryoEM. If you are already an expert, or pressed for time, go straight to the cells in Chapter 2. Before you do, though, please watch this short introductory video.
 
-```{R echo=FALSE, screenshot.alt='movie_stills/0_1.png' , fig.cap= 'Campylobacter jejuni Collected by: Morgan Beeby [10.22002/D1.1462](https://doi.org/10.22002/D1.1462)'}
+(ref:0-1) Campylobacter jejuni Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1462](https://doi.org/10.22002/D1.1462)
+
+```{R 0-1, echo=FALSE, screenshot.alt='movie_stills/0_1.png' , fig.cap= '(ref:0-1)'}
 library(doivideo)
 doivideo('10.22002/D1.1462',0)
 ```
+
 As Charles Darwin wrote in 1837, "I shall always feel respect for every one who has written a book, let it be what it may, for I had no idea of the trouble which trying to write common English could cost one" [@darwin1888].  The task was made immeasurably easier for us by the help of many minds and hands [Acknowledgments].
 
 
