@@ -13,7 +13,7 @@ The cells here were imaged by light microscopy, captured on film by David Rogers
 
 (ref:1-1) Staphylococcus aureus Collected by: [David Rogers](#david_rogers) Movie DOI: [10.22002/D1.1463](https://doi.org/10.22002/D1.1463)
 
-```{R 1-1, echo=FALSE, screenshot.alt='movie_stills/1_1.jpg' , fig.cap= '(ref:1-1)'}
+```{R 1-1, echo=FALSE, screenshot.alt='movie_stills/1_1.png' , fig.cap= '(ref:1-1)'}
 library(doivideo)
 doivideo('10.22002/D1.1463',0)
 ```
@@ -32,7 +32,7 @@ As an example, this movie from Howard Berg’s lab [@bergInternet] [@turner2000]
 
 (ref:1-2) Escherichia coli Collected by: [Howard Berg](#howard_berg) Movie DOI: [10.22002/D1.1464](https://doi.org/10.22002/D1.1464)
 
-```{R 1-2, echo=FALSE, screenshot.alt='movie_stills/1_2.jpg' , fig.cap= '(ref:1-2)'}
+```{R 1-2, echo=FALSE, screenshot.alt='movie_stills/1_2.png' , fig.cap= '(ref:1-2)'}
 library(doivideo)
 doivideo('10.22002/D1.1464',0)
 ```
@@ -46,7 +46,7 @@ There are two main types of electron microscopes [Schematic: Electron microscopy
 
 (ref:1-3) Shewanella oneidensis Collected by: [Sahand Pirbadian](#sahand_pirbadian) Movie DOI: [10.22002/D1.1465](https://doi.org/10.22002/D1.1465)
 
-```{R 1-3, echo=FALSE, screenshot.alt='movie_stills/1_3.jpg' , fig.cap= '(ref:1-3)'}
+```{R 1-3, echo=FALSE, screenshot.alt='movie_stills/1_3.png' , fig.cap= '(ref:1-3)'}
 library(doivideo)
 doivideo('10.22002/D1.1465',0)
 ```
@@ -66,7 +66,7 @@ There are more elaborate (and structure-altering) sample preparation methods for
 
 (ref:1-4) Shewanella oneidensis Collected by: [Mohammed Kaplan](#mohammed_kaplan) Movie DOI: [10.22002/D1.1466](https://doi.org/10.22002/D1.1466)
 
-```{R 1-4, echo=FALSE, screenshot.alt='movie_stills/1_4.jpg' , fig.cap= '(ref:1-4)'}
+```{R 1-4, echo=FALSE, screenshot.alt='movie_stills/1_4.png' , fig.cap= '(ref:1-4)'}
 library(doivideo)
 doivideo('10.22002/D1.1466',0)
 ```
@@ -80,7 +80,7 @@ With cryoEM, we can start to see the true structure of cells. Compared to the im
 
 (ref:1-5) Caulobacter crescentus Collected by: [Steven Wang](#steven_wang) Movie DOI: [10.22002/D1.1467](https://doi.org/10.22002/D1.1467)
 
-```{R 1-5, echo=FALSE, screenshot.alt='movie_stills/1_5.jpg' , fig.cap= '(ref:1-5)'}
+```{R 1-5, echo=FALSE, screenshot.alt='movie_stills/1_5.png' , fig.cap= '(ref:1-5)'}
 library(doivideo)
 doivideo('10.22002/D1.1467',0)
 ```
@@ -94,7 +94,7 @@ Since the early 2000s, cryoET has transformed our understanding of microbial cel
 
 (ref:1-6) Caulobacter crescentus Collected by: [Steven Wang](#steven_wang) Movie DOI: [10.22002/D1.1468](https://doi.org/10.22002/D1.1468)
 
-```{R 1-6, echo=FALSE, screenshot.alt='movie_stills/1_6.jpg' , fig.cap= '(ref:1-6)'}
+```{R 1-6, echo=FALSE, screenshot.alt='movie_stills/1_6.png' , fig.cap= '(ref:1-6)'}
 library(doivideo)
 doivideo('10.22002/D1.1468',0)
 ```
@@ -111,7 +111,7 @@ What if we want to zoom in further to examine a particular structure more closel
 
 (ref:1-7) Campylobacter jejuni Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1469](https://doi.org/10.22002/D1.1469)
 
-```{R 1-7, echo=FALSE, screenshot.alt='movie_stills/1_7.jpg' , fig.cap= '(ref:1-7)'}
+```{R 1-7, echo=FALSE, screenshot.alt='movie_stills/1_7.png' , fig.cap= '(ref:1-7)'}
 library(doivideo)
 doivideo('10.22002/D1.1469',0)
 ```
@@ -123,7 +123,7 @@ You will see many examples of high-resolution structures solved by this techniqu
 
 (ref:1-8) Campylobacter jejuni Collected by: [Matthias WolfFadel Samatey](#matthias_wolffadel_samatey) Movie DOI: [10.22002/D1.1470](https://doi.org/10.22002/D1.1470)
 
-```{R 1-8, echo=FALSE, screenshot.alt='movie_stills/1_8.jpg' , fig.cap= '(ref:1-8)'}
+```{R 1-8, echo=FALSE, screenshot.alt='movie_stills/1_8.png' , fig.cap= '(ref:1-8)'}
 library(doivideo)
 doivideo('10.22002/D1.1470',0)
 ```
@@ -135,7 +135,7 @@ Not every protein can be induced to form large, well-ordered crystals, but many 
 
 (ref:1-9) Campylobacter jejuni Collected by: [Fadel Samatey](#fadel_samatey) Movie DOI: [10.22002/D1.1471](https://doi.org/10.22002/D1.1471)
 
-```{R 1-9, echo=FALSE, screenshot.alt='movie_stills/1_9.jpg' , fig.cap= '(ref:1-9)'}
+```{R 1-9, echo=FALSE, screenshot.alt='movie_stills/1_9.png' , fig.cap= '(ref:1-9)'}
 library(doivideo)
 doivideo('10.22002/D1.1471',0)
 ```
@@ -151,7 +151,7 @@ Science benefits from collaboration, and structural biology is no exception. Thi
 
 (ref:1-10) Bdellovibrio bacteriovorus Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1472](https://doi.org/10.22002/D1.1472)
 
-```{R 1-10, echo=FALSE, screenshot.alt='movie_stills/1_10.jpg' , fig.cap= '(ref:1-10)'}
+```{R 1-10, echo=FALSE, screenshot.alt='movie_stills/1_10.png' , fig.cap= '(ref:1-10)'}
 library(doivideo)
 doivideo('10.22002/D1.1472',0)
 ```
@@ -161,7 +161,7 @@ To identify the location of a component within a large macromolecular complex, d
 
 (ref:1-10a) Campylobacter jejuni Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1473](https://doi.org/10.22002/D1.1473)
 
-```{R 1-10a, echo=FALSE, screenshot.alt='movie_stills/1_10a.jpg' , fig.cap= '(ref:1-10a)'}
+```{R 1-10a, echo=FALSE, screenshot.alt='movie_stills/1_10a.png' , fig.cap= '(ref:1-10a)'}
 library(doivideo)
 doivideo('10.22002/D1.1473',0)
 ```

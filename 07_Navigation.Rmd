@@ -11,7 +11,7 @@ Chemosensory systems form arrays containing many copies of the proteins. As in t
 
 (ref:7-1) Shewanella oneidensis Collected by: [Mohammed Kaplan](#mohammed_kaplan) Movie DOI: [10.22002/D1.1545](https://doi.org/10.22002/D1.1545)
 
-```{R 7-1, echo=FALSE, screenshot.alt='movie_stills/7_1.jpg' , fig.cap= '(ref:7-1)'}
+```{R 7-1, echo=FALSE, screenshot.alt='movie_stills/7_1.png' , fig.cap= '(ref:7-1)'}
 library(doivideo)
 doivideo('10.22002/D1.1545',0)
 ```
@@ -29,7 +29,7 @@ Chemosensory arrays are highly ordered, as you can best see from a bird’s-eye 
 
 (ref:7-2) Salmonella typhimurium Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1546](https://doi.org/10.22002/D1.1546)
 
-```{R 7-2, echo=FALSE, screenshot.alt='movie_stills/7_2.jpg' , fig.cap= '(ref:7-2)'}
+```{R 7-2, echo=FALSE, screenshot.alt='movie_stills/7_2.png' , fig.cap= '(ref:7-2)'}
 library(doivideo)
 doivideo('10.22002/D1.1546',0)
 ```
@@ -47,7 +47,7 @@ The hexagonal array structure of chemosensory systems is invariant across specie
 
 (ref:7-3) Methanospirillum hungatei Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1547](https://doi.org/10.22002/D1.1547)
 
-```{R 7-3, echo=FALSE, screenshot.alt='movie_stills/7_3.jpg' , fig.cap= '(ref:7-3)'}
+```{R 7-3, echo=FALSE, screenshot.alt='movie_stills/7_3.png' , fig.cap= '(ref:7-3)'}
 library(doivideo)
 doivideo('10.22002/D1.1547',0)
 ```
@@ -57,7 +57,7 @@ While there is only one architectural style for chemosensory systems, there are 
 
 (ref:7-4) Vibrio cholerae Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1548](https://doi.org/10.22002/D1.1548)
 
-```{R 7-4, echo=FALSE, screenshot.alt='movie_stills/7_4.jpg' , fig.cap= '(ref:7-4)'}
+```{R 7-4, echo=FALSE, screenshot.alt='movie_stills/7_4.png' , fig.cap= '(ref:7-4)'}
 library(doivideo)
 doivideo('10.22002/D1.1548',0)
 ```
@@ -67,7 +67,7 @@ A length difference of as little as 2 nm is enough to separate receptors, like t
 
 (ref:7-4a) Azospirillum brasilense Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1551](https://doi.org/10.22002/D1.1551)
 
-```{R 7-4a, echo=FALSE, screenshot.alt='movie_stills/7_4a.jpg' , fig.cap= '(ref:7-4a)'}
+```{R 7-4a, echo=FALSE, screenshot.alt='movie_stills/7_4a.png' , fig.cap= '(ref:7-4a)'}
 library(doivideo)
 doivideo('10.22002/D1.1551',0)
 ```
@@ -77,7 +77,7 @@ In addition to their extensive repertoire of membrane-embedded chemoreceptors, c
 
 (ref:7-5) Methanoregula formicica Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1549](https://doi.org/10.22002/D1.1549)
 
-```{R 7-5, echo=FALSE, screenshot.alt='movie_stills/7_5.jpg' , fig.cap= '(ref:7-5)'}
+```{R 7-5, echo=FALSE, screenshot.alt='movie_stills/7_5.png' , fig.cap= '(ref:7-5)'}
 library(doivideo)
 doivideo('10.22002/D1.1549',0)
 ```
@@ -87,7 +87,7 @@ This *Vibrio cholerae* cell showcases a full repertoire of chemosensory systems:
 
 (ref:7-5a) Vibrio cholerae Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1552](https://doi.org/10.22002/D1.1552)
 
-```{R 7-5a, echo=FALSE, screenshot.alt='movie_stills/7_5a.jpg' , fig.cap= '(ref:7-5a)'}
+```{R 7-5a, echo=FALSE, screenshot.alt='movie_stills/7_5a.png' , fig.cap= '(ref:7-5a)'}
 library(doivideo)
 doivideo('10.22002/D1.1552',0)
 ```
@@ -103,7 +103,7 @@ Much remains mysterious about these structures. For instance, what forms the mem
 
 (ref:7-6) Magnetospirillum magneticum Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1550](https://doi.org/10.22002/D1.1550)
 
-```{R 7-6, echo=FALSE, screenshot.alt='movie_stills/7_6.jpg' , fig.cap= '(ref:7-6)'}
+```{R 7-6, echo=FALSE, screenshot.alt='movie_stills/7_6.png' , fig.cap= '(ref:7-6)'}
 library(doivideo)
 doivideo('10.22002/D1.1550',0)
 ```

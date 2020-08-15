@@ -4,6 +4,7 @@ A species is a unique group of organisms and is the first rung on the ladder of 
 
 This phylogenetic tree shows the relatedness of the species in this book. The length of the branches separating two species from their last common ancestor is proportional to the amount of time that they've been evolving separately. Remember that individual species of Bacteria and Archaea can be as evolutionarily divergent from one another as they are from us. The deeper we go into the past, toward the center of the tree, the less accurate the predictions of relatedness become. The branch point between Bacteria/Archaea and Eukaryotes is particularly hazy, and a topic of lively debate. We're still discovering new species, and even higher-order clades, and the computational tools we have to detect genetic relationships are improving, so this tree, too, will continue to evolve.
 
+
 <style type="text/css">
 	.st0{fill:#E9EFFF;}
 	.st1{fill:#76777B;}

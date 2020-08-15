@@ -11,7 +11,7 @@ Consider a cell like this *Simkania negevensis*. It takes the form of a sphereâ€
 
 (ref:3-1) Simkania negevensis Collected by: [Martin Pilhofer](#martin_pilhofer) Movie DOI: [10.22002/D1.1477](https://doi.org/10.22002/D1.1477)
 
-```{R 3-1, echo=FALSE, screenshot.alt='movie_stills/3_1.jpg' , fig.cap= '(ref:3-1)'}
+```{R 3-1, echo=FALSE, screenshot.alt='movie_stills/3_1.png' , fig.cap= '(ref:3-1)'}
 library(doivideo)
 doivideo('10.22002/D1.1477',0)
 ```
@@ -25,7 +25,7 @@ Not all rod-shaped bacteria use MreB, and we are still figuring out how the shap
 
 (ref:3-2) Cupriavidus necator Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1478](https://doi.org/10.22002/D1.1478)
 
-```{R 3-2, echo=FALSE, screenshot.alt='movie_stills/3_2.jpg' , fig.cap= '(ref:3-2)'}
+```{R 3-2, echo=FALSE, screenshot.alt='movie_stills/3_2.png' , fig.cap= '(ref:3-2)'}
 library(doivideo)
 doivideo('10.22002/D1.1478',0)
 ```
@@ -35,7 +35,7 @@ Not all rod-shaped cells are perfectly cylindrical. For instance, *Brucella abor
 
 (ref:3-2a) Brucella abortus Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1484](https://doi.org/10.22002/D1.1484)
 
-```{R 3-2a, echo=FALSE, screenshot.alt='movie_stills/3_2a.jpg' , fig.cap= '(ref:3-2a)'}
+```{R 3-2a, echo=FALSE, screenshot.alt='movie_stills/3_2a.png' , fig.cap= '(ref:3-2a)'}
 library(doivideo)
 doivideo('10.22002/D1.1484',0)
 ```
@@ -45,7 +45,7 @@ Some archaeal species, like this *Methanoregula formicica*, are rod-shaped. The 
 
 (ref:3-2b) Methanoregula formicica Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1485](https://doi.org/10.22002/D1.1485)
 
-```{R 3-2b, echo=FALSE, screenshot.alt='movie_stills/3_2b.jpg' , fig.cap= '(ref:3-2b)'}
+```{R 3-2b, echo=FALSE, screenshot.alt='movie_stills/3_2b.png' , fig.cap= '(ref:3-2b)'}
 library(doivideo)
 doivideo('10.22002/D1.1485',0)
 ```
@@ -57,7 +57,7 @@ The length of a cell (or, more generally, its size) varies depending on the envi
 
 (ref:3-3) Hylemonella gracilis Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1479](https://doi.org/10.22002/D1.1479)
 
-```{R 3-3, echo=FALSE, screenshot.alt='movie_stills/3_3.jpg' , fig.cap= '(ref:3-3)'}
+```{R 3-3, echo=FALSE, screenshot.alt='movie_stills/3_3.png' , fig.cap= '(ref:3-3)'}
 library(doivideo)
 doivideo('10.22002/D1.1479',0)
 ```
@@ -69,7 +69,7 @@ This system is only one way of making a curved cell. There must be others since 
 
 (ref:3-4) Caulobacter crescentus Collected by: [Prabha Dias](#prabha_dias) Movie DOI: [10.22002/D1.1480](https://doi.org/10.22002/D1.1480)
 
-```{R 3-4, echo=FALSE, screenshot.alt='movie_stills/3_4.jpg' , fig.cap= '(ref:3-4)'}
+```{R 3-4, echo=FALSE, screenshot.alt='movie_stills/3_4.png' , fig.cap= '(ref:3-4)'}
 library(doivideo)
 doivideo('10.22002/D1.1480',0)
 ```
@@ -89,7 +89,7 @@ It can be tempting to group species based on a common characteristic, but appear
 
 (ref:3-5) Campylobacter jejuni Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1481](https://doi.org/10.22002/D1.1481)
 
-```{R 3-5, echo=FALSE, screenshot.alt='movie_stills/3_5.jpg' , fig.cap= '(ref:3-5)'}
+```{R 3-5, echo=FALSE, screenshot.alt='movie_stills/3_5.png' , fig.cap= '(ref:3-5)'}
 library(doivideo)
 doivideo('10.22002/D1.1481',0)
 ```
@@ -99,7 +99,7 @@ doivideo('10.22002/D1.1481',0)
 
 (ref:3-5a) Borrelia burgdorferi Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1486](https://doi.org/10.22002/D1.1486)
 
-```{R 3-5a, echo=FALSE, screenshot.alt='movie_stills/3_5a.jpg' , fig.cap= '(ref:3-5a)'}
+```{R 3-5a, echo=FALSE, screenshot.alt='movie_stills/3_5a.png' , fig.cap= '(ref:3-5a)'}
 library(doivideo)
 doivideo('10.22002/D1.1486',0)
 ```
@@ -111,7 +111,7 @@ Prosthecae offer a challenge for the architect: thin extensions are delicate. Pr
 
 (ref:3-6) Verrucomicrobium spinosum Collected by: [Martin Pilhofer](#martin_pilhofer) Movie DOI: [10.22002/D1.1482](https://doi.org/10.22002/D1.1482)
 
-```{R 3-6, echo=FALSE, screenshot.alt='movie_stills/3_6.jpg' , fig.cap= '(ref:3-6)'}
+```{R 3-6, echo=FALSE, screenshot.alt='movie_stills/3_6.png' , fig.cap= '(ref:3-6)'}
 library(doivideo)
 doivideo('10.22002/D1.1482',0)
 ```
@@ -131,7 +131,7 @@ Some bacterial species with prosthecae express structures similar to eukaryotic 
 
 (ref:3-6a) Prosthecobacter vanneervenii Collected by: [Martin Pilhofer](#martin_pilhofer) Movie DOI: [10.22002/D1.1487](https://doi.org/10.22002/D1.1487)
 
-```{R 3-6a, echo=FALSE, screenshot.alt='movie_stills/3_6a.jpg' , fig.cap= '(ref:3-6a)'}
+```{R 3-6a, echo=FALSE, screenshot.alt='movie_stills/3_6a.png' , fig.cap= '(ref:3-6a)'}
 library(doivideo)
 doivideo('10.22002/D1.1487',0)
 ```
@@ -143,7 +143,7 @@ We still do not know exactly how this shape is determined, but at least part of 
 
 (ref:3-7) Haloquadratum walsbyi Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1483](https://doi.org/10.22002/D1.1483)
 
-```{R 3-7, echo=FALSE, screenshot.alt='movie_stills/3_7.jpg' , fig.cap= '(ref:3-7)'}
+```{R 3-7, echo=FALSE, screenshot.alt='movie_stills/3_7.png' , fig.cap= '(ref:3-7)'}
 library(doivideo)
 doivideo('10.22002/D1.1483',0)
 ```
@@ -155,7 +155,7 @@ Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a sin
 
 (ref:3-7a) Halobacterium salinarum Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1488](https://doi.org/10.22002/D1.1488)
 
-```{R 3-7a, echo=FALSE, screenshot.alt='movie_stills/3_7a.jpg' , fig.cap= '(ref:3-7a)'}
+```{R 3-7a, echo=FALSE, screenshot.alt='movie_stills/3_7a.png' , fig.cap= '(ref:3-7a)'}
 library(doivideo)
 doivideo('10.22002/D1.1488',0)
 ```
