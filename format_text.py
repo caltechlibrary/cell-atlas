@@ -2,7 +2,7 @@ import argparse, os, re, csv
 import glob
 
 def insert_figure(file_path,label,caption):
-    return "### "+caption+" {#"+label+"}\n```{R}\nknitr::include_graphics('"+\
+    return "### "+caption+" {-#"+label+"}\n```{R}\nknitr::include_graphics('"+\
             file_path+"')\n```\n\n"
 
 def insert_movie(doi):
@@ -17,7 +17,7 @@ def insert_movie(doi):
     image_path = f'movie_stills/{filen}.png'
     collector_label = collector.replace(' ','_').lower()
     collector_link = f'[{collector}](#{collector_label})'
-    return "(ref:"+label+") "+title+" Collected by: "+collector_link+\
+    return "(ref:"+label+") ["+title+"](#tree) Collected by: "+collector_link+\
             " Movie DOI: ["+doiv+"](https://doi.org/"+doiv+")\n\n"+\
             "```{R "+label+", echo=FALSE, screenshot.alt='"+\
             image_path+"' , fig.cap= '(ref:"+label+\
@@ -87,7 +87,7 @@ for filen in args.chapter_file:
             section = split[0]
             link = split[1].strip()
             short_link = link.replace(' ','_').replace("'","")
-            working_copy.append('### '+link+'{#'+short_link+'}')
+            working_copy.append('### More: '+link+'{-#'+short_link+'}')
             subsection_mapping[link]=short_link
             movie_label = chapter_number.lstrip("0")+'_'+number
             if movie_label in dois:
@@ -109,6 +109,7 @@ for filen in args.chapter_file:
             file_path = glob.glob('img/schematics/'+schema_num+'*')
             short_name = schema_name.replace(' ','_').replace("'","")
             schema_mapping[schema_name] = short_name
+            schema_name = 'Schematic: '+schema_name
             if len(file_path)>1:
                 #Use gif version
                 fname = 'img/schematics/'+schema_num+'.gif'
@@ -139,12 +140,12 @@ for filen in args.chapter_file:
     infile.close()
     #Now go over text again to add links
     for line in working_copy:
-        r = re.compile(r"\[Schematic – .*?]")
+        r = re.compile(r"\[Schematic:.*?]")
         offset = 0
         for match in re.finditer(r,line):
             link_value  = ''
             for key, value in schema_mapping.items():
-                title = match.group().split('Schematic –')[1].strip(" ]")
+                title = match.group().split('Schematic:')[1].strip(" ]")
                 if title in key:
                     link_value = value
             link_end = match.span()[1]+offset
