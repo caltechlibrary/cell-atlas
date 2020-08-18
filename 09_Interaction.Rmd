@@ -47,7 +47,7 @@ doivideo('10.22002/D1.1573',0)
 knitr::include_graphics('img/schematics/9_3_1.jpg')
 ```
 
-*EMD-20712 EMD-20713*
+[*EMD-20712*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20712) [*EMD-20713*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20713)
 This average of type II secretion systems from many *Legionella pneumophila* cells shows the overall structure: a channel through the cell envelope, gated near the outer membrane [@ghosal2019]. The pseudo-pilus can be seen in individual T2SSs, extending from the inner membrane to the bottom of the main channel. It gets washed out in the average, though, indicating that it is relatively flexible (i.e. not always in the same position). We still need to figure out exactly how the system works, including whether the pseudo-pilus does act like a piston, and how the gate opens.
 
 ### Schematic: Legionella T4SS structure {-#Legionella_T4SS_structure}
@@ -55,7 +55,7 @@ This average of type II secretion systems from many *Legionella pneumophila* cel
 knitr::include_graphics('img/schematics/9_3_2.jpg')
 ```
 
-*EMD-0566*
+[*EMD-0566*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-0566)
 This average of type IV secretion systems from many *Legionella pneumophila* cells shows the overall structure [@ghosal2019a]. We do not yet know how secretion works, but one possibility is that effectors are channeled either straight through the channel from the cytoplasm and/or first into the periplasm and from there into the windowed chamber just inside the outer membrane before finally being escorted out of the cell.
 
 ### More: Helicobacter pylori tubes{-#Helicobacter_pylori_tubes}
@@ -87,7 +87,7 @@ doivideo('10.22002/D1.1574',0)
 knitr::include_graphics('img/schematics/9_4_1.jpg')
 ```
 
-*EMD-20611*
+[*EMD-20611*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20611)
 This average of T3SS injectisomes from many *Shigella flexneri* cells shows the overall structure, including the large “sorting platform” in the cytoplasm which selects proteins for secretion through the channel of the needle [@tachiyama2019].
 
 ### Schematic: Secretin structure {-#Secretin_structure}
@@ -95,7 +95,7 @@ This average of T3SS injectisomes from many *Shigella flexneri* cells shows the 
 knitr::include_graphics('img/schematics/9_4_2.gif')
 ```
 
-*PDB: 5WQ8*
+[*PDB: 5WQ8*](http://rcsb.org/structure/5WQ8)
 Many copies of a Secretin protein come together to form a channel, as in this one from *Vibrio cholerae* [@yan2017a]. In addition to the main channel situated in the outer membrane, different domains of the protein form a series of rings in the periplasm that interact with other components of the system.
 
 ## Type V Secretion
@@ -129,7 +129,7 @@ doivideo('10.22002/D1.1576',0)
 knitr::include_graphics('img/schematics/9_6_1.gif')
 ```
 
-*PDB: 5URW*
+[*PDB: 5URW*](http://rcsb.org/structure/5URW)
 In a primed T6SS, the projectile rod (orange) nests inside the contractile sheath (blue), as in this section of a T6SS from *Myxococcus xanthus* [@chang2017].
 
 ## Type VI Secretion (cont’d.)
@@ -149,7 +149,7 @@ doivideo('10.22002/D1.1577',0)
 knitr::include_graphics('img/schematics/9_7_1.gif')
 ```
 
-*PDB: 5URX*
+[*PDB: 5URX*](http://rcsb.org/structure/5URX)
 A conformational change in the T6SS sheath provides the energy to fire the inner rod toward its target. The remaining sheath is shorter and wider than in its primed state, as in this section of a fired T6SS from *Myxococcus xanthus* [@chang2017].
 
 ### More: T6SS battery{-#T6SS_battery}
@@ -237,10 +237,10 @@ doivideo('10.22002/D1.1581',0)
 
 ## Further Reading
 
-Christie (2019). *The rich tapestry of bacterial protein translocation systems*.[@christie2019]
+Christie (2019). *The rich tapestry of bacterial protein translocation systems* [@christie2019].
 
-Flemming et al. (2016). *Biofilms: An emergent form of bacterial life*.[@flemming2016]
+Flemming et al. (2016). *Biofilms: An emergent form of bacterial life* [@flemming2016].
 
-Patz et al. (2019). *Phage tail-like particles are versatile bacterial nanomachines*.[@patz2019]
+Patz et al. (2019). *Phage tail-like particles are versatile bacterial nanomachines* [@patz2019].
 
-Sockett (2009). *Predatory lifestyle of Bdellovibrio bacteriovorus*.[@sockett2009]
+Sockett (2009). *Predatory lifestyle of Bdellovibrio bacteriovorus* [@sockett2009].

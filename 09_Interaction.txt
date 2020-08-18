@@ -24,11 +24,11 @@ Unlike the secretion systems in Chapter 6, the T2SS does not build an extracellu
 This *L. pneumophila* cell is not unusual; it is common for pathogenic bacteria to employ multiple types of secretion systems. The bristling arsenal of bacteria is a fearsome thing.
 
 9_3_1 Schematic: Legionella T2SS structure
-*EMD-20712 EMD-20713*
+[*EMD-20712*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20712) [*EMD-20713*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20713)
 This average of type II secretion systems from many *Legionella pneumophila* cells shows the overall structure: a channel through the cell envelope, gated near the outer membrane [@ghosal2019]. The pseudo-pilus can be seen in individual T2SSs, extending from the inner membrane to the bottom of the main channel. It gets washed out in the average, though, indicating that it is relatively flexible (i.e. not always in the same position). We still need to figure out exactly how the system works, including whether the pseudo-pilus does act like a piston, and how the gate opens.
 
 9_3_2 Schematic: Legionella T4SS structure
-*EMD-0566*
+[*EMD-0566*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-0566)
 This average of type IV secretion systems from many *Legionella pneumophila* cells shows the overall structure [@ghosal2019a]. We do not yet know how secretion works, but one possibility is that effectors are channeled either straight through the channel from the cytoplasm and/or first into the periplasm and from there into the windowed chamber just inside the outer membrane before finally being escorted out of the cell.
 
 [3a_Helicobacter pylori] More: Helicobacter pylori tubes
@@ -44,11 +44,11 @@ What if your cell wanted to go a step further and deliver toxins directly into i
 T3SSs are closely related to type II secretion systems (T2SSs) and share a common element: the channel embedded in the outer membrane, formed by many copies of a protein called a secretin [Schematic: Secretin structure]. As you can see, though, the rest of the machine looks very different.
 
 9_4_1 Schematic: Injectisome structure
-*EMD-20611*
+[*EMD-20611*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20611)
 This average of T3SS injectisomes from many *Shigella flexneri* cells shows the overall structure, including the large “sorting platform” in the cytoplasm which selects proteins for secretion through the channel of the needle [@tachiyama2019].
 
 9_4_2 Schematic: Secretin structure
-*PDB: 5WQ8*
+[*PDB: 5WQ8*](http://rcsb.org/structure/5WQ8)
 Many copies of a Secretin protein come together to form a channel, as in this one from *Vibrio cholerae* [@yan2017a]. In addition to the main channel situated in the outer membrane, different domains of the protein form a series of rings in the periplasm that interact with other components of the system.
 
 [9_5_Escherichia coli +CdiA] Type V Secretion
@@ -66,7 +66,7 @@ How else could your cell deliver a toxin to a nearby competitor? As usual, Natur
 This primed T6SS consists of a hollow outer tube, with a narrower dart inside [Schematic: Primed T6SS structure]. The effector protein is loaded at the tip of the dart, where the machine is anchored in the cell envelope. In a few cells, including this one, we see additional filaments flanking the primed T6SS. They are lacking in other cells even of the same species, and their identity and function remain unknown.
 
 9_6_1 Schematic: Primed T6SS structure
-*PDB: 5URW*
+[*PDB: 5URW*](http://rcsb.org/structure/5URW)
 In a primed T6SS, the projectile rod (orange) nests inside the contractile sheath (blue), as in this section of a T6SS from *Myxococcus xanthus* [@chang2017].
 
 [9_7_Vibrio cholerae] Type VI Secretion (cont’d.)
@@ -76,7 +76,7 @@ When the T6SS fires, the helical outer sheath twists into a shorter, wider form,
 These contractile weapons evolved from the “tail” structure viruses called phage use to inject their genetic material into bacteria and archaea (more on that in the next chapter). Some related bacterial weapons are even closer to the phage tail, in that they are released to the environment in a primed state, waiting to bump into a target cell to fire. The target is recognized by filamentous proteins called “tail fibers,” the same identification mechanism used by phage. Other members of this evolutionary family are even stranger, like the <u>M</u>orphogenesis-<u>A</u>ssociated <u>C</u>ontractile structures (MACs) released by a marine bacterium which play a key role in the lifecycle of a (eukaryotic) worm [More: MACs] [Schematic: MAC array structure].
 
 9_7_1 Schematic: Fired T6SS structure
-*PDB: 5URX*
+[*PDB: 5URX*](http://rcsb.org/structure/5URX)
 A conformational change in the T6SS sheath provides the energy to fire the inner rod toward its target. The remaining sheath is shorter and wider than in its primed state, as in this section of a fired T6SS from *Myxococcus xanthus* [@chang2017].
 
 [7a_Amoebophilus asiaticus] More: T6SS battery
@@ -118,10 +118,10 @@ Once inside its host, *Bdellovibrio bacteriovorus* has the leisure to grow and r
 
 ## Further Reading
 
-Christie (2019). *The rich tapestry of bacterial protein translocation systems*.[@christie2019]
+Christie (2019). *The rich tapestry of bacterial protein translocation systems* [@christie2019].
 
-Flemming et al. (2016). *Biofilms: An emergent form of bacterial life*.[@flemming2016]
+Flemming et al. (2016). *Biofilms: An emergent form of bacterial life* [@flemming2016].
 
-Patz et al. (2019). *Phage tail-like particles are versatile bacterial nanomachines*.[@patz2019]
+Patz et al. (2019). *Phage tail-like particles are versatile bacterial nanomachines* [@patz2019].
 
-Sockett (2009). *Predatory lifestyle of Bdellovibrio bacteriovorus*.[@sockett2009]
+Sockett (2009). *Predatory lifestyle of Bdellovibrio bacteriovorus* [@sockett2009].

@@ -10,7 +10,7 @@ For chemotaxis (“taxis,” or ordered movement, in response to chemicals) the 
 Chemosensory systems form arrays containing many copies of the proteins. As in this *S. oneidensis* cell, arrays are usually located near the flagella they control, with the tips of the chemoreceptors sticking through the membrane into the periplasm or extracellular space where they can detect signals from the environment. At the other end of the array, the associated kinases interact with the response regulators. These kinases, along with an additional structural protein that helps organize the array, form a layer that we see as a dense line in the cytoplasm.
 
 7_1_1 Schematic: Chemoreceptor structure
-*PDB: 2CH7*
+[*PDB: 2CH7*](http://rcsb.org/structure/2CH7)
 Chemoreceptors take the form of long rods. A single protein zips back along itself, and then joins together with a second copy, forming a rigid bundle of four intertwining helices (two from each member of the dimer), as you can see in this dimer of receptors from *Thermotoga maritima* [@park2006]. Only the cytoplasmic portion is shown here; in the cell, the receptors would also have a membrane-embedded anchor at the top and, beyond that, a small domain in the periplasm to bind the chemical of interest. Once a chemical binds, the signal is transmitted down the length of the receptor to a kinase waiting at the distal tip.
 
 [7_2_Styphimurium] Chemosensory Array
@@ -18,7 +18,7 @@ Chemoreceptors take the form of long rods. A single protein zips back along itse
 Chemosensory arrays are highly ordered, as you can best see from a bird’s-eye view, as in this lysed *Salmonella typhimurium* cell. Chemoreceptors come together as dimers, which in turn organize into trimers, which are further packed into the extensive hexagonal honeycombed array you see here. The hexagonal arrangement comes from the baseplate, where the kinases and coupling proteins bind into an ordered array [Schematic: Chemosensory array architecture]. In what should be a familiar theme by now, organization provides a great benefit. Bacteria and archaea have a tremendous sense of smell, responding to as few as one or two molecules of an attractant, or many more. In fact, the range of chemical concentrations they can sense extends over 5 orders of magnitude. But how can a single receptor transmit a signal efficiently? Perhaps it should pass on the message to its neighbors. The interlocking network of chemoreceptors enables just this kind of amplification; a target binding to one receptor may translate into activation of 36 adjacent receptors, enormously boosting the gain of the signal.
 
 7_2_1 Schematic: Chemosensory array architecture
-*PDB: 6S1K*
+[*PDB: 6S1K*](http://rcsb.org/structure/6S1K)
 Here you see two of the basic units of a chemosensory array from *Escherichia coli* [@cassidy2020]. Each unit consists of a trimer of chemoreceptor dimers (in blue), a kinase (in orange), and a coupling protein (in green). In the cell, these units would further associate with four more into a rosette of six units, then with other rosettes, forming the extensive hexagonal array. Also keep in mind that these are just the stable components; additional proteins interact transiently with the receptors and kinases.
 
 [7_3_Methanospirillum hungatei] Chemosensory Array Conservation
@@ -52,15 +52,15 @@ Magnetosomes first form with the creation of a pocket of inner membrane, as you 
 Much remains mysterious about these structures. For instance, what forms the membrane pockets? An even bigger question is how cells use their compass. One theory is that magnetosomes guide the aquatic bacteria vertically to the optimal height in the water column for, e.g. oxygen level. However, these species are also found at the magnetic equator, where the Earth’s field is horizontal. Another hypothesis is that magnetic orientation improves the efficiency of navigation by buffering the cell against Brownian motion that would knock it off course.
 
 7_6_1 Schematic: MamK structure
-*PDB: 5JYG*
+[*PDB: 5JYG*](http://rcsb.org/structure/5JYG)
 MamK, like its eukaryotic homologue, actin, polymerizes into double-stranded filaments like this one from *Magnetospirillum magneticum* [@bergeron2017]. Unlike eukaryotic actin, though, the two strands are in register, rather than being staggered to pack more tightly.
 
 ## Further Reading
 
-Berg (1988). *A physicist looks at bacterial chemotaxis*.[@berg1988]
+Berg (1988). *A physicist looks at bacterial chemotaxis* [@berg1988].
 
-Hazelbauer et al. (2008). *Bacterial chemoreceptors: High-performance signaling in networked arrays*.[@hazelbauer2008]
+Hazelbauer et al. (2008). *Bacterial chemoreceptors: High-performance signaling in networked arrays* [@hazelbauer2008].
 
-Lower and Bazylinski (2013). *The bacterial magnetosome: A unique prokaryotic organelle*.[@lower2013]
+Lower and Bazylinski (2013). *The bacterial magnetosome: A unique prokaryotic organelle* [@lower2013].
 
-Schuergers et al. (2016). *Cyanobacteria use micro-optics to sense light direction*.[@schuergers2016]
+Schuergers et al. (2016). *Cyanobacteria use micro-optics to sense light direction* [@schuergers2016].

@@ -48,7 +48,7 @@ Whether the phage replicates immediately or waits a while as a prophage first, t
 Some archaeal phage make an even more dramatic exit, through <u>v</u>irus-<u>a</u>ssociated <u>p</u>yramids, or VAPs. You can see these escape hatches in this *Sulfolobus solfataricus* cell infected with *<u>S</u>ulfolobus* <u>T</u>urreted <u>I</u>cosahedral <u>V</u>irus (STIV) [Schematic: STIV structure]. The VAPs are made from a single phage-encoded protein that self-assembles into a seven-sided pyramid in the membrane. Note how the VAPs poke through and disrupt the cell’s surface layer. Note also the many, many copies the phage has made. We sometimes see storage granules inside VAPs, likely simply pushed there by excluding forces from the densely-packed nucleoid and assembling viral capsids in the center of the cell.
 
 10_8_1 Schematic: STIV structure
-*PDB: 3J31*
+[*PDB: 3J31*](http://rcsb.org/structure/3J31)
 As their name implies, STIV have icosahedral capsids with protruding turrets. The hexameric repeating unit in the shell is formed by three copies of a double-lobed protein, as you can see in this structure [@veesler2013].
 
 [10_9_Sulfolobus solfataricus] Release (cont’d.)
@@ -63,8 +63,8 @@ Defense can also be structural. Surface layers may protect cells from some phage
 
 ## Further Reading
 
-Keen (2015). *A century of phage research: Bacteriophages and the shaping of modern biology*.[@keen2015]
+Keen (2015). *A century of phage research: Bacteriophages and the shaping of modern biology* [@keen2015].
 
-Prangishvili et al. (2017). *The enigmatic archaeal virosphere*.[@prangishvili2017]
+Prangishvili et al. (2017). *The enigmatic archaeal virosphere* [@prangishvili2017].
 
-Rohwer et al. (2014). *Life in Our Phage World*.[@rohwer2014]
+Rohwer et al. (2014). *Life in Our Phage World* [@rohwer2014].

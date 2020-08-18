@@ -648,11 +648,21 @@ Borrelia burgdorferi \@ref(fig:6-7)
 
 Campylobacter jejuni \@ref(fig:6-1)
 
+Campylobacter jejuni \@ref(fig:6-4)
+
+Helicobacter hepaticus \@ref(fig:6-6)
+
+Helicobacter pylori \@ref(fig:6-4a)
+
 Hylemonella gracilis \@ref(fig:6-3)
 
 Proteus mirabilis \@ref(fig:6-5a)
 
 Pseudomonas aeruginosa \@ref(fig:6-3a)
+
+Pseudomonas flexibilis \@ref(fig:6-5)
+
+Treponema primitia \@ref(fig:6-7a)
 
 Vibrio cholerae \@ref(fig:7-4)
 

@@ -21,7 +21,7 @@ doivideo('10.22002/D1.1545',0)
 knitr::include_graphics('img/schematics/7_1_1.gif')
 ```
 
-*PDB: 2CH7*
+[*PDB: 2CH7*](http://rcsb.org/structure/2CH7)
 Chemoreceptors take the form of long rods. A single protein zips back along itself, and then joins together with a second copy, forming a rigid bundle of four intertwining helices (two from each member of the dimer), as you can see in this dimer of receptors from *Thermotoga maritima* [@park2006]. Only the cytoplasmic portion is shown here; in the cell, the receptors would also have a membrane-embedded anchor at the top and, beyond that, a small domain in the periplasm to bind the chemical of interest. Once a chemical binds, the signal is transmitted down the length of the receptor to a kinase waiting at the distal tip.
 
 ## Chemosensory Array
@@ -39,7 +39,7 @@ doivideo('10.22002/D1.1546',0)
 knitr::include_graphics('img/schematics/7_2_1.gif')
 ```
 
-*PDB: 6S1K*
+[*PDB: 6S1K*](http://rcsb.org/structure/6S1K)
 Here you see two of the basic units of a chemosensory array from *Escherichia coli* [@cassidy2020]. Each unit consists of a trimer of chemoreceptor dimers (in blue), a kinase (in orange), and a coupling protein (in green). In the cell, these units would further associate with four more into a rosette of six units, then with other rosettes, forming the extensive hexagonal array. Also keep in mind that these are just the stable components; additional proteins interact transiently with the receptors and kinases.
 
 ## Chemosensory Array Conservation
@@ -113,15 +113,15 @@ doivideo('10.22002/D1.1550',0)
 knitr::include_graphics('img/schematics/7_6_1.gif')
 ```
 
-*PDB: 5JYG*
+[*PDB: 5JYG*](http://rcsb.org/structure/5JYG)
 MamK, like its eukaryotic homologue, actin, polymerizes into double-stranded filaments like this one from *Magnetospirillum magneticum* [@bergeron2017]. Unlike eukaryotic actin, though, the two strands are in register, rather than being staggered to pack more tightly.
 
 ## Further Reading
 
-Berg (1988). *A physicist looks at bacterial chemotaxis*.[@berg1988]
+Berg (1988). *A physicist looks at bacterial chemotaxis* [@berg1988].
 
-Hazelbauer et al. (2008). *Bacterial chemoreceptors: High-performance signaling in networked arrays*.[@hazelbauer2008]
+Hazelbauer et al. (2008). *Bacterial chemoreceptors: High-performance signaling in networked arrays* [@hazelbauer2008].
 
-Lower and Bazylinski (2013). *The bacterial magnetosome: A unique prokaryotic organelle*.[@lower2013]
+Lower and Bazylinski (2013). *The bacterial magnetosome: A unique prokaryotic organelle* [@lower2013].
 
-Schuergers et al. (2016). *Cyanobacteria use micro-optics to sense light direction*.[@schuergers2016]
+Schuergers et al. (2016). *Cyanobacteria use micro-optics to sense light direction* [@schuergers2016].
