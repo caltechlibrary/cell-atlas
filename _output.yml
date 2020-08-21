@@ -11,7 +11,7 @@ bookdown::gitbook:
         <li><a href="https://www.library.caltech.edu" target="blank">Published by Caltech Library</a><li>
       collapse: section
     edit: https://github.com/caltechlibrary/cell-atlas/edit/master/%s
-    download: ["pdf", "epub"]
+    download: null
     sharing: null
 bookdown::tufte_book2:
   includes:

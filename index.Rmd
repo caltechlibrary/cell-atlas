@@ -2,6 +2,7 @@
 title: "Atlas of Bacterial and Archaeal Cell Structure"
 author: "Catherine M. Oikonomou and Grant J. Jensen"
 date: "`r Sys.Date()`"
+url: 'https\://cellstructureatlas.org/'
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
