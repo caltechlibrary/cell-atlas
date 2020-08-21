@@ -16,4 +16,29 @@ A visual tour of the microbial cell
 
 # Coming Soon
 
+Microscopy enabled by generous support from:
 
+```{r logos, echo = FALSE}
+knitr::asis_output(htmltools::htmlPreserve('
+<div class="row">
+  <div class="column">
+    <img src="FunderLogos/Agouron.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="FunderLogos/BI.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="FunderLogos/HHMI.jpg" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="FunderLogos/Moore.jpg" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="FunderLogos/NIH.jpg" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="FunderLogos/Templeton.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
+'))
+```

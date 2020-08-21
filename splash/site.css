@@ -40,7 +40,6 @@ header img {
      display: inline;
      padding-left: 20px;
      margin: 0;
-     height: 42px;
      padding-top: 32px;
 }
 
@@ -124,7 +123,7 @@ nav ul {
      padding-left: 0.24em;
      list-style-type: none;
      text-align: left;
-     text-decoration: none; 
+     text-decoration: none;
 }
 
 nav ul li {
@@ -158,11 +157,10 @@ section {
      margin-left: 1vw;
      margin-right: 1vw;
      margin-bottom: 2em;
-     padding 0;
+     padding: 0;
 }
 
 section p {
-    width: 97%;
     text-align: center;
     font-family: Open Sans, Helvetica, Sans-Serif;
 }
@@ -246,18 +244,20 @@ input {
 
 tr:nth-child(odd) {background-color: #f2f2f2}
 
-footer div.logotxt {
+footer .logoblock {
   position: absolute;
-  height: 3em;
-  width: 200px;
+  width: 15%;
   right: 0;
-  border: 1em;
-} 
+  margin-right: 5px;
+  text-align: left;
+}
 
-footer div.logoimg {
-  position: absolute;
-  top: 1.5em;
-  right: 0;
+footer .logoimg {
+  margin: 2px;
+}
+
+footer .logotxt {
+  margin: 2px;
 }
 
 footer {
@@ -265,12 +265,11 @@ footer {
      bottom: 0;
      display: block;
      width: 100%;
-     height: 4em;
+     height: 5em;
      color: white;
      background-color: #616265;
-     text-aligh: center;
+     text-align: center;
      font-size: 80%;
-     vertical-align: middle;
      z-index: 2;
 }
 
@@ -286,23 +285,22 @@ footer span {
      font-size: 1em;
 }
 
-footer img {
-     position: relative;
-     display: inline;
-     padding-right: 20px;
-     margin: 0;
-     height: 2em;
-}
-
-footer h1 {
-     font-weight: normal;
-}
-
 footer a, footer a:link, footer a:visited, footer a:active, footer a:focus, footer a:hover {
      padding: 0;
      display: inline;
-     margin: 0;
      color: #FF6E1E;
      text-decoration: none;
 }
 
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 16.6%;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
