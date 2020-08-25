@@ -220,6 +220,8 @@ Lysobacter antibioticus \@ref(fig:4-8a)
 
 Magnetospirillum magneticum \@ref(fig:7-6)
 
+Methylomicrobium alcaliphilum \@ref(fig:2-7a)
+
 Methyloprofundus sedimenti \@ref(fig:4-3a)
 
 Mycobacterium marinum \@ref(fig:2-5)
@@ -585,6 +587,10 @@ Vibrio cholerae \@ref(fig:9-9)
 
 ## Flagellar motors {-}
 
+Bdellovibrio bacteriovorus \@ref(fig:2-10)
+
+Bdellovibrio bacteriovorus \@ref(fig:6-2)
+
 Bdellovibrio bacteriovorus \@ref(fig:6-2a)
 
 Borrelia burgdorferi \@ref(fig:2-4a)
@@ -600,6 +606,8 @@ Campylobacter jejuni \@ref(fig:6-4)
 Helicobacter hepaticus \@ref(fig:6-6)
 
 Helicobacter pylori \@ref(fig:6-4a)
+
+Hylemonella gracilis \@ref(fig:3-3)
 
 Hylemonella gracilis \@ref(fig:6-3)
 
@@ -805,6 +813,8 @@ Lysobacter antibioticus \@ref(fig:4-8a)
 
 Magnetospirillum magneticum \@ref(fig:7-6)
 
+Methylomicrobium alcaliphilum \@ref(fig:2-7a)
+
 Methyloprofundus sedimenti \@ref(fig:4-3a)
 
 Mycobacterium marinum \@ref(fig:2-5)
@@ -915,8 +925,6 @@ Methanoregula formicica \@ref(fig:7-5)
 Methanospirillum hungatei \@ref(fig:2-8)
 
 Methanospirillum hungatei \@ref(fig:7-3)
-
-Methylomicrobium alcaliphilum \@ref(fig:2-7a)
 
 Mycoplasma genitalium \@ref(fig:2-1)
 
@@ -1082,6 +1090,8 @@ Legionella pneumophila \@ref(fig:9-3)
 Lysobacter antibioticus \@ref(fig:4-8a)
 
 Magnetospirillum magneticum \@ref(fig:7-6)
+
+Methylomicrobium alcaliphilum \@ref(fig:2-7a)
 
 Methyloprofundus sedimenti \@ref(fig:4-3a)
 
@@ -1271,8 +1281,6 @@ Amoebophilus asiaticus \@ref(fig:9-7a)
 
 Bacteroidetes \@ref(fig:10-2)
 
-Bdellovibrio bacteriovorus \@ref(fig:6-2)
-
 Caulobacter crescentus \@ref(fig:10-6a)
 
 Caulobacter crescentus \@ref(fig:2-6)
@@ -1331,6 +1339,8 @@ Vibrio cholerae \@ref(fig:9-7)
 ## Pili (Type IV) {-}
 
 Bdellovibrio bacteriovorus \@ref(fig:2-10)
+
+Bdellovibrio bacteriovorus \@ref(fig:6-2)
 
 Bdellovibrio bacteriovorus \@ref(fig:9-9)
 

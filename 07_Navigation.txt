@@ -39,7 +39,7 @@ In addition to their extensive repertoire of membrane-embedded chemoreceptors, c
 
 [5a_Vcholerae] More: Vibrio cholerae chemosensory arrays
 
-This *Vibrio cholerae* cell showcases a full repertoire of chemosensory systems: two membrane-embedded arrays (the shorter one signaling to the flagellar motor and the longer one signaling to a still-unknown target) and a cytoplasmic array (also with unknown function). In all cases, the basic architecture is identical: hexagonally-arranged trimers of chemoreceptor dimers.
+This *Vibrio cholerae* cell showcases a full complement of chemosensory systems: an extensive membrane-embedded array (signaling to the flagellar motor) and a cytoplasmic array (signaling to a still-unknown target) . In each case, the basic architecture is identical: hexagonally-arranged trimers of chemoreceptor dimers.
 
 [7_6_Magnetospirillum magneticum] Magnetotaxis
 

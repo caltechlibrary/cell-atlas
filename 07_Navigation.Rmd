@@ -83,7 +83,7 @@ doivideo('10.22002/D1.1549',0)
 ```
 
 ### More: Vibrio cholerae chemosensory arrays{-#Vibrio_cholerae_chemosensory_arrays}
-This *Vibrio cholerae* cell showcases a full repertoire of chemosensory systems: two membrane-embedded arrays (the shorter one signaling to the flagellar motor and the longer one signaling to a still-unknown target) and a cytoplasmic array (also with unknown function). In all cases, the basic architecture is identical: hexagonally-arranged trimers of chemoreceptor dimers.
+This *Vibrio cholerae* cell showcases a full complement of chemosensory systems: an extensive membrane-embedded array (signaling to the flagellar motor) and a cytoplasmic array (signaling to a still-unknown target) . In each case, the basic architecture is identical: hexagonally-arranged trimers of chemoreceptor dimers.
 
 (ref:7-5a) [Vibrio cholerae](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1552](https://doi.org/10.22002/D1.1552)
 
