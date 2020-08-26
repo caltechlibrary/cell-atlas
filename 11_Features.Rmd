@@ -413,6 +413,8 @@ Vibrio cholerae \@ref(fig:7-5a)
 
 Chloroflexi \@ref(fig:4-4)
 
+Chloroflexi \@ref(fig:5-6b)
+
 
 ## CTP synthase filaments {-}
 
