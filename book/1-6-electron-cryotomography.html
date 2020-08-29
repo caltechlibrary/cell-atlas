@@ -24,7 +24,7 @@
 <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen" />
 
 
-<meta name="date" content="2020-08-26" />
+<meta name="date" content="2020-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -102,6 +102,7 @@
 <li class="chapter" data-level="2.1" data-path="2-1-membrane.html"><a href="2-1-membrane.html"><i class="fa fa-check"></i><b>2.1</b> Membrane</a><ul>
 <li class="chapter" data-level="" data-path="2-1-membrane.html"><a href="2-1-membrane.html#Lipid_bilayer"><i class="fa fa-check"></i>Schematic: Lipid bilayer</a></li>
 <li class="chapter" data-level="" data-path="2-1-membrane.html"><a href="2-1-membrane.html#ATP_synthase_and_energy_production"><i class="fa fa-check"></i>Schematic: ATP synthase and energy production</a></li>
+<li class="chapter" data-level="" data-path="2-1-membrane.html"><a href="2-1-membrane.html#Ribosome"><i class="fa fa-check"></i>Schematic: Ribosome</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="2-2-cell-wall.html"><a href="2-2-cell-wall.html"><i class="fa fa-check"></i><b>2.2</b> Cell Wall</a><ul>
 <li class="chapter" data-level="" data-path="2-2-cell-wall.html"><a href="2-2-cell-wall.html#Peptidoglycan_architecture"><i class="fa fa-check"></i>More: Peptidoglycan architecture</a></li>
@@ -472,13 +473,13 @@
             <section class="normal" id="section-">
 <div id="electron-cryotomography" class="section level2">
 <h2><span class="header-section-number">1.6</span> Electron Cryotomography</h2>
-<p>To truly understand a three-dimensional object, we need to be able to visualize it in three dimensions. To do that, we can use tomography (from the Greek for “writing slices”). The process may be familiar from medical Computed Tomography, or CT, scans. Simply, the object is imaged from different angles (in a CT scan, the camera moves around the patient; in our case we keep the imaging path constant and simply rotate the small sample). This produces a “tilt-series” of projection images that can be digitally processed into a reconstruction of the 3D object–a tomogram. To do the reconstruction, we need to be able to precisely align the images, which is difficult because of the low contrast from cryoEM samples (unstained and sensitive to exposure). This is where the gold beads come in. As you saw on the previous page, they provide clear markers in the images to guide the alignment.</p>
+<p>To truly understand a three-dimensional object, we need to be able to visualize it in three dimensions. To do that, we can use <strong>tomography</strong> (from the Greek for “writing slices”). The process may be familiar from medical Computed Tomography, or CT, scans. Simply, the object is imaged from different angles (in a CT scan, the camera moves around the patient; in our case we keep the imaging path constant and simply rotate the small sample). This produces a “tilt-series” of projection images that can be digitally processed into a reconstruction of the 3D object–a tomogram. To do the reconstruction, we need to be able to precisely align the images, which is difficult because of the low contrast from cryoEM samples (unstained and sensitive to exposure). This is where the gold beads come in. As you saw on the previous page, they provide clear markers in the images to guide the alignment.</p>
 <p>Here you see a tomogram of a <em>Caulobacter crescentus</em> cell, which we view as a series of slices scanning (or “writing”) from bottom to top. Note the further level of detail that this technique provides, separating the cell’s structures into their three-dimensional locations. We can also rotate the tomogram and slice along a different axis to view structures from different angles, although not all angles are visible <a href="1-6-electron-cryotomography.html#Missing_wedge">Schematic: Missing wedge</a>.</p>
 <p>Since the early 2000s, cryoET has transformed our understanding of microbial cells, revealing their structural richness and diversity, as you will see in the chapters that follow.</p>
 
 <div class="figure"><span id="fig:1-6"></span>
-<div id="htmlwidget-2311098bb858b9f4f376" style="width:672px;height:480px;" class="doivideo html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2311098bb858b9f4f376">{"x":{"doi":"10.22002/D1.1468","index":0},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-364f789c23fe657b8ae3" style="width:672px;height:480px;" class="doivideo html-widget"></div>
+<script type="application/json" data-for="htmlwidget-364f789c23fe657b8ae3">{"x":{"doi":"10.22002/D1.1468","index":0},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
 Figure 1.6: <a href="C-tree.html#tree">Caulobacter crescentus</a> Collected by: <a href="steven-wang.html#steven_wang">Steven Wang</a> Movie DOI: <a href="https://doi.org/10.22002/D1.1468">10.22002/D1.1468</a>
 </p>
@@ -486,7 +487,7 @@ Figure 1.6: <a href="C-tree.html#tree">Caulobacter crescentus</a> Collected by: 
 <div id="Missing_wedge" class="section level3 unnumbered">
 <h3>Schematic: Missing wedge</h3>
 <p><img src="img/schematics/1_6_1.png" width="750" /></p>
-<p>Think again about how a tilt-series is made: by taking images from different angles. If we could tilt the sample all the way to 90º, we would have information from every angle. But the sample gets effectively thicker as we tilt it, since the beam has to pass through more and more of the surrounding material. This effect usually becomes prohibitive beyond 60º, so a typical tilt-series spans only ~2/3 of the possible angles, leaving a “missing wedge” of information corresponding to those high tilt angles, as you can see in this diagram. In practice, the missing wedge means that features at the top and bottom of the sample disappear. For instance, if we look at a cross-section of a cell, we cannot trace the membrane all the way around. For an example of this effect, check out the <em>Caulobacter crescentus</em> cell in Chapter 5–FtsZ (cont’d.).</p>
+<p>Think again about how a tilt-series is made: by taking images from different angles. If we could tilt the sample all the way to 90º, we would have information from every angle. But the sample gets effectively thicker as we tilt it, since the beam has to pass through more and more of the surrounding material. This effect usually becomes prohibitive beyond 60º, so a typical tilt-series spans only ~2/3 of the possible angles, leaving a “missing wedge” of information corresponding to those high tilt angles, as you can see in this diagram. In practice, the missing wedge means that features at the top and bottom of the sample disappear. For instance, if we look at a cross-section of a cell, we cannot trace the membrane all the way around. For an example of this effect, check out the <em>Caulobacter crescentus</em> cell in Section 5.10.</p>
 </div>
 </div>
             </section>
