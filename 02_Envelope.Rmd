@@ -9,7 +9,7 @@ Imagine for a moment that you are a structural engineer tasked with building one
 
 Now your cell has a clearly delineated exterior and interior. The interior is called the **cytoplasm** ("cell mold,” the membrane being the container that shapes the mold). Almost all archaea and many bacteria, like these *Mycoplasma genitalium* cells, are **monoderms** ("single skin"). This means that their cytoplasm is enclosed by a single membrane. At this resolution, the membrane looks like a single dark line, but remember that it is really a bilayer, as you will be able to see in some later examples. The cytoplasm contains the many macromolecules that carry out the various functions of the cell's metabolism. The most prominent are the ribosomes which produce new proteins [Schematic: Ribosome](#Ribosome).
 
-Other structures you see in this cell function in motility and will be explained in Chapter 6. Remember that tomograms show cells in their entirety, so the example we choose to illustrate one feature will likely highlight others as well. For now, focus on the feature being discussed. Later, when you've learned about other features, you may want to see additional examples of them. Then you can use the [Feature Index] to find them. To help orient you, feature labels are color-coded according to the chapter in which they are discussed.
+Other structures you see in this cell function in motility and will be explained in Chapter 6. Remember that tomograms show cells in their entirety, so the example we choose to illustrate one feature will likely highlight others as well. For now, focus on the feature being discussed. Later, when you have learned about other features, you may want to see additional examples of them. Then you can use the [Feature Index] to find them. To help orient you, feature labels are color-coded according to the chapter in which they are discussed.
 
 (ref:2-1) [Mycoplasma genitalium](#tree) Collected by: [Gregory Henderson](#gregory_henderson) Movie DOI: [10.22002/D1.1350](https://doi.org/10.22002/D1.1350)
 
@@ -313,7 +313,23 @@ library(doivideo)
 doivideo('10.22002/D1.1359',0)
 ```
 
-## Further Reading
+## Summary
+
+```{R}
+knitr::include_graphics('img/summaries/02_Envelope.gif')
+```
+
+### Concept Check Questions {-}
+
+• Which macromolecule makes up the membrane? The cell wall? The surface layer?
+
+• What is the difference between a monoderm and a diderm?
+
+• What is the main function of the cell wall?
+
+• What is a nucleoid?
+
+### Further Reading {-}
 
 Errington (2013). *L-form bacteria, cell walls and the origins of life* [@errington2013].
 

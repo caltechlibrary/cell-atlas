@@ -9,7 +9,7 @@ Imagine for a moment that you are a structural engineer tasked with building one
 
 Now your cell has a clearly delineated exterior and interior. The interior is called the **cytoplasm** ("cell mold,” the membrane being the container that shapes the mold). Almost all archaea and many bacteria, like these *Mycoplasma genitalium* cells, are **monoderms** ("single skin"). This means that their cytoplasm is enclosed by a single membrane. At this resolution, the membrane looks like a single dark line, but remember that it is really a bilayer, as you will be able to see in some later examples. The cytoplasm contains the many macromolecules that carry out the various functions of the cell's metabolism. The most prominent are the ribosomes which produce new proteins [Schematic: Ribosome].
 
-Other structures you see in this cell function in motility and will be explained in Chapter 6. Remember that tomograms show cells in their entirety, so the example we choose to illustrate one feature will likely highlight others as well. For now, focus on the feature being discussed. Later, when you've learned about other features, you may want to see additional examples of them. Then you can use the [Feature Index] to find them. To help orient you, feature labels are color-coded according to the chapter in which they are discussed.
+Other structures you see in this cell function in motility and will be explained in Chapter 6. Remember that tomograms show cells in their entirety, so the example we choose to illustrate one feature will likely highlight others as well. For now, focus on the feature being discussed. Later, when you have learned about other features, you may want to see additional examples of them. Then you can use the [Feature Index] to find them. To help orient you, feature labels are color-coded according to the chapter in which they are discussed.
 
 2_1_1 Schematic: Lipid bilayer
 Lipids have a hydrophilic head (blue here) and hydrophobic tails (grey); in water they spontaneously pack side-by-side and tail-to-tail to shield their tails from unfavorable interactions with water. This results in closed double-layered bags–membranes. One key difference between archaea and bacteria (and with them, eukaryotes) is the kind of lipid in their membranes. Hybrid membranes containing both these lipid types can be made artificially, and it is possible that the last universal common ancestor of all cells on Earth contained both types, with specialization occurring later.
@@ -150,7 +150,23 @@ Cells contain enormous amounts of DNA. The single, circular chromosome of this *
 
 At times, the nucleoid becomes easier to see. Imagine that your cell wanted to decrease its gene expression (we will discuss why in Chapters 8 and 9). One approach is simply to pack the chromosome so tightly that the transcriptional machinery cannot access the genes. This cell is doing just that, condensing its nucleoid into a dense twisted braid we can easily visualize.
 
-## Further Reading
+## Summary
+
+```{R}
+knitr::include_graphics('img/summaries/02_Envelope.gif')
+```
+
+### Concept Check Questions {-}
+
+• What kind of macromolecule makes up the membrane? The cell wall? The surface layer?
+
+• What is the difference between a monoderm and a diderm?
+
+• What is the main function of the cell wall?
+
+• What is a nucleoid?
+
+### Further Reading {-}
 
 Errington (2013). *L-form bacteria, cell walls and the origins of life* [@errington2013].
 
