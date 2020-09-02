@@ -31,7 +31,7 @@ doivideo('10.22002/D1.1508',0)
 ```
 
 ## Budding
-What if your cell divides a different way? Some bacteria divide not by fission, but by budding, like this *Hyphomonas neptunium* cell. These cells concentrate their growth at the end of a stalk [More: Hyphomonas stalk](#Hyphomonas_stalk), producing a daughter cell like blowing a bubble. When the bud becomes big enough, they divide at the end of the stalk to release it [More: Hyphomonas lifecycle](#Hyphomonas_lifecycle). First, though, they have to make sure all the necessary components make it into the bud. The process is most dramatic for the genome; here you can see a copy being transferred through the stalk. The chromosome here resembles a double-stranded DNA helix, but it is actually a higher-order structure of supercoiled DNA. (The crossbands are proteins that help pack the DNA, not hydrogen-bonded bases.)
+What if your cell divides a different way? Some bacteria produce daughters not by fission, but by budding, like this *Hyphomonas neptunium* cell. These cells concentrate their growth at the end of a stalk [More: Hyphomonas stalk](#Hyphomonas_stalk), producing a daughter cell like blowing a bubble. When the bud becomes big enough, they divide at the end of the stalk to release it [More: Hyphomonas lifecycle](#Hyphomonas_lifecycle). First, though, they have to make sure all the necessary components make it into the bud. The process is most dramatic for the genome; here you can see a copy being transferred through the stalk. The chromosome here resembles a double-stranded DNA helix, but it is actually a higher-order structure of supercoiled DNA. (The crossbands are proteins that help pack the DNA, not hydrogen-bonded bases.)
 
 Several other bacterial species divide by budding, although not all have stalks. Some simply bud from the main cell body; you will see an example later in this chapter.
 
@@ -212,7 +212,23 @@ library(doivideo)
 doivideo('10.22002/D1.1518',0)
 ```
 
-## Further Reading
+## Summary
+
+```{R}
+knitr::include_graphics('img/summaries/05_Division.gif')
+```
+
+### Concept Check Questions {-}
+
+• What is the most important low-copy-number component of the cell?
+
+• What are the two ways bacteria can form daughter cells?
+
+• What cytoskeletal element do most bacteria use for cytokinesis?
+
+• What eukaryotic constriction system is related to the archaeal Cdv system?
+
+### Further Reading {-}
 
 Badrinarayanan et al. (2015). *Bacterial chromosome organization and segregation* [@badrinarayanan2015].
 

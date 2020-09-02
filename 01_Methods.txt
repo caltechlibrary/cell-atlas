@@ -85,10 +85,10 @@ To identify the location of a component within a large macromolecular complex, d
 
 ## Further Reading
 
-Chalfie et al. (1994). *Green fluorescent protein as a marker for gene expression* [@chalfie1994].
-
 Jensen. *Getting Started in Cryo-EM* Video Lectures [@jensenInternet].
 
 Oikonomou and Jensen (2017). *Cellular electron cryotomography: toward structural biology in situ* [@oikonomou2017].
 
 Ruska (1987). *Nobel Lecture: The development of the electron microscope and of electron microscopy* [@ruska1987].
+
+Tsien (2005). *Breeding molecules to spy on cells* [@tsien2005]

@@ -321,7 +321,7 @@ knitr::include_graphics('img/summaries/02_Envelope.gif')
 
 ### Concept Check Questions {-}
 
-• Which macromolecule makes up the membrane? The cell wall? The surface layer?
+• What kind of macromolecule makes up the membrane? The cell wall? The surface layer?
 
 • What is the difference between a monoderm and a diderm?
 

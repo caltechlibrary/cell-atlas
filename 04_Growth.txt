@@ -103,7 +103,23 @@ Some archaeal cells, like this *Haloferax gibbonsii*, contain many small granule
 
 This *Halohasta litchfieldiae* cell has more unusual granules. The high electron-density (darkness) of these punctate structures suggests that they contain metal.
 
-## Further Reading
+## Summary
+
+```{R}
+knitr::include_graphics('img/summaries/04_Growth.gif')
+```
+
+### Concept Check Questions {-}
+
+• How can cells perform anaerobic respiration without a soluble electron acceptor?
+
+• How does a microcompartment make a metabolic reaction more efficient?
+
+• What kind of macromolecule makes up a bacterial microcompartment shell?
+
+• What is a secondary use for enzyme filaments?
+
+### Further Reading {-}
 
 Barry and Gitai (2011). *Self-assembling enzymes and the origins of the cytoskeleton* [@barry2011].
 

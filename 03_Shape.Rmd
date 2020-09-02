@@ -160,7 +160,23 @@ library(doivideo)
 doivideo('10.22002/D1.1488',0)
 ```
 
-## Further Reading
+## Summary
+
+```{R}
+knitr::include_graphics('img/summaries/03_Shape.gif')
+```
+
+### Concept Check Questions {-}
+
+• What shape maximizes volume relative to surface area?
+
+• What is a cytoskeletal element?
+
+• How could a cytoskeletal element grow a rod shape from a coccoid?
+
+• How could a cytoskeletal element grow a vibrioid shape from a rod?
+
+### Further Reading {-}
 
 Barry and Gitai (2011). *Self-assembling enzymes and the origins of the cytoskeleton* [@barry2011].
 

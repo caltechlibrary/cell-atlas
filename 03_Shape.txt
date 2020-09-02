@@ -79,7 +79,23 @@ Some species of archaea and bacteria use gas vesicles to control their buoyancy.
 
 Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a single layer of protein. (Sometimes some additional proteins reinforce the shell.) Gas vesicles do not actively store gas; they simply allow gas dissolved in the cytoplasm to diffuse in, while forming a tight barrier against anything else, like water. They are fragile and prone to collapse with even a slight increase in the surrounding pressure.
 
-## Further Reading
+## Summary
+
+```{R}
+knitr::include_graphics('img/summaries/03_Shape.gif')
+```
+
+### Concept Check Questions {-}
+
+• What shape maximizes volume relative to surface area?
+
+• What is a cytoskeletal element?
+
+• How could a cytoskeletal element grow a rod shape from a coccoid?
+
+• How could a cytoskeletal element grow a vibrioid shape from a rod?
+
+### Further Reading {-}
 
 Barry and Gitai (2011). *Self-assembling enzymes and the origins of the cytoskeleton* [@barry2011].
 
