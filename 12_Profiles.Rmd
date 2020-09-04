@@ -42,6 +42,8 @@ knitr::include_graphics('img/bios/grant_jensen.jpg')
 
 ## Gavin Murphy {-#gavin_murphy}
 
+## Lam Nguyen {-#lam_nguyen}
+
 ## William Nicolas {-#william_nicolas}
 
 ## Catherine Oikonomou {-#catherine_oikonomou}

@@ -5,7 +5,7 @@
 ## Light Microscopy
 To understand a picture, it helps to know how it was made. So before we start looking at the structures of cells, let us quickly cover some of the techniques we use to see them.
 
-Cell biology occurs over a vast scale, from angstrom-level (0.1 nm) rearrangements of molecules inside cells to millimeter-level (1,000,000 nm) interactions between cells. The various tools of structural biology cover more limited ranges of this scale, complementing one another to provide a more complete view [Schematic: Structural biology toolkit](#Structural_biology_toolkit). To discuss them, we will start at the “big” end of the scale and work our way down, using a bacterial motility appendage called the **flagellum** (discussed in Chapter 6) as our guide.
+Cell biology occurs over a vast scale, from angstrom-level (0.1 nm) rearrangements of molecules inside cells to millimeter-level (1,000,000 nm) interactions between cells. The various tools of structural biology cover more limited ranges of this scale, complementing one another to provide a more complete view [Schematic: Structural biology toolkit](#Structural_biology_toolkit). To discuss them, we will start at the “big” end of the scale and work our way down, using a bacterial motility appendage called the flagellum (discussed in Chapter 6) as our guide.
 
 Bacteria and archaea are, with very few exceptions, invisible to our eyes. As you can see with these *Staphylococcus aureus* being chased through a field of human blood cells by an immune cell, they are orders of magnitude smaller even than eukaryotic cells. As a consequence, they were unknown to us until about 350 years ago, in the seventeenth century, when Antonie van Leeuwenhoek created the first microscopes capable of revealing such tiny cells. The simplest microscope is a magnifying glass which, combined with the lens of your eye, produces a magnified image on your retina. A compound microscope has two or more lenses, whose magnifications multiply, and this is what we commonly mean when we refer to a “light microscope.”
 
@@ -26,7 +26,7 @@ knitr::include_graphics('img/schematics/1_1_1.png')
 Cell biology occurs on a length scale that spans seven orders of magnitude. Different visualization techniques cover various sections of this span, as shown here with a few examples. Keep in mind that there are more techniques than these; we touch only on those you will see in the coming pages.
 
 ## Fluorescence Light Microscopy
-The addition of fluorescence to light microscopy allows us to look not just *at* cells, but *for* things inside them. Specific cellular components can be fluorescently labeled, with a stain or antibody that binds a particular molecule. Alternatively, a protein of interest can be genetically linked to a fluorescent protein such as Green Fluorescent Protein (GFP, isolated from a bioluminescent jellyfish off the Pacific coast in the 1970s and adapted as a revolutionary molecular biology tool in the 1990s). While tagging a protein can sometimes change its properties (e.g. affecting its function or altering its localization), this technique often enables us to identify where in the cell a protein is found, and what it might be doing there.
+The addition of **fluorescence** to light microscopy allows us to look not just *at* cells, but *for* things inside them. Specific cellular components can be fluorescently labeled, with a stain or antibody that binds a particular molecule. Alternatively, a protein of interest can be genetically linked to a fluorescent protein such as Green Fluorescent Protein (GFP, isolated from a bioluminescent jellyfish off the Pacific coast in the 1970s and adapted as a revolutionary molecular biology tool in the 1990s). While tagging a protein can sometimes change its properties (e.g. affecting its function or altering its localization), this technique often enables us to identify where in the cell a protein is found, and what it might be doing there.
 
 As an example, this movie from Howard Berg’s lab [@bergInternet] [@turner2000] shows *Escherichia coli* cells stained by a fluorescent dye that binds to and highlights their flagella – long, thin appendages that propel them through their environment. (We will discuss this and other ways cells move in Chapter 6.)
 
@@ -166,7 +166,19 @@ library(doivideo)
 doivideo('10.22002/D1.1473',0)
 ```
 
-## Further Reading
+## Summary
+
+### Concept Check Questions {-}
+
+• How can you locate a protein of interest by light microscopy?
+
+• What happens to liquid water in a vacuum?
+
+• What are gold beads used for in cryoET?
+
+• Which technique can reveal the atomic structure of a small protein?
+
+### Further Reading {-}
 
 Jensen. *Getting Started in Cryo-EM* Video Lectures [@jensenInternet].
 

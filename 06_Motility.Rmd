@@ -3,11 +3,11 @@
 - Howard Berg [@berg1988]
 
 ## Flagellum
-Location, location, location. So far, we have focused on how your cell can take the best advantage of its spot in the world. But why not find a better spot? Some cells live stationary lives, attached to a surface or embedded in a biofilm. Many, though, are explorers, using an impressive variety of techniques to move through their environments, finding advantages in places with more food or fewer competitors. In this chapter, we explore how you might make your cell a mobile home.
+Location, location, location. So far, we have focused on how your cell can take the best advantage of its spot in the world. But why not find a better spot? Some cells live stationary lives, attached to a surface or embedded in a biofilm. Many, though, are explorers, using an impressive variety of techniques to move through their environments, finding advantages in places with more food or fewer competitors. In this chapter, we explore how your cell might make a mobile home.
 
-Most bacteria and archaea live in liquid, so motility means swimming. When you are the size of a cell, though, the backstroke does not get you very far. A rough measure called the Reynolds number describes the relative influence of inertia and viscosity on liquid flow, and this parameter scales with an organism’s size. In the low-Reynolds number world of microbes, inertia is virtually nonexistent. When a rod-shaped bacterium stops swimming, it gets to coast only about the diameter of a hydrogen atom (~1 Å) before stopping. In this molasses-like environment, rotary propellers work much better than paddles.
+Most bacteria and archaea live in liquid, so **motility** means swimming. When you are the size of a cell, though, the backstroke does not get you very far. A rough measure called the Reynolds number describes the relative influence of inertia and viscosity on liquid flow, and this parameter scales with an organism’s size. In the low-Reynolds number world of microbes, inertia is virtually nonexistent. When a rod-shaped bacterium stops swimming, it gets to coast only about the diameter of a hydrogen atom (~1 Å) before stopping. In this molasses-like environment, rotary propellers work much better than paddles.
 
-Nearly all bacteria that swim use the same propeller: a rotary motor embedded in their envelope that spins a long helical fiber called a flagellum [Schematic: Flagellum structure](#Flagellum_structure). A universal joint called the hook connects the filament to the motor, translating the rotation. Flagella, like the one on this *Campylobacter jejuni*, are typically many times longer than the cell and take the form of a three-dimensional wave. The filament is highly dynamic, as you would expect, and throughout this book, you will see examples caught in various conformations: straight, curved, or in a typical loose helical waveform like this.
+Nearly all bacteria that swim use the same propeller: a rotary motor embedded in their envelope that spins a long helical fiber called a **flagellum** [Schematic: Flagellum structure](#Flagellum_structure). A universal joint called the hook connects the filament to the motor, translating the rotation. Flagella, like the one on this *Campylobacter jejuni*, are typically many times longer than the cell and take the form of a three-dimensional wave. The filament is highly dynamic, as you would expect, and throughout this book, you will see examples caught in various conformations: straight, curved, or in a typical loose helical waveform like this.
 
 (ref:6-1) [Campylobacter jejuni](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1525](https://doi.org/10.22002/D1.1525)
 
@@ -37,7 +37,7 @@ doivideo('10.22002/D1.1526',0)
 ```
 
 ### More: Flagellar motor structure{-#Flagellar_motor_structure}
-This is an average of the flagellar motors from more than one thousand *Bdellovibrio bacteriovorus* cells. Working upward from the base, the major parts of the rotor are the C-ring (for <u>C</u>ytoplasmic), the MS-ring (for <u>M</u>embrane and <u>S</u>upramembrane), the rod, the hook, and finally the filament. They are surrounded by stationary parts: the stator ring (which is dynamic, so we cannot resolve the stators as they cross the inner membrane and connect to the C-ring) and a series of bushings that allow rotation within the cell wall (the <u>P</u>eriplasmic or P-ring) and outer membrane (<u>L</u>ipopolysaccharide or L-ring). Additional cytoplasmic components form the export apparatus, which is involved in assembly (discussed on the next page).
+This is an average of the flagellar motors from more than one thousand *Bdellovibrio bacteriovorus* cells. Working upward from the base, the major parts of the rotor are the C-ring (for <u>C</u>ytoplasmic), the MS-ring (for <u>M</u>embrane and <u>S</u>upramembrane), the rod, the hook, and finally the filament. They are surrounded by stationary parts: the stator ring (which is dynamic, with various conformations that wash out when averaged, so we cannot resolve the stators as they cross the inner membrane and connect to the C-ring) and a series of bushings that allow rotation within the cell wall (the <u>P</u>eriplasmic or P-ring) and outer membrane (<u>L</u>ipopolysaccharide or L-ring). Additional cytoplasmic components form the export apparatus, which is involved in assembly (discussed on the next page).
 
 (ref:6-2a) [Bdellovibrio bacteriovorus](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1537](https://doi.org/10.22002/D1.1537)
 
@@ -57,7 +57,7 @@ As you can see in these averages of flagellar motors from different species [@mu
 ## Flagellar Assembly
 Operating the flagellar motor is impressive, but so is building it in the first place. Remember that the envelope of bacterial cells is a complicated multilayered barrier. The flagellar motor has about two dozen unique components, each present in many copies, embedded in every layer of the cell envelope. How can your cell get all hundred or more components (tens of thousands if you count the components of the filament) where they need to go? Making the feat even more impressive, the machine builds itself, assembling from the inside out. First the components associated with the inner membrane come together, forming an “export apparatus” which pumps subsequent components across the membrane to assemble in the periplasm and outer membrane (if the cell is a diderm). The energy for this process comes from an ATPase at the base of the machine. You can see a late stage in the assembly process in this *Hylemonella gracilis* cell. The final piece to be assembled (still missing here) is the flagellar filament, which continues the pattern of outward assembly; flagellin monomers travel through the hollow tube to take their places at the tip. Flagellar motors can also disassemble, for instance when the filament is broken [More: Flagellar motor disassembly](#Flagellar_motor_disassembly), and cells may make many new flagella throughout their lifetime.
 
-So the flagellar motor is not just a machine for motility; it is also a machine to secrete molecules outside the cell. Bacteria and archaea contain many such “secretion systems,” each specialized to transport specific macromolecules (e.g. DNA or a protein toxin) across cell envelopes–both their own and sometimes others. Secretion systems are classified by evolutionary relatedness; there are currently ~10 types recognized in bacteria, some of which are also present in archaea. The flagellar motor is an example of a Type III Secretion System. You will see another member of this family in Chapter 9, and examples of many other types in the rest of the book, starting in just a few pages.
+So the flagellar motor is not just a machine for motility; it is also a machine to secrete molecules outside the cell. Bacteria and archaea contain many such “**secretion systems**,” each specialized to transport specific macromolecules (e.g. DNA or a protein toxin) across cell envelopes–both their own and sometimes others. Secretion systems are classified by evolutionary relatedness; there are currently ~10 types recognized in bacteria, some of which are also present in archaea. The flagellar motor is an example of a **type III secretion system**. You will see another member of this family in Chapter 9, and examples of many other types in the rest of the book, starting in just a few pages.
 
 (ref:6-3) [Hylemonella gracilis](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1527](https://doi.org/10.22002/D1.1527)
 
@@ -67,7 +67,7 @@ doivideo('10.22002/D1.1527',0)
 ```
 
 ### More: Flagellar motor disassembly{-#Flagellar_motor_disassembly}
-When flagella break (or in some species, like *Caulobacter crescentus*, are ejected so the cell can attach to a surface), the motor is disassembled, usually beginning with the export apparatus. Not everything is dismantled, though; the P- and L-rings remain in place in the cell wall and outer membrane, respectively, as you can see in this *Pseudomonas aeruginosa* cell. We do not know if the cell has a reason for leaving them there, but one possibility is that they may function as a plug for the outer membrane when the hook is no longer present.
+When flagella break (or in some species, like *Caulobacter crescentus*, are ejected so the cell can attach to a surface), the motor is disassembled, usually beginning with the export apparatus. Not everything is dismantled, though; the P- and L-rings remain in place in the cell wall and outer membrane, respectively, as you can see in this *Pseudomonas aeruginosa* cell. We do not know if the cell has a reason to leave them there, but one possibility is that they may function as a plug for the outer membrane when the hook is no longer present.
 
 (ref:6-3a) [Pseudomonas aeruginosa](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1538](https://doi.org/10.22002/D1.1538)
 
@@ -96,7 +96,7 @@ library(doivideo)
 doivideo('10.22002/D1.1539',0)
 ```
 
-## Flagella Patterns (cont’d.)
+## Peritrichous Flagella
 Still other species are peritrichous (“hair around”), with multiple flagella distributed randomly around the cell, as you can see on this *Pseudomonas flexibilis*. The number of flagella varies between different species, from relatively few here to considerably more [More: Proteus mirabilis flagella](#Proteus_mirabilis_flagella). The well-known model system *Escherichia coli* is also peritrichously flagellated. In this arrangement, when the flagellar motors are all rotating one direction (counter-clockwise), the flagella form a whip-like bundle that propels the cell to “run” in a straight line. When one or more motors switch to clockwise rotation, the flagella dissociate from the bundle and “tumble” the cell to face a new direction. In the next chapter, you will see how cells use this behavior to seek out favorable spots.
 
 (ref:6-5) [Pseudomonas flexibilis](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1529](https://doi.org/10.22002/D1.1529)
@@ -147,7 +147,7 @@ doivideo('10.22002/D1.1541',0)
 ```
 
 ## Archaellum
-Archaea swim, too. And as you might expect, they use similar machinery to do so: an envelope-embedded motor that spins a long extracellular filament. Despite the structural similarity, the machinery evolved independently, another indication of the strong advantage conferred by swimming. To reflect this similar-but-not-the-same character, we call the archaeal analogue of the bacterial flagellum the archaellum. Unlike the flagellum, which is a Type III Secretion System, the archaellum is a Type II Secretion System. As you can see on this *Methanoregula formicica* cell, archaella are narrower than flagella [Schematic: Archaellum structure](#Archaellum_structure). The motor is also different, and uses the ATPase at the base not just for assembly, but also to power rotation for swimming. Like flagella, archaellar motors can rotate in either direction, resulting in the filaments pushing or pulling the cell.
+Archaea swim, too. And as you might expect, they use similar machinery to do so: an envelope-embedded motor that spins a long extracellular filament. Despite the structural similarity, the machinery evolved independently, another indication of the strong advantage conferred by swimming. To reflect this similar-but-not-the-same character, we call the archaeal analogue of the bacterial flagellum the **archaellum**. Unlike the flagellum, which is a Type III Secretion System, the archaellum is a **type II secretion system**. As you can see on this *Methanoregula formicica* cell, archaella are narrower than flagella [Schematic: Archaellum structure](#Archaellum_structure). The motor is also different, and uses the ATPase at the base not just for assembly, but also to power rotation for swimming. Like flagella, archaellar motors can rotate in either direction, resulting in the filaments pushing or pulling the cell.
 
 (ref:6-8) [Methanoregula formicica](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1532](https://doi.org/10.22002/D1.1532)
 
@@ -177,7 +177,7 @@ doivideo('10.22002/D1.1533',0)
 ```
 
 ### More: Cone structure{-#Cone_structure}
-The archaellar plate does not come to a point at the tip, but rather is a conical frustum (open at the top), resembling a lampshade. In the center of the tip is a small ring, as you can see in a top view in this lysed, flattened *Thermococcus kodakaraensis* cell. The function of the ring remains unknown; perhaps it helps nucleate the rest of the structure?
+The archaellar plate does not come to a point at the tip, but rather is a conical frustum (open at the top), resembling a lampshade. In the center of the tip is a small ring, as you can see in a top view in this lysed, flattened *Thermococcus kodakaraensis* cell. The function of the ring remains unknown; perhaps it nucleates the rest of the structure?
 
 (ref:6-9a) [Thermococcus kodakaraensis](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1542](https://doi.org/10.22002/D1.1542)
 
@@ -206,8 +206,8 @@ library(doivideo)
 doivideo('10.22002/D1.1544',0)
 ```
 
-## Type IV Pili
-If your cell lives on a surface, what is the best way to get around? How about using a grappling hook? Some bacteria, like this *Myxococcus xanthus*, use a Type II Secretion System related to the archaellar motor to pull themselves around their environment. As you can see, the structure looks familiar: a motor embedded in the envelope with a long extracellular filament. In this case the filament is called a pilus (“hair” in Latin). Bacteria and archaea make many kinds of pili (also generically called fimbriae (“fringe”)) and you will see some of their other functions in later chapters. The *M. xanthus* pili, classified as Type IV pili, function not as propellers like flagella or archaella, but rather extend, attach to a surface, and then retract to pull the cell toward the attachment point [Schematic: Type IV pilus structure](#Type_IV_pilus_structure). The pilus motors are the strongest known motors in nature, and can retract pili at up to 1 μm/s; the combined action of multiple pili leads to extremely rapid “twitching” motility of the cell over a surface. The motor structure, or basal body, remains intact even when no pilus is assembled. These rod-shaped cells have many basal bodies at both cell poles; to switch direction, the cell simply disassembles the pili on one end and builds new pili from the machines waiting on the other.
+## Type IV Pilus
+If your cell lives on a surface, what is the best way to get around? How about using a grappling hook? Some bacteria, like this *Myxococcus xanthus*, use a type II secretion system related to the archaellar motor to pull themselves around their environment. As you can see, the structure looks familiar: a motor embedded in the envelope with a long extracellular filament. In this case the filament is called a pilus (“hair” in Latin). Bacteria and archaea make many kinds of pili (also generically called fimbriae (“fringe”)) and you will see some of their other functions in later chapters. The *M. xanthus* pili, classified as **type IV pili**, function not as propellers like flagella or archaella, but rather extend, attach to a surface, and then retract to pull the cell toward the attachment point [Schematic: Type IV pilus structure](#Type_IV_pilus_structure). The pilus motors are the strongest known motors in nature, and can retract pili at up to 1 μm/s; the combined action of multiple pili leads to extremely rapid “twitching” motility of the cell over a surface. The motor structure, or basal body, remains intact even when no pilus is assembled. These rod-shaped cells have many basal bodies at both cell poles; to switch direction, the cell simply disassembles the pili on one end and builds new pili from the machines waiting on the other.
 
 In addition to attaching to a surface, the pili can also attach to other *M. xanthus* cells. This enables the cells to move over surfaces *en masse*. Combined with their practice of eating other bacteria, this property has led them to be compared to packs of wolves hunting down their prey.
 
@@ -223,10 +223,10 @@ doivideo('10.22002/D1.1534',0)
 knitr::include_graphics('img/schematics/6_10_1.gif')
 ```
 
-A series of rings anchors the Type IV Pilus basal body in the cell envelope. This rigid structure provides leverage for an ATPase at the base to rotate an adaptor in the inner membrane. We think that when it spins in one direction, the adaptor scoops pilin monomers diffusing in the inner membrane into the assembling pilus [@chang2016]. Once the pilus has reached its target, attachment is sensed by the basal body (we do not yet know how). As a result, the assembly ATPase dissociates and a second, homologous ATPase takes its place. This disassembly ATPase spins the adaptor in the opposite direction, escorting pilin monomers back into the inner membrane, ready to join the next growing pilus.
+A series of rings anchors the type IV pilus basal body in the cell envelope. This rigid structure provides leverage for an ATPase at the base to rotate an adaptor in the inner membrane. We think that when it spins in one direction, the adaptor scoops pilin monomers diffusing in the inner membrane into the assembling pilus [@chang2016]. Once the pilus has reached its target, attachment is sensed by the basal body (we do not yet know how). As a result, the assembly ATPase dissociates and a second, homologous ATPase takes its place. This disassembly ATPase spins the adaptor in the opposite direction, ushering pilin monomers back into the inner membrane, ready to join the next growing pilus.
 
 ## Type IX Secretion System
-Other bacteria use different machinery to move over surfaces. *Flavobacterium johnsoniae* like this cell use a Type IX Secretion System to secrete adhesive filaments. These filaments move on a helical track around the cell, and thereby the cell moves forward on a surface. The power for this gliding movement is thought to come from rotary motors anchored in the cell wall that propel the adhesive filaments along their track in a rack-and-pinion fashion, but we still do not understand the mechanism in detail.
+Other bacteria use different machinery to move over surfaces. *Flavobacterium johnsoniae* like this cell use a **type IX secretion system** to secrete adhesive filaments. These filaments move on a helical track around the cell, and thereby the cell moves forward on a surface. The power for this gliding movement is thought to come from rotary motors anchored in the cell wall that propel the adhesive filaments along their track in a rack-and-pinion fashion, but we still do not understand the mechanism in detail.
 
 (ref:6-11) [Flavobacterium johnsoniae](#tree) Collected by: [Gregory Henderson](#gregory_henderson) Movie DOI: [10.22002/D1.1535](https://doi.org/10.22002/D1.1535)
 
@@ -236,9 +236,9 @@ doivideo('10.22002/D1.1535',0)
 ```
 
 ## Terminal Organelle
-Another, familiar, way to get across a surface is to walk. For this to work, though, you need to be able to change the conformation of your body. This is possible if your cell lacks a cell wall or surface layer, like this *Mycoplasma pneumoniae*. Like the *Mycoplasma genitalium* you saw in Chapter 2–Membrane, these cells are intracellular pathogens, so they do not need to buttress their membrane against differences in osmolarity. As a result, they are soft and flexible. This may allow them to use a leg-like internal structure called a terminal organelle to crawl, or more elegantly “glide,” across a surface. The exact mechanism is still unclear, but one possibility is that a hinge-like conformational change in the terminal organelle extends and contracts the back of the cell with respect to the front, similar to the movement of an inchworm (but less exaggerated). Combined with adhesion proteins on the cell surface, this might propel the cell forward.
+Another, familiar, way to get across a surface is to walk. For this to work, though, you need to be able to change the conformation of your body. This is possible if your cell lacks a cell wall or surface layer, like this *Mycoplasma pneumoniae*. Like the *Mycoplasma genitalium* you saw in Chapter 2–Membrane, these cells are intracellular pathogens, so they do not need to buttress their membrane against differences in osmolarity. As a result, they are soft and flexible. This may allow them to use a leg-like internal structure called a **terminal organelle** to crawl, or more elegantly “glide,” across a surface. The exact mechanism is still unclear, but one possibility is that a hinge-like conformational change in the terminal organelle extends and contracts the back of the cell with respect to the front, similar to the movement of an inchworm (but less exaggerated). Combined with adhesion proteins on the cell surface, this might propel the cell forward.
 
-The skeleton-like terminal organelle gives these cells their characteristic flask shape. In combination with their minimal cell envelope, it can also give rise to an unusual method of cell division. In some species (or genetically engineered strains) that lack the division protein FtsZ, *Mycoplasma* cells still manage to divide. They replicate their terminal organelle normally, as you can see this cell has done, and then the two copies simply walk away from each other, stretching the mother cell between them until the membrane pinchess off to produce two daughters.
+The skeleton-like terminal organelle gives these cells their characteristic flask shape. In combination with their minimal cell envelope, it can also give rise to an unusual method of cell division. In species (or genetically engineered strains) that lack the division protein FtsZ, *Mycoplasma* cells still manage to divide. They replicate their terminal organelle normally, as you can see this cell has done, and then the two copies simply walk away from each other, stretching the mother cell between them until the membrane pinches off to produce two daughters.
 
 Keep in mind that these are simply *some* of the ways we know bacteria and archaea get around, and we continue to discover new ones.
 
@@ -249,7 +249,19 @@ library(doivideo)
 doivideo('10.22002/D1.1536',0)
 ```
 
-## Further Reading
+## Summary
+
+### Concept Check Questions {-}
+
+• Which works better in high viscosity: an oar or a propeller?
+
+• What other motility machinery is genetically related to the archaellum?
+
+• What motility machinery works like a grappling hook?
+
+• How can *Mycoplasma* divide if they lose FtsZ?
+
+### Further Reading {-}
 
 Albers and Jarrell (2018). *The archaellum: An update on the unique archaeal motility structure* [@albers2018].
 

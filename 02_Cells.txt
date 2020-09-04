@@ -1,0 +1,171 @@
+“It is not a simple life to be a single cell, although I have no right to say so, having been a single cell so long ago myself that I have no memory at all of that stage of my life.”
+- Lewis Thomas [@thomas1990]
+
+[2_1_Mycoplasma genitalium] Membrane
+
+The fundamental unit of life is the **cell**–a contained self-replicating assembly. For many species, including all bacteria and archaea, the organism consists of a single cell. And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell. The details vary, but every cell on Earth is the same at heart–a DNA-based replicating machine built from just four macromolecules:  nucleic acids, proteins, lipids and carbohydrates. In the environment, molecules interact rarely and randomly. Bringing them together enables the reproducible reactions required for life. So no matter what the first self-replicating molecules were (likely <u>r</u>ibo<u>n</u>ucleic <u>a</u>cid, or RNA), they were not a cell until they acquired a container.
+
+How would you build a container for a cell? You would probably want a flexible material that allowed you to sort specific molecules from the environment. Evolution agrees. All cells are enclosed by a selectively permeable **membrane**, made of lipids and proteins [Schematic: Lipid bilayer], that allows them to differentiate their contents from the environment. The chemical properties of lipids make membranes impermeable to ions and large or hydrophilic molecules (but not to water). Cells take advantage of this property to establish an ion gradient across the membrane, using a chain of electron-carrying proteins in the membrane to pump protons out of the cell. Protein complexes in the membrane called ATP synthases use the resulting ion potential to generate energy that is chemically stored in ATP, the energetic currency of the cell. For this reason, we say that the membrane is “energized.” Holes in the membrane allow the ion gradient to equilibrate, destroying the cell’s means of generating energy, and thus its life.
+
+Now your cell has a clearly delineated exterior and interior. The interior is called the **cytoplasm** ("cell substance,” from the Latin for something molded, in this case by the membrane). Almost all archaea and many bacteria, like these *Mycoplasma genitalium* cells, are **monoderms** ("single skin"). This means that their cytoplasm is enclosed by a single membrane. At this resolution, the membrane looks like a single dark line, but remember that it is really a bilayer, as you will be able to see in some later examples. The cytoplasm contains the many macromolecules that carry out the various functions of the cell's metabolism. The most prominent are the ribosomes which produce new proteins [Schematic: Ribosome].
+
+Other structures you see in this cell function in motility and will be explained in Chapter 6. Remember that tomograms show cells in their entirety, so the example we choose to illustrate one feature will likely highlight others as well. For now, focus on the feature being discussed. Later, when you have learned about other features, you may want to see additional examples of them. Then you can use the [Feature Index] to find them. To help orient you, feature labels in movies are color-coded according to the chapter in which they are discussed.
+
+2_1_1 Schematic: Lipid bilayer
+Lipids have a hydrophilic head (blue here) and hydrophobic tails (grey); in water they spontaneously pack side-by-side and tail-to-tail to shield their tails from unfavorable interactions with water. This results in closed double-layered bags: membranes. One key difference between archaea and bacteria (and with them, eukaryotes) is the kind of lipid in their membranes. Hybrid membranes containing both these lipid types can be made artificially, and it is possible that the last universal common ancestor of all cells on Earth contained both types, with specialization occurring later.
+
+Membranes also contain many proteins. Some have hydrophobic regions that embed them into the lipid bilayer. Other proteins are fused, or tethered, to the lipids. In fact, cells' "lipid" membranes are made up of roughly equal parts lipids and proteins.
+
+2_1_2 Schematic: Ribosome
+[*PDB: 6O9J*](http://rcsb.org/structure/6O9J)
+Most of the metabolic work of the cell is performed by proteins. The translation of messenger RNA into new proteins, however, is performed by a hybrid complex containing both proteins and RNA molecules. This ribosome from *Escherichia coli* contains ~50 different protein molecules (shown in light blue) and 3 RNA molecules (in dark blue) [@kaledhonkar2019]. Electrons interact more strongly with RNA than with protein, making ribosomes stand out darker than surrounding proteins in cryoEM images. You will also notice their abundance; each cell employs up to tens of thousands of ribosomes to churn out its protein workforce.
+
+[2_2_Listeria monocytogenes] Cell Wall
+
+Being able to selectively move things into your cell enables it to do some powerful things. It also poses a structural problem. Remember that water can pass freely through the membrane, which means that increasing the solute concentration inside relative to the environment outside will cause water to rush in as well, introducing a pressure (known as **turgor pressure**) on the membrane. Lipid bilayers, unfortunately, are unable to withstand much pressure. If your cell lives exclusively in a constant, and fairly high-osmolarity, environment (like our bodies, in the case of the pathogenic *Mycoplasma genitalium* you just saw), it can balance internal and external osmolarity to minimize turgor pressure on its membrane. But most cells experience more variable, and dilute, environments. How could you keep your cell from bursting in such conditions?
+
+You might want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this with a material called peptidoglycan: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its **cell wall**. In monoderm bacteria like this *Listeria monocytogenes*, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which are indistinguishable at this resolution, so the cell wall appears as a uniformly textured layer [More: Peptidoglycan architecture]. It remains a mystery how large molecules can pass through this dense layer on their way to and from the cell.
+
+Some archaea also have cell walls, made of a molecule similar to peptidoglycan [More: Methanobacterium formicicum]. Most archaea, though, rely on a different structure for support, which you will see in a few pages.
+
+A wall can be a boon to your cell, but it can also prove a liability in certain conditions. For instance, many antibiotics target the cell wall. Some bacteria have developed the ability to jettison their walls in such conditions, taking on a so-called “L-form” (named for the Lister Institute where it was discovered). L-form bacteria give us a fascinating window into how early cells–prior to the evolution of the cell wall–might have looked and behaved.
+
+[2a_Bacillus subtilis] More: Peptidoglycan architecture
+
+The cell wall is so robust that it persists even after cells are lysed and their other components digested. This cell wall isolated from a *Bacillus subtilis* cell has retained its shape, simply flattening with the release of contents and pressure from inside. The long glycan strands are oriented in hoops running parallel to the short axis of the cylindrical cell and the short peptide crosslinks are more or less aligned with the long axis.
+
+[2b_Methanobacterium formicicum] More: Methanobacterium formicicum
+
+Some archaea, like this *Methanobacterium formicicum*, build cell walls from "pseudopeptidoglycan," which has a slightly different chemical composition than peptidoglycan. The overall architecture of the wall, though, is the same, as you can see.
+
+[2_3_Cupriavidus necator] Outer Membrane
+
+Why stop at one membrane? Eukaryotic cells use internal membranes to form specialized compartments like the nucleus and mitochondria. While bacteria lack such organelles, many create an additional compartment *outside* the cell with a second, **outer membrane**. Such bacteria, like the *Cupriavidus necator* cell you see here, are called **diderms** ("double skin"). The extra compartment between their membranes is known as the periplasm ("substance between"). This antechamber contains a unique subset of proteins, many of which function in escorting things into and out of the main cell.
+
+Compared to the inner membrane, the outer membrane has some unique properties. It is more permeable and not proton-tight (so it cannot be used to generate ATP). It is often asymmetric, with a different composition of lipids and proteins in each of the two leaflets. A few species of bacteria, particularly pathogens, have labile outer membranes (for an example, check out the *Helicobacter pylori* in Chapter 8–Genome Protection). Most, however, firmly anchor their outer membrane to the cell wall using rigid links formed by a hybrid lipid/protein molecule called Braun's lipoprotein. A typical *Escherichia coli* cell may contain 100,000 such links.
+
+Rather than containing many layers of peptidoglycan like in the *Listeria monocytogenes* cell you just saw, the cell wall of diderms is usually composed of a single layer of peptidoglycan mesh [More: Diderm peptidoglycan architecture], which is visible here as a thin line in the periplasm. This single-layered cell wall presents a considerable challenge for growth: how can you remodel it to grow bigger without letting turgor pressure burst the cell? The answer, as we are beginning to figure out, is very carefully [Schematic: Cell wall remodeling].
+
+The difference in thickness of monoderm and diderm cell walls enables a well-known classification system: the Gram stain, which binds peptidoglycan. Gram-positive bacteria, typically monoderm, contain much more peptidoglycan than Gram-negative bacteria, which are typically diderm.
+
+[3a_Escherichia coli] More: Diderm peptidoglycan architecture
+
+Compare this diderm cell wall purified from *Escherichia coli* to the monoderm cell wall on the last page. Since this one is thinner, we can make out more details, like the glycan strands running around the circumference of the cell. The main difference between the two types of walls seems to be whether they have largely a single layer of peptidoglycan (diderm) or many layers (monoderm). So even though the two look different, their architecture is fundamentally the same. In some circumstances, as you will see in Chapter 8, cells can even switch between the two forms.
+
+2_3_1 Schematic: Cell wall remodeling
+
+Encasing your cell in a rigid scaffold presents a problem: how can it grow? It is easy to make membranes larger simply by adding more lipids. But to add more peptidoglycan strands, they must be linked into the existing network, which means breaking existing links to accommodate them. To do this, cells use three tools: an enzyme that links glycan sugars into strands, an enzyme that links glycan strands together with peptide bonds, and an enzyme that cuts these peptide links to allow new strands to be incorporated. Remember, though, that your cell, with its solute-rich interior, has a turgor pressure pushing outward with a force of perhaps 3 atmospheres, equivalent to what we would feel at a depth of 20 meters in the ocean. This is more than enough pressure to lyse an exposed membrane, so the tools must be wielded with care or the cell would burst. We are still figuring out how this works, with help from computer simulations like this one by [Lam Nguyen](#lam_nguyen). Here you see a model of an *Escherichia coli* cell wall being enlarged using the three enzyme tools we just described (the colored balls). This simulation was run to test whether just having the tools function in a complex rather than separately might provide enough coordination for safe growth [@nguyen2015]. (The answer was yes.)
+
+[2_4_Myxococcus xanthus] Vesicles
+
+What else can your cell do with an extra membrane? Since membranes make such excellent containers for molecules, why not get into the shipping business? In the coming chapters (especially Chapter 9), you will see some of the ways that cells interact with each other and their environment. For diderm bacteria, many of these interactions are made possible by outer membrane **vesicles** ("little bladders")–self-contained pockets budded off the membrane. The vesicles may carry cargo of antibiotics to inhibit competitors' growth, or toxins to lyse neighboring cells, or enzymes to digest those lysed remains into nutrients that your cell can use. Alternatively, they may carry emergency kits, first aid and survival factors for other members of a community biofilm. The appearance of these vesicles can vary as much as their contents [More: Pearled vesicles]; [More: Tubular vesicles]. They are usually spherical, though, of a fairly consistent size, and often come off the cell at one or a few sites, forming chains, as you can see in this *Myxococcus xanthus* cell.
+
+Not all diderms produce outer membrane vesicles, and even for those that do, we still do not know exactly how they do it. Maybe it happens spontaneously due to the physics of lipids and proteins in a certain configuration. Or maybe there is a dedicated protein machine in the membrane, blowing bubbles. Vesicles can also bud from the cytoplasmic or (for monoderms) inner membrane into the cytoplasm or periplasm [More: Cytoplasmic vesicles]. This seems to be a less regulated process than outer membrane vesicle formation, and we see it in many species when they are stressed by low nutrients or high cell density. Cells shrink in harsh conditions (more on that in Chapter 8), so cytoplasmic or periplasmic vesicles may simply offer a place to put the extra membrane until the time comes to grow again. Just as with outer membrane vesicles, the appearance of cytoplasmic vesicles varies widely [More: Cytoplasmic vesicle variety]. Archaea also produce membrane vesicles, both extracellular and cytoplasmic [More: Archaeal vesicles]. They have been studied less than their bacterial counterparts, but likely serve similar roles in metabolism and community interactions.
+
+[4a_Borrelia burgdorferi] More: Pearled vesicles
+
+Different species can produce outer membrane vesicles that look very different. Even vesicles from the same species can look very different. Sometimes they come off the cell as a chain of spheres; sometimes the spheres remain connected, like a string of pearls, as in this *Borrelia burgdorferi* cell. Sometimes vesicles form long tubes instead [More: Tubular vesicles]. Sometimes the same chain can be tubular in one section (usually at the base, connected to the cell), and a string of spheres in another.
+
+[4b_Borrelia burgdorferi] More: Tubular vesicles
+
+Here, again from a *Borrelia burgdorferi* cell, you can see extended, tubular outer membrane vesicles.
+
+[4c_Myxococcus xanthus] More: Cytoplasmic vesicles
+
+Not all vesicles come from the outer membrane. The cytoplasmic or inner membrane can also form vesicles that are released into the cytoplasm, as in this *Myxococcus xanthus* cell, or into the periplasm.
+
+[4d_Prosthecobacter debontii] More: Cytoplasmic vesicle variety
+
+Cytoplasmic vesicles exhibit a variety of sizes and shapes. Some are nested, with vesicles inside vesicles. In this *Prosthecobacter debontii* cell, you can see two other morphologies. One resembles a flattened horseshoe. Another is a more typical spherical shape, but is decorated with what look like protein complexes.
+
+This cell also has unusual structures on its surface that have yet to be identified.
+
+[4e_Halomicrobium mukohataei] More: Archaeal vesicles
+
+Just like bacteria, archaea also produce both internal and external vesicles, as you can see in this *Halomicrobium mukohataei* cell.
+
+[2_5_Mycobacterium marinum] Classification Exceptions
+
+Evolution is endlessly creative, providing exceptions to nearly every classification rule. We just described a neat breakdown of bacteria into monoderms (one membrane, thick cell wall, positive Gram stain) and diderms (two membranes, thin cell wall, negative Gram stain). But some cells, like these *Mycobacterium marinum*, defy such easy classification. *Mycobacteria* are diderm, with an inner and an outer membrane, and a cell wall. But they have unique molecules (named mycolic acids in their honor) in the outer membrane. These acids interfere with Gram staining, yielding an intermediate result between positive and negative. And their cell wall comprises three layers of sugars, each with a unique molecular composition. The middle layer is the familiar peptidoglycan.
+
+These cells illustrate another important point: we cannot always see everything that is there. In this case, we cannot see an additional layer outside the outer membrane called the **capsule**. The capsule, present in many bacteria (mostly diderm, but also some monoderm), is formed by an "<u>e</u>xtracellular <u>p</u>olymeric <u>s</u>ubstance," or EPS: long chains of sugars, sometimes linked to the outer membrane and sometimes free-floating. These sugars help the cell attach to surfaces and offer an extra layer of protection, trapping water to prevent desiccation and making it more difficult for hydrophobic molecules like detergents to get through to disrupt the membrane(s). It also makes it more difficult for viruses to reach the cell, and for eukaryotic predators like macrophages to eat it. The EPS does not interact strongly with electrons, though, so the capsule is usually invisible by electron microscopy.
+
+[2_6_Caulobacter crescentus] Surface Layer
+
+How else can you protect your cell from the rigors of a harsh world? What about encasing it in an armored shell a la the armadillo? Many bacteria (both monoderms and diderms) and archaea use modular proteins for this purpose, interlocking Lego-block-like pieces into a shell called the **surface layer**. This must offer a significant evolutionary advantage since up to 15% of the total protein in the cell can be found in the structure. In fact, surface layers play many roles for cells, but one of their main functions for bacteria is as a gatekeeper, preventing large things like viruses from reaching the membrane.
+
+Surface layers are crystalline lattices, and they can be striking in appearance, as on this *Caulobacter crescentus* cell. Amazingly, the lattice is made from (many copies of) a single protein [Schematic: Surface layer architecture]. The pinwheel-like subunits interact laterally, leaving pores large enough for nutrients to pass through, but too small for viruses. The modular nature of the lattice means that units can be popped in as the cell grows, or popped out to allow a cell appendage to poke through. They even accommodate vesicles [More: Nanopods].
+
+2_6_1 Schematic: Surface layer architecture
+[*PDB: 5N97*](http://rcsb.org/structure/5N97)
+A single protein forms the surface layer you just saw in *Caulobacter crescentus*. The protein has two domains. The bottom domain anchors it to lipoproteins attached to the outer membrane. The top domain forms the canopy of the S-layer, organizing hierarchically into hexameric rosettes like this which in turn pack into a larger hexameric lattice [@bharat2017]. This lattice is flexible enough to curve around even narrow regions of the cell like the stalk you will see in Chapter 3.
+
+[6a_Delftia acidovorans] More: Nanopods
+
+Archaea and bacteria with surface layers produce characteristic outer membrane vesicles: they bud off with the surface layer attached. You will see plenty of examples in the coming pages. *Delftia acidovorans* like this produce so-called nanopods: chains of outer membrane vesicles ensheathed in surface layer.
+
+[2_7_Sulfolobus solfataricus] Surface Layer Variety
+
+One of the most striking features of the surface layer is how different it can look in different species. For instance, compare this archaeal *Sulfolobus solfataricus* cell to the bacterium on the last page, or to other diderm [More: Methylomicrobium alcaliphilum] or monoderm [More: Clostridium thermocellum] bacteria, or archaea [More: Nitrosopumilus maritimus]; [More: Methanoregula formicica]. All surface layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
+
+Surface layers are very common in archaea. Most archaea lack cell walls, but their surface layer plays the same role, functioning as external scaffolding. Remember, too, that nearly all archaea are monoderms, lacking the extra periplasmic compartment that diderms have. Here again the surface layer serves a similar function, enclosing a space around the cell's membrane called the pseudo-periplasmic space. Just as with the bacterial periplasm, this space serves as an antechamber for the cell, restricting access by large molecules. In some cases, the pseudo-periplasmic space also contains  proteins that function in metabolism.
+
+[7a_Methylomicrobium alcaliphilum] More: Methylomicrobium alcaliphilum
+
+In *Methylomicrobium alcaliphilum*, V-shaped surface layer proteins come together to form cups that pack into a hexagonal pattern.
+
+[7b_Clostridium thermocellum] More: Clostridium thermocellum
+
+Not only diderm bacteria have surface layers, as you can see on this monoderm *Clostridium thermocellum* cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
+
+[7c_Nitrosopumilus maritimus] More: Nitrosopumilus maritimus
+
+In *Nitrosopumilus maritimus*, surface layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
+
+[7d_Methanoregula formicica] More: Methanoregula formicica
+
+The surface layer of *Methanoregula formicica* is a hexagonal lattice of small, nearly circular subunits.
+
+[2_8_Methanospirillum hungatei] Sheath
+
+Why stop at a single layer of protein? For proof that nature is endlessly inventive, consider this *Methanospirillum hungatei* cell. These archaea encase themselves in a surface layer, as well as an additional protein layer that forms a highly impermeable **sheath**. The sheath is also very resistant to pressure, which could be important in these cells' line of work. *M. hungatei* were discovered in sewage, where they break down organic waste, producing methane. One theory is that the sheath acts as a pressure regulator; when enough methane builds up inside the cell, the pressure expands the sheath, opening its pores wide enough to allow the methane to dissipate and new metabolic substrates like hydrogen and carbon dioxide to enter.
+
+The rules of architecture remain the same, though. Just as in the bacterial cell wall, sheath polymers are arranged as hoops perpendicular to the long axis of the rod-shaped cell. At the ends of the sheath, multiple protein layers stack into a thick plug. Cells divide within the sheath, and long chains of cells in a continuous sheath are often observed.
+
+[2_9_Haloarcula argentinensis] DNA
+
+All the layers we just discussed collectively make up the container, or envelope, of a cell. As you have seen, different species use different combinations of these components to form their envelopes; the only constant is the cytoplasmic (or inner, for diderms) membrane.
+
+Now consider what these envelopes contain. In addition to water and small molecules, you have already seen some large protein complexes like motility machines. You have also seen many ribosomes–the protein/RNA complexes responsible for translating RNA into proteins. But you might have been surprised *not* to see something else: <u>d</u>eoxyribo<u>n</u>ucleic <u>a</u>cid, or **DNA**. The molecule containing the instructions for the life of the cell is of paramount importance, yet often invisible by microscopy. But not always. Thin filaments of DNA, only about 2 nm wide, blend in with the dense cytoplasm of the cell. When a cell lyses, though, its cytoplasm diffuses into the environment and the DNA filaments stand out against the now-much-reduced background. You can get an idea of the sheer abundance of DNA inside a cell from this *Haloarcula argentinensis* whose envelope has ruptured and contents are spilling out.
+
+[2_10_Bdellovibrio bacteriovorus] Nucleoid
+
+Cells contain enormous amounts of DNA. The single, circular chromosome of this *Bdellovibrio bacteriovorus* cell contains 3,782,950 individual nucleotide pairs, which means that if the circle were cut and laid out as a long piece, it would be about *one thousand times* longer than the cell itself. To fit and function inside the cell, the chromosome has to be extraordinarily organized and packed, a feat we still do not understand. Some of this packing is evident in nearly every cell: the center of the cell tends to have very few large macromolecular complexes like ribosomes, because they are excluded by the densely-packed chromosome(s). Look for these ribosome-excluding zones in the rest of the book; they indicate the location of the bulk of the cell's DNA. Since this region is not enclosed by an internal membrane, it is not called a nucleus (the "karyon" that defines eukaryotes). Instead, we use the term **nucleoid** to describe the cytoplasmic region where most of the DNA is concentrated.
+
+At times, the nucleoid becomes easier to see. Imagine that your cell wanted to decrease its gene expression (we will discuss why in Chapters 8 and 9). One approach is simply to pack the chromosome so tightly that the transcriptional machinery cannot access the genes. This cell is doing just that, condensing its nucleoid into a dense twisted braid we can easily visualize.
+
+## Summary
+
+```{R}
+knitr::include_graphics('img/summaries/02_Envelope.gif')
+```
+
+### Concept Check Questions {-}
+
+• What kind of macromolecule makes up the membrane? The cell wall? The surface layer?
+
+• What is the difference between a monoderm and a diderm?
+
+• What is the main function of the cell wall?
+
+• What is a nucleoid?
+
+### Further Reading {-}
+
+Errington (2013). *L-form bacteria, cell walls and the origins of life* [@errington2013].
+
+Ptacin and Shapiro (2013). *Chromosome architecture is a key element of bacterial cellular organization* [@ptacin2013].
+
+Sleytr and Beveridge (1999). *Bacterial S-layers* [@sleytr1999].
+
+Strahl and Errington (2017). *Bacterial membranes: Structure, domains, and function* [@strahl2017].

@@ -2,7 +2,7 @@
 > “...la rêve de la bactérie : produire deux bactéries.” (*the dream of the bacterium: to generate two bacteria*)
 - François Jacob [@jacob2002a]
 
-## Segregation
+## Copy Number
 Growth only gets you so far. For a coccoid cell, growth increases volume more rapidly than surface area, which is a problem if the cell relies on nutrients imported from the environment. Even if a cell is rod-shaped (so its surface area to volume ratio remains relatively constant with growth), increased volume increases diffusion times, making metabolism less efficient. So what can you do to keep your cell thriving?
 
 It may be time to divide. In essence, division simply splits a cell, the "mother," into two "daughters." Each daughter will be roughly half the size of the mother. A fair split, though, particularly of critical components like the genome, requires careful coordination. Think about the things in your cell. Some of them are present in many copies, like the lipids in the membrane(s) and most of the proteins. Others are present in very few copies, like the chromosome(s). Conceptually, we can sort components into two broad categories: high copy-number and low copy-number items. How would you split the high copy-number items?  Easy, right? Just split the cell in the middle and each half will have plenty. This is true, for instance, for the ribosomes and carboxysomes you see in this *Thiomonas intermedia* cell.
@@ -16,10 +16,10 @@ library(doivideo)
 doivideo('10.22002/D1.1507',0)
 ```
 
-## Chromosome Segregation
+## Fission
 The most important low-copy number component in your cell is its genome; without the instructions, nothing gets built. Reflecting its importance, cells have evolved complex mechanisms to coordinate DNA replication and segregation in time as well as space. The details are beyond our scope here, but we can touch on some general structural principles.
 
-If your cell divides by splitting in the middle, what is the easiest way to get one complete genome copy to each daughter? (Assume your cell has a single chromosome like most bacteria and archaea.) Why not just tether each copy of the chromosome to an opposite pole of the cell? Nearly all bacteria, and many archaea, have a protein called ParB (for <u>Par</u>titioning) that recognizes a specific sequence (ParS) on the chromosome, creating a molecular handle. In *Caulobacter crescentus* like this, ParB also binds a scaffolding protein at the pole called PopZ, hooking the handle to the pole. The PopZ scaffold is not highly ordered, so we see it as a diffuse blob of DNA and protein, noticeable because it excludes other large protein complexes like ribosomes. Several species of bacteria use PopZ or other hub-organizing proteins to tether a genome copy, as well as other things like chemosensory machinery, to the cell pole. Other species use a different mechanism involving many copies of a dynamic protein called ParA that bind and release ParB, ratcheting the ParS handle of the chromosome across the cell. Other components, like the storage granules you just saw, piggyback on this machinery for segregation.
+If your cell divides by splitting in the middle, what is the easiest way to get one complete genome copy to each daughter? (Assume your cell has a single chromosome like most bacteria and archaea.) Why not just tether each copy of the chromosome to an opposite pole of the cell? Nearly all bacteria, and many archaea, have a protein called ParB (for <u>Par</u>titioning) that recognizes a specific sequence (ParS) on the chromosome, creating a molecular handle. In *Caulobacter crescentus* like this, ParB also binds a scaffolding protein at the pole called PopZ, hooking the handle to the pole. The PopZ scaffold is not highly ordered, so we see it as a diffuse blob of DNA and protein, noticeable because it excludes other large protein complexes like ribosomes. Several species of bacteria use PopZ or other hub-organizing proteins to tether a genome copy, as well as other low-copy-number things like chemosensory machinery, to the cell pole. Other species use a different mechanism involving many copies of a dynamic protein called ParA that bind and release ParB, ratcheting the ParS handle of the chromosome across the cell. Other components, like the storage granules you just saw, piggyback on this machinery for segregation.
 
 Remember that your cell's chromosome is colossal, so getting the ParS handle to one side is only part of the battle. An army of other proteins work to condense the chromosome to a more manageable volume and wrangle with the division machinery to make sure no straggling loops get caught off-sides.
 
@@ -62,8 +62,8 @@ library(doivideo)
 doivideo('10.22002/D1.1520',0)
 ```
 
-## Monoderm Cytokinesis
-Once your cell has gotten everything where it needs to go, how can it actually divide? Just as fences separate neighbors, why not use the cell wall to build a septum (“fence”) between the two daughters? That’s what this *Staphylococcus aureus* cell is doing, using its cell wall to begin cytokinesis–the physical division of the cytoplasm. In monoderm bacteria like this, with a thick cell wall, the septum is easy to see.
+## Monoderm Septum
+Once your cell has gotten everything where it needs to go, how can it actually divide? Just as fences separate neighbors, why not use the cell wall to build a **septum** (“fence”) between the two daughters? That’s what this *Staphylococcus aureus* cell is doing, using its cell wall to begin **cytokinesis**–the physical division of the cytoplasm. In monoderm bacteria like this, with a thick cell wall, the septum is easy to see.
 
 (ref:5-4) [Staphylococcus aureus](#tree) Collected by: [Georges Chreifi](#georges_chreifi) Movie DOI: [10.22002/D1.1510](https://doi.org/10.22002/D1.1510)
 
@@ -72,7 +72,7 @@ library(doivideo)
 doivideo('10.22002/D1.1510',0)
 ```
 
-## Monoderm Cytokinesis (cont’d.)
+## Monoderm Cytokinesis
 The division septum grows in from the periphery of the dividing cell toward the middle, drawing the membrane with it. When it reaches the middle, the membrane seals off on each side and the septum separates to release the two cells. The bottom *Tetrasphaera remsis* cell here is at a fairly late stage of this process. This cell also illustrates another point about division: the division plane is not always in the exact middle of the cell. Depending on the species, division may produce daughter cells of unequal sizes.
 
 There can also be more than two daughter cells. Some species undergo simultaneous divisions, with two or more septa forming more or less at the same time. The genus of *<u>Tetrasphaera</u> remsis* gets its name from this property–cells can either divide into two (as in this case) or four roughly spherical cells.
@@ -95,7 +95,7 @@ doivideo('10.22002/D1.1512',0)
 ```
 
 ### More: Sphingopyxis alaskensis division{-#Sphingopyxis_alaskensis_division}
-This diderm cell is about halfway through cytokinesis. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall are drawing in all around.
+This diderm cell is about halfway through cytokinesis. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall has drawn in all around.
 
 (ref:5-6a) [Sphingopyxis alaskensis](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1521](https://doi.org/10.22002/D1.1521)
 
@@ -114,7 +114,7 @@ library(doivideo)
 doivideo('10.22002/D1.1522',0)
 ```
 
-## Diderm Cytokinesis (cont’d.)
+## Outer Membrane Constriction
 In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the *Thiomonas intermedia* cell at the beginning of this chapter. In others, including the cells you saw on the last page, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate. In *Caulobacter crescentus*, the outer membrane constricts along with the inner membrane and cell wall. At the end of division, though, the inner membrane seals off before the outer membrane, as you can see in this cell, which is at a very late stage of division. For an even later stage, check out [More: Caulobacter division](#Caulobacter_division).
 
 (ref:5-7) [Caulobacter crescentus](#tree) Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1513](https://doi.org/10.22002/D1.1513)
@@ -134,7 +134,7 @@ library(doivideo)
 doivideo('10.22002/D1.1523',0)
 ```
 
-## Budding (cont’d.)
+## Asymmetric Division
 Like monoderms, most diderms divide into roughly equally-sized daughter cells, but not all do. Just like the *Tetrasphaera remsis* you saw earlier, some diderm species produce one larger, and one smaller, daughter, like this *Agrobacterium tumefaciens* cell. In this case, this is because the smaller daughter is technically a bud. *A. tumefaciens* concentrate their growth at one pole, pushing out a bud that, once it becomes large enough, is pinched off and released. The process is very similar to what you saw in *Hyphomonas neptunium*, just without the intervening stalk.
 
 (ref:5-8) [Agrobacterium tumefaciens](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1514](https://doi.org/10.22002/D1.1514)
@@ -144,10 +144,10 @@ library(doivideo)
 doivideo('10.22002/D1.1514',0)
 ```
 
-## FtsZ
+## Asynchronous Constriction
 Division can also be asymmetric in a different way: how constricted one side of the cell is relative to the other. You can see that in this *Cupriavidus necator* cell. Asymmetric constriction is most common early in division, but it sometimes persists longer [More: Asymmetric constriction](#Asymmetric_constriction). To understand how this happens, we need to take a closer look at how cells divide.
 
-To divide, your cell’s membrane and cell wall constrict. But remember that the cell wall is resisting the non-trivial force of turgor pressure pushing outward. So how can it overcome this pressure and grow inward? For almost all bacteria and many archaea, the answer is a protein contractor called FtsZ (<u>F</u>ilamenting <u>T</u>emperature-<u>S</u>ensitive mutant <u>Z</u>, named for a genetic screen for cells that failed to divide, and therefore grew into long filaments). FtsZ is another piece of your cell’s cytoskeleton. Homologous to eukaryotic tubulin, FtsZ polymerizes into filaments that are linked to the cell membrane around the division plane [Schematic: FtsZ structure](#FtsZ_structure). The filaments are highly dynamic–forming, disassembling and reassembling within seconds.
+To divide, your cell’s membrane and cell wall constrict. But remember that the cell wall is resisting the non-trivial force of turgor pressure pushing outward. So how can it overcome this pressure and grow inward? For almost all bacteria and many archaea, the answer is a protein contractor called **FtsZ** (<u>F</u>ilamenting <u>T</u>emperature-<u>S</u>ensitive mutant <u>Z</u>, named for a genetic screen for cells that failed to divide, and therefore grew into long filaments). FtsZ is another piece of your cell’s cytoskeleton. Homologous to eukaryotic tubulin, FtsZ polymerizes into filaments that are linked to the cell membrane around the division plane [Schematic: FtsZ structure](#FtsZ_structure). The filaments are highly dynamic, forming, disassembling and reassembling within seconds.
 
 How does FtsZ find the right spot? There are multiple mechanisms, but an elegant one in cells like this involves an inhibitor that localizes to the cell poles, making a repressive gradient that is strongest at the ends of the cell and weakest in the middle. As the rod-shaped cell grows, the inhibitor concentration at the middle eventually drops low enough that FtsZ can polymerize. Most cells also inhibit FtsZ polymerization when the genome is still in the way, a mechanism called “nucleoid occlusion.” Some species do this with an FtsZ-inhibiting protein called MipZ that grabs onto the ParB chromosomal handle, ensuring that FtsZ filaments do not form until the chromosome is clear.
 
@@ -180,7 +180,7 @@ knitr::include_graphics('img/schematics/5_9_1.gif')
 [*PDB: 5MN4*](http://rcsb.org/structure/5MN4)
 While the structure of FtsZ is known, as seen here from *Staphylococcus aureus* [@wagstaff2017], its mechanism is not. It is an enzyme that hydrolyzes GTP, so one hypothesis is that the curvature of the filament changes as its subunits flip from one conformation to another as a result of the chemical reaction. This different filament conformation may pull inward on the attached membrane, allowing the cell wall to build inward behind it.
 
-## FtsZ (cont’d.)
+## FtsZ
 As cytokinesis progresses, FtsZ filaments keep assembling and growing, soon forming a complete ring of long, overlapping filaments around the full circumference of the cell. This drives further constriction more or less uniformly. In this *Caulobacter crescentus* cell in a later stage of division, you can see many FtsZ filaments lined up in cross-section–the dots on both sides of the division plane; if we rotate the cell around, you can see filaments extending on both sides as far as the membrane is visible. (*See the note on the previous page about why we cannot trace the membrane and filaments all the way around.*) They will continue to pull the membrane inward, and direct cell wall to be built behind it, until cytokinesis is complete.
 
 (ref:5-10) [Caulobacter crescentus](#tree) Collected by: [Qing Yao](#qing_yao) Movie DOI: [10.22002/D1.1516](https://doi.org/10.22002/D1.1516)
@@ -190,8 +190,8 @@ library(doivideo)
 doivideo('10.22002/D1.1516',0)
 ```
 
-## ESCRT
-Nearly all bacteria, and many archaea, use FtsZ to divide. Other species of archaea, belonging to the Crenarchaeota phylum, use a different cytoskeletal system called Cdv (for <u>C</u>ell <u>d</u>i<u>v</u>ision). Cdv proteins are homologous to  proteins of the <u>E</u>ndosomal <u>S</u>orting <u>C</u>omplexes <u>R</u>equired for <u>T</u>ransport (ESCRT). ESCRT proteins were discovered in eukaryotes, where they are involved in many processes that involve cinching off membranes, from the final stage of cell division to virus budding to endocytosis (hence the name), by which cells engulf things from the environment. Again, despite its fundamental importance, we still do not know exactly *how* the ESCRT machinery works to constrict membranes. In archaeal cells like this *Sulfolobus acidocaldarius*, Cdv proteins form a belt of parallel filaments around the middle of the cell, defining the division plane. Notice that the rigid surface layer is dismantled outside the belt so that the membrane can be pulled inward.
+## Archaeal Cytokinesis
+Nearly all bacteria, and many archaea, use FtsZ to divide. Other species of archaea, belonging to the Crenarchaeota phylum, use a different cytoskeletal system called **Cdv** (for <u>C</u>ell <u>d</u>i<u>v</u>ision). Cdv proteins are homologous to  proteins of the <u>E</u>ndosomal <u>S</u>orting <u>C</u>omplexes <u>R</u>equired for <u>T</u>ransport (ESCRT). ESCRT proteins were discovered in eukaryotes, where they are involved in many processes that involve cinching off membranes, from the final stage of cell division to virus budding to endocytosis (hence the name), by which cells engulf things from the environment. Again, despite its fundamental importance, we still do not know exactly *how* the Cdv machinery works to constrict membranes. In archaeal cells like this *Sulfolobus acidocaldarius*, Cdv proteins form a belt of parallel filaments around the middle of the cell, defining the division plane. The belt consists of a single closely-packed layer of filaments and lies directly next to the membrane. Notice that the rigid surface layer is dismantled outside the belt so that the membrane can be pulled inward.
 
 (ref:5-11) [Sulfolobus acidocaldarius](#tree) Collected by: [Shrawan Mageswaran](#shrawan_mageswaran) Movie DOI: [10.22002/D1.1517](https://doi.org/10.22002/D1.1517)
 
@@ -200,7 +200,7 @@ library(doivideo)
 doivideo('10.22002/D1.1517',0)
 ```
 
-## ESCRT (cont’d.)
+## Cdv
 The Cdv filaments then pull the membrane inward, constricting the cell, as you can see in this *Sulfolobus acidocaldarius* cell in a later stage of division. Again, the mechanism is unknown, but it may be that the filaments slide against each other into a tightening hourglass-shaped spiral.
 
 The majority of cells divide by one of these two mechanisms–FtsZ or Cdv–but not all do. Some bacterial and archaeal species have neither FtsZ nor Cdv, and we are still figuring out how they divide.
