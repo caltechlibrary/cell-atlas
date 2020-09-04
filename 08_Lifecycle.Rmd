@@ -147,7 +147,7 @@ doivideo('10.22002/D1.1561',0)
 ## Diderm Spore Engulfment
 Engulfment also proceeds similarly, as you can see in this *Acetonema longum* cell, with the septum expanding and moving to cinch off at the pole of the mother cell [More: Complete engulfment](#Complete_engulfment). As the cell wall is remodeled to accomplish this, the rod shape of the mother is lost. Note also how the outer membrane of the mother cell ruffles and expands, apparently having detached from the cell wall. Compared to a daughter cell produced by division, there is something quite interesting about the envelope of the endospore. Look carefully at the membranes. Both the inner and outer membranes of the spore derive from the inner membrane of the mother cell. This implies a surprising interchangeability of the two membrane types, and lends further credence to the idea that the outer membrane of some or all diderm bacteria originally came from a monoderm spore that failed to shed its second membrane.
 
-As you saw in *Bacillus subtilis*, once engulfment is complete, the thin septal wall will be expanded and reinforced into a thick cortex and a protective protein coat will be added before the mature spore is released by lysis of the mother cell [More: Mature spore](#Mature_spore).  *A. longum* spores are round, but other rod-shaped diderms form ovoid spores [More: Sporomusa acidovorans sporulation](#Sporomusa_acidovorans_sporulation).
+As you saw in *Bacillus subtilis*, once engulfment is complete, the thin septal wall will be expanded and reinforced into a thick cortex and a protective protein coat will be added before the mature spore is released by lysis of the mother cell [More: Mature spore](#Mature_spore).  *A. longum* spores are round, but other rod-shaped diderms form ovoid spores [More: *Sporomusa acidovorans* sporulation](#*Sporomusa_acidovorans*_sporulation).
 
 (ref:8-10) [Acetonema longum](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1562](https://doi.org/10.22002/D1.1562)
 
@@ -176,7 +176,7 @@ library(doivideo)
 doivideo('10.22002/D1.1569',0)
 ```
 
-### More: Sporomusa acidovorans sporulation{-#Sporomusa_acidovorans_sporulation}
+### More: *Sporomusa acidovorans* sporulation{-#*Sporomusa_acidovorans*_sporulation}
 This diderm *Sporomusa acidovorans* cell is in the process of forming an ovoid endospore. Note also what may be an early stage of cortex formation at the end of the spore, as well as novel structures at the points of cell wall remodeling. We do not know what they are, but they may be involved in engulfment.
 
 (ref:8-10c) [Sporomusa acidovorans](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1570](https://doi.org/10.22002/D1.1570)

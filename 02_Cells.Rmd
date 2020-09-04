@@ -40,7 +40,7 @@ Being able to selectively move things into your cell enables it to do some power
 
 You might want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this with a material called peptidoglycan: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its **cell wall**. In monoderm bacteria like this *Listeria monocytogenes*, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which are indistinguishable at this resolution, so the cell wall appears as a uniformly textured layer [More: Peptidoglycan architecture](#Peptidoglycan_architecture). It remains a mystery how large molecules can pass through this dense layer on their way to and from the cell.
 
-Some archaea also have cell walls, made of a molecule similar to peptidoglycan [More: Methanobacterium formicicum](#Methanobacterium_formicicum). Most archaea, though, rely on a different structure for support, which you will see in a few pages.
+Some archaea also have cell walls, made of a molecule similar to peptidoglycan [More: Archaeal cell walls](#Archaeal_cell_walls). Most archaea, though, rely on a different structure for support, which you will see in a few pages.
 
 A wall can be a boon to your cell, but it can also prove a liability in certain conditions. For instance, many antibiotics target the cell wall. Some bacteria have developed the ability to jettison their walls in such conditions, taking on a so-called “L-form” (named for the Lister Institute where it was discovered). L-form bacteria give us a fascinating window into how early cells–prior to the evolution of the cell wall–might have looked and behaved.
 
@@ -61,7 +61,7 @@ library(doivideo)
 doivideo('10.22002/D1.1360',0)
 ```
 
-### More: Methanobacterium formicicum{-#Methanobacterium_formicicum}
+### More: Archaeal cell walls{-#Archaeal_cell_walls}
 Some archaea, like this *Methanobacterium formicicum*, build cell walls from "pseudopeptidoglycan," which has a slightly different chemical composition than peptidoglycan. The overall architecture of the wall, though, is the same, as you can see.
 
 (ref:2-2b) [Methanobacterium formicicum](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1361](https://doi.org/10.22002/D1.1361)
@@ -212,7 +212,7 @@ doivideo('10.22002/D1.1366',0)
 ```
 
 ## Surface Layer Variety
-One of the most striking features of the surface layer is how different it can look in different species. For instance, compare this archaeal *Sulfolobus solfataricus* cell to the bacterium on the last page, or to other diderm [More: Methylomicrobium alcaliphilum](#Methylomicrobium_alcaliphilum) or monoderm [More: Clostridium thermocellum](#Clostridium_thermocellum) bacteria, or archaea [More: Nitrosopumilus maritimus](#Nitrosopumilus_maritimus); [More: Methanoregula formicica](#Methanoregula_formicica). All surface layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
+One of the most striking features of the surface layer is how different it can look in different species. For instance, compare this archaeal *Sulfolobus solfataricus* cell to the bacterium on the last page, or to other diderm [More: *Methylomicrobium alcaliphilum*](#*Methylomicrobium_alcaliphilum*) or monoderm [More: *Clostridium thermocellum*](#*Clostridium_thermocellum*) bacteria, or archaea [More: *Nitrosopumilus maritimus*](#*Nitrosopumilus_maritimus*); [More: *Methanoregula formicica*](#*Methanoregula_formicica*). All surface layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
 
 Surface layers are very common in archaea. Most archaea lack cell walls, but their surface layer plays the same role, functioning as external scaffolding. Remember, too, that nearly all archaea are monoderms, lacking the extra periplasmic compartment that diderms have. Here again the surface layer serves a similar function, enclosing a space around the cell's membrane called the pseudo-periplasmic space. Just as with the bacterial periplasm, this space serves as an antechamber for the cell, restricting access by large molecules. In some cases, the pseudo-periplasmic space also contains  proteins that function in metabolism.
 
@@ -223,7 +223,7 @@ library(doivideo)
 doivideo('10.22002/D1.1356',0)
 ```
 
-### More: Methylomicrobium alcaliphilum{-#Methylomicrobium_alcaliphilum}
+### More: *Methylomicrobium alcaliphilum*{-#*Methylomicrobium_alcaliphilum*}
 In *Methylomicrobium alcaliphilum*, V-shaped surface layer proteins come together to form cups that pack into a hexagonal pattern.
 
 (ref:2-7a) [Methylomicrobium alcaliphilum](#tree) Collected by: [Songye Chen](#songye_chen) Movie DOI: [10.22002/D1.1367](https://doi.org/10.22002/D1.1367)
@@ -233,7 +233,7 @@ library(doivideo)
 doivideo('10.22002/D1.1367',0)
 ```
 
-### More: Clostridium thermocellum{-#Clostridium_thermocellum}
+### More: *Clostridium thermocellum*{-#*Clostridium_thermocellum*}
 Not only diderm bacteria have surface layers, as you can see on this monoderm *Clostridium thermocellum* cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
 
 (ref:2-7b) [Clostridium thermocellum](#tree) Collected by: [William Nicolas](#william_nicolas) Movie DOI: [10.22002/D1.1476](https://doi.org/10.22002/D1.1476)
@@ -243,7 +243,7 @@ library(doivideo)
 doivideo('10.22002/D1.1476',0)
 ```
 
-### More: Nitrosopumilus maritimus{-#Nitrosopumilus_maritimus}
+### More: *Nitrosopumilus maritimus*{-#*Nitrosopumilus_maritimus*}
 In *Nitrosopumilus maritimus*, surface layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
 
 (ref:2-7c) [Nitrosopumilis maritimus](#tree) Collected by: [Rasika Ramdasi](#rasika_ramdasi) Movie DOI: [10.22002/D1.1368](https://doi.org/10.22002/D1.1368)
@@ -253,7 +253,7 @@ library(doivideo)
 doivideo('10.22002/D1.1368',0)
 ```
 
-### More: Methanoregula formicica{-#Methanoregula_formicica}
+### More: *Methanoregula formicica*{-#*Methanoregula_formicica*}
 The surface layer of *Methanoregula formicica* is a hexagonal lattice of small, nearly circular subunits.
 
 (ref:2-7d) [Methanoregula formicica](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1369](https://doi.org/10.22002/D1.1369)

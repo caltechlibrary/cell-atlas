@@ -31,7 +31,7 @@ doivideo('10.22002/D1.1508',0)
 ```
 
 ## Budding
-What if your cell divides a different way? Some bacteria produce daughters not by fission, but by budding, like this *Hyphomonas neptunium* cell. These cells concentrate their growth at the end of a stalk [More: Hyphomonas stalk](#Hyphomonas_stalk), producing a daughter cell like blowing a bubble. When the bud becomes big enough, they divide at the end of the stalk to release it [More: Hyphomonas lifecycle](#Hyphomonas_lifecycle). First, though, they have to make sure all the necessary components make it into the bud. The process is most dramatic for the genome; here you can see a copy being transferred through the stalk. The chromosome here resembles a double-stranded DNA helix, but it is actually a higher-order structure of supercoiled DNA. (The crossbands are proteins that help pack the DNA, not hydrogen-bonded bases.)
+What if your cell divides a different way? Some bacteria produce daughters not by fission, but by budding, like this *Hyphomonas neptunium* cell. These cells concentrate their growth at the end of a stalk [More: *Hyphomonas* stalk](#*Hyphomonas*_stalk), producing a daughter cell like blowing a bubble. When the bud becomes big enough, they divide at the end of the stalk to release it [More: *Hyphomonas* lifecycle](#*Hyphomonas*_lifecycle). First, though, they have to make sure all the necessary components make it into the bud. The process is most dramatic for the genome; here you can see a copy being transferred through the stalk. The chromosome here resembles a double-stranded DNA helix, but it is actually a higher-order structure of supercoiled DNA. (The crossbands are proteins that help pack the DNA, not hydrogen-bonded bases.)
 
 Several other bacterial species divide by budding, although not all have stalks. Some simply bud from the main cell body; you will see an example later in this chapter.
 
@@ -42,7 +42,7 @@ library(doivideo)
 doivideo('10.22002/D1.1509',0)
 ```
 
-### More: Hyphomonas stalk{-#Hyphomonas_stalk}
+### More: *Hyphomonas* stalk{-#*Hyphomonas*_stalk}
 *Hyphomonas neptunium* grow a single stalk from one end of their cell body, similar to the *Caulobacter crescentus* you saw in Chapter 3. The function of the stalk, though, is different in this budding bacterium than in *C. crescentus*, which divide by more conventional fission.
 
 (ref:5-3a) [Hyphomonas neptunium](#tree) Collected by: [Jian Shi](#jian_shi) Movie DOI: [10.22002/D1.1519](https://doi.org/10.22002/D1.1519)
@@ -52,7 +52,7 @@ library(doivideo)
 doivideo('10.22002/D1.1519',0)
 ```
 
-### More: Hyphomonas lifecycle{-#Hyphomonas_lifecycle}
+### More: *Hyphomonas* lifecycle{-#*Hyphomonas*_lifecycle}
 *Hyphomonas neptunium* have evolved a program of stages they pass through in the course of their life. When a newborn cell like this one is released, it is in the "swarmer" stage, using its flagellum (discussed in the next chapter) to swim away to a new location. After a while, it settles down, jettisoning its flagellum and growing a stalk with which to make its own bud–the next generation. Once a cell settles down into the stalked stage, it spends the rest of its life sending off buds as long as conditions are good. Only newborn cells are equipped with flagella to go adventuring. We will discuss more lifecycles in Chapter 8.
 
 (ref:5-3b) [Hyphomonas neptunium](#tree) Collected by: [Jian Shi](#jian_shi) Movie DOI: [10.22002/D1.1520](https://doi.org/10.22002/D1.1520)
@@ -85,7 +85,7 @@ doivideo('10.22002/D1.1511',0)
 ```
 
 ## Diderm Cytokinesis
-The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: Sphingopyxis alaskensis division](#Sphingopyxis_alaskensis_division). For a later example, check out [More: Chloroflexi division](#Chloroflexi_division).
+The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: *Sphingopyxis alaskensis* division](#*Sphingopyxis_alaskensis*_division). For a later example, check out [More: *Chloroflexi* division](#*Chloroflexi*_division).
 
 (ref:5-6) [Idiomarina loihiensis](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1512](https://doi.org/10.22002/D1.1512)
 
@@ -94,7 +94,7 @@ library(doivideo)
 doivideo('10.22002/D1.1512',0)
 ```
 
-### More: Sphingopyxis alaskensis division{-#Sphingopyxis_alaskensis_division}
+### More: *Sphingopyxis alaskensis* division{-#*Sphingopyxis_alaskensis*_division}
 This diderm cell is about halfway through cytokinesis. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall has drawn in all around.
 
 (ref:5-6a) [Sphingopyxis alaskensis](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1521](https://doi.org/10.22002/D1.1521)
@@ -104,7 +104,7 @@ library(doivideo)
 doivideo('10.22002/D1.1521',0)
 ```
 
-### More: Chloroflexi division{-#Chloroflexi_division}
+### More: *Chloroflexi* division{-#*Chloroflexi*_division}
 This diderm cell is in the final stage of cytokinesis. The cytoplasm of the two daughter cells is completely separated by inner membrane and cell wall. The outer membrane, though, has not yet divided.
 
 (ref:5-6b) [Chloroflexi](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1522](https://doi.org/10.22002/D1.1522)
@@ -115,7 +115,7 @@ doivideo('10.22002/D1.1522',0)
 ```
 
 ## Outer Membrane Constriction
-In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the *Thiomonas intermedia* cell at the beginning of this chapter. In others, including the cells you saw on the last page, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate. In *Caulobacter crescentus*, the outer membrane constricts along with the inner membrane and cell wall. At the end of division, though, the inner membrane seals off before the outer membrane, as you can see in this cell, which is at a very late stage of division. For an even later stage, check out [More: Caulobacter division](#Caulobacter_division).
+In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the *Thiomonas intermedia* cell at the beginning of this chapter. In others, including the cells you saw on the last page, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate. In *Caulobacter crescentus*, the outer membrane constricts along with the inner membrane and cell wall. At the end of division, though, the inner membrane seals off before the outer membrane, as you can see in this cell, which is at a very late stage of division. For an even later stage, check out [More: *Caulobacter* division](#*Caulobacter*_division).
 
 (ref:5-7) [Caulobacter crescentus](#tree) Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1513](https://doi.org/10.22002/D1.1513)
 
@@ -124,7 +124,7 @@ library(doivideo)
 doivideo('10.22002/D1.1513',0)
 ```
 
-### More: Caulobacter division{-#Caulobacter_division}
+### More: *Caulobacter* division{-#*Caulobacter*_division}
 This *Caulobacter crescentus* cell has completely separated its inner membrane and cell wall, but not yet the outer membrane and surface layer.
 
 (ref:5-7a) [Caulobacter crescentus](#tree) Collected by: [Qing Yao](#qing_yao) Movie DOI: [10.22002/D1.1523](https://doi.org/10.22002/D1.1523)

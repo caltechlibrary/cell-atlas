@@ -97,7 +97,7 @@ doivideo('10.22002/D1.1539',0)
 ```
 
 ## Peritrichous Flagella
-Still other species are peritrichous (“hair around”), with multiple flagella distributed randomly around the cell, as you can see on this *Pseudomonas flexibilis*. The number of flagella varies between different species, from relatively few here to considerably more [More: Proteus mirabilis flagella](#Proteus_mirabilis_flagella). The well-known model system *Escherichia coli* is also peritrichously flagellated. In this arrangement, when the flagellar motors are all rotating one direction (counter-clockwise), the flagella form a whip-like bundle that propels the cell to “run” in a straight line. When one or more motors switch to clockwise rotation, the flagella dissociate from the bundle and “tumble” the cell to face a new direction. In the next chapter, you will see how cells use this behavior to seek out favorable spots.
+Still other species are peritrichous (“hair around”), with multiple flagella distributed randomly around the cell, as you can see on this *Pseudomonas flexibilis*. The number of flagella varies between different species, from relatively few here to considerably more [More: *Proteus mirabilis* flagella](#*Proteus_mirabilis*_flagella). The well-known model system *Escherichia coli* is also peritrichously flagellated. In this arrangement, when the flagellar motors are all rotating one direction (counter-clockwise), the flagella form a whip-like bundle that propels the cell to “run” in a straight line. When one or more motors switch to clockwise rotation, the flagella dissociate from the bundle and “tumble” the cell to face a new direction. In the next chapter, you will see how cells use this behavior to seek out favorable spots.
 
 (ref:6-5) [Pseudomonas flexibilis](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1529](https://doi.org/10.22002/D1.1529)
 
@@ -106,7 +106,7 @@ library(doivideo)
 doivideo('10.22002/D1.1529',0)
 ```
 
-### More: Proteus mirabilis flagella{-#Proteus_mirabilis_flagella}
+### More: *Proteus mirabilis* flagella{-#*Proteus_mirabilis*_flagella}
 *Proteus mirabilis* adapt their motility machinery to their environment. In liquid, the short rod-shaped cells swim with the help of a handful of flagella distributed peritrichously around their cell body. When they encounter a solid surface, the cells elongate and build many more flagella, as you can see on this cell. Instead of swimming, they now use their flagella to propel themselves in groups across the surface, a motility mode known as “swarming.” This is an example of a differentiated lifecycle, which will come up again in Chapter 8.
 
 (ref:6-5a) [Proteus mirabilis](#tree) Collected by: [Qing Yao](#qing_yao) Movie DOI: [10.22002/D1.1540](https://doi.org/10.22002/D1.1540)
@@ -127,7 +127,7 @@ doivideo('10.22002/D1.1530',0)
 ```
 
 ## Periplasmic Flagella
-If your cell *is* a pathogen, swimming can be very useful, but so can burrowing, for instance between cells in host tissue. To do this, why not turn your cell into a corkscrew with the equipment at hand? Some cells do just this, wrapping their flagellum around their body to back out of a tight spot, or burrow into one. Other, diderm species like the *Borrelia burgdorferi* here have turned the temporary adaptation into a permanent one: they assemble their flagella *inside* the cell envelope, with the filaments wrapping around between the cell wall and outer membrane. These “periplasmic” flagella are usually multiple, arising from one or both ends of the cell, and pack together into a helical ribbon. The helical ribbon helps give these Spirochetes (“spiral haired”) their characteristic shape; mutants that cannot make flagella are simple rods. Some spirochetes also have additional features that may help them move around in animal hosts [More: Treponema primitia](#Treponema_primitia)
+If your cell *is* a pathogen, swimming can be very useful, but so can burrowing, for instance between cells in host tissue. To do this, why not turn your cell into a corkscrew with the equipment at hand? Some cells do just this, wrapping their flagellum around their body to back out of a tight spot, or burrow into one. Other, diderm species like the *Borrelia burgdorferi* here have turned the temporary adaptation into a permanent one: they assemble their flagella *inside* the cell envelope, with the filaments wrapping around between the cell wall and outer membrane. These “periplasmic” flagella are usually multiple, arising from one or both ends of the cell, and pack together into a helical ribbon. The helical ribbon helps give these Spirochetes (“spiral haired”) their characteristic shape; mutants that cannot make flagella are simple rods. Some spirochetes also have additional features that may help them move around in animal hosts [More: *Treponema primitia*](#*Treponema_primitia*)
 
 (ref:6-7) [Borrelia burgdorferi](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1531](https://doi.org/10.22002/D1.1531)
 
@@ -136,7 +136,7 @@ library(doivideo)
 doivideo('10.22002/D1.1531',0)
 ```
 
-### More: Treponema primitia{-#Treponema_primitia}
+### More: *Treponema primitia*{-#*Treponema_primitia*}
 *Treponema primitia* like this are commensal residents of the termite gut, helping break down cellulose. In addition to two periplasmic flagella, the cells have arrays of bowl- and hook-like structures on their surface, the function of which, likely related to motility, remains mysterious.
 
 (ref:6-7a) [Treponema primitia](#tree) Collected by: [Gavin Murphy](#gavin_murphy) Movie DOI: [10.22002/D1.1541](https://doi.org/10.22002/D1.1541)

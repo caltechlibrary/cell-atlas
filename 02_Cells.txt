@@ -26,7 +26,7 @@ Being able to selectively move things into your cell enables it to do some power
 
 You might want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this with a material called peptidoglycan: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its **cell wall**. In monoderm bacteria like this *Listeria monocytogenes*, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which are indistinguishable at this resolution, so the cell wall appears as a uniformly textured layer [More: Peptidoglycan architecture]. It remains a mystery how large molecules can pass through this dense layer on their way to and from the cell.
 
-Some archaea also have cell walls, made of a molecule similar to peptidoglycan [More: Methanobacterium formicicum]. Most archaea, though, rely on a different structure for support, which you will see in a few pages.
+Some archaea also have cell walls, made of a molecule similar to peptidoglycan [More: Archaeal cell walls]. Most archaea, though, rely on a different structure for support, which you will see in a few pages.
 
 A wall can be a boon to your cell, but it can also prove a liability in certain conditions. For instance, many antibiotics target the cell wall. Some bacteria have developed the ability to jettison their walls in such conditions, taking on a so-called “L-form” (named for the Lister Institute where it was discovered). L-form bacteria give us a fascinating window into how early cells–prior to the evolution of the cell wall–might have looked and behaved.
 
@@ -34,7 +34,7 @@ A wall can be a boon to your cell, but it can also prove a liability in certain 
 
 The cell wall is so robust that it persists even after cells are lysed and their other components digested. This cell wall isolated from a *Bacillus subtilis* cell has retained its shape, simply flattening with the release of contents and pressure from inside. The long glycan strands are oriented in hoops running parallel to the short axis of the cylindrical cell and the short peptide crosslinks are more or less aligned with the long axis.
 
-[2b_Methanobacterium formicicum] More: Methanobacterium formicicum
+[2b_Methanobacterium formicicum] More: Archaeal cell walls
 
 Some archaea, like this *Methanobacterium formicicum*, build cell walls from "pseudopeptidoglycan," which has a slightly different chemical composition than peptidoglycan. The overall architecture of the wall, though, is the same, as you can see.
 
@@ -106,23 +106,23 @@ Archaea and bacteria with surface layers produce characteristic outer membrane v
 
 [2_7_Sulfolobus solfataricus] Surface Layer Variety
 
-One of the most striking features of the surface layer is how different it can look in different species. For instance, compare this archaeal *Sulfolobus solfataricus* cell to the bacterium on the last page, or to other diderm [More: Methylomicrobium alcaliphilum] or monoderm [More: Clostridium thermocellum] bacteria, or archaea [More: Nitrosopumilus maritimus]; [More: Methanoregula formicica]. All surface layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
+One of the most striking features of the surface layer is how different it can look in different species. For instance, compare this archaeal *Sulfolobus solfataricus* cell to the bacterium on the last page, or to other diderm [More: *Methylomicrobium alcaliphilum*] or monoderm [More: *Clostridium thermocellum*] bacteria, or archaea [More: *Nitrosopumilus maritimus*]; [More: *Methanoregula formicica*]. All surface layers are crystalline lattices of a single–or in a few cases, two–proteins, but the particular pattern of the lattice depends on the shape of this building block and how it multimerizes into a higher-order structure. The shape of the building block varies considerably; there is almost no sequence homology between S-layer proteins from different species. And shapes come together in different ways, forming repeating units of one, two, three (as on this cell), four, or six blocks.
 
 Surface layers are very common in archaea. Most archaea lack cell walls, but their surface layer plays the same role, functioning as external scaffolding. Remember, too, that nearly all archaea are monoderms, lacking the extra periplasmic compartment that diderms have. Here again the surface layer serves a similar function, enclosing a space around the cell's membrane called the pseudo-periplasmic space. Just as with the bacterial periplasm, this space serves as an antechamber for the cell, restricting access by large molecules. In some cases, the pseudo-periplasmic space also contains  proteins that function in metabolism.
 
-[7a_Methylomicrobium alcaliphilum] More: Methylomicrobium alcaliphilum
+[7a_Methylomicrobium alcaliphilum] More: *Methylomicrobium alcaliphilum*
 
 In *Methylomicrobium alcaliphilum*, V-shaped surface layer proteins come together to form cups that pack into a hexagonal pattern.
 
-[7b_Clostridium thermocellum] More: Clostridium thermocellum
+[7b_Clostridium thermocellum] More: *Clostridium thermocellum*
 
 Not only diderm bacteria have surface layers, as you can see on this monoderm *Clostridium thermocellum* cell. The main difference is that the proteins are anchored to the cell wall, rather than to the outer membrane (or associated lipoproteins).
 
-[7c_Nitrosopumilus maritimus] More: Nitrosopumilus maritimus
+[7c_Nitrosopumilus maritimus] More: *Nitrosopumilus maritimus*
 
 In *Nitrosopumilus maritimus*, surface layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
 
-[7d_Methanoregula formicica] More: Methanoregula formicica
+[7d_Methanoregula formicica] More: *Methanoregula formicica*
 
 The surface layer of *Methanoregula formicica* is a hexagonal lattice of small, nearly circular subunits.
 
