@@ -18,3 +18,38 @@ pre code {
   padding: 15px;
   margin: 10px;
 }
+.book .book-summary ul.summary > li a:hover, .book .book-summary ul.summary li.active > a{
+  color: #76777B;
+  font-style: oblique;
+}
+.book .book-summary ul.summary > li a:hover, .book .book-summary ul.summary li.active > a{
+  color: #76777B;
+  font-style: oblique;
+}
+.book .book-summary ul.summary > li:nth-child(5) a:hover{
+  background: #BCD3ED;
+}
+.book .book-summary ul.summary > li:nth-child(6) a:hover{
+  background: #9AC3C7;
+}
+.book .book-summary ul.summary > li:nth-child(7) a:hover{
+  background: #99BD99;
+}
+.book .book-summary ul.summary > li:nth-child(8) a:hover{
+  background: #FFEF99;
+}
+.book .book-summary ul.summary > li:nth-child(9) a:hover{
+  background: #FFC799;
+}
+.book .book-summary ul.summary > li:nth-child(10) a:hover{
+  background: #FAB19C;
+}
+.book .book-summary ul.summary > li:nth-child(11) a:hover{
+  background: #E0A1A4;
+}
+.book .book-summary ul.summary > li:nth-child(12) a:hover{
+  background: #C29DB2;
+}
+.book .book-summary ul.summary > li:nth-child(13) a:hover{
+  background: #BAAFCC;
+}
