@@ -195,7 +195,7 @@ doivideo('10.22002/D1.1504',0)
 ```
 
 ## Archaeal Storage Granules
-Archaea also use storage granules, and you will see many examples throughout the book. Compared to the typically-smooth edges of bacterial granules, the edges of many archaeal granules are spikier, giving them a rougher appearance, as in this *Halorubrum litoreum* cell. Others are smooth and, just like in bacteria, they exhibit a range of morphologies depending on what they store. For instance, compare [More: *Haloferax gibbonsii* granules](#*Haloferax_gibbonsii*_granules) and [More: *Halohasta litchfieldiae* granules](#*Halohasta_litchfieldiae*_granules).
+Archaea also use storage granules, and you will see many examples throughout the book. Compared to the typically-smooth edges of bacterial granules, the edges of many archaeal granules are spikier, giving them a rougher appearance, as in this *Halorubrum litoreum* cell. Others are smooth and, just like in bacteria, they exhibit a range of morphologies depending on what they store. For instance, compare [More: Haloferax gibbonsii granules](#Haloferax_gibbonsii_granules) and [More: Halohasta litchfieldiae granules](#Halohasta_litchfieldiae_granules).
 
 (ref:4-10) [Halorubrum litoreum](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1498](https://doi.org/10.22002/D1.1498)
 
@@ -204,7 +204,7 @@ library(doivideo)
 doivideo('10.22002/D1.1498',0)
 ```
 
-### More: *Haloferax gibbonsii* granules{-#*Haloferax_gibbonsii*_granules}
+### More: Haloferax gibbonsii granules{-#Haloferax_gibbonsii_granules}
 Some archaeal cells, like this *Haloferax gibbonsii*, contain many small granules. We do not yet know what they store, but based on the density, it may be a carbon source.
 
 (ref:4-10a) [Haloferax gibbonsii](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1505](https://doi.org/10.22002/D1.1505)
@@ -214,7 +214,7 @@ library(doivideo)
 doivideo('10.22002/D1.1505',0)
 ```
 
-### More: *Halohasta litchfieldiae* granules{-#*Halohasta_litchfieldiae*_granules}
+### More: Halohasta litchfieldiae granules{-#Halohasta_litchfieldiae_granules}
 This *Halohasta litchfieldiae* cell has more unusual granules. The high electron-density (darkness) of these punctate structures suggests that they contain metal.
 
 (ref:4-10b) [Halohasta litchfieldiae](#tree) Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1506](https://doi.org/10.22002/D1.1506)

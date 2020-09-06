@@ -93,13 +93,13 @@ We sometimes see comb-like structures connecting external poly-phosphate storage
 
 [4_10_Halorubrum litoreum] Archaeal Storage Granules
 
-Archaea also use storage granules, and you will see many examples throughout the book. Compared to the typically-smooth edges of bacterial granules, the edges of many archaeal granules are spikier, giving them a rougher appearance, as in this *Halorubrum litoreum* cell. Others are smooth and, just like in bacteria, they exhibit a range of morphologies depending on what they store. For instance, compare [More: *Haloferax gibbonsii* granules] and [More: *Halohasta litchfieldiae* granules].
+Archaea also use storage granules, and you will see many examples throughout the book. Compared to the typically-smooth edges of bacterial granules, the edges of many archaeal granules are spikier, giving them a rougher appearance, as in this *Halorubrum litoreum* cell. Others are smooth and, just like in bacteria, they exhibit a range of morphologies depending on what they store. For instance, compare [More: Haloferax gibbonsii granules] and [More: Halohasta litchfieldiae granules].
 
-[10a_Haloferax gibbonsii] More: *Haloferax gibbonsii* granules
+[10a_Haloferax gibbonsii] More: Haloferax gibbonsii granules
 
 Some archaeal cells, like this *Haloferax gibbonsii*, contain many small granules. We do not yet know what they store, but based on the density, it may be a carbon source.
 
-[10b_Halohasta litchfieldiae] More: *Halohasta litchfieldiae* granules
+[10b_Halohasta litchfieldiae] More: Halohasta litchfieldiae granules
 
 This *Halohasta litchfieldiae* cell has more unusual granules. The high electron-density (darkness) of these punctate structures suggests that they contain metal.
 

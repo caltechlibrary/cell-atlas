@@ -19,15 +19,15 @@ Remember that your cell's chromosome is colossal, so getting the ParS handle to 
 
 [5_3_Hyphomonas neptunium] Budding
 
-What if your cell divides a different way? Some bacteria produce daughters not by fission, but by budding, like this *Hyphomonas neptunium* cell. These cells concentrate their growth at the end of a stalk [More: *Hyphomonas* stalk], producing a daughter cell like blowing a bubble. When the bud becomes big enough, they divide at the end of the stalk to release it [More: *Hyphomonas* lifecycle]. First, though, they have to make sure all the necessary components make it into the bud. The process is most dramatic for the genome; here you can see a copy being transferred through the stalk. The chromosome here resembles a double-stranded DNA helix, but it is actually a higher-order structure of supercoiled DNA. (The crossbands are proteins that help pack the DNA, not hydrogen-bonded bases.)
+What if your cell divides a different way? Some bacteria produce daughters not by fission, but by budding, like this *Hyphomonas neptunium* cell. These cells concentrate their growth at the end of a stalk [More: Hyphomonas stalk], producing a daughter cell like blowing a bubble. When the bud becomes big enough, they divide at the end of the stalk to release it [More: Hyphomonas lifecycle]. First, though, they have to make sure all the necessary components make it into the bud. The process is most dramatic for the genome; here you can see a copy being transferred through the stalk. The chromosome here resembles a double-stranded DNA helix, but it is actually a higher-order structure of supercoiled DNA. (The crossbands are proteins that help pack the DNA, not hydrogen-bonded bases.)
 
 Several other bacterial species divide by budding, although not all have stalks. Some simply bud from the main cell body; you will see an example later in this chapter.
 
-[3a_Hyphomonas neptunium] More: *Hyphomonas* stalk
+[3a_Hyphomonas neptunium] More: Hyphomonas stalk
 
 *Hyphomonas neptunium* grow a single stalk from one end of their cell body, similar to the *Caulobacter crescentus* you saw in Chapter 3. The function of the stalk, though, is different in this budding bacterium than in *C. crescentus*, which divide by more conventional fission.
 
-[3b_Hyphomonas neptunium] More: *Hyphomonas* lifecycle
+[3b_Hyphomonas neptunium] More: Hyphomonas lifecycle
 
 *Hyphomonas neptunium* have evolved a program of stages they pass through in the course of their life. When a newborn cell like this one is released, it is in the "swarmer" stage, using its flagellum (discussed in the next chapter) to swim away to a new location. After a while, it settles down, jettisoning its flagellum and growing a stalk with which to make its own bud–the next generation. Once a cell settles down into the stalked stage, it spends the rest of its life sending off buds as long as conditions are good. Only newborn cells are equipped with flagella to go adventuring. We will discuss more lifecycles in Chapter 8.
 
@@ -43,21 +43,21 @@ There can also be more than two daughter cells. Some species undergo simultaneou
 
 [5_6_Idiomarina loihiensis] Diderm Cytokinesis
 
-The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: *Sphingopyxis alaskensis* division]. For a later example, check out [More: *Chloroflexi* division].
+The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: Sphingopyxis alaskensis division]. For a later example, check out [More: Chloroflexi division].
 
-[6a_Sphingopyxis alaskensis] More: *Sphingopyxis alaskensis* division
+[6a_Sphingopyxis alaskensis] More: Sphingopyxis alaskensis division
 
 This diderm cell is about halfway through cytokinesis. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall has drawn in all around.
 
-[6b_Chloroflexi] More: *Chloroflexi* division
+[6b_Chloroflexi] More: Chloroflexi division
 
 This diderm cell is in the final stage of cytokinesis. The cytoplasm of the two daughter cells is completely separated by inner membrane and cell wall. The outer membrane, though, has not yet divided.
 
 [5_7_Caulobacter crescentus] Outer Membrane Constriction
 
-In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the *Thiomonas intermedia* cell at the beginning of this chapter. In others, including the cells you saw on the last page, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate. In *Caulobacter crescentus*, the outer membrane constricts along with the inner membrane and cell wall. At the end of division, though, the inner membrane seals off before the outer membrane, as you can see in this cell, which is at a very late stage of division. For an even later stage, check out [More: *Caulobacter* division].
+In some species, the outer membrane constricts at the same time as the inner membrane, as you saw, for instance, in the *Thiomonas intermedia* cell at the beginning of this chapter. In others, including the cells you saw on the last page, the outer membrane is mainly remodeled at the end of the process, as the cells separate. Other species are intermediate. In *Caulobacter crescentus*, the outer membrane constricts along with the inner membrane and cell wall. At the end of division, though, the inner membrane seals off before the outer membrane, as you can see in this cell, which is at a very late stage of division. For an even later stage, check out [More: Caulobacter division].
 
-[7a_Caulobacter crescentus] More: *Caulobacter* division
+[7a_Caulobacter crescentus] More: Caulobacter division
 
 This *Caulobacter crescentus* cell has completely separated its inner membrane and cell wall, but not yet the outer membrane and surface layer.
 

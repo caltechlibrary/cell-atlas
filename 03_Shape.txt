@@ -45,9 +45,9 @@ CTP synthase is a fundamental metabolic protein across all domains of life, help
 
 Why stop at a quarter turn when you can twist your cell into a full wave or even a corkscrew? Just as a corkscrew penetrates its target, **helical** pathogenic bacteria like this *Campylobacter jejuni* can burrow efficiently into the tissue of their target.
 
-It can be tempting to group species based on a common characteristic, but appearances are often deceiving about relatedness. Undulating shape, for instance, was not a one-shot invention; it evolved independently multiple times. This is true of other bacterial and archaeal cell shapes as well. For wavy shape, these independent origins are reflected in different mechanisms of creating it. Some species, including *C. jejuni*, use dedicated proteins to regulate the pattern of peptidoglycan insertion–a continuation of the theme we have been discussing. Other species take different approaches [More: *Borrelia burgdorferi* shape].
+It can be tempting to group species based on a common characteristic, but appearances are often deceiving about relatedness. Undulating shape, for instance, was not a one-shot invention; it evolved independently multiple times. This is true of other bacterial and archaeal cell shapes as well. For wavy shape, these independent origins are reflected in different mechanisms of creating it. Some species, including *C. jejuni*, use dedicated proteins to regulate the pattern of peptidoglycan insertion–a continuation of the theme we have been discussing. Other species take different approaches [More: Borrelia burgdorferi shape].
 
-[5a_Borrelia burgdorferi] More: *Borrelia burgdorferi* shape
+[5a_Borrelia burgdorferi] More: Borrelia burgdorferi shape
 
 *Borrelia burgdorferi* like this cell use the long filaments of their motility machinery (flagella, discussed in Chapter 6) as a kind of cytoskeleton. A bundle of flagella wraps around the cell in the periplasm, between the cell wall and the outer membrane. Spun by motors at their base (more on that in Chapter 6), the filaments impart a wave pattern to the growing cell wall. Without the motors’ rotation, the cells develop a rod shape. Note that *B. burgdorferi* are not helical, but rather adopt a two-dimensional waveform.
 

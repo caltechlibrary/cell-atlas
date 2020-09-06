@@ -29,9 +29,9 @@ How else might your cell deal with the crowd? Well, if you can’t join them, ma
 
 Type II secretion systems (**T2SSs**) in *Legionella pneumophila* like this pump out effector proteins that enable a complex pathogenic lifecycle. *L. pneumophila* live in several environments: inside amoebae, outside cells (but sometimes with others in biofilms), and inside *our* cells, where they cause the severe pneumonia known as Legionnaires' disease. In each environment, the T2SS pumps out proteins that facilitate growth there. For instance, once we inhale *L. pneumophila* with water droplets, they are internalized by our macrophages. They then use their T2SSs to secrete proteins that prevent their pockets in the cell (called *Legionella*-containing vacuoles) from being degraded, and suppress our innate immune response. This gives the bacteria time to replicate and establish a persistent colony. The T2SSs also secrete a toxin protein that breaks down lung tissue.
 
-Unlike the secretion systems in Chapter 6, the T2SS does not build an extracellular appendage. Instead, it is thought to work by pumping proteins through the envelope channel using a short piston-like “pseudo-pilus” [Schematic: *Legionella* T2SS structure](#*Legionella*_T2SS_structure), pushing the molecules into the extracellular space. (Keep in mind that for these intracellular pathogens, their extracellular space is the interior of the host cell.)
+Unlike the secretion systems in Chapter 6, the T2SS does not build an extracellular appendage. Instead, it is thought to work by pumping proteins through the envelope channel using a short piston-like “pseudo-pilus” [Schematic: Legionella T2SS structure](#Legionella_T2SS_structure), pushing the molecules into the extracellular space. (Keep in mind that for these intracellular pathogens, their extracellular space is the interior of the host cell.)
 
-*L. pneumophila* also use another, unrelated machine, a type IV secretion system (**T4SS**), to deliver more than 400(!) different kinds of effector proteins into host cells to promote infection. You can see multiple T4SSs primed for action in this cell [Schematic: *Legionella* T4SS structure](#*Legionella*_T4SS_structure). We do not yet know what they look like during active secretion, so the mechanism remains unclear. In another human pathogen, *Helicobacter pylori*, inactive T4SSs are sometimes seen next to mysterious extracellular tubes, raising the intriguing possibility that the structures are somehow related [More: *Helicobacter pylori* tubes](#*Helicobacter_pylori*_tubes).
+*L. pneumophila* also use another, unrelated machine, a type IV secretion system (**T4SS**), to deliver more than 400(!) different kinds of effector proteins into host cells to promote infection. You can see multiple T4SSs primed for action in this cell [Schematic: Legionella T4SS structure](#Legionella_T4SS_structure). We do not yet know what they look like during active secretion, so the mechanism remains unclear. In another human pathogen, *Helicobacter pylori*, inactive T4SSs are sometimes seen next to mysterious extracellular tubes, raising the intriguing possibility that the structures are somehow related [More: Helicobacter pylori tubes](#Helicobacter_pylori_tubes).
 
 This *L. pneumophila* cell is not unusual; it is common for pathogenic bacteria to employ multiple types of secretion systems. The bristling arsenal of bacteria is a fearsome thing.
 
@@ -42,7 +42,7 @@ library(doivideo)
 doivideo('10.22002/D1.1573',0)
 ```
 
-### Schematic: *Legionella* T2SS structure {-#*Legionella*_T2SS_structure}
+### Schematic: Legionella T2SS structure {-#Legionella_T2SS_structure}
 ```{R}
 knitr::include_graphics('img/schematics/9_3_1.jpg')
 ```
@@ -50,7 +50,7 @@ knitr::include_graphics('img/schematics/9_3_1.jpg')
 [*EMD-20712*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20712) [*EMD-20713*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-20713)
 This average of type II secretion systems from many *Legionella pneumophila* cells shows the overall structure: a channel through the cell envelope, gated near the outer membrane [@ghosal2019]. The pseudo-pilus can be seen in individual T2SSs, extending from the inner membrane to the bottom of the main channel. It gets washed out in the average, though, indicating that it is relatively flexible (i.e. not always in the same position). We still need to figure out exactly how the system works, including whether the pseudo-pilus does act like a piston, and how the gate opens.
 
-### Schematic: *Legionella* T4SS structure {-#*Legionella*_T4SS_structure}
+### Schematic: Legionella T4SS structure {-#Legionella_T4SS_structure}
 ```{R}
 knitr::include_graphics('img/schematics/9_3_2.jpg')
 ```
@@ -58,7 +58,7 @@ knitr::include_graphics('img/schematics/9_3_2.jpg')
 [*EMD-0566*](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-0566)
 This average of type IV secretion systems from many *Legionella pneumophila* cells shows the overall structure [@ghosal2019a]. We do not yet know how secretion works, but one possibility is that effectors are transported either straight through the channel from the cytoplasm and/or first into the periplasm and from there into the windowed chamber just inside the outer membrane before finally being escorted out of the cell.
 
-### More: *Helicobacter pylori* tubes{-#*Helicobacter_pylori*_tubes}
+### More: Helicobacter pylori tubes{-#Helicobacter_pylori_tubes}
 This *Helicobacter pylori* cell was cultured together with human gastric epithelial cells, its target for infection. It contains inactive type IV secretion systems, as well as several mysterious tubes. The tubes are formed from the outer membrane, but we do not know what scaffolds them (they have a consistent diameter of 37 nm), or what makes the portals along their length. The fact that we sometimes see tubes near primed T4SSs, and the fact that the tubes are missing from mutant cells lacking T4SS components suggests a relationship, but the details are unclear. Much remains mysterious about this structure and its potential role in infection.
 
 (ref:9-3a) [Helicobacter pylori](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1582](https://doi.org/10.22002/D1.1582)
@@ -204,9 +204,9 @@ doivideo('10.22002/D1.1579',0)
 ```
 
 ## Predator Entry
-Once a *Bdellovibrio bacteriovorus* like this one has latched onto its unfortunate host, it opens a portal in the host’s outer membrane, secreting a cocktail of enzymes that alter the host cell wall, causing the cell to round up and enlarge the periplasmic space. The *B. bacteriovorus* quickly slides into the host periplasm through the portal [More: *Bdellovibrio bacteriovorus* entry](#*Bdellovibrio_bacteriovorus*_entry) and seals the door behind it. In the process of preparing for entry, the cell dismantles equipment that is no longer necessary, including its chemosensory array and flagellum. As you can see here, the sheathed flagellum dislocates from the motor and is pulled into the periplasm, where the filament is degraded.
+Once a *Bdellovibrio bacteriovorus* like this one has latched onto its unfortunate host, it opens a portal in the host’s outer membrane, secreting a cocktail of enzymes that alter the host cell wall, causing the cell to round up and enlarge the periplasmic space. The *B. bacteriovorus* quickly slides into the host periplasm through the portal [More: Bdellovibrio bacteriovorus entry](#Bdellovibrio_bacteriovorus_entry) and seals the door behind it. In the process of preparing for entry, the cell dismantles equipment that is no longer necessary, including its chemosensory array and flagellum. As you can see here, the sheathed flagellum dislocates from the motor and is pulled into the periplasm, where the filament is degraded.
 
-*Note that the prey here–the small, round cell–comes from a mutant strain of* Escherichia coli *that has an altered form of the shape-regulating protein MreB, which results in thinner cells. It is also lacking the Min system that positions the division plane at midcell. As a result, division occurs randomly along the length of the cell. The cells that divide near the pole produce “**minicells**” like this one. Minicells do not contain a genome and are not viable cells, but they can be useful for experiments. In this case, the reduced thickness of the sample improves the quality of cryoET imaging. It also lets us capture intermediates in the* B. bacteriovorus *entry process [More: Bdellovibrio bacteriovorus entry](#).*
+*Note that the prey here–the small, round cell–comes from a mutant strain of* Escherichia coli *that has an altered form of the shape-regulating protein MreB, which results in thinner cells. It is also lacking the Min system that positions the division plane at midcell. As a result, division occurs randomly along the length of the cell. The cells that divide near the pole produce “**minicells**” like this one. Minicells do not contain a genome and are not viable cells, but they can be useful for experiments. In this case, the reduced thickness of the sample improves the quality of cryoET imaging. It also lets us capture intermediates in the* B. bacteriovorus *entry process [More: Bdellovibrio bacteriovorus entry](#Bdellovibrio_bacteriovorus_entry).*
 
 (ref:9-10) [Bdellovibrio bacteriovorus / Escherichia coli](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1580](https://doi.org/10.22002/D1.1580)
 
@@ -215,7 +215,7 @@ library(doivideo)
 doivideo('10.22002/D1.1580',0)
 ```
 
-### More: *Bdellovibrio bacteriovorus* entry{-#*Bdellovibrio_bacteriovorus*_entry}
+### More: Bdellovibrio bacteriovorus entry{-#Bdellovibrio_bacteriovorus_entry}
 We still do not know exactly how *Bdellovibrio bacteriovorus* enters its host, but the process is extremely rapid. In order to catch a snapshot, we mixed *B. bacteriovorus* with miniaturized prey (see details on the main page). As the *B. bacteriovorus* cell cannot fit inside the prey, it remains stuck half-in and half-out. Note the tight collar of host outer membrane around the invader. How this seal is maintained throughout invasion remains a mystery.
 
 (ref:9-10a) [Bdellovibrio bacteriovorus / Escherichia coli](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1585](https://doi.org/10.22002/D1.1585)
