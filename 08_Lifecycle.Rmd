@@ -202,6 +202,10 @@ doivideo('10.22002/D1.1563',0)
 
 ## Summary
 
+```{R}
+knitr::include_graphics('img/summaries/08_Lifecycle.gif')
+```
+
 ### Concept Check Questions {-}
 
 • What is the function of RecA and RadA?

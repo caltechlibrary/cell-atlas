@@ -134,6 +134,10 @@ doivideo('10.22002/D1.1595',0)
 
 ## Summary
 
+```{R}
+knitr::include_graphics('img/summaries/10_Viruses.gif')
+```
+
 ### Concept Check Questions {-}
 
 • Why are phage not considered a life form?

@@ -93,6 +93,10 @@ Sporulation may seem like a highly specialized function practiced by relatively 
 
 ## Summary
 
+```{R}
+knitr::include_graphics('img/summaries/08_Lifecycle.gif')
+```
+
 ### Concept Check Questions {-}
 
 • What is the function of RecA and RadA?

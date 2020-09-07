@@ -63,6 +63,10 @@ Defense can also be structural. Surface layers may protect cells from some phage
 
 ## Summary
 
+```{R}
+knitr::include_graphics('img/summaries/10_Viruses.gif')
+```
+
 ### Concept Check Questions {-}
 
 • Why are phage not considered a life form?

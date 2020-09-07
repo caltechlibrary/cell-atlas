@@ -118,6 +118,10 @@ Once inside its host, *Bdellovibrio bacteriovorus* has the leisure to grow and r
 
 ## Summary
 
+```{R}
+knitr::include_graphics('img/summaries/09_Interaction.gif')
+```
+
 ### Concept Check Questions {-}
 
 • What are two structures bacteria use to attach to a biofilm?

@@ -237,6 +237,10 @@ doivideo('10.22002/D1.1581',0)
 
 ## Summary
 
+```{R}
+knitr::include_graphics('img/summaries/09_Interaction.gif')
+```
+
 ### Concept Check Questions {-}
 
 • What are two structures bacteria use to attach to a biofilm?
