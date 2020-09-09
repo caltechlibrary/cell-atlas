@@ -6,6 +6,12 @@ Click on a name in the sidebar to learn a little about them.
 
 ## Ariane Briegel {-#ariane_briegel}
 
+Ariane Briegel is Professor of Ultrastructural Biology at the Leiden University (The Netherlands) and co-director of the Dutch center for electron Nanoscopy (NeCEN). She earned her PhD in the laboratory of Prof. Wolfgang Baumeister at the Max Planck Institute in Martinsried Germany. Here, she learned the power of Electron Tomography to study microbes in three dimensions and at macromolecular resolution. She continued to explore the wonders of bacterial structure and function in the laboratory of Grant Jensen as a postdoc and research scientist. She  has 20 years of experience using cryo-electron microscopy to study bacterial and archaeal ultrastructure. The Briegel laboratory focuses on investigating how microbes sense and respond to their environment using cryoEM methods.
+
+```{R}
+knitr::include_graphics('img/bios/ariane_briegel.jpg')
+```
+
 ## Yi-Wei Chang {-#yi-wei_chang}
 
 ## Songye Chen {-#songye_chen}
@@ -41,6 +47,12 @@ knitr::include_graphics('img/bios/grant_jensen.jpg')
 ## Lauren Ann Metskas {-#lauren_ann_metskas}
 
 ## Gavin Murphy {-#gavin_murphy}
+
+Following his graduation from the University of Dallas, Gavin Murphy spent two years studying X-ray crystallography as a Fulbright Scholar at the European Molecular Biology Laboratory in Hamburg, Germany. He then joined the lab of Grant Jensen at Caltech, applying cryo-electron tomography to solve the structures of bacterial macromolecular machinery. He received his doctorate in 2007, for work that included one of the first subtomogram averages ever published, revealing the ultrastructure of the flagellar motor. Wanting to make a more direct impact on human health, in his postdoctoral work with Sriram Subramanian at the National Institutes of Health he developed and applied methods for focused ion beam scanning electron microscopy (FIB-SEM) and correlative light and electron microscopy (CLEM) to visualize large volumes of eukaryotic cells and tissue. In 2012, Gavin became Director of the Electron Microscopy Center at Indiana University Bloomington. He died in 2017, and is fondly remembered and greatly missed by his colleagues.
+
+```{R}
+knitr::include_graphics('img/bios/gavin_murphy.jpg')
+```
 
 ## Lam Nguyen {-#lam_nguyen}
 
