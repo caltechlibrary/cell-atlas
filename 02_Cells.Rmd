@@ -120,7 +120,7 @@ doivideo('10.22002/D1.1474',0)
 ### More: Pearled vesicles{-#Pearled_vesicles}
 Different species can produce outer membrane vesicles that look very different. Even vesicles from the same species can look very different. Sometimes they come off the cell as a chain of spheres; sometimes the spheres remain connected, like a string of pearls, as in this *Borrelia burgdorferi* cell. Sometimes vesicles form long tubes instead [More: Tubular vesicles](#Tubular_vesicles). Sometimes the same chain can be tubular in one section (usually at the base, connected to the cell), and a string of spheres in another.
 
-(ref:2-4a) [Borrelia burgdorferi 2](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1363](https://doi.org/10.22002/D1.1363)
+(ref:2-4a) [Borrelia burgdorferi](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1363](https://doi.org/10.22002/D1.1363)
 
 ```{R 2-4a, echo=FALSE, screenshot.alt='movie_stills/2_4a.png' , fig.cap= '(ref:2-4a)'}
 library(doivideo)
@@ -246,7 +246,7 @@ doivideo('10.22002/D1.1476',0)
 ### More: Nitrosopumilus maritimus{-#Nitrosopumilus_maritimus}
 In *Nitrosopumilus maritimus*, surface layer proteins form hexagonal rosettes that in turn pack into a hexagonal lattice.
 
-(ref:2-7c) [Nitrosopumilis maritimus](#tree) Collected by: [Rasika Ramdasi](#rasika_ramdasi) Movie DOI: [10.22002/D1.1368](https://doi.org/10.22002/D1.1368)
+(ref:2-7c) [Nitrosopumilus maritimus](#tree) Collected by: [Rasika Ramdasi](#rasika_ramdasi) Movie DOI: [10.22002/D1.1368](https://doi.org/10.22002/D1.1368)
 
 ```{R 2-7c, echo=FALSE, screenshot.alt='movie_stills/2_7c.png' , fig.cap= '(ref:2-7c)'}
 library(doivideo)
