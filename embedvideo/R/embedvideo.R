@@ -1,26 +1,24 @@
-#' DOI Video
+#' embedvideo
 #'
-#' Embed video player based on a DOI
+#' Embed Video player
 #'
 #' @import htmlwidgets
 #'
 #' @export
-doivideo <- function(doi,index, screenshot=NULL, width = NULL, height = NULL, elementId = NULL) {
+embedvideo <- function(media_location, width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
-    doi = doi,
-    index = index,
-    screenshot = screenshot
+    media_location = media_location
   )
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'doivideo',
+    name = 'embedvideo',
     x,
     width = '100%',
     height = '100%',
-    package = 'doivideo',
+    package = 'embedvideo',
     elementId = elementId,
     sizingPolicy = htmlwidgets::sizingPolicy(padding = 0, browser.fill = TRUE, knitr.figure = FALSE)
   )

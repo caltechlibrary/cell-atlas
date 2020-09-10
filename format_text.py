@@ -17,12 +17,12 @@ def insert_movie(doi):
     image_path = f'movie_stills/{filen}.png'
     collector_label = collector.replace(' ','_').lower()
     collector_link = f'[{collector}](#{collector_label})'
-    return "(ref:"+label+") ["+title+"](#tree) Collected by: "+collector_link+\
+    return "\n\n(ref:"+label+") ["+title+"](#tree) Collected by: "+collector_link+\
             " Movie DOI: ["+doiv+"](https://doi.org/"+doiv+")\n\n"+\
             "```{R "+label+", echo=FALSE, screenshot.alt='"+\
             image_path+"' , fig.cap= '(ref:"+label+\
             ")'}\nlibrary(doivideo)\ndoivideo('"+\
-            doiv+"',0)\n```\n\n"
+            doiv+"',0,'"+image_path+"')\n```\n\n"
 
 parser = argparse.ArgumentParser(description=\
         "Transform text file chapters to Rmarkdown")
@@ -60,20 +60,20 @@ for filen in args.chapter_file:
         # Section headings
         if re.search(r"^\[\d+_" ,line):
             #Put in movie from last section
-            if doi != '':
-                working_copy.append(insert_movie(doi))
+            #if doi != '':
+            #    working_copy.append(insert_movie(doi))
             split = line.split('_')
             number = split[1]
             section = line.split(']')[1].strip()
             working_copy.append('## '+section)
             movie_label = chapter_number.lstrip("0")+'_'+number
             if movie_label in dois:
-                doi = dois[movie_label]
+                working_copy.append(insert_movie(dois[movie_label]))
         # Subsection headings
         elif re.search(r"^\[\d" ,line):
             #Put in movie from last section
-            if doi != '':
-                working_copy.append(insert_movie(doi))
+            #if doi != '':
+            #    working_copy.append(insert_movie(doi))
             split = line.split('_')
             number = split[0].replace('[','')
             cleaned = split[1].replace(']','')
@@ -91,7 +91,7 @@ for filen in args.chapter_file:
             subsection_mapping[link]=short_link
             movie_label = chapter_number.lstrip("0")+'_'+number
             if movie_label in dois:
-                doi = dois[movie_label]
+                working_copy.append(insert_movie(dois[movie_label]))
         # Schematics
         elif line[0].isdigit():
             #Put in movie from last section

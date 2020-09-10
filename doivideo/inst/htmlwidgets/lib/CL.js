@@ -1,5 +1,5 @@
 /**
- * CL-core.js provides browser side JavaScript access to 
+ * CL-core.js provides browser side JavaScript access to
  * Caltech Library resources (e.g. feeds.library.caltech.edu).
  * It also provides common functions and objects used in various
  * Caltech Library projects.
@@ -24,7 +24,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     "use strict";
     /* CL is our root object */
     let CL = {},
-        Version = 'v0.1.2';
+        Version = 'v0.1.12';
 
 
     if (window.CL === undefined) {
@@ -35,14 +35,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     CL.Version = Version;
 
     /**
-     * CL.pipeline() takes a data, error and list of functions as 
-     * parameters.  It then creates a clone of the current state 
-     * adds adds the list of functions passed to .pipelineFns as 
-     * well as a .nextCalbackFn() method that is will take the 
-     * data and error parameters after shifting the first function 
+     * CL.pipeline() takes a data, error and list of functions as
+     * parameters.  It then creates a clone of the current state
+     * adds adds the list of functions passed to .pipelineFns as
+     * well as a .nextCalbackFn() method that is will take the
+     * data and error parameters after shifting the first function
      * in .pipelineFns and envoking it with the data and error
-     * parameters. The shifted out callback can then envoke 
-     * this.nextCallbackFn(data, err) as needed to continue the 
+     * parameters. The shifted out callback can then envoke
+     * this.nextCallbackFn(data, err) as needed to continue the
      * pipe line.
      *
      * @params data (any valid JavaScript type)
@@ -84,7 +84,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         }
         self._attributes.set(name, value);
     };
-    
+
     /**
      * CL.getAttribute() returns the value if the attribute or undefined
      * if not found.
@@ -94,7 +94,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      */
     CL.getAttribute = function(name) {
         let self = this;
-        if (self._attributes !== undefined && 
+        if (self._attributes !== undefined &&
             self._attributes.has(name)) {
             return self._attributes.get(name);
         }
@@ -116,14 +116,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 
     /**
-     * CL.httpGet() - makes an HTTP get request and returns the results 
+     * CL.httpGet() - makes an HTTP get request and returns the results
      * via callbackFn.
      *
      * @param url (a URL object) the assembled URL (including any GET args)
-     * @param contentType - string of indicating mime type 
+     * @param contentType - string of indicating mime type
      *        (e.g. text/html, text/plain, application/json)
-     * @param callbackFn - an function to handle the callback, 
-     *        function takes two args data (an object) and 
+     * @param callbackFn - an function to handle the callback,
+     *        function takes two args data (an object) and
      *        error (a string)
      */
     CL.httpGet = function (url, contentType, callbackFn) {
@@ -145,18 +145,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             }
         };
 
-        /* NOTE: Check to see if we should turn a string version of URL 
+        /* NOTE: Check to see if we should turn a string version of URL
          * into a URL object. Handle case of applying a BaseURL prefix
          * if protocol/host is missing */
         if (typeof url === "string") {
             if (url.startsWith("/") && self.BaseURL !== undefined) {
-                /* NOTE: combined our BaseURL string with url as 
+                /* NOTE: combined our BaseURL string with url as
                  * root relative pathname, then re-cast to URL object */
                 url = new URL(self.BaseURL + url);
             } else {
                 url = new URL(url);
             }
-        } 
+        }
         if (page_url.username !== undefined && url.username === undefined) {
             url.username = page_url.username;
         }
@@ -188,15 +188,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     };
 
     /**
-     * CL.httpPost() - makes an HTTP POST request and returns the results 
+     * CL.httpPost() - makes an HTTP POST request and returns the results
      * via callbackFn.
      *
      * @param url (string) the assembled URL (including any GET args)
-     * @param contentType - string of indicating mime type 
+     * @param contentType - string of indicating mime type
      *        (e.g. text/html, text/plain, application/json)
      * @param payload - the text you want to POST
-     * @param callbackFn - an function to handle the callback, 
-     *        function takes two args data (an object) and 
+     * @param callbackFn - an function to handle the callback,
+     *        function takes two args data (an object) and
      *        error (a string)
      */
     CL.httpPost = function (url, contentType, payload, callbackFn) {
@@ -218,7 +218,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             }
         };
 
-        /* NOTE: Check to see if we should turn a string version of URL 
+        /* NOTE: Check to see if we should turn a string version of URL
          * into a URL object. Handle case of applying a BaseURL prefix
          * if protocol/host is missing */
         if (typeof url == "string") {
@@ -288,12 +288,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     }
 
     /**
-     * __template processes a Python-like template string, 
-     * containing object attribute names with 
+     * __template processes a Python-like template string,
+     * containing object attribute names with
      * prefixes of `{{` and suffixes of `}}` and replaces
      * them with the attributes's value. The processed string
      * is then returned by the function.
-     */ 
+     */
     function __template(tmpl, obj, sep = "") {
         let out = tmpl;
         for (let key in obj) {
@@ -319,8 +319,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
     /**
      * field takes a default_attributes object, a template
-     * string and an optional init function. It returns 
-     * an object that has the following functions - init(), get(), set(), 
+     * string and an optional init function. It returns
+     * an object that has the following functions - init(), get(), set(),
      * html(), and json().
      *
      * Example:
@@ -349,7 +349,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      *                obj.birth_date = dt.toDateString()
      *             }
      *          });
-     *          
+     *
      *     // Render as HTML
      *     element.innerHTML = creator.html();
      */
@@ -418,7 +418,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      *            first_name: "Neil",
      *         };
      *
-     *     steinbeck = CL.field(steinbeck, 
+     *     steinbeck = CL.field(steinbeck,
      *         '<span class="last_name">{{last_name}}</span>, ' +
      *         '<span class="first_name">{{first_name}}</span>');
      *
@@ -428,22 +428,22 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      *
      *     book = CL.field({
      *          "title": "Short Reign of Pippen IV"
-     *          "description": "A novella length satire set in post-war Paris", 
+     *          "description": "A novella length satire set in post-war Paris",
      *          "creators": creators
-     *         }, 
+     *         },
      *         '<div class="book">' +
      *         '   <div class="title">{{title}}</div>' +
-     *         '   <div class="creators">By {{creators}}</div>' + 
+     *         '   <div class="creators">By {{creators}}</div>' +
      *         '   <div class="description">{{description}}</div>' +
      *         '</div>'
      *         undefined, '; ');
      *     books.push(book);
      *
-     *     pratchett = CL.field(pratchett, 
+     *     pratchett = CL.field(pratchett,
      *         '<span class="last_name">{{last_name}}</span>, ' +
      *         '<span class="first_name">{{first_name}}</span>');
      *
-     *     gaimen = CL.field(gaimen, 
+     *     gaimen = CL.field(gaimen,
      *         '<span class="last_name">{{last_name}}</span>, ' +
      *         '<span class="first_name">{{first_name}}</span>');
      *
@@ -451,17 +451,17 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      *         '<div class="creators">By {{creators}}</div>',
      *         sep = '; ');
      *
-     *     // NOTE: We attach normalizeBookData for the init function 
-     *     // which is called by assembleFields initializing the 
+     *     // NOTE: We attach normalizeBookData for the init function
+     *     // which is called by assembleFields initializing the
      *     // data before rendering.
      *     book = CL.field({
      *          "title": "Good Omens"
-     *          "description": "A book about angels and demons set in London for the most part", 
+     *          "description": "A book about angels and demons set in London for the most part",
      *          "creators": creators
-     *         }, 
+     *         },
      *         '<div class="book">' +
      *         '   <div class="title">{{title}}</div>' +
-     *         '   <div class="creators">By {{creators}}</div>' + 
+     *         '   <div class="creators">By {{creators}}</div>' +
      *         '   <div class="description">{{description}}</div>' +
      *         '</div>'
      *         normalizeBook, '; ');
@@ -477,7 +477,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         element.innerHTML = "";
         if (Array.isArray(fields)) {
             for (let key in fields) {
-                if (fields[key].init !== undefined && 
+                if (fields[key].init !== undefined &&
                         fields[key].html !== undefined) {
                     fields[key].init();
                     element.innerHTML += fields[key].html();
@@ -489,9 +489,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         return element;
     }
 
-    /* 
-     * NOTE: we need to update the global CL after 
-     * adding our methods 
+    /*
+     * NOTE: we need to update the global CL after
+     * adding our methods
      */
     if (window.CL === undefined) {
         window.CL = {};
@@ -499,7 +499,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     window.CL = Object.assign(window.CL, CL);
 }(document, window));
 /**
- * CL-core.js provides browser side JavaScript access to 
+ * CL-core.js provides browser side JavaScript access to
  * feeds.library.caltech.edu and other Caltech Library resources.
  *
  * @author R. S. Doiel
@@ -530,25 +530,25 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     }
 
     /********************
-     * FeedsBaseURL: this normally should be 
+     * FeedsBaseURL: this normally should be
      *
      *        https://feeds.library.caltech.edu
      *
-     * It maybe changed to support testing and development 
+     * It maybe changed to support testing and development
      * versions of feeds content.
      ********************/
     CL.FeedsBaseURL = 'https://feeds.library.caltech.edu';
 
     /**
-     * getFeed allows you to fetch the raw feed as plain text. 
-     * You can use this to form your own custom queries or as 
+     * getFeed allows you to fetch the raw feed as plain text.
+     * You can use this to form your own custom queries or as
      * a debug tool.
      *
      * @param feedURL (string, required) the URL to fetch
-     * @param callbackFn (function, required) the callback function 
-     *        to process the results the callaback function has two 
-     *        parameters data and err where err is a string holding 
-     *        an error message if something went wrong or an empty 
+     * @param callbackFn (function, required) the callback function
+     *        to process the results the callaback function has two
+     *        parameters data and err where err is a string holding
+     *        an error message if something went wrong or an empty
      *        string if everything was successful. data will hold any
      *        data returned
      */
@@ -566,7 +566,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             url = self.FeedsBaseURL + "/people/people_list.json";
        this.httpGet(url, "application/json", callbackFn);
     };
-    
+
     /**
      * CL.getPeopleInfo() fetch the /people/[peopleID]/people.json
      * so you can build a list of available feed types (e.g. article, recent/article).
@@ -584,32 +584,32 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
     /**
      * CL.getPeopleInclude() fetches a people based HTML include feed
-     * and envokes the callback function provided. 
+     * and envokes the callback function provided.
      *
-     * @param personID - an internal Caltech Library Person identifier 
+     * @param personID - an internal Caltech Library Person identifier
      *          like the creator ID used in EPrints repository systems.
      * @param feedName string (e.g. combined, article, book, monograph)
      * @param callbackFn is a function that has two parameters - data and error
      */
     CL.getPeopleInclude = function(personID, feedName, callbackFn) {
         let self = this,
-            url = self.FeedsBaseURL + '/people/' + personID + 
+            url = self.FeedsBaseURL + '/people/' + personID +
                 '/' + feedName.toLowerCase() + '.include';
         this.httpGet(url, "text/plain", callbackFn);
     };
 
     /**
-     * CL.getPeopleJSON() fetches person based JSON feed and envokes 
+     * CL.getPeopleJSON() fetches person based JSON feed and envokes
      * the callback function provided.
      *
-     * @param personID - an internal Caltech Library Person identifier 
+     * @param personID - an internal Caltech Library Person identifier
      *          like the creator ID used in EPrints repository systems.
      * @param feedName string (e.g. combined, article, book, monograph)
      * @param callbackFn is a function that has two parameters - data and error
      */
     CL.getPeopleJSON = function (personID, feedName, callbackFn) {
         let self = this,
-            url = self.FeedsBaseURL + '/people/' + personID + 
+            url = self.FeedsBaseURL + '/people/' + personID +
             '/' + feedName.toLowerCase() + '.json';
         this.httpGet(url, "application/json", callbackFn);
     };
@@ -625,8 +625,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      * @param callbackFn is a function that has two parameters - data and error
      */
     CL.getPeopleCustomJSON = function (peopleID, feedName, idList, callbackFn) {
-        let self = this, 
-            url = self.FeedsBaseURL + '/people/' + peopleID + 
+        let self = this,
+            url = self.FeedsBaseURL + '/people/' + peopleID +
             '/' + feedName.toLowerCase() + '.json';
         this.httpGet(url, "application/json", function(object_list, err) {
             if (err != "") {
@@ -657,7 +657,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      * CL.getPeopleKeys() fetches a person based list of keys and
      * the callback function provided.
      *
-     * @param personID - an internal Caltech Library Person identifier 
+     * @param personID - an internal Caltech Library Person identifier
      *          like the creator ID used in EPrints repository systems.
      * @param feedName string (e.g. combined, article, book, monograph)
      */
@@ -699,7 +699,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     };
 
     /**
-     * CL.getGroupSummary() fetches the group summary data which 
+     * CL.getGroupSummary() fetches the group summary data which
      * may include description, aprox_start, aprox_end as well as
      * alternative names.
      *
@@ -708,7 +708,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      */
     CL.getGroupSummary = function(groupID, callbackFn) {
         let self = this,
-            url = self.FeedsBaseURL + '/groups/' + groupID + 
+            url = self.FeedsBaseURL + '/groups/' + groupID +
             '/group.json';
         this.httpGet(url, "application/json", function(data, err) {
             if (err) {
@@ -737,7 +737,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
     /**
      * CL.getGroupInclude() fetches a group based HTML include feed
-     * and envokes the callback function provided. 
+     * and envokes the callback function provided.
      *
      * @param groupID - a string identifying the group like that found in the group URL of feeds
      * @param feedName string (e.g. combined, article, book, monograph)
@@ -745,13 +745,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      */
     CL.getGroupInclude = function(groupID, feedName, callbackFn) {
         let self = this,
-            url = self.FeedsBaseURL + '/groups/' + groupID + 
+            url = self.FeedsBaseURL + '/groups/' + groupID +
             '/' + feedName.toLowerCase() + '.include';
         this.httpGet(url, "text/plain", callbackFn);
     };
 
     /**
-     * CL.getGroupJSON() fetches group based JSON feed and envokes 
+     * CL.getGroupJSON() fetches group based JSON feed and envokes
      * the callback function provided.
      *
      * @param groupID - a string identifying the group like that found in the group URL of feeds
@@ -760,7 +760,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      */
     CL.getGroupJSON = function (groupID, feedName, callbackFn) {
         let self = this,
-            url = self.FeedsBaseURL + '/groups/' + groupID + 
+            url = self.FeedsBaseURL + '/groups/' + groupID +
             '/' + feedName.toLowerCase() + '.json';
         this.httpGet(url, "application/json", callbackFn);
     };
@@ -777,7 +777,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      */
     CL.getGroupCustomJSON = function (groupID, feedName, idList, callbackFn) {
         let self = this,
-            url = self.FeedsBaseURL + '/groups/' + groupID + 
+            url = self.FeedsBaseURL + '/groups/' + groupID +
             '/' + feedName.toLowerCase() + '.json';
         this.httpGet(url, "application/json", function(object_list, err) {
             if (err != "") {
@@ -815,7 +815,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      */
     CL.getGroupKeys = function(groupID, feedName, callbackFn) {
         let self = this,
-            url = self.FeedsBaseURL + '/groups/' + groupID + 
+            url = self.FeedsBaseURL + '/groups/' + groupID +
             '/' + feedName.toLowerCase() + '.keys';
         this.httpGet(url, "text/plain", function (data, err) {
             if (err) {
@@ -828,7 +828,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 
     /**
-     * CL.getPersonInclude() fetches person based HTML feed and envokes 
+     * CL.getPersonInclude() fetches person based HTML feed and envokes
      * the callback function provided.
      *
      * @param orcid string representation of the ORCID
@@ -890,7 +890,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         CL = Object.assign({}, window.CL);
     }
 
-    /** 
+    /**
      * CL.createCompositElement() takes an element type (e.g.
      * div, span, h1, a) and append children based on an array
      * of type information, ids and CSS classes.
@@ -943,7 +943,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
      * normalize_view is a function to use with a CL.pipeline. It expects
      * data and error parameters and will envoke `this.nextCallbackFn(data, err)`
      * before existing. The purpose of normalize_view is to extract titles, links,
-     * pub_data, creator and description from both Invenion and EPrints style JSON 
+     * pub_date, creator and description from both Invenion and EPrints style JSON
      * lists.
      */
     CL.normalize_view = function(data, err) {
@@ -970,6 +970,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 view.title = record.title;
                 if (record.type !== undefined && record.type !== "") {
                     view.resource_type = record.type;
+                }
+                if (record.book_title !== undefined && record.book_title !== "") {
+                    view.book_title = record.book_title;
                 }
                 /* NOTE: we should prefer the DOI if available */
                 view.href = record.official_url;
@@ -1015,7 +1018,27 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 if (record.edition !== undefined && record.edition !== "") {
                     citation_info.edition = record.edition;
                 }
-                //FIXME: we had this field wrongly labeled in our EPrint 
+                if (record.event_title !== undefined && record.event_title !== "") {
+                    citation_info.event_title = record.event_title;
+                }
+                if (record.event_dates !== undefined && record.event_dates !== "") {
+                    citation_info.event_dates = record.event_dates;
+                }
+                if (record.event_location !== undefined && record.event_location !== "") {
+                    citation_info.event_location = record.event_location;
+                }
+                if (record.series !== undefined && record.series !== "") {
+                    citation_info.series = record.series;
+                }
+                if (record.ispublished !== undefined && record.ispublished !== "") {
+                    if (record.ispublished === "inpress") {
+                        citation_info.ispublished = "(In Press)";
+                    }
+                    if (record.ispublished === "submitted") {
+                        citation_info.ispublished = "(Submitted)";
+                    }
+                }
+                //FIXME: we had this field wrongly labeled in our EPrint
                 // output, it was called .pmc_id rather than .pmcid we
                 // can simplify this if/else when that has propagated
                 // throughout our collections.
@@ -1027,19 +1050,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 if (Object.keys(citation_info).length > 0) {
                     view.citation_info = citation_info;
                 }
-                // NOTE: Some records have no publication date because 
+                // NOTE: Some records have no publication date because
                 // there is no date in the material provided
                 // when it was digitized and added to the repository.
-                view.pub_date = "";
+                view.pub_date = '';
                 if (record.date_type !== undefined &&
-                    (record.date_type === "completed" ||
-                        record.date_type === "published" ||
-                        record.date_type === "submitted" ||
-                        record.date_type === "degree")) {
-                    view.pub_date = "(" + record.date.substring(0, 4) + ")";
+                    (record.date_type === 'completed' ||
+                        record.date_type === 'published' ||
+                        record.date_type === 'inpress' ||
+                        record.date_type === 'submitted' ||
+                        record.date_type === 'degree')) {
+                    view.pub_date = '(' + record.date.substring(0, 4) + ')';
                 } else if (record.type !== undefined && record.date !== undefined &
-                    (record.type === "conference_item" || record.type === "teaching_resource") && record.date !== "") {
-                    view.pub_date = "(" + record.date.substring(0, 4) + ")";
+                    (record.type === 'conference_item' || record.type === 'teaching_resource') && record.date !== '') {
+                    view.pub_date = '(' + record.date.substring(0, 4) + ')';
                 }
                 if (record.creators !== undefined && record.creators.items !== undefined) {
                     view.creators = [];
@@ -1066,11 +1090,17 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                             "pos": i
                         });
                     });
+                    /* DR-135, add additional fields for conference items. */
+                    if (record.type !== undefined && record.type === 'conference_item') {
+                        view.event_title = record.event_title;
+                        view.event_dates = record.event_dates;
+                        view.event_location = record.event_location;
+                    }
                 }
                 view.description = record.abstract;
             } else {
                 view.collection = "CaltechDATA";
-                view.title = record.titles[0];
+                view.title = record.titles[0].title;
                 if (record.resourceType !== undefined && record.resourceType.resourceTypeGeneral !== undefined && record.resourceType.resourceTypeGeneral !== "") {
                     view.resource_type = record.resourceType.resourceTypeGeneral;
                 }
@@ -1232,7 +1262,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
          * + show_issn
          * + show_isbn
          */
-        if (config.parent_element !== undefined) {
+        if (config.parent_element !== undefined && config.parent_element) {
             parent_element = config.parent_element;
         } else if (self.element !== undefined) {
             parent_element = self.element;
@@ -1255,7 +1285,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 feed_count = document.createElement("div"),
                 year_jump_list = document.createElement("div"),
                 year_heading = "";
-            /* Handle showing search box with current search string */
+            /* Clear the inner content of our element. */
+            parent_element.innerHTML = "";
             /* Handle Managing Year Jump List */
             if (show_year_headings === true) {
                 year_heading = "";
@@ -1266,8 +1297,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 feed_count.innerHTML = "(" + records.length + " items)";
                 parent_element.append(feed_count);
             }
-            /* Add our ul to parent_element */
-            parent_element.appendChild(ul);
+            /* NOTE: If we're not showing headings we're ready to attach our UL list
+             * which will be populated record by record, otherwise we need a
+             * alternate with divs and uls for each grouping */
+            if (show_year_headings === false) {
+                parent_element.appendChild(ul);
+            }
             records.forEach(function(record) {
                 let view = {},
                     current_year = "",
@@ -1278,6 +1313,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                     creators,
                     pub_year,
                     pub_date,
+                    book_title,
                     title,
                     link,
                     description,
@@ -1321,11 +1357,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 if (show_creators === true && record.creators.length > 0) {
                     creators = document.createElement("span");
                     creators.classList.add("creator");
-                    record.creators.slice(0, 3).forEach(function(creator, i) {
+                    record.creators.slice(0, 2).forEach(function(creator, i) {
                         if (creator.display_name !== undefined && creator.display_name !== "") {
                             let span = document.createElement("span");
                             if (i > 0) {
-                                span.innerHTML = "and";
+                                span.innerHTML = ";";
                                 creators.appendChild(span);
                                 span = document.createElement("span");
                             }
@@ -1337,7 +1373,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                             creators.appendChild(span);
                         }
                     });
-                    if (record.creators.length > 3) {
+                    if (record.creators.length > 2) {
                         creators.append(" et al.");
                     }
                     li.appendChild(creators);
@@ -1360,14 +1396,23 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                     title.appendChild(link);
                     li.appendChild(title);
                 } else {
-                    title.innerHTML = record.title;
-                    link.innerHTML = record.href;
+                    title.innerHTML = '<em>' + record.title + '</em>';
                     li.appendChild(title);
-                    li.appendChild(link);
+                }
+                if (record.book_title !== undefined && record.book_title !== "") {
+                    book_title = document.createElement("span");
+                    book_title.classList.add("book-title");
+                    book_title.innerHTML = 'In: <em>' + record.book_title + '</em>';
+                    li.appendChild(book_title);
                 }
                 if (show_citation === true && Object.keys(record.citation_info).length > 0) {
-                    ["publication", "series", "volume", "number",
-                        "page_range", "pages", "issn", "isbn", "pmcid"
+                    [
+                        "publication", "series", "volume", "number",
+                        /* removed DR-135,
+                        "page_range", "pages", */
+                        "issn", "isbn", "pmcid",
+                        "event_title", "event_dates", "event_location",
+                        "ispublished"
                     ].forEach(function(key) {
                         if (record.citation_info[key] !== undefined &&
                             record.citation_info[key] !== "") {
@@ -1376,21 +1421,35 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                                 label = "";
                             span.classList.add(key);
                             switch (key) {
+                                case "ispublished":
+                                    span.innerHTML = val;
+                                    break;
                                 case "publication":
                                     span.innerHTML = val;
                                     break;
                                 case "volume":
-                                    span.innerHTML = val;
+                                    span.innerHTML = "; Vol. " + val;
+                                    break;
+                                case "series":
+                                    if (record.citation_info["number"] !== undefined && record.citation_info["number"] !== "") {
+                                        span.innerHTML = "Series " + val + ", " +
+                                            record.citation_info["number"] + ".";
+                                    } else {
+                                        span.innerHTML = "Series " + val + ".";
+                                    }
                                     break;
                                 case "number":
-                                    span.innerHTML = "(" + val + ")";
+                                    if (record.citation_info['series'] === undefined || record.citation_info['series'] === "") {
+                                      span.innerHTML = "; No. " + val + "";
+                                    }
                                     break;
+                                /* DR-135 remove pages,
                                 case "page_range":
-                                    span.innerHTML = "pp. " + val;
+                                    span.innerHTML = "page range: " + val;
                                     break;
                                 case "pages":
-                                    span.innerHTML = "pg. " + val;
-                                    break;
+                                    span.innerHTML = "no. pg. " + val;
+                                    break;  */
                                 case "issn":
                                     if (show_issn === true) {
                                         span.innerHTML = "ISSN " + val;
@@ -1405,6 +1464,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                                     if (show_pmcid === true) {
                                         span.innerHTML = "PMCID " + val;
                                     }
+                                    break;
+                                case "event_title":
+                                    span.innerHTML = "In: " + val;
+                                    break;
+                                case "event_dates":
+                                    span.innerHTML = ", " + val;
+                                    break;
+                                case "event_location":
+                                    span.innerHTML = ", " + val;
                                     break;
                                 default:
                                     label = titleCase(key.replace("_", " "));
@@ -1450,11 +1518,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                     });
                 }
 
+
                 if (show_doi === true && record.doi !== undefined && record.doi !== "") {
                     span = document.createElement("span");
                     span.classList.add("doi");
                     span.innerHTML = record.doi;
                     li.appendChild(span);
+                }
+                if (show_title_linked === false) {
+                    link.innerHTML = record.href;
+                    li.appendChild(link);
                 }
                 if (show_description === true && record.description !== undefined && record.description !== "") {
                     description = document.createElement("div");
@@ -1546,7 +1619,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         });
     };
 
-    CL.doi_video_player = function(elem, doi, item_no) {
+    CL.doi_video_player = function(elem, doi, item_no, width = 640, height = 480) {
         let self = this;
         if (item_no === undefined) {
             item_no = 0;
@@ -1561,7 +1634,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 <!-- If you'd like to support IE8 -->
 <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 
-<video class="video-js" controls preload="auto" width="640" height="480" data-setup="{}">
+<video class="video-js" controls preload="auto" width="${width}" height="${height}" data-setup="{}">
     <source src="${obj.media_url}" type='${obj.media_type}'>
     <p class="vjs-no-js">
       To view this video please enable JavaScript, and consider upgrading to a web browser that

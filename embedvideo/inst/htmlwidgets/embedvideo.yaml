@@ -1,8 +1,4 @@
 dependencies:
-  - name: CL
-    version: 0.1.12
-    src: htmlwidgets/lib
-    script: CL.js
   - name: videojs
     version: 7.8.4
     src: htmlwidgets/lib
