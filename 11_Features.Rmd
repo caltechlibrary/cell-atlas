@@ -1,6 +1,6 @@
 # (APPENDIX) Appendix {-} 
 
-# Feature Index 
+# Feature Index {#features}
 
 Click on a feature in the sidebar to see examples in different species.
 
