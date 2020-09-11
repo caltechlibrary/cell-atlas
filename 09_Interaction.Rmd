@@ -235,7 +235,7 @@ library(doivideo)
 doivideo('10.22002/D1.1581',0,'movie_stills/9_11.png')
 ```
 
-## Summary
+## Summary {#summary9}
 
 ```{R}
 knitr::include_graphics('img/summaries/09_Interaction.gif')

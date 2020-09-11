@@ -61,7 +61,7 @@ So what can your cell do to protect itself from these attackers? The most well-k
 
 Defense can also be structural. Surface layers may protect cells from some phage. And then there is always distraction. One function of extracellular vesicles may be to provide decoys for phage to attack, as you can see with this myophage attacking a *Shewanella oneidensis* outer membrane vesicle. The war between cells and viruses is an ancient one, and continually raging. Despite your cell’s best efforts, it is very likely that it will end its life in a burst of phage. It is far from alone in this fate, though. In the ocean off Florida, it has been estimated that every day phage kill off half the bacterial population. But each lysed cell provides a feast for a starving neighbor, and DNA for more evolutionary tinkering, continuing to shape the weird, wonderful microbial world.
 
-## Summary
+## Summary {#summary10}
 
 ```{R}
 knitr::include_graphics('img/summaries/10_Viruses.gif')

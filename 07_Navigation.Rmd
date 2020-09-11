@@ -116,7 +116,7 @@ knitr::include_graphics('img/schematics/7_6_1.gif')
 [*PDB: 5JYG*](http://rcsb.org/structure/5JYG)
 MamK, like its eukaryotic homologue, actin, polymerizes into double-stranded filaments like this one from *Magnetospirillum magneticum* [@bergeron2017]. Unlike eukaryotic actin, though, the two strands are in register, rather than being staggered to pack more tightly.
 
-## Summary
+## Summary {#summary7}
 
 ```{R}
 knitr::include_graphics('img/summaries/07_Navigation.gif')

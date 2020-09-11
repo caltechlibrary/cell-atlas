@@ -79,7 +79,7 @@ Some species of archaea and bacteria use **gas vesicles** to control their buoya
 
 Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a single layer of protein. (Sometimes some additional proteins reinforce the shell.) You will see more examples of microcompartments in Chapter 4. Gas vesicles do not actively store gas; they simply allow gas dissolved in the cytoplasm to diffuse in, while forming a tight barrier against anything else, like water. They are fragile and prone to collapse with even a slight increase in the surrounding pressure.
 
-## Summary
+## Summary {#summary3}
 
 ```{R}
 knitr::include_graphics('img/summaries/03_Shape.gif')

@@ -103,7 +103,7 @@ Some archaeal cells, like this *Haloferax gibbonsii*, contain many small granule
 
 This *Halohasta litchfieldiae* cell has more unusual granules. The high electron-density (darkness) of these punctate structures suggests that they contain metal.
 
-## Summary
+## Summary {#summary4}
 
 ```{R}
 knitr::include_graphics('img/summaries/04_Growth.gif')

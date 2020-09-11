@@ -112,7 +112,7 @@ The skeleton-like terminal organelle gives these cells their characteristic flas
 
 Keep in mind that these are simply *some* of the ways we know bacteria and archaea get around, and we continue to discover new ones.
 
-## Summary
+## Summary {#summary6}
 
 ```{R}
 knitr::include_graphics('img/summaries/06_Motility.gif')

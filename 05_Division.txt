@@ -99,7 +99,7 @@ The Cdv filaments then pull the membrane inward, constricting the cell, as you c
 
 The majority of cells divide by one of these two mechanisms–FtsZ or Cdv–but not all do. Some bacterial and archaeal species have neither FtsZ nor Cdv, and we are still figuring out how they divide.
 
-## Summary
+## Summary {#summary5}
 
 ```{R}
 knitr::include_graphics('img/summaries/05_Division.gif')
