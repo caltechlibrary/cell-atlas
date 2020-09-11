@@ -29,7 +29,7 @@ HTMLWidgets.widget({
         }
         </style>
         <div class="video">
-        <video class="video-js" width="${width}" height="${height}" poster="${x.screenshot}" controls preload="auto" responsive=true id="my-video" data-setup='{"fluid": true}'>
+        <video class="video-js vjs-default-skin vjs-big-play-centered" width="${width}" height="${height}" poster="${x.screenshot}" controls preload="auto" responsive=true id="my-video" data-setup='{"fluid": true}'>
         <source src="${obj.media_url}" type='${obj.media_type}'>
         <p class="vjs-no-js">
           To view this video please enable JavaScript, and consider upgrading to a web browser that
