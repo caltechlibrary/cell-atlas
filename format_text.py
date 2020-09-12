@@ -49,7 +49,7 @@ with open(doi_file,'r') as csvfile:
 for filen in args.chapter_file:
     split = filen.split('_')
     chapter_number = split[0]
-    title = os.path.splitext(split[1])[0]
+    title = os.path.splitext(split[1])[0].replace('-',' ')
     infile =  open(filen,'r')
     oname = os.path.splitext(filen)[0]+'.Rmd'
     outfile = open(oname,'w')

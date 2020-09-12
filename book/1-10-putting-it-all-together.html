@@ -103,7 +103,7 @@
 <li class="chapter" data-level="" data-path="1-11-summary1.html"><a href="1-11-summary1.html#further-reading"><i class="fa fa-check"></i>Further Reading</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="2-cells.html"><a href="2-cells.html"><i class="fa fa-check"></i><b>2</b> Cells</a><ul>
+<li class="chapter" data-level="2" data-path="2-cell-planes.html"><a href="2-cell-planes.html"><i class="fa fa-check"></i><b>2</b> Cell Planes</a><ul>
 <li class="chapter" data-level="2.1" data-path="2-1-membrane.html"><a href="2-1-membrane.html"><i class="fa fa-check"></i><b>2.1</b> Membrane</a><ul>
 <li class="chapter" data-level="" data-path="2-1-membrane.html"><a href="2-1-membrane.html#Lipid_bilayer"><i class="fa fa-check"></i>Schematic: Lipid bilayer</a></li>
 <li class="chapter" data-level="" data-path="2-1-membrane.html"><a href="2-1-membrane.html#Ribosome"><i class="fa fa-check"></i>Schematic: Ribosome</a></li>
@@ -507,8 +507,8 @@
 <p>Science benefits from collaboration, and structural biology is no exception. This extends to our tools. To understand cells across their full length scale, we need to combine what we learn from different techniques. Consider this <em>Bdellovibrio bacteriovorus</em> cell. We can visualize its overall structure by cryoET. We can identify particular substructures with the help of fluorescence light microscopy (this approach is called “correlated light and electron microscopy”). We can get a higher-resolution view of an individual substructure by sub-tomogram averaging. We can then use genetics to identify the rough locations of individual components in that substructure by imaging mutants <a href="1-10-putting-it-all-together.html#Difference_mapping">More: Difference mapping</a>. Combining this analysis with positional clues from other biochemistry methods, we can place high-resolution structures of components solved by X-ray crystallography and single particle reconstruction into their correct context. In this way, we can begin to build up a full picture, from individual atoms to complete cells. We still have a long way to go, but someday we hope to be able to map the location and interactions of every protein in a bacterium or archaeon, creating a molecular atlas of the cell.</p>
 
 <div class="figure"><span id="fig:1-10"></span>
-<div id="htmlwidget-3bfbf37175c1184bc532" style="width:100%;height:100%;" class="doivideo html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3bfbf37175c1184bc532">{"x":{"doi":"10.22002/D1.1472","index":0,"screenshot":"movie_stills/1_10.png"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fb36662c559c895e59a3" style="width:100%;height:100%;" class="doivideo html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fb36662c559c895e59a3">{"x":{"doi":"10.22002/D1.1472","index":0,"screenshot":"movie_stills/1_10.png"},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
 Figure 1.10: <a href="C-tree.html#tree">Bdellovibrio bacteriovorus</a> Collected by: <a href="yi-wei-chang.html#yi-wei_chang">Yi-Wei Chang</a> Movie DOI: <a href="https://doi.org/10.22002/D1.1472">10.22002/D1.1472</a>
 </p>
@@ -518,8 +518,8 @@ Figure 1.10: <a href="C-tree.html#tree">Bdellovibrio bacteriovorus</a> Collected
 <p>To identify the location of a component within a large macromolecular complex, difference mapping can be helpful. In this approach, the gene corresponding to that component is either knocked out or a tag is added, like GFP, that will make the protein larger. A subtomogram average of the complex is produced, and compared to a subtomogram average of the complex from wild-type (unmodified) cells. Often, a difference in the structure is visible, corresponding to the missing or altered component. Here you see an example of how this was used to locate a component of the flagellar motor, a protein called FliI, in <em>Campylobacter jejuni</em> <span class="citation">[<a href="D-references.html#ref-henderson2020">14</a>]</span>. <a href="https://www.ebi.ac.uk/pdbe/entry/emdb/emd-5300"><em>EMD-5300</em></a>; <a href="https://www.ebi.ac.uk/pdbe/entry/emdb/emd-10457">EMD-10457</a></p>
 
 <div class="figure"><span id="fig:1-10a"></span>
-<div id="htmlwidget-e17702892ad900edf712" style="width:100%;height:100%;" class="doivideo html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e17702892ad900edf712">{"x":{"doi":"10.22002/D1.1473","index":0,"screenshot":"movie_stills/1_10a.png"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-df23f116cfd48a6a1556" style="width:100%;height:100%;" class="doivideo html-widget"></div>
+<script type="application/json" data-for="htmlwidget-df23f116cfd48a6a1556">{"x":{"doi":"10.22002/D1.1473","index":0,"screenshot":"movie_stills/1_10a.png"},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
 Figure 1.11: <a href="C-tree.html#tree">Campylobacter jejuni</a> Collected by: <a href="morgan-beeby.html#morgan_beeby">Morgan Beeby</a> Movie DOI: <a href="https://doi.org/10.22002/D1.1473">10.22002/D1.1473</a>
 </p>
@@ -578,7 +578,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
