@@ -56,16 +56,6 @@ library(doivideo)
 doivideo('10.22002/D1.1499',0,'movie_stills/4_3a.png')
 ```
 
-## Chlorosomes
-Other photosynthetic bacteria have taken the specialization of their light-harvesting membranes a step further, expanding not the entire membrane, but simply the hydrophobic interior. The result is a sort of factory called a **chlorosome**. These structures consist of up to hundreds of thousands of photocomplexes packed tightly inside a lipid monolayer. The size and shape varies between species, from wide lozenges to the thin, curved rod in this *Chloroflexi* cell. They are often tethered close to the membrane (and thus the light), and in peak photosynthesis conditions may be so abundant as to form a nearly continuous layer around the cell. As with intracytoplasmic membrane, their production is controlled in response to need. Chlorosomes, and other compartments you will see soon, challenge the idea that organelles exist only in eukaryotes.
-
-(ref:4-4) [Chloroflexi](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1492](https://doi.org/10.22002/D1.1492)
-
-```{R 4-4, echo=FALSE, screenshot.alt='movie_stills/4_4.png' , fig.cap= '(ref:4-4)'}
-library(doivideo)
-doivideo('10.22002/D1.1492',0,'movie_stills/4_4.png')
-```
-
 ## Enzyme Filaments
 Cells are subject to the vagaries of an environment in which conditions often change. To respond, they must be metabolically agile. The production of enzymes is dialed up and down to meet demand, but they can also be regulated in other ways. Degrading and resynthesizing proteins wastes resources and time. So why not just furlough workers when demand lags and call them back in when things pick up again? Cells across all domains of life have evolved an elegant furlough mechanism: enzyme polymerization. You already saw an example of this in Chapter 3: the metabolic enzyme CTP synthase. Another example is the alcohol-acetaldehyde dehydrogenase (AdhE) enzymes that allow *Clostridium thermocellum* like this one to digest cellulose into ethanol. As you can see, AdhE polymerizes into helical filaments called **spirosomes**. Polymerization can either inactivate an enzyme (e.g. by occluding its active site), or activate it (e.g. by changing its conformation to open an active site). Filaments can also regulate activity by changing their conformation; for AdhE, it is thought that spirosomes torque between a compact, inactive form to a more extended, active form (what you see here) [Schematic: AdhE spirosome structure](#AdhE_spirosome_structure). Whatever the details, polymerization is a rapid way to mobilize (or demobilize) a large number of enzymes for a metabolic task.
 
