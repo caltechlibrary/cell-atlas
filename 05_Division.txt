@@ -43,15 +43,11 @@ There can also be more than two daughter cells. Some species undergo simultaneou
 
 [5_6_Idiomarina loihiensis] Diderm Cytokinesis
 
-The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: Sphingopyxis alaskensis division]. For a later example, check out [More: Chloroflexi division].
+The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: Sphingopyxis alaskensis division].
 
 [6a_Sphingopyxis alaskensis] More: Sphingopyxis alaskensis division
 
 This diderm cell is about halfway through cytokinesis. The two daughter cells are still connected by a wide bridge of cytoplasm, but the inner membrane and cell wall has drawn in all around.
-
-[6b_Chloroflexi] More: Chloroflexi division
-
-This diderm cell is in the final stage of cytokinesis. The cytoplasm of the two daughter cells is completely separated by inner membrane and cell wall. The outer membrane, though, has not yet divided.
 
 [5_7_Caulobacter crescentus] Outer Membrane Constriction
 

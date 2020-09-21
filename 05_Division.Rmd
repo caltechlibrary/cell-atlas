@@ -85,7 +85,7 @@ doivideo('10.22002/D1.1511',0,'movie_stills/5_5.png')
 ```
 
 ## Diderm Cytokinesis
-The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: Sphingopyxis alaskensis division](#Sphingopyxis_alaskensis_division). For a later example, check out [More: Chloroflexi division](#Chloroflexi_division).
+The cytokinesis process is similar for diderm bacteria, as you can see in this *Idiomarina loihiensis* cell, with the cell wall and inner membrane growing inward. The process is almost complete here, with just a thin channel of cytoplasm in the very middle connecting the daughter cells. Notice the cell wall zippering apart at the edges of the septum. For another example slightly earlier in the process, check out [More: Sphingopyxis alaskensis division](#Sphingopyxis_alaskensis_division).
 
 (ref:5-6) [Idiomarina loihiensis](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1512](https://doi.org/10.22002/D1.1512)
 
@@ -102,16 +102,6 @@ This diderm cell is about halfway through cytokinesis. The two daughter cells ar
 ```{R 5-6a, echo=FALSE, screenshot.alt='movie_stills/5_6a.png' , fig.cap= '(ref:5-6a)'}
 library(doivideo)
 doivideo('10.22002/D1.1521',0,'movie_stills/5_6a.png')
-```
-
-### More: Chloroflexi division{-#Chloroflexi_division}
-This diderm cell is in the final stage of cytokinesis. The cytoplasm of the two daughter cells is completely separated by inner membrane and cell wall. The outer membrane, though, has not yet divided.
-
-(ref:5-6b) [Chloroflexi](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1522](https://doi.org/10.22002/D1.1522)
-
-```{R 5-6b, echo=FALSE, screenshot.alt='movie_stills/5_6b.png' , fig.cap= '(ref:5-6b)'}
-library(doivideo)
-doivideo('10.22002/D1.1522',0,'movie_stills/5_6b.png')
 ```
 
 ## Outer Membrane Constriction

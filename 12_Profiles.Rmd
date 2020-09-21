@@ -40,6 +40,8 @@ knitr::include_graphics('img/bios/debnath_ghosal.jpg')
 
 ## Cristina Iancu {-#cristina_iancu}
 
+Cristina V. Iancu received her B.S. in Biophysics from the Faculty of Physics of the University of Bucharest, Romania, and her Ph.D. in Biochemistry from Iowa State University, Ames, IA, U.S. Her graduate work in the protein crystallography group of Dr. Richard B. Honzatko involved structural and functional studies of key enzymes in gluconeogenesis and de novo nucleotide synthesis. She joined the cryo-EM lab of Dr. Grant J. Jensen as his first postdoc, where she worked on cryo-ET method development projects and cryo-ET structure determination of protein complexes, isolated carboxysomes, and carboxysome-producing bacteria. Currently, she works on drug discovery targeting carbohydrate transporters with Dr. Jun-yong Choe.
+
 ## Grant Jensen {-#grant_jensen}
 
 Grant J. Jensen is a Professor of Biology and Biophysics at Caltech. He earned his doctorate in Biophysics from Stanford, working on electron microscopy of RNA polymerase and other protein complexes with Dr. Roger Kornberg. He continued his work in protein electron microscopy as a Damon Runyon-Walter Winchell post-doctoral fellow under the supervision of Dr. Kenneth Downing at the Lawrence Berkeley National Lab. Here his interests expanded to include electron tomography of whole cells. Grant launched his own lab at Caltech in 2002, where his research has focused on three main areas: the ultrastructure of small cells, the structural biology of HIV, and the further development of cryoEM technology. 
@@ -51,6 +53,12 @@ knitr::include_graphics('img/bios/grant_jensen.jpg')
 ## Mohammed Kaplan {-#mohammed_kaplan}
 
 ## Zhuo Li {-#zhuo_li}
+
+Zhuo Li is the director of the Electron Microscopy Core Facility at City of Hope Beckman Research Institute, in Duarte, California. He earned his PhD in biochemistry from the Institute of Biophysics, Chinese Academy of Sciences. He then did his postdoctoral research in the Jensen lab where he investigated the structure and function of bacterial cytoskeleton using cryogenic electron tomography.
+
+```{R}
+knitr::include_graphics('img/bios/zhuo_li.jpg')
+```
 
 ## Shrawan Mageswaran {-#shrawan_mageswaran}
 
@@ -91,6 +99,12 @@ knitr::include_graphics('img/bios/catherine_oikonomou.jpg')
 ## Matthew Swulius {-#matthew_swulius}
 
 ## Elitza Tocheva {-#elitza_tocheva}
+
+Dr. Elitza Tocheva graduated with her PhD in Microbiology and Immunology from the University of British Columbia in 2007, where she worked on characterizing the mechanism of bacterial enzymes involved in denitrification. She continued her structural biology studies as a postdoctoral scholar in the laboratory of Dr. Grant Jensen at Caltech where she applied cryo electron tomography and correlative microscopy approaches to study the ultrastructure of bacteria. She joined Université de Montréal as an Assistant Professor in June of 2015 and in January of 2019 was recruited to the Department of Microbiology and Immunology at UBC. Her lab combines microbiology, biochemistry and structural biology to study sporulation, membrane biogenesis, and host-pathogen interactions.
+
+```{R}
+knitr::include_graphics('img/bios/elitza_tocheva.jpg')
+```
 
 ## Steven Wang {-#steven_wang}
 
