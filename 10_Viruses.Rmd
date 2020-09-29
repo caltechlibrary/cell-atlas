@@ -10,8 +10,12 @@ The basic strategy of a phage is to inject its genome into a host cell, use the 
 (ref:10-1) [Shewanella oneidensis](#tree) Collected by: [Poorna Subramanian](#poorna_subramanian) Movie DOI: [10.22002/D1.1586](https://doi.org/10.22002/D1.1586)
 
 ```{R 10-1, echo=FALSE, screenshot.alt='movie_stills/10_1.png' , fig.cap= '(ref:10-1)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_1_Soneidensis.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1586',0,'movie_stills/10_1.png')
+doivideo('10.22002/D1.1586',0,'movie_stills/10_1.png')}
 ```
 
 ## Contractile Tails
@@ -20,8 +24,12 @@ Once docked, the phage delivers its cargo. The tails of some, but not all, phage
 (ref:10-2) [Bacteroidetes JT5](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1587](https://doi.org/10.22002/D1.1587)
 
 ```{R 10-2, echo=FALSE, screenshot.alt='movie_stills/10_2.png' , fig.cap= '(ref:10-2)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_2_Bacteroidetes.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1587',0,'movie_stills/10_2.png')
+doivideo('10.22002/D1.1587',0,'movie_stills/10_2.png')}
 ```
 
 ## Noncontractile Tails
@@ -32,8 +40,12 @@ Note that you already saw a different type of phage attacking *S. oneidensis*. W
 (ref:10-3) [Shewanella oneidensis](#tree) Collected by: [Poorna Subramanian](#poorna_subramanian) Movie DOI: [10.22002/D1.1588](https://doi.org/10.22002/D1.1588)
 
 ```{R 10-3, echo=FALSE, screenshot.alt='movie_stills/10_3.png' , fig.cap= '(ref:10-3)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_3_Soneidensis.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1588',0,'movie_stills/10_3.png')
+doivideo('10.22002/D1.1588',0,'movie_stills/10_3.png')}
 ```
 
 ## Structural Variation
@@ -44,8 +56,12 @@ Similarly, heads can look very different. The unique rocket-ship shape of this p
 (ref:10-4) [Vibrio cholerae](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1589](https://doi.org/10.22002/D1.1589)
 
 ```{R 10-4, echo=FALSE, screenshot.alt='movie_stills/10_4.png' , fig.cap= '(ref:10-4)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_4_Vcholerae.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1589',0,'movie_stills/10_4.png')
+doivideo('10.22002/D1.1589',0,'movie_stills/10_4.png')}
 ```
 
 ## Targeting
@@ -56,8 +72,12 @@ Some species of bacteria, including this *Escherichia coli* use “competence pi
 (ref:10-5) [Escherichia coli](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1590](https://doi.org/10.22002/D1.1590)
 
 ```{R 10-5, echo=FALSE, screenshot.alt='movie_stills/10_5.png' , fig.cap= '(ref:10-5)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_5_Ecoli.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1590',0,'movie_stills/10_5.png')
+doivideo('10.22002/D1.1590',0,'movie_stills/10_5.png')}
 ```
 
 ## Head Fibers
@@ -66,8 +86,12 @@ Other phage use bacterial appendages in an even cleverer way. These φCb13 myoph
 (ref:10-6) [Caulobacter crescentus](#tree) Collected by: [Elizabeth Wright](#elizabeth_wright) Movie DOI: [10.22002/D1.1591](https://doi.org/10.22002/D1.1591)
 
 ```{R 10-6, echo=FALSE, screenshot.alt='movie_stills/10_6.png' , fig.cap= '(ref:10-6)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_6_Ccrescentus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1591',0,'movie_stills/10_6.png')
+doivideo('10.22002/D1.1591',0,'movie_stills/10_6.png')}
 ```
 
 ### More: φCb13 infection{-#φCb13_infection}
@@ -76,8 +100,12 @@ Here you see several φCb13 phage that have successfully reached their target re
 (ref:10-6a) [Caulobacter crescentus](#tree) Collected by: [Elizabeth Wright](#elizabeth_wright) Movie DOI: [10.22002/D1.1596](https://doi.org/10.22002/D1.1596)
 
 ```{R 10-6a, echo=FALSE, screenshot.alt='movie_stills/10_6a.png' , fig.cap= '(ref:10-6a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_6a_Ccrescentus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1596',0,'movie_stills/10_6a.png')
+doivideo('10.22002/D1.1596',0,'movie_stills/10_6a.png')}
 ```
 
 ## Replication
@@ -88,8 +116,12 @@ Whether the phage replicates immediately or waits a while as a prophage first, t
 (ref:10-7) [Vibrio cholerae](#tree) Collected by: [Poorna Subramanian](#poorna_subramanian) Movie DOI: [10.22002/D1.1592](https://doi.org/10.22002/D1.1592)
 
 ```{R 10-7, echo=FALSE, screenshot.alt='movie_stills/10_7.png' , fig.cap= '(ref:10-7)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_7_Vcholerae.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1592',0,'movie_stills/10_7.png')
+doivideo('10.22002/D1.1592',0,'movie_stills/10_7.png')}
 ```
 
 ## Virus-Associated Pyramids
@@ -98,8 +130,12 @@ Some archaeal phage make an even more dramatic exit, through <u>v</u>irus-<u>a</
 (ref:10-8) [Sulfolobus solfataricus](#tree) Collected by: [Lu Gan](#lu_gan) Movie DOI: [10.22002/D1.1593](https://doi.org/10.22002/D1.1593)
 
 ```{R 10-8, echo=FALSE, screenshot.alt='movie_stills/10_8.png' , fig.cap= '(ref:10-8)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_8_Ssolfataricus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1593',0,'movie_stills/10_8.png')
+doivideo('10.22002/D1.1593',0,'movie_stills/10_8.png')}
 ```
 
 ### Schematic: STIV structure {-#STIV_structure}
@@ -116,8 +152,12 @@ When the STIV phage is ready to make its great escape, a still-unknown signal tr
 (ref:10-9) [Sulfolobus solfataricus](#tree) Collected by: [Lu Gan](#lu_gan) Movie DOI: [10.22002/D1.1594](https://doi.org/10.22002/D1.1594)
 
 ```{R 10-9, echo=FALSE, screenshot.alt='movie_stills/10_9.png' , fig.cap= '(ref:10-9)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_9_Ssolfataricus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1594',0,'movie_stills/10_9.png')
+doivideo('10.22002/D1.1594',0,'movie_stills/10_9.png')}
 ```
 
 ## Cellular Defense
@@ -128,8 +168,12 @@ Defense can also be structural. Surface layers may protect cells from some phage
 (ref:10-10) [Shewanella oneidensis](#tree) Collected by: [Lauren Ann Metskas](#lauren_ann_metskas) Movie DOI: [10.22002/D1.1595](https://doi.org/10.22002/D1.1595)
 
 ```{R 10-10, echo=FALSE, screenshot.alt='movie_stills/10_10.png' , fig.cap= '(ref:10-10)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/10_10_Soneidensis.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1595',0,'movie_stills/10_10.png')
+doivideo('10.22002/D1.1595',0,'movie_stills/10_10.png')}
 ```
 
 ## Summary {#summary10}

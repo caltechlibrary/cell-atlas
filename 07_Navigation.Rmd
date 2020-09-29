@@ -12,8 +12,12 @@ Chemosensory systems form arrays containing many copies of the proteins. As in t
 (ref:7-1) [Shewanella oneidensis](#tree) Collected by: [Mohammed Kaplan](#mohammed_kaplan) Movie DOI: [10.22002/D1.1545](https://doi.org/10.22002/D1.1545)
 
 ```{R 7-1, echo=FALSE, screenshot.alt='movie_stills/7_1.png' , fig.cap= '(ref:7-1)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_1_Soneidensis.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1545',0,'movie_stills/7_1.png')
+doivideo('10.22002/D1.1545',0,'movie_stills/7_1.png')}
 ```
 
 ### Schematic: Chemoreceptor structure {-#Chemoreceptor_structure}
@@ -30,8 +34,12 @@ knitr::include_graphics('img/schematics/7_1_1.gif')
 (ref:7-2) [Salmonella typhimurium](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1546](https://doi.org/10.22002/D1.1546)
 
 ```{R 7-2, echo=FALSE, screenshot.alt='movie_stills/7_2.png' , fig.cap= '(ref:7-2)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_2_Styphimurium.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1546',0,'movie_stills/7_2.png')
+doivideo('10.22002/D1.1546',0,'movie_stills/7_2.png')}
 ```
 
 ### Schematic: Chemosensory array architecture {-#Chemosensory_array_architecture}
@@ -48,8 +56,12 @@ The hexagonal array structure of chemosensory systems is invariant across specie
 (ref:7-3) [Methanospirillum hungatei](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1547](https://doi.org/10.22002/D1.1547)
 
 ```{R 7-3, echo=FALSE, screenshot.alt='movie_stills/7_3.png' , fig.cap= '(ref:7-3)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_3_Mhungatei.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1547',0,'movie_stills/7_3.png')
+doivideo('10.22002/D1.1547',0,'movie_stills/7_3.png')}
 ```
 
 ## Chemoreceptor Variety
@@ -58,8 +70,12 @@ While there is only one architectural style for chemosensory systems, there are 
 (ref:7-4) [Vibrio cholerae](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1548](https://doi.org/10.22002/D1.1548)
 
 ```{R 7-4, echo=FALSE, screenshot.alt='movie_stills/7_4.png' , fig.cap= '(ref:7-4)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_4_Vcholerae.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1548',0,'movie_stills/7_4.png')
+doivideo('10.22002/D1.1548',0,'movie_stills/7_4.png')}
 ```
 
 ### More: Azospirillum brasilense aerotaxis{-#Azospirillum_brasilense_aerotaxis}
@@ -68,8 +84,12 @@ A length difference of as little as 2 nm is enough to separate receptors, like t
 (ref:7-4a) [Azospirillum brasilense](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1551](https://doi.org/10.22002/D1.1551)
 
 ```{R 7-4a, echo=FALSE, screenshot.alt='movie_stills/7_4a.png' , fig.cap= '(ref:7-4a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_4a_Abrasilense.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1551',0,'movie_stills/7_4a.png')
+doivideo('10.22002/D1.1551',0,'movie_stills/7_4a.png')}
 ```
 
 ## Cytoplasmic Chemosensory Arrays
@@ -78,8 +98,12 @@ In addition to their extensive repertoire of membrane-embedded chemoreceptors, c
 (ref:7-5) [Methanoregula formicica](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1549](https://doi.org/10.22002/D1.1549)
 
 ```{R 7-5, echo=FALSE, screenshot.alt='movie_stills/7_5.png' , fig.cap= '(ref:7-5)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_5_Mformicica.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1549',0,'movie_stills/7_5.png')
+doivideo('10.22002/D1.1549',0,'movie_stills/7_5.png')}
 ```
 
 ### More: Vibrio cholerae chemosensory arrays{-#Vibrio_cholerae_chemosensory_arrays}
@@ -88,8 +112,12 @@ This *Vibrio cholerae* cell showcases a full complement of chemosensory systems:
 (ref:7-5a) [Vibrio cholerae](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1552](https://doi.org/10.22002/D1.1552)
 
 ```{R 7-5a, echo=FALSE, screenshot.alt='movie_stills/7_5a.png' , fig.cap= '(ref:7-5a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_5a_Vcholerae.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1552',0,'movie_stills/7_5a.png')
+doivideo('10.22002/D1.1552',0,'movie_stills/7_5a.png')}
 ```
 
 ## Magnetotaxis
@@ -104,8 +132,12 @@ Much remains mysterious about these structures. For instance, what forms the mem
 (ref:7-6) [Magnetospirillum magneticum](#tree) Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1550](https://doi.org/10.22002/D1.1550)
 
 ```{R 7-6, echo=FALSE, screenshot.alt='movie_stills/7_6.png' , fig.cap= '(ref:7-6)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/7_6_Mmagneticum.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1550',0,'movie_stills/7_6.png')
+doivideo('10.22002/D1.1550',0,'movie_stills/7_6.png')}
 ```
 
 ### Schematic: MamK structure {-#MamK_structure}

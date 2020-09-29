@@ -21,8 +21,11 @@ def insert_movie(doi):
             " Movie DOI: ["+doiv+"](https://doi.org/"+doiv+")\n\n"+\
             "```{R "+label+", echo=FALSE, screenshot.alt='"+\
             image_path+"' , fig.cap= '(ref:"+label+\
-            ")'}\nlibrary(doivideo)\ndoivideo('"+\
-            doiv+"',0,'"+image_path+"')\n```\n\n"
+            ")'}\nif(offline==TRUE){\n"+\
+            "library(embedvideo)\nembedvideo('videos/"+\
+            filev+"')\n} else {\n"+\
+            "library(doivideo)\ndoivideo('"+\
+            doiv+"',0,'"+image_path+"')}\n```\n\n"
 
 parser = argparse.ArgumentParser(description=\
         "Transform text file chapters to Rmarkdown")

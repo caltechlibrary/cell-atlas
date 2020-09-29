@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'doivideo',
+  name: 'embedvideo',
 
   type: 'output',
 
@@ -9,15 +9,12 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-        CL.doi_media(x.doi, x.index, function(obj, err) {
-            if (err) {
-                el.innerHTML = `Could not render ${x.doi}, ${err}`;
-                return;
-            }
+
         el.innerHTML = `
         <style>
         .video {
         position: relative;
+        padding-top: 25px;
         margin: 0 auto;
         }
 
@@ -29,22 +26,22 @@ HTMLWidgets.widget({
         }
         </style>
         <div class="video">
-        <video class="video-js vjs-default-skin vjs-big-play-centered" width="${width}" height="${height}" poster="${x.screenshot}" controls preload="auto" responsive=true id="my-video" data-setup='{"fluid": true}'>
-        <source src="${obj.media_url}" type='${obj.media_type}'>
+        <video class="video-js" width="${width}" height="${height}" controls preload="auto" responsive=true id="my-video" data-setup='{"fluid": true}'>
+        <source src="${x.media_location}" type='video/mp4'>
         <p class="vjs-no-js">
           To view this video please enable JavaScript, and consider upgrading to a web browser that
           <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
         </p>
       </video>
       </div>`;
-        });
+
       },
 
-      //resize: function(width, height) {
+      resize: function(width, height) {
 
-      //  Don't think this is needed CL.doi_video_player(el,x.doi,x.index,width,height);
+        // Don't think this is needed CL.doi_video_player(el,x.doi,x.index,width,height);
 
-      //}
+      }
 
     };
   }

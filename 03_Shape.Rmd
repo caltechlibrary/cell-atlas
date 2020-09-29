@@ -12,8 +12,12 @@ Consider a cell like this *Simkania negevensis*. It takes the form of a sphereâ€
 (ref:3-1) [Simkania negevensis](#tree) Collected by: [Martin Pilhofer](#martin_pilhofer) Movie DOI: [10.22002/D1.1477](https://doi.org/10.22002/D1.1477)
 
 ```{R 3-1, echo=FALSE, screenshot.alt='movie_stills/3_1.png' , fig.cap= '(ref:3-1)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_1_Snegevensis.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1477',0,'movie_stills/3_1.png')
+doivideo('10.22002/D1.1477',0,'movie_stills/3_1.png')}
 ```
 
 ## Rod
@@ -26,8 +30,12 @@ Not all rod-shaped bacteria use MreB, and we are still figuring out how the shap
 (ref:3-2) [Cupriavidus necator](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1478](https://doi.org/10.22002/D1.1478)
 
 ```{R 3-2, echo=FALSE, screenshot.alt='movie_stills/3_2.png' , fig.cap= '(ref:3-2)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_2_Cnecator.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1478',0,'movie_stills/3_2.png')
+doivideo('10.22002/D1.1478',0,'movie_stills/3_2.png')}
 ```
 
 ### More: Rod variety{-#Rod_variety}
@@ -36,8 +44,12 @@ Not all rod-shaped cells are perfectly cylindrical. For instance, *Brucella abor
 (ref:3-2a) [Brucella abortus](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1484](https://doi.org/10.22002/D1.1484)
 
 ```{R 3-2a, echo=FALSE, screenshot.alt='movie_stills/3_2a.png' , fig.cap= '(ref:3-2a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_2a_Babortus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1484',0,'movie_stills/3_2a.png')
+doivideo('10.22002/D1.1484',0,'movie_stills/3_2a.png')}
 ```
 
 ### More: Archaeal rods{-#Archaeal_rods}
@@ -46,8 +58,12 @@ Some archaeal species, like this *Methanoregula formicica*, are rod-shaped. The 
 (ref:3-2b) [Methanoregula formicica](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1485](https://doi.org/10.22002/D1.1485)
 
 ```{R 3-2b, echo=FALSE, screenshot.alt='movie_stills/3_2b.png' , fig.cap= '(ref:3-2b)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_2b_Mformicica.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1485',0,'movie_stills/3_2b.png')
+doivideo('10.22002/D1.1485',0,'movie_stills/3_2b.png')}
 ```
 
 ## Length
@@ -58,8 +74,12 @@ The length of a cell (or, more generally, its size) varies depending on the envi
 (ref:3-3) [Hylemonella gracilis](#tree) Collected by: [Yi-Wei Chang](#yi-wei_chang) Movie DOI: [10.22002/D1.1479](https://doi.org/10.22002/D1.1479)
 
 ```{R 3-3, echo=FALSE, screenshot.alt='movie_stills/3_3.png' , fig.cap= '(ref:3-3)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_3_Hgracilis.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1479',0,'movie_stills/3_3.png')
+doivideo('10.22002/D1.1479',0,'movie_stills/3_3.png')}
 ```
 
 ## Vibrioid
@@ -70,8 +90,12 @@ This system is only one way of making a curved cell. There must be others since 
 (ref:3-4) [Caulobacter crescentus](#tree) Collected by: [Prabha Dias](#prabha_dias) Movie DOI: [10.22002/D1.1480](https://doi.org/10.22002/D1.1480)
 
 ```{R 3-4, echo=FALSE, screenshot.alt='movie_stills/3_4.png' , fig.cap= '(ref:3-4)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_4_Ccrescentus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1480',0,'movie_stills/3_4.png')
+doivideo('10.22002/D1.1480',0,'movie_stills/3_4.png')}
 ```
 
 ### Schematic: CTP synthase {-#CTP_synthase}
@@ -90,8 +114,12 @@ It can be tempting to group species based on a common characteristic, but appear
 (ref:3-5) [Campylobacter jejuni](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1481](https://doi.org/10.22002/D1.1481)
 
 ```{R 3-5, echo=FALSE, screenshot.alt='movie_stills/3_5.png' , fig.cap= '(ref:3-5)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_5_Cjejuni.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1481',0,'movie_stills/3_5.png')
+doivideo('10.22002/D1.1481',0,'movie_stills/3_5.png')}
 ```
 
 ### More: Borrelia burgdorferi shape{-#Borrelia_burgdorferi_shape}
@@ -100,8 +128,12 @@ doivideo('10.22002/D1.1481',0,'movie_stills/3_5.png')
 (ref:3-5a) [Borrelia burgdorferi](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1486](https://doi.org/10.22002/D1.1486)
 
 ```{R 3-5a, echo=FALSE, screenshot.alt='movie_stills/3_5a.png' , fig.cap= '(ref:3-5a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_5a_Bburgdorferi.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1486',0,'movie_stills/3_5a.png')
+doivideo('10.22002/D1.1486',0,'movie_stills/3_5a.png')}
 ```
 
 ## Prosthecate
@@ -112,8 +144,12 @@ Prosthecae offer an architectural challenge: thin extensions are delicate. Prost
 (ref:3-6) [Verrucomicrobium spinosum](#tree) Collected by: [Martin Pilhofer](#martin_pilhofer) Movie DOI: [10.22002/D1.1482](https://doi.org/10.22002/D1.1482)
 
 ```{R 3-6, echo=FALSE, screenshot.alt='movie_stills/3_6.png' , fig.cap= '(ref:3-6)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_6_Vspinosum.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1482',0,'movie_stills/3_6.png')
+doivideo('10.22002/D1.1482',0,'movie_stills/3_6.png')}
 ```
 
 ### Schematic: Bactofilin {-#Bactofilin}
@@ -132,8 +168,12 @@ Some bacterial species with prosthecae express structures similar to eukaryotic 
 (ref:3-6a) [Prosthecobacter vanneervenii](#tree) Collected by: [Martin Pilhofer](#martin_pilhofer) Movie DOI: [10.22002/D1.1487](https://doi.org/10.22002/D1.1487)
 
 ```{R 3-6a, echo=FALSE, screenshot.alt='movie_stills/3_6a.png' , fig.cap= '(ref:3-6a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_6a_Pvanneervenii.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1487',0,'movie_stills/3_6a.png')
+doivideo('10.22002/D1.1487',0,'movie_stills/3_6a.png')}
 ```
 
 ## Square
@@ -144,8 +184,12 @@ We still do not know exactly how this shape is determined, but at least part of 
 (ref:3-7) [Haloquadratum walsbyi](#tree) Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1483](https://doi.org/10.22002/D1.1483)
 
 ```{R 3-7, echo=FALSE, screenshot.alt='movie_stills/3_7.png' , fig.cap= '(ref:3-7)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_7_Hwalsbyi.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1483',0,'movie_stills/3_7.png')
+doivideo('10.22002/D1.1483',0,'movie_stills/3_7.png')}
 ```
 
 ### More: Gas vesicles{-#Gas_vesicles}
@@ -156,8 +200,12 @@ Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a sin
 (ref:3-7a) [Halobacterium salinarum](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1488](https://doi.org/10.22002/D1.1488)
 
 ```{R 3-7a, echo=FALSE, screenshot.alt='movie_stills/3_7a.png' , fig.cap= '(ref:3-7a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/3_7a_Hsalinarum.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1488',0,'movie_stills/3_7a.png')
+doivideo('10.22002/D1.1488',0,'movie_stills/3_7a.png')}
 ```
 
 ## Summary {#summary3}

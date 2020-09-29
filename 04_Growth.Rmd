@@ -10,8 +10,12 @@ You have already seen how the shape of your cell can allow it to gather nutrient
 (ref:4-1) [Caulobacter crescentus](#tree) Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1489](https://doi.org/10.22002/D1.1489)
 
 ```{R 4-1, echo=FALSE, screenshot.alt='movie_stills/4_1.png' , fig.cap= '(ref:4-1)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_1_Ccrescentus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1489',0,'movie_stills/4_1.png')
+doivideo('10.22002/D1.1489',0,'movie_stills/4_1.png')}
 ```
 
 ## Nanowires
@@ -24,8 +28,12 @@ Other species, like *Geobacter sulfurreducens*, also use nanowires to transfer e
 (ref:4-2) [Shewanella oneidensis](#tree) Collected by: [Poorna Subramanian](#poorna_subramanian) Movie DOI: [10.22002/D1.1490](https://doi.org/10.22002/D1.1490)
 
 ```{R 4-2, echo=FALSE, screenshot.alt='movie_stills/4_2.png' , fig.cap= '(ref:4-2)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_2_Soneidensis.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1490',0,'movie_stills/4_2.png')
+doivideo('10.22002/D1.1490',0,'movie_stills/4_2.png')}
 ```
 
 ## Intracytoplasmic Membrane
@@ -34,8 +42,12 @@ Photosynthetic bacteria harvest energy from sunlight using protein complexes [Sc
 (ref:4-3) [Rhodopseudomonas palustris](#tree) Collected by: [Alasdair McDowall](#alasdair_mcdowall) Movie DOI: [10.22002/D1.1491](https://doi.org/10.22002/D1.1491)
 
 ```{R 4-3, echo=FALSE, screenshot.alt='movie_stills/4_3.png' , fig.cap= '(ref:4-3)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_3_Rpalustris.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1491',0,'movie_stills/4_3.png')
+doivideo('10.22002/D1.1491',0,'movie_stills/4_3.png')}
 ```
 
 ### Schematic: Photocomplexes {-#Photocomplexes}
@@ -52,8 +64,12 @@ In some species, like this *Methyloprofundus sedimenti*, the intracytoplasmic me
 (ref:4-3a) [Methyloprofundus sedimenti](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1499](https://doi.org/10.22002/D1.1499)
 
 ```{R 4-3a, echo=FALSE, screenshot.alt='movie_stills/4_3a.png' , fig.cap= '(ref:4-3a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_3a_Msedimenti.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1499',0,'movie_stills/4_3a.png')
+doivideo('10.22002/D1.1499',0,'movie_stills/4_3a.png')}
 ```
 
 ## Enzyme Filaments
@@ -64,8 +80,12 @@ Furloughed workers can also be recruited to other projects. Remember that CTP sy
 (ref:4-5) [Clostridium thermocellum](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1493](https://doi.org/10.22002/D1.1493)
 
 ```{R 4-5, echo=FALSE, screenshot.alt='movie_stills/4_5.png' , fig.cap= '(ref:4-5)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_5_Cthermocellum.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1493',0,'movie_stills/4_5.png')
+doivideo('10.22002/D1.1493',0,'movie_stills/4_5.png')}
 ```
 
 ### Schematic: AdhE spirosome structure {-#AdhE_spirosome_structure}
@@ -82,8 +102,12 @@ In addition to increasing the number of active workers to boost metabolic output
 (ref:4-6) [Acetonema longum](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1494](https://doi.org/10.22002/D1.1494)
 
 ```{R 4-6, echo=FALSE, screenshot.alt='movie_stills/4_6.png' , fig.cap= '(ref:4-6)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_6_Alongum.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1494',0,'movie_stills/4_6.png')
+doivideo('10.22002/D1.1494',0,'movie_stills/4_6.png')}
 ```
 
 ### Schematic: Microcompartment shells {-#Microcompartment_shells}
@@ -102,8 +126,12 @@ In this case, the microcompartment protects its contents from the rest of the ce
 (ref:4-7) [Thiomonas intermedia](#tree) Collected by: [Cristina Iancu](#cristina_iancu) Movie DOI: [10.22002/D1.1495](https://doi.org/10.22002/D1.1495)
 
 ```{R 4-7, echo=FALSE, screenshot.alt='movie_stills/4_7.png' , fig.cap= '(ref:4-7)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_7_Tintermedia.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1495',0,'movie_stills/4_7.png')
+doivideo('10.22002/D1.1495',0,'movie_stills/4_7.png')}
 ```
 
 ### More: Carboxysome variety{-#Carboxysome_variety}
@@ -112,8 +140,12 @@ Most carboxysomes look like the ones you saw on the last page, but not all. Some
 (ref:4-7a) [Halothiobacillus neapolitanus](#tree) Collected by: [Cristina Iancu](#cristina_iancu) Movie DOI: [10.22002/D1.1500](https://doi.org/10.22002/D1.1500)
 
 ```{R 4-7a, echo=FALSE, screenshot.alt='movie_stills/4_7a.png' , fig.cap= '(ref:4-7a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_7a_Hneapolitanus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1500',0,'movie_stills/4_7a.png')
+doivideo('10.22002/D1.1500',0,'movie_stills/4_7a.png')}
 ```
 
 ### More: Long carboxysomes{-#Long_carboxysomes}
@@ -124,8 +156,12 @@ This cell also highlights the lability in the outer membrane common in some bact
 (ref:4-7b) [Hydrogenovibrio crunogenus](#tree) Collected by: [Cristina Iancu](#cristina_iancu) Movie DOI: [10.22002/D1.1501](https://doi.org/10.22002/D1.1501)
 
 ```{R 4-7b, echo=FALSE, screenshot.alt='movie_stills/4_7b.png' , fig.cap= '(ref:4-7b)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_7b_Hcrunogenus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1501',0,'movie_stills/4_7b.png')
+doivideo('10.22002/D1.1501',0,'movie_stills/4_7b.png')}
 ```
 
 ## Bacterial Storage Granules
@@ -136,8 +172,12 @@ Storage granules are ubiquitous in bacteria, and you will see them in many of th
 (ref:4-8) [Cupriavidus necator](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1496](https://doi.org/10.22002/D1.1496)
 
 ```{R 4-8, echo=FALSE, screenshot.alt='movie_stills/4_8.png' , fig.cap= '(ref:4-8)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_8_Cnecator.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1496',0,'movie_stills/4_8.png')
+doivideo('10.22002/D1.1496',0,'movie_stills/4_8.png')}
 ```
 
 ### More: Storage granule growth{-#Storage_granule_growth}
@@ -146,8 +186,12 @@ Storage granules expand and contract to accommodate their contents. This *Lysoba
 (ref:4-8a) [Lysobacter antibioticus](#tree) Collected by: [Morgan Beeby](#morgan_beeby) Movie DOI: [10.22002/D1.1502](https://doi.org/10.22002/D1.1502)
 
 ```{R 4-8a, echo=FALSE, screenshot.alt='movie_stills/4_8a.png' , fig.cap= '(ref:4-8a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_8a_Lantibioticus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1502',0,'movie_stills/4_8a.png')
+doivideo('10.22002/D1.1502',0,'movie_stills/4_8a.png')}
 ```
 
 ## Storage Granule Variety
@@ -160,8 +204,12 @@ You might expect a close relationship between cellular factories and storage dep
 (ref:4-9) [Agrobacterium tumefaciens](#tree) Collected by: [Elitza Tocheva](#elitza_tocheva) Movie DOI: [10.22002/D1.1497](https://doi.org/10.22002/D1.1497)
 
 ```{R 4-9, echo=FALSE, screenshot.alt='movie_stills/4_9.png' , fig.cap= '(ref:4-9)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_9_Atumefaciens.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1497',0,'movie_stills/4_9.png')
+doivideo('10.22002/D1.1497',0,'movie_stills/4_9.png')}
 ```
 
 ### More: Granule-containing carboxysomes{-#Granule-containing_carboxysomes}
@@ -170,8 +218,12 @@ Small poly-phosphate storage granules are sometimes seen *inside* carboxysomes, 
 (ref:4-9a) [Hydrogenovibrio crunogenus](#tree) Collected by: [Cristina Iancu](#cristina_iancu) Movie DOI: [10.22002/D1.1503](https://doi.org/10.22002/D1.1503)
 
 ```{R 4-9a, echo=FALSE, screenshot.alt='movie_stills/4_9a.png' , fig.cap= '(ref:4-9a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_9a_Hcrunogenus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1503',0,'movie_stills/4_9a.png')
+doivideo('10.22002/D1.1503',0,'movie_stills/4_9a.png')}
 ```
 
 ### More: Carboxysome-granule connections{-#Carboxysome-granule_connections}
@@ -180,8 +232,12 @@ We sometimes see comb-like structures connecting external poly-phosphate storage
 (ref:4-9b) [Halothiobacillus neapolitanus](#tree) Collected by: [Cristina Iancu](#cristina_iancu) Movie DOI: [10.22002/D1.1504](https://doi.org/10.22002/D1.1504)
 
 ```{R 4-9b, echo=FALSE, screenshot.alt='movie_stills/4_9b.png' , fig.cap= '(ref:4-9b)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_9b_Hneapolitanus.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1504',0,'movie_stills/4_9b.png')
+doivideo('10.22002/D1.1504',0,'movie_stills/4_9b.png')}
 ```
 
 ## Archaeal Storage Granules
@@ -190,8 +246,12 @@ Archaea also use storage granules, and you will see many examples throughout the
 (ref:4-10) [Halorubrum litoreum](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1498](https://doi.org/10.22002/D1.1498)
 
 ```{R 4-10, echo=FALSE, screenshot.alt='movie_stills/4_10.png' , fig.cap= '(ref:4-10)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_10_Hlitoreum.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1498',0,'movie_stills/4_10.png')
+doivideo('10.22002/D1.1498',0,'movie_stills/4_10.png')}
 ```
 
 ### More: Haloferax gibbonsii granules{-#Haloferax_gibbonsii_granules}
@@ -200,8 +260,12 @@ Some archaeal cells, like this *Haloferax gibbonsii*, contain many small granule
 (ref:4-10a) [Haloferax gibbonsii](#tree) Collected by: [Ariane Briegel](#ariane_briegel) Movie DOI: [10.22002/D1.1505](https://doi.org/10.22002/D1.1505)
 
 ```{R 4-10a, echo=FALSE, screenshot.alt='movie_stills/4_10a.png' , fig.cap= '(ref:4-10a)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_10a_Hgibbonsii.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1505',0,'movie_stills/4_10a.png')
+doivideo('10.22002/D1.1505',0,'movie_stills/4_10a.png')}
 ```
 
 ### More: Halohasta litchfieldiae granules{-#Halohasta_litchfieldiae_granules}
@@ -210,8 +274,12 @@ This *Halohasta litchfieldiae* cell has more unusual granules. The high electron
 (ref:4-10b) [Halohasta litchfieldiae](#tree) Collected by: [Zhuo Li](#zhuo_li) Movie DOI: [10.22002/D1.1506](https://doi.org/10.22002/D1.1506)
 
 ```{R 4-10b, echo=FALSE, screenshot.alt='movie_stills/4_10b.png' , fig.cap= '(ref:4-10b)'}
+if(offline==TRUE){
+library(embedvideo)
+embedvideo('videos/4_10b_Hlitchfieldiae.mp4')
+} else {
 library(doivideo)
-doivideo('10.22002/D1.1506',0,'movie_stills/4_10b.png')
+doivideo('10.22002/D1.1506',0,'movie_stills/4_10b.png')}
 ```
 
 ## Summary {#summary4}
