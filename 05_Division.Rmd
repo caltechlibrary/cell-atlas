@@ -14,7 +14,7 @@ What about low copy-number components? Look at the poly-phosphate storage granul
 ```{R 5-1, echo=FALSE, screenshot.alt='movie_stills/5_1.png' , fig.cap= '(ref:5-1)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_1_Tintermedia.mp4')
+embedvideo('videos/5_1_Tintermedia_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1507',0,'movie_stills/5_1.png')}
@@ -32,7 +32,7 @@ Remember that your cell's chromosome is colossal, so getting the ParS handle to 
 ```{R 5-2, echo=FALSE, screenshot.alt='movie_stills/5_2.png' , fig.cap= '(ref:5-2)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_2_Ccrescentus.mp4')
+embedvideo('videos/5_2_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1508',0,'movie_stills/5_2.png')}
@@ -48,7 +48,7 @@ Several other bacterial species divide by budding, although not all have stalks.
 ```{R 5-3, echo=FALSE, screenshot.alt='movie_stills/5_3.png' , fig.cap= '(ref:5-3)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_3_Hneptunium.mp4')
+embedvideo('videos/5_3_Hneptunium_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1509',0,'movie_stills/5_3.png')}
@@ -62,7 +62,7 @@ doivideo('10.22002/D1.1509',0,'movie_stills/5_3.png')}
 ```{R 5-3a, echo=FALSE, screenshot.alt='movie_stills/5_3a.png' , fig.cap= '(ref:5-3a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_3a_Hneptunium.mp4')
+embedvideo('videos/5_3a_Hneptunium_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1519',0,'movie_stills/5_3a.png')}
@@ -76,7 +76,7 @@ doivideo('10.22002/D1.1519',0,'movie_stills/5_3a.png')}
 ```{R 5-3b, echo=FALSE, screenshot.alt='movie_stills/5_3b.png' , fig.cap= '(ref:5-3b)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_3b_Hneptunium.mp4')
+embedvideo('videos/5_3b_Hneptunium_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1520',0,'movie_stills/5_3b.png')}
@@ -90,7 +90,7 @@ Once your cell has gotten everything where it needs to go, how can it actually d
 ```{R 5-4, echo=FALSE, screenshot.alt='movie_stills/5_4.png' , fig.cap= '(ref:5-4)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_4_Saureus.mp4')
+embedvideo('videos/5_4_Saureus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1510',0,'movie_stills/5_4.png')}
@@ -106,7 +106,7 @@ There can also be more than two daughter cells. Some species undergo simultaneou
 ```{R 5-5, echo=FALSE, screenshot.alt='movie_stills/5_5.png' , fig.cap= '(ref:5-5)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_5_Tremsis.mp4')
+embedvideo('videos/5_5_Tremsis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1511',0,'movie_stills/5_5.png')}
@@ -120,7 +120,7 @@ The cytokinesis process is similar for diderm bacteria, as you can see in this *
 ```{R 5-6, echo=FALSE, screenshot.alt='movie_stills/5_6.png' , fig.cap= '(ref:5-6)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_6_Iloihiensis.mp4')
+embedvideo('videos/5_6_Iloihiensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1512',0,'movie_stills/5_6.png')}
@@ -134,7 +134,7 @@ This diderm cell is about halfway through cytokinesis. The two daughter cells ar
 ```{R 5-6a, echo=FALSE, screenshot.alt='movie_stills/5_6a.png' , fig.cap= '(ref:5-6a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_6a_Salaskensis.mp4')
+embedvideo('videos/5_6a_Salaskensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1521',0,'movie_stills/5_6a.png')}
@@ -148,7 +148,7 @@ In some species, the outer membrane constricts at the same time as the inner mem
 ```{R 5-7, echo=FALSE, screenshot.alt='movie_stills/5_7.png' , fig.cap= '(ref:5-7)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_7_Ccrescentus.mp4')
+embedvideo('videos/5_7_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1513',0,'movie_stills/5_7.png')}
@@ -162,7 +162,7 @@ This *Caulobacter crescentus* cell has completely separated its inner membrane a
 ```{R 5-7a, echo=FALSE, screenshot.alt='movie_stills/5_7a.png' , fig.cap= '(ref:5-7a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_7a_Ccrescentus.mp4')
+embedvideo('videos/5_7a_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1523',0,'movie_stills/5_7a.png')}
@@ -176,7 +176,7 @@ Like monoderms, most diderms divide into roughly equally-sized daughter cells, b
 ```{R 5-8, echo=FALSE, screenshot.alt='movie_stills/5_8.png' , fig.cap= '(ref:5-8)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_8_Atumefaciens.mp4')
+embedvideo('videos/5_8_Atumefaciens_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1514',0,'movie_stills/5_8.png')}
@@ -198,7 +198,7 @@ Once everything is ready (the cell is long enough and the nucleoid out of the wa
 ```{R 5-9, echo=FALSE, screenshot.alt='movie_stills/5_9.png' , fig.cap= '(ref:5-9)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_9_Cnecator.mp4')
+embedvideo('videos/5_9_Cnecator_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1515',0,'movie_stills/5_9.png')}
@@ -212,7 +212,7 @@ This *C. necator* cell is at a later stage of cytokinesis. In most cells, constr
 ```{R 5-9a, echo=FALSE, screenshot.alt='movie_stills/5_9a.png' , fig.cap= '(ref:5-9a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_9a_Cnecator.mp4')
+embedvideo('videos/5_9a_Cnecator_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1524',0,'movie_stills/5_9a.png')}
@@ -234,7 +234,7 @@ As cytokinesis progresses, FtsZ filaments keep assembling and growing, soon form
 ```{R 5-10, echo=FALSE, screenshot.alt='movie_stills/5_10.png' , fig.cap= '(ref:5-10)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_10_Ccrescentus.mp4')
+embedvideo('videos/5_10_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1516',0,'movie_stills/5_10.png')}
@@ -248,7 +248,7 @@ Nearly all bacteria, and many archaea, use FtsZ to divide. Other species of arch
 ```{R 5-11, echo=FALSE, screenshot.alt='movie_stills/5_11.png' , fig.cap= '(ref:5-11)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_11_Sacidocaldarius.mp4')
+embedvideo('videos/5_11_Sacidocaldarius_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1517',0,'movie_stills/5_11.png')}
@@ -264,7 +264,7 @@ The majority of cells divide by one of these two mechanisms–FtsZ or Cdv–but 
 ```{R 5-12, echo=FALSE, screenshot.alt='movie_stills/5_12.png' , fig.cap= '(ref:5-12)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/5_12_Sacidocaldarius.mp4')
+embedvideo('videos/5_12_Sacidocaldarius_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1518',0,'movie_stills/5_12.png')}

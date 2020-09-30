@@ -16,7 +16,7 @@ The cells here were imaged by **light microscopy**, captured on film by David Ro
 ```{R 1-1, echo=FALSE, screenshot.alt='movie_stills/1_1.png' , fig.cap= '(ref:1-1)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_1_Saureus.mp4')
+embedvideo('videos/1_1_Saureus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1463',0,'movie_stills/1_1.png')}
@@ -39,7 +39,7 @@ As an example, this movie from Howard Berg’s lab [@bergInternet] [@turner2000]
 ```{R 1-2, echo=FALSE, screenshot.alt='movie_stills/1_2.png' , fig.cap= '(ref:1-2)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_2_Ecoli.mp4')
+embedvideo('videos/1_2_Ecoli_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1464',0,'movie_stills/1_2.png')}
@@ -57,7 +57,7 @@ There are two main electron microscopy approaches [Schematic: Electron microscop
 ```{R 1-3, echo=FALSE, screenshot.alt='movie_stills/1_3.png' , fig.cap= '(ref:1-3)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_3_Soneidensis.mp4')
+embedvideo('videos/1_3_Soneidensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1465',0,'movie_stills/1_3.png')}
@@ -81,7 +81,7 @@ There are more elaborate (and structure-altering) sample preparation methods for
 ```{R 1-4, echo=FALSE, screenshot.alt='movie_stills/1_4.png' , fig.cap= '(ref:1-4)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_4_Soneidensis.mp4')
+embedvideo('videos/1_4_Soneidensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1466',0,'movie_stills/1_4.png')}
@@ -99,7 +99,7 @@ With cryoEM, we can start to see the true structure of cells. Compared to the im
 ```{R 1-5, echo=FALSE, screenshot.alt='movie_stills/1_5.png' , fig.cap= '(ref:1-5)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_5_Ccrescentus.mp4')
+embedvideo('videos/1_5_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1467',0,'movie_stills/1_5.png')}
@@ -117,7 +117,7 @@ Since the early 2000s, cryoET has transformed our understanding of microbial cel
 ```{R 1-6, echo=FALSE, screenshot.alt='movie_stills/1_6.png' , fig.cap= '(ref:1-6)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_6_Ccrescentus.mp4')
+embedvideo('videos/1_6_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1468',0,'movie_stills/1_6.png')}
@@ -138,7 +138,7 @@ What if we want to zoom in further to examine a particular structure more closel
 ```{R 1-7, echo=FALSE, screenshot.alt='movie_stills/1_7.png' , fig.cap= '(ref:1-7)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_7_Cjejuni.mp4')
+embedvideo('videos/1_7_Cjejuni_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1469',0,'movie_stills/1_7.png')}
@@ -154,7 +154,7 @@ You will see many examples of high-resolution structures solved by this techniqu
 ```{R 1-8, echo=FALSE, screenshot.alt='movie_stills/1_8.png' , fig.cap= '(ref:1-8)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_8_Cjejuni.mp4')
+embedvideo('videos/1_8_Cjejuni_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1470',0,'movie_stills/1_8.png')}
@@ -170,7 +170,7 @@ Not every protein can be induced to form large, well-ordered crystals, but many 
 ```{R 1-9, echo=FALSE, screenshot.alt='movie_stills/1_9.png' , fig.cap= '(ref:1-9)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_9_Cjejuni.mp4')
+embedvideo('videos/1_9_Cjejuni_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1471',0,'movie_stills/1_9.png')}
@@ -190,7 +190,7 @@ Science benefits from collaboration, and structural biology is no exception. Thi
 ```{R 1-10, echo=FALSE, screenshot.alt='movie_stills/1_10.png' , fig.cap= '(ref:1-10)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_10_Bbacteriovorus.mp4')
+embedvideo('videos/1_10_Bbacteriovorus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1472',0,'movie_stills/1_10.png')}
@@ -204,7 +204,7 @@ To identify the location of a component within a large macromolecular complex, d
 ```{R 1-10a, echo=FALSE, screenshot.alt='movie_stills/1_10a.png' , fig.cap= '(ref:1-10a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/1_10a_Cjejuni.mp4')
+embedvideo('videos/1_10a_Cjejuni_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1473',0,'movie_stills/1_10a.png')}

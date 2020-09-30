@@ -10,7 +10,7 @@ Your cell is fairly well optimized now. It can grow, divide, and find fuel to re
 ```{R 8-1, echo=FALSE, screenshot.alt='movie_stills/8_1.png' , fig.cap= '(ref:8-1)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_1_Ccrescentus.mp4')
+embedvideo('videos/8_1_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1553',0,'movie_stills/8_1.png')}
@@ -26,7 +26,7 @@ This cell exhibits other hallmarks of stationary phase: its shrinking membranes 
 ```{R 8-2, echo=FALSE, screenshot.alt='movie_stills/8_2.png' , fig.cap= '(ref:8-2)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_2_Hpylori.mp4')
+embedvideo('videos/8_2_Hpylori_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1554',0,'movie_stills/8_2.png')}
@@ -40,7 +40,7 @@ Stationary phase in archaea looks much the same as in bacteria, as you can see i
 ```{R 8-3, echo=FALSE, screenshot.alt='movie_stills/8_3.png' , fig.cap= '(ref:8-3)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_3_Tkodakaraensis.mp4')
+embedvideo('videos/8_3_Tkodakaraensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1555',0,'movie_stills/8_3.png')}
@@ -54,7 +54,7 @@ While all cells go through cycles of growth and quiescence in response to change
 ```{R 8-4, echo=FALSE, screenshot.alt='movie_stills/8_4.png' , fig.cap= '(ref:8-4)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_4_Ccrescentus.mp4')
+embedvideo('videos/8_4_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1556',0,'movie_stills/8_4.png')}
@@ -68,7 +68,7 @@ doivideo('10.22002/D1.1556',0,'movie_stills/8_4.png')}
 ```{R 8-4a, echo=FALSE, screenshot.alt='movie_stills/8_4a.png' , fig.cap= '(ref:8-4a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_4a_Pvanneervenii.mp4')
+embedvideo('videos/8_4a_Pvanneervenii_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1564',0,'movie_stills/8_4a.png')}
@@ -86,7 +86,7 @@ Some bacterial species form **exospores**, which are released directly to the en
 ```{R 8-5, echo=FALSE, screenshot.alt='movie_stills/8_5.png' , fig.cap= '(ref:8-5)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_5_Bsubtilis.mp4')
+embedvideo('videos/8_5_Bsubtilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1557',0,'movie_stills/8_5.png')}
@@ -100,7 +100,7 @@ From hundreds of sporulating *Bacillus subtilis* we imaged by cryoET, this is th
 ```{R 8-5a, echo=FALSE, screenshot.alt='movie_stills/8_5a.png' , fig.cap= '(ref:8-5a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_5a_Bsubtilis.mp4')
+embedvideo('videos/8_5a_Bsubtilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1565',0,'movie_stills/8_5a.png')}
@@ -116,7 +116,7 @@ When the process of **engulfment** is finished, the spore’s cell wall is reinf
 ```{R 8-6, echo=FALSE, screenshot.alt='movie_stills/8_6.png' , fig.cap= '(ref:8-6)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_6_Bsubtilis.mp4')
+embedvideo('videos/8_6_Bsubtilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1558',0,'movie_stills/8_6.png')}
@@ -130,7 +130,7 @@ The process of spore engulfment by the mother cell membrane culminates in closur
 ```{R 8-6a, echo=FALSE, screenshot.alt='movie_stills/8_6a.png' , fig.cap= '(ref:8-6a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_6a_Bsubtilis.mp4')
+embedvideo('videos/8_6a_Bsubtilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1566',0,'movie_stills/8_6a.png')}
@@ -144,7 +144,7 @@ In this later stage of sporulation, you can see that the *Bacillus subtilis* spo
 ```{R 8-6b, echo=FALSE, screenshot.alt='movie_stills/8_6b.png' , fig.cap= '(ref:8-6b)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_6b_Bsubtilis.mp4')
+embedvideo('videos/8_6b_Bsubtilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1567',0,'movie_stills/8_6b.png')}
@@ -160,7 +160,7 @@ Once released, the spore will remain dormant as long as necessary, protected by 
 ```{R 8-7, echo=FALSE, screenshot.alt='movie_stills/8_7.png' , fig.cap= '(ref:8-7)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_7_Bsubtilis.mp4')
+embedvideo('videos/8_7_Bsubtilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1559',0,'movie_stills/8_7.png')}
@@ -176,7 +176,7 @@ The ready transition between a monoderm cell with a thick cell wall and a diderm
 ```{R 8-8, echo=FALSE, screenshot.alt='movie_stills/8_8.png' , fig.cap= '(ref:8-8)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_8_Bsubtilis.mp4')
+embedvideo('videos/8_8_Bsubtilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1560',0,'movie_stills/8_8.png')}
@@ -190,7 +190,7 @@ Sporulation is not limited to monoderms. A few species of diderm bacteria also f
 ```{R 8-9, echo=FALSE, screenshot.alt='movie_stills/8_9.png' , fig.cap= '(ref:8-9)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_9_Alongum.mp4')
+embedvideo('videos/8_9_Alongum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1561',0,'movie_stills/8_9.png')}
@@ -206,7 +206,7 @@ As you saw in *Bacillus subtilis*, once engulfment is complete, the thin septal 
 ```{R 8-10, echo=FALSE, screenshot.alt='movie_stills/8_10.png' , fig.cap= '(ref:8-10)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_10_Alongum.mp4')
+embedvideo('videos/8_10_Alongum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1562',0,'movie_stills/8_10.png')}
@@ -220,7 +220,7 @@ This *Acetonema longum* cell has completed engulfment, creating a “forespore.�
 ```{R 8-10a, echo=FALSE, screenshot.alt='movie_stills/8_10a.png' , fig.cap= '(ref:8-10a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_10a_Alongum.mp4')
+embedvideo('videos/8_10a_Alongum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1568',0,'movie_stills/8_10a.png')}
@@ -234,7 +234,7 @@ This mature *Acetonema longum* spore has been released by lysis of its mother ce
 ```{R 8-10b, echo=FALSE, screenshot.alt='movie_stills/8_10b.png' , fig.cap= '(ref:8-10b)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_10b_Alongum.mp4')
+embedvideo('videos/8_10b_Alongum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1569',0,'movie_stills/8_10b.png')}
@@ -248,7 +248,7 @@ This diderm *Sporomusa acidovorans* cell is in the process of forming an ovoid e
 ```{R 8-10c, echo=FALSE, screenshot.alt='movie_stills/8_10c.png' , fig.cap= '(ref:8-10c)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_10c_Sacidovorans.mp4')
+embedvideo('videos/8_10c_Sacidovorans_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1570',0,'movie_stills/8_10c.png')}
@@ -266,7 +266,7 @@ Sporulation may seem like a highly specialized function practiced by relatively 
 ```{R 8-11, echo=FALSE, screenshot.alt='movie_stills/8_11.png' , fig.cap= '(ref:8-11)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/8_11_Alongum.mp4')
+embedvideo('videos/8_11_Alongum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1563',0,'movie_stills/8_11.png')}

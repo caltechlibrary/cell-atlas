@@ -16,6 +16,7 @@ always_allow_html: true
 
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+#This variable defines whether the online or offline form of the movies are used
 offline=FALSE
 ```
 

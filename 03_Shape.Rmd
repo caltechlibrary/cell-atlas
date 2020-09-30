@@ -14,7 +14,7 @@ Consider a cell like this *Simkania negevensis*. It takes the form of a sphereâ€
 ```{R 3-1, echo=FALSE, screenshot.alt='movie_stills/3_1.png' , fig.cap= '(ref:3-1)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_1_Snegevensis.mp4')
+embedvideo('videos/3_1_Snegevensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1477',0,'movie_stills/3_1.png')}
@@ -32,7 +32,7 @@ Not all rod-shaped bacteria use MreB, and we are still figuring out how the shap
 ```{R 3-2, echo=FALSE, screenshot.alt='movie_stills/3_2.png' , fig.cap= '(ref:3-2)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_2_Cnecator.mp4')
+embedvideo('videos/3_2_Cnecator_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1478',0,'movie_stills/3_2.png')}
@@ -46,7 +46,7 @@ Not all rod-shaped cells are perfectly cylindrical. For instance, *Brucella abor
 ```{R 3-2a, echo=FALSE, screenshot.alt='movie_stills/3_2a.png' , fig.cap= '(ref:3-2a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_2a_Babortus.mp4')
+embedvideo('videos/3_2a_Babortus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1484',0,'movie_stills/3_2a.png')}
@@ -60,7 +60,7 @@ Some archaeal species, like this *Methanoregula formicica*, are rod-shaped. The 
 ```{R 3-2b, echo=FALSE, screenshot.alt='movie_stills/3_2b.png' , fig.cap= '(ref:3-2b)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_2b_Mformicica.mp4')
+embedvideo('videos/3_2b_Mformicica_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1485',0,'movie_stills/3_2b.png')}
@@ -76,7 +76,7 @@ The length of a cell (or, more generally, its size) varies depending on the envi
 ```{R 3-3, echo=FALSE, screenshot.alt='movie_stills/3_3.png' , fig.cap= '(ref:3-3)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_3_Hgracilis.mp4')
+embedvideo('videos/3_3_Hgracilis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1479',0,'movie_stills/3_3.png')}
@@ -92,7 +92,7 @@ This system is only one way of making a curved cell. There must be others since 
 ```{R 3-4, echo=FALSE, screenshot.alt='movie_stills/3_4.png' , fig.cap= '(ref:3-4)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_4_Ccrescentus.mp4')
+embedvideo('videos/3_4_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1480',0,'movie_stills/3_4.png')}
@@ -116,7 +116,7 @@ It can be tempting to group species based on a common characteristic, but appear
 ```{R 3-5, echo=FALSE, screenshot.alt='movie_stills/3_5.png' , fig.cap= '(ref:3-5)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_5_Cjejuni.mp4')
+embedvideo('videos/3_5_Cjejuni_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1481',0,'movie_stills/3_5.png')}
@@ -130,7 +130,7 @@ doivideo('10.22002/D1.1481',0,'movie_stills/3_5.png')}
 ```{R 3-5a, echo=FALSE, screenshot.alt='movie_stills/3_5a.png' , fig.cap= '(ref:3-5a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_5a_Bburgdorferi.mp4')
+embedvideo('videos/3_5a_Bburgdorferi_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1486',0,'movie_stills/3_5a.png')}
@@ -146,7 +146,7 @@ Prosthecae offer an architectural challenge: thin extensions are delicate. Prost
 ```{R 3-6, echo=FALSE, screenshot.alt='movie_stills/3_6.png' , fig.cap= '(ref:3-6)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_6_Vspinosum.mp4')
+embedvideo('videos/3_6_Vspinosum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1482',0,'movie_stills/3_6.png')}
@@ -170,7 +170,7 @@ Some bacterial species with prosthecae express structures similar to eukaryotic 
 ```{R 3-6a, echo=FALSE, screenshot.alt='movie_stills/3_6a.png' , fig.cap= '(ref:3-6a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_6a_Pvanneervenii.mp4')
+embedvideo('videos/3_6a_Pvanneervenii_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1487',0,'movie_stills/3_6a.png')}
@@ -186,7 +186,7 @@ We still do not know exactly how this shape is determined, but at least part of 
 ```{R 3-7, echo=FALSE, screenshot.alt='movie_stills/3_7.png' , fig.cap= '(ref:3-7)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_7_Hwalsbyi.mp4')
+embedvideo('videos/3_7_Hwalsbyi_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1483',0,'movie_stills/3_7.png')}
@@ -202,7 +202,7 @@ Gas vesicles are microcompartments enclosed by a hydrophobic shell made of a sin
 ```{R 3-7a, echo=FALSE, screenshot.alt='movie_stills/3_7a.png' , fig.cap= '(ref:3-7a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/3_7a_Hsalinarum.mp4')
+embedvideo('videos/3_7a_Hsalinarum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1488',0,'movie_stills/3_7a.png')}

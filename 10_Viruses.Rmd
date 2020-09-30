@@ -12,7 +12,7 @@ The basic strategy of a phage is to inject its genome into a host cell, use the 
 ```{R 10-1, echo=FALSE, screenshot.alt='movie_stills/10_1.png' , fig.cap= '(ref:10-1)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_1_Soneidensis.mp4')
+embedvideo('videos/10_1_Soneidensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1586',0,'movie_stills/10_1.png')}
@@ -26,7 +26,7 @@ Once docked, the phage delivers its cargo. The tails of some, but not all, phage
 ```{R 10-2, echo=FALSE, screenshot.alt='movie_stills/10_2.png' , fig.cap= '(ref:10-2)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_2_Bacteroidetes.mp4')
+embedvideo('videos/10_2_Bacteroidetes_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1587',0,'movie_stills/10_2.png')}
@@ -42,7 +42,7 @@ Note that you already saw a different type of phage attacking *S. oneidensis*. W
 ```{R 10-3, echo=FALSE, screenshot.alt='movie_stills/10_3.png' , fig.cap= '(ref:10-3)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_3_Soneidensis.mp4')
+embedvideo('videos/10_3_Soneidensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1588',0,'movie_stills/10_3.png')}
@@ -58,7 +58,7 @@ Similarly, heads can look very different. The unique rocket-ship shape of this p
 ```{R 10-4, echo=FALSE, screenshot.alt='movie_stills/10_4.png' , fig.cap= '(ref:10-4)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_4_Vcholerae.mp4')
+embedvideo('videos/10_4_Vcholerae_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1589',0,'movie_stills/10_4.png')}
@@ -74,7 +74,7 @@ Some species of bacteria, including this *Escherichia coli* use “competence pi
 ```{R 10-5, echo=FALSE, screenshot.alt='movie_stills/10_5.png' , fig.cap= '(ref:10-5)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_5_Ecoli.mp4')
+embedvideo('videos/10_5_Ecoli_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1590',0,'movie_stills/10_5.png')}
@@ -88,7 +88,7 @@ Other phage use bacterial appendages in an even cleverer way. These φCb13 myoph
 ```{R 10-6, echo=FALSE, screenshot.alt='movie_stills/10_6.png' , fig.cap= '(ref:10-6)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_6_Ccrescentus.mp4')
+embedvideo('videos/10_6_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1591',0,'movie_stills/10_6.png')}
@@ -102,7 +102,7 @@ Here you see several φCb13 phage that have successfully reached their target re
 ```{R 10-6a, echo=FALSE, screenshot.alt='movie_stills/10_6a.png' , fig.cap= '(ref:10-6a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_6a_Ccrescentus.mp4')
+embedvideo('videos/10_6a_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1596',0,'movie_stills/10_6a.png')}
@@ -118,7 +118,7 @@ Whether the phage replicates immediately or waits a while as a prophage first, t
 ```{R 10-7, echo=FALSE, screenshot.alt='movie_stills/10_7.png' , fig.cap= '(ref:10-7)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_7_Vcholerae.mp4')
+embedvideo('videos/10_7_Vcholerae_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1592',0,'movie_stills/10_7.png')}
@@ -132,7 +132,7 @@ Some archaeal phage make an even more dramatic exit, through <u>v</u>irus-<u>a</
 ```{R 10-8, echo=FALSE, screenshot.alt='movie_stills/10_8.png' , fig.cap= '(ref:10-8)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_8_Ssolfataricus.mp4')
+embedvideo('videos/10_8_Ssolfataricus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1593',0,'movie_stills/10_8.png')}
@@ -154,7 +154,7 @@ When the STIV phage is ready to make its great escape, a still-unknown signal tr
 ```{R 10-9, echo=FALSE, screenshot.alt='movie_stills/10_9.png' , fig.cap= '(ref:10-9)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_9_Ssolfataricus.mp4')
+embedvideo('videos/10_9_Ssolfataricus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1594',0,'movie_stills/10_9.png')}
@@ -170,7 +170,7 @@ Defense can also be structural. Surface layers may protect cells from some phage
 ```{R 10-10, echo=FALSE, screenshot.alt='movie_stills/10_10.png' , fig.cap= '(ref:10-10)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/10_10_Soneidensis.mp4')
+embedvideo('videos/10_10_Soneidensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1595',0,'movie_stills/10_10.png')}

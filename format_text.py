@@ -13,8 +13,9 @@ def insert_movie(doi):
     title = doi['title']
     split = filev.split('_')
     label = f'{split[0]}-{split[1]}'
-    filen = f'{split[0]}_{split[1]}'
-    image_path = f'movie_stills/{filen}.png'
+    iname = f'{split[0]}_{split[1]}'
+    image_path = f'movie_stills/{iname}.png'
+    filen = filev.split('.mp4')[0]
     collector_label = collector.replace(' ','_').lower()
     collector_link = f'[{collector}](#{collector_label})'
     return "(ref:"+label+") ["+title+"](#tree) Collected by: "+collector_link+\
@@ -23,7 +24,7 @@ def insert_movie(doi):
             image_path+"' , fig.cap= '(ref:"+label+\
             ")'}\nif(offline==TRUE){\n"+\
             "library(embedvideo)\nembedvideo('videos/"+\
-            filev+"')\n} else {\n"+\
+            filen+"_480p.mp4')\n} else {\n"+\
             "library(doivideo)\ndoivideo('"+\
             doiv+"',0,'"+image_path+"')}\n```\n\n"
 

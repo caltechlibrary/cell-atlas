@@ -12,7 +12,7 @@ You have already seen how the shape of your cell can allow it to gather nutrient
 ```{R 4-1, echo=FALSE, screenshot.alt='movie_stills/4_1.png' , fig.cap= '(ref:4-1)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_1_Ccrescentus.mp4')
+embedvideo('videos/4_1_Ccrescentus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1489',0,'movie_stills/4_1.png')}
@@ -30,7 +30,7 @@ Other species, like *Geobacter sulfurreducens*, also use nanowires to transfer e
 ```{R 4-2, echo=FALSE, screenshot.alt='movie_stills/4_2.png' , fig.cap= '(ref:4-2)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_2_Soneidensis.mp4')
+embedvideo('videos/4_2_Soneidensis_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1490',0,'movie_stills/4_2.png')}
@@ -44,7 +44,7 @@ Photosynthetic bacteria harvest energy from sunlight using protein complexes [Sc
 ```{R 4-3, echo=FALSE, screenshot.alt='movie_stills/4_3.png' , fig.cap= '(ref:4-3)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_3_Rpalustris.mp4')
+embedvideo('videos/4_3_Rpalustris_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1491',0,'movie_stills/4_3.png')}
@@ -66,7 +66,7 @@ In some species, like this *Methyloprofundus sedimenti*, the intracytoplasmic me
 ```{R 4-3a, echo=FALSE, screenshot.alt='movie_stills/4_3a.png' , fig.cap= '(ref:4-3a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_3a_Msedimenti.mp4')
+embedvideo('videos/4_3a_Msedimenti_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1499',0,'movie_stills/4_3a.png')}
@@ -82,7 +82,7 @@ Furloughed workers can also be recruited to other projects. Remember that CTP sy
 ```{R 4-5, echo=FALSE, screenshot.alt='movie_stills/4_5.png' , fig.cap= '(ref:4-5)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_5_Cthermocellum.mp4')
+embedvideo('videos/4_5_Cthermocellum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1493',0,'movie_stills/4_5.png')}
@@ -104,7 +104,7 @@ In addition to increasing the number of active workers to boost metabolic output
 ```{R 4-6, echo=FALSE, screenshot.alt='movie_stills/4_6.png' , fig.cap= '(ref:4-6)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_6_Alongum.mp4')
+embedvideo('videos/4_6_Alongum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1494',0,'movie_stills/4_6.png')}
@@ -128,7 +128,7 @@ In this case, the microcompartment protects its contents from the rest of the ce
 ```{R 4-7, echo=FALSE, screenshot.alt='movie_stills/4_7.png' , fig.cap= '(ref:4-7)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_7_Tintermedia.mp4')
+embedvideo('videos/4_7_Tintermedia_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1495',0,'movie_stills/4_7.png')}
@@ -142,7 +142,7 @@ Most carboxysomes look like the ones you saw on the last page, but not all. Some
 ```{R 4-7a, echo=FALSE, screenshot.alt='movie_stills/4_7a.png' , fig.cap= '(ref:4-7a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_7a_Hneapolitanus.mp4')
+embedvideo('videos/4_7a_Hneapolitanus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1500',0,'movie_stills/4_7a.png')}
@@ -158,7 +158,7 @@ This cell also highlights the lability in the outer membrane common in some bact
 ```{R 4-7b, echo=FALSE, screenshot.alt='movie_stills/4_7b.png' , fig.cap= '(ref:4-7b)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_7b_Hcrunogenus.mp4')
+embedvideo('videos/4_7b_Hcrunogenus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1501',0,'movie_stills/4_7b.png')}
@@ -174,7 +174,7 @@ Storage granules are ubiquitous in bacteria, and you will see them in many of th
 ```{R 4-8, echo=FALSE, screenshot.alt='movie_stills/4_8.png' , fig.cap= '(ref:4-8)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_8_Cnecator.mp4')
+embedvideo('videos/4_8_Cnecator_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1496',0,'movie_stills/4_8.png')}
@@ -188,7 +188,7 @@ Storage granules expand and contract to accommodate their contents. This *Lysoba
 ```{R 4-8a, echo=FALSE, screenshot.alt='movie_stills/4_8a.png' , fig.cap= '(ref:4-8a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_8a_Lantibioticus.mp4')
+embedvideo('videos/4_8a_Lantibioticus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1502',0,'movie_stills/4_8a.png')}
@@ -206,7 +206,7 @@ You might expect a close relationship between cellular factories and storage dep
 ```{R 4-9, echo=FALSE, screenshot.alt='movie_stills/4_9.png' , fig.cap= '(ref:4-9)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_9_Atumefaciens.mp4')
+embedvideo('videos/4_9_Atumefaciens_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1497',0,'movie_stills/4_9.png')}
@@ -220,7 +220,7 @@ Small poly-phosphate storage granules are sometimes seen *inside* carboxysomes, 
 ```{R 4-9a, echo=FALSE, screenshot.alt='movie_stills/4_9a.png' , fig.cap= '(ref:4-9a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_9a_Hcrunogenus.mp4')
+embedvideo('videos/4_9a_Hcrunogenus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1503',0,'movie_stills/4_9a.png')}
@@ -234,7 +234,7 @@ We sometimes see comb-like structures connecting external poly-phosphate storage
 ```{R 4-9b, echo=FALSE, screenshot.alt='movie_stills/4_9b.png' , fig.cap= '(ref:4-9b)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_9b_Hneapolitanus.mp4')
+embedvideo('videos/4_9b_Hneapolitanus_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1504',0,'movie_stills/4_9b.png')}
@@ -248,7 +248,7 @@ Archaea also use storage granules, and you will see many examples throughout the
 ```{R 4-10, echo=FALSE, screenshot.alt='movie_stills/4_10.png' , fig.cap= '(ref:4-10)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_10_Hlitoreum.mp4')
+embedvideo('videos/4_10_Hlitoreum_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1498',0,'movie_stills/4_10.png')}
@@ -262,7 +262,7 @@ Some archaeal cells, like this *Haloferax gibbonsii*, contain many small granule
 ```{R 4-10a, echo=FALSE, screenshot.alt='movie_stills/4_10a.png' , fig.cap= '(ref:4-10a)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_10a_Hgibbonsii.mp4')
+embedvideo('videos/4_10a_Hgibbonsii_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1505',0,'movie_stills/4_10a.png')}
@@ -276,7 +276,7 @@ This *Halohasta litchfieldiae* cell has more unusual granules. The high electron
 ```{R 4-10b, echo=FALSE, screenshot.alt='movie_stills/4_10b.png' , fig.cap= '(ref:4-10b)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/4_10b_Hlitchfieldiae.mp4')
+embedvideo('videos/4_10b_Hlitchfieldiae_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1506',0,'movie_stills/4_10b.png')}
