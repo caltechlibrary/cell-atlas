@@ -38,7 +38,7 @@ If you are new to cryo-EM, we suggest starting with Chapter 1, which describes t
 ```{R 0-1, echo=FALSE, screenshot.alt='movie_stills/0_1.png' , fig.cap= '(ref:0-1)'}
 if(offline==TRUE){
 library(embedvideo)
-embedvideo('videos/0_1_Cjejuni.mp4')
+embedvideo('videos/0_1_Cjejuni_480p.mp4')
 } else {
 library(doivideo)
 doivideo('10.22002/D1.1462',0,'movie_stills/0_1.png')
