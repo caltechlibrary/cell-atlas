@@ -30,9 +30,21 @@ knitr::include_graphics('img/bios/yi-wei_chang.jpg')
 
 ## Georges Chreifi {-#georges_chreifi}
 
+Georges Chreifi is a postdoctoral scholar at Caltech. He earned his Ph.D. in the laboratory of Tom Poulos at UC Irvine studying structure-function relationships in heme proteins, with a focus in X-ray crystallography and enzymology. He joined Grant Jensen’s lab in 2017 to do his postdoctoral research in cryo-EM. He is currently working on developing rapid tilt-series methods in cryo-ET and elucidating the architecture of the bacterial type IX secretion system.
+
+```{R}
+knitr::include_graphics('img/bios/georges_chreifi.jpg')
+```
+
 ## Prabha Dias {-#prabha_dias}
 
 ## Lu Gan {-#lu_gan}
+
+Lu Gan is a principal investigator in the Centre for BioImaging Sciences and Department of Biological Sciences at the National University of Singapore. He did his undergraduate training at Caltech, where he studied antibody trafficking in Professor Pamela Bjorkman’s lab. Lu then received PhD training in structural virology with Professor Jack Johnson at The Scripps Research Institute. In 2006, he joined Grant Jensen’s lab as a postdoctoral scholar to study both bacterial cell-wall architecture and eukaryotic chromosome segregation. He moved to Singapore in 2011 to start his independent lab. Lu and his students continue to explore eukaryotic chromosomes and how they are regulated, all at molecular resolution.
+
+```{R}
+knitr::include_graphics('img/bios/lu_gan.jpg')
+```
 
 ## Debnath Ghosal {-#debnath_ghosal}
 
@@ -77,6 +89,12 @@ knitr::include_graphics('img/bios/alasdair_mcdowall.jpg')
 ```
 
 ## Lauren Ann Metskas {-#lauren_ann_metskas}
+
+Dr. Lauren Ann Metskas studied the conformational dynamics of disordered proteins during her PhD in Molecular Biophysics and Biochemistry at Yale University.  After graduating in 2016, she transitioned to correlated cryo-fluorescence and cryo-electron microscopy methods development during her first postdoctoral position with the Briggs group at EMBL-Heidelberg and the MRC Laboratory of Molecular Biology. Lauren Ann joined the Jensen lab in 2018, whereupon she discovered a new interest in using tomography to study bacterial microcompartments and outer membrane vesicles. She will start her own group at Purdue University in 2021.
+
+```{R}
+knitr::include_graphics('img/bios/lauren_ann_metskas.jpg')
+```
 
 ## Gavin Murphy {-#gavin_murphy}
 
@@ -133,5 +151,11 @@ knitr::include_graphics('img/bios/elitza_tocheva.jpg')
 ## Steven Wang {-#steven_wang}
 
 ## Elizabeth Wright {-#elizabeth_wright}
+
+Elizabeth Wright is a Professor in the Department of Biochemistry at the University of Wisconsin, Madison. She is the director of the Cryo-EM Research Center (CEMRC) at UW-Madison and the Midwest Center for Cryo-Electron Tomography (MCCET), an NIH-funded National Center for Cryo-ET. She earned her PhD in Chemistry at Emory University in the laboratory of Prof. Vincent P. Conticello. It was during her PhD studies that she first began to explore macromolecular complexes and cellular systems with electron microscopy (EM) and cryo-EM. She joined Grant’s lab at Caltech as a postdoc from 2003-2008. In Grant’s lab she used cryo-ET to study HIV maturation, bacterial structure, and bacteria-bacteriophage interactions. In 2008, she established her cryo-EM lab where the group explores structure-function questions related to pathogenic viruses and bacteria, bacteriophage, blood cells and macromolecules, and neurons.
+
+```{R}
+knitr::include_graphics('img/bios/elizabeth_wright.jpg')
+```
 
 ## Qing Yao {-#qing_yao}

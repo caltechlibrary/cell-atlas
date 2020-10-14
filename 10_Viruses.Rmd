@@ -81,7 +81,7 @@ doivideo('10.22002/D1.1590',0,'movie_stills/10_5.png')}
 ```
 
 ## Head Fibers
-Other phage use bacterial appendages in an even cleverer way. These φCb13 myophage take advantage of the cell’s motility to hitch a ride to the cell. They have a filament on their head that wraps into the helical groove of the *Caulobacter crescentus* flagellum. Remember that flagella can spin either clockwise or counter-clockwise. If this single polar flagellum spins clockwise, pushing the cell body, the attached phage would unscrew like a nut off the end of the flagellum. But if the flagellum spins counter-clockwise, the nut will instead spin down to the cell body, where its tail fibers will find their receptors and its tail will inject the genome [More: φCb13 infection](#φCb13_infection).
+Other phage use bacterial appendages in an even cleverer way. These φCb13 siphophage take advantage of the cell’s motility to hitch a ride to the cell. They have a filament on their head that wraps into the helical groove of the *Caulobacter crescentus* flagellum. Remember that flagella can spin either clockwise or counter-clockwise. If this single polar flagellum spins clockwise, pushing the cell body, the attached phage would unscrew like a nut off the end of the flagellum. But if the flagellum spins counter-clockwise, the nut will instead spin down to the cell body, where its tail fibers will find their receptors and its tail will inject the genome [More: φCb13 infection](#φCb13_infection).
 
 (ref:10-6) [Caulobacter crescentus](#tree) Collected by: [Elizabeth Wright](#elizabeth_wright) Movie DOI: [10.22002/D1.1591](https://doi.org/10.22002/D1.1591)
 
