@@ -1,12 +1,17 @@
 Package: doivideo
 Title: Embed video from DOI using htmlwidget
-Version: 0.1.0
-Authors@R: 
+Version: 0.1.1
+Authors@R: c(
     person(given = "Thomas",
            family = "Morrell",
            role = c("aut", "cre"),
            email = "tmorrell@caltech.edu",
-           comment = c(ORCID = "0000-0001-9266-5146"))
+           comment = c(ORCID = "0000-0001-9266-5146")),
+    person(given = "Kian",
+           family = "Badie",
+           role = c("ctb"),
+           email = "kianbadie@yahoo.com")
+    )
 Description: Embed video player that takes a DOI.
 Imports:
     htmlwidgets
