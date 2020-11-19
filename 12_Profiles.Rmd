@@ -1,6 +1,24 @@
 # Scientist Profiles 
 
-Click on a name in the sidebar to learn a little about them.
+Click on a name in the sidebar to learn a little about the scientist.
+
+## Author: Grant Jensen {-#grant_jensen}
+
+Grant J. Jensen is a Professor of Biology and Biophysics at Caltech. He earned his doctorate in Biophysics from Stanford, working on electron microscopy of RNA polymerase and other protein complexes with Dr. Roger Kornberg. He continued his work in protein electron microscopy as a Damon Runyon-Walter Winchell post-doctoral fellow under the supervision of Dr. Kenneth Downing at the Lawrence Berkeley National Lab. Here his interests expanded to include electron tomography of whole cells. Grant launched his own lab at Caltech in 2002, where his research has focused on three main areas: the ultrastructure of small cells, the structural biology of HIV, and the further development of cryoEM technology. 
+
+```{R}
+knitr::include_graphics('img/bios/grant_jensen.jpg')
+```
+
+## Author: Catherine Oikonomou {-#catherine_oikonomou}
+
+Catherine M. Oikonomou is a research scientist and science writer at Caltech. She received her doctorate from the Rockefeller University, where she worked with Dr. Frederick Cross on cell cycle control in budding yeast. In 2012, she joined the lab of Dr. Grant Jensen at Caltech, where she has been exploring microbial cell biology through cryo-electron tomography.
+
+```{R}
+knitr::include_graphics('img/bios/catherine_oikonomou.jpg')
+```
+
+##  {-}
 
 ## Morgan Beeby {-#morgan_beeby}
 
@@ -28,6 +46,12 @@ knitr::include_graphics('img/bios/yi-wei_chang.jpg')
 
 ## Songye Chen {-#songye_chen}
 
+Songye Chen is the managing co-director of the Caltech Cryo-EM Facility. She earned her PhD in physics at Caltech, for investigations on ultrafast electron crystallography with Dr. Ahmed Zewail. She joined the lab of Dr. Grant Jensen as a postdoc after that and began her career as an electron microscopist working in cryoEM. She has been enjoying developing new methods, working with biologists and facilitating their cutting-edge research with state-of-the-art cryoEM technology.
+
+```{R}
+knitr::include_graphics('img/bios/songye_chen.jpg')
+```
+
 ## Georges Chreifi {-#georges_chreifi}
 
 Georges Chreifi is a postdoctoral scholar at Caltech. He earned his Ph.D. in the laboratory of Tom Poulos at UC Irvine studying structure-function relationships in heme proteins, with a focus in X-ray crystallography and enzymology. He joined Grant Jensen’s lab in 2017 to do his postdoctoral research in cryo-EM. He is currently working on developing rapid tilt-series methods in cryo-ET and elucidating the architecture of the bacterial type IX secretion system.
@@ -37,6 +61,14 @@ knitr::include_graphics('img/bios/georges_chreifi.jpg')
 ```
 
 ## Prabha Dias {-#prabha_dias}
+
+## Megan Dobro {-#megan_dobro}
+
+Dr. Megan Dobro is an Associate Professor of Biology at Hampshire College in Amherst, Massachusetts and Co-Founder and CEO of SafeTiva Labs. Dr. Dobro graduated with her PhD in Biology from the California Institute of Technology where she studied structural biology of viruses and bacteria using electron cryotomography in Dr. Grant Jensen's laboratory. 
+
+```{R}
+knitr::include_graphics('img/bios/megan_dobro.jpg')
+```
 
 ## Lu Gan {-#lu_gan}
 
@@ -60,15 +92,13 @@ knitr::include_graphics('img/bios/debnath_ghosal.jpg')
 
 Cristina V. Iancu received her B.S. in Biophysics from the Faculty of Physics of the University of Bucharest, Romania, and her Ph.D. in Biochemistry from Iowa State University, Ames, IA, U.S. Her graduate work in the protein crystallography group of Dr. Richard B. Honzatko involved structural and functional studies of key enzymes in gluconeogenesis and de novo nucleotide synthesis. She joined the cryo-EM lab of Dr. Grant J. Jensen as his first postdoc, where she worked on cryo-ET method development projects and cryo-ET structure determination of protein complexes, isolated carboxysomes, and carboxysome-producing bacteria. Currently, she works on drug discovery targeting carbohydrate transporters with Dr. Jun-yong Choe.
 
-## Grant Jensen {-#grant_jensen}
+## Mohammed Kaplan {-#mohammed_kaplan}
 
-Grant J. Jensen is a Professor of Biology and Biophysics at Caltech. He earned his doctorate in Biophysics from Stanford, working on electron microscopy of RNA polymerase and other protein complexes with Dr. Roger Kornberg. He continued his work in protein electron microscopy as a Damon Runyon-Walter Winchell post-doctoral fellow under the supervision of Dr. Kenneth Downing at the Lawrence Berkeley National Lab. Here his interests expanded to include electron tomography of whole cells. Grant launched his own lab at Caltech in 2002, where his research has focused on three main areas: the ultrastructure of small cells, the structural biology of HIV, and the further development of cryoEM technology. 
+Mohammed Kaplan is currently a postdoc in the Jensen lab at Caltech. He did his PhD under the supervision of Prof. Marc Baldus at Utrecht university.
 
 ```{R}
-knitr::include_graphics('img/bios/grant_jensen.jpg')
+knitr::include_graphics('img/bios/mohammed_kaplan.jpg')
 ```
-
-## Mohammed Kaplan {-#mohammed_kaplan}
 
 ## Zhuo Li {-#zhuo_li}
 
@@ -114,14 +144,6 @@ William J Nicolas is a postdoctoral scholar at Caltech in the Jensen and Meyerow
 knitr::include_graphics('img/bios/william_nicolas.jpg')
 ```
 
-## Catherine Oikonomou {-#catherine_oikonomou}
-
-Catherine M. Oikonomou is a research scientist and science writer at Caltech. She received her doctorate from the Rockefeller University, where she worked with Dr. Frederick Cross on cell cycle control in budding yeast. In 2012, she joined the lab of Dr. Grant Jensen at Caltech, where she has been exploring microbial cell biology through cryo-electron tomography.
-
-```{R}
-knitr::include_graphics('img/bios/catherine_oikonomou.jpg')
-```
-
 ## Martin Pilhofer {-#martin_pilhofer}
 
 ## Sahand Pirbadian {-#sahand_pirbadian}
@@ -130,7 +152,7 @@ knitr::include_graphics('img/bios/catherine_oikonomou.jpg')
 
 ## Jian Shi {-#jian_shi}
 
-I received Bachelor degree in Chemistry from Peking University, China and Ph.D. in biophysics and molecular physiology from School of Medicine, Vanderbilt University, USA. At Vanderbilt, I worked in Dr. Phoebe Stewart's lab to study small heat shock proteins with CryoEM and other biophysical methods. After Ph.D., I joined Dr. Grant Jensen's lab at Caltech/HHMI as CryoEM specialist to study ultra-structures in bacteria. After spending one year in FEI Company, I have been the manager of Cryo-Electron Microscopy Facility at National University of Singapore since then. 
+Jian Shi received his Bachelor degree in Chemistry from Peking University, China and Ph.D. in biophysics and molecular physiology from School of Medicine, Vanderbilt University, USA. At Vanderbilt, he worked in Dr. Phoebe Stewart's lab to study small heat shock proteins with CryoEM and other biophysical methods. After his Ph.D., he joined Dr. Grant Jensen's lab at Caltech/HHMI as CryoEM specialist to study ultra-structures in bacteria. After spending one year in FEI Company, he has been the manager of Cryo-Electron Microscopy Facility at National University of Singapore since then. 
 
 ```{R}
 knitr::include_graphics('img/bios/jian_shi.jpg')
@@ -159,3 +181,5 @@ knitr::include_graphics('img/bios/elizabeth_wright.jpg')
 ```
 
 ## Qing Yao {-#qing_yao}
+
+## Zhiheng Yu {-#zhiheng_yu}

@@ -2054,8 +2054,6 @@ Myxococcus xanthus \@ref(fig:2-4)
 
 Myxococcus xanthus \@ref(fig:9-6)
 
-Nitrosopumilus maritimus \@ref(fig:2-7c)
-
 Prosthecobacter debontii \@ref(fig:2-4d)
 
 Pseudoalteromonas luteoviolacea \@ref(fig:9-7b)
