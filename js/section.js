@@ -14,6 +14,15 @@ if(split.length > 1) {
     }
 }
 
+// Check if there is "Learn More" content. If not, add margin on bottom of text seciton
+let sectionText = document.querySelector(".book-section-text");
+if(sectionText) {
+    let learnMore = sectionText.querySelector(".book-section-learn-more");
+    if(!learnMore) {
+        sectionText.style["padding-bottom"] = "1em";
+    }
+}
+
 // Add event listener to video player to shelf text on first play
 let video = document.querySelector("#nonTextContent video");
 if(video) video.addEventListener("play", shelfOnFirstPlay);

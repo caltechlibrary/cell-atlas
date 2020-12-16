@@ -39,7 +39,6 @@ ol, ul {
 
 a {
     text-decoration: none;
-    color: rgb(50 92 105);
 }
 
 blockquote {
@@ -65,16 +64,12 @@ blockquote {
     overflow:hidden;
 }
 
-.caltech-color {
-    color: rgb(255 108 12);
-}
-
 .main-color-background {
     background-color: rgb(21 64 78);
 }
 
-.main-color-text {
-    color: rgb(50 92 105);
+.hidden {
+    visibility: hidden;
 }
 
 /* || HEADER styles */
@@ -118,7 +113,7 @@ header a {
 }
 
 .landing-page-background-overlay {
-    background-color: rgb(0 0 0 / 0.5);
+    background-color: rgb(0 0 0 / 0.6);
     height: 100%;
 }
 
@@ -181,10 +176,7 @@ header a {
     font-family: system-ui;
     font-size: 1em;
     transition: color 0.25s;
-}
-
-.landing-page-start-button:hover {
-    color: rgb(179 179 179);
+    background-color: #24788f;
 }
 
 .landing-page-start-button span {
@@ -216,7 +208,7 @@ header a {
 }
 
 .book-page-nav:hover {
-    color: rgb(54 54 54);
+    color: #262626;
 }
 
 .nav-menu {
@@ -353,10 +345,16 @@ header a {
 }
 
 .book-chapter-quote {
-    color: rgb(245 245 245);
+    color: rgb(255 255 255);
     width: 40%;
     text-align: right;
     font-size: 1.25em;
+}
+
+.book-chapter-quote a {
+    color: rgb(255 255 255);
+    text-decoration: underline;
+    margin: 0 0.15em;
 }
 
 /* || SECTION page styles (styles for every page of the book that is a section) */
@@ -375,9 +373,20 @@ header a {
     transition: width 1s, left 1s, right 1s;
 }
 
+.book-section-non-text-content-empty {
+    justify-content: space-between;
+}
+
 video {
     min-width: 0;
     width: 100%;
+    background-color: rgb(255 255 255);
+}
+
+.book-section-non-text-content img {
+    width: 100%;
+    min-width: 0;
+    background-color: rgb(245 245 245);
 }
 
 .book-section-text-open-button {
@@ -401,7 +410,7 @@ video {
     display: flex;
     flex-direction: column;
     margin: auto;
-    padding: 1em 0;
+    padding-top: 1em;
     height: fit-content;
     max-height: 90%;
     width: 38%;
@@ -410,6 +419,11 @@ video {
     background-color: rgb(54 54 54);
     color: rgb(245 245 245);
     transition: transform 1s;
+}
+
+.book-section-text-material a {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 .book-section-text-margins {
@@ -444,8 +458,8 @@ video {
 }
 
 .video-citation {
-    background: rgb(151 151 151);
-    color: rgb(245 245 245);
+    background: #cccccc;
+    color: #545454;
     padding: 0.5em;
     display: flex;
     flex-direction: row;
@@ -455,15 +469,26 @@ video {
     font-size: 0.85em;
 }
 
+.video-citation a {
+    text-decoration: underline;
+    color: rgb(50 92 105);
+}
+
+.video-citation-value {
+    color: rgb(50 92 105);
+}
+
 .video-citation span {
     margin: 0 3px;
+    text-align: center;
 }
 
 .book-section-learn-more {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    margin-top: 1em;
+    padding: 1em 15px;
+    background-color: #858585;
 }
 
 .book-section-learn-more h1 {
@@ -521,30 +546,23 @@ video {
     overflow: auto;
 }
 
+.subsection-modal-text a {
+    text-decoration: underline;
+    color: rgb(50 92 105);
+}
+
 .subsection-modal-text h1 {
     font-size: 1.75em;
 }
 
 .subsection-modal-container img {
     width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
 }
 
-.book-section-summary-material {
-    margin-top: 1em;
-}
-
-.book-section-summary-material h2 {
-    font-size: 1.2em;
-    text-decoration: underline;
-}
-
-.book-section-summary-material ul:nth-of-type(1) {
-    list-style-type: disc;
-    padding-inline-start: 1em;
-}
-
-.subsection-modal-container .video-citation a {
-    text-decoration: underline;
+#concept-check-questions, #further-reading {
+    margin-top: 2em;
 }
 
 /* || FOOTER styles */
@@ -553,7 +571,7 @@ footer {
     flex-direction: row;
     align-items: center;
     height: 2.5rem;
-    background: grey;
+    background: #757575;
     font-weight: 600;
     font-size: 0.85rem;
     color: rgb(255 255 255);
@@ -565,12 +583,7 @@ footer span {
 }
 
 .footer-link {
-    color: rgb(245 245 245);
-    transition: color 0.25s;
-}
-
-.footer-link:hover {
-    color: rgb(179 179 179);
+    color: rgb(255 255 255);
 }
 
 /* || APPENDIX styles */
@@ -588,6 +601,11 @@ footer span {
     max-width: 57.5em;
     padding: 0 3em;
     margin: 4em auto 0;
+}
+
+.book-appendix-inner a {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 .book-appendix-page h1 {
@@ -612,6 +630,10 @@ footer span {
     padding-bottom: 0.5em;
     margin-bottom: 1.5em;
     border-bottom: 1px solid rgb(245 245 245);
+}
+
+.book-appendix-li-header button {
+    color: #4B889B;
 }
 
 .book-appendix-li-header h2 {
@@ -677,6 +699,7 @@ footer span {
 }
 
 .book-profile-blurb {
+    width: 100%;
     text-align: right;
     max-height: 267px;
     overflow: auto;
