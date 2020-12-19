@@ -34,46 +34,8 @@ function shelfOnFirstPlay(event) {
 
 function showModal(el) {
     let modalId = el.getAttribute("value");
-    let subsectionModal = document.getElementById(modalId);
-    let modalOverlay = document.getElementById("modalOverlay");
-    let lastFocused = document.activeElement;
-
-    modalOverlay.style.display = "block";
-    subsectionModal.style.display = "flex";
-    subsectionModal.setAttribute("tabindex", 0);
-    subsectionModal.focus();
-
-    document.addEventListener("focusin", restrictFocus);
-    document.addEventListener("keydown", closeModalKey);
-    modalOverlay.addEventListener("click", closeModalClick);
-
-    function restrictFocus(event) {
-        if(!subsectionModal.contains(event.target)) {
-            event.stopPropagation();
-            subsectionModal.focus();
-        }
-    }
-    
-    function closeModalKey(event) {
-        if(event.key === 27 || event.key === "Escape"){
-            hideModal();
-        } 
-    }
-    
-    function closeModalClick(event) {
-        if(event.target == modalOverlay){
-            hideModal();
-        }
-    }
-
-    function hideModal() {
-        document.removeEventListener("focusin", restrictFocus);
-        document.removeEventListener("keydown", closeModalKey);
-        modalOverlay.removeEventListener("click", closeModalClick);
-        modalOverlay.style.display = "none";
-        subsectionModal.style.display = "none";
-        lastFocused.focus();
-    }
+    // openModal is defined in modal.js
+    openModal(modalId);
 }
 
 function shelfText(el) {

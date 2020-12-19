@@ -2,46 +2,8 @@
 let feedbackLinks = document.getElementsByClassName("feedbackLink");
 for(link of feedbackLinks) {
     link.addEventListener("click", () => {
-        let subsectionModal = document.getElementById("feedbackModal");
-        let modalOverlay = document.getElementById("modalOverlay");
-        let lastFocused = document.activeElement;
-    
-        modalOverlay.style.display = "block";
-        subsectionModal.style.display = "flex";
-        subsectionModal.setAttribute("tabindex", 0);
-        subsectionModal.focus();
-    
-        document.addEventListener("focusin", restrictFocus);
-        document.addEventListener("keydown", closeModalKey);
-        modalOverlay.addEventListener("click", closeModalClick);
-    
-        function restrictFocus(event) {
-            if(!subsectionModal.contains(event.target)) {
-                event.stopPropagation();
-                subsectionModal.focus();
-            }
-        }
-        
-        function closeModalKey(event) {
-            if(event.key === 27 || event.key === "Escape"){
-                hideModal();
-            } 
-        }
-        
-        function closeModalClick(event) {
-            if(event.target == modalOverlay){
-                hideModal();
-            }
-        }
-    
-        function hideModal() {
-            document.removeEventListener("focusin", restrictFocus);
-            document.removeEventListener("keydown", closeModalKey);
-            modalOverlay.removeEventListener("click", closeModalClick);
-            modalOverlay.style.display = "none";
-            subsectionModal.style.display = "none";
-            lastFocused.focus();
-        }
+        // openModal is defined in modal.js
+        openModal("feedbackModal");
     });    
 }
 
@@ -65,12 +27,12 @@ for(blurb of profileBlurbs) {
 }
 
 function toggleListDropdown(el) {
-    let bio = document.getElementById(el.value);
-    if(bio.offsetHeight == 0) {
+    let list = document.getElementById(el.value);
+    if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
-        bio.style.height = bio.scrollHeight + "px";
+        list.style.height = list.scrollHeight + "px";
     } else {
         el.style.transform = "rotate(0deg)";
-        bio.style.height = "0";
+        list.style.height = "0";
     }
 }

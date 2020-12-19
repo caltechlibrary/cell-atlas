@@ -1,31 +1,19 @@
 // Get current section and highlight it on nav bar
-let currentSection = document.title.split(" ")[0];
-let [chapter, section] = currentSection.split(".");
-let navSection;
-if(section) {
-    navSection = document.getElementById(`nav${chapter}${section}`);
-} else if(chapter == "Keep" || chapter == "Outlook") {
-    if(chapter == "Keep") {
-        navSection = document.getElementById(`navKeep Looking`);
-    } else {
-        navSection = document.getElementById(`navOutlook`);
+let pageName = window.location.pathname.split("/").pop().split(".")[0];
+let navEntry = document.getElementById(`nav${pageName}`);
+if(navEntry) {
+    // Get chapter of page
+    let chapter = pageName.split("-")[0];
+    if(!isNaN(parseInt(chapter))) {
+        navEntry.classList.add(`nav-menu-ch${chapter}-on`);
     }
-    let sectionLists = document.getElementsByClassName("nav-menu-sections");
-    currSectionList = sectionLists[sectionLists.length - 1];
-    currSectionList.classList.remove("sr-only");
-} else {
-    navSection = document.getElementById(`nav${chapter}`);
-}
-if(navSection){
-    navSection.classList.add(`nav-menu-ch${chapter}-on`);
-    navSection.style["font-style"] = "italic";
-}
+    navEntry.style["font-style"] = "italic";
 
-// Unhide the section list for the chapter that we are currently in
-if(!isNaN(parseInt(chapter))) {
-    let sectionLists = document.getElementsByClassName("nav-menu-sections");
-    currSectionList = sectionLists[parseInt(chapter) - 1];
-    currSectionList.classList.remove("sr-only");
+    // Ugly selector, but will do for now
+    let navSection = navEntry.parentElement.parentElement.querySelector(".nav-menu-sections");
+    if(navSection) {
+        navSection.classList.remove("sr-only");
+    }
 }
 
 // Check if nav bar should be opened
