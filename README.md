@@ -31,6 +31,8 @@ python3 _build.py
 python _build.py
 ```
 
+This will delete the `site/` directory in the this script's working directory. Videos are will not be included in the site build by default and will only be included in the generated site if there exists a `videos` directory in this script's working directory.
+
 Getting help
 ------------
 
