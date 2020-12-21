@@ -1,0 +1,6 @@
+This directory contains resources used in generating the new static site on the [static-site-code](https://github.com/caltechlibrary/cell-atlas/tree/static-site-code) branch. They are not required in generating the site currently, so they are here just to be used as resources for different needs.
+
+The files are:
+- **_features.py**: A script that generated the data used in the [Feature Index](https://cellatlas.library.caltech.edu/A-feature-index.html) page of the book using `11_Features.Rmd` and the source `<Chapter Name>.txt` files in the root directory of this repository. Eventually, the feature index data will be more dynamic using a new script rather than having to manually regenerate the data using these files that are no longer part of the main branch.
+- **_format.py**: A script that generated the initial markdown files that are currently being used as the source for the text material found in the book. The script uses the source `<Chapter Name>.txt` files in the root directory of this repository.
+- **_profile.py**: A script that generated the initial markdown files currently being used as the source for the profile data in the [Scientist Profiles](https://cellatlas.library.caltech.edu/B-scientist-profiles.html) page of the book. The script uses `12_Profiles.Rmd` to generate the needed profile data.
