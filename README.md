@@ -61,4 +61,5 @@ Acknowledgments in the book text](https://cellatlas.library.caltech.edu/introduc
 Kian Badie, Tom Morrell, and Robert Doiel developed the software in this repository that automates book
 formatting and integrates videos from CaltechDATA.
 
-Software Development was funded by the California Institute of Technology Library.
+Software Development was funded by the California Institute of Technology
+Library and the Jensen Lab.
