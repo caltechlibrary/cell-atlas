@@ -4,8 +4,6 @@ Cell atlas
 Source for the "Atlas of Bacterial and Archaeal Cell Structure" by Catherine M.
 Oikonomou and Grant J. Jensen.
 
-This book is currently in development and has not been released.
-
 Table of contents
 -----------------
 
@@ -20,12 +18,18 @@ Table of contents
 Installation
 ------------
 
-Install R, Rstudio, and Bookdown.
+Install [Pandoc](https://pandoc.org/index.html) and [Pyhton](https://www.python.org/) Version >=3.
 
 Usage
 -----
 
-Use the Build menu in Rstudio to render the book
+Run the build script using:
+
+```
+python3 _build.py
+# or (depending on python configuration)
+python _build.py
+```
 
 Getting help
 ------------
@@ -35,8 +39,7 @@ Please submit an issue using the issue tracker in this repo
 Contributing
 ------------
 
-You can submit change requests using the pencil icon on any book page, or
-submit a pull request through GitHub.
+You can submit change requests by submitting a pull request through GitHub.
 
 
 License
@@ -51,11 +54,9 @@ Authors and Acknowledgments
 
 Catherine M. Oikonomou and Grant J. Jensen wrote "Atlas of Bacterial and
 Archaeal Cell Structure". See the [full list of
-Acknowledgments in the book text](/_book/acknowledgments.html).
+Acknowledgments in the book text](https://cellatlas.library.caltech.edu/introduction.html#acknowledgements).
 
-Tom Morrell developed the software in this repository that automates book
+Kian Badie, Tom Morrell, and Robert Doiel developed the software in this repository that automates book
 formatting and integrates videos from CaltechDATA.
 
 Software Development was funded by the California Institute of Technology Library.
-
-This project was started using the bookdown demo https://github.com/rstudio/bookdown-demo
