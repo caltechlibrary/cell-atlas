@@ -18,7 +18,7 @@ Table of contents
 Installation
 ------------
 
-Install [Pandoc](https://pandoc.org/index.html) and [Pyhton](https://www.python.org/) Version >=3.
+Install [Pandoc](https://pandoc.org/index.html) Version >= 2.11 and [Python](https://www.python.org/) Version >=3.
 
 Usage
 -----
