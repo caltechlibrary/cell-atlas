@@ -1,0 +1,19 @@
+<ul class="book-appendix-dropdown-list">
+    ${for(featureIndex)}
+        <li>
+            <div id="${featureIndex.name}">
+                <div class="book-appendix-li-header">
+                    <h2>${featureIndex.name}</h2>
+                    <button class="dark-background-text" value="${featureIndex.name}" onclick="toggleListDropdown(this)">&#43;</button>
+                </div>
+                <div class="book-appendix-li-dropdown book-features-ref-list">
+                    <ul>
+                        ${for(featureIndex.refs)}
+                            <li>${featureIndex.refs.species} - <a href="${featureIndex.refs.ref.section}.html${if(featureIndex.refs.ref.subsection)}#${featureIndex.refs.ref.subsection}${endif}">${featureIndex.refs.ref.label}</a></li>
+                        ${endfor}
+                    </ul>
+                </div>
+            </div>
+        </li>
+    ${endfor}
+</ul>

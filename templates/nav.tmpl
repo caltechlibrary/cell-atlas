@@ -1,0 +1,33 @@
+<nav class="nav-menu" id="navMenu">
+    <ol>
+        ${for(nav)}
+            <li class="nav-menu-chapter">
+                ${if(nav.isAppendix)}
+                    <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
+                        ${nav.chapter}
+                    </h1>
+                ${else}
+                    <a tabindex="-1" ${if(nav.page)}href="${nav.page}.html"${endif}>
+                        <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
+                            ${nav.chapter} <span class="nav-menu-chapter-title">${nav.title}</span>
+                        </h1>
+                    </a>
+                ${endif}
+                ${if(nav.sections)}
+                    <ol class="nav-menu-sections sr-only">
+                        ${for(nav.sections)}
+                            <li id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
+                                <a tabindex="-1" href="${nav.sections.page}.html">
+                                    <div class="nav-menu-section-entry">
+                                        <span class="nav-menu-section-number">${if(nav.chapter)}${nav.chapter}.${endif}${nav.sections.section}</span> 
+                                        ${nav.sections.title}
+                                    </div>
+                                </a>
+                            </li>
+                        ${endfor}
+                    </ol>
+                ${endif}
+            </li>
+        ${endfor}
+    </ol>
+</nav>

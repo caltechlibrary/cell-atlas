@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+${head.tmpl()}
+
+<body class="preload">
+    <div class="book-page-container">
+        <div class="landing-page-container">
+            <div class="landing-page-background-overlay">
+                <div class="main-color-background landing-page-logo">
+                    <img alt="Atlas of Bacterial and Archaeal Cell Structure Logo" src="img/AtlasLogoInvertedLong.png">
+                </div>
+                <div class="landing-page-text">
+                    <h1>${title}</h1>
+                    <h2>by ${author}</h2>
+                    <div class="landing-page-blurb">
+                        ${body}
+                    </div>
+                    <a href="${firstPage}.html" class="landing-page-start-button"><span>&#8227;</span>READ ONLINE NOW</a>
+                </div>
+            </div>
+        </div>
+        ${footer.tmpl()}
+    </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<ul class="book-appendix-dropdown-list">
+    ${for(profiles)}
+        <li>
+            <div id="${profiles.id}">
+                <div class="book-appendix-li-header">
+                    <h2>${profiles.name}</h2>
+                    <button class="dark-background-text" value="${profiles.id}" onclick="toggleListDropdown(this)">&#43;</button>
+                </div>
+                <div class="book-appendix-li-dropdown book-profiles-bio">
+                    ${if(profiles.img)}<img src="img/bios/${profiles.img}" alt="Profile image of ${profiles.name}">${endif}
+                    <div class="book-text-content book-profile-blurb">
+                        ${profiles.html}
+                    </div>
+                </div>
+            </div>
+        </li>
+    ${endfor}
+</ul>

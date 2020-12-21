@@ -1,0 +1,38 @@
+${if(chapter)}
+    ${if(prevSection)}
+        <a href="${prevSection}.html" class="book-page-nav book-appendix-nav">&#8249;</a>
+    ${else}
+        <a class="book-page-nav hidden">&#8249;</a>
+    ${endif}
+${endif}
+<div class="dark-background-text book-appendix-page">
+    ${if(appendixTypeAbout)}
+        ${feedback.tmpl()}
+    ${endif}
+    <div class="book-appendix-inner">
+        <h1>${if(chapter)}<span class="book-appendix-chapter-heading">${chapter}</span>${endif}${title}</h1>
+
+        ${if(appendixTypeFeatures)}
+            ${features.tmpl()}
+        ${elseif(appendixTypeProfiles)}
+            ${profiles.tmpl()}
+        ${elseif(appendixTypeTree)}
+            <div class="book-text-content">
+                ${body}
+            </div>
+            ${tree.svg()}
+        ${elseif(appendixTypeAbout)}
+            ${about.tmpl()}
+        ${else}
+            ${body}
+        ${endif}
+
+    </div>
+</div>
+${if(chapter)}
+    ${if(nextSection)}
+        <a href="${nextSection}.html" class="book-page-nav book-appendix-nav book-appendix-nav-right">&#8250;</a>
+    ${else}
+        <a class="book-page-nav hidden">&#8250;</a>
+    ${endif}
+${endif}
