@@ -82,6 +82,10 @@ blockquote {
     text-decoration: underline;
 }
 
+.book-text-content, .csl-entry {
+    line-height: 1.3em;
+}
+
 /* || HEADER styles */
 header {
     display: flex;
@@ -178,6 +182,7 @@ header a {
 
 .landing-page-start-button {
     color: rgb(245 245 245);
+    width: -moz-fit-content;
     width: fit-content;
     border: none;
     padding: 0em 2.5em;
@@ -314,7 +319,7 @@ header a {
     background-color: rgb(186 175 204);
 }
 
-#navAppendix {
+#nav {
     cursor: not-allowed;
     opacity: 0.3;
 }
@@ -345,6 +350,8 @@ header a {
 
 .book-chapter-title {
     font-size: 8em;
+    padding-right: 0.15em;
+    margin-left: 1em;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -353,12 +360,31 @@ header a {
 .book-chapter-title h1 {
     margin-block-end: 0em;
     margin-block-start: 0em;
+    white-space: nowrap;
 }
 
 .book-chapter-quote {
     width: 40%;
     text-align: right;
     font-size: 1.25em;
+}
+
+@media only screen and (max-width: 1280px) {
+    .book-chapter-text-section {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: flex-end;
+        height: 80%;
+    }
+
+    .book-chapter-title {
+        padding-right: 0;
+        margin-left: 0;
+    }
+
+    .book-chapter-quote {
+        width: auto;
+    }
 }
 
 /* || SECTION page styles (styles for every page of the book that is a section) */
@@ -374,7 +400,7 @@ header a {
     flex-direction: row;
     align-items: center;
     width: 62%;
-    transition: width 1s, left 1s, right 1s;
+    transition: width 1s, right 1s;
 }
 
 .book-section-non-text-content-empty {
@@ -402,12 +428,13 @@ video {
     left: 100%;
     padding-right: 25px;
     transition: transform 1s;
+    white-space: nowrap;
 }
 
 .book-section-text {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+    transform: translate(0, -50%);
     right: 0;
     display: flex;
     flex-direction: column;
@@ -428,6 +455,8 @@ video {
 .book-section-title {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    flex: 1 0 auto;
 }
 
 .book-section-text-close-button {
@@ -439,6 +468,7 @@ video {
 .book-section-text-divider {
     margin: 0 1em;
     width: .1em;
+    height: 1.25em;
     background-color: rgb(245, 245, 245);
 }
 
@@ -447,10 +477,12 @@ video {
 }
 
 .book-section-text-material {
+    flex: 1 1 auto;
     overflow: auto;
 }
 
 .video-citation {
+    flex: 1 0 auto;
     background: #cccccc;
     color: #545454;
     padding: 0.5em;
@@ -460,6 +492,7 @@ video {
     justify-content: space-evenly;
     font-weight: 600;
     font-size: 0.85em;
+    line-height: 1.2em;
 }
 
 .video-citation a {
@@ -478,6 +511,7 @@ video {
 
 .book-section-learn-more {
     display: flex;
+    flex: 1 0 auto;
     flex-direction: row;
     align-items: baseline;
     padding: 1em 15px;
@@ -528,7 +562,7 @@ video {
     width: fit-content;
     height: fit-content;
     max-width: 50%;
-    max-height: 80%;
+    max-height: 90%;
     padding: 1em;
     border: 4px solid rgb(0 0 0);
     background: rgb(255 255 255);
@@ -587,11 +621,11 @@ footer > * {
 }
 
 .book-appendix-inner {
-    height: 100%;
+    height: fit-content;
     width: auto;
     max-width: 57.5em;
     padding: 0 3em;
-    margin: 4em auto 0;
+    margin: 4em auto;
 }
 
 .book-appendix-page h1 {

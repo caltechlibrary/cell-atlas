@@ -67,7 +67,7 @@ function toggleTab(tabValue) {
     let chapterSections = document.getElementsByClassName("nav-menu-chapter");
     for(let chapterSection of chapterSections) {
         let link = chapterSection.querySelector("a");
-        link.setAttribute("tabindex", tabValue);
+        if(link) link.setAttribute("tabindex", tabValue);
     }
     let currSection = document.querySelector(".nav-menu-sections:not(.sr-only)");
     if(currSection) {
