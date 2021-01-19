@@ -1,4 +1,4 @@
-footer, .book-section-text, .book-page-nav, .header-logo {
+#textContent, footer, .book-page-nav, .header-logo {
     display: none;
 }
 
@@ -19,4 +19,28 @@ footer, .book-section-text, .book-page-nav, .header-logo {
 .book-section-non-text-content {
     right: 0;
     width: 90%;
+}
+
+.nav-controls-mobile {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(255 255 255);
+    background: #505050;
+    padding: 0.5em 0;
+}
+
+.book-page-nav-mobile {
+    font-size: 4em;
+    color: rgb(245 245 245);
+    margin: 0 1rem 0.5rem;
+    line-height: 0.5;
+}
+
+.nav-controls-button {
+    background-color: #505050;
+    color: rgb(255 255 255);
+    border: none;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1.5em;
 }
