@@ -108,10 +108,18 @@ header a {
     transform: translate(0, 12%);
 }
 
+.header-logo-mobile {
+    display: none;
+}
+
+.header-title-mobile {
+    display: none;
+}
+
 .header-nav-button {
     border: none;
     font-size: 2em;
-    margin: 0 0.75em;
+    margin-left: 0.75em;
     padding: 0;
     color: rgb(245 245 245);
 }
