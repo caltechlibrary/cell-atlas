@@ -1,4 +1,4 @@
-.header-logo {
+footer, .book-section-text, .book-page-nav, .header-logo {
     display: none;
 }
 
@@ -14,4 +14,9 @@
     height: 70%;
     transform: translate(0, 12%);
     margin-right: 0.75em;
+}
+
+.book-section-non-text-content {
+    right: 0;
+    width: 90%;
 }
