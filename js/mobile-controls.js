@@ -19,13 +19,16 @@ function toggleView(el) {
     if(el.value != mobileView || !mobileView) {
         let videoContainer = document.getElementById("nonTextContent");
         let textContainer = document.getElementById("textContent");
+        let bookPageContainer = document.getElementsByClassName("book-page-container")[0];
         if(el.value == "text") {
             videoContainer.style.display = "none";
             textContainer.style.display = "flex";
+            bookPageContainer.style.height = "initial";
             addPageContentPadding();
         } else if(el.value == "video") {
             videoContainer.style.display = "flex";
             textContainer.style.display = "none";
+            bookPageContainer.style.height = "100%";
             removePageContentPadding();
         }
     }

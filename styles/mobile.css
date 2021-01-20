@@ -1,11 +1,15 @@
 html, body {
     height: 100%;
-    box-sizing: border-box;
     background: rgb(113 113 113);
 }
 
 #textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, .book-section-text-divider {
-    display: none;
+     display: none;
+}
+
+.book-page-content {
+    overflow: initial;
+    overflow-x: hidden;
 }
 
 header {
@@ -72,6 +76,7 @@ header {
     overflow: auto;
     box-sizing: border-box;
     padding: 1em 0;
+    transform: translate(0, 0);
 }
 
 .book-section-text-material {
