@@ -1,5 +1,18 @@
+html, body {
+    height: 100%;
+    box-sizing: border-box;
+    background: rgb(113 113 113);
+}
+
 #textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, .book-section-text-divider {
     display: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
 }
 
 .header-title-mobile {
@@ -27,6 +40,11 @@
     color: rgb(255 255 255);
     background: #505050;
     padding: 0.5em 0;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 .book-page-nav-mobile {
