@@ -13,6 +13,7 @@
 /* || PROFILES - Classes specific to profiles appendix page */
 /* || FEATURES - Classes specific to features appendix page */
 /* || ABOUT - About this project page */
+/* || MOBILE - Styles that apply to mobile components */
 
 /* || GENERAL styles */
 body {
@@ -752,6 +753,7 @@ footer > * {
     height: 100%;
 }
 
-.nav-controls-mobile {
+/* || MOBILE page styles */
+.page-controls-mobile {
     display: none;
 }

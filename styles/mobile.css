@@ -1,17 +1,22 @@
+/* Index (search "|| <style>" to find associated styles) */
+/* || MOBILE - Styles that remove components not used in mobile */
+/* || GENERAL - Definitions for base behavior of HTML elements */ 
+/* || HEADER - Header for all pages besides landing page */
+/* || SECTION -  Styles for every page of the book that is a section */
+/* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
+
+/* || MOBILE styles */
+#textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, .book-section-text-divider {
+    display: none;
+}
+
+/* || GENERAL styles */
 html, body {
     height: 100%;
     background: rgb(113 113 113);
 }
 
-#textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, .book-section-text-divider {
-     display: none;
-}
-
-.book-page-content {
-    overflow: initial;
-    overflow-x: hidden;
-}
-
+/* || HEADER styles */
 header {
     position: fixed;
     top: 0;
@@ -33,61 +38,31 @@ header {
     margin-right: 0.75em;
 }
 
+/* || SECTION styles */
 .book-section-non-text-content {
-    right: 0;
-    width: 90%;
-}
-
-.nav-controls-mobile {
-    display: flex;
-    justify-content: space-between;
-    color: rgb(255 255 255);
-    background: #505050;
-    padding: 0.5em 0;
-
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    z-index: 10;
 }
 
-.book-page-nav-mobile {
-    font-size: 4em;
-    color: rgb(245 245 245);
-    margin: 0 1rem 0.5rem;
-    line-height: 0.5;
-}
-
-.nav-controls-button {
-    background-color: #505050;
-    color: rgb(255 255 255);
-    border: none;
-    padding: 0;
-    font-weight: 600;
-    font-size: 1.5em;
+video {
+    width: 90%;
+    margin: auto;
 }
 
 .book-section-text {
     position: relative;
-    right: initial;
-    height: 100%;
-    max-height: initial;
-    width: auto;
-    overflow: auto;
-    box-sizing: border-box;
+    width: 100%;
     padding: 1em 0;
     transform: translate(0, 0);
 }
 
-.book-section-text-material {
-    overflow: initial;
+.video-citation {
+    order: 100;
 }
 
 .book-section-learn-more {
     display: block;
     margin-bottom: 1em;
 }
-
 
 .book-section-learn-more-buttons {
     justify-content: left;
@@ -98,6 +73,29 @@ header {
     margin: 0.3125em 0.625em 0.3125em 0;
 }
 
-.video-citation {
-    order: 100;
+/* || CONTROLS styles */
+.page-controls-mobile {
+    display: flex;
+    justify-content: space-between;
+    background: rgb(80 80 80);
+    padding: 0.5em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.page-controls-nav {
+    font-size: 4em;
+    color: rgb(255 255 255);
+    margin: 0 1rem 0.5rem;
+    line-height: 0.5;
+}
+
+.page-controls-button {
+    color: rgb(255 255 255);
+    border: none;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1.5em;
 }

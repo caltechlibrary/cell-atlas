@@ -1,6 +1,6 @@
 function addPageContentPadding() {
     let topPadding = document.querySelector("header").offsetHeight;
-    let bottomPadding = document.querySelector(".nav-controls-mobile").offsetHeight;
+    let bottomPadding = document.querySelector(".page-controls-mobile").offsetHeight;
     let contentContainer = document.querySelector(".book-page-content");
     contentContainer.style["padding-top"] = `${topPadding}px`;
     contentContainer.style["padding-bottom"] = `${bottomPadding}px`;
