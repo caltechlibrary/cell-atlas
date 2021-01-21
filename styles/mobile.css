@@ -6,7 +6,8 @@
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
 
 /* || MOBILE styles */
-#textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, .book-section-text-divider {
+#textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
+.book-section-text-divider, .book-section-text-open-button {
     display: none;
 }
 
