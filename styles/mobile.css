@@ -100,3 +100,17 @@ video {
     font-weight: 600;
     font-size: 1.5em;
 }
+
+@media (orientation: landscape) {
+    header {
+        height: 56px;   
+    }
+
+    video {
+        width: 50%;
+    }
+
+    .book-page-content {
+        padding-bottom: 0;
+    }
+  }
