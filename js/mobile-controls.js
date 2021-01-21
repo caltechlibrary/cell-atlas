@@ -59,10 +59,7 @@ function fixPadding(event) {
         let pageControls = document.querySelector(".page-controls-mobile");
         let contentContainer = document.querySelector(".book-page-content");
         if(window.innerHeight > window.innerWidth) {
-            let header = document.querySelector("header");
-            header.style.height = "56px";
             pageControls.style.position = "relative";
-            contentContainer.style["padding-top"] = "56px";
             contentContainer.style["padding-bottom"] = "0";
         } else {
             let bottomPadding = document.querySelector(".page-controls-mobile").offsetHeight;
