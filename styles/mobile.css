@@ -3,6 +3,7 @@
 /* || GENERAL - Definitions for base behavior of HTML elements */ 
 /* || LANDING - Index landing page */
 /* || HEADER - Header for all pages besides landing page */
+/* || CHAPTER - Chapter landing pages */
 /* || SECTION -  Styles for every page of the book that is a section */
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
@@ -76,6 +77,20 @@ header {
     height: 70%;
     transform: translate(0, 12%);
     margin-right: 0.75em;
+}
+
+/* || CHAPTER styles */
+.book-chapter-text-section {
+    flex: 0 0 90%;
+    max-width: 90%;
+}
+
+.book-chapter-quote {
+    font-size: 1em;
+}
+
+.book-chapter-title {
+    font-size: 4em;
 }
 
 /* || SECTION styles */
@@ -166,7 +181,18 @@ video {
     .landing-page-text {
         bottom: 5%;
     }
-    
+
+    .book-chapter-text-section {
+        flex-direction: row;
+        align-items: center;
+        flex: 0 0 95%;
+        justify-content: space-between;
+    }
+
+    .book-chapter-quote {
+        width: 45%;
+    }
+
     video {
         width: 50%;
     }
