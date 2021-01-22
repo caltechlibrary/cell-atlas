@@ -9,6 +9,7 @@ function toggleView(el) {
             renderText();
         } else if(el.value == "video") {
             renderVideo();
+            closeModalMobile();
         }
     }
 }
