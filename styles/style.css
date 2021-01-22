@@ -757,3 +757,7 @@ footer > * {
 .page-controls-mobile {
     display: none;
 }
+
+.modal-exit-button-mobile {
+    display: none;
+}

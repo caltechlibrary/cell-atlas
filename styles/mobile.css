@@ -3,6 +3,7 @@
 /* || GENERAL - Definitions for base behavior of HTML elements */ 
 /* || HEADER - Header for all pages besides landing page */
 /* || SECTION -  Styles for every page of the book that is a section */
+/* || MODAL - "Learn more" modals (also used in about project page) */
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
 
 /* || MOBILE styles */
@@ -57,7 +58,7 @@ video {
     transform: translate(0, 0);
 }
 
-.video-citation {
+#textContent .video-citation {
     order: 100;
 }
 
@@ -73,6 +74,28 @@ video {
 .book-section-learn-more-buttons button {
     padding: 0.625em 2em;
     margin: 0.3125em 0.625em 0.3125em 0;
+}
+
+/* || MODAL styles */
+.subsection-modal-container {
+    position: fixed;
+    max-width: 80%;
+    max-height: 75%;
+    overflow: auto;
+}
+
+.modal-exit-button-mobile {
+    display: block;
+    flex: 1 0 auto;
+    border: none;
+    font-size: 1.5em;
+    font-weight: 900;
+    padding: 0;
+    margin-left: auto;
+}
+
+.subsection-modal-text {
+    overflow: initial;
 }
 
 /* || CONTROLS styles */

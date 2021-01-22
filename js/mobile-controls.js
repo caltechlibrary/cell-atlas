@@ -68,3 +68,8 @@ function fixPadding(event) {
         }
     }
 }
+
+function closeModalMobile(el) {
+    let modalOverlay = document.getElementById("modalOverlay");
+    modalOverlay.click();
+}
