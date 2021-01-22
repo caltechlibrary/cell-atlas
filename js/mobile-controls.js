@@ -1,4 +1,5 @@
 window.addEventListener("orientationchange", fixPadding);
+if(video) video.removeEventListener("play", shelfOnFirstPlay);
 
 function toggleView(el) {
     // Check current state of screen
