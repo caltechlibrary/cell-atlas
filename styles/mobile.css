@@ -1,6 +1,7 @@
 /* Index (search "|| <style>" to find associated styles) */
 /* || MOBILE - Styles that remove components not used in mobile */
 /* || GENERAL - Definitions for base behavior of HTML elements */ 
+/* || LANDING - Index landing page */
 /* || HEADER - Header for all pages besides landing page */
 /* || SECTION -  Styles for every page of the book that is a section */
 /* || MODAL - "Learn more" modals (also used in about project page) */
@@ -16,6 +17,42 @@
 html, body {
     height: 100%;
     background: rgb(113 113 113);
+}
+
+/* || LANDING styles */
+.landing-page-logo {
+    width: 350px;
+    height: 65px;
+    top: 5%;
+}
+
+.landing-page-logo img {
+    height: 60%;
+}
+
+.landing-page-text {
+    min-width: 0;
+    width: auto;
+    padding: 0 5%;
+    height: fit-content;
+    bottom: 10%;
+}
+
+.landing-page-text h1 {
+    font-size: 2.25em;
+}
+
+.landing-page-text h2 {
+    font-size: 1.5em;
+}
+
+.landing-page-blurb {
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.landing-page-start-button {
+    font-size: 0.75em;
 }
 
 /* || HEADER styles */
@@ -126,6 +163,10 @@ video {
 }
 
 @media (orientation: landscape) {
+    .landing-page-text {
+        bottom: 5%;
+    }
+    
     video {
         width: 50%;
     }
