@@ -133,4 +133,15 @@ video {
     .book-page-content {
         padding-bottom: 0;
     }
+
+    .subsection-modal-overlay {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+    }
+
+    .subsection-modal-container {
+        max-width: 90%;
+        max-height: 80%;
+    }
   }
