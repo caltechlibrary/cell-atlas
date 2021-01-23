@@ -9,6 +9,7 @@
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
 /* || APPENDIX - Appendix pages at end of book */
+/* || PROFILES - Classes specific to profiles appendix page */
 
 /* || MOBILE styles */
 #textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
@@ -208,6 +209,31 @@ video {
 
 .book-features-ref-list {
     padding-left: 0.75em;
+}
+
+/* || PROFILES styles */
+.book-profiles-bio img {
+    max-height: 200px;
+}
+
+.book-profile-blurb {
+    max-height: 200px;
+}
+
+@media (orientation: portrait) {
+    .book-profiles-bio {
+        flex-direction: column;
+    }
+
+    .book-profiles-bio img {
+        margin: 0 auto;
+    }
+
+    .book-profile-blurb {
+        max-height: initial;
+        overflow: initial;
+        text-align: left;
+    }
 }
 
 @media (orientation: landscape) {
