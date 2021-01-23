@@ -1,4 +1,5 @@
 window.addEventListener("orientationchange", fixPadding);
+window.addEventListener("orientationchange", fixDropdownHeight);
 if(video) video.removeEventListener("play", shelfOnFirstPlay);
 
 function toggleView(el) {
@@ -57,6 +58,7 @@ function renderVideo() {
 // Recalculate text padding/components on orientation changes
 function fixPadding(event) {
     let textContainer = document.getElementById("textContent");
+    if(!textContainer) return;
     if(textContainer.style.display == "flex") {
         let pageControls = document.querySelector(".page-controls-mobile");
         let contentContainer = document.querySelector(".book-page-content");
@@ -74,4 +76,19 @@ function fixPadding(event) {
 function closeModalMobile(el) {
     let modalOverlay = document.getElementById("modalOverlay");
     modalOverlay.click();
+}
+
+function fixDropdownHeight(event) {
+    let openLists = document.querySelectorAll(".book-appendix-li-dropdown[showing='true']");
+    for(let list of openLists) {
+        list.style.height = "0";
+    } 
+    // Recalculate height for open lists once screen is resized
+    window.addEventListener("resize", function(){
+        for(let list of openLists) {
+            setTimeout(function(){
+                list.style.height = list.scrollHeight + "px";
+            }, 300);
+        } 
+    }, { once: true });
 }
