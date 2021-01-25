@@ -12,15 +12,14 @@
 /* || PROFILES - Classes specific to profiles appendix page */
 
 /* || MOBILE styles */
-#textContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
+#nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
 .book-section-text-divider, .book-section-text-open-button {
     display: none;
 }
 
 /* || GENERAL styles */
-html, body {
-    height: 100%;
-    background: rgb(113 113 113);
+body {
+    height: initial;
 }
 
 /* || LANDING styles */
@@ -83,8 +82,14 @@ header {
 }
 
 /* || PAGE styles */
+.book-page-container {
+    height: initial;
+    display: block;
+}
+
 .book-page-content {
     overflow: initial;
+    height: initial;
 }
 
 /* || CHAPTER styles */
@@ -115,7 +120,11 @@ video {
     position: relative;
     width: 100%;
     padding: 1em 0;
-    transform: translate(0, 0);
+    transform: initial;
+    max-height: initial;
+    height: initial;
+    padding: 72px 0;
+    top: initial;
 }
 
 #textContent .video-citation {
@@ -137,10 +146,15 @@ video {
 }
 
 /* || MODAL styles */
+.subsection-modal-overlay {
+    position: fixed;
+    z-index: 100;
+}
+
 .subsection-modal-container {
     position: fixed;
-    max-width: 80%;
-    max-height: 75%;
+    max-width: 82.5%;
+    max-height: 90%;
     overflow: auto;
 }
 
@@ -171,10 +185,10 @@ video {
 }
 
 .page-controls-nav {
-    font-size: 4em;
+    font-size: 2.1em;
     color: rgb(255 255 255);
-    margin: 0 1rem 0.5rem;
-    line-height: 0.5;
+    margin: 0 1rem;
+    line-height: initial;
 }
 
 .page-controls-button {
@@ -256,18 +270,16 @@ video {
         width: 50%;
     }
 
-    .book-page-content {
-        padding-bottom: 0;
-    }
-
-    .subsection-modal-overlay {
-        position: fixed;
-        z-index: 100;
-        top: 0;
+    .book-section-text {
+        padding-bottom: 1em;
     }
 
     .subsection-modal-container {
         max-width: 90%;
         max-height: 80%;
+    }
+
+    .page-controls-mobile {
+        position: initial;
     }
   }
