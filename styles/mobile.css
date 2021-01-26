@@ -18,6 +18,9 @@
 }
 
 /* || GENERAL styles */
+html {
+    -webkit-text-size-adjust: none;
+}
 body {
     height: initial;
 }
