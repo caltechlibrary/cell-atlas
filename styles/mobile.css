@@ -1,6 +1,7 @@
 /* Index (search "|| <style>" to find associated styles) */
 /* || MOBILE - Styles that remove components not used in mobile */
 /* || GENERAL - Definitions for base behavior of HTML elements */ 
+/* || SITE - Classes that are used on almost all pages throughout site */
 /* || LANDING - Index landing page */
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || HEADER - Header for all pages besides landing page */
@@ -27,6 +28,16 @@ body {
     height: initial;
 }
 
+h1, h2 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+/* || SITE wide */
+.main-color-background {
+    background-color: #15404e;
+}
+
 /* || LANDING styles */
 .landing-page-container {
     position: fixed;
@@ -34,6 +45,7 @@ body {
 }
 
 .landing-page-background-overlay {
+    background-color: rgba(0,0,0,0.6);
     width: 100vw;
 }
 
@@ -55,6 +67,7 @@ body {
     justify-content: flex-end;
     position: fixed;
     bottom: 12.5%;
+    color: #ffffff;
 }
 
 .landing-page-text h1 {
@@ -72,6 +85,7 @@ body {
 
 .landing-page-start-button {
     font-size: 0.75em;
+    color: #ffffff;
 }
 
 /* || PAGE styles */
