@@ -23,6 +23,15 @@ body {
 }
 
 /* || LANDING styles */
+.landing-page-container {
+    position: fixed;
+    height: 100%;
+}
+
+.landing-page-background-overlay {
+    width: 100vw;
+}
+
 .landing-page-logo {
     width: 350px;
     height: 65px;
@@ -38,11 +47,9 @@ body {
     width: auto;
     padding: 0 5%;
     height: fit-content;
-    bottom: 10%;
-    height: -webkit-fill-available;
-    position: relative;
     justify-content: flex-end;
-    padding-bottom: 15%;
+    position: fixed;
+    bottom: 12.5%;
 }
 
 .landing-page-text h1 {
