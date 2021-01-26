@@ -104,6 +104,12 @@ header {
 }
 
 /* || CHAPTER styles */
+.book-chapter-content {
+    height: 100%;
+    background: rgb(113 113 113);
+    position: fixed;
+}
+
 .book-chapter-text-section {
     flex: 0 0 90%;
     max-width: 90%;
