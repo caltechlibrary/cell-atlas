@@ -1,5 +1,4 @@
 window.addEventListener("orientationchange", fixDropdownHeight);
-window.addEventListener("orientationchange", controlsOnVideo);
 if(video) video.removeEventListener("play", shelfOnFirstPlay);
 
 function toggleView(el) {
@@ -23,15 +22,6 @@ function toggleView(el) {
 function closeModalMobile(el) {
     let modalOverlay = document.getElementById("modalOverlay");
     modalOverlay.click();
-}
-
-function controlsOnVideo(event) {
-    // Sloppy for now. Force display of page controls on mobile to be fixed for the video
-    let nonTextContent = document.querySelector("#nonTextContent");
-    if (nonTextContent.style.display == "block" && window.innerHeight > window.innerWidth) {
-        let pageControls = document.getElementsByClassName("page-controls-mobile")[0];
-        pageControls.style.position = "fixed";
-    }
 }
 
 function fixDropdownHeight(event) {
