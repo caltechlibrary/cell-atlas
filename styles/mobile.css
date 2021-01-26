@@ -109,11 +109,18 @@ header {
 /* || SECTION styles */
 .book-section-non-text-content {
     width: 100%;
+    background: rgb(113 113 113);
+    position: fixed;
+    height: 100vh;
 }
 
 video {
     width: 90%;
     margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .book-section-text {

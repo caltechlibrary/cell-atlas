@@ -1,4 +1,5 @@
 window.addEventListener("orientationchange", fixDropdownHeight);
+window.addEventListener("orientationchange", controlsOnVideo);
 if(video) video.removeEventListener("play", shelfOnFirstPlay);
 
 function toggleView(el) {
@@ -6,26 +7,31 @@ function toggleView(el) {
     let mobileView = window.sessionStorage.getItem("mobileView");
     // If new state requested, switch states
     if(el.value != mobileView || !mobileView) {
+        let textContent = document.querySelector("#textContent");
+        let nonTextContent = document.querySelector("#nonTextContent");
         if(el.value == "text") {
-            renderText();
+            textContent.style.display = "flex";
+            nonTextContent.style.display = "none";
         } else if(el.value == "video") {
-            renderVideo();
+            textContent.style.display = "none";
+            nonTextContent.style.display = "block";
             closeModalMobile();
         }
     }
 }
 
-function renderText() {
-    console.log("Rendering text");
-}
-
-function renderVideo() {
-    console.log("Rendering video");
-}
-
 function closeModalMobile(el) {
     let modalOverlay = document.getElementById("modalOverlay");
     modalOverlay.click();
+}
+
+function controlsOnVideo(event) {
+    // Sloppy for now. Force display of page controls on mobile to be fixed for the video
+    let nonTextContent = document.querySelector("#nonTextContent");
+    if (nonTextContent.style.display == "block" && window.innerHeight > window.innerWidth) {
+        let pageControls = document.getElementsByClassName("page-controls-mobile")[0];
+        pageControls.style.position = "fixed";
+    }
 }
 
 function fixDropdownHeight(event) {
