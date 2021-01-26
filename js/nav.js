@@ -42,7 +42,11 @@ function toggleNav(el) {
         toggleTab(-1);
     } else {
         navMenu.style.padding = ".75em 0em 0.75em 0.75em";
-        navMenu.style.height = "100%";
+        if(window.innerWidth > 480) {
+            navMenu.style.height = "100%";
+        } else {
+            navMenu.style.height = "initial";
+        }
         navMenu.style.opacity = "1";
         window.navOpened = true;
         window.sessionStorage.setItem("navOpened", true);

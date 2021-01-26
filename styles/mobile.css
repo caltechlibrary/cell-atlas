@@ -2,6 +2,7 @@
 /* || MOBILE - Styles that remove components not used in mobile */
 /* || GENERAL - Definitions for base behavior of HTML elements */ 
 /* || LANDING - Index landing page */
+/* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || HEADER - Header for all pages besides landing page */
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || CHAPTER - Chapter landing pages */
@@ -71,6 +72,16 @@ body {
 
 .landing-page-start-button {
     font-size: 0.75em;
+}
+
+/* || PAGE styles */
+.nav-menu {
+    position: fixed;
+    top: 56px;
+    bottom: 56px;
+    height: initial;
+    max-width: 70%;
+    transition: none;
 }
 
 /* || HEADER styles */
