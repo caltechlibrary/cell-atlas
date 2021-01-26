@@ -10,6 +10,7 @@
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
 /* || APPENDIX - Appendix pages at end of book */
 /* || PROFILES - Classes specific to profiles appendix page */
+/* || REFERENCES - Classes specific to references appendix page */
 
 /* || MOBILE styles */
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
@@ -259,6 +260,11 @@ video {
 
 .book-profile-blurb {
     max-height: 200px;
+}
+
+/* || REFERENCES styles */
+.csl-right-inline a {
+    word-break: break-all;
 }
 
 @media (orientation: portrait) {
