@@ -39,6 +39,10 @@ body {
     padding: 0 5%;
     height: fit-content;
     bottom: 10%;
+    height: -webkit-fill-available;
+    position: relative;
+    justify-content: flex-end;
+    padding-bottom: 15%;
 }
 
 .landing-page-text h1 {
