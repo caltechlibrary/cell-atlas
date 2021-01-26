@@ -14,301 +14,287 @@
 /* || PROFILES - Classes specific to profiles appendix page */
 /* || REFERENCES - Classes specific to references appendix page */
 
-/* || MOBILE styles */
-#nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
-.book-section-text-divider, .book-section-text-open-button {
-    display: none;
-}
-
-/* || GENERAL styles */
-html {
-    -webkit-text-size-adjust: none;
-}
-body {
-    height: initial;
-}
-
-h1, h2 {
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-}
-
-/* || SITE wide */
-.main-color-background {
-    background-color: #15404e;
-}
-
-/* || LANDING styles */
-.landing-page-container {
-    position: fixed;
-    height: 100%;
-}
-
-.landing-page-background-overlay {
-    background-color: rgba(0,0,0,0.6);
-    width: 100vw;
-}
-
-.landing-page-logo {
-    width: 350px;
-    height: 65px;
-    top: 5%;
-}
-
-.landing-page-logo img {
-    height: 60%;
-}
-
-.landing-page-text {
-    min-width: 0;
-    width: auto;
-    padding: 0 5%;
-    height: fit-content;
-    justify-content: flex-end;
-    position: fixed;
-    bottom: 12.5%;
-    color: #ffffff;
-}
-
-.landing-page-text h1 {
-    font-size: 2.25em;
-}
-
-.landing-page-text h2 {
-    font-size: 1.5em;
-}
-
-.landing-page-blurb {
-    font-size: 1em;
-    font-weight: 300;
-}
-
-.landing-page-start-button {
-    font-size: 0.75em;
-    color: #ffffff;
-}
-
-/* || PAGE styles */
-.nav-menu {
-    position: fixed;
-    top: 56px;
-    bottom: 56px;
-    height: initial;
-    max-width: 70%;
-    transition: none;
-}
-
-/* || HEADER styles */
-header {
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    width: 100%;
-    height: 56px;
-}
-
-.header-title-mobile {
-    display: block;
-    color: rgb(255 255 255);
-    font-weight: 900;
-    font-size: 1.5em;
-}
-
-.header-logo-mobile {
-    display: block;
-    height: 70%;
-    transform: translate(0, 12%);
-    margin-right: 0.75em;
-}
-
-/* || PAGE styles */
-.book-page-container {
-    height: initial;
-    display: block;
-}
-
-.book-page-content {
-    overflow: initial;
-    height: initial;
-}
-
-/* || CHAPTER styles */
-.book-chapter-content {
-    height: 100%;
-    background: rgb(113 113 113);
-    position: fixed;
-}
-
-.book-chapter-text-section {
-    flex: 0 0 90%;
-    max-width: 90%;
-}
-
-.book-chapter-quote {
-    font-size: 1em;
-}
-
-.book-chapter-title {
-    font-size: 4em;
-}
-
-/* || SECTION styles */
-.book-section-non-text-content {
-    width: 100%;
-    background: rgb(113 113 113);
-    position: fixed;
-    height: 100vh;
-}
-
-video {
-    width: 90%;
-    margin: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.book-section-text {
-    position: relative;
-    width: 100%;
-    padding: 1em 0;
-    transform: initial;
-    max-height: initial;
-    height: initial;
-    padding: 72px 0;
-    top: initial;
-}
-
-#textContent .video-citation {
-    order: 100;
-}
-
-.book-section-learn-more {
-    display: block;
-    margin-bottom: 1em;
-}
-
-.book-section-learn-more-buttons {
-    justify-content: left;
-}
-
-.book-section-learn-more-buttons button {
-    padding: 0.625em 2em;
-    margin: 0.3125em 0.625em 0.3125em 0;
-}
-
-/* || MODAL styles */
-.subsection-modal-overlay {
-    position: fixed;
-    z-index: 100;
-}
-
-.subsection-modal-container {
-    position: fixed;
-    max-width: 82.5%;
-    max-height: 90%;
-    overflow: auto;
-}
-
-.modal-exit-button-mobile {
-    display: block;
-    flex: 1 0 auto;
-    border: none;
-    font-size: 1.5em;
-    font-weight: 900;
-    padding: 0;
-    margin-left: auto;
-}
-
-.subsection-modal-text {
-    overflow: initial;
-}
-
-/* || CONTROLS styles */
-.page-controls-mobile {
-    display: flex;
-    justify-content: space-between;
-    background: rgb(80 80 80);
-    padding: 0.5em 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 10;
-}
-
-.page-controls-nav {
-    font-size: 2.1em;
-    color: rgb(255 255 255);
-    margin: 0 1rem;
-    line-height: initial;
-}
-
-.page-controls-button {
-    color: rgb(255 255 255);
-    border: none;
-    padding: 0;
-    font-weight: 600;
-    font-size: 1.5em;
-}
-
-/* || APPENDIX styles */
-.book-appendix-page {
-    height: initial;
-}
-
-.book-appendix-inner {
-    padding: 0 1em;
-    margin: 5em auto;
-}
-
-.book-appendix-page h1 {
-    font-size: 1.75em;
-}
-
-.book-apendix-li-header {
-    margin-bottom: 1em;
-} 
-
-.book-appendix-li-header h2 {
-    font-size: 1.25em;
-}
-
-.book-features-ref-list {
-    padding-left: 0.75em;
-}
-
-/* || PROFILES styles */
-.book-profiles-bio img {
-    max-height: 200px;
-}
-
-.book-profile-blurb {
-    max-height: 200px;
-}
-
-/* || REFERENCES styles */
-.csl-right-inline a {
-    word-break: break-all;
-}
-
-@media (orientation: portrait) {
-    .book-profiles-bio {
-        flex-direction: column;
+@media (max-width:800px) {
+    /* || MOBILE styles */
+    #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
+    .book-section-text-divider, .book-section-text-open-button {
+        display: none;
     }
 
+    /* || GENERAL styles */
+    html {
+        -webkit-text-size-adjust: none;
+    }
+    body {
+        height: initial;
+    }
+
+    h1, h2 {
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+    }
+
+    /* || SITE wide */
+    .main-color-background {
+        background-color: #15404e;
+    }
+
+    /* || LANDING styles */
+    .landing-page-container {
+        position: fixed;
+        height: 100%;
+    }
+
+    .landing-page-background-overlay {
+        background-color: rgba(0,0,0,0.6);
+        width: 100vw;
+    }
+
+    .landing-page-logo {
+        width: 350px;
+        height: 65px;
+        top: 5%;
+    }
+
+    .landing-page-logo img {
+        height: 60%;
+    }
+
+    .landing-page-text {
+        min-width: 0;
+        width: auto;
+        padding: 0 5%;
+        height: fit-content;
+        justify-content: flex-end;
+        position: fixed;
+        bottom: 12.5%;
+        color: #ffffff;
+    }
+
+    .landing-page-text h1 {
+        font-size: 2.25em;
+    }
+
+    .landing-page-text h2 {
+        font-size: 1.5em;
+    }
+
+    .landing-page-blurb {
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    .landing-page-start-button {
+        font-size: 0.75em;
+        color: #ffffff;
+    }
+
+    /* || PAGE styles */
+    .nav-menu {
+        position: fixed;
+        top: 56px;
+        bottom: 56px;
+        height: initial;
+        max-width: 70%;
+        transition: none;
+    }
+
+    /* || HEADER styles */
+    header {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        height: 56px;
+    }
+
+    .header-title-mobile {
+        display: block;
+        color: rgb(255 255 255);
+        font-weight: 900;
+        font-size: 1.5em;
+    }
+
+    .header-logo-mobile {
+        display: block;
+        height: 70%;
+        transform: translate(0, 12%);
+        margin-right: 0.75em;
+    }
+
+    /* || PAGE styles */
+    .book-page-container {
+        height: initial;
+        display: block;
+    }
+
+    .book-page-content {
+        overflow: initial;
+        height: initial;
+    }
+
+    /* || CHAPTER styles */
+    .book-chapter-content {
+        height: 100%;
+        background: rgb(113 113 113);
+        position: fixed;
+    }
+
+    .book-chapter-text-section {
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+
+    .book-chapter-quote {
+        font-size: 1em;
+    }
+
+    .book-chapter-title {
+        font-size: 4em;
+    }
+
+    /* || SECTION styles */
+    .book-section-non-text-content {
+        width: 100%;
+        background: rgb(113 113 113);
+        position: fixed;
+        height: 100vh;
+    }
+
+    video {
+        width: 90%;
+        margin: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .book-section-text {
+        position: relative;
+        width: 100%;
+        padding: 1em 0;
+        transform: initial;
+        max-height: initial;
+        height: initial;
+        padding: 72px 0;
+        top: initial;
+    }
+
+    #textContent .video-citation {
+        order: 100;
+    }
+
+    .book-section-learn-more {
+        display: block;
+        margin-bottom: 1em;
+    }
+
+    .book-section-learn-more-buttons {
+        justify-content: left;
+    }
+
+    .book-section-learn-more-buttons button {
+        padding: 0.625em 2em;
+        margin: 0.3125em 0.625em 0.3125em 0;
+    }
+
+    /* || MODAL styles */
+    .subsection-modal-overlay {
+        position: fixed;
+        z-index: 100;
+    }
+
+    .subsection-modal-container {
+        position: fixed;
+        max-width: 82.5%;
+        max-height: 90%;
+        overflow: auto;
+    }
+
+    .modal-exit-button-mobile {
+        display: block;
+        flex: 1 0 auto;
+        border: none;
+        font-size: 1.5em;
+        font-weight: 900;
+        padding: 0;
+        margin-left: auto;
+    }
+
+    .subsection-modal-text {
+        overflow: initial;
+    }
+
+    /* || CONTROLS styles */
+    .page-controls-mobile {
+        display: flex;
+        justify-content: space-between;
+        background: rgb(80 80 80);
+        padding: 0.5em 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .page-controls-nav {
+        font-size: 2.1em;
+        color: rgb(255 255 255);
+        margin: 0 1rem;
+        line-height: initial;
+    }
+
+    .page-controls-button {
+        color: rgb(255 255 255);
+        border: none;
+        padding: 0;
+        font-weight: 600;
+        font-size: 1.5em;
+    }
+
+    /* || APPENDIX styles */
+    .book-appendix-page {
+        height: initial;
+    }
+
+    .book-appendix-inner {
+        padding: 0 1em;
+        margin: 5em auto;
+    }
+
+    .book-appendix-page h1 {
+        font-size: 1.75em;
+    }
+
+    .book-apendix-li-header {
+        margin-bottom: 1em;
+    } 
+
+    .book-appendix-li-header h2 {
+        font-size: 1.25em;
+    }
+
+    .book-features-ref-list {
+        padding-left: 0.75em;
+    }
+
+    /* || PROFILES styles */
     .book-profiles-bio img {
-        margin: 0 auto;
+        max-height: 200px;
     }
 
     .book-profile-blurb {
-        max-height: initial;
-        overflow: initial;
-        text-align: left;
+        max-height: 200px;
+    }
+
+    /* || REFERENCES styles */
+    .csl-right-inline a {
+        word-break: break-all;
     }
 }
 
-@media (orientation: landscape) {
+@media (max-height:480px) {
     .landing-page-text {
         bottom: 5%;
     }
@@ -340,4 +326,20 @@ video {
     .page-controls-mobile {
         position: initial;
     }
-  }
+}
+
+  @media (orientation: portrait) {
+    .book-profiles-bio {
+        flex-direction: column;
+    }
+
+    .book-profiles-bio img {
+        margin: 0 auto;
+    }
+
+    .book-profile-blurb {
+        max-height: initial;
+        overflow: initial;
+        text-align: left;
+    }
+}
