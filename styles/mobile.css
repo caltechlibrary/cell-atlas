@@ -86,6 +86,92 @@ blockquote {
     display: none;
 }
 
+.nav-menu {
+    position: fixed;
+    height: 0%;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    overflow: auto;
+    z-index: 1;
+    opacity: 0;
+    color: #363636;
+    transition: none;
+
+    /* Remove scroll bar for different types of browsers */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.nav-menu a {
+    color: inherit;
+}
+
+/* Remove scroll bar for different types of browsers */
+.nav-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-menu-chapter h1 {
+    padding: 0.75em 0 0.75em 0.75em;
+}
+
+.nav-menu-chapter-title {
+    font-weight: 300;
+}
+
+.nav-menu-sections {
+    padding-inline-start: 1em;
+}
+
+.nav-menu-section-entry {
+    padding: 0.75em 0 0.75em 0.75em;
+}
+
+.nav-menu-section-number {
+    font-weight: 600;
+}
+
+.nav-menu-ch1-on, .nav-menu-ch1-background:hover {
+    background-color: #a7a9ac;
+}
+
+.nav-menu-ch2-on, .nav-menu-ch2-background:hover {
+    background-color: #bcd3ed;
+}
+
+.nav-menu-ch3-on, .nav-menu-ch3-background:hover {
+    background-color: #9ac3c7;
+}
+
+.nav-menu-ch4-on,  .nav-menu-ch4-background:hover {
+    background-color: #99bd99;
+}
+
+.nav-menu-ch5-on, .nav-menu-ch5-background:hover {
+    background-color: #ffef99;
+}
+
+.nav-menu-ch6-on,  .nav-menu-ch6-background:hover {
+    background-color: #ffc799;
+}
+
+.nav-menu-ch7-on,  .nav-menu-ch7-background:hover {
+    background-color: #fab19c;
+}
+
+.nav-menu-ch8-on, .nav-menu-ch8-background:hover {
+    background-color: #e0a1a4;
+}
+
+.nav-menu-ch9-on, .nav-menu-ch9-background:hover {
+    background-color: #c29db2;
+}
+
+.nav-menu-ch10-on, .nav-menu-ch10-background:hover {
+    background-color: #baafcc;
+}
+
 @media(min-width:320px) {
     /* || GENERAL styles */
     html {
@@ -200,6 +286,13 @@ blockquote {
     .header-logo-mobile {
         width: 100%;
     }
+
+    /* || NAV styles */
+    .nav-menu {
+        top: 56px;
+        bottom: 56px;
+        width: 65%;
+    }
 }
 
 @media(min-width:480px) {
@@ -217,30 +310,14 @@ blockquote {
     .landing-page-background-overlay {
         height: 100vh;
     }
+
+    /* || NAV styles */
+    .nav-menu {
+        bottom: 0;
+    }
 }
 
 @media (min-width:800px) {
-    /* || PAGE styles */
-    .nav-menu {
-        position: fixed;
-        top: 56px;
-        bottom: 56px;
-        height: initial;
-        max-width: 70%;
-        transition: none;
-    }
-
-    /* || PAGE styles */
-    .book-page-container {
-        height: initial;
-        display: block;
-    }
-
-    .book-page-content {
-        overflow: initial;
-        height: initial;
-    }
-
     /* || CHAPTER styles */
     .book-chapter-content {
         height: 100%;

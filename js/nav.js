@@ -42,7 +42,7 @@ function toggleNav(el) {
         toggleTab(-1);
     } else {
         navMenu.style.padding = ".75em 0em 0.75em 0.75em";
-        if(window.innerWidth > 480) {
+        if(window.innerWidth > 800) {
             navMenu.style.height = "100%";
         } else {
             navMenu.style.height = "initial";
