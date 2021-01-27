@@ -446,17 +446,6 @@ blockquote {
         transform: translate(-50%, -50%);
     }
 
-    .book-section-text {
-        position: relative;
-        width: 100%;
-        padding: 1em 0;
-        transform: initial;
-        max-height: initial;
-        height: initial;
-        padding: 72px 0;
-        top: initial;
-    }
-
     /* || MODAL styles */
     .subsection-modal-overlay {
         position: fixed;
