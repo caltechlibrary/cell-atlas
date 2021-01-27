@@ -297,6 +297,33 @@ blockquote {
         bottom: 56px;
         width: 65%;
     }
+
+    /* || CONTROLS styles */
+    .page-controls-mobile {
+        position: fixed;
+        bottom: 0;
+        box-sizing: border-box;
+        height: 56px;
+        width: 100%;
+        padding: 8px 16px;
+        display: flex;
+        justify-content: space-between;
+        background: #505050;
+        z-index: 1;
+    }
+
+    .page-controls-nav {
+        font-size: 33.5px;
+        color: #ffffff;
+    }
+
+    .page-controls-button {
+        color: #ffffff;
+        border: none;
+        padding: 0;
+        font-weight: 600;
+        font-size: 24px;
+    }
 }
 
 @media(min-width:480px) {
@@ -318,6 +345,11 @@ blockquote {
     /* || NAV styles */
     .nav-menu {
         bottom: 0;
+    }
+
+    /* || CONTROLS styles */
+    .page-controls-mobile {
+        position: relative;
     }
 }
 
@@ -413,33 +445,6 @@ blockquote {
 
     .subsection-modal-text {
         overflow: initial;
-    }
-
-    /* || CONTROLS styles */
-    .page-controls-mobile {
-        display: flex;
-        justify-content: space-between;
-        background: rgb(80 80 80);
-        padding: 0.5em 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        z-index: 10;
-    }
-
-    .page-controls-nav {
-        font-size: 2.1em;
-        color: rgb(255 255 255);
-        margin: 0 1rem;
-        line-height: initial;
-    }
-
-    .page-controls-button {
-        color: rgb(255 255 255);
-        border: none;
-        padding: 0;
-        font-weight: 600;
-        font-size: 1.5em;
     }
 
     /* || APPENDIX styles */
