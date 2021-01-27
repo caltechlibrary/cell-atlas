@@ -163,6 +163,43 @@ blockquote {
     .landing-page-start-button span {
         display: none;
     }
+
+    /* || HEADER styles */
+    header {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 56px;
+        display: flex;
+        padding: 0 12px;
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-nav-button {
+        border: none;
+        font-size: 32px;
+        padding: 0;
+        color: #ffffff;
+    }
+
+    .header-title-mobile {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 900;
+    }
+
+    header a {
+        display: inline-block;
+        width: 20px;
+        transform: translateY(20%);
+    }
+
+    .header-logo-mobile {
+        width: 100%;
+    }
 }
 
 @media(min-width:480px) {
@@ -183,12 +220,6 @@ blockquote {
 }
 
 @media (min-width:800px) {
-
-    /* || SITE wide */
-    .main-color-background {
-        background-color: #15404e;
-    }
-
     /* || PAGE styles */
     .nav-menu {
         position: fixed;
@@ -197,29 +228,6 @@ blockquote {
         height: initial;
         max-width: 70%;
         transition: none;
-    }
-
-    /* || HEADER styles */
-    header {
-        position: fixed;
-        top: 0;
-        z-index: 10;
-        width: 100%;
-        height: 56px;
-    }
-
-    .header-title-mobile {
-        display: block;
-        color: rgb(255 255 255);
-        font-weight: 900;
-        font-size: 1.5em;
-    }
-
-    .header-logo-mobile {
-        display: block;
-        height: 70%;
-        transform: translate(0, 12%);
-        margin-right: 0.75em;
     }
 
     /* || PAGE styles */
