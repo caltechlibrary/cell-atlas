@@ -168,8 +168,17 @@ blockquote {
 @media(min-width:480px) {
 
     /* || LANDING styles*/
+    .landing-page-container {
+        position: relative;
+        height: 100vh;
+    }
+
     .landing-page-text {
         margin-top: 1%;
+    }
+
+    .landing-page-background-overlay {
+        height: 100vh;
     }
 }
 
