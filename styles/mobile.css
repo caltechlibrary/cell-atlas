@@ -106,6 +106,7 @@ blockquote {
         height: 100%;
         background-color: rgba(0,0,0,0.6);
         box-sizing: border-box;
+        padding: 20px 0;
     }
 
     .landing-page-logo {
@@ -152,20 +153,20 @@ blockquote {
         background-color: #24788f;
         width: -moz-fit-content;
         width: fit-content;
-        padding: 0em 2em;
+        padding: 0.25em 2em;
         font-family: system-ui;
         font-size: 1em;
         height: 40px;
+        line-height: 2.25;
     }
 
     .landing-page-start-button span {
-        font-size: 3em;
-        margin-right: 0.2em;
+        display: none;
     }
 }
 
 @media(min-width:480px) {
-    
+
     /* || LANDING styles*/
     .landing-page-text {
         margin-top: 1%;
