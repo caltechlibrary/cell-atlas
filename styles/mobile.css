@@ -315,6 +315,7 @@ blockquote {
 
     .page-controls-button {
         color: #ffffff;
+        background: #505050;
         border: none;
         padding: 0;
         font-weight: 600;
