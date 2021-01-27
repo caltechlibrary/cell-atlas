@@ -94,6 +94,8 @@ blockquote {
 
     /* || LANDING styles*/
     .landing-page-container {
+        position: fixed;
+        height: 100%;
         background-image: url(../img/backgroundImage.jpg);
         background-repeat: no-repeat;
         background-position: center;
@@ -101,6 +103,7 @@ blockquote {
     }
 
     .landing-page-background-overlay {
+        height: 100%;
         background-color: rgba(0,0,0,0.6);
         box-sizing: border-box;
     }
@@ -122,6 +125,7 @@ blockquote {
     .landing-page-text {
         color: #f5f5f5;
         padding: 0 5%;
+        margin-top: 15%;
     }
     
     .landing-page-text h1 {
@@ -157,6 +161,14 @@ blockquote {
     .landing-page-start-button span {
         font-size: 3em;
         margin-right: 0.2em;
+    }
+}
+
+@media(min-width:480px) {
+    
+    /* || LANDING styles*/
+    .landing-page-text {
+        margin-top: 1%;
     }
 }
 
