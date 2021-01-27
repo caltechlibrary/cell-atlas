@@ -3,6 +3,7 @@
 /* || GENERAL - Definitions for base behavior of HTML elements */ 
 /* || SITE - Classes that are used on almost all pages throughout site */
 /* || LANDING - Index landing page */
+/* || NAV - Styles for the top nav bar */
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || HEADER - Header for all pages besides landing page */
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
@@ -14,6 +15,7 @@
 /* || PROFILES - Classes specific to profiles appendix page */
 /* || REFERENCES - Classes specific to references appendix page */
 
+/* || GENERAL styles */
 body {
     margin: 0;
     font-family: sans-serif;
@@ -46,6 +48,7 @@ blockquote {
     margin-inline-start: 0;
 }
 
+/* || SITE wide */
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
@@ -86,6 +89,7 @@ blockquote {
     display: none;
 }
 
+/* || NAV styles */
 .nav-menu {
     position: fixed;
     height: 0%;
