@@ -14,79 +14,157 @@
 /* || PROFILES - Classes specific to profiles appendix page */
 /* || REFERENCES - Classes specific to references appendix page */
 
-@media (max-width:800px) {
-    /* || MOBILE styles */
-    #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
-    .book-section-text-divider, .book-section-text-open-button {
-        display: none;
-    }
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
 
+h1, h2, button {
+    font-size: 100%;
+}
+
+h1, h2 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+ol, ul {
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+blockquote {
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+/* Recommended styling for screen readers by webaim.org */
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.main-color-background {
+    background-color: #15404e;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.dark-background-text {
+    background-color: #363636;
+    color: #f5f5f5;
+}
+
+.dark-background-text a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+#nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
+.book-section-text-divider, .book-section-text-open-button {
+    display: none;
+}
+
+@media(min-width:320px) {
     /* || GENERAL styles */
     html {
         -webkit-text-size-adjust: none;
     }
-    body {
-        height: initial;
-    }
 
-    h1, h2 {
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-    }
-
-    /* || SITE wide */
-    .main-color-background {
-        background-color: #15404e;
-    }
-
-    /* || LANDING styles */
+    /* || LANDING styles*/
     .landing-page-container {
-        position: fixed;
-        height: 100%;
+        background-image: url(../img/backgroundImage.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     .landing-page-background-overlay {
         background-color: rgba(0,0,0,0.6);
-        width: 100vw;
+        box-sizing: border-box;
     }
 
     .landing-page-logo {
+        position: relative;
         width: 350px;
         height: 65px;
-        top: 5%;
     }
 
     .landing-page-logo img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         height: 60%;
     }
 
     .landing-page-text {
-        min-width: 0;
-        width: auto;
+        color: #f5f5f5;
         padding: 0 5%;
-        height: fit-content;
-        justify-content: flex-end;
-        position: fixed;
-        bottom: 12.5%;
-        color: #ffffff;
     }
-
+    
     .landing-page-text h1 {
+        font-family: serif;
         font-size: 2.25em;
+        margin-bottom: 0.5em;
+        line-height: 1.05em;
     }
-
+    
     .landing-page-text h2 {
+        font-weight: 300;
         font-size: 1.5em;
     }
 
     .landing-page-blurb {
-        font-size: 1em;
+        line-height: 1.55em;
+        margin-bottom: 1em;
         font-weight: 300;
     }
 
     .landing-page-start-button {
-        font-size: 0.75em;
-        color: #ffffff;
+        display: block;
+        color: #f5f5f5;
+        background-color: #24788f;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 0em 2em;
+        font-family: system-ui;
+        font-size: 1em;
+        height: 40px;
+    }
+
+    .landing-page-start-button span {
+        font-size: 3em;
+        margin-right: 0.2em;
+    }
+}
+
+@media (min-width:800px) {
+
+    /* || SITE wide */
+    .main-color-background {
+        background-color: #15404e;
     }
 
     /* || PAGE styles */
@@ -294,9 +372,20 @@
     }
 }
 
-@media (max-height:480px) {
+@media (min-height:9999px) {
+    .landing-page-container {
+        position: relative;
+        height: 100vh;
+    }
+
+    .landing-page-logo {
+        position: relative;
+        margin-bottom: 3.5em;
+    }
+
     .landing-page-text {
         bottom: 5%;
+        position: relative;
     }
 
     .book-chapter-text-section {
