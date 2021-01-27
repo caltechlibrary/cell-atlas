@@ -85,7 +85,7 @@ blockquote {
 }
 
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
-.book-section-text-divider, .book-section-text-open-button {
+.book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk {
     display: none;
 }
 

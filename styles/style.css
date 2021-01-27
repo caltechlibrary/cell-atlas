@@ -762,4 +762,8 @@
     .modal-exit-button-mobile {
         display: none;
     }
+
+    .header-nav-button-mobile {
+        display: none;
+    }
 }
