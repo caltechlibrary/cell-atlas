@@ -638,49 +638,4 @@ blockquote {
     }
 }
 
-@media (min-height:9999px) {
-    .landing-page-container {
-        position: relative;
-        height: 100vh;
-    }
-
-    .landing-page-logo {
-        position: relative;
-        margin-bottom: 3.5em;
-    }
-
-    .landing-page-text {
-        bottom: 5%;
-        position: relative;
-    }
-
-    .book-chapter-text-section {
-        flex-direction: row;
-        align-items: center;
-        flex: 0 0 95%;
-        justify-content: space-between;
-    }
-
-    .book-chapter-quote {
-        width: 45%;
-    }
-
-    video {
-        width: 50%;
-    }
-
-    .book-section-text {
-        padding-bottom: 1em;
-    }
-
-    .subsection-modal-container {
-        max-width: 90%;
-        max-height: 80%;
-    }
-
-    .page-controls-mobile {
-        position: initial;
-    }
-}
-
 }
