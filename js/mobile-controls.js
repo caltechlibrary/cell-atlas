@@ -8,6 +8,11 @@ if(window.innerWidth < 800) {
             });
         }
     }
+
+    // let headerTitle = document.querySelector(".header-title-mobile");
+    // if(headerTitle && window.innerWidth < 480 && headerTitle.innerText.length > 23) {
+    //     headerTitle.innerText = headerTitle.innerText.substr(0, 20) + "..."; 
+    // }
 }
 
 // Page controls are always fixed on chapter pages
