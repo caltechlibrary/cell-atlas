@@ -454,6 +454,41 @@ blockquote {
         max-height: 50vh;
         object-fit: contain;
     }
+
+    /* || CHAPTER styles */
+    .book-chapter-content {
+        position: fixed;
+        height: 100vh;
+        background: #717171;
+        padding: 0 16px;
+    }
+
+    
+    .book-chapter-text-section {
+        color: #ffffff;
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+        top: 50%;
+        transform: translateY(-60%);
+    }
+
+    .book-chapter-title {
+        font-size: 60px;
+        margin-left: auto;
+        text-align: right;
+    }
+
+    .book-chapter-quote {
+        text-align: right;
+        font-size: 16px;
+    }
+
+    .book-chapter-quote a {
+        color: inherit;
+        text-decoration: underline;
+        margin: 0 2.5px;
+    }
 }
 
 @media(min-width:480px) {
@@ -496,6 +531,9 @@ blockquote {
         width: 90%;
         height: 82.5%;
     }
+
+    /* || CHAPTER styles */
+    
 }
 
 @media (min-width:800px) {
