@@ -559,6 +559,10 @@ blockquote {
         transition: transform 1s;
     }
 
+    .book-appendix-li-header button:focus{
+        outline: none;
+    }
+
     .book-appendix-li-dropdown {
         overflow: hidden;
         height: 0;
