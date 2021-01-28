@@ -489,6 +489,72 @@ blockquote {
         text-decoration: underline;
         margin: 0 2.5px;
     }
+
+    /* || APPENDIX styles */
+    .book-appendix-inner {
+        padding: 72px 16px;
+    }
+
+    .book-appendix-inner h1 {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .book-appendix-li-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #ffffff;
+    }
+
+    .book-appendix-li-header h2 {
+        font-size: 20px;
+    }
+
+    .book-appendix-li-header button{
+        color: #4B889B;
+        border: none;
+        padding: 0;
+        font-size: 2em;
+        font-weight: 600;
+        transition: transform 1s;
+    }
+
+    .book-appendix-li-header button:focus{
+        outline: none;
+    }
+
+    .book-appendix-li-dropdown {
+        overflow: hidden;
+        height: 0;
+        transition: height 1s;
+    }
+
+    /*
+    .book-appendix-page {
+        height: initial;
+    }
+
+    .book-appendix-inner {
+        padding: 0 1em;
+        margin: 5em auto;
+    }
+
+    .book-appendix-page h1 {
+        font-size: 1.75em;
+    }
+
+    .book-apendix-li-header {
+        margin-bottom: 1em;
+    } 
+
+    .book-appendix-li-header h2 {
+        font-size: 1.25em;
+    }
+    */
 }
 
 @media(min-width:480px) {
@@ -547,48 +613,6 @@ blockquote {
 }
 
 @media (min-width:800px) {
-    /* || CHAPTER styles */
-    .book-chapter-content {
-        height: 100%;
-        background: rgb(113 113 113);
-        position: fixed;
-    }
-
-    .book-chapter-text-section {
-        flex: 0 0 90%;
-        max-width: 90%;
-    }
-
-    .book-chapter-quote {
-        font-size: 1em;
-    }
-
-    .book-chapter-title {
-        font-size: 4em;
-    }
-
-    /* || APPENDIX styles */
-    .book-appendix-page {
-        height: initial;
-    }
-
-    .book-appendix-inner {
-        padding: 0 1em;
-        margin: 5em auto;
-    }
-
-    .book-appendix-page h1 {
-        font-size: 1.75em;
-    }
-
-    .book-apendix-li-header {
-        margin-bottom: 1em;
-    } 
-
-    .book-appendix-li-header h2 {
-        font-size: 1.25em;
-    }
-
     .book-features-ref-list {
         padding-left: 0.75em;
     }
