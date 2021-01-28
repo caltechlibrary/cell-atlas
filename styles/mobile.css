@@ -523,14 +523,18 @@ blockquote {
         transition: transform 1s;
     }
 
-    .book-appendix-li-header button:focus{
-        outline: none;
-    }
-
     .book-appendix-li-dropdown {
         overflow: hidden;
         height: 0;
         transition: height 1s;
+    }
+
+    .book-features-ref-list {
+        padding-left: 16px;
+    }
+
+    .book-features-ref-list li {
+        margin-bottom: 14px;
     }
 
     /*
