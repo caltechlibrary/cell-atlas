@@ -533,7 +533,17 @@ blockquote {
     }
 
     /* || CHAPTER styles */
-    
+    .book-chapter-text-section {
+        flex-direction: row;
+    }
+
+    .book-chapter-quote {
+        width: 45%;
+    }
+
+    .book-chapter-title {
+        font-size: 64px;
+    }
 }
 
 @media (min-width:800px) {

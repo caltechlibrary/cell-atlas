@@ -1,6 +1,12 @@
 window.addEventListener("orientationchange", fixDropdownHeight);
 if(video) video.removeEventListener("play", shelfOnFirstPlay);
 
+// Page controls are always fixed on chapter pages
+if(document.querySelector(".book-chapter-content")) {
+    let pageControls = document.querySelector(".page-controls-mobile");
+    pageControls.style.position = "fixed";
+}
+
 function toggleView(el) {
     // Check current state of screen
     let mobileView = window.sessionStorage.getItem("mobileView");
