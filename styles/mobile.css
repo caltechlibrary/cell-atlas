@@ -320,7 +320,7 @@ blockquote {
     }
 
     .page-controls-button {
-        color: #ffffff;
+        color: #c2c2c2;
         background: #505050;
         border: none;
         padding: 0;
@@ -329,7 +329,7 @@ blockquote {
     }
 
     .page-controls-selected {
-        color: #C2C2C2;
+        color: #ffffff;
     }
 
     /* || MODAL styles */
