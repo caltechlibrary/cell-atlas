@@ -597,6 +597,11 @@ blockquote {
     .csl-right-inline a {
         word-break: break-all;
     }
+
+    .book-appendix-page iframe {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media(min-width:480px) {
