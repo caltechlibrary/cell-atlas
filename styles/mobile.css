@@ -500,6 +500,10 @@ blockquote {
         margin-bottom: 16px;
     }
 
+    .book-appendix-chapter-heading {
+        margin-right: 16px;
+    }
+
     .book-appendix-li-header {
         display: flex;
         flex-direction: row;
