@@ -537,28 +537,17 @@ blockquote {
         margin-bottom: 14px;
     }
 
-    /*
-    .book-appendix-page {
-        height: initial;
+    .book-profiles-bio {
+        text-align: center;
     }
 
-    .book-appendix-inner {
-        padding: 0 1em;
-        margin: 5em auto;
+    .book-profiles-bio img {
+        max-height: 200px;
     }
 
-    .book-appendix-page h1 {
-        font-size: 1.75em;
+    .book-profile-blurb {
+        text-align: left;
     }
-
-    .book-apendix-li-header {
-        margin-bottom: 1em;
-    } 
-
-    .book-appendix-li-header h2 {
-        font-size: 1.25em;
-    }
-    */
 }
 
 @media(min-width:480px) {
@@ -614,21 +603,24 @@ blockquote {
     .book-chapter-title {
         font-size: 64px;
     }
-}
 
-@media (min-width:800px) {
-    .book-features-ref-list {
-        padding-left: 0.75em;
-    }
-
-    /* || PROFILES styles */
+    /* || APPENDIX styles */
     .book-profiles-bio img {
-        max-height: 200px;
+        float: left;
+        margin-right: 16px;
     }
 
     .book-profile-blurb {
         max-height: 200px;
+        overflow: auto;
     }
+
+    .book-profile-blurb p {
+        margin-block-start: 0;
+    }
+}
+
+@media (min-width:800px) {
 
     /* || REFERENCES styles */
     .csl-right-inline a {
@@ -678,22 +670,6 @@ blockquote {
 
     .page-controls-mobile {
         position: initial;
-    }
-}
-
-  @media (orientation: portrait) {
-    .book-profiles-bio {
-        flex-direction: column;
-    }
-
-    .book-profiles-bio img {
-        margin: 0 auto;
-    }
-
-    .book-profile-blurb {
-        max-height: initial;
-        overflow: initial;
-        text-align: left;
     }
 }
 

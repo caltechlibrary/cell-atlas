@@ -47,7 +47,7 @@ function fixDropdownHeight(event) {
         for(let list of openLists) {
             setTimeout(function(){
                 list.style.height = list.scrollHeight + "px";
-            }, 300);
+            }, 500);
         } 
     }, { once: true });
 }
