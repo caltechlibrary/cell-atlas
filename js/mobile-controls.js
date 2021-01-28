@@ -8,11 +8,12 @@ if(window.innerWidth < 800) {
             });
         }
     }
-
-    // let headerTitle = document.querySelector(".header-title-mobile");
-    // if(headerTitle && window.innerWidth < 480 && headerTitle.innerText.length > 23) {
-    //     headerTitle.innerText = headerTitle.innerText.substr(0, 20) + "..."; 
-    // }
+    let chTitle = document.querySelector(".book-chapter-title h1");
+    if(chTitle) {
+        if(chTitle.innerText == "Introduction") {
+            chTitle.style["font-size"] = "54px";
+        }
+    }
 }
 
 // Page controls are always fixed on chapter pages
