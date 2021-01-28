@@ -350,6 +350,16 @@ blockquote {
 
     .book-section-text-header {
         font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .book-section-text-material p {
+        margin-block-start: 0;
+    }
+
+    .book-section-text-material h2 {
+        font-size: 19px;
+        margin-bottom: 16px;
     }
 
     .video-citation {
