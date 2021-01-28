@@ -8,8 +8,6 @@ if(window.innerWidth < 800) {
             });
         }
     }
-
-
 }
 
 // Page controls are always fixed on chapter pages
@@ -23,6 +21,9 @@ function toggleView(el) {
     let mobileView = window.sessionStorage.getItem("mobileView");
     // If new state requested, switch states
     if(el.value != mobileView || !mobileView) {
+        let currSelected = document.querySelector(".page-controls-selected");
+        currSelected.classList.remove("page-controls-selected");
+        el.classList.add("page-controls-selected");
         let textContent = document.querySelector("#textContent");
         let nonTextContent = document.querySelector("#nonTextContent");
         let pageControls = document.querySelector(".page-controls-mobile");

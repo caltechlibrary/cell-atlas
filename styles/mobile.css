@@ -324,6 +324,10 @@ blockquote {
         font-size: 24px;
     }
 
+    .page-controls-selected {
+        color: #C2C2C2;
+    }
+
     /* || MODAL styles */
     .subsection-modal-overlay {
         display: none;
