@@ -548,6 +548,20 @@ blockquote {
     .book-profile-blurb {
         text-align: left;
     }
+
+    .csl-entry {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 16px;
+    }
+
+    .csl-left-margin {
+        margin-right: 8px;
+    }
+
+    .csl-right-inline a {
+        word-break: break-all;
+    }
 }
 
 @media(min-width:480px) {
@@ -617,14 +631,6 @@ blockquote {
 
     .book-profile-blurb p {
         margin-block-start: 0;
-    }
-}
-
-@media (min-width:800px) {
-
-    /* || REFERENCES styles */
-    .csl-right-inline a {
-        word-break: break-all;
     }
 }
 
