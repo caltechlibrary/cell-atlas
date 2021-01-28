@@ -241,7 +241,7 @@ blockquote {
     }
     
     .nav-menu-chapter h1 {
-        padding: 0.75em 0 0.75em 0.75em;
+        padding: 12px 0;
     }
     
     .nav-menu-chapter-title {
@@ -253,7 +253,7 @@ blockquote {
     }
     
     .nav-menu-section-entry {
-        padding: 0.75em 0 0.75em 0.75em;
+        padding: 12px 0;
     }
     
     .nav-menu-section-number {
@@ -298,6 +298,17 @@ blockquote {
     
     .nav-menu-ch10-on, .nav-menu-ch10-background:hover {
         background-color: #baafcc;
+    }
+
+    .mobile-footer-data {
+        border-top: 1px solid #000000;
+        margin-left: -12px;
+        padding: 12px 0 0 12px;
+        font-weight: 300;
+    }
+
+    .mobile-footer-data li {
+        margin-bottom: 12px;
     }
 
     /* || CONTROLS styles */

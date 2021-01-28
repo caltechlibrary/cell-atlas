@@ -766,4 +766,8 @@
     .header-nav-button-mobile {
         display: none;
     }
+
+    .mobile-footer-data {
+        display: none;
+    }
 }
