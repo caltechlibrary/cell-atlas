@@ -487,6 +487,10 @@ blockquote {
         padding-bottom: 16px;
     }
 
+    .book-section-non-text-content video {
+        width: 60%;
+    }
+
     /* || MODAL styles */
     .subsection-modal-container {
         width: 90%;

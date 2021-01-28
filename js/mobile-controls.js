@@ -8,13 +8,18 @@ function toggleView(el) {
     if(el.value != mobileView || !mobileView) {
         let textContent = document.querySelector("#textContent");
         let nonTextContent = document.querySelector("#nonTextContent");
+        let pageControls = document.querySelector(".page-controls-mobile");
         if(el.value == "text") {
             textContent.style.display = "flex";
             nonTextContent.style.display = "none";
+            // Remove any inline styles from forcing fixed page controls on for videos
+            pageControls.removeAttribute("style");
         } else if(el.value == "video") {
             textContent.style.display = "none";
             nonTextContent.style.display = "block";
             closeModalMobile();
+            // Video portions of section pages will always have fixed page controls
+            pageControls.style.position = "fixed";
         }
     }
 }
