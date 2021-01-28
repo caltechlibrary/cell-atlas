@@ -1,5 +1,7 @@
-window.addEventListener("orientationchange", fixDropdownHeight);
-if(video) video.removeEventListener("play", shelfOnFirstPlay);
+if(window.innerWidth < 800) {
+    window.addEventListener("orientationchange", fixDropdownHeight);
+    if(video) video.removeEventListener("play", shelfOnFirstPlay);
+}
 
 // Page controls are always fixed on chapter pages
 if(document.querySelector(".book-chapter-content")) {
