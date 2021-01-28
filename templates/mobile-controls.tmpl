@@ -1,5 +1,9 @@
 <div class="page-controls-mobile">
-    <a href="${prevSection}.html" class="page-controls-nav">&#10094;</a>
+    ${if(prevSection)}
+        <a href="${prevSection}.html" class="page-controls-nav">&#10094;</a>
+    ${else}
+        <a href="${prevSection}.html" class="page-controls-nav hidden">&#10094;</a>
+    ${endif}
     ${if(video)}
         <button onclick="toggleView(this)" value="text" class="page-controls-button page-controls-selected">Text</button>
         <button onclick="toggleView(this)" value="video" class="page-controls-button">Video</button>
@@ -7,5 +11,9 @@
         <button onclick="toggleView(this)" value="text" class="page-controls-button hidden">Text</button>
         <button onclick="toggleView(this)" value="video" class="page-controls-button hidden">Video</button>
     ${endif}
-    <a href="${nextSection}.html" class="page-controls-nav">&#10095;</a>
+    ${if(nextSection)}
+        <a href="${nextSection}.html" class="page-controls-nav">&#10095;</a>
+    ${else}
+        <a href="${nextSection}.html" class="page-controls-nav hidden">&#10095;</a>
+    ${endif}
 </div>
