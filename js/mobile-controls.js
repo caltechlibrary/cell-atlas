@@ -15,7 +15,7 @@ if(window.innerWidth < 800) {
     }
     // Add event listener to pause videos when full screen exits
     let currVideoPlaying;
-    if(video.requestFullscreen) {
+    if(video && video.requestFullscreen) {
         document.addEventListener('fullscreenchange', (event) => {
             if (document.fullscreenElement) {
                 if(document.fullscreenElement.tagName == "VIDEO") {
