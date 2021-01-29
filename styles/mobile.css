@@ -354,6 +354,8 @@ blockquote {
         padding: 72px 0;
         display: flex;
         flex-direction: column;
+        min-height: 100vh;
+        min-height: calc(100vh - 144px);
     }
 
     .book-section-text-margins {
@@ -527,6 +529,10 @@ blockquote {
     }
 
     /* || APPENDIX styles */
+    .book-appendix-page {
+        min-height: 100vh;
+    }
+
     .book-appendix-inner {
         padding: 72px 16px;
     }
