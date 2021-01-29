@@ -485,6 +485,10 @@ blockquote {
         object-fit: contain;
     }
 
+    .subsection-modal-container video {
+        width: 100%;
+    }
+
     /* || CHAPTER styles */
     .book-chapter-content {
         position: fixed;

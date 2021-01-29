@@ -1,13 +1,35 @@
 if(window.innerWidth < 800) {
     window.addEventListener("orientationchange", fixDropdownHeight);
+    // Video is decalred in section.js and represents the main section video
     if(video) {
         video.removeEventListener("play", shelfOnFirstPlay);
-        if(video.requestFullscreen) {
-            video.addEventListener("play", () => {
-                video.requestFullscreen();
+    }
+    // All current videos need to be played in fullscreen
+    let pageVideos = document.querySelectorAll("video");
+    for(let pageVideo of pageVideos) {
+        if(pageVideo.requestFullscreen) {
+            pageVideo.addEventListener("play", () => {
+                pageVideo.requestFullscreen();
             });
         }
     }
+    // Add event listener to pause videos when full screen exits
+    let currVideoPlaying;
+    if(video.requestFullscreen) {
+        document.addEventListener('fullscreenchange', (event) => {
+            if (document.fullscreenElement) {
+                if(document.fullscreenElement.tagName == "VIDEO") {
+                    currVideoPlaying = document.fullscreenElement;
+                }
+            } else {
+                if(currVideoPlaying) { 
+                    currVideoPlaying.pause();
+                }
+            }
+        });
+    }
+
+    // Force "Introduction" title to be smaller font since it is so long
     let chTitle = document.querySelector(".book-chapter-title h1");
     if(chTitle) {
         if(chTitle.innerText == "Introduction") {
