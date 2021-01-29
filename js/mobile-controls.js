@@ -1,4 +1,4 @@
-if(window.innerWidth < 800) {
+if(window.innerWidth < 900) {
     window.addEventListener("orientationchange", fixDropdownHeight);
     // Video is decalred in section.js and represents the main section video
     if(video) {

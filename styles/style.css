@@ -15,7 +15,7 @@
 /* || ABOUT - About this project page */
 /* || MOBILE - Styles that apply to mobile components */
 
-@media (min-width:800px) {
+@media (min-width:900px) {
     /* || GENERAL styles */
     body {
         margin: 0;
