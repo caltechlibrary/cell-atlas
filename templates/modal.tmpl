@@ -1,9 +1,8 @@
 <div class="subsection-modal-container" id="${it.id}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
-        <video controls>
-            <source src="videos/${it.video}">
-            ${it.videoAlt}
+        <video doi="${it.doi}" controls>
+            There was an error loading the video.
         </video>
     ${elseif(it.graphic)}
         <img src="img/schematics/${it.graphic}">
