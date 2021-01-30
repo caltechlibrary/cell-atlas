@@ -1,47 +1,60 @@
 if(window.innerWidth < 900) {
-    window.addEventListener("orientationchange", fixDropdownHeight);
+    initializeMobileView();
+}
+
+window.addEventListener("resize", function() {
+    if(window.innerWidth >= 900) {
+        terminateMobileView();
+    } else {
+        initializeMobileView();
+    }
+});
+
+function initializeMobileView() {
+    window.currVideoPlaying = undefined;
     // Video is decalred in section.js and represents the main section video
     if(video) {
         video.removeEventListener("play", shelfOnFirstPlay);
+        // Add event listener to pause videos when full screen exits
+        document.addEventListener('fullscreenchange', pauseOnMinimize);
     }
+
     // All current videos need to be played in fullscreen
     let pageVideos = document.querySelectorAll("video");
     for(let pageVideo of pageVideos) {
-        if(pageVideo.requestFullscreen) {
-            pageVideo.addEventListener("play", () => {
-                pageVideo.requestFullscreen();
-            });
-        }
-    }
-    // Add event listener to pause videos when full screen exits
-    let currVideoPlaying;
-    if(video && video.requestFullscreen) {
-        document.addEventListener('fullscreenchange', (event) => {
-            if (document.fullscreenElement) {
-                if(document.fullscreenElement.tagName == "VIDEO") {
-                    currVideoPlaying = document.fullscreenElement;
-                }
-            } else {
-                if(currVideoPlaying) { 
-                    currVideoPlaying.pause();
-                }
-            }
-        });
+        pageVideo.addEventListener("play", requestFullscreen);
     }
 
     // Force "Introduction" title to be smaller font since it is so long
     let chTitle = document.querySelector(".book-chapter-title h1");
-    if(chTitle) {
-        if(chTitle.innerText == "Introduction") {
-            chTitle.style["font-size"] = "54px";
-        }
+    if(chTitle && chTitle.innerText == "Introduction") {
+        chTitle.style["font-size"] = "54px";
+    }
+
+    // Page controls are always fixed on chapter pages
+    if(document.querySelector(".book-chapter-content")) {
+        let pageControls = document.querySelector(".page-controls-mobile");
+        pageControls.style.position = "fixed";
+    }
+
+    // Fix height of appendix dropdown lists when the screen is rotated
+    if(document.querySelector(".book-appendix-dropdown-list")) {
+        window.addEventListener("orientationchange", fixDropdownHeight);
     }
 }
 
-// Page controls are always fixed on chapter pages
-if(document.querySelector(".book-chapter-content")) {
-    let pageControls = document.querySelector(".page-controls-mobile");
-    pageControls.style.position = "fixed";
+function requestFullscreen(event) {
+    if(event.target.requestFullscreen) {
+        event.target.requestFullscreen();
+    }
+}
+
+function pauseOnMinimize(event) {
+    if (document.fullscreenElement && document.fullscreenElement.tagName == "VIDEO") {
+        currVideoPlaying = document.fullscreenElement;
+    } else if (currVideoPlaying){
+        currVideoPlaying.pause();
+    }
 }
 
 function toggleView(el) {
