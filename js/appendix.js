@@ -58,8 +58,10 @@ function toggleListDropdown(el) {
     if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
         list.style.height = list.scrollHeight + "px";
+        list.setAttribute("showing", true);
     } else {
         el.style.transform = "rotate(0deg)";
         list.style.height = "0";
+        list.removeAttribute("showing");
     }
 }

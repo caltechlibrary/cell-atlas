@@ -12,17 +12,24 @@
         gtag('config', 'G-LHYBMHF2E8');
     </script>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen">
     <meta name="description" content="A visual tour of the microbial cell.">
     <title>C Phylogenetic Tree | Atlas of Bacterial and Archaeal Cell Structure</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/mobile.css" rel="stylesheet"/>
 </head>
 <body class="preload">
   <div class="book-page-container">
     <header class="main-color-background">
-        <button id="openNavButton" onclick="toggleNav(this)" class="main-color-background header-nav-button">&#9776;</button>
-        <a href="index.html"><img alt="Atlas of Bacterial and Archaeal Cell Structure Home" src="img/AtlasLogoInvertedLong.png" class="header-logo" ></a>
+        <button id="openNavButton" onclick="toggleNav(this)" class="main-color-background header-nav-button header-nav-button-desk">&#9776;</button>
+        <button id="openNavButton" onclick="toggleNav(this)" class="main-color-background header-nav-button header-nav-button-mobile">&#8801;</button>
+        <span class="header-title-mobile">C Phylogenetic Tree</span>
+        <a href="index.html">
+            <img alt="Atlas of Bacterial and Archaeal Cell Structure Home" src="img/AtlasLogoInvertedLong.png" class="header-logo">
+            <img alt="Atlas of Bacterial and Archaeal Cell Structure Home" src="img/MinimalLogoAInverted.png" class="header-logo-mobile" >
+        </a>
     </header>    
     <div class="book-page-content">
 
@@ -1040,6 +1047,10 @@
                             </a>
                                                     </li>
                     </ol>
+            <ul class="mobile-footer-data">
+                <li><a href="about.html">About This Book</a></li>
+                <li><a href="https://www.library.caltech.edu/" target="_blank">&#169; 2020 Caltech Library</a></li>
+            </ul>
         </nav>
                                 <a href="B-scientist-profiles.html" class="book-page-nav book-appendix-nav">&#8249;</a>
                         <div class="dark-background-text book-appendix-page">
@@ -2331,13 +2342,19 @@
       <a href="https://www.library.caltech.edu/" target="_blank" class="footer-link">A PUBLICATION OF THE CALTECH LIBRARY</a>
       <span>&#169; 2020</span>
       <a href="about.html" class="footer-link">ABOUT THIS BOOK</a>
-    </footer>  </div>
+    </footer>    <div class="page-controls-mobile">
+                         <a href="B-scientist-profiles.html" class="page-controls-nav">&#10094;</a>
+                             <button onclick="toggleView(this)" value="text" class="page-controls-button hidden">Text</button>
+                     <button onclick="toggleView(this)" value="video" class="page-controls-button hidden">Video</button>
+                             <a href="D-references.html" class="page-controls-nav">&#10095;</a>
+                 </div>  </div>
 
   <script src="js/script.js"></script>
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
   <script src="js/appendix.js"></script>
+  <script src="js/mobile.js"></script>
 </body>
 
 </html>

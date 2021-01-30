@@ -16,11 +16,11 @@ if(secSplit.length > 1) {
     }
 }
 
-// Check if there is "Learn More" content. If not, add margin on bottom of text seciton
+// Check if there is "Learn More" content. If not, add margin on bottom of text seciton on desktop only
 let sectionText = document.querySelector(".book-section-text");
 if(sectionText) {
     let learnMore = sectionText.querySelector(".book-section-learn-more");
-    if(!learnMore) {
+    if(!learnMore && window.innerWidth > 800) {
         sectionText.style["padding-bottom"] = "1em";
     }
 }

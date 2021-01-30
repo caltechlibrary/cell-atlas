@@ -1,0 +1,694 @@
+/* Index (search "|| <style>" to find associated styles) */
+/* || MOBILE - Styles that remove components not used in mobile */
+/* || GENERAL - Definitions for base behavior of HTML elements */ 
+/* || SITE - Classes that are used on almost all pages throughout site */
+/* || LANDING - Index landing page */
+/* || NAV - Styles for the top nav bar */
+/* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
+/* || HEADER - Header for all pages besides landing page */
+/* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
+/* || CHAPTER - Chapter landing pages */
+/* || SECTION -  Styles for every page of the book that is a section */
+/* || MODAL - "Learn more" modals (also used in about project page) */
+/* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
+/* || APPENDIX - Appendix pages at end of book */
+/* || PROFILES - Classes specific to profiles appendix page */
+/* || REFERENCES - Classes specific to references appendix page */
+
+@media(max-width: 899px) {
+
+/* || GENERAL styles */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: #717171;
+}
+
+h1, h2, button {
+    font-size: 100%;
+}
+
+h1, h2 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+ol, ul {
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+blockquote {
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+}
+
+/* || SITE wide */
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+/* Recommended styling for screen readers by webaim.org */
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+.main-color-background {
+    background-color: #15404e;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.dark-background-text {
+    background-color: #363636;
+    color: #f5f5f5;
+}
+
+.dark-background-text a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+#nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
+.book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk {
+    display: none;
+}
+
+@media(min-width:320px) {
+    /* || GENERAL styles */
+    html {
+        -webkit-text-size-adjust: none;
+    }
+
+    /* || LANDING styles*/
+    .landing-page-container {
+        position: fixed;
+        height: 100%;
+        background-image: url(../img/backgroundImage.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .landing-page-background-overlay {
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        box-sizing: border-box;
+        padding: 20px 0;
+    }
+
+    .landing-page-logo {
+        position: relative;
+        width: 350px;
+        height: 65px;
+    }
+
+    .landing-page-logo img {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        height: 60%;
+    }
+
+    .landing-page-text {
+        color: #f5f5f5;
+        padding: 0 5%;
+        margin-top: 15%;
+    }
+    
+    .landing-page-text h1 {
+        font-family: serif;
+        font-size: 2.25em;
+        margin-bottom: 0.5em;
+        line-height: 1.05em;
+    }
+    
+    .landing-page-text h2 {
+        font-weight: 300;
+        font-size: 1.5em;
+    }
+
+    .landing-page-blurb {
+        line-height: 1.55em;
+        margin-bottom: 1em;
+        font-weight: 300;
+    }
+
+    .landing-page-start-button {
+        display: block;
+        color: #f5f5f5;
+        background-color: #24788f;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 0.25em 2em;
+        font-family: system-ui;
+        font-size: 1em;
+        height: 40px;
+        line-height: 2.25;
+    }
+
+    .landing-page-start-button span {
+        display: none;
+    }
+
+    /* || HEADER styles */
+    header {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 56px;
+        display: flex;
+        padding: 0 12px;
+        box-sizing: border-box;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-nav-button {
+        border: none;
+        font-size: 32px;
+        padding: 0;
+        color: #ffffff;
+    }
+
+    .header-title-mobile {
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 900;
+        max-width: 265px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    header a {
+        display: inline-block;
+        width: 20px;
+        transform: translateY(20%);
+    }
+
+    .header-logo-mobile {
+        width: 100%;
+    }
+
+    /* || NAV styles */
+    .nav-menu {
+        top: 56px;
+        bottom: 0;
+        width: 65%;
+        position: fixed;
+        height: 0%;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f5f5f5;
+        overflow: auto;
+        z-index: 2;
+        opacity: 0;
+        color: #363636;
+        transition: none;
+
+        /* Remove scroll bar for different types of browsers */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .nav-menu a {
+        color: inherit;
+    }
+    
+    /* Remove scroll bar for different types of browsers */
+    .nav-menu::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-menu-chapter h1 {
+        padding: 12px 0;
+    }
+    
+    .nav-menu-chapter-title {
+        font-weight: 300;
+    }
+    
+    .nav-menu-sections {
+        padding-inline-start: 1em;
+    }
+    
+    .nav-menu-section-entry {
+        padding: 12px 0;
+        font-weight: 300;
+    }
+    
+    .nav-menu-section-number {
+        font-weight: 600;
+    }
+    
+    .nav-menu-ch1-on, .nav-menu-ch1-background:hover {
+        background-color: #a7a9ac;
+    }
+    
+    .nav-menu-ch2-on, .nav-menu-ch2-background:hover {
+        background-color: #bcd3ed;
+    }
+    
+    .nav-menu-ch3-on, .nav-menu-ch3-background:hover {
+        background-color: #9ac3c7;
+    }
+    
+    .nav-menu-ch4-on,  .nav-menu-ch4-background:hover {
+        background-color: #99bd99;
+    }
+    
+    .nav-menu-ch5-on, .nav-menu-ch5-background:hover {
+        background-color: #ffef99;
+    }
+    
+    .nav-menu-ch6-on,  .nav-menu-ch6-background:hover {
+        background-color: #ffc799;
+    }
+    
+    .nav-menu-ch7-on,  .nav-menu-ch7-background:hover {
+        background-color: #fab19c;
+    }
+    
+    .nav-menu-ch8-on, .nav-menu-ch8-background:hover {
+        background-color: #e0a1a4;
+    }
+    
+    .nav-menu-ch9-on, .nav-menu-ch9-background:hover {
+        background-color: #c29db2;
+    }
+    
+    .nav-menu-ch10-on, .nav-menu-ch10-background:hover {
+        background-color: #baafcc;
+    }
+
+    .mobile-footer-data {
+        border-top: 1px solid #000000;
+        margin-left: -12px;
+        padding: 12px 0 0 12px;
+        font-weight: 300;
+    }
+
+    .mobile-footer-data li {
+        margin-bottom: 12px;
+    }
+
+    /* || CONTROLS styles */
+    .page-controls-mobile {
+        position: fixed;
+        bottom: 0;
+        box-sizing: border-box;
+        height: 56px;
+        width: 100%;
+        padding: 8px 16px;
+        display: flex;
+        justify-content: space-between;
+        background: #505050;
+        z-index: 1;
+    }
+
+    .page-controls-nav {
+        font-size: 33.5px;
+        color: #ffffff;
+    }
+
+    .page-controls-button {
+        color: #c2c2c2;
+        background: #505050;
+        border: none;
+        padding: 0;
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    .page-controls-selected {
+        color: #ffffff;
+    }
+
+    /* || MODAL styles */
+    .subsection-modal-overlay {
+        display: none;
+    }
+
+    /* || SECTION styles */
+    .book-section-text {
+        padding: 72px 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        min-height: calc(100vh - 144px);
+    }
+
+    .book-section-text-margins {
+        margin: 0px 15px;
+    }
+
+    .book-section-text-header {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .book-section-text-material p {
+        margin-block-start: 0;
+    }
+
+    .book-section-text-material h2 {
+        font-size: 19px;
+        margin-bottom: 16px;
+    }
+
+    .video-citation {
+        background: #cccccc;
+        color: #545454;
+        padding: 7px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    .book-section-text .video-citation {
+        order: 99;
+    }
+
+    .video-citation a {
+        color: #325c69;
+    }
+
+    .book-section-learn-more {
+        padding: 16px 15px;
+        background-color: #858585;
+        margin-bottom: 16px;
+    }
+
+    .book-section-learn-more-buttons button {
+        color: #f5f5f5;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 9.5px 30px;
+        margin: 4.5px 10px 4.5px 0px;
+    }
+
+    .book-section-non-text-content {
+        height: 100vh;
+        width: 100%;
+        background: #717171;
+        position: fixed;
+    }
+
+    .book-section-non-text-content video {
+        background: #ffffff;
+        width: 90%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* || MODAL styles */
+    .subsection-modal-overlay {
+        display: none;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: rgba(156, 156, 156, 0.5);
+        z-index: 2;
+    }
+
+    .subsection-modal-container {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 82.5%;
+        max-height: 90%;
+        flex-direction: column;
+        padding: 16px;
+        border: 4px solid #000000;
+        background: #ffffff;
+        overflow: auto;
+    }
+
+    .modal-exit-button-mobile {
+        flex: 1 0 auto;
+        background: #ffffff;
+        border: none;
+        font-size: 24px;
+        font-weight: 900;
+        padding: 0;
+        margin-left: auto;
+    }
+
+    .subsection-modal-container .video-citation {
+        flex: 1 0 auto;
+    }
+
+    .subsection-modal-text {
+        margin-top: 16px;
+    }
+
+    .subsection-modal-text a {
+        text-decoration: underline;
+        color: rgb(50 92 105);
+    }
+
+    .subsection-modal-text h1 {
+        font-size: 1.75em;
+    }
+
+    .subsection-modal-container img {
+        width: 100%;
+        max-height: 50vh;
+        object-fit: contain;
+    }
+
+    .subsection-modal-container video {
+        width: 100%;
+    }
+
+    /* || CHAPTER styles */
+    .book-chapter-content {
+        position: fixed;
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100%;
+        background: #717171;
+        padding: 0 16px;
+    }
+
+    
+    .book-chapter-text-section {
+        color: #ffffff;
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+        top: 50%;
+        transform: translateY(-60%);
+    }
+
+    .book-chapter-title {
+        font-size: 60px;
+        margin-left: auto;
+        text-align: right;
+    }
+
+    .book-chapter-quote {
+        text-align: right;
+        font-size: 16px;
+    }
+
+    .book-chapter-quote a {
+        color: inherit;
+        text-decoration: underline;
+        margin: 0 2.5px;
+    }
+
+    /* || APPENDIX styles */
+    .book-appendix-page {
+        min-height: 100vh;
+    }
+
+    .book-appendix-inner {
+        padding: 72px 16px;
+    }
+
+    .book-appendix-inner h1 {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .book-appendix-chapter-heading {
+        margin-right: 16px;
+    }
+
+    .book-appendix-li-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #ffffff;
+    }
+
+    .book-appendix-li-header h2 {
+        font-size: 20px;
+    }
+
+    .book-appendix-li-header button{
+        color: #4B889B;
+        border: none;
+        padding: 0;
+        font-size: 2em;
+        font-weight: 600;
+        transition: transform 1s;
+    }
+
+    .book-appendix-li-header button:focus{
+        outline: none;
+    }
+
+    .book-appendix-li-dropdown {
+        overflow: hidden;
+        height: 0;
+        transition: height 1s;
+    }
+
+    .book-features-ref-list {
+        padding-left: 16px;
+    }
+
+    .book-features-ref-list li {
+        margin-bottom: 14px;
+    }
+
+    .book-profiles-bio {
+        text-align: center;
+    }
+
+    .book-profiles-bio img {
+        max-height: 200px;
+    }
+
+    .book-profile-blurb {
+        text-align: left;
+    }
+
+    .csl-entry {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 16px;
+    }
+
+    .csl-left-margin {
+        margin-right: 8px;
+    }
+
+    .csl-right-inline a {
+        word-break: break-all;
+    }
+
+    .book-appendix-page iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    #feedbackModal {
+        height: 90%;
+    }
+}
+
+@media(min-width:480px) {
+
+    /* || LANDING styles*/
+    .landing-page-container {
+        position: relative;
+        height: 100vh;
+    }
+
+    .landing-page-text {
+        margin-top: 1%;
+    }
+
+    .landing-page-background-overlay {
+        height: 100vh;
+    }
+
+    /* || NAV styles */
+    .nav-menu {
+        bottom: 0;
+    }
+
+    /* || CONTROLS styles */
+    .page-controls-mobile {
+        position: relative;
+    }
+
+    /* || SECTION styles */
+    .book-section-text {
+        padding-bottom: 16px;
+    }
+
+    .book-section-non-text-content video {
+        width: 60%;
+    }
+
+    /* || MODAL styles */
+    .subsection-modal-container {
+        width: 90%;
+        max-height: 82.5%;
+    }
+
+    /* || CHAPTER styles */
+    .book-chapter-text-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .book-chapter-quote {
+        width: 45%;
+    }
+
+    /* || APPENDIX styles */
+    .book-profiles-bio img {
+        float: left;
+        margin-right: 16px;
+    }
+
+    .book-profile-blurb {
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    .book-profile-blurb p {
+        margin-block-start: 0;
+    }
+}
+
+}
