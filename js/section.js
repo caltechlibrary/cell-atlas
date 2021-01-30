@@ -32,6 +32,14 @@ if(video) {
     sourceVideo(video);
 }
 
+// Get sources for modal videos
+let modalVideos = document.querySelectorAll(".subsection-modal-container video");
+if(modalVideos) {
+    for(let modalVideo of modalVideos) {
+        sourceVideo(modalVideo);
+    }
+}
+
 function shelfOnFirstPlay(event) {
     shelfText();
     event.target.removeEventListener("play", shelfOnFirstPlay);
@@ -39,6 +47,7 @@ function shelfOnFirstPlay(event) {
 
 function sourceVideo(el) {
     let doi = el.getAttribute("doi");
+    if(!doi) return;
     let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
     fetch(doiUrl)
         .then(function(res) {
