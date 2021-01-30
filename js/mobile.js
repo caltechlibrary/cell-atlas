@@ -34,6 +34,7 @@ function initializeMobileView() {
     let pageVideos = document.querySelectorAll("video");
     for(let pageVideo of pageVideos) {
         pageVideo.addEventListener("play", requestFullscreen);
+        pageVideo.setAttribute("preload", "metadata");
     }
 
     // Force "Introduction" title to be smaller font since it is so long
@@ -70,6 +71,7 @@ function terminateMobileView() {
     let pageVideos = document.querySelectorAll("video");
     for(let pageVideo of pageVideos) {
         pageVideo.removeEventListener("play", requestFullscreen);
+        pageVideo.removeAttribute("preload");
     }
 
     let chTitle = document.querySelector(".book-chapter-title h1");
