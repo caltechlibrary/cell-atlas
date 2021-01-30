@@ -21,6 +21,7 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background: #717171;
 }
 
 h1, h2, button {
