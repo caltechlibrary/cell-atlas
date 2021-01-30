@@ -27,11 +27,38 @@ if(sectionText) {
 
 // Add event listener to video player to shelf text on first play
 let video = document.querySelector("#nonTextContent video");
-if(video) video.addEventListener("play", shelfOnFirstPlay);
+if(video) {
+    video.addEventListener("play", shelfOnFirstPlay);
+    sourceVideo(video);
+}
+
+// Get sources for modal videos
+let modalVideos = document.querySelectorAll(".subsection-modal-container video");
+if(modalVideos) {
+    for(let modalVideo of modalVideos) {
+        sourceVideo(modalVideo);
+    }
+}
 
 function shelfOnFirstPlay(event) {
     shelfText();
     event.target.removeEventListener("play", shelfOnFirstPlay);
+}
+
+function sourceVideo(el) {
+    let doi = el.getAttribute("doi");
+    if(!doi) return;
+    let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
+    fetch(doiUrl)
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(data){
+            let sourceTag = document.createElement("source");
+            let videoUrl = data.data[0].attributes.url;
+            sourceTag.setAttribute("src", videoUrl);
+            el.appendChild(sourceTag);
+        });
 }
 
 function showModal(el) {
