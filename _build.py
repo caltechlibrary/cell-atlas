@@ -37,6 +37,26 @@ def writeSection(siteDir, filen, pageName, metadata):
     # remove temp metadata file once we are done using it
     os.remove("metadata.json")
 
+def writeAppendixPage(appendixPageType, chapter, title, nextSection, prevSection, pageData, sourceFile, outFile):
+    metadata = {
+        "typeAppendix": True,
+        appendixPageType: True,
+        "title": title,
+        "nav": siteNav,
+        "prevSection": prevSection
+    }
+    if(chapter): metadata["chapter"]: chapter
+    if(nextSection): metadata["nextSection"] = nextSection
+    if(pageData): metadata.update(pageData)
+    with open("metadata.json", "w") as f:
+        json.dump(metadata, f)
+    pandocArgs = [ "pandoc", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "--output={}/{}.html".format(SITEDIR, outFile)]
+    if(appendixPageType == "appendixTypeReferences"):
+        pandocArgs = pandocArgs + ["--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl"]
+    pandocArgs.append(sourceFile)
+    subprocess.run(pandocArgs)
+    os.remove("metadata.json")
+
 def insertRefLinks(content, isSchematic=False):
     r = re.compile(r"\[@.*?]")
     offset = 0
@@ -334,7 +354,7 @@ for i in range(len(sectionFiles)):
             currSubsection["html"] = markdownToHTML("subsection.md")
             os.remove("subsection.md") 
             metadata["subsectionsData"].append(currSubsection)
-    
+
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
     template = None
     if metadata["section"] != "0":
@@ -385,100 +405,21 @@ os.remove("section.md")
 featureIndex = None
 with open("features.json", "r") as f:
     featureIndex = json.load(f)
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeFeatures"] = True
-metadata["chapter"] = "A"
-metadata["title"] = "Feature Index"
-metadata["nav"] = siteNav
-metadata["featureIndex"] = [{"name": key, "refs": featureIndex[key]} for key in featureIndex]
-metadata["nextSection"] = "B-scientist-profiles"
-metadata["prevSection"] = "keep-looking"
-with open("metadata.json", "w") as f:
-    json.dump(metadata, f)
-subprocess.run(
-    args= [
-        "pandoc",
-        "--template=templates/page.tmpl",
-        "--metadata-file=metadata.json",
-        "--output={}/A-feature-index.html".format(SITEDIR),
-        "features.md" 
-    ]
-)
-os.remove("metadata.json")
+pageData = { "featureIndex": [{"name": key, "refs": featureIndex[key]} for key in featureIndex] }
+writeAppendixPage("appendixTypeFeatures", "A", "Feature Index", "B-scientist-profiles", "keep-looking", pageData, "features.md", "A-feature-index")
 
 # Render profiles page
-profilesDir = "profiles"
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeProfiles"] = True
-metadata["chapter"] = "B"
-metadata["title"] = "Scientist Profiles"
-metadata["nav"] = siteNav
-metadata["profiles"] = profiles
-metadata["nextSection"] = "C-phylogenetic-tree"
-metadata["prevSection"] = "A-feature-index"
-with open("metadata.json", "w") as f:
-    json.dump(metadata, f)
-subprocess.run(
-    args= [
-        "pandoc",
-        "--template=templates/page.tmpl",
-        "--metadata-file=metadata.json",
-        "--output={}/B-scientist-profiles.html".format(SITEDIR),
-        "profiles.md" 
-    ]
-)
-os.remove("metadata.json")
+pageData = { "profiles": profiles }
+writeAppendixPage("appendixTypeProfiles", "B", "Scientist Profiles", "C-phylogenetic-tree", "A-feature-index", pageData, "profiles.md", "B-scientist-profiles")
 
 # Render phylogenetic tree page
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeTree"] = True
-metadata["chapter"] = "C"
-metadata["title"] = "Phylogenetic Tree"
-metadata["nav"] = siteNav
-metadata["nextSection"] = "D-references"
-metadata["prevSection"] = "B-scientist-profiles"
-with open("metadata.json", "w") as f:
-    json.dump(metadata, f)
-subprocess.run(
-    args= [
-        "pandoc",
-        "--template=templates/page.tmpl",
-        "--metadata-file=metadata.json",
-        "--output={}/C-phylogenetic-tree.html".format(SITEDIR),
-        "phylogenetics.md" 
-    ]
-)
-os.remove("metadata.json")
+writeAppendixPage("appendixTypeTree", "C", "Phylogenetic Tree", "D-references", "B-scientist-profiles", None, "phylogenetics.md", "C-phylogenetic-tree")
 
-# Render bibliography
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeReferences"] = True
-metadata["chapter"] = "D"
-metadata["title"] = "References"
-metadata["nav"] = siteNav
-metadata["prevSection"] = "C-phylogenetic-tree"
-with open("metadata.json", "w") as f:
-    json.dump(metadata, f)
+# Render bibliography page 
 with open("bib.json", "w") as f:
     json.dump(usedBibs, f)
-subprocess.run(
-    args= [
-        "pandoc",
-        "--from=csljson",
-        "--template=templates/page.tmpl",
-        "--metadata-file=metadata.json",
-        "--output={}/D-references.html".format(SITEDIR),
-        "--citeproc",
-        "--csl=springer-socpsych-brackets.csl",
-        "bib.json"
-    ]
-)
+writeAppendixPage("appendixTypeReferences", "D", "References", None, "C-phylogenetic-tree", None, "bib.json", "D-references")
 os.remove("bib.json")
-os.remove("metadata.json")
 
 # Render about page
 aboutEntries = []
@@ -492,20 +433,6 @@ with open("about.md", 'r') as f:
             aboutEntries.append(entry)
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
             aboutEntries[-1]["content"] = aboutEntries[-1]["content"] + line        
-metadata = {}
-metadata["aboutEntries"] = aboutEntries
-metadata["typeAppendix"] = True
-metadata["appendixTypeAbout"] = True
-metadata["nav"] = siteNav
-with open("metadata.json", "w") as f:
-    json.dump(metadata, f)
-subprocess.run(
-    args= [
-        "pandoc",
-        "--template=templates/page.tmpl",
-        "--metadata-file=metadata.json",
-        "--output={}/about.html".format(SITEDIR),
-        "about.md" 
-    ]
-)
-os.remove("metadata.json")
+pageData = {}
+pageData = { "aboutEntries": aboutEntries }
+writeAppendixPage("appendixTypeAbout", None, None, None, None, pageData, "about.md", "about")
