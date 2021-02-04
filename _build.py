@@ -19,7 +19,7 @@ def markdownToHTML(filen):
     )
     return (process.stdout).decode("utf-8")
 
-def writeSection(siteDir, filen, pageName, metadata):
+def writePage(siteDir, filen, template, pageName, metadata):
     # create temp metadata file to pass to pandoc
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
@@ -30,7 +30,7 @@ def writeSection(siteDir, filen, pageName, metadata):
             "--to=html", 
             "--output={}/{}.html".format(siteDir, pageName), 
             "--metadata-file=metadata.json", 
-            "--template=templates/page.tmpl",
+            "--template=templates/{}.tmpl".format(template),
             filen
         ]
     )
@@ -45,7 +45,7 @@ def writeAppendixPage(appendixPageType, chapter, title, nextSection, prevSection
         "nav": siteNav,
         "prevSection": prevSection
     }
-    if(chapter): metadata["chapter"]: chapter
+    if(chapter): metadata["chapter"] =  chapter
     if(nextSection): metadata["nextSection"] = nextSection
     if(pageData): metadata.update(pageData)
     with open("metadata.json", "w") as f:
@@ -191,23 +191,8 @@ sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]
 siteNav = createNavData()
 
 # Render landing page
-metadata = {}
-metadata["firstPage"] = "begin"
-with open("metadata.json", "w") as f:
-    json.dump(metadata, f)
-subprocess.run(
-    args= [
-        "pandoc", 
-        "--from=markdown", 
-        "--to=html", 
-        "--output={}/index.html".format(SITEDIR), 
-        "--metadata-file=metadata.json", 
-        "--template=templates/index.tmpl",
-        "index.md"
-    ]
-)
-    # remove temp metadata file once we are done using it
-os.remove("metadata.json")
+metadata = { "firstPage": "begin" }
+writePage(SITEDIR, "index.md", "index","index", metadata)
 
 # Create profiles data to use in section pages
 profilesDir = "profiles"
@@ -243,7 +228,7 @@ with open("introQuote.md", "r") as f:
         formattedContent = insertProfileLinks(formattedContent)
         with open("section.md", "w") as f:
             f.write(formattedContent)
-writeSection(SITEDIR, "section.md", "begin", metadata)
+writePage(SITEDIR, "section.md", "page", "begin", metadata)
 os.remove("section.md")
 
 # Render introduction page
@@ -273,7 +258,7 @@ with open("acknowledgements.md", "r") as f:
 # Store subsection content as html because this will be passed to pandoc as metadata
 acknowledgements["html"] = markdownToHTML("subsection.md")
 metadata["subsectionsData"].append(acknowledgements)
-writeSection(SITEDIR, "section.md", "introduction", metadata)
+writePage(SITEDIR, "section.md", "page", "introduction", metadata)
 os.remove("subsection.md") 
 os.remove("section.md")
 
@@ -362,7 +347,7 @@ for i in range(len(sectionFiles)):
     else:
         metadata["typeChapter"] = True
         del metadata["section"] # We don't want to register "0" as a section
-    writeSection(SITEDIR, "section.md", pageName, metadata)
+    writePage(SITEDIR, "section.md", "page", pageName, metadata)
     os.remove("section.md")
 
 # Render opening quote page for "Keep Looking"
@@ -377,7 +362,7 @@ with open("outlook.md", "r") as f:
         formattedContent = insertProfileLinks(formattedContent)
         with open("section.md", "w") as f:
             f.write(formattedContent)
-writeSection(SITEDIR, "section.md", "outlook", metadata)
+writePage(SITEDIR, "section.md", "page", "outlook", metadata)
 os.remove("section.md")
 
 # Render keep looking page
@@ -398,7 +383,7 @@ with open("keepLooking.md", "r") as f:
         with open("section.md", "w") as f:
             f.write(formattedContent)
 # Store subsection content as html because this will be passed to pandoc as metadata
-writeSection(SITEDIR, "section.md", "keep-looking", metadata)
+writePage(SITEDIR, "section.md", "page", "keep-looking", metadata)
 os.remove("section.md")
 
 # Render feature index page
