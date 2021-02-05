@@ -49,6 +49,33 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     os.remove("metadata.json")
     os.remove("section.md")
 
+def processSubsection(subsectionFile):
+    metadata = getMarkdownMetadata(subsectionFile)
+    metadata["id"] = subsectionFile.split("/")[-1][:-3]
+    
+    metadata["collectorProfile"] = False
+    # Check if collector profile exist in in scientist profiles
+    if "collector" in metadata:
+        if metadata["collector"] in profileDict:
+            metadata["collectorProfile"] = profileDict[metadata["collector"]]["name"]
+            metadata["collectorId"] = profileDict[metadata["collector"]]["id"]
+    elif "source" in metadata:
+        if metadata["source"] in profileDict:
+            metadata["collectorProfile"] = profileDict[metadata["source"]]["name"]
+            metadata["collectorId"] = profileDict[metadata["source"]]["id"]
+    # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
+    if("source" in metadata): metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
+    
+    with open(subsectionFile, "r") as f:
+        formattedContent = insertRefLinks(f.read())
+        formattedContent = insertProfileLinks(formattedContent)
+        with open("subsection.md", "w") as f:
+            f.write(formattedContent)
+    # Return subsection content as html because this will be passed to pandoc as metadata
+    metadata["html"] = markdownToHTML("subsection.md")
+    os.remove("subsection.md")
+    return metadata
+
 def writeAppendixPage(appendixPageType, chapter, title, nextSection, prevSection, pageData, sourceFile, outFile):
     metadata = {
         "typeAppendix": True,
@@ -243,16 +270,7 @@ introFileMetaData["nav"] = siteNav
 introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
-acknowledgements = getMarkdownMetadata("acknowledgements.md")
-acknowledgements["id"] = "acknowledgements"
-with open("acknowledgements.md", "r") as f:
-    formattedContent = insertRefLinks(f.read())
-    formattedContent = insertProfileLinks(formattedContent)
-    with open("subsection.md", "w") as f:
-        f.write(formattedContent)
-# Store subsection content as html because this will be passed to pandoc as metadata
-acknowledgements["html"] = markdownToHTML("subsection.md")
-introFileMetaData["subsectionsData"].append(acknowledgements)
+introFileMetaData["subsectionsData"].append(processSubsection("acknowledgements.md"))
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 
 # Render section pages
@@ -295,30 +313,7 @@ for i in range(len(sectionFiles)):
         # Aggregate "learn more" subsection content associated with this section
         metadata["subsectionsData"] = []
         for subsection in sectionMetadata["subsections"]:
-            currSubsection = getMarkdownMetadata("subsections/{}.md".format(subsection))
-            currSubsection["id"] = subsection
-            currSubsection["collectorProfile"] = False
-            # Check if collector profile exist in in scientist profiles
-            if "collector" in currSubsection:
-                if currSubsection["collector"] in profileDict:
-                    currSubsection["collectorProfile"] = profileDict[currSubsection["collector"]]["name"]
-                    currSubsection["collectorId"] = profileDict[currSubsection["collector"]]["id"]
-            elif "source" in currSubsection:
-                if currSubsection["source"] in profileDict:
-                    currSubsection["collectorProfile"] = profileDict[currSubsection["source"]]["name"]
-                    currSubsection["collectorId"] = profileDict[currSubsection["source"]]["id"]
-            # Create temp markdown file with inserted ref links
-            with open("subsections/{}.md".format(subsection), "r") as f:
-                formattedContent = insertRefLinks(f.read())
-                formattedContent = insertProfileLinks(formattedContent)
-                with open("subsection.md", "w") as f:
-                    f.write(formattedContent)
-            # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
-            if("source" in currSubsection): currSubsection["source"] = insertRefLinks(currSubsection["source"], isSchematic=True)
-            # Store subsection content as html because this will be passed to pandoc as metadata
-            currSubsection["html"] = markdownToHTML("subsection.md")
-            os.remove("subsection.md") 
-            metadata["subsectionsData"].append(currSubsection)
+            metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection)))
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
     template = None
