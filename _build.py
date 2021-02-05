@@ -20,6 +20,8 @@ def markdownToHTML(filen):
     return (process.stdout).decode("utf-8")
 
 def writePage(siteDir, sourceFile, template, pageName, metadata):
+    # Add site navigation to metadata
+    metadata["nav"] = siteNav
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")
     # create temp file with inserted references/profiles
@@ -246,7 +248,6 @@ for profileFile in profileFiles:
 
 # Render opening quote page for introduction
 metadata = {}
-metadata["nav"] = siteNav
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
@@ -254,7 +255,6 @@ writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
 # Render introduction page
 introFileMetaData = getMarkdownMetadata("introduction.md")
 introFileMetaData["typeSection"] = True
-introFileMetaData["nav"] = siteNav
 introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
@@ -266,7 +266,6 @@ for i in range(len(sectionFiles)):
     metadata = getMarkdownMetadata("sections/{}".format(fileName))
     metadata["chapter"], metadata["section"], *title = fileName.split("-")
     metadata["collectorProfile"] = False
-    metadata["nav"] = siteNav
     metadata["prevSection"] = None
     metadata["nextSection"] = None
     
@@ -295,7 +294,6 @@ for i in range(len(sectionFiles)):
         metadata["prevSection"] = "introduction"
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
-    template = None
     if metadata["section"] != "0":
         metadata["typeSection"] = True
     else:
@@ -305,7 +303,6 @@ for i in range(len(sectionFiles)):
 
 # Render opening quote page for "Keep Looking"
 metadata = {}
-metadata["nav"] = siteNav
 metadata["prevSection"] = sectionFiles[-1][:-3]
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
@@ -315,7 +312,6 @@ writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
 metadata = {}
 keepLookingFileMetaData = getMarkdownMetadata("keepLooking.md")
 metadata["typeSection"] = True
-metadata["nav"] = siteNav
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["subsectionsData"] = []
@@ -323,7 +319,6 @@ writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", metadata)
 
 # Render feature index page
 metadata = {}
-metadata["nav"] = siteNav
 metadata["typeAppendix"] = True
 metadata["appendixTypeFeatures"] = True
 metadata["chapter"] = "A"
@@ -338,7 +333,6 @@ writePage(SITEDIR, "features.md", "page", "A-feature-index", metadata)
 
 # Render profiles page
 metadata = {}
-metadata["nav"] = siteNav
 metadata["typeAppendix"] = True
 metadata["appendixTypeProfiles"] = True
 metadata["chapter"] = "B"
@@ -350,7 +344,6 @@ writePage(SITEDIR, "profiles.md", "page", "B-scientist-profiles", metadata)
 
 # Render phylogenetic tree page
 metadata = {}
-metadata["nav"] = siteNav
 metadata["typeAppendix"] = True
 metadata["appendixTypeTree"] = True
 metadata["chapter"] = "C"
@@ -361,7 +354,6 @@ writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
 
 # Render bibliography page 
 metadata = {}
-metadata["nav"] = siteNav
 metadata["typeAppendix"] = True
 metadata["appendixTypeReferences"] = True
 metadata["chapter"] = "D"
@@ -374,7 +366,6 @@ os.remove("bib.json")
 
 # Render about page
 metadata = {}
-metadata["nav"] = siteNav
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
 aboutEntries = []
