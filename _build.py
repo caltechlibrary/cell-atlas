@@ -26,11 +26,12 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
             metadata["collectorProfile"] = profileDict[metadata["collector"]]["name"]
             metadata["collectorId"] = profileDict[metadata["collector"]]["id"]
     # create temp file with inserted references/profiles
-    with open(sourceFile, "r") as srcF:
-        formattedContent = insertRefLinks(srcF.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("section.md", "w") as f:
-            f.write(formattedContent)
+    sourceFormatted = insertLinks(sourceFile, "section.md")
+    if "subsections" in metadata and metadata["subsections"]:
+        # Aggregate "learn more" subsection content associated with this section
+        metadata["subsectionsData"] = []
+        for subsection in metadata["subsections"]:
+            metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection)))
     # create temp metadata file to pass to pandoc
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
@@ -48,11 +49,11 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
             "--citeproc", 
             "--csl=springer-socpsych-brackets.csl"
         ]
-    pandocArgs.append(sourceFile)
+    pandocArgs.append(sourceFormatted.name)
     subprocess.run(pandocArgs)
     # remove temp metadata and source file file once we are done using it
     os.remove("metadata.json")
-    os.remove("section.md")
+    os.remove(sourceFormatted.name)
 
 def processSubsection(subsectionFile):
     metadata = getMarkdownMetadata(subsectionFile)
@@ -71,14 +72,10 @@ def processSubsection(subsectionFile):
     # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
     if("source" in metadata): metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
     
-    with open(subsectionFile, "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("subsection.md", "w") as f:
-            f.write(formattedContent)
+    sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata
-    metadata["html"] = markdownToHTML("subsection.md")
-    os.remove("subsection.md")
+    metadata["html"] = markdownToHTML(sourceFormatted.name)
+    os.remove(sourceFormatted.name)
     return metadata
 
 def insertRefLinks(content, isSchematic=False):
@@ -186,6 +183,14 @@ def insertProfileLinks(content):
             content = content.replace(anchor, link, 1)
     return content
 
+def insertLinks(sourceFile, outFile):
+    with open(sourceFile, "r") as f:
+        formattedContent = insertRefLinks(f.read())
+        formattedContent = insertProfileLinks(formattedContent)
+        with open(outFile, "w") as f:
+            f.write(formattedContent)
+            return f
+
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
 def createSiteDirectory(siteDir):
@@ -256,7 +261,6 @@ introFileMetaData["nav"] = siteNav
 introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
-introFileMetaData["subsectionsData"].append(processSubsection("acknowledgements.md"))
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 
 # Render section pages
@@ -292,13 +296,6 @@ for i in range(len(sectionFiles)):
             metadata["prevSection"] = prevChapter + "-" + "".join(title)
     else:
         metadata["prevSection"] = "introduction"
-    
-    # Process any subsections
-    if "subsections" in metadata and metadata["subsections"]:
-        # Aggregate "learn more" subsection content associated with this section
-        metadata["subsectionsData"] = []
-        for subsection in metadata["subsections"]:
-            metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection)))
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
     template = None
