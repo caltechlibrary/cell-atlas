@@ -20,6 +20,11 @@ def markdownToHTML(filen):
     return (process.stdout).decode("utf-8")
 
 def writePage(siteDir, sourceFile, template, pageName, metadata):
+    # Check if collector profile exist in in scientist profiles
+    if "collector" in metadata:
+        if metadata["collector"] in profileDict:
+            metadata["collectorProfile"] = profileDict[metadata["collector"]]["name"]
+            metadata["collectorId"] = profileDict[metadata["collector"]]["id"]
     # create temp file with inserted references/profiles
     with open(sourceFile, "r") as srcF:
         formattedContent = insertRefLinks(srcF.read())
@@ -232,16 +237,12 @@ metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
 
 # Render introduction page
-metadata = {}
 introFileMetaData = getMarkdownMetadata("introduction.md")
-if introFileMetaData["collector"] in profileDict:
-    metadata["collectorProfile"] = profileDict[introFileMetaData["collector"]]["name"]
-    metadata["collectorId"] = profileDict[introFileMetaData["collector"]]["id"]
-metadata["typeSection"] = True
-metadata["nav"] = siteNav
-metadata["prevSection"] = "begin"
-metadata["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
-metadata["subsectionsData"] = []
+introFileMetaData["typeSection"] = True
+introFileMetaData["nav"] = siteNav
+introFileMetaData["prevSection"] = "begin"
+introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
+introFileMetaData["subsectionsData"] = []
 acknowledgements = getMarkdownMetadata("acknowledgements.md")
 acknowledgements["id"] = "acknowledgements"
 with open("acknowledgements.md", "r") as f:
@@ -251,8 +252,8 @@ with open("acknowledgements.md", "r") as f:
         f.write(formattedContent)
 # Store subsection content as html because this will be passed to pandoc as metadata
 acknowledgements["html"] = markdownToHTML("subsection.md")
-metadata["subsectionsData"].append(acknowledgements)
-writePage(SITEDIR, "introduction.md", "page", "introduction", metadata)
+introFileMetaData["subsectionsData"].append(acknowledgements)
+writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 
 # Render section pages
 for i in range(len(sectionFiles)):
@@ -288,12 +289,6 @@ for i in range(len(sectionFiles)):
             metadata["prevSection"] = prevChapter + "-" + "".join(title)
     else:
         metadata["prevSection"] = "introduction"
-    
-    # Check if collector profile exist in in scientist profiles
-    if "collector" in sectionMetadata:
-        if sectionMetadata["collector"] in profileDict:
-            metadata["collectorProfile"] = profileDict[sectionMetadata["collector"]]["name"]
-            metadata["collectorId"] = profileDict[sectionMetadata["collector"]]["id"]
     
     # Process any subsections
     if "subsections" in sectionMetadata and sectionMetadata["subsections"]:
@@ -345,9 +340,6 @@ writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
 # Render keep looking page
 metadata = {}
 keepLookingFileMetaData = getMarkdownMetadata("keepLooking.md")
-if keepLookingFileMetaData["collector"] in profileDict:
-    metadata["collectorProfile"] = profileDict[keepLookingFileMetaData["collector"]]["name"]
-    metadata["collectorId"] = profileDict[keepLookingFileMetaData["collector"]]["id"]
 metadata["typeSection"] = True
 metadata["nav"] = siteNav
 metadata["prevSection"] = "outlook"
