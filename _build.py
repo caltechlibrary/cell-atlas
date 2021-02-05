@@ -19,7 +19,13 @@ def markdownToHTML(filen):
     )
     return (process.stdout).decode("utf-8")
 
-def writePage(siteDir, filen, template, pageName, metadata):
+def writePage(siteDir, sourceFile, template, pageName, metadata):
+    # create temp file with inserted references/profiles
+    with open(sourceFile, "r") as srcF:
+        formattedContent = insertRefLinks(srcF.read())
+        formattedContent = insertProfileLinks(formattedContent)
+        with open("section.md", "w") as f:
+            f.write(formattedContent)
     # create temp metadata file to pass to pandoc
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
@@ -31,11 +37,12 @@ def writePage(siteDir, filen, template, pageName, metadata):
             "--output={}/{}.html".format(siteDir, pageName), 
             "--metadata-file=metadata.json", 
             "--template=templates/{}.tmpl".format(template),
-            filen
+            "section.md"
         ]
     )
-    # remove temp metadata file once we are done using it
+    # remove temp metadata and source file file once we are done using it
     os.remove("metadata.json")
+    os.remove("section.md")
 
 def writeAppendixPage(appendixPageType, chapter, title, nextSection, prevSection, pageData, sourceFile, outFile):
     metadata = {
@@ -222,14 +229,7 @@ metadata = {}
 metadata["nav"] = siteNav
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
-# Create temp markdown file with inserted ref links
-with open("introQuote.md", "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("section.md", "w") as f:
-            f.write(formattedContent)
-writePage(SITEDIR, "section.md", "page", "begin", metadata)
-os.remove("section.md")
+writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
 
 # Render introduction page
 metadata = {}
@@ -244,12 +244,6 @@ metadata["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sec
 metadata["subsectionsData"] = []
 acknowledgements = getMarkdownMetadata("acknowledgements.md")
 acknowledgements["id"] = "acknowledgements"
-# Create temp markdown file with inserted ref links
-with open("introduction.md", "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("section.md", "w") as f:
-            f.write(formattedContent)
 with open("acknowledgements.md", "r") as f:
     formattedContent = insertRefLinks(f.read())
     formattedContent = insertProfileLinks(formattedContent)
@@ -258,9 +252,7 @@ with open("acknowledgements.md", "r") as f:
 # Store subsection content as html because this will be passed to pandoc as metadata
 acknowledgements["html"] = markdownToHTML("subsection.md")
 metadata["subsectionsData"].append(acknowledgements)
-writePage(SITEDIR, "section.md", "page", "introduction", metadata)
-os.remove("subsection.md") 
-os.remove("section.md")
+writePage(SITEDIR, "introduction.md", "page", "introduction", metadata)
 
 # Render section pages
 for i in range(len(sectionFiles)):
@@ -296,13 +288,6 @@ for i in range(len(sectionFiles)):
             metadata["prevSection"] = prevChapter + "-" + "".join(title)
     else:
         metadata["prevSection"] = "introduction"
-
-    # Insert any references/profile links and write it to temp file
-    with open("sections/{}".format(fileName), "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("section.md", "w") as f:
-            f.write(formattedContent)
     
     # Check if collector profile exist in in scientist profiles
     if "collector" in sectionMetadata:
@@ -347,8 +332,7 @@ for i in range(len(sectionFiles)):
     else:
         metadata["typeChapter"] = True
         del metadata["section"] # We don't want to register "0" as a section
-    writePage(SITEDIR, "section.md", "page", pageName, metadata)
-    os.remove("section.md")
+    writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
 
 # Render opening quote page for "Keep Looking"
 metadata = {}
@@ -356,14 +340,7 @@ metadata["nav"] = siteNav
 metadata["prevSection"] = sectionFiles[-1][:-3]
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
-# Create temp markdown file with inserted ref links
-with open("outlook.md", "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("section.md", "w") as f:
-            f.write(formattedContent)
-writePage(SITEDIR, "section.md", "page", "outlook", metadata)
-os.remove("section.md")
+writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
 
 # Render keep looking page
 metadata = {}
@@ -376,15 +353,7 @@ metadata["nav"] = siteNav
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["subsectionsData"] = []
-# Create temp markdown file with inserted ref links
-with open("keepLooking.md", "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("section.md", "w") as f:
-            f.write(formattedContent)
-# Store subsection content as html because this will be passed to pandoc as metadata
-writePage(SITEDIR, "section.md", "page", "keep-looking", metadata)
-os.remove("section.md")
+writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", metadata)
 
 # Render feature index page
 featureIndex = None
