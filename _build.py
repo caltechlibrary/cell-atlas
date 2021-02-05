@@ -34,17 +34,22 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     # create temp metadata file to pass to pandoc
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
-    subprocess.run(
-        args= [
-            "pandoc", 
-            "--from=markdown", 
-            "--to=html", 
-            "--output={}/{}.html".format(siteDir, pageName), 
-            "--metadata-file=metadata.json", 
-            "--template=templates/{}.tmpl".format(template),
-            "section.md"
+    pandocArgs = [
+        "pandoc", 
+        "--from=markdown", 
+        "--to=html", 
+        "--output={}/{}.html".format(siteDir, pageName), 
+        "--metadata-file=metadata.json", 
+        "--template=templates/{}.tmpl".format(template)
+    ]
+    if("appendixTypeReferences" in metadata):
+        pandocArgs = pandocArgs + [
+            "--from=csljson", 
+            "--citeproc", 
+            "--csl=springer-socpsych-brackets.csl"
         ]
-    )
+    pandocArgs.append(sourceFile)
+    subprocess.run(pandocArgs)
     # remove temp metadata and source file file once we are done using it
     os.remove("metadata.json")
     os.remove("section.md")
@@ -75,16 +80,6 @@ def processSubsection(subsectionFile):
     metadata["html"] = markdownToHTML("subsection.md")
     os.remove("subsection.md")
     return metadata
-
-def writeAppendixPage(metadata, sourceFile, outFile):
-    with open("metadata.json", "w") as f:
-        json.dump(metadata, f)
-    pandocArgs = [ "pandoc", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "--output={}/{}.html".format(SITEDIR, outFile)]
-    if("appendixTypeReferences" in metadata):
-        pandocArgs = pandocArgs + ["--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl"]
-    pandocArgs.append(sourceFile)
-    subprocess.run(pandocArgs)
-    os.remove("metadata.json")
 
 def insertRefLinks(content, isSchematic=False):
     r = re.compile(r"\[@.*?]")
@@ -345,7 +340,7 @@ featureIndex = None
 with open("features.json", "r") as f:
     featureIndex = json.load(f)
 metadata["featureIndex"] = [{"name": key, "refs": featureIndex[key]} for key in featureIndex]
-writeAppendixPage(metadata, "features.md", "A-feature-index")
+writePage(SITEDIR, "features.md", "page", "A-feature-index", metadata)
 
 # Render profiles page
 metadata = {}
@@ -357,7 +352,7 @@ metadata["title"] = "Scientist Profiles"
 metadata["prevSection"] = "A-feature-index"
 metadata["nextSection"] = "C-phylogenetic-tree"
 metadata["profiles"] = profiles
-writeAppendixPage(metadata, "profiles.md", "B-scientist-profiles")
+writePage(SITEDIR, "profiles.md", "page", "B-scientist-profiles", metadata)
 
 # Render phylogenetic tree page
 metadata = {}
@@ -368,7 +363,7 @@ metadata["chapter"] = "C"
 metadata["title"] = "Phylogenetic Tree"
 metadata["prevSection"] = "B-scientist-profiles"
 metadata["nextSection"] = "D-references"
-writeAppendixPage(metadata, "phylogenetics.md", "C-phylogenetic-tree")
+writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
 
 # Render bibliography page 
 metadata = {}
@@ -380,7 +375,7 @@ metadata["title"] = "References"
 metadata["prevSection"] = "C-phylogenetic-tree"
 with open("bib.json", "w") as f:
     json.dump(usedBibs, f)
-writeAppendixPage(metadata, "bib.json", "D-references")
+writePage(SITEDIR, "bib.json", "page", "D-references", metadata)
 os.remove("bib.json")
 
 # Render about page
@@ -400,4 +395,4 @@ with open("about.md", 'r') as f:
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
             aboutEntries[-1]["content"] = aboutEntries[-1]["content"] + line    
 metadata["aboutEntries"] = aboutEntries
-writeAppendixPage(metadata, "about.md", "about")
+writePage(SITEDIR, "about.md", "page", "about", metadata)
