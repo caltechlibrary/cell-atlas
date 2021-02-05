@@ -76,21 +76,11 @@ def processSubsection(subsectionFile):
     os.remove("subsection.md")
     return metadata
 
-def writeAppendixPage(appendixPageType, chapter, title, nextSection, prevSection, pageData, sourceFile, outFile):
-    metadata = {
-        "typeAppendix": True,
-        appendixPageType: True,
-        "title": title,
-        "nav": siteNav,
-        "prevSection": prevSection
-    }
-    if(chapter): metadata["chapter"] =  chapter
-    if(nextSection): metadata["nextSection"] = nextSection
-    if(pageData): metadata.update(pageData)
+def writeAppendixPage(metadata, sourceFile, outFile):
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
     pandocArgs = [ "pandoc", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "--output={}/{}.html".format(SITEDIR, outFile)]
-    if(appendixPageType == "appendixTypeReferences"):
+    if("appendixTypeReferences" in metadata):
         pandocArgs = pandocArgs + ["--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl"]
     pandocArgs.append(sourceFile)
     subprocess.run(pandocArgs)
@@ -230,7 +220,8 @@ sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]
 siteNav = createNavData()
 
 # Render landing page
-metadata = { "firstPage": "begin" }
+metadata = {}
+metadata["firstPage"] = "begin"
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
 # Create profiles data to use in section pages
@@ -342,26 +333,61 @@ metadata["subsectionsData"] = []
 writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", metadata)
 
 # Render feature index page
+metadata = {}
+metadata["nav"] = siteNav
+metadata["typeAppendix"] = True
+metadata["appendixTypeFeatures"] = True
+metadata["chapter"] = "A"
+metadata["title"] = "Feature Index"
+metadata["prevSection"] = "keep-looking"
+metadata["nextSection"] = "B-scientist-profiles"
 featureIndex = None
 with open("features.json", "r") as f:
     featureIndex = json.load(f)
-pageData = { "featureIndex": [{"name": key, "refs": featureIndex[key]} for key in featureIndex] }
-writeAppendixPage("appendixTypeFeatures", "A", "Feature Index", "B-scientist-profiles", "keep-looking", pageData, "features.md", "A-feature-index")
+metadata["featureIndex"] = [{"name": key, "refs": featureIndex[key]} for key in featureIndex]
+writeAppendixPage(metadata, "features.md", "A-feature-index")
 
 # Render profiles page
-pageData = { "profiles": profiles }
-writeAppendixPage("appendixTypeProfiles", "B", "Scientist Profiles", "C-phylogenetic-tree", "A-feature-index", pageData, "profiles.md", "B-scientist-profiles")
+metadata = {}
+metadata["nav"] = siteNav
+metadata["typeAppendix"] = True
+metadata["appendixTypeProfiles"] = True
+metadata["chapter"] = "B"
+metadata["title"] = "Scientist Profiles"
+metadata["prevSection"] = "A-feature-index"
+metadata["nextSection"] = "C-phylogenetic-tree"
+metadata["profiles"] = profiles
+writeAppendixPage(metadata, "profiles.md", "B-scientist-profiles")
 
 # Render phylogenetic tree page
-writeAppendixPage("appendixTypeTree", "C", "Phylogenetic Tree", "D-references", "B-scientist-profiles", None, "phylogenetics.md", "C-phylogenetic-tree")
+metadata = {}
+metadata["nav"] = siteNav
+metadata["typeAppendix"] = True
+metadata["appendixTypeTree"] = True
+metadata["chapter"] = "C"
+metadata["title"] = "Phylogenetic Tree"
+metadata["prevSection"] = "B-scientist-profiles"
+metadata["nextSection"] = "D-references"
+writeAppendixPage(metadata, "phylogenetics.md", "C-phylogenetic-tree")
 
 # Render bibliography page 
+metadata = {}
+metadata["nav"] = siteNav
+metadata["typeAppendix"] = True
+metadata["appendixTypeReferences"] = True
+metadata["chapter"] = "D"
+metadata["title"] = "References"
+metadata["prevSection"] = "C-phylogenetic-tree"
 with open("bib.json", "w") as f:
     json.dump(usedBibs, f)
-writeAppendixPage("appendixTypeReferences", "D", "References", None, "C-phylogenetic-tree", None, "bib.json", "D-references")
+writeAppendixPage(metadata, "bib.json", "D-references")
 os.remove("bib.json")
 
 # Render about page
+metadata = {}
+metadata["nav"] = siteNav
+metadata["typeAppendix"] = True
+metadata["appendixTypeAbout"] = True
 aboutEntries = []
 with open("about.md", 'r') as f:
     for line in f.readlines():
@@ -372,7 +398,6 @@ with open("about.md", 'r') as f:
             entry["id"] = re.sub(r"[^\w\s]", "", entry["name"].replace(" ", "-"))
             aboutEntries.append(entry)
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
-            aboutEntries[-1]["content"] = aboutEntries[-1]["content"] + line        
-pageData = {}
-pageData = { "aboutEntries": aboutEntries }
-writeAppendixPage("appendixTypeAbout", None, None, None, None, pageData, "about.md", "about")
+            aboutEntries[-1]["content"] = aboutEntries[-1]["content"] + line    
+metadata["aboutEntries"] = aboutEntries
+writeAppendixPage(metadata, "about.md", "about")
