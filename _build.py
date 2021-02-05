@@ -276,8 +276,7 @@ writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 # Render section pages
 for i in range(len(sectionFiles)):
     fileName = sectionFiles[i]
-    sectionMetadata = getMarkdownMetadata("sections/{}".format(fileName))
-    metadata = {} # metadata we will build in addition to metadata stored in markdown file
+    metadata = getMarkdownMetadata("sections/{}".format(fileName))
     metadata["chapter"], metadata["section"], *title = fileName.split("-")
     metadata["collectorProfile"] = False
     metadata["nav"] = siteNav
@@ -309,10 +308,10 @@ for i in range(len(sectionFiles)):
         metadata["prevSection"] = "introduction"
     
     # Process any subsections
-    if "subsections" in sectionMetadata and sectionMetadata["subsections"]:
+    if "subsections" in metadata and metadata["subsections"]:
         # Aggregate "learn more" subsection content associated with this section
         metadata["subsectionsData"] = []
-        for subsection in sectionMetadata["subsections"]:
+        for subsection in metadata["subsections"]:
             metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection)))
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
