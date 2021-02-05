@@ -201,7 +201,9 @@ def createSiteDirectory(siteDir):
     shutil.copytree("img/", "{}/img/".format(siteDir))
     if os.path.isdir("videos/"): shutil.copytree("videos/", "{}/videos/".format(siteDir))
 
+# Create rendered site directory
 createSiteDirectory(SITEDIR)
+# Create dict of references
 process = subprocess.run(
     args= [
         "pandoc", 
@@ -212,21 +214,16 @@ process = subprocess.run(
 )
 bibData = json.loads(process.stdout)
 bibDict = {entry["id"]: entry for entry in bibData}
+# Create array of references that will be built as book is built
 usedBibs = []
-
+# Get all section files
 sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
-
+# Create nav menu data
 siteNav = createNavData()
-
-# Render landing page
-metadata = {}
-metadata["firstPage"] = "begin"
-writePage(SITEDIR, "index.md", "index","index", metadata)
-
 # Create profiles data to use in section pages
-profilesDir = "profiles"
 profiles = []
 profileDict = {}
+profilesDir = "profiles"
 profileFiles = sorted(os.listdir(profilesDir), key=lambda s: s.split("-")[-1])
 for profileFile in profileFiles:
     profile = {}
@@ -236,15 +233,16 @@ for profileFile in profileFiles:
     profile["id"] = profile["name"].replace(" ", "")
 
     # Insert any possible reference links
-    with open("{}/{}".format(profilesDir, profileFile), "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open("profile.md", "w") as p:
-            p.write(formattedContent)
-    profile["html"] = markdownToHTML("profile.md")
-    os.remove("profile.md")
+    profileFormatted = insertLinks("{}/{}".format(profilesDir, profileFile), "profile.md")
+    profile["html"] = markdownToHTML(profileFormatted.name)
+    os.remove(profileFormatted.name)
     profiles.append(profile)
     profileDict[profile["name"]] = profile
+
+# Render landing page
+metadata = {}
+metadata["firstPage"] = "begin"
+writePage(SITEDIR, "index.md", "index","index", metadata)
 
 # Render opening quote page for introduction
 metadata = {}
