@@ -19,6 +19,16 @@ def markdownToHTML(filen):
     )
     return (process.stdout).decode("utf-8")
 
+def getMarkdownMetadata(file):
+    process = subprocess.run(
+        args=[
+            "pandoc", 
+            "--template=templates/metadata.tmpl", 
+            file], 
+            stdout=subprocess.PIPE
+    )
+    return json.loads(process.stdout)
+
 def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add site navigation to metadata
     metadata["nav"] = siteNav
@@ -70,31 +80,6 @@ def processSubsection(subsectionFile):
     metadata["html"] = markdownToHTML(sourceFormatted.name)
     os.remove(sourceFormatted.name)
     return metadata
-
-def insertRefLinks(content, isSchematic=False):
-    r = re.compile(r"\[@.*?]")
-    offset = 0
-    for match in re.finditer(r, content):
-        linkStart = match.span()[0]+offset
-        linkEnd = match.span()[1]+offset
-        id = match.group().split("[@")[1].strip(" ]")
-        if id not in bibDict:
-            print("Bib ID {} not found in bibliography data".format(id))
-            continue
-        if bibDict[id] not in usedBibs: usedBibs.append(bibDict[id])
-        link = "D-references.html#ref-{}".format(id)
-        if isSchematic:
-            name = bibDict[id]["author"][0]["family"]
-            etAl = "et al." if len(bibDict[id]["author"]) > 1 else ""
-            year = bibDict[id]["issued"]["date-parts"][0][0]
-            citation = " ".join([name, etAl, "(" + str(year) + ")"])
-            content = content[:linkStart] + "[{}]({})".format(citation, link) + content[linkEnd:]
-            offset = offset + 1 + + len(citation) + len(link) - len(id)
-        else:
-            refNum = str(len(usedBibs)) if bibDict[id] not in usedBibs else str(usedBibs.index(bibDict[id])+1)
-            content = content[:linkStart]+'[['+refNum+']('+link+')]'+content[linkEnd:]
-            offset = offset + 3 + len(refNum) + len(link) - len(id)
-    return content
 
 def createNavData():
     navData = []
@@ -154,15 +139,38 @@ def createNavData():
     })
     return navData
 
-def getMarkdownMetadata(file):
-    process = subprocess.run(
-        args=[
-            "pandoc", 
-            "--template=templates/metadata.tmpl", 
-            file], 
-            stdout=subprocess.PIPE
-    )
-    return json.loads(process.stdout) # metadata included in the `section` file
+def insertLinks(sourceFile, outFile):
+    with open(sourceFile, "r") as f:
+        formattedContent = insertRefLinks(f.read())
+        formattedContent = insertProfileLinks(formattedContent)
+        with open(outFile, "w") as f:
+            f.write(formattedContent)
+            return f
+
+def insertRefLinks(content, isSchematic=False):
+    r = re.compile(r"\[@.*?]")
+    offset = 0
+    for match in re.finditer(r, content):
+        linkStart = match.span()[0]+offset
+        linkEnd = match.span()[1]+offset
+        id = match.group().split("[@")[1].strip(" ]")
+        if id not in bibDict:
+            print("Bib ID {} not found in bibliography data".format(id))
+            continue
+        if bibDict[id] not in usedBibs: usedBibs.append(bibDict[id])
+        link = "D-references.html#ref-{}".format(id)
+        if isSchematic:
+            name = bibDict[id]["author"][0]["family"]
+            etAl = "et al." if len(bibDict[id]["author"]) > 1 else ""
+            year = bibDict[id]["issued"]["date-parts"][0][0]
+            citation = " ".join([name, etAl, "(" + str(year) + ")"])
+            content = content[:linkStart] + "[{}]({})".format(citation, link) + content[linkEnd:]
+            offset = offset + 1 + + len(citation) + len(link) - len(id)
+        else:
+            refNum = str(len(usedBibs)) if bibDict[id] not in usedBibs else str(usedBibs.index(bibDict[id])+1)
+            content = content[:linkStart]+'[['+refNum+']('+link+')]'+content[linkEnd:]
+            offset = offset + 3 + len(refNum) + len(link) - len(id)
+    return content
 
 def insertProfileLinks(content):
     r = re.compile(r"\[[^\[\]]*\]\(#[^\[\]]*?\)")
@@ -175,14 +183,6 @@ def insertProfileLinks(content):
             anchor = match.group().split("(")[1].rstrip(")")
             content = content.replace(anchor, link, 1)
     return content
-
-def insertLinks(sourceFile, outFile):
-    with open(sourceFile, "r") as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open(outFile, "w") as f:
-            f.write(formattedContent)
-            return f
 
 def addCollectorData(metadata, identifier):
     if identifier in metadata:
