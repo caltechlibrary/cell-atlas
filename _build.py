@@ -21,10 +21,7 @@ def markdownToHTML(filen):
 
 def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Check if collector profile exist in in scientist profiles
-    if "collector" in metadata:
-        if metadata["collector"] in profileDict:
-            metadata["collectorProfile"] = profileDict[metadata["collector"]]["name"]
-            metadata["collectorId"] = profileDict[metadata["collector"]]["id"]
+    addCollectorData(metadata, "collector")
     # create temp file with inserted references/profiles
     sourceFormatted = insertLinks(sourceFile, "section.md")
     if "subsections" in metadata and metadata["subsections"]:
@@ -61,14 +58,8 @@ def processSubsection(subsectionFile):
     
     metadata["collectorProfile"] = False
     # Check if collector profile exist in in scientist profiles
-    if "collector" in metadata:
-        if metadata["collector"] in profileDict:
-            metadata["collectorProfile"] = profileDict[metadata["collector"]]["name"]
-            metadata["collectorId"] = profileDict[metadata["collector"]]["id"]
-    elif "source" in metadata:
-        if metadata["source"] in profileDict:
-            metadata["collectorProfile"] = profileDict[metadata["source"]]["name"]
-            metadata["collectorId"] = profileDict[metadata["source"]]["id"]
+    addCollectorData(metadata, "collector")
+    addCollectorData(metadata, "source")
     # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
     if("source" in metadata): metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
     
@@ -190,6 +181,12 @@ def insertLinks(sourceFile, outFile):
         with open(outFile, "w") as f:
             f.write(formattedContent)
             return f
+
+def addCollectorData(metadata, identifier):
+    if identifier in metadata:
+        if metadata[identifier] in profileDict:
+            metadata["collectorProfile"] = profileDict[metadata[identifier]]["name"]
+            metadata["collectorId"] = profileDict[metadata[identifier]]["id"]
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
