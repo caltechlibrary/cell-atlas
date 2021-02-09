@@ -720,7 +720,8 @@
         display: flex;
         justify-content: center;
         color: rgb(245 245 245);
-        width: 325px;
+        width: 300px;
+        height: 56px;
         text-decoration: none;
         margin: 2em 0;
     }

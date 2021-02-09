@@ -629,6 +629,7 @@ blockquote {
         justify-content: center;
         color: rgb(245 245 245);
         width: auto;
+        height: 56px;
         text-decoration: none;
         margin: 2em 0;
     }
