@@ -342,6 +342,12 @@
         opacity: 0.3;
     }
 
+    .nav-menu-footer {
+        border-top: 1px solid #000000;
+        margin-left: -12px;
+        padding: 12px 0 12px 24px;
+    }
+
     /* || CHAPTER page styles (styles for every page of the book that is a chapter landing page) */
     .book-chapter-content {
         display: flex;
