@@ -29,6 +29,10 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 This is Edition 1.0, but check back here for future versions…
 
+## Download this Book
+
+Visit the [Download](download.html) for instructions and download options.
+
 
 ## Contact
 
