@@ -89,7 +89,7 @@ blockquote {
 
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
 .book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
-.nav-menu-footer {
+.nav-menu-footer, .landing-page-download-button {
     display: none;
 }
 
@@ -168,6 +168,10 @@ blockquote {
     }
 
     .landing-page-start-button span {
+        display: none;
+    }
+
+    .landing-page-start-button.landing-page-download-button {
         display: none;
     }
 
