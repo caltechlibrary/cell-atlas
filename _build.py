@@ -5,6 +5,7 @@ import json
 import os
 import shutil
 import re 
+import csv
 
 SITEDIR = "site"
 ZIPDIR = "cell_atlas_zip"
@@ -80,6 +81,8 @@ def writePageOffline(sourceFormatted, template, pageName, metadata):
         "--metadata=offline",
         "--template=templates/{}.tmpl".format(template)
     ]
+    if("doi" in metadata):
+        pandocArgs.append("--metadata=video:{}".format(movieDict[metadata["doi"]]))
     if("appendixTypeReferences" in metadata):
         pandocArgs = pandocArgs + [
             "--from=csljson", 
@@ -89,13 +92,12 @@ def writePageOffline(sourceFormatted, template, pageName, metadata):
     pandocArgs.append(sourceFormatted.name)
     subprocess.run(pandocArgs)
 
-    
-
 def processSubsection(subsectionFile):
     metadata = getMarkdownMetadata(subsectionFile)
     metadata["id"] = subsectionFile.split("/")[-1][:-3]
-    
     metadata["collectorProfile"] = False
+    if("doi" in metadata):
+        metadata["video"] = movieDict[metadata["doi"]]
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")
     addCollectorData(metadata, "source")
@@ -269,16 +271,19 @@ for profileFile in profileFiles:
     os.remove(profileFormatted.name)
     profiles.append(profile)
     profileDict[profile["name"]] = profile
+# Create dictionary of DOIs to video file names
+movieDict = {}
+with open("dois.csv", "r") as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        doi = row["DOI"]
+        movie = row["movie"]
+        movieDict[doi] = movie
 
 # Render landing page
 metadata = {}
 metadata["firstPage"] = "begin"
 writePage(SITEDIR, "index.md", "index","index", metadata)
-
-# Render download page
-metadata = {}
-metadata["typeAppendix"] = True
-writePage(SITEDIR, "download.md", "page", "download", metadata)
 
 # Render opening quote page for introduction
 metadata = {}
@@ -415,3 +420,8 @@ with open("about.md", 'r') as f:
             aboutEntries[-1]["content"] = aboutEntries[-1]["content"] + line    
 metadata["aboutEntries"] = aboutEntries
 writePage(SITEDIR, "about.md", "page", "about", metadata)
+
+# Render download page
+metadata = {}
+metadata["typeAppendix"] = True
+writePage(SITEDIR, "download.md", "page", "download", metadata)
