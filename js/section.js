@@ -29,14 +29,15 @@ if(sectionText) {
 let video = document.querySelector("#nonTextContent video");
 if(video) {
     video.addEventListener("play", shelfOnFirstPlay);
-    sourceVideo(video);
+    // Source the video using the DOI only if a local path is not being used
+    if(!video.querySelector("source")) sourceVideo(video);
 }
 
 // Get sources for modal videos
 let modalVideos = document.querySelectorAll(".subsection-modal-container video");
 if(modalVideos) {
     for(let modalVideo of modalVideos) {
-        sourceVideo(modalVideo);
+        if(!modalVideo.querySelector("source")) sourceVideo(modalVideo);
     }
 }
 
