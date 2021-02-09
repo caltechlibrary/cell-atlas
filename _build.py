@@ -7,6 +7,8 @@ import shutil
 import re 
 
 SITEDIR = "site"
+ZIPDIR = "cell_atlas_zip"
+OFFLINE = True
 
 def markdownToHTML(filen):
     process = subprocess.run(
@@ -44,6 +46,9 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     # create temp metadata file to pass to pandoc
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
+
+    if(OFFLINE): writePageOffline(sourceFormatted, template, pageName, metadata)
+
     pandocArgs = [
         "pandoc", 
         "--from=markdown", 
@@ -63,6 +68,28 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     # remove temp metadata and source file file once we are done using it
     os.remove("metadata.json")
     os.remove(sourceFormatted.name)
+
+def writePageOffline(sourceFormatted, template, pageName, metadata):
+    # Write page
+    pandocArgs = [
+        "pandoc", 
+        "--from=markdown", 
+        "--to=html", 
+        "--output={}/{}.html".format(ZIPDIR, pageName), 
+        "--metadata-file=metadata.json", 
+        "--metadata=offline",
+        "--template=templates/{}.tmpl".format(template)
+    ]
+    if("appendixTypeReferences" in metadata):
+        pandocArgs = pandocArgs + [
+            "--from=csljson", 
+            "--citeproc", 
+            "--csl=springer-socpsych-brackets.csl"
+        ]
+    pandocArgs.append(sourceFormatted.name)
+    subprocess.run(pandocArgs)
+
+    
 
 def processSubsection(subsectionFile):
     metadata = getMarkdownMetadata(subsectionFile)
@@ -192,17 +219,21 @@ def addCollectorData(metadata, identifier):
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
-def createSiteDirectory(siteDir):
+def createSiteDirectory(siteDir, zipDir):
     if os.path.isdir(siteDir):
         shutil.rmtree(siteDir)
     os.mkdir(siteDir)
     shutil.copytree("styles/", "{}/styles/".format(siteDir))
     shutil.copytree("js/", "{}/js/".format(siteDir))
     shutil.copytree("img/", "{}/img/".format(siteDir))
-    if os.path.isdir("videos/"): shutil.copytree("videos/", "{}/videos/".format(siteDir))
+    if(not OFFLINE): return
+    if os.path.isdir(zipDir):
+        shutil.rmtree(zipDir)
+    shutil.copytree(siteDir, zipDir)
+    os.mkdir("{}/videos".format(zipDir))
 
 # Create rendered site directory
-createSiteDirectory(SITEDIR)
+createSiteDirectory(SITEDIR, ZIPDIR)
 # Create dict of references
 process = subprocess.run(
     args= [
