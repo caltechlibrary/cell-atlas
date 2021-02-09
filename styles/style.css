@@ -209,6 +209,14 @@
         margin-right: 0.2em;
     }
 
+    .landing-page-download-button {
+        position: absolute;
+        top: 2%;
+        right: 10%;
+        height: 56px;
+        transform: translatey(25%);
+    }
+
     /* || PAGE styles (styles for every page of the book) */
     .book-page-container {
         display: flex;
