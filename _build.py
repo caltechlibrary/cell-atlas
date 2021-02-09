@@ -275,6 +275,11 @@ metadata = {}
 metadata["firstPage"] = "begin"
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
+# Render download page
+metadata = {}
+metadata["typeAppendix"] = True
+writePage(SITEDIR, "download.md", "page", "download", metadata)
+
 # Render opening quote page for introduction
 metadata = {}
 metadata["nextSection"] = "introduction"

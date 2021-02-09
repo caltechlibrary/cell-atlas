@@ -702,6 +702,15 @@
         right: 0;
     }
 
+    .book-appendix-download a {
+        display: flex;
+        justify-content: center;
+        color: rgb(245 245 245);
+        width: 325px;
+        text-decoration: none;
+        margin: 2em 0;
+    }
+
     /* || REFERENCES styles */
     .csl-entry {
         display: flex;

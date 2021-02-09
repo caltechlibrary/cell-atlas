@@ -622,6 +622,15 @@ blockquote {
     #feedbackModal {
         height: 90%;
     }
+
+    .book-appendix-download a {
+        display: flex;
+        justify-content: center;
+        color: rgb(245 245 245);
+        width: auto;
+        text-decoration: none;
+        margin: 2em 0;
+    }
 }
 
 @media(min-width:480px) {

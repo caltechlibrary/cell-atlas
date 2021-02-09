@@ -24,7 +24,13 @@ ${endif}
         ${elseif(appendixTypeAbout)}
             ${about.tmpl()}
         ${else}
-            ${body}
+            <div class="book-text-content book-appendix-download">
+                ${body}
+            </div>
+            <div class="book-appendix-download">
+                <a download href="site-full.zip" class="landing-page-start-button"><span>&#8227;</span>Download Edition 1.0 - full version</a>
+                <a download href="site-light.zip" class="landing-page-start-button"><span>&#8227;</span>Download Edition 1.0 - light version</a>
+            </div>
         ${endif}
 
     </div>
