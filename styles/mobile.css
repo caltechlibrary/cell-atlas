@@ -88,7 +88,8 @@ blockquote {
 }
 
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
-.book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk {
+.book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
+.nav-menu-footer, .landing-page-download-button {
     display: none;
 }
 
@@ -167,6 +168,10 @@ blockquote {
     }
 
     .landing-page-start-button span {
+        display: none;
+    }
+
+    .landing-page-start-button.landing-page-download-button {
         display: none;
     }
 
@@ -621,6 +626,15 @@ blockquote {
 
     #feedbackModal {
         height: 90%;
+    }
+
+    .book-appendix-download a {
+        display: flex;
+        justify-content: center;
+        color: rgb(245 245 245);
+        width: auto;
+        text-decoration: none;
+        margin: 2em 0;
     }
 }
 
