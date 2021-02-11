@@ -31,7 +31,7 @@ This is Edition 1.0, but check back here for future versions…
 
 ## Download this Book
 
-Visit the [Download](download.html) for instructions and download options.
+Visit the [Download](download.html) page for instructions and download options.
 
 
 ## Contact
