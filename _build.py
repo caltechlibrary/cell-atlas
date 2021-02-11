@@ -8,7 +8,7 @@ import re
 import csv
 
 SITEDIR = "site"
-ZIPDIR = "cell_atlas_zip"
+ZIPDIR = "cell_atlas_offline"
 
 def markdownToHTML(filen):
     process = subprocess.run(

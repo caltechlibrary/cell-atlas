@@ -733,6 +733,7 @@
     .book-appendix-download a {
         display: flex;
         justify-content: center;
+        align-items: center;
         color: rgb(245 245 245);
         width: 300px;
         height: 56px;
