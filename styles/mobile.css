@@ -131,6 +131,7 @@ blockquote {
     }
 
     .landing-page-text {
+        position: relative;
         color: #f5f5f5;
         padding: 0 5%;
         margin-top: 15%;
@@ -171,8 +172,15 @@ blockquote {
         display: none;
     }
 
-    .landing-page-start-button.landing-page-download-button {
-        display: none;
+    .landing-page-download-button-mobile {
+        position: absolute;
+        line-height: 0;
+        bottom: 0;
+        right: 5%;
+    }
+
+    .landing-page-download-icon {
+        height: 3.5em;
     }
 
     /* || HEADER styles */

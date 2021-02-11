@@ -812,4 +812,8 @@
     .mobile-footer-data {
         display: none;
     }
+
+    .landing-page-download-button-mobile {
+        display: none;
+    }
 }
