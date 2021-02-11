@@ -213,11 +213,14 @@
         position: absolute;
         top: 2%;
         right: 10%;
-        transform: translatey(25%);
+        transform: translatey(18%);
         color: #ffffff;
         display: flex;
         flex-direction: row;
         align-items: center;
+        background: rgba(255,255,255,0.125);
+        border-radius: 3px;
+        padding: 5px 10px;
     }
 
     .landing-page-download-icon {
