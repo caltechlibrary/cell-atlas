@@ -9,7 +9,6 @@ import csv
 
 SITEDIR = "site"
 ZIPDIR = "cell_atlas_zip"
-OFFLINE = True
 
 def markdownToHTML(filen):
     process = subprocess.run(
@@ -48,7 +47,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
 
-    if(OFFLINE): writePageOffline(sourceFormatted, template, pageName, metadata)
+    writePageOffline(sourceFormatted, template, pageName, metadata)
 
     pandocArgs = [
         "pandoc", 
@@ -228,7 +227,6 @@ def createSiteDirectory(siteDir, zipDir):
     shutil.copytree("styles/", "{}/styles/".format(siteDir))
     shutil.copytree("js/", "{}/js/".format(siteDir))
     shutil.copytree("img/", "{}/img/".format(siteDir))
-    if(not OFFLINE): return
     if os.path.isdir(zipDir):
         shutil.rmtree(zipDir)
     shutil.copytree(siteDir, zipDir)
