@@ -352,8 +352,14 @@
 
     .nav-menu-footer {
         border-top: 1px solid #000000;
+        color: #525252;
         margin-left: -12px;
-        padding: 12px 0 12px 24px;
+        margin-top: 4px;
+        padding: 1em 0 12px 24px;
+    }
+
+    .nav-menu-footer:hover {
+        font-style: italic;
     }
 
     /* || CHAPTER page styles (styles for every page of the book that is a chapter landing page) */
