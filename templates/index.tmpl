@@ -18,13 +18,10 @@ ${head.tmpl()}
                     </div>
                     <a href="${firstPage}.html" class="landing-page-start-button"><span>&#8227;</span>READ ONLINE NOW</a>
                 </div>
-                ${if(offline)}
-                ${else}
-                    <a href="download.html" class="landing-page-download-button">
-                        ${noun_Download.svg()}
-                        DOWNLOAD
-                    </a>
-                ${endif}
+                <a href="download.html" class="landing-page-download-button">
+                    ${noun_Download.svg()}
+                    DOWNLOAD
+                </a>
             </div>
         </div>
         ${footer.tmpl()}
