@@ -20,7 +20,10 @@ ${head.tmpl()}
                 </div>
                 ${if(offline)}
                 ${else}
-                    <a href="download.html" class="landing-page-start-button landing-page-download-button">Download</a>
+                    <a href="download.html" class="landing-page-download-button">
+                        ${noun_Download.svg()}
+                        DOWNLOAD
+                    </a>
                 ${endif}
             </div>
         </div>

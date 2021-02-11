@@ -213,8 +213,16 @@
         position: absolute;
         top: 2%;
         right: 10%;
-        height: 56px;
         transform: translatey(25%);
+        color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .landing-page-download-icon {
+        height: 3.5em;
+        margin-right: 1em;
     }
 
     /* || PAGE styles (styles for every page of the book) */

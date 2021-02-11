@@ -63,3 +63,5 @@ formatting and integrates videos from CaltechDATA.
 
 Software Development was funded by the California Institute of Technology
 Library and the Jensen Lab.
+
+"[Download](https://thenounproject.com/search/?q=download&i=1570345)" icon by Kimmi Studio from [the Noun Project](https://thenounproject.com/).
