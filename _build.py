@@ -6,9 +6,11 @@ import os
 import shutil
 import re 
 import csv
+import copy
 
 SITEDIR = "site"
-ZIPDIR = "cell_atlas_offline"
+ZIPDIR_LARGE = "cell_atlas_offline"
+ZIPDIR_SMALL = "cell_atlas_offline_lite"
 
 def markdownToHTML(filen):
     process = subprocess.run(
@@ -47,7 +49,8 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
 
-    writePageOffline(sourceFormatted, template, pageName, metadata)
+    writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_SMALL)
+    writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_LARGE)
 
     pandocArgs = [
         "pandoc", 
@@ -69,20 +72,32 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     os.remove("metadata.json")
     os.remove(sourceFormatted.name)
 
-def writePageOffline(sourceFormatted, template, pageName, metadata):
-    # Write page
+def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
+    offlineMetadata = copy.deepcopy(metadata)
     pandocArgs = [
         "pandoc", 
         "--from=markdown", 
         "--to=html", 
-        "--output={}/{}.html".format(ZIPDIR, pageName), 
-        "--metadata-file=metadata.json", 
+        "--output={}/{}.html".format(outDir, pageName), 
+        "--metadata-file=metadataOffline.json", 
         "--metadata=offline",
         "--template=templates/{}.tmpl".format(template)
     ]
-    if("doi" in metadata):
-        pandocArgs.append("--metadata=video:{}".format(movieDict[metadata["doi"]]))
-    if("appendixTypeReferences" in metadata):
+    if("doi" in offlineMetadata):
+        if(outDir == ZIPDIR_SMALL):
+            videoName = movieDict[offlineMetadata["doi"]]
+            smallVideoName = videoName.split(".")[0] + "_480p." + videoName.split(".")[1]
+            pandocArgs.append("--metadata=video:{}".format(smallVideoName))
+            if "subsectionsData" in offlineMetadata and offlineMetadata["subsectionsData"]:
+                for i in range(len(offlineMetadata["subsectionsData"])):
+                    if("doi" in offlineMetadata["subsectionsData"][i]):
+                        subVideoName = offlineMetadata["subsectionsData"][i]["video"]
+                        offlineMetadata["subsectionsData"][i]["video"] = subVideoName.split(".")[0] + "_480p." + subVideoName.split(".")[1]
+        else:
+            pandocArgs.append("--metadata=video:{}".format(movieDict[offlineMetadata["doi"]]))
+    with open("metadataOffline.json", "w") as f:
+        json.dump(offlineMetadata, f)
+    if("appendixTypeReferences" in offlineMetadata):
         pandocArgs = pandocArgs + [
             "--from=csljson", 
             "--citeproc", 
@@ -90,6 +105,7 @@ def writePageOffline(sourceFormatted, template, pageName, metadata):
         ]
     pandocArgs.append(sourceFormatted.name)
     subprocess.run(pandocArgs)
+    os.remove("metadataOffline.json")
 
 def processSubsection(subsectionFile):
     metadata = getMarkdownMetadata(subsectionFile)
@@ -220,20 +236,25 @@ def addCollectorData(metadata, identifier):
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
-def createSiteDirectory(siteDir, zipDir):
+def createSiteDirectory(siteDir, zipDirSmall, zipDirLarge):
     if os.path.isdir(siteDir):
         shutil.rmtree(siteDir)
     os.mkdir(siteDir)
     shutil.copytree("styles/", "{}/styles/".format(siteDir))
     shutil.copytree("js/", "{}/js/".format(siteDir))
     shutil.copytree("img/", "{}/img/".format(siteDir))
-    if os.path.isdir(zipDir):
-        shutil.rmtree(zipDir)
-    shutil.copytree(siteDir, zipDir)
-    os.mkdir("{}/videos".format(zipDir))
+
+    if os.path.isdir(zipDirSmall):
+        shutil.rmtree(zipDirSmall)
+    shutil.copytree(siteDir, zipDirSmall)
+    os.mkdir("{}/videos".format(zipDirSmall))
+    if os.path.isdir(zipDirLarge):
+        shutil.rmtree(zipDirLarge)
+    shutil.copytree(siteDir, zipDirLarge)
+    os.mkdir("{}/videos".format(zipDirLarge))
 
 # Create rendered site directory
-createSiteDirectory(SITEDIR, ZIPDIR)
+createSiteDirectory(SITEDIR, ZIPDIR_SMALL, ZIPDIR_LARGE)
 # Create dict of references
 process = subprocess.run(
     args= [
