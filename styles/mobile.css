@@ -172,13 +172,6 @@ blockquote {
         display: none;
     }
 
-    .landing-page-download-button-mobile {
-        position: absolute;
-        line-height: 0;
-        bottom: 0;
-        right: 5%;
-    }
-
     .landing-page-download-icon {
         height: 3.5em;
     }
@@ -643,6 +636,10 @@ blockquote {
         width: auto;
         text-decoration: none;
         margin: 2em 0;
+    }
+
+    .book-appendix-dropdown-list #DownloadthisBook {
+        display: none;
     }
 }
 
