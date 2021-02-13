@@ -454,6 +454,10 @@
         background-color: rgb(255 255 255);
     }
 
+    .book-section-non-text-content video {
+        max-height: 97%;
+    }
+
     .book-section-non-text-content img {
         width: 100%;
         min-width: 0;

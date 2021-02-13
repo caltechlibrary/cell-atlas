@@ -84,7 +84,7 @@ function shelfText(el) {
 
     // Bring non text section center screen and enlarge
     nonTextSection.style.right = "0";
-    nonTextSection.style.width = "78%";
+    nonTextSection.style.width = "84%";
 
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){
