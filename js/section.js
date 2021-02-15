@@ -84,11 +84,8 @@ function shelfText(el) {
 
     // Bring non text section center screen and enlarge
     nonTextSection.style.right = "0";
-    nonTextSection.style["min-width"] = `${nonTextSection.offsetWidth}px`;
-    nonTextSection.style.width = "auto";
+    nonTextSection.style.width = "100%";
 
-    // Change video size
-    video.style.width = "auto";
 
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){
@@ -114,11 +111,8 @@ function openText(el) {
 
     // Bring non text section back to the left and make smaller
     nonTextSection.style.right = "62%";
-    nonTextSection.style["min-width"] = "initial";
     nonTextSection.style.width = "62%";
 
-    // Change video size
-    video.style.width = "100%";
 
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){

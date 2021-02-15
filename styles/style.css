@@ -442,7 +442,7 @@
         align-items: center;
         justify-content: center;
         width: 62%;
-        transition: right 1s;
+        transition: width 1s, right 1s;
     }
 
     .book-section-non-text-content-empty {
@@ -451,11 +451,10 @@
 
     video {
         min-width: 0;
-        max-width: 76%;
-        max-height: 95%;
+        max-width: 77.5vw;
+        max-height: 97%;
         width: 100%;
         background-color: rgb(255 255 255);
-        /* transition: width 1s; */
     }
 
     .book-section-non-text-content img {
