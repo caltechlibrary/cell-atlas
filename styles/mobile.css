@@ -226,19 +226,10 @@ blockquote {
         opacity: 0;
         color: #363636;
         transition: none;
-
-        /* Remove scroll bar for different types of browsers */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
     }
 
     .nav-menu a {
         color: inherit;
-    }
-    
-    /* Remove scroll bar for different types of browsers */
-    .nav-menu::-webkit-scrollbar {
-        display: none;
     }
     
     .nav-menu-chapter h1 {
