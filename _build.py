@@ -83,18 +83,34 @@ def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
         "--metadata=offline",
         "--template=templates/{}.tmpl".format(template)
     ]
-    if("doi" in offlineMetadata):
-        if(outDir == ZIPDIR_SMALL):
-            videoName = movieDict[offlineMetadata["doi"]]
+
+    if(outDir == ZIPDIR_SMALL):
+        if("doi" in offlineMetadata or "video" in offlineMetadata):
+            videoName = None
+            if("doi" in offlineMetadata):
+                videoName = movieDict[offlineMetadata["doi"]]
+            elif("video" in offlineMetadata):
+                videoName = offlineMetadata["video"]
             smallVideoName = videoName.split(".")[0] + "_480p." + videoName.split(".")[1]
             pandocArgs.append("--metadata=video:{}".format(smallVideoName))
-            if "subsectionsData" in offlineMetadata and offlineMetadata["subsectionsData"]:
-                for i in range(len(offlineMetadata["subsectionsData"])):
-                    if("doi" in offlineMetadata["subsectionsData"][i]):
-                        subVideoName = offlineMetadata["subsectionsData"][i]["video"]
-                        offlineMetadata["subsectionsData"][i]["video"] = subVideoName.split(".")[0] + "_480p." + subVideoName.split(".")[1]
-        else:
+    else:
+        if("doi" in offlineMetadata):
             pandocArgs.append("--metadata=video:{}".format(movieDict[offlineMetadata["doi"]]))
+
+    if "subsectionsData" in offlineMetadata and offlineMetadata["subsectionsData"]:
+        for i in range(len(offlineMetadata["subsectionsData"])):
+            if(outDir == ZIPDIR_SMALL):
+                if("doi" in offlineMetadata["subsectionsData"][i] or "video" in offlineMetadata["subsectionsData"][i]):
+                    subVideoName = None
+                    if("doi" in offlineMetadata["subsectionsData"][i]):
+                        subVideoName = movieDict[offlineMetadata["subsectionsData"][i]["doi"]]
+                    elif("video" in offlineMetadata["subsectionsData"][i]):
+                        subVideoName = offlineMetadata["subsectionsData"][i]["video"]
+                    offlineMetadata["subsectionsData"][i]["video"] = subVideoName.split(".")[0] + "_480p." + subVideoName.split(".")[1]
+            else:
+                if("doi" in offlineMetadata["subsectionsData"][i]):
+                    offlineMetadata["subsectionsData"][i]["video"] = movieDict[offlineMetadata["subsectionsData"][i]["doi"]]
+    
     with open("metadataOffline.json", "w") as f:
         json.dump(offlineMetadata, f)
     if("appendixTypeReferences" in offlineMetadata):
