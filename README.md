@@ -65,3 +65,7 @@ Software Development was funded by the California Institute of Technology
 Library and the Jensen Lab.
 
 "[Download](https://thenounproject.com/search/?q=download&i=1570345)" icon by Kimmi Studio from [the Noun Project](https://thenounproject.com/).
+
+"[File](https://thenounproject.com/search/?q=file&i=3723131)" icon by Vectorstall from [the Noun Project](https://thenounproject.com/).
+
+"[Video](https://thenounproject.com/search/?q=video&i=2567858)" icon by i cons from [the Noun Project](https://thenounproject.com/).

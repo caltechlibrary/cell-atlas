@@ -232,19 +232,10 @@ blockquote {
         opacity: 0;
         color: #363636;
         transition: none;
-
-        /* Remove scroll bar for different types of browsers */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
     }
 
     .nav-menu a {
         color: inherit;
-    }
-    
-    /* Remove scroll bar for different types of browsers */
-    .nav-menu::-webkit-scrollbar {
-        display: none;
     }
     
     .nav-menu-chapter h1 {
@@ -335,20 +326,24 @@ blockquote {
 
     .page-controls-nav {
         font-size: 33.5px;
-        color: #ffffff;
+        color: #c2c2c2;
     }
 
     .page-controls-button {
-        color: #c2c2c2;
+        width: 35px;
+        height: 100%;
         background: #505050;
         border: none;
         padding: 0;
-        font-weight: 600;
-        font-size: 24px;
     }
 
-    .page-controls-selected {
-        color: #ffffff;
+    .page-controls-button svg {
+        fill: #c2c2c2;
+        width: 100%;
+    }
+
+    .page-controls-selected svg {
+        fill: #ffffff;
     }
 
     /* || MODAL styles */
