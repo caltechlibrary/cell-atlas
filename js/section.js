@@ -29,14 +29,15 @@ if(sectionText) {
 let video = document.querySelector("#nonTextContent video");
 if(video) {
     video.addEventListener("play", shelfOnFirstPlay);
-    sourceVideo(video);
+    // Source the video using the DOI only if a local path is not being used
+    if(!video.querySelector("source")) sourceVideo(video);
 }
 
 // Get sources for modal videos
 let modalVideos = document.querySelectorAll(".subsection-modal-container video");
 if(modalVideos) {
     for(let modalVideo of modalVideos) {
-        sourceVideo(modalVideo);
+        if(!modalVideo.querySelector("source")) sourceVideo(modalVideo);
     }
 }
 
@@ -83,7 +84,8 @@ function shelfText(el) {
 
     // Bring non text section center screen and enlarge
     nonTextSection.style.right = "0";
-    nonTextSection.style.width = "84%";
+    nonTextSection.style.width = "100%";
+
 
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){
@@ -110,6 +112,7 @@ function openText(el) {
     // Bring non text section back to the left and make smaller
     nonTextSection.style.right = "62%";
     nonTextSection.style.width = "62%";
+
 
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){

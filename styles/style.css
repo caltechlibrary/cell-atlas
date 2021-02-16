@@ -209,6 +209,25 @@
         margin-right: 0.2em;
     }
 
+    .landing-page-download-button {
+        position: absolute;
+        top: 2%;
+        right: 10%;
+        transform: translatey(18%);
+        color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: rgba(255,255,255,0.125);
+        border-radius: 3px;
+        padding: 5px 10px;
+    }
+
+    .landing-page-download-icon {
+        height: 3.5em;
+        margin-right: 1em;
+    }
+
     /* || PAGE styles (styles for every page of the book) */
     .book-page-container {
         display: flex;
@@ -334,6 +353,18 @@
         opacity: 0.3;
     }
 
+    .nav-menu-footer {
+        border-top: 1px solid #000000;
+        color: #525252;
+        margin-left: -12px;
+        margin-top: 4px;
+        padding: 1em 0 12px 24px;
+    }
+
+    .nav-menu-footer:hover {
+        font-style: italic;
+    }
+
     /* || CHAPTER page styles (styles for every page of the book that is a chapter landing page) */
     .book-chapter-content {
         display: flex;
@@ -409,6 +440,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         width: 62%;
         transition: width 1s, right 1s;
     }
@@ -419,6 +451,8 @@
 
     video {
         min-width: 0;
+        max-width: 77.5vw;
+        max-height: 97%;
         width: 100%;
         background-color: rgb(255 255 255);
     }
@@ -439,6 +473,7 @@
         padding-right: 25px;
         transition: transform 1s;
         white-space: nowrap;
+        z-index: 1;
     }
 
     .book-section-text {
@@ -702,6 +737,17 @@
         right: 0;
     }
 
+    .book-appendix-download a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(245 245 245);
+        width: 300px;
+        height: 56px;
+        text-decoration: none;
+        margin: 2em 0;
+    }
+
     /* || REFERENCES styles */
     .csl-entry {
         display: flex;
@@ -768,6 +814,10 @@
     }
 
     .mobile-footer-data {
+        display: none;
+    }
+
+    .landing-page-download-button-mobile {
         display: none;
     }
 }

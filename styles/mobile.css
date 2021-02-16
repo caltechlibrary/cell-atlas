@@ -88,7 +88,8 @@ blockquote {
 }
 
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
-.book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk {
+.book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
+.nav-menu-footer, .landing-page-download-button {
     display: none;
 }
 
@@ -130,6 +131,7 @@ blockquote {
     }
 
     .landing-page-text {
+        position: relative;
         color: #f5f5f5;
         padding: 0 5%;
         margin-top: 15%;
@@ -168,6 +170,10 @@ blockquote {
 
     .landing-page-start-button span {
         display: none;
+    }
+
+    .landing-page-download-icon {
+        height: 3.5em;
     }
 
     /* || HEADER styles */
@@ -612,6 +618,19 @@ blockquote {
 
     #feedbackModal {
         height: 90%;
+    }
+
+    .book-appendix-download a {
+        display: flex;
+        justify-content: center;
+        color: rgb(245 245 245);
+        width: auto;
+        text-decoration: none;
+        margin: 2em 0;
+    }
+
+    .book-appendix-dropdown-list #DownloadthisBook {
+        display: none;
     }
 }
 
