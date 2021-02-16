@@ -8,8 +8,11 @@
 
 <div id="nonTextContent" class="book-section-non-text-content">
     <a href="${prevSection}.html" class="book-page-nav">&#8249;</a>
-    <video doi="${doi}" controls>
+    <video ${if(doi)}doi="${doi}"${endif} controls>
         ${if(offline)}
+            <source src="videos/${video}">
+        ${elseif(doi)}
+        ${else}
             <source src="videos/${video}">
         ${endif}
         There was an error loading the video.

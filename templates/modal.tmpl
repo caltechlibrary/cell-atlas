@@ -1,8 +1,11 @@
 <div class="subsection-modal-container" id="${it.id}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
-        <video doi="${it.doi}" controls>
+        <video ${if(it.doi)}doi="${it.doi}"${endif} controls>
             ${if(offline)}
+                <source src="videos/${it.video}">
+            ${elseif(it.doi)}
+            ${else}
                 <source src="videos/${it.video}">
             ${endif}
             There was an error loading the video.
