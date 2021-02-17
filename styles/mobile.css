@@ -620,6 +620,15 @@ blockquote {
         height: 100%;
     }
 
+    .feedback-offline-message {
+        display: none;
+        color: #000000;
+        height: fit-content;
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: center;
+    }
+
     #feedbackModal {
         height: 90%;
     }
