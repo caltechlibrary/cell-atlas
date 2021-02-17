@@ -23,7 +23,9 @@ ${endif}
             ${tree.svg()}
         ${elseif(appendixTypeAbout)}
             ${about.tmpl()}
-        ${else}
+        ${elseif(appendixTypeReferences)}
+            ${body}
+        ${elseif(appendixTypeDownload)}
             <div class="book-text-content">
                 ${body}
             </div>

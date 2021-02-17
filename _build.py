@@ -459,4 +459,5 @@ writePage(SITEDIR, "about.md", "page", "about", metadata)
 # Render download page
 metadata = {}
 metadata["typeAppendix"] = True
+metadata["appendixTypeDownload"] = True
 writePage(SITEDIR, "download.md", "page", "download", metadata)
