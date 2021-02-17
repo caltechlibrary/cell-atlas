@@ -383,13 +383,13 @@ metadata["typeChapter"] = True
 writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
 
 # Render keep looking page
-metadata = {}
+keepLookingFileMetaData = {}
 keepLookingFileMetaData = getMarkdownMetadata("keepLooking.md")
-metadata["typeSection"] = True
-metadata["prevSection"] = "outlook"
-metadata["nextSection"] = "A-feature-index"
-metadata["subsectionsData"] = []
-writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", metadata)
+keepLookingFileMetaData["typeSection"] = True
+keepLookingFileMetaData["prevSection"] = "outlook"
+keepLookingFileMetaData["nextSection"] = "A-feature-index"
+keepLookingFileMetaData["subsectionsData"] = []
+writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)
 
 # Render feature index page
 metadata = {}
