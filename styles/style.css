@@ -633,6 +633,10 @@
         object-fit: contain;
     }
 
+    .subsection-modal-container video {
+        max-height: initial;
+    }
+
     #concept-check-questions, #further-reading {
         margin-top: 2em;
     }
