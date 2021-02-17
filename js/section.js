@@ -57,6 +57,8 @@ function sourceVideo(el) {
         .then(function(data){
             let sourceTag = document.createElement("source");
             let videoUrl = data.data[0].attributes.url;
+            // Create global var for url to access later
+            window[`video${doi}`] = videoUrl;
             sourceTag.setAttribute("src", videoUrl);
             el.appendChild(sourceTag);
         });
@@ -122,4 +124,24 @@ function openText(el) {
             if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
         }
     }, 1000);
+}
+
+function changeQuality(el) {
+    let doi = el.getAttribute("data-player");
+    let videoPlayer = document.querySelector(`video[doi='${doi}']`)
+    let source = videoPlayer.querySelector("source");
+    let paused = videoPlayer.paused;
+    let currentTime = videoPlayer.currentTime;
+
+    if(el.value == "480") {
+        let videoFileName = videoPlayer.getAttribute("data-file");
+        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480.mp4`
+        source.setAttribute("src", videoFileNameSmall);
+    } else {
+        source.setAttribute("src", window[`video${doi}`]);
+    }
+    
+    videoPlayer.load();
+    videoPlayer.currentTime = currentTime;
+    if(!paused) videoPlayer.play();
 }

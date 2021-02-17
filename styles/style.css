@@ -449,12 +449,24 @@
         justify-content: space-between;
     }
 
-    video {
-        min-width: 0;
+    .book-section-video-container {
+        position: relative;
         max-width: 77.5vw;
         max-height: 97%;
         width: 100%;
+    }
+    
+    .book-section-video-container video{
+        min-width: 0;
+        width: 100%;
         background-color: rgb(255 255 255);
+    }
+
+    .book-section-video-container select{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(100%);
     }
 
     .book-section-non-text-content img {

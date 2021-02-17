@@ -8,15 +8,21 @@
 
 <div id="nonTextContent" class="book-section-non-text-content">
     <a href="${prevSection}.html" class="book-page-nav">&#8249;</a>
-    <video ${if(doi)}doi="${doi}"${endif} controls>
-        ${if(offline)}
-            <source src="videos/${video}">
-        ${elseif(doi)}
-        ${else}
-            <source src="videos/${video}">
-        ${endif}
-        There was an error loading the video.
-    </video>
+    <div class="book-section-video-container">
+        <video ${if(doi)}doi="${doi}"${endif} controls data-file="${video}">
+            ${if(offline)}
+                <source src="videos/${video}">
+            ${elseif(doi)}
+            ${else}
+                <source src="videos/${video}">
+            ${endif}
+            There was an error loading the video.
+        </video>
+        <select onchange="changeQuality(this)" data-player="${doi}">
+            <option value="1080" selected>1080p</option>
+            <option value="480">480p</option>
+        </select>
+    </div>
     <a href="${nextSection}.html" class="book-page-nav">&#8250;</a>
 </div>
 
