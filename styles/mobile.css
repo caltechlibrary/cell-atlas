@@ -679,7 +679,9 @@ blockquote {
     }
 
     .book-section-non-text-content video {
-        width: 60%;
+        width: auto;
+        height: 100%;
+        max-height: 60%;
     }
 
     /* || MODAL styles */
