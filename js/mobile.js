@@ -80,6 +80,9 @@ function terminateMobileView() {
     let chTitle = document.querySelector(".book-chapter-title h1");
     if(chTitle && chTitle.innerText == "Introduction") {
         chTitle.removeAttribute("style");
+    }else if(chTitle && chTitle.innerText == "Outlook") {
+        let titleContainer = document.querySelector(".book-chapter-text-section");
+        titleContainer.removeAttribute("style");
     }
 
     if(document.querySelector(".book-appendix-dropdown-list")) {
