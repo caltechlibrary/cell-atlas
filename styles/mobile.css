@@ -120,6 +120,7 @@ blockquote {
         position: relative;
         width: 350px;
         height: 65px;
+        padding-left: env(safe-area-inset-left);
     }
 
     .landing-page-logo img {
@@ -232,6 +233,16 @@ blockquote {
         opacity: 0;
         color: #363636;
         transition: none;
+    }
+
+    .nav-menu-opened {
+        padding: .75em 0em 0.75em 0.75em;
+    }
+
+    @supports(padding: max(0px)) {
+        .nav-menu-opened {
+            padding: .75em 0em 0.75em max(0.75em, env(safe-area-inset-left));
+        }
     }
 
     .nav-menu a {
@@ -364,6 +375,12 @@ blockquote {
         margin: 0px 15px;
     }
 
+    @supports(padding: max(0px)) {
+        .book-section-text-margins {
+            margin: 0px max(15px, env(safe-area-inset-right)) 0 max(15px, env(safe-area-inset-left));
+        }
+    }
+
     .book-section-text-header {
         font-size: 22px;
         margin-bottom: 16px;
@@ -391,18 +408,33 @@ blockquote {
         line-height: 17px;
     }
 
+    .video-citation span {
+        margin: 0 3px;
+    }
+
+    .video-citation-value {
+        color: rgb(50 92 105);
+    }
+
     .book-section-text .video-citation {
         order: 99;
     }
 
     .video-citation a {
         color: #325c69;
+        text-decoration: underline;
     }
 
     .book-section-learn-more {
         padding: 16px 15px;
         background-color: #858585;
         margin-bottom: 16px;
+    }
+
+    @supports(padding: max(0px)) {
+        .book-section-learn-more {
+            padding: 16px max(15px, env(safe-area-inset-right)) 16px max(15px, env(safe-area-inset-left));
+        }
     }
 
     .book-section-learn-more-buttons button {
@@ -451,27 +483,26 @@ blockquote {
         max-height: 90%;
         flex-direction: column;
         padding: 16px;
+        padding-top: 8px;
         border: 4px solid #000000;
         background: #ffffff;
         overflow: auto;
     }
 
     .modal-exit-button-mobile {
-        flex: 1 0 auto;
+        flex: 0 0 auto;
         background: #ffffff;
         border: none;
         font-size: 24px;
         font-weight: 900;
         padding: 0;
         margin-left: auto;
+        margin-bottom: 8px;
     }
 
     .subsection-modal-container .video-citation {
         flex: 1 0 auto;
-    }
-
-    .subsection-modal-text {
-        margin-top: 16px;
+        margin-bottom: 16px;
     }
 
     .subsection-modal-text a {
@@ -487,10 +518,13 @@ blockquote {
         width: 100%;
         max-height: 50vh;
         object-fit: contain;
+        margin-bottom: 16px;
     }
 
     .subsection-modal-container video {
         width: 100%;
+        border: 1px solid #000000;
+        box-sizing: border-box;
     }
 
     /* || CHAPTER styles */
@@ -537,6 +571,12 @@ blockquote {
 
     .book-appendix-inner {
         padding: 72px 16px;
+    }
+
+    @supports(padding: max(0px)) {
+        .book-appendix-inner {
+            padding: 72px max(16px, env(safe-area-inset-right)) 72px max(16px, env(safe-area-inset-left));
+        }
     }
 
     .book-appendix-inner h1 {
@@ -620,6 +660,15 @@ blockquote {
         height: 100%;
     }
 
+    .feedback-offline-message {
+        display: none;
+        color: #000000;
+        height: fit-content;
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: center;
+    }
+
     #feedbackModal {
         height: 90%;
     }
@@ -670,7 +719,9 @@ blockquote {
     }
 
     .book-section-non-text-content video {
-        width: 60%;
+        width: auto;
+        height: 100%;
+        max-height: 57%;
     }
 
     /* || MODAL styles */
@@ -679,10 +730,18 @@ blockquote {
         max-height: 82.5%;
     }
 
+    .subsection-modal-container video {
+        width: auto;
+        max-height: 50vh;
+    }
+
     /* || CHAPTER styles */
     .book-chapter-text-section {
+        position: fixed;
         flex-direction: row;
         align-items: center;
+        transform: translateY(-50%);
+        padding: 0 16px;
     }
 
     .book-chapter-quote {
