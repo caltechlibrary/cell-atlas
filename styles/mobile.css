@@ -412,6 +412,10 @@ blockquote {
         margin: 0 3px;
     }
 
+    .video-citation-value {
+        color: rgb(50 92 105);
+    }
+
     .book-section-text .video-citation {
         order: 99;
     }
@@ -515,6 +519,8 @@ blockquote {
 
     .subsection-modal-container video {
         width: 100%;
+        border: 1px solid #000000;
+        box-sizing: border-box;
     }
 
     /* || CHAPTER styles */
