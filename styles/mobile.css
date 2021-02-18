@@ -719,6 +719,11 @@ blockquote {
         max-height: 82.5%;
     }
 
+    .subsection-modal-container video {
+        width: auto;
+        max-height: 50vh;
+    }
+
     /* || CHAPTER styles */
     .book-chapter-text-section {
         flex-direction: row;
