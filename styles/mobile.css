@@ -408,6 +408,10 @@ blockquote {
         line-height: 17px;
     }
 
+    .video-citation span {
+        margin: 0 3px;
+    }
+
     .book-section-text .video-citation {
         order: 99;
     }
@@ -480,7 +484,7 @@ blockquote {
     }
 
     .modal-exit-button-mobile {
-        flex: 1 0 auto;
+        flex: 0 0 auto;
         background: #ffffff;
         border: none;
         font-size: 24px;
@@ -491,10 +495,7 @@ blockquote {
 
     .subsection-modal-container .video-citation {
         flex: 1 0 auto;
-    }
-
-    .subsection-modal-text {
-        margin-top: 16px;
+        margin-bottom: 16px;
     }
 
     .subsection-modal-text a {
@@ -726,8 +727,11 @@ blockquote {
 
     /* || CHAPTER styles */
     .book-chapter-text-section {
+        position: fixed;
         flex-direction: row;
         align-items: center;
+        transform: translateY(-50%);
+        padding: 0 16px;
     }
 
     .book-chapter-quote {
