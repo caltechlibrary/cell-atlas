@@ -32,7 +32,7 @@ function toggleNav(el) {
     if(window.navOpened){
         pageContainer.removeEventListener("click", autoShelfNav);
         navMenu.style.height = "0%";
-        navMenu.style.padding = "0em 0em 0em 0.75em";
+        navMenu.classList.remove("nav-menu-opened");
         setTimeout(function(){
             navMenu.style.opacity = "0";
             el.disabled = false;
@@ -41,7 +41,7 @@ function toggleNav(el) {
         window.sessionStorage.setItem("navOpened", false);
         toggleTab(-1);
     } else {
-        navMenu.style.padding = ".75em 0em 0.75em 0.75em";
+        navMenu.classList.add("nav-menu-opened");
         if(window.innerWidth > 800) {
             navMenu.style.height = "100%";
         } else {

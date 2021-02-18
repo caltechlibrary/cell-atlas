@@ -261,7 +261,7 @@
         left: 0;
         height: 0%;
         width: 20.75em;
-        padding: 0;
+        padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
         background-color: rgb(245 245 245);
         overflow: auto;
@@ -273,6 +273,10 @@
         /* Remove scroll bar for different types of browsers */
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
+    }
+
+    .nav-menu-opened {
+        padding: .75em 0em 0.75em 0.75em;
     }
 
     .nav-menu a {
