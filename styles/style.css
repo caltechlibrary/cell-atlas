@@ -223,6 +223,12 @@
         padding: 5px 10px;
     }
 
+    @media only screen and (max-width: 1000px) {
+        .landing-page-download-button {
+            right: 2%;
+        }
+    }
+
     .landing-page-download-icon {
         height: 3.5em;
         margin-right: 1em;
@@ -261,7 +267,7 @@
         left: 0;
         height: 0%;
         width: 20.75em;
-        padding: 0;
+        padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
         background-color: rgb(245 245 245);
         overflow: auto;
@@ -273,6 +279,10 @@
         /* Remove scroll bar for different types of browsers */
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
+    }
+
+    .nav-menu-opened {
+        padding: .75em 0em 0.75em 0.75em;
     }
 
     .nav-menu a {
@@ -440,6 +450,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         width: 62%;
         transition: width 1s, right 1s;
     }
@@ -450,6 +461,8 @@
 
     video {
         min-width: 0;
+        max-width: 77.5vw;
+        max-height: 97%;
         width: 100%;
         background-color: rgb(255 255 255);
     }
@@ -470,6 +483,7 @@
         padding-right: 25px;
         transition: transform 1s;
         white-space: nowrap;
+        z-index: 1;
     }
 
     .book-section-text {
@@ -627,6 +641,10 @@
         width: 100%;
         max-height: 50vh;
         object-fit: contain;
+    }
+
+    .subsection-modal-container video {
+        max-height: initial;
     }
 
     #concept-check-questions, #further-reading {
@@ -794,6 +812,15 @@
     .book-appendix-page iframe {
         width: 100%;
         height: 100%;
+    }
+
+    .feedback-offline-message {
+        display: none;
+        color: #000000;
+        height: fit-content;
+        margin-top: auto;
+        margin-bottom: auto;
+        text-align: center;
     }
 
     /* || MOBILE page styles */

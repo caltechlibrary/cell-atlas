@@ -12,7 +12,7 @@
             gtag('config', 'G-LHYBMHF2E8');
         </script>
         <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover">
     <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen">
     <meta name="description" content="A visual tour of the microbial cell.">
     <title>2.1 Membrane | Atlas of Bacterial and Archaeal Cell Structure</title>
@@ -1058,7 +1058,8 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="lipid-bilayer">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="" controls>
+                                            <video  controls>
+                                                            <source src="videos/2_1_1.mp4">
                                                         There was an error loading the video.
                                         </video>
                                                 <div class="video-citation">
@@ -1082,7 +1083,8 @@
                                 </div>
                                 <div class="subsection-modal-container" id="atp-synthase">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="" controls>
+                                            <video  controls>
+                                                            <source src="videos/2_1_2.mp4">
                                                         There was an error loading the video.
                                         </video>
                                                 <div class="video-citation">
@@ -1106,7 +1108,8 @@
                                 </div>
                                 <div class="subsection-modal-container" id="ribosome">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="" controls>
+                                            <video  controls>
+                                                            <source src="videos/2_1_3.mp4">
                                                         There was an error loading the video.
                                         </video>
                                                 <div class="video-citation">
@@ -1132,7 +1135,7 @@
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="2-cells.html" class="book-page-nav">&#8249;</a>
                         <video doi="10.22002/D1.1350" controls>
-                                    There was an error loading the video.
+                                            There was an error loading the video.
                         </video>
                         <a href="2-2-cell-wall.html" class="book-page-nav">&#8250;</a>
                     </div>
@@ -1174,8 +1177,18 @@
       <a href="about.html" class="footer-link">ABOUT THIS BOOK</a>
     </footer>    <div class="page-controls-mobile">
                          <a href="2-cells.html" class="page-controls-nav">&#10094;</a>
-                             <button onclick="toggleView(this)" value="text" class="page-controls-button page-controls-selected">Text</button>
-                     <button onclick="toggleView(this)" value="video" class="page-controls-button">Video</button>
+                             <button onclick="toggleView(this)" value="text" class="page-controls-button page-controls-selected">
+                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="6 5 50 50" xml:space="preserve">
+                             <polygon points="22,6.59 11.77,17 22,17 "/>
+                             <path d="M11,53c0,0.27,0.11,0.52,0.29,0.71C11.48,53.89,11.74,54,12,54h36c0.55,0,1-0.45,1-1V7.01c0-0.55-0.45-1-1-1L24,6v12  c0,0.55-0.45,1-1,1H11V53z M40.5,46H19.67c-0.55,0-1-0.45-1-1s0.45-1,1-1H40.5c0.55,0,1,0.45,1,1S41.05,46,40.5,46z M40.42,39H19.59  c-0.55,0-1-0.45-1-1c0,0,0,0,0,0c0,0,0-0.01,0-0.01c0-0.55,0.45-1,1-1h20.83c0.55,0,1,0.45,1,1c0,0,0,0,0,0c0,0,0,0.01,0,0.01  C41.42,38.55,40.97,39,40.42,39z M19.58,23h20.83c0.55,0,1,0.45,1,1s-0.45,1-1,1H19.58c-0.55,0-1-0.45-1-1S19.03,23,19.58,23z   M19.5,30h20.83c0.55,0,1,0.45,1,1s-0.45,1-1,1H19.5c-0.55,0-1-0.45-1-1S18.95,30,19.5,30z"/>
+                         </svg>        </button>
+                     <button onclick="toggleView(this)" value="video" class="page-controls-button">
+                         <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px">
+                             <g>
+                                 <polygon points="71.82 38.8 71.82 59.34 100 74.37 100 25.63 71.82 38.8"/>
+                                 <path d="M55.86,22.06H8a8,8,0,0,0-8,8V70a8,8,0,0,0,8,8H55.86a8,8,0,0,0,8-8V30A8,8,0,0,0,55.86,22.06Z"/>
+                             </g>
+                         </svg>        </button>
                              <a href="2-2-cell-wall.html" class="page-controls-nav">&#10095;</a>
                  </div>  </div>
 
@@ -1185,6 +1198,7 @@
   <script src="js/section.js"></script>
   <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
+  
 </body>
 
 </html>

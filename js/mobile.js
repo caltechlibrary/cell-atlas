@@ -41,6 +41,9 @@ function initializeMobileView() {
     let chTitle = document.querySelector(".book-chapter-title h1");
     if(chTitle && chTitle.innerText == "Introduction") {
         chTitle.style["font-size"] = "54px";
+    }else if(chTitle && chTitle.innerText == "Outlook") {
+        let titleContainer = document.querySelector(".book-chapter-text-section");
+        titleContainer.style.right = 0;
     }
 
     // Page controls are always fixed on chapter pages
@@ -77,6 +80,9 @@ function terminateMobileView() {
     let chTitle = document.querySelector(".book-chapter-title h1");
     if(chTitle && chTitle.innerText == "Introduction") {
         chTitle.removeAttribute("style");
+    }else if(chTitle && chTitle.innerText == "Outlook") {
+        let titleContainer = document.querySelector(".book-chapter-text-section");
+        titleContainer.removeAttribute("style");
     }
 
     if(document.querySelector(".book-appendix-dropdown-list")) {
