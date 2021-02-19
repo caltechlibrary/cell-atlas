@@ -127,8 +127,8 @@ function openText(el) {
 }
 
 function changeQuality(el) {
-    let doi = el.getAttribute("data-player");
-    let videoPlayer = document.querySelector(`video[doi='${doi}']`)
+    let doi = document.querySelector(".video-quality-changer").getAttribute("data-player");
+    let videoPlayer = document.querySelector(`video[doi='${doi}']`);
     let paused = videoPlayer.paused;
     if(!paused) videoPlayer.pause();
     let source = videoPlayer.querySelector("source");

@@ -472,11 +472,14 @@
         background-color: rgb(255 255 255);
     }
 
-    .book-section-video-container select{
+    .video-quality-changer {
         position: absolute;
         bottom: 0;
         right: 0;
         transform: translateY(100%);
+        color: #ffffff;
+        font-size: 1em;
+        font-weight: 600;
     }
 
     .book-section-non-text-content img {

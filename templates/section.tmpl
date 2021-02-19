@@ -18,10 +18,12 @@
             ${endif}
             There was an error loading the video.
         </video>
-        <select onchange="changeQuality(this)" data-player="${doi}">
-            <option value="1080" selected>1080p</option>
-            <option value="480">480p</option>
-        </select>
+        <div class="video-quality-changer" data-player="${doi}">
+            <input id="480p" type="radio" name="quality" value="480" onchange="changeQuality(this)">
+            <label for="480p">480p</label>
+            <input id="1080p" type="radio" name="quality" value="1080" onchange="changeQuality(this)" checked>
+            <label for="1080p">1080p</label>
+        </div>
     </div>
     <a href="${nextSection}.html" class="book-page-nav">&#8250;</a>
 </div>
