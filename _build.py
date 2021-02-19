@@ -49,8 +49,9 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
 
-    writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_SMALL)
-    writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_LARGE)
+    if("appendixTypeDownload" not in metadata):
+        writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_SMALL)
+        writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_LARGE)
 
     pandocArgs = [
         "pandoc", 
