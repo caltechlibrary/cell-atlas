@@ -12,7 +12,7 @@ let allLinks = document.querySelectorAll("a");
 for(let link of allLinks) {
     if(!link.href) continue;
     let currLink = new URL(link.href);
-    if(currLink.origin != origin) {
+    if(currLink.origin != origin && !currLink.href.includes("https://data.caltech.edu/tindfiles/serve")) {
         link.setAttribute("target", "_blank");
         link.setAttribute("rel", "noopener");
     }
