@@ -129,14 +129,15 @@ function openText(el) {
 function changeQuality(el) {
     let doi = el.getAttribute("data-player");
     let videoPlayer = document.querySelector(`video[doi='${doi}']`)
-    let source = videoPlayer.querySelector("source");
     let paused = videoPlayer.paused;
+    if(!paused) videoPlayer.pause();
+    let source = videoPlayer.querySelector("source");
     let currentTime = videoPlayer.currentTime;
 
     if(el.value == "480") {
         let videoFileName = videoPlayer.getAttribute("data-file");
-        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480.mp4`
-        source.setAttribute("src", videoFileNameSmall);
+        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`
+        source.setAttribute("src", `videos/${videoFileNameSmall}`);
     } else {
         source.setAttribute("src", window[`video${doi}`]);
     }
