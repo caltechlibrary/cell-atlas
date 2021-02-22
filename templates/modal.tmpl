@@ -41,8 +41,8 @@
     ${endif}
     ${if(it.video)}
         <div class="video-quality-changer" data-player="${it.playerId}">
-            <input id="vidLow" type="radio" name="quality-${it.playerId}" value="480" onchange="changeQuality(this)">
-            <label for="vidLow">480p</label>
+            <input id="vidMed" type="radio" name="quality-${it.playerId}" value="480" onchange="changeQuality(this)">
+            <label for="vidMed">480p</label>
             <input id="vidHigh" type="radio" name="quality-${it.playerId}" value="1080" onchange="changeQuality(this)">
             <label for="vidHigh">1080p</label>
         </div>

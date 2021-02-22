@@ -49,8 +49,8 @@ function shelfOnFirstPlay(event) {
 function sourceVideo(el) {
     // Check if quality is preset to 480. If yes, source it now
     let currentQuality = window.sessionStorage.getItem("vidQuality");
-    if(currentQuality == "med") {
-        let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidLow`);
+    if(currentQuality == "Med") {
+        let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidMed`);
         let videoFileName = el.getAttribute("data-file");
         let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`
         let source = el.querySelector("source");
@@ -64,7 +64,7 @@ function sourceVideo(el) {
 
     let doi = el.getAttribute("doi");
     if(!doi) {
-        if(currentQuality == "high") {
+        if(currentQuality == "High") {
             let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidHigh`);
             qualityButton.checked = true;
         }
@@ -79,7 +79,7 @@ function sourceVideo(el) {
             let videoUrl = data.data[0].attributes.url;
             // Create global var for url to access later
             window[`video${el.getAttribute("id")}`] = videoUrl;
-            if(currentQuality == "high" || !currentQuality) {
+            if(currentQuality == "High" || !currentQuality) {
                 let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidHigh`);
                 let source = el.querySelector("source");
                 if(!source) {
@@ -155,30 +155,43 @@ function openText(el) {
 }
 
 function changeQuality(el) {
-    // Change the quality of the current player and preload the metadata for the 
-    // quality changes on all other videos
+    let vidQuality = (el.value == "480") ? "Med" : "High";
     let playerId = el.parentElement.getAttribute("data-player");
     let videoPlayer = document.querySelector(`video#${playerId}`);
+    let allVideos = document.querySelectorAll("video");
+    window.sessionStorage.setItem("vidQuality", vidQuality);
+    videoPlayer.setAttribute("preload", "metadata");
+    swapVideo(videoPlayer, vidQuality);
+
+    // Change the quality for the other videos as well
+    for(let video of allVideos) {
+        if(video.getAttribute("id") != playerId) {
+            video.setAttribute("preload", "none");
+            let qualityButton = document.querySelector(`.video-quality-changer[data-player='${video.getAttribute("id")}'] input#vid${vidQuality}`);
+            qualityButton.checked = true;
+            swapVideo(video, vidQuality);
+        }
+    }
+}
+
+function swapVideo(videoPlayer, vidQuality) {
     let paused = videoPlayer.paused;
     if(!paused) videoPlayer.pause();
     let source = videoPlayer.querySelector("source");
     let currentTime = videoPlayer.currentTime;
 
-    if(el.value == "480") {
+    if(vidQuality == "Med") {
         let videoFileName = videoPlayer.getAttribute("data-file");
         let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`;
         source.setAttribute("src", `videos/${videoFileNameSmall}`);
-        window.sessionStorage.setItem("vidQuality", "med");
     } else {
-        // Check if video has a doi or if it is a schematic/summary
         let doi = videoPlayer.getAttribute("doi");
         if(doi) {
-            source.setAttribute("src", window[`video${playerId}`]);
+            source.setAttribute("src", window[`video${videoPlayer.getAttribute("id")}`]);
         } else {
             let videoFileName = videoPlayer.getAttribute("data-file");
             source.setAttribute("src", `videos/${videoFileName}`);
         }
-        window.sessionStorage.setItem("vidQuality", "high");
     }
     
     videoPlayer.load();
