@@ -49,27 +49,18 @@ function shelfOnFirstPlay(event) {
 function sourceVideo(el) {
     // Check if quality is preset to 480. If yes, source it now
     let currentQuality = window.sessionStorage.getItem("vidQuality");
+    if(!currentQuality) {
+        currentQuality = "High";
+        window.sessionStorage.setItem("vidQuality", currentQuality);
+    }
+    let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vid${currentQuality}`);
+    qualityButton.checked = true;
     if(currentQuality == "Med") {
-        let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidMed`);
-        let videoFileName = el.getAttribute("data-file");
-        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`
-        let source = el.querySelector("source");
-        if(!source) {
-            source = document.createElement("source");
-            el.appendChild(source);
-        }
-        source.setAttribute("src", `videos/${videoFileNameSmall}`);
-        qualityButton.checked = true;
+        sourceVideoSmall(el)
     }
 
     let doi = el.getAttribute("doi");
-    if(!doi) {
-        if(currentQuality == "High") {
-            let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidHigh`);
-            qualityButton.checked = true;
-        }
-        return;
-    }
+    if(!doi) return;
     let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
     fetch(doiUrl)
         .then(function(res) {
@@ -80,14 +71,12 @@ function sourceVideo(el) {
             // Create global var for url to access later
             window[`video${el.getAttribute("id")}`] = videoUrl;
             if(currentQuality == "High" || !currentQuality) {
-                let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidHigh`);
                 let source = el.querySelector("source");
                 if(!source) {
                     source = document.createElement("source");
                     el.appendChild(source);
                 }
                 source.setAttribute("src", videoUrl);
-                qualityButton.checked = true;
             }
         });
 }
@@ -177,15 +166,13 @@ function changeQuality(el) {
 function swapVideo(videoPlayer, vidQuality) {
     let paused = videoPlayer.paused;
     if(!paused) videoPlayer.pause();
-    let source = videoPlayer.querySelector("source");
     let currentTime = videoPlayer.currentTime;
 
     if(vidQuality == "Med") {
-        let videoFileName = videoPlayer.getAttribute("data-file");
-        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`;
-        source.setAttribute("src", `videos/${videoFileNameSmall}`);
+        sourceVideoSmall(videoPlayer)
     } else {
         let doi = videoPlayer.getAttribute("doi");
+        let source = videoPlayer.querySelector("source");
         if(doi) {
             source.setAttribute("src", window[`video${videoPlayer.getAttribute("id")}`]);
         } else {
@@ -197,4 +184,15 @@ function swapVideo(videoPlayer, vidQuality) {
     videoPlayer.load();
     videoPlayer.currentTime = currentTime;
     if(!paused) videoPlayer.play();
+}
+
+function sourceVideoSmall(video) {
+    let videoFileName = video.getAttribute("data-file");
+    let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`
+    let source = video.querySelector("source");
+    if(!source) {
+        source = document.createElement("source");
+        video.appendChild(source);
+    }
+    source.setAttribute("src", `videos/${videoFileNameSmall}`);
 }
