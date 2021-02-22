@@ -1,7 +1,7 @@
 <div class="subsection-modal-container" id="${it.id}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
-        <video ${if(it.doi)}doi="${it.doi}"${endif} controls>
+        <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} controls data-file="${it.video}">
             ${if(offline)}
                 <source src="videos/${it.video}">
             ${elseif(it.doi)}
@@ -37,6 +37,14 @@
                 ${endif}
             </span>
             ${if(it.structure)}<span>Structure: <span class="video-citation-value">${it.structure}</span></span>${endif}
+        </div>
+    ${endif}
+    ${if(it.video)}
+        <div class="video-quality-changer" data-player="${it.playerId}">
+            <input id="vidLow" type="radio" name="quality-${it.playerId}" value="480" onchange="changeQuality(this)">
+            <label for="vidLow">480p</label>
+            <input id="vidHigh" type="radio" name="quality-${it.playerId}" value="1080" onchange="changeQuality(this)">
+            <label for="vidHigh">1080p</label>
         </div>
     ${endif}
     <div class="subsection-modal-text">

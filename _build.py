@@ -36,6 +36,12 @@ def getMarkdownMetadata(file):
 def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add site navigation to metadata
     metadata["nav"] = siteNav
+    # Add ID for the video player if there is one
+    if "doi" in metadata: 
+        if "sections/" in sourceFile:
+            metadata["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]
+        else:
+            metadata["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")
     # create temp file with inserted references/profiles
@@ -135,6 +141,9 @@ def processSubsection(subsectionFile):
     addCollectorData(metadata, "source")
     # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
     if("source" in metadata): metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
+    # Add player id for videos
+    if "doi" in metadata or "video" in metadata: 
+        metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
     
     sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata
@@ -260,6 +269,7 @@ def createSiteDirectory(siteDir, zipDirSmall, zipDirLarge):
     shutil.copytree("styles/", "{}/styles/".format(siteDir))
     shutil.copytree("js/", "{}/js/".format(siteDir))
     shutil.copytree("img/", "{}/img/".format(siteDir))
+    # if os.path.isdir("videos/"): shutil.copytree("videos/", "{}/videos/".format(siteDir))
 
     if os.path.isdir(zipDirSmall):
         shutil.rmtree(zipDirSmall)

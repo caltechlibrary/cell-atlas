@@ -89,7 +89,7 @@ blockquote {
 
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
 .book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
-.nav-menu-footer, .landing-page-download-button {
+.nav-menu-footer, .landing-page-download-button, .video-quality-changer {
     display: none;
 }
 

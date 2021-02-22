@@ -37,7 +37,7 @@ if(video) {
 let modalVideos = document.querySelectorAll(".subsection-modal-container video");
 if(modalVideos) {
     for(let modalVideo of modalVideos) {
-        if(!modalVideo.querySelector("source")) sourceVideo(modalVideo);
+        sourceVideo(modalVideo);
     }
 }
 
@@ -47,20 +47,48 @@ function shelfOnFirstPlay(event) {
 }
 
 function sourceVideo(el) {
+    // Check if quality is preset to 480. If yes, source it now
+    let currentQuality = window.sessionStorage.getItem("vidQuality");
+    if(currentQuality == "med") {
+        let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidLow`);
+        let videoFileName = el.getAttribute("data-file");
+        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`
+        let source = el.querySelector("source");
+        if(!source) {
+            source = document.createElement("source");
+            el.appendChild(source);
+        }
+        source.setAttribute("src", `videos/${videoFileNameSmall}`);
+        qualityButton.checked = true;
+    }
+
     let doi = el.getAttribute("doi");
-    if(!doi) return;
+    if(!doi) {
+        if(currentQuality == "high") {
+            let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidHigh`);
+            qualityButton.checked = true;
+        }
+        return;
+    }
     let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
     fetch(doiUrl)
         .then(function(res) {
             return res.json();
         })
         .then(function(data){
-            let sourceTag = document.createElement("source");
             let videoUrl = data.data[0].attributes.url;
             // Create global var for url to access later
-            window[`video${doi}`] = videoUrl;
-            sourceTag.setAttribute("src", videoUrl);
-            el.appendChild(sourceTag);
+            window[`video${el.getAttribute("id")}`] = videoUrl;
+            if(currentQuality == "high" || !currentQuality) {
+                let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vidHigh`);
+                let source = el.querySelector("source");
+                if(!source) {
+                    source = document.createElement("source");
+                    el.appendChild(source);
+                }
+                source.setAttribute("src", videoUrl);
+                qualityButton.checked = true;
+            }
         });
 }
 
@@ -127,8 +155,10 @@ function openText(el) {
 }
 
 function changeQuality(el) {
-    let doi = document.querySelector(".video-quality-changer").getAttribute("data-player");
-    let videoPlayer = document.querySelector(`video[doi='${doi}']`);
+    // Change the quality of the current player and preload the metadata for the 
+    // quality changes on all other videos
+    let playerId = el.parentElement.getAttribute("data-player");
+    let videoPlayer = document.querySelector(`video#${playerId}`);
     let paused = videoPlayer.paused;
     if(!paused) videoPlayer.pause();
     let source = videoPlayer.querySelector("source");
@@ -136,10 +166,19 @@ function changeQuality(el) {
 
     if(el.value == "480") {
         let videoFileName = videoPlayer.getAttribute("data-file");
-        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`
+        let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`;
         source.setAttribute("src", `videos/${videoFileNameSmall}`);
+        window.sessionStorage.setItem("vidQuality", "med");
     } else {
-        source.setAttribute("src", window[`video${doi}`]);
+        // Check if video has a doi or if it is a schematic/summary
+        let doi = videoPlayer.getAttribute("doi");
+        if(doi) {
+            source.setAttribute("src", window[`video${playerId}`]);
+        } else {
+            let videoFileName = videoPlayer.getAttribute("data-file");
+            source.setAttribute("src", `videos/${videoFileName}`);
+        }
+        window.sessionStorage.setItem("vidQuality", "high");
     }
     
     videoPlayer.load();

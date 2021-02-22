@@ -659,7 +659,20 @@
     }
 
     .subsection-modal-container video {
+        min-width: 0;
+        max-width: 77.5vw;
+        max-height: 97%;
+        width: 100%;
+        background-color: rgb(255 255 255);
         max-height: initial;
+    }
+
+    .subsection-modal-container .video-quality-changer {
+        position: relative;
+        margin-left: auto;
+        color: #000000;
+        transform: translateY(0);
+        margin-bottom: -1em;
     }
 
     #concept-check-questions, #further-reading {
