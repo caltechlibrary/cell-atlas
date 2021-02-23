@@ -145,7 +145,7 @@ function openText(el) {
 
 function changeQuality(el) {
     let vidQuality = (el.value == "480") ? "Med" : "High";
-    let playerId = el.parentElement.getAttribute("data-player");
+    let playerId = el.getAttribute("data-player");
     let videoPlayer = document.querySelector(`video#${playerId}`);
     let allVideos = document.querySelectorAll("video");
     window.sessionStorage.setItem("vidQuality", vidQuality);
