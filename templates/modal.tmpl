@@ -41,13 +41,19 @@
     ${endif}
     ${if(it.video)}
         <div class="video-quality-changer" data-player="${it.playerId}">
-            <label>
-                <input id="vidMed" type="radio" name="quality-${it.playerId}" value="480" onchange="changeQuality(this)" data-player="${playerId}">
-                480p
+            <label class="video-quality-changer-entry">
+                <span class="video-quality-changer-input">
+                    <input id="vidMed" type="radio" name="quality-${it.playerId}" value="480" onchange="changeQuality(this)" data-player="${it.playerId}">
+                    <span class="video-quality-changer-control"></span>
+                </span> 
+                <span class="video-quality-changer-label">480p</span>
             </label>
-            <label>
-                <input id="vidHigh" type="radio" name="quality-${it.playerId}" value="1080" onchange="changeQuality(this)" data-player="${playerId}">
-                1080p
+            <label class="video-quality-changer-entry">
+                <span class="video-quality-changer-input">
+                    <input id="vidHigh" type="radio" name="quality-${it.playerId}" value="1080" onchange="changeQuality(this)" data-player="${it.playerId}">
+                    <span class="video-quality-changer-control"></span>
+                </span>
+                <span class="video-quality-changer-label">1080p</span>
             </label>
         </div>
     ${endif}

@@ -493,18 +493,24 @@
         margin-left: 0.75em;
     }
 
+    .video-quality-changer-input {
+        display: flex;
+        align-items: center;
+    }
+
     .video-quality-changer-input input {
         opacity: 0;
         width: 0;
         height: 0;
+        margin: 0;
         display: flex;
     }
 
     .video-quality-changer-control {
         display: grid;
         place-items: center;
-        width: 1em;
-        height: 1em;
+        width: 0.85em;
+        height: 0.85em;
         border-radius: 50%;
         border: 0.1em solid #fff;
         background-color: #fff;
@@ -513,8 +519,8 @@
 
     .video-quality-changer-input input + .video-quality-changer-control::before {
         content: "";
-        width: 0.75em;
-        height: 0.75em;
+        width: 0.6em;
+        height: 0.6em;
         box-shadow: inset 0.5em 0.5em #717171;
         border-radius: 50%;
         transform: scale(0);
@@ -525,6 +531,7 @@
     }
 
     .video-quality-changer-label {
+        font-size: 0.95em;
         line-height: 1.5;
     }
 
@@ -719,6 +726,10 @@
         color: #000000;
         transform: translateY(0);
         margin-bottom: -1em;
+    }
+
+    .subsection-modal-container .video-quality-changer-control {
+        border: 0.1em solid #717171;
     }
 
     #concept-check-questions, #further-reading {
