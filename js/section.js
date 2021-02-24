@@ -147,10 +147,17 @@ function changeQuality(el) {
     let vidQuality = (el.value == "480") ? "Med" : "High";
     let playerId = el.getAttribute("data-player");
     let videoPlayer = document.querySelector(`video#${playerId}`);
+    let paused = videoPlayer.paused;
+    let currTime = videoPlayer.currentTime;
     let allVideos = document.querySelectorAll("video");
+    
     window.sessionStorage.setItem("vidQuality", vidQuality);
     videoPlayer.setAttribute("preload", "metadata");
     swapVideo(videoPlayer, vidQuality);
+    videoPlayer.removeEventListener("play", loadVidSource);
+    videoPlayer.load();
+    videoPlayer.currentTime = currTime;
+    if(!paused) videoPlayer.addEventListener("canplay", playVidWhenReady);
 
     // Change the quality for the other videos as well
     for(let video of allVideos) {
@@ -166,7 +173,6 @@ function changeQuality(el) {
 function swapVideo(videoPlayer, vidQuality) {
     let paused = videoPlayer.paused;
     if(!paused) videoPlayer.pause();
-    let currentTime = videoPlayer.currentTime;
 
     if(vidQuality == "Med") {
         sourceVideoSmall(videoPlayer)
@@ -181,9 +187,8 @@ function swapVideo(videoPlayer, vidQuality) {
         }
     }
     
-    videoPlayer.load();
-    videoPlayer.currentTime = currentTime;
-    if(!paused) videoPlayer.play();
+    // Add event listener to load the video when played
+    videoPlayer.addEventListener("play", loadVidSource);
 }
 
 function sourceVideoSmall(video) {
@@ -195,4 +200,19 @@ function sourceVideoSmall(video) {
         video.appendChild(source);
     }
     source.setAttribute("src", `videos/${videoFileNameSmall}`);
+}
+
+function loadVidSource(event) {
+    let videoPlayer = event.target;
+    let currTime = videoPlayer.currentTime;
+    videoPlayer.removeEventListener("play", loadVidSource);
+    videoPlayer.load();
+    videoPlayer.currentTime = currTime;
+    videoPlayer.addEventListener("canplay", playVidWhenReady);
+}
+
+function playVidWhenReady(event) {
+    let videoPlayer = event.target;
+    videoPlayer.removeEventListener("canplay", playVidWhenReady);
+    videoPlayer.play();
 }
