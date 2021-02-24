@@ -82,6 +82,7 @@ function sourceVideo(el) {
 }
 
 function showModal(el) {
+    if(video && !video.paused) video.pause();
     let modalId = el.getAttribute("value");
     // openModal is defined in modal.js
     openModal(modalId);
