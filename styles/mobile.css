@@ -567,9 +567,12 @@ blockquote {
         margin-bottom: 8px;
     }
 
+    .subsection-modal-text {
+        margin-top: 1em;
+    }
+
     .subsection-modal-container .video-citation {
         flex: 1 0 auto;
-        margin-bottom: 16px;
     }
 
     .subsection-modal-text a {
@@ -592,6 +595,18 @@ blockquote {
         width: 100%;
         border: 1px solid #000000;
         box-sizing: border-box;
+    }
+
+    .subsection-modal-container .video-quality-changer {
+        position: relative;
+        margin-left: auto;
+        color: #000000;
+        transform: translateY(0);
+        margin-bottom: -1em;
+    }
+
+    .subsection-modal-container .video-quality-changer-control {
+        border: 0.1em solid #000;
     }
 
     /* || CHAPTER styles */
