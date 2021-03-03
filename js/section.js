@@ -293,12 +293,12 @@ function createVideoPlayer(videoEl) {
         videoPaintCanvas.setAttribute("height", `${video.offsetHeight}px`);
         videoScrubCanvas.setAttribute("width", `${video.offsetWidth}px`);
         videoScrubCanvas.setAttribute("height", `${video.offsetHeight}px`);
-        seekBar.max= "100"
         seekBar.step = `${1/15}`;
         let totalMinutes = (video.duration >= 60) ? Math.floor(video.duration / 60) : 0;
         let seconds = Math.round(video.duration) - (totalMinutes * 60);
         let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
         videoTimeSatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
+        updateBufferedTime(videoEl, seekBar);
     });
 
     videoEl.addEventListener("timeupdate", function() {
@@ -329,16 +329,7 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("progress", function() {
-        let duration =  videoEl.duration;
-        if (duration > 0) {
-            for (var i = 0; i < videoEl.buffered.length; i++) {
-                if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime) {
-                    seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / duration) * 100;
-                    updateSeekBar(seekBar);
-                    break;
-                }
-            }
-        }
+        updateBufferedTime(videoEl, seekBar);
     });
 }
 
@@ -404,4 +395,17 @@ function resizeSectionScrubCanvas() {
     let videoScrubCanvas = nonTextSection.querySelector(".book-section-video-player-scrub-canvas");
     let videoHeight = video.offsetHeight;
     videoScrubCanvas.style.width = `${videoHeight * (16/9)}px`; // Make the canvas width maintain 16:9 ratio
+}
+
+function updateBufferedTime(videoEl, seekBar) {
+    let duration =  videoEl.duration;
+    if (duration > 0) {
+        for (var i = 0; i < videoEl.buffered.length; i++) {
+            if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime || videoEl.buffered.start(videoEl.buffered.length - 1 - i) <= 0) {
+                seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / duration) * 100;
+                updateSeekBar(seekBar);
+                break;
+            }
+        }
+    }
 }
