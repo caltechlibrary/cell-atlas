@@ -32,6 +32,8 @@ if(video) {
     // Source the video using the DOI only if a local path is not being used
     if(!video.querySelector("source")) sourceVideo(video);
     createVideoPlayer(video);
+    // Resize section video scrub canvas on window resize
+    window.addEventListener("resize", resizeSectionScrubCanvas);
 }
 
 // Get sources for modal videos
@@ -117,6 +119,9 @@ function shelfText(el) {
         unshelfButton.style.transform =  "translate(-100%, 0px)";
         unshelfButton.setAttribute("tabindex", "0");;
     }, 1000);
+
+    // Resize scrub canvas to fit new video width
+    setTimeout(resizeSectionScrubCanvas, 1000);
 }
 
 function openText(el) {
@@ -143,6 +148,9 @@ function openText(el) {
             if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
         }
     }, 1000);
+
+    // Resize scrub canvas to fit new video width
+    setTimeout(resizeSectionScrubCanvas, 1000);
 }
 
 function changeQuality(el) {
@@ -389,4 +397,11 @@ function showPlayerControls(event) {
     let videoPlayer = event.target;
     let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
     videoControls.style.opacity = 1;
+}
+
+function resizeSectionScrubCanvas() {
+    let nonTextSection = document.getElementById("nonTextContent");
+    let videoScrubCanvas = nonTextSection.querySelector(".book-section-video-player-scrub-canvas");
+    let videoHeight = video.offsetHeight;
+    videoScrubCanvas.style.width = `${videoHeight * (16/9)}px`; // Make the canvas width maintain 16:9 ratio
 }
