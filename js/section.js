@@ -241,11 +241,11 @@ function createVideoPlayer(videoEl) {
         }, 1000/15);
     });
     
-    video.addEventListener("pause", function() {
+    videoEl.addEventListener("pause", function() {
         clearInterval(frameInterval);
     });
 
-    video.addEventListener("seeking", function() {
+    videoEl.addEventListener("seeking", function() {
         videoScrubCanvas.style.display = "block";
         let roundedTime = Math.round(videoEl.currentTime * 15) / 15;
         if(roundedTime in frameImages) scrubContext.drawImage(frameImages[roundedTime], 0, 0);
@@ -264,10 +264,15 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener('play', function() {
+        videoPlayer.addEventListener("mouseleave", hidePlayerControls);
+        videoPlayer.addEventListener("mouseenter", showPlayerControls);
         changeButtonState(videoEl, 'playPauseButton');
     });
     
     videoEl.addEventListener('pause', function() {
+        videoControls.style.opacity = 1;
+        videoPlayer.removeEventListener("mouseleave", hidePlayerControls);
+        videoPlayer.removeEventListener("mouseenter", showPlayerControls);
         changeButtonState(videoEl, 'playPauseButton');
     });
     
@@ -315,7 +320,7 @@ function createVideoPlayer(videoEl) {
         updateTimeStamp(videoEl);
     });
 
-    videoEl.addEventListener('progress', function() {
+    videoEl.addEventListener("progress", function() {
         let duration =  videoEl.duration;
         if (duration > 0) {
             for (var i = 0; i < videoEl.buffered.length; i++) {
@@ -372,4 +377,16 @@ async function saveFrame(videoEl, context, frameImages) {
     imageData = context.getImageData(0, 0, context.canvas.width, context.canvas.height);
     imageBitmap = await createImageBitmap(imageData);
     frameImages[Math.round(videoEl.currentTime * 15) / 15] = imageBitmap;
+}
+
+function hidePlayerControls(event) {
+    let videoPlayer = event.target;
+    let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
+    videoControls.style.opacity = 0;
+}
+
+function showPlayerControls(event) {
+    let videoPlayer = event.target;
+    let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
+    videoControls.style.opacity = 1;
 }

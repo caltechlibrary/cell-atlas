@@ -504,12 +504,12 @@
         flex-direction: column;
         justify-content: flex-end;
         transition: opacity 0.25s;
-        opacity: 0;
-    }
-
-    .book-section-video-player:hover .book-section-video-player-controls {
         opacity: 1;
     }
+
+    /* .book-section-video-player:hover .book-section-video-player-controls {
+        opacity: 1;
+    } */
 
     .book-section-video-player-controls-buttons {
         margin: 2% 0 1% 0;
