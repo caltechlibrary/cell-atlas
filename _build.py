@@ -269,16 +269,16 @@ def createSiteDirectory(siteDir, zipDirSmall, zipDirLarge):
     shutil.copytree("styles/", "{}/styles/".format(siteDir))
     shutil.copytree("js/", "{}/js/".format(siteDir))
     shutil.copytree("img/", "{}/img/".format(siteDir))
-    # if os.path.isdir("videos/"): shutil.copytree("videos/", "{}/videos/".format(siteDir))
+    if os.path.isdir("videos/"): shutil.copytree("videos/", "{}/videos/".format(siteDir))
 
     if os.path.isdir(zipDirSmall):
         shutil.rmtree(zipDirSmall)
     shutil.copytree(siteDir, zipDirSmall)
-    os.mkdir("{}/videos".format(zipDirSmall))
+    # os.mkdir("{}/videos".format(zipDirSmall))
     if os.path.isdir(zipDirLarge):
         shutil.rmtree(zipDirLarge)
     shutil.copytree(siteDir, zipDirLarge)
-    os.mkdir("{}/videos".format(zipDirLarge))
+    # os.mkdir("{}/videos".format(zipDirLarge))
 
 # Create rendered site directory
 createSiteDirectory(SITEDIR, ZIPDIR_SMALL, ZIPDIR_LARGE)

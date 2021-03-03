@@ -9,15 +9,29 @@
 <div id="nonTextContent" class="book-section-non-text-content">
     <a href="${prevSection}.html" class="book-page-nav">&#8249;</a>
     <div class="book-section-video-container">
-        <video id=${playerId} ${if(doi)}doi="${doi}"${endif} controls data-file="${video}">
-            ${if(offline)}
-                <source src="videos/${video}">
-            ${elseif(doi)}
-            ${else}
-                <source src="videos/${video}">
-            ${endif}
-            There was an error loading the video.
-        </video>
+
+        <div class="book-section-video-player">
+            <video id="${playerId}" ${if(doi)}doi="${doi}"${endif} data-file="${video}">
+                ${if(offline)}
+                    <source src="videos/${video}">
+                ${elseif(doi)}
+                ${else}
+                    <source src="videos/${video}">
+                ${endif}
+                There was an error loading the video.
+            </video>
+            <canvas id="${playerId}-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+            <canvas id="${playerId}-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+            <div id="${playerId}-videoControls" class="book-section-video-player-controls">
+                <div class="book-section-video-player-controls-buttons">
+                    <button id="${playerId}-playPauseButton" type="button" data-state="play"></button>
+                    <span id="${playerId}-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                    <button id="${playerId}-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                </div>
+                <input type="range" id="${playerId}-seekBar" value="0">
+            </div>
+        </div>
+
         <div class="video-quality-changer" data-player="${playerId}">
             <label class="video-quality-changer-entry">
                 <span class="video-quality-changer-input">
