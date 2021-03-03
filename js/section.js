@@ -227,6 +227,7 @@ function createVideoPlayer(videoEl) {
     let videoTimeSatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
     let fullScreenButton = videoControls.querySelector(`#${playerId}-fullScreenButton`);
     let seekBar = videoControls.querySelector(`#${playerId}-seekBar`);
+    seekBar.bufferPercent = 0;
     let videoPaintCanvas = videoPlayer.querySelector(`#${playerId}-videoPaintCanvas`);
     let videoScrubCanvas = videoPlayer.querySelector(`#${playerId}-videoScrubCanvas`);
     let paintContext = videoPaintCanvas.getContext("2d");
@@ -313,6 +314,19 @@ function createVideoPlayer(videoEl) {
         updateSeekBar(seekBar);
         updateTimeStamp(videoEl);
     });
+
+    videoEl.addEventListener('progress', function() {
+        let duration =  videoEl.duration;
+        if (duration > 0) {
+            for (var i = 0; i < videoEl.buffered.length; i++) {
+                if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime) {
+                    seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / duration) * 100;
+                    updateSeekBar(seekBar);
+                    break;
+                }
+            }
+        }
+    });
 }
 
 function changeButtonState(videoEl, type) {
@@ -332,7 +346,7 @@ function changeButtonState(videoEl, type) {
 
 function updateSeekBar(seekBar) {
     let percentage = parseFloat(seekBar.value);
-    let background = `linear-gradient(90deg, #fff ${percentage}%, #717171 ${percentage+0.1}%)`;
+    let background = `linear-gradient(90deg, #ffffff 0% ${percentage}%, #bfbfbf ${percentage+0.1}% ${seekBar.bufferPercent+0.1}%, #717171 ${seekBar.bufferPercent+0.1}%)`;
     seekBar.style.background = background;
 }
 
