@@ -245,6 +245,7 @@ function createVideoPlayer(videoEl) {
     let scrubContext = videoScrubCanvas.getContext("2d");
     let frameImages = {};
     let frameInterval;
+    let videoDuration = 0;
 
     videoEl.addEventListener("playing", function() {
         frameInterval = setInterval(async function(){
@@ -296,20 +297,22 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("loadedmetadata", function() {
+        videoDuration = videoEl.duration;
         videoPaintCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
         videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
         videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
         videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
         seekBar.step = `${1/15}`;
-        let totalMinutes = (videoEl.duration >= 60) ? Math.floor(videoEl.duration / 60) : 0;
-        let seconds = Math.round(videoEl.duration) - (totalMinutes * 60);
+        let totalMinutes = (videoDuration >= 60) ? Math.floor(videoDuration / 60) : 0;
+        let seconds = Math.round(videoDuration) - (totalMinutes * 60);
         let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
         videoTimeStatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
         updateBufferedTime(videoEl, seekBar);
     });
 
     videoEl.addEventListener("timeupdate", function() {
-        seekBar.value = (videoEl.currentTime / videoEl.duration) * 100;
+        console.log(videoDuration);
+        seekBar.value = (videoEl.currentTime / videoDuration) * 100;
         // Update seek bar
         updateSeekBar();
         // Update timestamp
@@ -326,7 +329,7 @@ function createVideoPlayer(videoEl) {
     });
 
     seekBar.addEventListener("input", function() {
-        videoEl.currentTime = (parseFloat(seekBar.value) / 100) * videoEl.duration;
+        videoEl.currentTime = (parseFloat(seekBar.value) / 100) * videoDuration;
         updateSeekBar();
         updateTimeStamp();
     });
@@ -360,7 +363,7 @@ function createVideoPlayer(videoEl) {
     
     function updateTimeStamp() {
         let totalTime = videoTimeStatus.innerHTML.split("/")[1].trim();
-        let currentTime = (parseFloat(seekBar.value) / 100) * videoEl.duration;
+        let currentTime = (parseFloat(seekBar.value) / 100) * videoDuration;
         let minute = (currentTime >= 60) ? Math.floor(currentTime / 60) : 0;
         let seconds = (minute > 0) ? currentTime - (minute * 60) : currentTime;
         seconds = Math.round(seconds);
@@ -369,10 +372,10 @@ function createVideoPlayer(videoEl) {
     }
     
     function updateBufferedTime() {
-        if (videoEl.duration > 0) {
+        if (videoDuration > 0) {
             for (var i = 0; i < videoEl.buffered.length; i++) {
                 if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime || videoEl.buffered.start(videoEl.buffered.length - 1 - i) <= 0) {
-                    seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / videoEl.duration) * 100;
+                    seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / videoDuration) * 100;
                     updateSeekBar(seekBar);
                     break;
                 }
@@ -406,6 +409,6 @@ function resizeModalScrubCanvas(modalId) {
 function resizeSectionScrubCanvas() {
     let nonTextSection = document.getElementById("nonTextContent");
     let videoScrubCanvas = nonTextSection.querySelector(".book-section-video-player-scrub-canvas");
-    let videoHeight = video.offsetHeight;
-    videoScrubCanvas.style.width = `${videoHeight * (16/9)}px`; // Make the canvas width maintain 16:9 ratio
+    videoScrubCanvas.setAttribute("width", `${video.offsetHeight * (16/9)}px`);
+    videoScrubCanvas.setAttribute("height", `${video.offsetHeight}px`);
 }
