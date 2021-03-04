@@ -235,7 +235,7 @@ function createVideoPlayer(videoEl) {
     let videoPlayer = videoEl.parentElement;
     let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
-    let videoTimeSatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
+    let videoTimeStatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
     let fullScreenButton = videoControls.querySelector(`#${playerId}-fullScreenButton`);
     let seekBar = videoControls.querySelector(`#${playerId}-seekBar`);
     seekBar.bufferPercent = 0;
@@ -247,8 +247,12 @@ function createVideoPlayer(videoEl) {
     let frameInterval;
 
     videoEl.addEventListener("playing", function() {
-        frameInterval = setInterval(function(){
-            saveFrame(videoEl, paintContext, frameImages);
+        frameInterval = setInterval(async function(){
+            if(Math.round(videoEl.currentTime * 15) / 15 in frameImages) return;
+            paintContext.drawImage(videoEl, 0, 0, paintContext.canvas.width, paintContext.canvas.height);
+            imageData = paintContext.getImageData(0, 0, paintContext.canvas.width, paintContext.canvas.height);
+            imageBitmap = await createImageBitmap(imageData);
+            frameImages[Math.round(videoEl.currentTime * 15) / 15] = imageBitmap;
         }, 1000/15);
     });
     
@@ -265,7 +269,7 @@ function createVideoPlayer(videoEl) {
         }, false);
     });
 
-    playPauseButton.addEventListener('click', function(e) {
+    playPauseButton.addEventListener('click', function() {
         if (videoEl.paused || videoEl.ended) videoEl.play();
         else videoEl.pause();
     });
@@ -277,14 +281,14 @@ function createVideoPlayer(videoEl) {
     videoEl.addEventListener('play', function() {
         videoPlayer.addEventListener("mouseleave", hidePlayerControls);
         videoPlayer.addEventListener("mouseenter", showPlayerControls);
-        changeButtonState(videoEl, 'playPauseButton');
+        togglePlayPause();
     });
     
     videoEl.addEventListener('pause', function() {
         videoControls.style.opacity = 1;
         videoPlayer.removeEventListener("mouseleave", hidePlayerControls);
         videoPlayer.removeEventListener("mouseenter", showPlayerControls);
-        changeButtonState(videoEl, 'playPauseButton');
+        togglePlayPause();
     });
     
     videoEl.addEventListener('click', function() {
@@ -300,21 +304,16 @@ function createVideoPlayer(videoEl) {
         let totalMinutes = (videoEl.duration >= 60) ? Math.floor(videoEl.duration / 60) : 0;
         let seconds = Math.round(videoEl.duration) - (totalMinutes * 60);
         let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
-        videoTimeSatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
+        videoTimeStatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
         updateBufferedTime(videoEl, seekBar);
     });
 
     videoEl.addEventListener("timeupdate", function() {
         seekBar.value = (videoEl.currentTime / videoEl.duration) * 100;
         // Update seek bar
-        updateSeekBar(seekBar);
+        updateSeekBar();
         // Update timestamp
-        updateTimeStamp(videoEl);
-    });
-
-    seekBar.addEventListener("input", function() {
-        // Update the video time
-        videoEl.currentTime = (parseFloat(seekBar.value) / 100) * videoEl.duration;
+        updateTimeStamp();
     });
 
     seekBar.addEventListener("mousedown", function() {
@@ -327,21 +326,16 @@ function createVideoPlayer(videoEl) {
     });
 
     seekBar.addEventListener("input", function() {
-        updateSeekBar(seekBar);
-        updateTimeStamp(videoEl);
+        videoEl.currentTime = (parseFloat(seekBar.value) / 100) * videoEl.duration;
+        updateSeekBar();
+        updateTimeStamp();
     });
 
     videoEl.addEventListener("progress", function() {
-        updateBufferedTime(videoEl, seekBar);
+        updateBufferedTime();
     });
-}
 
-function changeButtonState(videoEl, type) {
-    let playerId = videoEl.getAttribute("id");
-    let videoPlayer = videoEl.parentElement;
-    let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
-    let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
-    if (type == 'playPauseButton') {
+    function togglePlayPause() {
         if (videoEl.paused || videoEl.ended) {
             playPauseButton.setAttribute('data-state', 'play');
         }
@@ -349,65 +343,39 @@ function changeButtonState(videoEl, type) {
             playPauseButton.setAttribute('data-state', 'pause');
         }
     }
-}
 
-function updateSeekBar(seekBar) {
-    let percentage = parseFloat(seekBar.value);
-    let background = `linear-gradient(90deg, #ffffff 0% ${percentage}%, #bfbfbf ${percentage+0.1}% ${seekBar.bufferPercent+0.1}%, #717171 ${seekBar.bufferPercent+0.1}%)`;
-    seekBar.style.background = background;
-}
-
-function updateTimeStamp(videoEl) {
-    let playerId = videoEl.getAttribute("id");
-    let videoPlayer = videoEl.parentElement;
-    let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
-    let videoTimeStatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
-    let seekBar = videoControls.querySelector(`#${playerId}-seekBar`);
-
-    let totalTime = videoTimeStatus.innerHTML.split("/")[1].trim();
-    let currentTime = (parseFloat(seekBar.value) / 100) * videoEl.duration;
-    let minute = (currentTime >= 60) ? Math.floor(currentTime / 60) : 0;
-    let seconds = (minute > 0) ? currentTime - (minute * 60) : currentTime;
-    seconds = Math.round(seconds);
-    let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
-    videoTimeStatus.innerHTML = `${minute}:${secondsFormatted} / ${totalTime}`;
-}
-
-async function saveFrame(videoEl, context, frameImages) {
-    if(Math.round(videoEl.currentTime * 15) / 15 in frameImages) return;
-    context.drawImage(videoEl, 0, 0, context.canvas.width, context.canvas.height);
-    imageData = context.getImageData(0, 0, context.canvas.width, context.canvas.height);
-    imageBitmap = await createImageBitmap(imageData);
-    frameImages[Math.round(videoEl.currentTime * 15) / 15] = imageBitmap;
-}
-
-function hidePlayerControls(event) {
-    let videoPlayer = event.target;
-    let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
-    videoControls.style.opacity = 0;
-}
-
-function showPlayerControls(event) {
-    let videoPlayer = event.target;
-    let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
-    videoControls.style.opacity = 1;
-}
-
-function resizeSectionScrubCanvas() {
-    let nonTextSection = document.getElementById("nonTextContent");
-    let videoScrubCanvas = nonTextSection.querySelector(".book-section-video-player-scrub-canvas");
-    let videoHeight = video.offsetHeight;
-    videoScrubCanvas.style.width = `${videoHeight * (16/9)}px`; // Make the canvas width maintain 16:9 ratio
-}
-
-function updateBufferedTime(videoEl, seekBar) {
-    let duration =  videoEl.duration;
-    if (duration > 0) {
-        for (var i = 0; i < videoEl.buffered.length; i++) {
-            if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime || videoEl.buffered.start(videoEl.buffered.length - 1 - i) <= 0) {
-                seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / duration) * 100;
-                updateSeekBar(seekBar);
-                break;
+    function hidePlayerControls() {
+        videoControls.style.opacity = 0;
+    }
+    
+    function showPlayerControls() {
+        videoControls.style.opacity = 1;
+    }
+    
+    function updateSeekBar() {
+        let percentage = parseFloat(seekBar.value);
+        let background = `linear-gradient(90deg, #ffffff 0% ${percentage}%, #bfbfbf ${percentage+0.1}% ${seekBar.bufferPercent+0.1}%, #717171 ${seekBar.bufferPercent+0.1}%)`;
+        seekBar.style.background = background;
+    }
+    
+    function updateTimeStamp() {
+        let totalTime = videoTimeStatus.innerHTML.split("/")[1].trim();
+        let currentTime = (parseFloat(seekBar.value) / 100) * videoEl.duration;
+        let minute = (currentTime >= 60) ? Math.floor(currentTime / 60) : 0;
+        let seconds = (minute > 0) ? currentTime - (minute * 60) : currentTime;
+        seconds = Math.round(seconds);
+        let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
+        videoTimeStatus.innerHTML = `${minute}:${secondsFormatted} / ${totalTime}`;
+    }
+    
+    function updateBufferedTime() {
+        if (videoEl.duration > 0) {
+            for (var i = 0; i < videoEl.buffered.length; i++) {
+                if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime || videoEl.buffered.start(videoEl.buffered.length - 1 - i) <= 0) {
+                    seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / videoEl.duration) * 100;
+                    updateSeekBar(seekBar);
+                    break;
+                }
             }
         }
     }
@@ -433,4 +401,11 @@ function resizeModalScrubCanvas(modalId) {
     videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
     videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
     videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+}
+
+function resizeSectionScrubCanvas() {
+    let nonTextSection = document.getElementById("nonTextContent");
+    let videoScrubCanvas = nonTextSection.querySelector(".book-section-video-player-scrub-canvas");
+    let videoHeight = video.offsetHeight;
+    videoScrubCanvas.style.width = `${videoHeight * (16/9)}px`; // Make the canvas width maintain 16:9 ratio
 }
