@@ -250,8 +250,8 @@ function createVideoPlayer(videoEl) {
     videoEl.addEventListener("playing", function() {
         frameInterval = setInterval(async function(){
             if(Math.round(videoEl.currentTime * 15) / 15 in frameImages) return;
-            paintContext.drawImage(videoEl, 0, 0, paintContext.canvas.width, paintContext.canvas.height);
-            imageData = paintContext.getImageData(0, 0, paintContext.canvas.width, paintContext.canvas.height);
+            paintContext.drawImage(videoEl, 0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
+            imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
             imageBitmap = await createImageBitmap(imageData);
             frameImages[Math.round(videoEl.currentTime * 15) / 15] = imageBitmap;
         }, 1000/15);
@@ -264,7 +264,7 @@ function createVideoPlayer(videoEl) {
     videoEl.addEventListener("seeking", function() {
         videoScrubCanvas.style.display = "block";
         let roundedTime = Math.round(videoEl.currentTime * 15) / 15;
-        if(roundedTime in frameImages) scrubContext.drawImage(frameImages[roundedTime], 0, 0);
+        if(roundedTime in frameImages) scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
         seekBar.addEventListener("mouseup", function(){
             videoScrubCanvas.style.display = "none";
         }, false);
