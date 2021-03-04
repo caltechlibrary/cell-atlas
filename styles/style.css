@@ -471,6 +471,8 @@
     .book-section-video-player {
         position: relative;
         background: #ffffff;
+        display: flex;
+        align-items: center;
     }
 
     .book-section-video-player video {
@@ -491,10 +493,11 @@
     
     .book-section-video-player-controls {
         width: 100%;
+        height: 6.25em;
         position: absolute;
         bottom: 0;
         box-sizing: border-box;
-        padding: 0 1% 2% 1%;
+        padding: 0 1.5em 2em 1.5em;
         background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
         display: flex;
         flex-direction: column;
@@ -504,14 +507,10 @@
     }
 
     .book-section-video-player-controls-buttons {
-        margin: 2% 0 1% 0;
+        margin-bottom: 1em;
         display: flex;
         align-items: center;
         color: #fff;
-    }
-
-    .book-section-video-player-controls-buttons * {
-        margin: 0 1%;
     }
 
     .book-section-video-player-controls-buttons button {
@@ -527,6 +526,7 @@
     .book-section-video-player-controls-buttons span {
         font-size: 0.85em;
         font-family: sans-serif;
+        margin: 0 1em;
     }
 
     .book-section-video-player-controls-buttons button:focus {

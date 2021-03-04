@@ -281,7 +281,15 @@ function createVideoPlayer(videoEl) {
     });
 
     fullScreenButton.addEventListener("click", function() {
-        videoPlayer.requestFullscreen();
+        if(document.fullscreenElement 
+            && document.fullscreenElement.querySelector("video") 
+            && document.fullscreenElement.querySelector("video") .getAttribute("id") == playerId) {
+            video.style["max-height"] = "82vh";
+            document.exitFullscreen();
+        } else {
+            video.style["max-height"] = "initial";
+            videoPlayer.requestFullscreen();
+        }
     });
 
     videoEl.addEventListener('play', function() {
