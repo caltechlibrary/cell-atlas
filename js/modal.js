@@ -43,6 +43,5 @@ function openModal(modalId) {
         modalOverlay.style.display = "none";
         modal.style.display = "none";
         lastFocused.focus();
-        window.removeEventListener("resize", resizeModalScrubCanvasListener);
     }
 }

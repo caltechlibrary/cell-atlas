@@ -88,8 +88,21 @@ function showModal(el) {
     let modalId = el.getAttribute("value");
     // openModal is defined in modal.js
     openModal(modalId);
-    resizeModalScrubCanvas(modalId);
-    window.addEventListener("resize", resizeModalScrubCanvasListener);
+
+    // Fix modal canvas size. Would use custom events, but IE does not support the recommended methods.
+    let modal = document.getElementById(modalId);
+    let videoPlayer = modal.querySelector(".book-section-video-player");
+    if(!videoPlayer) return;
+    let videoEl = videoPlayer.querySelector("video");
+    let playerId = videoEl.getAttribute("id");
+    let videoPaintCanvas = videoPlayer.querySelector(`#${playerId}-videoPaintCanvas`);
+    let videoScrubCanvas = videoPlayer.querySelector(`#${playerId}-videoScrubCanvas`);
+
+    videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+    videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+    videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+    videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+    
 }
 
 function shelfText(el) {
@@ -396,19 +409,4 @@ function resizeModalScrubCanvasListener() {
     console.log(openModal);
     let modalId = openModal.getAttribute("id");
     resizeModalScrubCanvas(modalId); 
-}
-
-function resizeModalScrubCanvas(modalId) {
-    let modal = document.getElementById(modalId);
-    let videoPlayer = modal.querySelector(".book-section-video-player");
-    if(!videoPlayer) return;
-    let videoEl = videoPlayer.querySelector("video");
-    let playerId = videoEl.getAttribute("id");
-    let videoPaintCanvas = videoPlayer.querySelector(`#${playerId}-videoPaintCanvas`);
-    let videoScrubCanvas = videoPlayer.querySelector(`#${playerId}-videoScrubCanvas`);
-
-    videoPaintCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
-    videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-    videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
-    videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
 }
