@@ -32,8 +32,6 @@ if(video) {
     // Source the video using the DOI only if a local path is not being used
     if(!video.querySelector("source")) sourceVideo(video);
     createVideoPlayer(video);
-    // Resize section video scrub canvas on window resize
-    window.addEventListener("resize", resizeSectionScrubCanvas);
 }
 
 // Get sources for modal videos
@@ -122,9 +120,6 @@ function shelfText(el) {
         unshelfButton.style.transform =  "translate(-100%, 0px)";
         unshelfButton.setAttribute("tabindex", "0");;
     }, 1000);
-
-    // Resize scrub canvas to fit new video width
-    setTimeout(resizeSectionScrubCanvas, 1000);
 }
 
 function openText(el) {
@@ -151,9 +146,6 @@ function openText(el) {
             if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
         }
     }, 1000);
-
-    // Resize scrub canvas to fit new video width
-    setTimeout(resizeSectionScrubCanvas, 1000);
 }
 
 function changeQuality(el) {
@@ -322,7 +314,6 @@ function createVideoPlayer(videoEl) {
         if(!videoEl.paused){
             videoEl.pause();
             seekBar.addEventListener("mouseup", function(){
-                console.log("mouseup fired");
                 videoEl.play();
             }, { once: true });
         }
@@ -337,6 +328,15 @@ function createVideoPlayer(videoEl) {
     videoEl.addEventListener("progress", function() {
         updateBufferedTime();
     });
+
+    window.addEventListener("resize", resizeCanvases);
+
+    if(videoEl === document.querySelector("#nonTextContent video")) {
+        let nonTextSection = document.querySelector("#nonTextContent");
+        nonTextSection.addEventListener("transitionend", function(event) {
+            if(event.propertyName == "width") resizeCanvases();
+        });
+    }
 
     function togglePlayPause() {
         if (videoEl.paused || videoEl.ended) {
@@ -382,6 +382,13 @@ function createVideoPlayer(videoEl) {
             }
         }
     }
+
+    function resizeCanvases() {
+        videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+        videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+    }
 }
 
 function resizeModalScrubCanvasListener() {
@@ -404,11 +411,4 @@ function resizeModalScrubCanvas(modalId) {
     videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
     videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
     videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-}
-
-function resizeSectionScrubCanvas() {
-    let nonTextSection = document.getElementById("nonTextContent");
-    let videoScrubCanvas = nonTextSection.querySelector(".book-section-video-player-scrub-canvas");
-    videoScrubCanvas.setAttribute("width", `${video.offsetHeight * (16/9)}px`);
-    videoScrubCanvas.setAttribute("height", `${video.offsetHeight}px`);
 }
