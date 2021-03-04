@@ -41,6 +41,7 @@ let modalVideos = document.querySelectorAll(".subsection-modal-container video")
 if(modalVideos) {
     for(let modalVideo of modalVideos) {
         sourceVideo(modalVideo);
+        createVideoPlayer(modalVideo);
     }
 }
 
@@ -89,6 +90,8 @@ function showModal(el) {
     let modalId = el.getAttribute("value");
     // openModal is defined in modal.js
     openModal(modalId);
+    resizeModalScrubCanvas(modalId);
+    window.addEventListener("resize", resizeModalScrubCanvasListener);
 }
 
 function shelfText(el) {
@@ -289,13 +292,13 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("loadedmetadata", function() {
-        videoPaintCanvas.setAttribute("width", `${video.offsetWidth}px`);
-        videoPaintCanvas.setAttribute("height", `${video.offsetHeight}px`);
-        videoScrubCanvas.setAttribute("width", `${video.offsetWidth}px`);
-        videoScrubCanvas.setAttribute("height", `${video.offsetHeight}px`);
+        videoPaintCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
+        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+        videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
+        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
         seekBar.step = `${1/15}`;
-        let totalMinutes = (video.duration >= 60) ? Math.floor(video.duration / 60) : 0;
-        let seconds = Math.round(video.duration) - (totalMinutes * 60);
+        let totalMinutes = (videoEl.duration >= 60) ? Math.floor(videoEl.duration / 60) : 0;
+        let seconds = Math.round(videoEl.duration) - (totalMinutes * 60);
         let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
         videoTimeSatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
         updateBufferedTime(videoEl, seekBar);
@@ -408,4 +411,26 @@ function updateBufferedTime(videoEl, seekBar) {
             }
         }
     }
+}
+
+function resizeModalScrubCanvasListener() {
+    let openModal = document.querySelector(".subsection-modal-container[style='display: flex;']");
+    console.log(openModal);
+    let modalId = openModal.getAttribute("id");
+    resizeModalScrubCanvas(modalId); 
+}
+
+function resizeModalScrubCanvas(modalId) {
+    let modal = document.getElementById(modalId);
+    let videoPlayer = modal.querySelector(".book-section-video-player");
+    if(!videoPlayer) return;
+    let videoEl = videoPlayer.querySelector("video");
+    let playerId = videoEl.getAttribute("id");
+    let videoPaintCanvas = videoPlayer.querySelector(`#${playerId}-videoPaintCanvas`);
+    let videoScrubCanvas = videoPlayer.querySelector(`#${playerId}-videoScrubCanvas`);
+
+    videoPaintCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
+    videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+    videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
+    videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
 }

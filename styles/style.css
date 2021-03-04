@@ -470,7 +470,7 @@
 
     .book-section-video-player {
         position: relative;
-        /* background: #ffffff; */
+        background: #ffffff;
     }
 
     .book-section-video-player video {
