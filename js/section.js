@@ -267,7 +267,7 @@ function createVideoPlayer(videoEl) {
         if(roundedTime in frameImages) scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
         seekBar.addEventListener("mouseup", function(){
             videoScrubCanvas.style.display = "none";
-        }, false);
+        }, { once: true });
     });
 
     playPauseButton.addEventListener('click', function() {
@@ -311,7 +311,6 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("timeupdate", function() {
-        console.log(videoDuration);
         seekBar.value = (videoEl.currentTime / videoDuration) * 100;
         // Update seek bar
         updateSeekBar();
@@ -323,8 +322,9 @@ function createVideoPlayer(videoEl) {
         if(!videoEl.paused){
             videoEl.pause();
             seekBar.addEventListener("mouseup", function(){
+                console.log("mouseup fired");
                 videoEl.play();
-            }, false);
+            }, { once: true });
         }
     });
 
