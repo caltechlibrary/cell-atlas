@@ -271,7 +271,9 @@ function createVideoPlayer(videoEl) {
     videoEl.addEventListener("seeked", async function() {
         // Overide scrub by displaying video and save frame to scrub
         let seekedTime = videoEl.currentTime;
-        let roundedSeekedTime = Math.round(seekedTime * fps) / fps
+        let roundedSeekedTime = Math.round(seekedTime * fps) / fps;
+        // Check if frame does not exist already
+        if(roundedSeekedTime in frameImages) return;
         videoScrubCanvas.style.display = "none";
         await saveFrame();
         scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
