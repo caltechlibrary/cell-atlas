@@ -268,15 +268,13 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("seeking", function() {
+        videoScrubCanvas.style.display = "block";
         let roundedTime = Math.round(videoEl.currentTime * 15) / 15;
         if(roundedTime in frameImages) {
-            videoScrubCanvas.style.display = "block";
             scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
             seekBar.addEventListener("mouseup", function(){
                 videoScrubCanvas.style.display = "none";
             }, { once: true });
-        } else {
-            videoScrubCanvas.style.display = "none";
         }
     });
 
