@@ -268,14 +268,6 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("seeking", function() {
-        videoScrubCanvas.style.display = "block";
-        let roundedTime = Math.round(videoEl.currentTime * 15) / 15;
-        if(roundedTime in frameImages) {
-            scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
-            seekBar.addEventListener("mouseup", function(){
-                videoScrubCanvas.style.display = "none";
-            }, { once: true });
-        }
     });
 
     playPauseButton.addEventListener('click', function() {
@@ -344,7 +336,18 @@ function createVideoPlayer(videoEl) {
     });
 
     seekBar.addEventListener("input", function() {
-        videoEl.currentTime = (parseFloat(seekBar.value) / 100) * videoDuration;
+        let seekBarTime = (parseFloat(seekBar.value) / 100) * videoDuration;
+
+        videoScrubCanvas.style.display = "block";
+        let roundedTime = Math.round(seekBarTime * 15) / 15;
+        if(roundedTime in frameImages) {
+            scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
+            seekBar.addEventListener("mouseup", function(){
+                videoScrubCanvas.style.display = "none";
+            }, { once: true });
+        }
+
+        videoEl.currentTime = seekBarTime;
         updateSeekBar();
         updateTimeStamp();
     });
