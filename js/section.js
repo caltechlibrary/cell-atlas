@@ -58,7 +58,7 @@ function sourceVideo(el) {
     let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vid${currentQuality}`);
     qualityButton.checked = true;
     if(currentQuality == "Med") {
-        sourceVideoSmall(el)
+        sourceVideoSmall(el);
     }
 
     let doi = el.getAttribute("doi");
@@ -217,7 +217,12 @@ function sourceVideoSmall(video) {
         source = document.createElement("source");
         video.appendChild(source);
     }
-    source.setAttribute("src", `videos/${videoFileNameSmall}`);
+    if(source.getAttribute("src")) {
+        source.setAttribute("src", `videos/${videoFileNameSmall}`);
+        video.load();
+    } else {
+        source.setAttribute("src", `videos/${videoFileNameSmall}`);
+    }
 }
 
 function loadVidSource(event) {
@@ -324,11 +329,13 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("timeupdate", function() {
-        seekBar.value = (videoEl.currentTime / videoDuration) * 100;
-        // Update seek bar
-        updateSeekBar();
-        // Update timestamp
-        updateTimeStamp();
+        if(videoEl.readyState > 0) {
+            seekBar.value = (videoEl.currentTime / videoDuration) * 100;
+            // Update seek bar
+            updateSeekBar();
+            // Update timestamp
+            updateTimeStamp();
+        }
     });
 
     seekBar.addEventListener("mousedown", function() {
