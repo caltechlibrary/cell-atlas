@@ -248,9 +248,9 @@ function createVideoPlayer(videoEl) {
     let videoScrubCanvas = videoPlayer.querySelector(`#${playerId}-videoScrubCanvas`);
     let paintContext = videoPaintCanvas.getContext("2d");
     let scrubContext = videoScrubCanvas.getContext("2d");
-    let frameImages = {};
-    let frameInterval;
     let videoDuration = 0;
+    let frameImages;
+    let frameInterval;
 
     videoEl.addEventListener("playing", function() {
         frameInterval = setInterval(function(){
@@ -306,6 +306,8 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("loadedmetadata", function() {
+        clearInterval(frameInterval);
+        frameImages = {};
         videoDuration = videoEl.duration;
         videoPaintCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
         videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
@@ -426,11 +428,4 @@ function createVideoPlayer(videoEl) {
         imageBitmap = await createImageBitmap(imageData);
         frameImages[Math.round(currentFrameTime * 15) / 15] = imageBitmap;
     }
-}
-
-function resizeModalScrubCanvasListener() {
-    let openModal = document.querySelector(".subsection-modal-container[style='display: flex;']");
-    console.log(openModal);
-    let modalId = openModal.getAttribute("id");
-    resizeModalScrubCanvas(modalId); 
 }
