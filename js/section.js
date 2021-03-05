@@ -264,7 +264,7 @@ function createVideoPlayer(videoEl) {
 
     videoEl.addEventListener("seeked", async function() {
         // Overide scrub by displaying video and save frame to scrub
-        let seekedTime = video.currentTime;
+        let seekedTime = videoEl.currentTime;
         let roundedSeekedTime = Math.round(seekedTime * 15) / 15
         videoScrubCanvas.style.display = "none";
         await saveFrame();
@@ -280,10 +280,10 @@ function createVideoPlayer(videoEl) {
         if(document.fullscreenElement 
             && document.fullscreenElement.querySelector("video") 
             && document.fullscreenElement.querySelector("video") .getAttribute("id") == playerId) {
-            video.style["max-height"] = "82vh";
+            videoEl.style["max-height"] = "82vh";
             document.exitFullscreen();
         } else {
-            video.style["max-height"] = "initial";
+            videoEl.style["max-height"] = "initial";
             videoPlayer.requestFullscreen();
         }
     });
@@ -419,7 +419,7 @@ function createVideoPlayer(videoEl) {
     }
 
     async function saveFrame() {
-        let currentFrameTime = video.currentTime;
+        let currentFrameTime = videoEl.currentTime;
         if(Math.round(currentFrameTime * 15) / 15 in frameImages) return;
         paintContext.drawImage(videoEl, 0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
         imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
