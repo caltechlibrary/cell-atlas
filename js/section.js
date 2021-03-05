@@ -253,13 +253,8 @@ function createVideoPlayer(videoEl) {
     let videoDuration = 0;
 
     videoEl.addEventListener("playing", function() {
-        frameInterval = setInterval(async function(){
-            let currentFrameTime = video.currentTime;
-            if(Math.round(currentFrameTime * 15) / 15 in frameImages) return;
-            paintContext.drawImage(videoEl, 0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
-            imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
-            imageBitmap = await createImageBitmap(imageData);
-            frameImages[Math.round(currentFrameTime * 15) / 15] = imageBitmap;
+        frameInterval = setInterval(function(){
+            saveFrame();
         }, 1000/15);
     });
     
@@ -267,7 +262,13 @@ function createVideoPlayer(videoEl) {
         clearInterval(frameInterval);
     });
 
-    videoEl.addEventListener("seeking", function() {
+    videoEl.addEventListener("seeked", async function() {
+        // Overide scrub by displaying video and save frame to scrub
+        let seekedTime = video.currentTime;
+        let roundedSeekedTime = Math.round(seekedTime * 15) / 15
+        videoScrubCanvas.style.display = "none";
+        await saveFrame();
+        scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
     });
 
     playPauseButton.addEventListener('click', function() {
@@ -415,6 +416,15 @@ function createVideoPlayer(videoEl) {
         videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
         videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
         videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+    }
+
+    async function saveFrame() {
+        let currentFrameTime = video.currentTime;
+        if(Math.round(currentFrameTime * 15) / 15 in frameImages) return;
+        paintContext.drawImage(videoEl, 0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
+        imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
+        imageBitmap = await createImageBitmap(imageData);
+        frameImages[Math.round(currentFrameTime * 15) / 15] = imageBitmap;
     }
 }
 
