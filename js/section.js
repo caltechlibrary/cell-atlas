@@ -249,13 +249,14 @@ function createVideoPlayer(videoEl) {
     let paintContext = videoPaintCanvas.getContext("2d");
     let scrubContext = videoScrubCanvas.getContext("2d");
     let videoDuration = 0;
+    let fps = 15;
     let frameImages;
     let frameInterval;
 
     videoEl.addEventListener("playing", function() {
         frameInterval = setInterval(function(){
             saveFrame();
-        }, 1000/15);
+        }, 1000/fps);
     });
     
     videoEl.addEventListener("pause", function() {
@@ -265,7 +266,7 @@ function createVideoPlayer(videoEl) {
     videoEl.addEventListener("seeked", async function() {
         // Overide scrub by displaying video and save frame to scrub
         let seekedTime = videoEl.currentTime;
-        let roundedSeekedTime = Math.round(seekedTime * 15) / 15
+        let roundedSeekedTime = Math.round(seekedTime * fps) / fps
         videoScrubCanvas.style.display = "none";
         await saveFrame();
         scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
@@ -306,6 +307,7 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener("loadedmetadata", function() {
+        // TODO: put clear interval in a better spot
         clearInterval(frameInterval);
         frameImages = {};
         videoDuration = videoEl.duration;
@@ -313,7 +315,7 @@ function createVideoPlayer(videoEl) {
         videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
         videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
         videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-        seekBar.step = `${1/15}`;
+        seekBar.step = `${1/fps}`;
         let totalMinutes = (videoDuration >= 60) ? Math.floor(videoDuration / 60) : 0;
         let seconds = Math.round(videoDuration) - (totalMinutes * 60);
         let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
@@ -342,7 +344,7 @@ function createVideoPlayer(videoEl) {
         let seekBarTime = (parseFloat(seekBar.value) / 100) * videoDuration;
 
         videoScrubCanvas.style.display = "block";
-        let roundedTime = Math.round(seekBarTime * 15) / 15;
+        let roundedTime = Math.round(seekBarTime * fps) / fps;
         if(roundedTime in frameImages) {
             scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
             seekBar.addEventListener("mouseup", function(){
@@ -422,10 +424,10 @@ function createVideoPlayer(videoEl) {
 
     async function saveFrame() {
         let currentFrameTime = videoEl.currentTime;
-        if(Math.round(currentFrameTime * 15) / 15 in frameImages) return;
+        if(Math.round(currentFrameTime * fps) / fps in frameImages) return;
         paintContext.drawImage(videoEl, 0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
         imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
         imageBitmap = await createImageBitmap(imageData);
-        frameImages[Math.round(currentFrameTime * 15) / 15] = imageBitmap;
+        frameImages[Math.round(currentFrameTime * fps) / fps] = imageBitmap;
     }
 }
