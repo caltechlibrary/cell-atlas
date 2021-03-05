@@ -5,7 +5,7 @@
             <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}">
                 ${if(offline)}
                     <source src="videos/${it.video}">
-                ${elseif(doi)}
+                ${elseif(it.doi)}
                 ${else}
                     <source src="videos/${it.video}">
                 ${endif}
