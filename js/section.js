@@ -258,25 +258,27 @@ function createVideoPlayer(videoEl) {
     let frameImages;
     let frameInterval;
 
-    videoEl.addEventListener("playing", function() {
-        frameInterval = setInterval(function(){
-            saveFrame();
-        }, 1000/fps);
-    });
+    if(window.createImageBitmap) {
+        videoEl.addEventListener("playing", function() {
+            frameInterval = setInterval(function(){
+                saveFrame();
+            }, 1000/fps);
+        });
+
+        videoEl.addEventListener("seeked", async function() {
+            // Overide scrub by displaying video and save frame to scrub
+            let seekedTime = videoEl.currentTime;
+            let roundedSeekedTime = Math.round(seekedTime * fps) / fps;
+            // Check if frame does not exist already
+            if(roundedSeekedTime in frameImages) return;
+            videoScrubCanvas.style.display = "none";
+            await saveFrame();
+            scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
+        });
+    }
     
     videoEl.addEventListener("pause", function() {
         clearInterval(frameInterval);
-    });
-
-    videoEl.addEventListener("seeked", async function() {
-        // Overide scrub by displaying video and save frame to scrub
-        let seekedTime = videoEl.currentTime;
-        let roundedSeekedTime = Math.round(seekedTime * fps) / fps;
-        // Check if frame does not exist already
-        if(roundedSeekedTime in frameImages) return;
-        videoScrubCanvas.style.display = "none";
-        await saveFrame();
-        scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
     });
 
     playPauseButton.addEventListener('click', function() {
@@ -352,13 +354,15 @@ function createVideoPlayer(videoEl) {
     seekBar.addEventListener("input", function() {
         let seekBarTime = (parseFloat(seekBar.value) / 100) * videoDuration;
 
-        videoScrubCanvas.style.display = "block";
-        let roundedTime = Math.round(seekBarTime * fps) / fps;
-        if(roundedTime in frameImages) {
-            scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
-            seekBar.addEventListener("mouseup", function(){
-                videoScrubCanvas.style.display = "none";
-            }, { once: true });
+        if(window.createImageBitmap) {
+            videoScrubCanvas.style.display = "block";
+            let roundedTime = Math.round(seekBarTime * fps) / fps;
+            if(roundedTime in frameImages) {
+                scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
+                seekBar.addEventListener("mouseup", function(){
+                    videoScrubCanvas.style.display = "none";
+                }, { once: true });
+            }   
         }
 
         videoEl.currentTime = seekBarTime;
