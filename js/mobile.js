@@ -56,6 +56,12 @@ function initializeMobileView() {
     if(document.querySelector(".book-appendix-dropdown-list")) {
         window.addEventListener("orientationchange", fixDropdownHeight);
     }
+
+    // Add controls to all videos
+    let allVideos = document.querySelectorAll("video");
+    for(let videoEl of allVideos) {
+        videoEl.setAttribute("controls", "");
+    }
 }
 
 function terminateMobileView() {
@@ -87,6 +93,12 @@ function terminateMobileView() {
 
     if(document.querySelector(".book-appendix-dropdown-list")) {
         window.removeEventListener("orientationchange", fixDropdownHeight);
+    }
+
+    // Add controls to all videos
+    let allVideos = document.querySelectorAll("video");
+    for(let videoEl of allVideos) {
+        videoEl.removeAttribute("controls");
     }
 }
 
