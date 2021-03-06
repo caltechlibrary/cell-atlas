@@ -568,6 +568,14 @@ blockquote {
         margin-bottom: 8px;
     }
 
+    .subsection-modal-container .book-section-video-player {
+        position: relative;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        flex: 1 0 auto;
+    }
+
     .subsection-modal-text {
         margin-top: 1em;
     }
@@ -830,7 +838,6 @@ blockquote {
     }
 
     .subsection-modal-container video {
-        width: auto;
         max-height: 50vh;
     }
 
