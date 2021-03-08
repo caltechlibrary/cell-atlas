@@ -244,13 +244,14 @@ function createVideoPlayer(videoEl) {
     let videoTimeStatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
     let fullScreenButton = videoControls.querySelector(`#${playerId}-fullScreenButton`);
     let seekBar = videoControls.querySelector(`#${playerId}-seekBar`);
-    seekBar.bufferPercent = 0;
     let videoPaintCanvas = videoPlayer.querySelector(`#${playerId}-videoPaintCanvas`);
     let videoScrubCanvas = videoPlayer.querySelector(`#${playerId}-videoScrubCanvas`);
     let paintContext = videoPaintCanvas.getContext("2d");
     let scrubContext = videoScrubCanvas.getContext("2d");
+    seekBar.bufferPercent = 0;
     let videoDuration = 0;
     let fps = 15;
+    let isPaused = true;
     let frameImages;
     let frameInterval;
 
@@ -272,7 +273,7 @@ function createVideoPlayer(videoEl) {
             scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
         });
     }
-    
+ 
     videoEl.addEventListener("pause", function() {
         clearInterval(frameInterval);
     });
@@ -295,12 +296,14 @@ function createVideoPlayer(videoEl) {
     });
 
     videoEl.addEventListener('play', function() {
+        isPaused = false;
         videoPlayer.addEventListener("mouseleave", hidePlayerControls);
         videoPlayer.addEventListener("mouseenter", showPlayerControls);
         togglePlayPause();
     });
     
     videoEl.addEventListener('pause', function() {
+        isPaused = true;
         videoControls.style.opacity = 1;
         videoPlayer.removeEventListener("mouseleave", hidePlayerControls);
         videoPlayer.removeEventListener("mouseenter", showPlayerControls);
@@ -355,15 +358,29 @@ function createVideoPlayer(videoEl) {
             let roundedTime = Math.round(seekBarTime * fps) / fps;
             if(roundedTime in frameImages) {
                 scrubContext.drawImage(frameImages[roundedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
-                seekBar.addEventListener("mouseup", function(){
-                    videoScrubCanvas.style.display = "none";
-                }, { once: true });
             }   
         }
 
         videoEl.currentTime = seekBarTime;
         updateSeekBar();
         updateTimeStamp();
+    });
+
+    seekBar.addEventListener("mouseup", function(){
+        videoScrubCanvas.style.display = "none";
+    });
+
+    seekBar.addEventListener("keyup", function(){
+        videoScrubCanvas.style.display = "none";
+    });
+
+    seekBar.addEventListener("keydown", function(){
+        if(!isPaused) {
+            videoEl.pause();
+            seekBar.addEventListener("keyup", function() {
+                videoEl.play();
+            }, { once: true });
+        }
     });
 
     videoEl.addEventListener("progress", function() {
