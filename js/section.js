@@ -59,6 +59,7 @@ function sourceVideo(el) {
     qualityButton.checked = true;
     if(currentQuality == "Med") {
         sourceVideoSmall(el);
+        el.load();
     }
 
     let doi = el.getAttribute("doi");
@@ -217,12 +218,7 @@ function sourceVideoSmall(video) {
         source = document.createElement("source");
         video.appendChild(source);
     }
-    if(source.getAttribute("src")) {
-        source.setAttribute("src", `videos/${videoFileNameSmall}`);
-        video.load();
-    } else {
-        source.setAttribute("src", `videos/${videoFileNameSmall}`);
-    }
+    source.setAttribute("src", `videos/${videoFileNameSmall}`);
 }
 
 function loadVidSource(event) {
