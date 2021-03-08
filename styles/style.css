@@ -639,6 +639,10 @@
         box-shadow: 0 0 0 2px #000;
     }
 
+    .video-quality-changer-input input + .video-quality-changer-control.book-section-video-player-controls-mouse-focus {
+        box-shadow: none;
+    }
+
     .video-quality-changer-input input + .video-quality-changer-control::before {
         content: "";
         width: 0.6em;

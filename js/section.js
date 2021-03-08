@@ -43,6 +43,16 @@ if(modalVideos) {
     }
 }
 
+// Add keyboard only focus styles to quality changer
+let qualityChangerButtons = document.querySelectorAll(".video-quality-changer-input span");
+let qualityChangerInputs = document.querySelectorAll(".video-quality-changer-input input");
+for(let i = 0; i < qualityChangerButtons.length; i++) {
+    qualityChangerInputs[i].addEventListener("keydown", function() {
+        useKeyboardFocus({ target: qualityChangerButtons[i] });
+    });
+    qualityChangerButtons[i].addEventListener("mousedown", useMouseFocus);
+}
+
 function shelfOnFirstPlay(event) {
     shelfText();
     event.target.removeEventListener("play", shelfOnFirstPlay);
@@ -463,14 +473,14 @@ function createVideoPlayer(videoEl) {
         imageBitmap = await createImageBitmap(imageData);
         frameImages[Math.round(currentFrameTime * fps) / fps] = imageBitmap;
     }
+}
 
-    function useMouseFocus(event) {
-        let el = event.target;
-        el.classList.add("book-section-video-player-controls-mouse-focus");
-    }
+function useMouseFocus(event) {
+    let el = event.target;
+    el.classList.add("book-section-video-player-controls-mouse-focus");
+}
 
-    function useKeyboardFocus(event) {
-        let el = event.target;
-        el.classList.remove("book-section-video-player-controls-mouse-focus");
-    }
+function useKeyboardFocus(event) {
+    let el = event.target;
+    el.classList.remove("book-section-video-player-controls-mouse-focus");
 }
