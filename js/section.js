@@ -255,6 +255,13 @@ function createVideoPlayer(videoEl) {
     let frameImages;
     let frameInterval;
 
+    playPauseButton.addEventListener("mousedown", useMouseFocus);
+    fullScreenButton.addEventListener("mousedown", useMouseFocus);
+    seekBar.addEventListener("mousedown", useMouseFocus);
+    playPauseButton.addEventListener("keydown", useKeyboardFocus);
+    fullScreenButton.addEventListener("keydown", useKeyboardFocus);
+    seekBar.addEventListener("keydown", useKeyboardFocus);
+
     if(window.createImageBitmap) {
         videoEl.addEventListener("playing", function() {
             frameInterval = setInterval(function(){
@@ -455,5 +462,15 @@ function createVideoPlayer(videoEl) {
         imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
         imageBitmap = await createImageBitmap(imageData);
         frameImages[Math.round(currentFrameTime * fps) / fps] = imageBitmap;
+    }
+
+    function useMouseFocus(event) {
+        let el = event.target;
+        el.classList.add("book-section-video-player-controls-mouse-focus");
+    }
+
+    function useKeyboardFocus(event) {
+        let el = event.target;
+        el.classList.remove("book-section-video-player-controls-mouse-focus");
     }
 }

@@ -521,6 +521,14 @@
         background-position: center;
     }
 
+    .book-section-video-player-controls-buttons button:focus {
+        outline: #000000 auto 1px;
+    }
+
+    .book-section-video-player-controls-mouse-focus {
+        outline: none !important;
+    }
+
     .book-section-video-player-controls-buttons span {
         font-size: 0.85em;
         font-family: sans-serif;
