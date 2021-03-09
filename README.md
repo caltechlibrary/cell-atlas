@@ -33,6 +33,12 @@ python _build.py
 
 <u>This will delete the `site/` directory in the this script's working directory</u>. Videos are will not be included in the site build by default and will only be included in the generated site if there exists a `videos` directory in this script's working directory.
 
+Offline versions of the cell atlas are automatically generated in the
+`cell_atlas_offline` and `cell_atlas_offline_lite` directories. In order to
+package these for release, you need to copy in the full resolution or 480p
+videos into a directory called `videos`. Then zip up the cell atlas using the
+command `zip -rX cell_atlas_offline_lite.zip *`
+
 Getting help
 ------------
 
