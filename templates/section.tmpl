@@ -14,9 +14,6 @@
             <video id="${playerId}" ${if(doi)}doi="${doi}"${endif} data-file="${video}">
                 ${if(offline)}
                     <source src="videos/${video}">
-                ${elseif(doi)}
-                ${else}
-                    <source src="videos/${video}">
                 ${endif}
                 There was an error loading the video.
             </video>

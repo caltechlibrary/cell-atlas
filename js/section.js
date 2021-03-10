@@ -73,7 +73,18 @@ function sourceVideo(el) {
     }
 
     let doi = el.getAttribute("doi");
-    if(!doi) return;
+    if(!doi) {
+        // Check if quality is high and video is still relative
+        if(currentQuality == "High" || !currentQuality) {
+            let source = el.querySelector("source");
+            if(!source) {
+                source = document.createElement("source");
+                el.appendChild(source);
+            }
+            source.setAttribute("src", `videos/${el.getAttribute("data-file")}`);
+        }
+        return;
+    };
     let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
     fetch(doiUrl)
         .then(function(res) {
@@ -90,6 +101,7 @@ function sourceVideo(el) {
                     el.appendChild(source);
                 }
                 source.setAttribute("src", videoUrl);
+                el.load();
             }
         });
 }
@@ -222,7 +234,7 @@ function swapVideo(videoPlayer, vidQuality) {
 
 function sourceVideoSmall(video) {
     let videoFileName = video.getAttribute("data-file");
-    let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`
+    let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`;
     let source = video.querySelector("source");
     if(!source) {
         source = document.createElement("source");
