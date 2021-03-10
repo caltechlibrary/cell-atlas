@@ -105,7 +105,11 @@ function setSource(videoEl, fileName) {
         source = document.createElement("source");
         videoEl.appendChild(source);
     }
-    source.setAttribute("src", `videos/${fileName}`);
+    if(window.location.origin == "https://caltechlibrary.github.io") {
+        source.setAttribute("src", `https://www.cellstructureatlas.org/videos/${fileName}`);
+    } else {
+        source.setAttribute("src", `videos/${fileName}`);
+    }
 }
 
 function showModal(el) {
