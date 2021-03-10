@@ -75,14 +75,7 @@ function sourceVideo(el) {
     let doi = el.getAttribute("doi");
     if(!doi) {
         // Check if quality is high and video is still relative
-        if(currentQuality == "High" || !currentQuality) {
-            let source = el.querySelector("source");
-            if(!source) {
-                source = document.createElement("source");
-                el.appendChild(source);
-            }
-            source.setAttribute("src", `videos/${el.getAttribute("data-file")}`);
-        }
+        if(currentQuality == "High" || !currentQuality) setSource(el, el.getAttribute("data-file"));
         return;
     };
     let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
@@ -104,6 +97,15 @@ function sourceVideo(el) {
                 el.load();
             }
         });
+}
+
+function setSource(videoEl, fileName) {
+    let source = videoEl.querySelector("source");
+    if(!source) {
+        source = document.createElement("source");
+        videoEl.appendChild(source);
+    }
+    source.setAttribute("src", `videos/${fileName}`);
 }
 
 function showModal(el) {
@@ -235,12 +237,7 @@ function swapVideo(videoPlayer, vidQuality) {
 function sourceVideoSmall(video) {
     let videoFileName = video.getAttribute("data-file");
     let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`;
-    let source = video.querySelector("source");
-    if(!source) {
-        source = document.createElement("source");
-        video.appendChild(source);
-    }
-    source.setAttribute("src", `videos/${videoFileNameSmall}`);
+    setSource(video, videoFileNameSmall);
 }
 
 function loadVidSource(event) {
