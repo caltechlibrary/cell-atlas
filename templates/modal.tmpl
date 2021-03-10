@@ -1,15 +1,24 @@
 <div class="subsection-modal-container" id="${it.id}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
-        <video ${if(it.doi)}doi="${it.doi}"${endif} controls>
-            ${if(offline)}
-                <source src="videos/${it.video}">
-            ${elseif(it.doi)}
-            ${else}
-                <source src="videos/${it.video}">
-            ${endif}
-            There was an error loading the video.
-        </video>
+        <div class="book-section-video-player">
+            <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}">
+                ${if(offline)}
+                    <source src="videos/${it.video}">
+                ${endif}
+                There was an error loading the video.
+            </video>
+            <canvas id="${it.playerId}-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+            <canvas id="${it.playerId}-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+            <div id="${it.playerId}-videoControls" class="book-section-video-player-controls">
+                <div class="book-section-video-player-controls-buttons">
+                    <button id="${it.playerId}-playPauseButton" type="button" data-state="play"></button>
+                    <span id="${it.playerId}-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                    <button id="${it.playerId}-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                </div>
+                <input type="range" id="${it.playerId}-seekBar" value="0" max="100">
+            </div>
+        </div>
     ${elseif(it.graphic)}
         <img src="img/schematics/${it.graphic}">
     ${endif}
@@ -37,6 +46,24 @@
                 ${endif}
             </span>
             ${if(it.structure)}<span>Structure: <span class="video-citation-value">${it.structure}</span></span>${endif}
+        </div>
+    ${endif}
+    ${if(it.video)}
+        <div class="video-quality-changer" data-player="${it.playerId}">
+            <label class="video-quality-changer-entry">
+                <span class="video-quality-changer-input">
+                    <input id="vidMed" type="radio" name="quality-${it.playerId}" value="480" onchange="changeQuality(this)" data-player="${it.playerId}">
+                    <span class="video-quality-changer-control"></span>
+                </span> 
+                <span class="video-quality-changer-label">480p</span>
+            </label>
+            <label class="video-quality-changer-entry">
+                <span class="video-quality-changer-input">
+                    <input id="vidHigh" type="radio" name="quality-${it.playerId}" value="1080" onchange="changeQuality(this)" data-player="${it.playerId}">
+                    <span class="video-quality-changer-control"></span>
+                </span>
+                <span class="video-quality-changer-label">1080p</span>
+            </label>
         </div>
     ${endif}
     <div class="subsection-modal-text">

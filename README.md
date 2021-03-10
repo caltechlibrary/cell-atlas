@@ -75,3 +75,9 @@ Library and the Jensen Lab.
 "[File](https://thenounproject.com/search/?q=file&i=3723131)" icon by Vectorstall from [the Noun Project](https://thenounproject.com/).
 
 "[Video](https://thenounproject.com/search/?q=video&i=2567858)" icon by i cons from [the Noun Project](https://thenounproject.com/).
+
+"[play button](https://thenounproject.com/search/?q=play+button&i=2467761)" by Assyifa Art from [the Noun Project](https://thenounproject.com/).
+
+"[pause](https://thenounproject.com/search/?q=pause+button&i=1738044)" by amantaka from [the Noun Project](https://thenounproject.com/).
+
+"[Fullscreen](https://thenounproject.com/search/?q=fullscreen&i=1953799)" by Nociconist from [the Noun Project](https://thenounproject.com/).
