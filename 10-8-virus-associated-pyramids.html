@@ -1058,16 +1058,43 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="stiv-structure">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/10_8_1.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-stiv-structure  data-file="10_8_1.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-stiv-structure-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-stiv-structure-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-stiv-structure-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-stiv-structure-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-stiv-structure-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-stiv-structure-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-stiv-structure-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="veesler2013"><a href="D-references.html#ref-veesler2013">Veesler et al. (2013)</a></span></span>
                                                             </span>
                                             <span>Structure: <span class="video-citation-value"><a href="http://rcsb.org/structure/3J31">PDB 3J31</a></span></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-stiv-structure">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-stiv-structure" value="480" onchange="changeQuality(this)" data-player="player-stiv-structure">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-stiv-structure" value="1080" onchange="changeQuality(this)" data-player="player-stiv-structure">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Structure</h1>
@@ -1084,9 +1111,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="10-7-replication.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1593" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-10-8-virus-associated-pyramids" doi="10.22002/D1.1593" data-file="10_8_Ssolfataricus.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-10-8-virus-associated-pyramids-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-10-8-virus-associated-pyramids-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-10-8-virus-associated-pyramids-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-10-8-virus-associated-pyramids-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-10-8-virus-associated-pyramids-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-10-8-virus-associated-pyramids-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-10-8-virus-associated-pyramids-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-10-8-virus-associated-pyramids">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-10-8-virus-associated-pyramids" value="480" onchange="changeQuality(this)" data-player="player-10-8-virus-associated-pyramids">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-10-8-virus-associated-pyramids" value="1080" onchange="changeQuality(this)" data-player="player-10-8-virus-associated-pyramids">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="10-9-pyramid-release.html" class="book-page-nav">&#8250;</a>
                     </div>
 

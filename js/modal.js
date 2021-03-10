@@ -35,6 +35,8 @@ function openModal(modalId) {
     }
 
     function hideModal() {
+        let modalVideo = modal.querySelector("video");
+        if(modalVideo && !modalVideo.paused) modalVideo.pause();
         document.removeEventListener("focusin", restrictFocus);
         document.removeEventListener("keydown", closeModalKey);
         modalOverlay.removeEventListener("click", closeModalClick);

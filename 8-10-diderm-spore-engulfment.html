@@ -1058,9 +1058,21 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="complete-engulfment">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1568" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-complete-engulfment doi="10.22002/D1.1568" data-file="8_10a_Alongum.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-complete-engulfment-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-complete-engulfment-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-complete-engulfment-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-complete-engulfment-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-complete-engulfment-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-complete-engulfment-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-complete-engulfment-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Acetonema longum</i></a>
                                             <span>
@@ -1068,6 +1080,22 @@
                                                                     <a href="B-scientist-profiles.html#ElitzaTocheva">Elitza Tocheva</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1568" target="_blank">10.22002/D1.1568</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-complete-engulfment">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-complete-engulfment" value="480" onchange="changeQuality(this)" data-player="player-complete-engulfment">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-complete-engulfment" value="1080" onchange="changeQuality(this)" data-player="player-complete-engulfment">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Forespore</h1>
@@ -1080,9 +1108,21 @@
                                 </div>
                                 <div class="subsection-modal-container" id="mature-spore">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1569" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-mature-spore doi="10.22002/D1.1569" data-file="8_10b_Alongum.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-mature-spore-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-mature-spore-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-mature-spore-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-mature-spore-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-mature-spore-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-mature-spore-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-mature-spore-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Acetonema longum</i></a>
                                             <span>
@@ -1090,6 +1130,22 @@
                                                                     <a href="B-scientist-profiles.html#ElitzaTocheva">Elitza Tocheva</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1569" target="_blank">10.22002/D1.1569</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-mature-spore">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-mature-spore" value="480" onchange="changeQuality(this)" data-player="player-mature-spore">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-mature-spore" value="1080" onchange="changeQuality(this)" data-player="player-mature-spore">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Spore</h1>
@@ -1102,9 +1158,21 @@
                                 </div>
                                 <div class="subsection-modal-container" id="sporomusa-acidovorans-sporulation">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1570" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-sporomusa-acidovorans-sporulation doi="10.22002/D1.1570" data-file="8_10c_Sacidovorans.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-sporomusa-acidovorans-sporulation-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-sporomusa-acidovorans-sporulation-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-sporomusa-acidovorans-sporulation-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-sporomusa-acidovorans-sporulation-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-sporomusa-acidovorans-sporulation-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-sporomusa-acidovorans-sporulation-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-sporomusa-acidovorans-sporulation-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Sporomusa acidovorans</i></a>
                                             <span>
@@ -1112,6 +1180,22 @@
                                                                     <a href="B-scientist-profiles.html#ElitzaTocheva">Elitza Tocheva</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1570" target="_blank">10.22002/D1.1570</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-sporomusa-acidovorans-sporulation">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-sporomusa-acidovorans-sporulation" value="480" onchange="changeQuality(this)" data-player="player-sporomusa-acidovorans-sporulation">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-sporomusa-acidovorans-sporulation" value="1080" onchange="changeQuality(this)" data-player="player-sporomusa-acidovorans-sporulation">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Ovoid</h1>
@@ -1128,9 +1212,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="8-9-diderm-sporulation.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1562" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-8-10-diderm-spore-engulfment" doi="10.22002/D1.1562" data-file="8_10_Alongum.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-8-10-diderm-spore-engulfment-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-8-10-diderm-spore-engulfment-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-8-10-diderm-spore-engulfment-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-8-10-diderm-spore-engulfment-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-8-10-diderm-spore-engulfment-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-8-10-diderm-spore-engulfment-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-8-10-diderm-spore-engulfment-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-8-10-diderm-spore-engulfment">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-8-10-diderm-spore-engulfment" value="480" onchange="changeQuality(this)" data-player="player-8-10-diderm-spore-engulfment">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-8-10-diderm-spore-engulfment" value="1080" onchange="changeQuality(this)" data-player="player-8-10-diderm-spore-engulfment">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="8-11-diderm-germination.html" class="book-page-nav">&#8250;</a>
                     </div>
 

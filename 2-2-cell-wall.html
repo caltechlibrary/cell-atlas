@@ -1058,9 +1058,21 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="peptidoglycan-architecture">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1360" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-peptidoglycan-architecture doi="10.22002/D1.1360" data-file="2_2a_Bsubtilis.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-peptidoglycan-architecture-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-peptidoglycan-architecture-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-peptidoglycan-architecture-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-peptidoglycan-architecture-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-peptidoglycan-architecture-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-peptidoglycan-architecture-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-peptidoglycan-architecture-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Bacillus subtilis</i></a>
                                             <span>
@@ -1068,6 +1080,22 @@
                                                                     <a href="B-scientist-profiles.html#MorganBeeby">Morgan Beeby</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1360" target="_blank">10.22002/D1.1360</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-peptidoglycan-architecture">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-peptidoglycan-architecture" value="480" onchange="changeQuality(this)" data-player="player-peptidoglycan-architecture">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-peptidoglycan-architecture" value="1080" onchange="changeQuality(this)" data-player="player-peptidoglycan-architecture">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Wall architecture</h1>
@@ -1080,9 +1108,21 @@
                                 </div>
                                 <div class="subsection-modal-container" id="archaeal-cell-walls">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1361" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-archaeal-cell-walls doi="10.22002/D1.1361" data-file="2_2b_Mformicicum.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-archaeal-cell-walls-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-archaeal-cell-walls-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-archaeal-cell-walls-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-archaeal-cell-walls-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-archaeal-cell-walls-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-archaeal-cell-walls-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-archaeal-cell-walls-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Methanobacterium formicicum</i></a>
                                             <span>
@@ -1090,6 +1130,22 @@
                                                                     <a href="B-scientist-profiles.html#ElitzaTocheva">Elitza Tocheva</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1361" target="_blank">10.22002/D1.1361</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-archaeal-cell-walls">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-archaeal-cell-walls" value="480" onchange="changeQuality(this)" data-player="player-archaeal-cell-walls">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-archaeal-cell-walls" value="1080" onchange="changeQuality(this)" data-player="player-archaeal-cell-walls">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Archaeal walls</h1>
@@ -1106,9 +1162,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="2-1-membrane.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1351" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-2-2-cell-wall" doi="10.22002/D1.1351" data-file="2_2_Lmonocytogenes.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-2-2-cell-wall-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-2-2-cell-wall-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-2-2-cell-wall-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-2-2-cell-wall-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-2-2-cell-wall-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-2-2-cell-wall-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-2-2-cell-wall-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-2-2-cell-wall">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-2-2-cell-wall" value="480" onchange="changeQuality(this)" data-player="player-2-2-cell-wall">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-2-2-cell-wall" value="1080" onchange="changeQuality(this)" data-player="player-2-2-cell-wall">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="2-3-outer-membrane.html" class="book-page-nav">&#8250;</a>
                     </div>
 

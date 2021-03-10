@@ -1058,16 +1058,43 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="surface-layer-architecture">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/2_6_1.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-surface-layer-architecture  data-file="2_6_1.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-surface-layer-architecture-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-surface-layer-architecture-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-surface-layer-architecture-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-surface-layer-architecture-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-surface-layer-architecture-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-surface-layer-architecture-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-surface-layer-architecture-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="bharat2017"><a href="D-references.html#ref-bharat2017">Bharat et al. (2017)</a></span></span>
                                                             </span>
                                             <span>Structure: <span class="video-citation-value"><a href="http://rcsb.org/structure/5N97">PDB 5N97</a></span></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-surface-layer-architecture">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-surface-layer-architecture" value="480" onchange="changeQuality(this)" data-player="player-surface-layer-architecture">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-surface-layer-architecture" value="1080" onchange="changeQuality(this)" data-player="player-surface-layer-architecture">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Architecture</h1>
@@ -1080,9 +1107,21 @@
                                 </div>
                                 <div class="subsection-modal-container" id="nanopods">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1366" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-nanopods doi="10.22002/D1.1366" data-file="2_6a_Dacidovorans.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-nanopods-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-nanopods-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-nanopods-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-nanopods-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-nanopods-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-nanopods-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-nanopods-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Delftia acidovorans</i></a>
                                             <span>
@@ -1090,6 +1129,22 @@
                                                                     <a href="B-scientist-profiles.html#ElitzaTocheva">Elitza Tocheva</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1366" target="_blank">10.22002/D1.1366</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-nanopods">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-nanopods" value="480" onchange="changeQuality(this)" data-player="player-nanopods">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-nanopods" value="1080" onchange="changeQuality(this)" data-player="player-nanopods">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Nanopods</h1>
@@ -1106,9 +1161,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="2-5-classification-exceptions.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1355" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-2-6-surface-layer" doi="10.22002/D1.1355" data-file="2_6_Ccrescentus.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-2-6-surface-layer-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-2-6-surface-layer-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-2-6-surface-layer-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-2-6-surface-layer-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-2-6-surface-layer-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-2-6-surface-layer-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-2-6-surface-layer-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-2-6-surface-layer">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-2-6-surface-layer" value="480" onchange="changeQuality(this)" data-player="player-2-6-surface-layer">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-2-6-surface-layer" value="1080" onchange="changeQuality(this)" data-player="player-2-6-surface-layer">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="2-7-surface-layer-variety.html" class="book-page-nav">&#8250;</a>
                     </div>
 

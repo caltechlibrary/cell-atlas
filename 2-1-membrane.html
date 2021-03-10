@@ -1058,16 +1058,43 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="lipid-bilayer">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/2_1_1.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-lipid-bilayer  data-file="2_1_1.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-lipid-bilayer-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-lipid-bilayer-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-lipid-bilayer-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-lipid-bilayer-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-lipid-bilayer-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-lipid-bilayer-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-lipid-bilayer-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <a href="B-scientist-profiles.html#LamNguyen">Lam Nguyen</a>
                                                             </span>
                                             
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-lipid-bilayer">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-lipid-bilayer" value="480" onchange="changeQuality(this)" data-player="player-lipid-bilayer">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-lipid-bilayer" value="1080" onchange="changeQuality(this)" data-player="player-lipid-bilayer">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Membrane</h1>
@@ -1083,16 +1110,43 @@
                                 </div>
                                 <div class="subsection-modal-container" id="atp-synthase">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/2_1_2.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-atp-synthase  data-file="2_1_2.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-atp-synthase-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-atp-synthase-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-atp-synthase-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-atp-synthase-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-atp-synthase-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-atp-synthase-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-atp-synthase-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="sobti2016"><a href="D-references.html#ref-sobti2016">Sobti et al. (2016)</a></span></span>
                                                             </span>
                                             <span>Structure: <span class="video-citation-value"><a href="http://rcsb.org/structure/5T4O">PDB 5T4O</a></span></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-atp-synthase">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-atp-synthase" value="480" onchange="changeQuality(this)" data-player="player-atp-synthase">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-atp-synthase" value="1080" onchange="changeQuality(this)" data-player="player-atp-synthase">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>ATP Synthase</h1>
@@ -1108,16 +1162,43 @@
                                 </div>
                                 <div class="subsection-modal-container" id="ribosome">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/2_1_3.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-ribosome  data-file="2_1_3.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-ribosome-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-ribosome-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-ribosome-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-ribosome-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-ribosome-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-ribosome-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-ribosome-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="kaledhonkar2019"><a href="D-references.html#ref-kaledhonkar2019">Kaledhonkar et al. (2019)</a></span></span>
                                                             </span>
                                             <span>Structure: <span class="video-citation-value"><a href="http://rcsb.org/structure/6O9J">PDB 6O9J</a></span></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-ribosome">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-ribosome" value="480" onchange="changeQuality(this)" data-player="player-ribosome">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-ribosome" value="1080" onchange="changeQuality(this)" data-player="player-ribosome">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Ribosome</h1>
@@ -1134,9 +1215,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="2-cells.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1350" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-2-1-membrane" doi="10.22002/D1.1350" data-file="2_1_Mgenitalium.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-2-1-membrane-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-2-1-membrane-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-2-1-membrane-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-2-1-membrane-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-2-1-membrane-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-2-1-membrane-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-2-1-membrane-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-2-1-membrane">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-2-1-membrane" value="480" onchange="changeQuality(this)" data-player="player-2-1-membrane">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-2-1-membrane" value="1080" onchange="changeQuality(this)" data-player="player-2-1-membrane">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="2-2-cell-wall.html" class="book-page-nav">&#8250;</a>
                     </div>
 

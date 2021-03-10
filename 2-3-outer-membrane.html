@@ -1058,16 +1058,43 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="lipopolysaccharide">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/2_3_1.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-lipopolysaccharide  data-file="2_3_1.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-lipopolysaccharide-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-lipopolysaccharide-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-lipopolysaccharide-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-lipopolysaccharide-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-lipopolysaccharide-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-lipopolysaccharide-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-lipopolysaccharide-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="tang2019"><a href="D-references.html#ref-tang2019">Tang et al. (2019)</a></span></span>
                                                             </span>
                                             <span>Structure: <span class="video-citation-value"><a href="http://rcsb.org/structure/6S8H">PDB 6S8H</a></span></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-lipopolysaccharide">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-lipopolysaccharide" value="480" onchange="changeQuality(this)" data-player="player-lipopolysaccharide">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-lipopolysaccharide" value="1080" onchange="changeQuality(this)" data-player="player-lipopolysaccharide">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>LPS</h1>
@@ -1080,16 +1107,43 @@
                                 </div>
                                 <div class="subsection-modal-container" id="brauns-lipoprotein">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/2_3_2.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-brauns-lipoprotein  data-file="2_3_2.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-brauns-lipoprotein-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-brauns-lipoprotein-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-brauns-lipoprotein-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-brauns-lipoprotein-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-brauns-lipoprotein-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-brauns-lipoprotein-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-brauns-lipoprotein-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="shu2000"><a href="D-references.html#ref-shu2000">Shu et al. (2000)</a></span></span>
                                                             </span>
                                             <span>Structure: <span class="video-citation-value"><a href="http://rcsb.org/structure/1EQ7">PDB 1EQ7</a></span></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-brauns-lipoprotein">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-brauns-lipoprotein" value="480" onchange="changeQuality(this)" data-player="player-brauns-lipoprotein">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-brauns-lipoprotein" value="1080" onchange="changeQuality(this)" data-player="player-brauns-lipoprotein">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Lpp</h1>
@@ -1102,9 +1156,21 @@
                                 </div>
                                 <div class="subsection-modal-container" id="diderm-peptidoglycan-architecture">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1362" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-diderm-peptidoglycan-architecture doi="10.22002/D1.1362" data-file="2_3a_Ecoli.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-diderm-peptidoglycan-architecture-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-diderm-peptidoglycan-architecture-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-diderm-peptidoglycan-architecture-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-diderm-peptidoglycan-architecture-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-diderm-peptidoglycan-architecture-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-diderm-peptidoglycan-architecture-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-diderm-peptidoglycan-architecture-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Escherichia coli</i></a>
                                             <span>
@@ -1112,6 +1178,22 @@
                                                                     <a href="B-scientist-profiles.html#LuGan">Lu Gan</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1362" target="_blank">10.22002/D1.1362</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-diderm-peptidoglycan-architecture">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-diderm-peptidoglycan-architecture" value="480" onchange="changeQuality(this)" data-player="player-diderm-peptidoglycan-architecture">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-diderm-peptidoglycan-architecture" value="1080" onchange="changeQuality(this)" data-player="player-diderm-peptidoglycan-architecture">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Diderm wall architecture</h1>
@@ -1124,16 +1206,43 @@
                                 </div>
                                 <div class="subsection-modal-container" id="cell-wall-remodeling">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/2_3_3.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-cell-wall-remodeling  data-file="2_3_3.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-cell-wall-remodeling-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-cell-wall-remodeling-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-cell-wall-remodeling-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-cell-wall-remodeling-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-cell-wall-remodeling-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-cell-wall-remodeling-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-cell-wall-remodeling-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="nguyen2015"><a href="D-references.html#ref-nguyen2015">Nguyen et al. (2015)</a></span></span>
                                                             </span>
                                             
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-cell-wall-remodeling">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-cell-wall-remodeling" value="480" onchange="changeQuality(this)" data-player="player-cell-wall-remodeling">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-cell-wall-remodeling" value="1080" onchange="changeQuality(this)" data-player="player-cell-wall-remodeling">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Remodeling</h1>
@@ -1150,9 +1259,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="2-2-cell-wall.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1352" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-2-3-outer-membrane" doi="10.22002/D1.1352" data-file="2_3_Hcrunogenus.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-2-3-outer-membrane-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-2-3-outer-membrane-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-2-3-outer-membrane-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-2-3-outer-membrane-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-2-3-outer-membrane-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-2-3-outer-membrane-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-2-3-outer-membrane-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-2-3-outer-membrane">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-2-3-outer-membrane" value="480" onchange="changeQuality(this)" data-player="player-2-3-outer-membrane">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-2-3-outer-membrane" value="1080" onchange="changeQuality(this)" data-player="player-2-3-outer-membrane">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="2-4-vesicles.html" class="book-page-nav">&#8250;</a>
                     </div>
 

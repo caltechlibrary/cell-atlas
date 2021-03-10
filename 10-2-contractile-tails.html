@@ -1062,9 +1062,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="10-1-phage.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1587" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-10-2-contractile-tails" doi="10.22002/D1.1587" data-file="10_2_Bacteroidetes.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-10-2-contractile-tails-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-10-2-contractile-tails-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-10-2-contractile-tails-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-10-2-contractile-tails-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-10-2-contractile-tails-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-10-2-contractile-tails-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-10-2-contractile-tails-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-10-2-contractile-tails">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-10-2-contractile-tails" value="480" onchange="changeQuality(this)" data-player="player-10-2-contractile-tails">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-10-2-contractile-tails" value="1080" onchange="changeQuality(this)" data-player="player-10-2-contractile-tails">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="10-3-noncontractile-tails.html" class="book-page-nav">&#8250;</a>
                     </div>
 

@@ -1058,9 +1058,21 @@
                     <div id="modalOverlay" class="subsection-modal-overlay">
                                 <div class="subsection-modal-container" id="asymmetric-constriction">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video doi="10.22002/D1.1524" controls>
-                                                                    There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-asymmetric-constriction doi="10.22002/D1.1524" data-file="5_9a_Cnecator.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-asymmetric-constriction-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-asymmetric-constriction-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-asymmetric-constriction-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-asymmetric-constriction-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-asymmetric-constriction-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-asymmetric-constriction-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-asymmetric-constriction-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <a href="C-phylogenetic-tree.html"><i>Cupriavidus necator</i></a>
                                             <span>
@@ -1068,6 +1080,22 @@
                                                                     <a href="B-scientist-profiles.html#MorganBeeby">Morgan Beeby</a>
                                                             </span>
                                             <span>DOI: <a href="https://doi.org/10.22002/D1.1524" target="_blank">10.22002/D1.1524</a></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-asymmetric-constriction">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-asymmetric-constriction" value="480" onchange="changeQuality(this)" data-player="player-asymmetric-constriction">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-asymmetric-constriction" value="1080" onchange="changeQuality(this)" data-player="player-asymmetric-constriction">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Asymmetric constriction</h1>
@@ -1080,16 +1108,43 @@
                                 </div>
                                 <div class="subsection-modal-container" id="ftsz-structure">
                                     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-                                            <video  controls>
-                                                            <source src="videos/5_9_1.mp4">
-                                                        There was an error loading the video.
-                                        </video>
+                                            <div class="book-section-video-player">
+                                            <video id=player-ftsz-structure  data-file="5_9_1.mp4">
+                                                                There was an error loading the video.
+                                            </video>
+                                            <canvas id="player-ftsz-structure-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                            <canvas id="player-ftsz-structure-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                            <div id="player-ftsz-structure-videoControls" class="book-section-video-player-controls">
+                                                <div class="book-section-video-player-controls-buttons">
+                                                    <button id="player-ftsz-structure-playPauseButton" type="button" data-state="play"></button>
+                                                    <span id="player-ftsz-structure-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                                    <button id="player-ftsz-structure-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                                </div>
+                                                <input type="range" id="player-ftsz-structure-seekBar" value="0" max="100">
+                                            </div>
+                                        </div>
                                                 <div class="video-citation">
                                             <span>
                                                 Source: 
                                                                     <span class="video-citation-value"><span class="citation" data-cites="wagstaff2017"><a href="D-references.html#ref-wagstaff2017">Wagstaff et al. (2017)</a></span></span>
                                                             </span>
                                             <span>Structure: <span class="video-citation-value"><a href="http://rcsb.org/structure/5MN4">PDB 5MN4</a></span></span>
+                                        </div>
+                                                <div class="video-quality-changer" data-player="player-ftsz-structure">
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidMed" type="radio" name="quality-player-ftsz-structure" value="480" onchange="changeQuality(this)" data-player="player-ftsz-structure">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span> 
+                                                <span class="video-quality-changer-label">480p</span>
+                                            </label>
+                                            <label class="video-quality-changer-entry">
+                                                <span class="video-quality-changer-input">
+                                                    <input id="vidHigh" type="radio" name="quality-player-ftsz-structure" value="1080" onchange="changeQuality(this)" data-player="player-ftsz-structure">
+                                                    <span class="video-quality-changer-control"></span>
+                                                </span>
+                                                <span class="video-quality-changer-label">1080p</span>
+                                            </label>
                                         </div>
                                         <div class="subsection-modal-text">
                                         <h1>Structure</h1>
@@ -1106,9 +1161,41 @@
 
                     <div id="nonTextContent" class="book-section-non-text-content">
                         <a href="5-8-asymmetric-division.html" class="book-page-nav">&#8249;</a>
-                        <video doi="10.22002/D1.1515" controls>
-                                            There was an error loading the video.
-                        </video>
+                        <div class="book-section-video-container">
+
+                            <div class="book-section-video-player">
+                                <video id="player-5-9-asynchronous-constriction" doi="10.22002/D1.1515" data-file="5_9_Cnecator.mp4">
+                                                    There was an error loading the video.
+                                </video>
+                                <canvas id="player-5-9-asynchronous-constriction-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+                                <canvas id="player-5-9-asynchronous-constriction-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+                                <div id="player-5-9-asynchronous-constriction-videoControls" class="book-section-video-player-controls">
+                                    <div class="book-section-video-player-controls-buttons">
+                                        <button id="player-5-9-asynchronous-constriction-playPauseButton" type="button" data-state="play"></button>
+                                        <span id="player-5-9-asynchronous-constriction-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+                                        <button id="player-5-9-asynchronous-constriction-fullScreenButton" type="button" data-state="go-fullscreen"></button>
+                                    </div>
+                                    <input type="range" id="player-5-9-asynchronous-constriction-seekBar" value="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="video-quality-changer" data-player="player-5-9-asynchronous-constriction">
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidMed" type="radio" name="quality-player-5-9-asynchronous-constriction" value="480" onchange="changeQuality(this)" data-player="player-5-9-asynchronous-constriction">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">480p</span>
+                                </label>
+                                <label class="video-quality-changer-entry">
+                                    <span class="video-quality-changer-input">
+                                        <input id="vidHigh" type="radio" name="quality-player-5-9-asynchronous-constriction" value="1080" onchange="changeQuality(this)" data-player="player-5-9-asynchronous-constriction">
+                                        <span class="video-quality-changer-control"></span>
+                                    </span>
+                                    <span class="video-quality-changer-label">1080p</span>
+                                </label>
+                            </div>
+                        </div>
                         <a href="5-10-ftsz.html" class="book-page-nav">&#8250;</a>
                     </div>
 
