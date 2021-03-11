@@ -97,6 +97,13 @@ function toggleSectionList(el) {
         sectionList.removeAttribute("expanded");
         setTabIndex(sectionListLinks, -1);
     } else {
+        // Close currently opened list
+        let openList = document.querySelector(".nav-menu-sections[expanded='true']");
+        if (openList) {
+            let openListButton = openList.parentElement.querySelector("button");
+            openListButton.click();
+        }
+        
         el.style.transform = "rotate(180deg)";
         sectionList.style.height = `${sectionList.scrollHeight}px`;
         sectionList.setAttribute("expanded", "true");
