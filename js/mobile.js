@@ -53,7 +53,12 @@ function initializeMobileView() {
     }
 
     // Fix height of appendix dropdown lists when the screen is rotated
-    if(document.querySelector(".book-appendix-dropdown-list")) {
+    if(document.querySelector(".nav-menu-sections")) {
+        window.addEventListener("orientationchange", fixDropdownHeight);
+    }
+
+    // Fix height of nav dropdown lists when the screen is rotated
+    if(document.querySelector(".nav-menu-sections")) {
         window.addEventListener("orientationchange", fixDropdownHeight);
     }
 
@@ -145,15 +150,21 @@ function closeModalMobile(el) {
 
 function fixDropdownHeight(event) {
     let openLists = document.querySelectorAll(".book-appendix-li-dropdown[showing='true']");
-    for(let list of openLists) {
-        list.style.height = "0";
-    } 
+    let openSectionList = document.querySelector(".nav-menu-sections[expanded='true']");
+    if(openLists) {
+        for(let list of openLists) {
+            resizeDropdown(list);
+        }
+    }
+    if(openSectionList) resizeDropdown(openSectionList);
+}
+
+function resizeDropdown(element) {
+    element.style.height = "0";
     // Recalculate height for open lists once screen is resized
     window.addEventListener("resize", function(){
-        for(let list of openLists) {
-            setTimeout(function(){
-                list.style.height = list.scrollHeight + "px";
-            }, 500);
-        } 
+        setTimeout(function(){
+            element.style.height = element.scrollHeight + "px";
+        }, 500); 
     }, { once: true });
 }
