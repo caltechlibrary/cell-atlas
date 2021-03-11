@@ -25,6 +25,11 @@ if (typeof(Storage) !== "undefined") {
     }
 }
 
+let openSectionButtons = document.querySelectorAll(".nav-menu button");
+for(let openSectionButton of openSectionButtons) {
+    openSectionButton.addEventListener("mousedown", forceMouseFocus);
+}
+
 function toggleNav(el) {
     el.disabled = true;
     let navMenu = document.getElementById("navMenu");
@@ -103,7 +108,7 @@ function toggleSectionList(el) {
             let openListButton = openList.parentElement.querySelector("button");
             openListButton.click();
         }
-        
+
         el.style.transform = "rotate(180deg)";
         sectionList.style.height = `${sectionList.scrollHeight}px`;
         sectionList.setAttribute("expanded", "true");

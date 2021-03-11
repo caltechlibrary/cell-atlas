@@ -17,3 +17,11 @@ for(let link of allLinks) {
         link.setAttribute("rel", "noopener");
     }
 }
+
+function forceMouseFocus(event) {
+    let element = event.currentTarget;
+    element.classList.add("mouse-focus");
+    element.addEventListener("keydown", function(){
+        element.classList.remove("mouse-focus");
+    });
+}

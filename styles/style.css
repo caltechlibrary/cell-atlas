@@ -88,6 +88,10 @@
         line-height: 1.3em;
     }
 
+    .mouse-focus {
+        outline: none !important;
+    }
+
     /* || HEADER styles */
     header {
         display: flex;
