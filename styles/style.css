@@ -307,7 +307,6 @@
         background: none;
         display: flex;
         align-items: center;
-        outline: none;
         box-sizing: content-box;
         transform: rotate(0deg);
         transition: transform 1s; 

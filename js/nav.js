@@ -39,7 +39,9 @@ function toggleNav(el) {
         }, 300);
         window.navOpened = false;
         window.sessionStorage.setItem("navOpened", false);
-        toggleTab(-1);
+
+        // Make all links and buttons untabable
+        toggleNavTabable(-1);
     } else {
         navMenu.classList.add("nav-menu-opened");
         if(window.innerWidth > 800) {
@@ -52,8 +54,9 @@ function toggleNav(el) {
         window.sessionStorage.setItem("navOpened", true);
         pageContainer.addEventListener("click", autoShelfNav);
         el.disabled = false;
-        // Make links tabable
-        toggleTab(0);
+
+        // Make all buttons and chapter links, and open section lists tabable
+        toggleNavTabable(0);
     }
 }
 
@@ -67,28 +70,36 @@ function autoShelfNav(event) {
     }
 }
 
-function toggleTab(tabValue) {
-    let chapterSections = document.getElementsByClassName("nav-menu-chapter");
-    for(let chapterSection of chapterSections) {
-        let link = chapterSection.querySelector("a");
-        if(link) link.setAttribute("tabindex", tabValue);
-    }
-    let currSection = document.querySelector(".nav-menu-sections:not(.sr-only)");
-    if(currSection) {
-        let links = currSection.querySelectorAll("a");
-        for(let link of links){
-            link.setAttribute("tabindex", tabValue);
-        }
+function toggleNavTabable(tabIndex) {
+    let navMenu = document.getElementById("navMenu");
+    let chapterHeaders = navMenu.querySelectorAll(".nav-menu-chapter-container a");
+    let navButtons = navMenu.querySelectorAll("button");
+    let expandedSectionLinks = navMenu.querySelectorAll(".nav-menu-sections[expanded='true'] a");
+    let offlineLink = navMenu.querySelector(".nav-menu-footer a");
+    setTabIndex(chapterHeaders, tabIndex);
+    setTabIndex(navButtons, tabIndex);
+    setTabIndex(expandedSectionLinks, tabIndex);
+    setTabIndex([offlineLink], tabIndex);
+}
+
+function setTabIndex(elements, tabIndex) {
+    for(let element of elements) {
+        element.setAttribute("tabindex", tabIndex);
     }
 }
 
 function toggleSectionList(el) {
     let sectionList = el.parentElement.parentElement.querySelector("ol");
+    let sectionListLinks = sectionList.querySelectorAll("a");
     if(sectionList.offsetHeight > 0) {
         sectionList.style.height = "0px";
         el.style.transform = "rotate(0deg)";
+        sectionList.removeAttribute("expanded");
+        setTabIndex(sectionListLinks, -1);
     } else {
         el.style.transform = "rotate(180deg)";
         sectionList.style.height = `${sectionList.scrollHeight}px`;
+        sectionList.setAttribute("expanded", "true");
+        setTabIndex(sectionListLinks, 0);
     }
 }
