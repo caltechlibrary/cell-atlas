@@ -7,14 +7,17 @@
                         ${nav.chapter}
                     </h1>
                 ${else}
-                    <a tabindex="-1" ${if(nav.page)}href="${nav.page}.html"${endif}>
-                        <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
-                            ${nav.chapter} <span class="nav-menu-chapter-title">${nav.title}</span>
-                        </h1>
-                    </a>
+                    <div class="nav-menu-chapter-container">
+                        <a tabindex="-1" ${if(nav.page)}href="${nav.page}.html"${endif}>
+                            <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
+                                ${nav.chapter} <span class="nav-menu-chapter-title">${nav.title}</span>
+                            </h1>
+                        </a>
+                        ${if(nav.sections)}<button onclick="toggleSectionList(this)">${noun_Chevron.svg()}</button>${endif}
+                    </div>
                 ${endif}
                 ${if(nav.sections)}
-                    <ol class="nav-menu-sections sr-only">
+                    <ol class="nav-menu-sections">
                         ${for(nav.sections)}
                             <li id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
                                 <a tabindex="-1" href="${nav.sections.page}.html">

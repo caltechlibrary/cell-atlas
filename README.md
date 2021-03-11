@@ -81,3 +81,5 @@ Library and the Jensen Lab.
 "[pause](https://thenounproject.com/search/?q=pause+button&i=1738044)" by amantaka from [the Noun Project](https://thenounproject.com/).
 
 "[Fullscreen](https://thenounproject.com/search/?q=fullscreen&i=1953799)" by Nociconist from [the Noun Project](https://thenounproject.com/).
+
+"[chevron](https://thenounproject.com/search/?q=chevron&i=933246)" by Numero Uno from [the Noun Project](https://thenounproject.com/).

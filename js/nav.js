@@ -10,9 +10,9 @@ if(navEntry) {
     navEntry.style["font-style"] = "italic";
 
     // Ugly selector, but will do for now
-    let navSection = navEntry.parentElement.parentElement.querySelector(".nav-menu-sections");
-    if(navSection) {
-        navSection.classList.remove("sr-only");
+    let toggleSectionListButton = navEntry.parentElement.parentElement.querySelector("button");
+    if(toggleSectionListButton) {
+        toggleSectionListButton.click();
     }
 }
 
@@ -79,5 +79,16 @@ function toggleTab(tabValue) {
         for(let link of links){
             link.setAttribute("tabindex", tabValue);
         }
+    }
+}
+
+function toggleSectionList(el) {
+    let sectionList = el.parentElement.parentElement.querySelector("ol");
+    if(sectionList.offsetHeight > 0) {
+        sectionList.style.height = "0px";
+        el.style.transform = "rotate(0deg)";
+    } else {
+        el.style.transform = "rotate(180deg)";
+        sectionList.style.height = `${sectionList.scrollHeight}px`;
     }
 }
