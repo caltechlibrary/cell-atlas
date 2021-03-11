@@ -230,7 +230,11 @@ function swapVideo(videoPlayer, vidQuality) {
             source.setAttribute("src", window[`video${videoPlayer.getAttribute("id")}`]);
         } else {
             let videoFileName = videoPlayer.getAttribute("data-file");
-            source.setAttribute("src", `videos/${videoFileName}`);
+            if(window.location.origin == "https://caltechlibrary.github.io") {
+                source.setAttribute("src", `https://www.cellstructureatlas.org/videos/${videoFileName}`);
+            } else {
+                source.setAttribute("src", `videos/${videoFileName}`);
+            }
         }
     }
     
