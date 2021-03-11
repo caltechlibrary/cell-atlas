@@ -88,6 +88,10 @@
         line-height: 1.3em;
     }
 
+    .mouse-focus {
+        outline: none !important;
+    }
+
     /* || HEADER styles */
     header {
         display: flex;
@@ -287,11 +291,29 @@
 
     .nav-menu a {
         color: inherit;
+        width: 100%;
     }
 
     /* Remove scroll bar for different types of browsers */
     .nav-menu::-webkit-scrollbar {
         display: none;
+    }
+
+    .nav-menu-chapter-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav-menu-chapter-container button {
+        width: 11%;
+        padding: 0 0.5em;
+        border: none;
+        background: none;
+        display: flex;
+        align-items: center;
+        box-sizing: content-box;
+        transform: rotate(0deg);
+        transition: transform 1s; 
     }
 
     .nav-menu-chapter h1 {
@@ -304,6 +326,9 @@
 
     .nav-menu-sections {
         padding-inline-start: 1em;
+        overflow: hidden;
+        height: 0;
+        transition: height 1s;
     }
 
     .nav-menu-section-entry {
