@@ -248,6 +248,28 @@ blockquote {
 
     .nav-menu a {
         color: inherit;
+        width: 100%;
+    }
+
+    .nav-menu-chapter-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav-menu-chapter-container button {
+        width: 15%;
+        padding: 0 0.5em;
+        border: none;
+        background: none;
+        display: flex;
+        align-items: center;
+        box-sizing: content-box;
+        transform: rotate(0deg);
+        transition: transform 1s; 
+    }
+
+    .nav-menu-chapter-container button svg {
+        flex: 1;
     }
     
     .nav-menu-chapter h1 {
@@ -260,6 +282,9 @@ blockquote {
     
     .nav-menu-sections {
         padding-inline-start: 1em;
+        overflow: hidden;
+        height: 0;
+        transition: height 1s;
     }
     
     .nav-menu-section-entry {
@@ -797,6 +822,10 @@ blockquote {
     /* || NAV styles */
     .nav-menu {
         bottom: 0;
+    }
+
+    .nav-menu-chapter-container button {
+        width: 8%;
     }
 
     /* || CONTROLS styles */
