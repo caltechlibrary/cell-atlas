@@ -383,6 +383,14 @@ function createVideoPlayer(videoEl) {
         }
     });
 
+    videoEl.addEventListener("ended", function() {
+        clearInterval(frameInterval);
+    });
+
+    videoEl.addEventListener("waiting", function() {
+        clearInterval(frameInterval);
+    });
+
     seekBar.addEventListener("mousedown", function() {
         if(!videoEl.paused){
             videoEl.pause();
