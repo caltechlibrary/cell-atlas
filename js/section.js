@@ -203,8 +203,10 @@ function changeQuality(el) {
     swapVideo(videoPlayer, vidQuality);
     videoPlayer.removeEventListener("play", loadVidSource);
     videoPlayer.load();
-    videoPlayer.currentTime = currTime;
-    if(!paused) videoPlayer.addEventListener("canplay", playVidWhenReady);
+    videoPlayer.addEventListener("canplay", function() {
+        videoPlayer.currentTime = currTime;
+        if(!paused) videoPlayer.play();
+    }, { once: true });
 
     // Change the quality for the other videos as well
     for(let video of allVideos) {
