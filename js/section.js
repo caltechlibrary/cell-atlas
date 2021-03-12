@@ -291,6 +291,16 @@ function createVideoPlayer(videoEl) {
     fullScreenButton.addEventListener("keydown", useKeyboardFocus);
     seekBar.addEventListener("keydown", useKeyboardFocus);
 
+    videoEl.addEventListener("canplay", function() {
+        playPauseButton.removeAttribute("disabled");
+        fullScreenButton.removeAttribute("disabled");
+        seekBar.removeAttribute("disabled");
+
+        videoEl.addEventListener('click', function() {
+            playPauseButton.click();
+        });
+    }, { once: true });
+
     if(window.createImageBitmap) {
         videoEl.addEventListener("playing", function() {
             frameInterval = setInterval(function(){
@@ -344,10 +354,6 @@ function createVideoPlayer(videoEl) {
         videoPlayer.removeEventListener("mouseleave", hidePlayerControls);
         videoPlayer.removeEventListener("mouseenter", showPlayerControls);
         togglePlayPause();
-    });
-    
-    videoEl.addEventListener('click', function() {
-        playPauseButton.click();
     });
 
     videoEl.addEventListener("loadedmetadata", function() {
