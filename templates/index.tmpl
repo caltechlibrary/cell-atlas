@@ -16,15 +16,14 @@ ${head.tmpl()}
                     <div class="landing-page-blurb">
                         ${body}
                     </div>
-                    <a href="${firstPage}.html" class="landing-page-start-button"><span>&#8227;</span>READ ONLINE NOW</a>
+                    <div class="landing-page-options-container">
+                        <a href="${firstPage}.html" class="landing-page-start-button"><span>&#8227;</span>READ ONLINE NOW</a>
+                        ${if(offline)}
+                        ${else}
+                            <p class="landing-page-download-button">or <a href="download.html">DOWNLOAD</a></p>
+                        ${endif}
+                    </div>
                 </div>
-                ${if(offline)}
-                ${else}
-                    <a href="download.html" class="landing-page-download-button">
-                        ${noun_Download.svg()}
-                        <span>DOWNLOAD</span>
-                    </a>
-                ${endif}
             </div>
         </div>
         ${footer.tmpl()}
