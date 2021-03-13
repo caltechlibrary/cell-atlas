@@ -194,6 +194,13 @@
         margin-bottom: 1em;
     }
 
+    .landing-page-options-container {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+    }
+
     .landing-page-start-button {
         color: rgb(245 245 245);
         width: -moz-fit-content;
@@ -214,23 +221,13 @@
     }
 
     .landing-page-download-button {
-        position: absolute;
-        top: 2%;
-        right: 10%;
-        transform: translatey(18%);
         color: #ffffff;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background: rgba(255,255,255,0.125);
-        border-radius: 3px;
-        padding: 5px 10px;
     }
 
-    @media only screen and (max-width: 1000px) {
-        .landing-page-download-button {
-            right: 2%;
-        }
+    .landing-page-download-button a {
+        color: inherit;
+        text-decoration: underline;
+        font-weight: 500;
     }
 
     .landing-page-download-icon {
@@ -1078,10 +1075,6 @@
     }
 
     .mobile-footer-data {
-        display: none;
-    }
-
-    .landing-page-download-button-mobile {
         display: none;
     }
 }
