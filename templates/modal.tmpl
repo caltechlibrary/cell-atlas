@@ -2,7 +2,7 @@
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
         <div class="book-section-video-player">
-            <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}" crossorigin>
+            <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}" poster="img/thumbnails/${it.thumbnail}.jpg" crossorigin>
                 ${if(offline)}
                     <source src="videos/${it.video}">
                 ${endif}

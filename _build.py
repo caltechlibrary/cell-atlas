@@ -134,6 +134,13 @@ def processSubsection(subsectionFile):
     metadata = getMarkdownMetadata(subsectionFile)
     metadata["id"] = subsectionFile.split("/")[-1][:-3]
     metadata["collectorProfile"] = False
+    if "video" in metadata:
+        currVideoName = metadata["video"].split(".")[0]
+        subsectionName = currVideoName.split("_")[-1]
+        if subsectionName.isnumeric():
+            metadata["thumbnail"] = "{}_thumbnail".format(currVideoName)
+        else:
+            metadata["thumbnail"] = "{}_thumbnail".format("_".join(currVideoName.split(".")[0].split("_")[:-1]))
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
     # Check if collector profile exist in in scientist profiles
@@ -352,6 +359,10 @@ for i in range(len(sectionFiles)):
     metadata["collectorProfile"] = False
     metadata["prevSection"] = None
     metadata["nextSection"] = None
+    if(title[0] == "summary.md"):
+        metadata["thumbnail"] = "{}_thumbnail".format(metadata["video"].split(".")[0])
+    else:
+        metadata["thumbnail"] = "{}_{}_thumbnail".format(metadata["chapter"], metadata["section"])
     
     # Add links to next and prev pages
     # If we are not at the last file, then there is a next section
