@@ -349,6 +349,7 @@ introFileMetaData["typeSection"] = True
 introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
+introFileMetaData["thumbnail"] = "0_1_thumbnail"
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 
 # Render section pages
@@ -410,6 +411,7 @@ keepLookingFileMetaData["typeSection"] = True
 keepLookingFileMetaData["prevSection"] = "outlook"
 keepLookingFileMetaData["nextSection"] = "A-feature-index"
 keepLookingFileMetaData["subsectionsData"] = []
+keepLookingFileMetaData["thumbnail"] = "11_1_thumbnail"
 writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)
 
 # Render feature index page
