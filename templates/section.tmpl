@@ -11,7 +11,7 @@
     <div class="book-section-video-container">
 
         <div class="book-section-video-player">
-            <video id="${playerId}" ${if(doi)}doi="${doi}"${endif} data-file="${video}" poster="img/thumbnails/${thumbnail}.jpg" crossorigin>
+            <video id="${playerId}" ${if(doi)}doi="${doi}"${endif} data-file="${video}" poster="img/thumbnails/${thumbnail}.jpg" ${if(offline)}${else}crossorigin${endif}>
                 ${if(offline)}
                     <source src="videos/${video}">
                 ${endif}
