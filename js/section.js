@@ -138,6 +138,7 @@ function shelfText(el) {
     let nonTextSection = document.getElementById("nonTextContent");
     let textSection = document.getElementById("textContent");
     let unshelfButton = document.getElementById("unshelfButton");
+    let compSliderContainer = document.querySelector(".book-section-non-text-content .book-section-comparison-slider-container");
 
     // Make content of text section untabable
     let textSectionChildren = textSection.getElementsByTagName("*");
@@ -152,7 +153,6 @@ function shelfText(el) {
     nonTextSection.style.right = "0";
     nonTextSection.style.width = "100%";
 
-
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){
         // Calculate top margin value for unshelf button
@@ -160,7 +160,7 @@ function shelfText(el) {
         let heightFromTop = (pageContainer.offsetHeight - textSection.offsetHeight) / 2;
         unshelfButton.style.top = `${heightFromTop}px`;
         unshelfButton.style.transform =  "translate(-100%, 0px)";
-        unshelfButton.setAttribute("tabindex", "0");;
+        unshelfButton.setAttribute("tabindex", "0");
     }, 1000);
 }
 
@@ -516,4 +516,126 @@ function useMouseFocus(event) {
 function useKeyboardFocus(event) {
     let el = event.target;
     el.classList.remove("book-section-video-player-controls-mouse-focus");
+}
+
+function toggleImageSlider(el) {
+    let selectedValue = el.getAttribute("value");
+    let videoPlayerId = el.getAttribute("data-player");
+    let videoQualitySwitcher = document.querySelector(`.video-quality-changer[data-player='${videoPlayerId}']`);
+    let videoContainer = document.querySelector(`.book-section-video-player[data-player='${videoPlayerId}']`);
+    let comparissonContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${videoPlayerId}']`);
+
+    if(selectedValue == "image") {
+        comparissonContainer.style.display = "block";
+        videoContainer.style.visibility = "hidden";
+        videoQualitySwitcher.style.visibility = "hidden";
+    } else {
+        comparissonContainer.style.display = "none";
+        videoContainer.style.visibility = "visible";
+        videoQualitySwitcher.style.visibility = "visible";
+    }
+}
+
+let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
+for(let comparissonContainer of comparissonContainers) {
+    initializeCompSlider(comparissonContainer);
+}
+
+function initializeCompSlider(compSliderContainer) {
+    let videoPlayerId = compSliderContainer.getAttribute("data-player");
+    let videoElement = document.querySelector(`video[id='${videoPlayerId}']`);
+    let beforeComparissonImg = compSliderContainer.querySelector(".book-section-comparison-before img");
+    let overlayComparissonImg = compSliderContainer.querySelector(".book-section-comparison-overlay img");
+    let overlayComparisson = compSliderContainer.querySelector(".book-section-comparison-overlay");
+    let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
+    let containerWidth = videoElement.offsetWidth;
+    let containerHeight = videoElement.offsetHeight;
+    let clicked = 0;
+
+    beforeComparissonImg.style.height = `${containerHeight}px`;
+    beforeComparissonImg.style.width = `${containerWidth}px`;
+    overlayComparissonImg.style.height = `${containerHeight}px`;
+    overlayComparissonImg.style.width = `${containerWidth}px`;
+    compSliderContainer.style.height = `${containerHeight}px`;
+    compSliderContainer.style.width = `${containerWidth}px`;
+
+    overlayComparisson.style.width = `${containerWidth / 2}px`;
+
+    window.addEventListener("resize", resizeSlider);
+
+    /* Execute a function when the mouse button is pressed: */
+    comparissonSlider.addEventListener("mousedown", slideReady);
+    /* Or touched (for touch screens: */
+    comparissonSlider.addEventListener("touchstart", slideReady);
+    function slideReady(e) {
+        /* Prevent any other actions that may occur when moving over the image: */
+        e.preventDefault();
+        /* The slider is now clicked and ready to move: */
+        clicked = 1;
+        /* Execute a function when the slider is moved: */
+        window.addEventListener("mousemove", slideMove);
+        window.addEventListener("touchmove", slideMove);
+        window.addEventListener("mouseup", slideFinish);
+        window.addEventListener("touchend", slideFinish);
+    }
+    
+    function slideFinish() {
+        /* The slider is no longer clicked: */
+        clicked = 0;
+        window.removeEventListener("mousemove", slideMove);
+        window.removeEventListener("touchmove", slideMove);
+        window.removeEventListener("mouseup", slideFinish);
+        window.removeEventListener("touchend", slideFinish);
+    }
+
+    function slideMove(event) {
+        /* If the slider is no longer clicked, exit this function: */
+        if (clicked == 0) return false;
+        /* Get the cursor's x position: */
+        let position = getCursorPos(event);
+        /* Prevent the slider from being positioned outside the image: */
+        if (position < 0) position = 0;
+        if (position > containerWidth) position = containerWidth;
+        /* Execute a function that will resize the overlay image according to the cursor: */
+        slide(position);
+    }
+
+    function getCursorPos(event) {
+        event = event || window.event;
+        /* Get the x positions of the image: */
+        let boundingRect = overlayComparisson.getBoundingClientRect();
+        /* Calculate the cursor's x coordinate, relative to the image: */
+        let positionX = event.pageX - boundingRect.left;
+        /* Consider any page scrolling: */
+        positionX = positionX - window.pageXOffset;
+        return positionX;
+    }
+
+    function slide(position) {
+        /* Resize the image: */
+        overlayComparisson.style.width = `${position}px`;
+        /* Position the slider: */
+        comparissonSlider.style.left = `${overlayComparisson.offsetWidth - (comparissonSlider.offsetWidth / 2)}px`;
+    }
+
+    function resizeSlider(event) {
+        if(compSliderContainer.style.display == "none") return;
+        let containerWidth = videoElement.offsetWidth;
+        let containerHeight = videoElement.offsetHeight;
+        let currentContainerSize = compSliderContainer.offsetWidth;
+        let currentSlidePosition = comparissonSlider.getBoundingClientRect().x - compSliderContainer.getBoundingClientRect().x;
+        let currentSlidePercentage = currentSlidePosition / currentContainerSize;
+
+        beforeComparissonImg.style.height = `${containerHeight}px`;
+        beforeComparissonImg.style.width = `${containerWidth}px`;
+        overlayComparissonImg.style.height = `${containerHeight}px`;
+        overlayComparissonImg.style.width = `${containerWidth}px`;
+        compSliderContainer.style.height = `${containerHeight}px`;
+        compSliderContainer.style.width = `${containerWidth}px`;
+
+        let newSliderPosition = (compSliderContainer.offsetWidth * currentSlidePercentage);
+        overlayComparisson.style.width = `${newSliderPosition}px`;
+        comparissonSlider.style.left = `${overlayComparisson.offsetWidth}px`;
+    }
+
 }

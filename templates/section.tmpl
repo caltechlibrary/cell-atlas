@@ -10,7 +10,20 @@
     <a href="${prevSection}.html" class="book-page-nav">&#8249;</a>
     <div class="book-section-video-container">
 
-        <div class="book-section-video-player">
+        <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="video">Video</button>
+        <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="image">Image</button>
+
+        <div class="book-section-comparison-slider-container" data-player="${playerId}">
+            <div class="book-section-comparison-slider"></div>
+            <div class="book-section-comparison-image book-section-comparison-before">
+                <img src="img/comparissons/2_1_before.jpg">
+            </div>
+            <div class="book-section-comparison-image book-section-comparison-overlay">
+                <img src="img/comparissons/2_1_after.jpg">
+            </div>
+        </div>
+
+        <div class="book-section-video-player" data-player="${playerId}">
             <video id="${playerId}" ${if(doi)}doi="${doi}"${endif} data-file="${video}" poster="img/thumbnails/${thumbnail}.jpg" ${if(offline)}${else}crossorigin${endif}>
                 ${if(offline)}
                     <source src="videos/${video}">

@@ -618,6 +618,36 @@
 
     /*---------------------VIDEO PLAYER--------------------------*/
 
+    /*---------------------COMPARISON SLIDER--------------------------*/ 
+
+    .book-section-comparison-slider-container {
+        display: none;
+        /* position: relative; */
+        position: absolute;
+    }
+
+    .book-section-comparison-slider {
+        position: absolute;
+        z-index: 100;
+        cursor: ew-resize;
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
+        background-color: red;
+    }
+
+    .book-section-comparison-image {
+        position: absolute;
+        width: auto;
+        height: auto;
+        overflow: hidden;
+    }
+
+
+    /*---------------------COMPARISON SLIDER--------------------------*/
+
     .video-quality-changer {
         position: absolute;
         display: flex;
@@ -683,12 +713,6 @@
     .video-quality-changer-label {
         font-size: 0.95em;
         line-height: 1.5;
-    }
-
-    .book-section-non-text-content img {
-        width: 100%;
-        min-width: 0;
-        background-color: rgb(245 245 245);
     }
 
     .book-section-text-open-button {
