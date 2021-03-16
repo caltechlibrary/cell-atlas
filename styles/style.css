@@ -626,6 +626,10 @@
         width: 100%;
     }
 
+    .book-section-comparison-range:focus +  .book-section-comparison-slider {
+        outline: -webkit-focus-ring-color auto 1px;
+    }
+
     .book-section-comparison-slider {
         position: absolute;
         z-index: 100;

@@ -532,7 +532,7 @@ function toggleImageSlider(el) {
     } else {
         comparissonContainer.style.display = "none";
         videoContainer.style.display = "block";
-        videoQualitySwitcher.style.display = "none";
+        videoQualitySwitcher.style.display = "block";
     }
 }
 
@@ -546,6 +546,7 @@ function initializeCompSlider(compSliderContainer) {
     let videoElement = document.querySelector(`video[id='${videoPlayerId}']`);
     let overlayComparisson = compSliderContainer.querySelector(".book-section-comparison-after");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
+    let comparissonRange = compSliderContainer.querySelector(".book-section-comparison-range");
     let containerWidth = videoElement.offsetWidth;
     let clicked = 0;
 
@@ -600,10 +601,15 @@ function initializeCompSlider(compSliderContainer) {
 
     function slide(position) {
         /* Resize the image: */
-        console.log(`position = ${position}`);
         overlayComparisson.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
         /* Position the slider: */
         comparissonSlider.style.left = `${((overlayComparisson.offsetWidth - (comparissonSlider.offsetWidth / 2)) / compSliderContainer.offsetWidth) * 100}%`;
+        comparissonRange.value = (position / compSliderContainer.offsetWidth) * 100;
     }
+
+    comparissonRange.addEventListener("input", function() {
+        overlayComparisson.style.width = `${comparissonRange.value}%`;
+        comparissonSlider.style.left = `${comparissonRange.value - (((comparissonSlider.offsetWidth / 2) / compSliderContainer.offsetWidth) * 100)}%`;
+    });
 
 }
