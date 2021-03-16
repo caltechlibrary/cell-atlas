@@ -542,13 +542,14 @@ for(let comparissonContainer of comparissonContainers) {
 }
 
 function initializeCompSlider(compSliderContainer) {
-    let overlayComparisson = compSliderContainer.querySelector(".book-section-comparison-after");
+    let beforeImage = compSliderContainer.querySelector(".book-section-comparison-after");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
-    let comparissonRange = compSliderContainer.querySelector(".book-section-comparison-range");
+    let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
-    
+    compInputRange.addEventListener("input", inputToSlide);
+
     function slideReady(e) {
         e.preventDefault();
         window.addEventListener("mousemove", slideMove);
@@ -573,21 +574,21 @@ function initializeCompSlider(compSliderContainer) {
 
     function getCursorPos(event) {
         event = event || window.event;
-        let boundingRect = overlayComparisson.getBoundingClientRect();
+        let boundingRect = beforeImage.getBoundingClientRect();
         let positionX = event.pageX - boundingRect.left;
         positionX = positionX - window.pageXOffset;
         return positionX;
     }
 
     function slide(position) {
-        overlayComparisson.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
-        comparissonSlider.style.left = `${((overlayComparisson.offsetWidth - (comparissonSlider.offsetWidth / 2)) / compSliderContainer.offsetWidth) * 100}%`;
-        comparissonRange.value = (position / compSliderContainer.offsetWidth) * 100;
+        beforeImage.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
+        comparissonSlider.style.left = `${((beforeImage.offsetWidth - (comparissonSlider.offsetWidth / 2)) / compSliderContainer.offsetWidth) * 100}%`;
+        compInputRange.value = (position / compSliderContainer.offsetWidth) * 100;
     }
 
-    comparissonRange.addEventListener("input", function() {
-        overlayComparisson.style.width = `${comparissonRange.value}%`;
-        comparissonSlider.style.left = `${comparissonRange.value - (((comparissonSlider.offsetWidth / 2) / compSliderContainer.offsetWidth) * 100)}%`;
-    });
+    function inputToSlide() {
+        beforeImage.style.width = `${compInputRange.value}%`;
+        comparissonSlider.style.left = `${compInputRange.value - (((comparissonSlider.offsetWidth / 2) / compSliderContainer.offsetWidth) * 100)}%`;
+    }
 
 }
