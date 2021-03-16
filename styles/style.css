@@ -621,9 +621,9 @@
     /*---------------------COMPARISON SLIDER--------------------------*/ 
 
     .book-section-comparison-slider-container {
+        position: relative;
         display: none;
-        /* position: relative; */
-        position: absolute;
+        width: 100%;
     }
 
     .book-section-comparison-slider {
@@ -638,11 +638,21 @@
         background-color: red;
     }
 
-    .book-section-comparison-image {
-        position: absolute;
-        width: auto;
+    .book-section-comparison-before {
+        position: relative;
+        width: 100%;
         height: auto;
+    }
+
+    .book-section-comparison-after {
         overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-image: url(../img/comparissons/2_1_after.jpg);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
     }
 
 

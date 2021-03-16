@@ -526,13 +526,13 @@ function toggleImageSlider(el) {
     let comparissonContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${videoPlayerId}']`);
 
     if(selectedValue == "image") {
-        comparissonContainer.style.display = "block";
-        videoContainer.style.visibility = "hidden";
-        videoQualitySwitcher.style.visibility = "hidden";
+        comparissonContainer.style.display = "flex";
+        videoContainer.style.display = "none";
+        videoQualitySwitcher.style.display = "none";
     } else {
         comparissonContainer.style.display = "none";
-        videoContainer.style.visibility = "visible";
-        videoQualitySwitcher.style.visibility = "visible";
+        videoContainer.style.display = "block";
+        videoQualitySwitcher.style.display = "none";
     }
 }
 
@@ -544,24 +544,11 @@ for(let comparissonContainer of comparissonContainers) {
 function initializeCompSlider(compSliderContainer) {
     let videoPlayerId = compSliderContainer.getAttribute("data-player");
     let videoElement = document.querySelector(`video[id='${videoPlayerId}']`);
-    let beforeComparissonImg = compSliderContainer.querySelector(".book-section-comparison-before img");
-    let overlayComparissonImg = compSliderContainer.querySelector(".book-section-comparison-overlay img");
-    let overlayComparisson = compSliderContainer.querySelector(".book-section-comparison-overlay");
+    let overlayComparisson = compSliderContainer.querySelector(".book-section-comparison-after");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let containerWidth = videoElement.offsetWidth;
-    let containerHeight = videoElement.offsetHeight;
     let clicked = 0;
 
-    beforeComparissonImg.style.height = `${containerHeight}px`;
-    beforeComparissonImg.style.width = `${containerWidth}px`;
-    overlayComparissonImg.style.height = `${containerHeight}px`;
-    overlayComparissonImg.style.width = `${containerWidth}px`;
-    compSliderContainer.style.height = `${containerHeight}px`;
-    compSliderContainer.style.width = `${containerWidth}px`;
-
-    overlayComparisson.style.width = `${containerWidth / 2}px`;
-
-    window.addEventListener("resize", resizeSlider);
 
     /* Execute a function when the mouse button is pressed: */
     comparissonSlider.addEventListener("mousedown", slideReady);
@@ -613,29 +600,10 @@ function initializeCompSlider(compSliderContainer) {
 
     function slide(position) {
         /* Resize the image: */
-        overlayComparisson.style.width = `${position}px`;
+        console.log(`position = ${position}`);
+        overlayComparisson.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
         /* Position the slider: */
-        comparissonSlider.style.left = `${overlayComparisson.offsetWidth - (comparissonSlider.offsetWidth / 2)}px`;
-    }
-
-    function resizeSlider(event) {
-        if(compSliderContainer.style.display == "none") return;
-        let containerWidth = videoElement.offsetWidth;
-        let containerHeight = videoElement.offsetHeight;
-        let currentContainerSize = compSliderContainer.offsetWidth;
-        let currentSlidePosition = comparissonSlider.getBoundingClientRect().x - compSliderContainer.getBoundingClientRect().x;
-        let currentSlidePercentage = currentSlidePosition / currentContainerSize;
-
-        beforeComparissonImg.style.height = `${containerHeight}px`;
-        beforeComparissonImg.style.width = `${containerWidth}px`;
-        overlayComparissonImg.style.height = `${containerHeight}px`;
-        overlayComparissonImg.style.width = `${containerWidth}px`;
-        compSliderContainer.style.height = `${containerHeight}px`;
-        compSliderContainer.style.width = `${containerWidth}px`;
-
-        let newSliderPosition = (compSliderContainer.offsetWidth * currentSlidePercentage);
-        overlayComparisson.style.width = `${newSliderPosition}px`;
-        comparissonSlider.style.left = `${overlayComparisson.offsetWidth}px`;
+        comparissonSlider.style.left = `${((overlayComparisson.offsetWidth - (comparissonSlider.offsetWidth / 2)) / compSliderContainer.offsetWidth) * 100}%`;
     }
 
 }
