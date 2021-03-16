@@ -582,13 +582,13 @@ function initializeCompSlider(compSliderContainer) {
 
     function slide(position) {
         beforeImage.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
-        comparissonSlider.style.left = `${((beforeImage.offsetWidth - (comparissonSlider.offsetWidth / 2)) / compSliderContainer.offsetWidth) * 100}%`;
+        comparissonSlider.style.left = `${(beforeImage.offsetWidth / compSliderContainer.offsetWidth) * 100}%`;
         compInputRange.value = (position / compSliderContainer.offsetWidth) * 100;
     }
 
     function inputToSlide() {
         beforeImage.style.width = `${compInputRange.value}%`;
-        comparissonSlider.style.left = `${compInputRange.value - (((comparissonSlider.offsetWidth / 2) / compSliderContainer.offsetWidth) * 100)}%`;
+        comparissonSlider.style.left = `${compInputRange.value}%`;
     }
 
 }
