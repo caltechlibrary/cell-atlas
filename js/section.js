@@ -542,25 +542,15 @@ for(let comparissonContainer of comparissonContainers) {
 }
 
 function initializeCompSlider(compSliderContainer) {
-    let videoPlayerId = compSliderContainer.getAttribute("data-player");
-    let videoElement = document.querySelector(`video[id='${videoPlayerId}']`);
     let overlayComparisson = compSliderContainer.querySelector(".book-section-comparison-after");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let comparissonRange = compSliderContainer.querySelector(".book-section-comparison-range");
-    let containerWidth = videoElement.offsetWidth;
-    let clicked = 0;
 
-
-    /* Execute a function when the mouse button is pressed: */
     comparissonSlider.addEventListener("mousedown", slideReady);
-    /* Or touched (for touch screens: */
     comparissonSlider.addEventListener("touchstart", slideReady);
+    
     function slideReady(e) {
-        /* Prevent any other actions that may occur when moving over the image: */
         e.preventDefault();
-        /* The slider is now clicked and ready to move: */
-        clicked = 1;
-        /* Execute a function when the slider is moved: */
         window.addEventListener("mousemove", slideMove);
         window.addEventListener("touchmove", slideMove);
         window.addEventListener("mouseup", slideFinish);
@@ -568,8 +558,6 @@ function initializeCompSlider(compSliderContainer) {
     }
     
     function slideFinish() {
-        /* The slider is no longer clicked: */
-        clicked = 0;
         window.removeEventListener("mousemove", slideMove);
         window.removeEventListener("touchmove", slideMove);
         window.removeEventListener("mouseup", slideFinish);
@@ -577,32 +565,22 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function slideMove(event) {
-        /* If the slider is no longer clicked, exit this function: */
-        if (clicked == 0) return false;
-        /* Get the cursor's x position: */
         let position = getCursorPos(event);
-        /* Prevent the slider from being positioned outside the image: */
         if (position < 0) position = 0;
-        if (position > containerWidth) position = containerWidth;
-        /* Execute a function that will resize the overlay image according to the cursor: */
+        if (position > compSliderContainer.offsetWidth) position = compSliderContainer.offsetWidth;
         slide(position);
     }
 
     function getCursorPos(event) {
         event = event || window.event;
-        /* Get the x positions of the image: */
         let boundingRect = overlayComparisson.getBoundingClientRect();
-        /* Calculate the cursor's x coordinate, relative to the image: */
         let positionX = event.pageX - boundingRect.left;
-        /* Consider any page scrolling: */
         positionX = positionX - window.pageXOffset;
         return positionX;
     }
 
     function slide(position) {
-        /* Resize the image: */
         overlayComparisson.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
-        /* Position the slider: */
         comparissonSlider.style.left = `${((overlayComparisson.offsetWidth - (comparissonSlider.offsetWidth / 2)) / compSliderContainer.offsetWidth) * 100}%`;
         comparissonRange.value = (position / compSliderContainer.offsetWidth) * 100;
     }
