@@ -13,7 +13,7 @@ function openModal(modalId) {
 
     document.addEventListener("focusin", restrictFocus);
     document.addEventListener("keydown", closeModalKey);
-    modalOverlay.addEventListener("click", closeModalClick);
+    modalOverlay.addEventListener("mousedown", closeModalClick);
 
     function restrictFocus(event) {
         if(!modal.contains(event.target)) {

@@ -635,7 +635,6 @@
 
     .book-section-comparison-slider {
         position: absolute;
-        z-index: 100;
         cursor: ew-resize;
         width: 40px;
         height: 40px;
@@ -885,6 +884,10 @@
 
     .subsection-modal-container .book-section-video-player {
         flex: 1 0 auto;
+    }
+
+    .subsection-modal-container .book-section-comparison-slider-container {
+        margin: 0 0.5em;
     }
 
     .subsection-modal-text {
