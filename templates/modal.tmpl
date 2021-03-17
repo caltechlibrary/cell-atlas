@@ -1,7 +1,20 @@
 <div class="subsection-modal-container" id="${it.id}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
-        <div class="book-section-video-player">
+
+        <div class="book-section-comparison-button-container">
+            <button onclick="toggleImageSlider(this)" data-player="${it.playerId}" value="video">Video</button>
+            <button onclick="toggleImageSlider(this)" data-player="${it.playerId}" value="image">Image</button>
+        </div>
+
+        <div class="book-section-comparison-slider-container" data-player="${it.playerId}">
+            <input class="book-section-comparison-range sr-only" type="range" value="50" max="100">
+            <div class="book-section-comparison-slider"></div>
+            <img class="book-section-comparison-before" src="img/comparissons/2_1_before.jpg">
+            <div class="book-section-comparison-after"></div>
+        </div>
+
+        <div class="book-section-video-player" data-player="${it.playerId}">
             <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}" poster="img/thumbnails/${it.thumbnail}.jpg" ${if(offline)}${else}crossorigin${endif}>
                 ${if(offline)}
                     <source src="videos/${it.video}">

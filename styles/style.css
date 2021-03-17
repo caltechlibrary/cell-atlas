@@ -620,6 +620,10 @@
 
     /*---------------------COMPARISON SLIDER--------------------------*/ 
 
+    .book-section-comparison-button-container {
+        display: flex;
+    }
+
     .book-section-comparison-slider-container {
         position: relative;
         display: none;
