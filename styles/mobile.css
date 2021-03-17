@@ -618,7 +618,7 @@ blockquote {
         font-size: 1.75em;
     }
 
-    .subsection-modal-container img {
+    .subsection-modal-img {
         width: 100%;
         max-height: 50vh;
         object-fit: contain;
