@@ -489,7 +489,7 @@
 
     .book-section-video-container {
         position: relative;
-        width: 100%;
+        width: fit-content;
         max-width: 77.5vw;
     }
 
@@ -620,14 +620,13 @@
 
     /*---------------------COMPARISON SLIDER--------------------------*/ 
 
-    .book-section-comparison-button-container {
-        display: flex;
-    }
-
     .book-section-comparison-slider-container {
         position: relative;
         display: none;
-        width: 100%;
+        max-height: 82vh;
+        width: fit-content;
+        max-width: 100%;
+        margin: auto;
     }
 
     .book-section-comparison-range:focus +  .book-section-comparison-slider {
@@ -648,8 +647,8 @@
 
     .book-section-comparison-before {
         position: relative;
-        width: 100%;
-        height: auto;
+        max-height: inherit;
+        max-width: inherit;
     }
 
     .book-section-comparison-after {

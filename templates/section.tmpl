@@ -10,8 +10,10 @@
     <a href="${prevSection}.html" class="book-page-nav">&#8249;</a>
     <div class="book-section-video-container">
 
-        <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="video">Video</button>
-        <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="image">Image</button>
+        <div class="book-section-comparison-button-container">
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="video">Video</button>
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="image">Image</button>
+        </div>
 
         <div class="book-section-comparison-slider-container" data-player="${playerId}">
             <input class="book-section-comparison-range sr-only" type="range" value="50" max="100">
