@@ -508,6 +508,7 @@
     .book-section-video-player video {
         width: 100%;
         max-height: 80vh;
+        border-radius: 5px;
     }
 
     .book-section-video-player-paint-canvas, .book-section-video-player-scrub-canvas {
@@ -532,6 +533,7 @@
         justify-content: flex-end;
         transition: opacity 0.25s;
         opacity: 1;
+        border-radius: 5px;
     }
 
     .book-section-video-player-controls-buttons {
@@ -653,6 +655,7 @@
         margin: auto;
         border: 7px #cccccc solid;
         border-radius: 10px;
+        background: #cccccc;
     }
 
     .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
@@ -704,6 +707,7 @@
         position: relative;
         max-height: inherit;
         max-width: inherit;
+        border-radius: 5px;
     }
 
     .book-section-comparison-after {
@@ -715,6 +719,7 @@
         background-image: url(../img/comparissons/2_1_after.jpg);
         background-repeat: no-repeat;
         background-size: auto 100%;
+        border-radius: 5px;
     }
 
 
@@ -975,6 +980,7 @@
     .subsection-modal-container video {
         width: 100%;
         background-color: rgb(255 255 255);
+        border-radius: 5px;
     }
 
     .subsection-modal-container .video-quality-changer {
