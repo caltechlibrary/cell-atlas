@@ -507,7 +507,7 @@
 
     .book-section-video-player video {
         width: 100%;
-        max-height: 80vh;
+        max-height: 78vh;
         border-radius: 5px;
     }
 
@@ -649,7 +649,7 @@
     .book-section-comparison-slider-container {
         position: relative;
         display: none;
-        max-height: 80vh;
+        max-height: 81vh;
         width: fit-content;
         max-width: 100%;
         margin: auto;
@@ -726,11 +726,10 @@
     /*---------------------COMPARISON SLIDER--------------------------*/
 
     .video-quality-changer {
-        position: absolute;
+        position: relative;
         display: flex;
-        bottom: 0;
-        right: 0;
-        transform: translateY(100%);
+        width: fit-content;
+        float: right;
         color: #ffffff;
         font-size: 1em;
     }
@@ -943,17 +942,12 @@
         overflow: auto;
     }
 
-    .subsection-modal-container .book-section-comparison-button-container {
-        margin-left: 18px;
-    }
-
     .subsection-modal-container .book-section-video-player {
         flex: 1 0 auto;
         border-radius: 10px 10px 0 0;
     }
 
     .subsection-modal-container .book-section-comparison-slider-container {
-        margin: 0 0.5em;
         border-radius: 10px 10px 0 0;
     }
 
