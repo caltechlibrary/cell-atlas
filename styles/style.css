@@ -679,10 +679,11 @@
         height: 50px;
         background-color: #15404e;
         border-radius: 100%;
+        box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
     }
 
     .book-section-comparison-button svg {
-        fill: #ffffff;
+        fill: #cccccc;
         width: 55%;
         margin: 0 -2px;
     }
