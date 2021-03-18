@@ -933,12 +933,18 @@
         overflow: auto;
     }
 
+    .subsection-modal-container .book-section-comparison-button-container {
+        margin-left: 18px;
+    }
+
     .subsection-modal-container .book-section-video-player {
         flex: 1 0 auto;
+        border-radius: 10px 10px 0 0;
     }
 
     .subsection-modal-container .book-section-comparison-slider-container {
         margin: 0 0.5em;
+        border-radius: 10px 10px 0 0;
     }
 
     .subsection-modal-text {
