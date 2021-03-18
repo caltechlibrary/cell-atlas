@@ -585,7 +585,7 @@ function initializeCompSlider(compSliderContainer) {
 
     function slide(position) {
         beforeImage.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
-        comparissonSlider.style.left = `${(beforeImage.offsetWidth / compSliderContainer.offsetWidth) * 100}%`;
+        comparissonSlider.style.left = `${(position / compSliderContainer.offsetWidth) * 100}%`;
         compInputRange.value = (position / compSliderContainer.offsetWidth) * 100;
     }
 

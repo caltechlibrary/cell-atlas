@@ -651,7 +651,7 @@
         border-radius: 10px;
     }
 
-    .book-section-comparison-range:focus +  .book-section-comparison-button {
+    .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
         outline: -webkit-focus-ring-color auto 1px;
     }
 
