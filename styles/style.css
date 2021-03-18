@@ -501,6 +501,8 @@
         background: #ffffff;
         display: flex;
         align-items: center;
+        border: 7px #cccccc solid;
+        border-radius: 10px;
     }
 
     .book-section-video-player video {
@@ -620,6 +622,24 @@
 
     /*---------------------COMPARISON SLIDER--------------------------*/ 
 
+    .book-section-comparison-button-container {
+        margin-left: 10px;
+    }
+
+    .book-section-comparison-button-container button {
+        background: #cccccc;
+        border: 1px solid hsl(219, 1%, 72%);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 0 0.2em hsl(0deg 0% 0%);
+    }
+
+    .book-section-comparison-button-container button svg {
+        width: 1.75em;
+        margin: 0.15em 0.75em 0em 0.75em;
+        fill: #15404e;
+    }
+
     .book-section-comparison-slider-container {
         position: relative;
         display: none;
@@ -627,21 +647,52 @@
         width: fit-content;
         max-width: 100%;
         margin: auto;
+        border: 7px #cccccc solid;
+        border-radius: 10px;
     }
 
-    .book-section-comparison-range:focus +  .book-section-comparison-slider {
+    .book-section-comparison-range:focus +  .book-section-comparison-button {
         outline: -webkit-focus-ring-color auto 1px;
     }
 
     .book-section-comparison-slider {
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         cursor: ew-resize;
-        width: 40px;
-        height: 40px;
-        top: 50%;
+        height: 100%;
+        width: 0.3em;
         left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: red;
+        background: #cccccc;
+    }
+    
+    .book-section-comparison-button {
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: ew-resize;
+        width: 50px;
+        height: 50px;
+        background-color: #15404e;
+        border-radius: 100%;
+    }
+
+    .book-section-comparison-button svg {
+        fill: #ffffff;
+        width: 55%;
+        margin: 0 -2px;
+    }
+
+    .book-section-comparison-button svg:nth-child(1) {
+        transform: rotate(270deg);
+    }
+
+    .book-section-comparison-button svg:nth-child(2) {
+        transform: rotate(90deg);
     }
 
     .book-section-comparison-before {
