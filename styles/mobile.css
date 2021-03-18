@@ -90,7 +90,8 @@ blockquote {
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
 .book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
 .nav-menu-footer, .landing-page-download-button, .book-section-video-player-scrub-canvas,
-.book-section-video-player-paint-canvas, .book-section-video-player-controls {
+.book-section-video-player-paint-canvas, .book-section-video-player-controls,
+.book-section-comparison-button-container, .book-section-comparison-slider-container {
     display: none;
 }
 

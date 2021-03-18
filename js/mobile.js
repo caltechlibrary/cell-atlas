@@ -67,6 +67,15 @@ function initializeMobileView() {
     for(let videoEl of allVideos) {
         videoEl.setAttribute("controls", "");
     }
+
+    // Remove comparisson slider if it is showing
+    let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
+    for(let comparissonContainer of comparissonContainers) {
+        let playerId = comparissonContainer.getAttribute("data-player");
+        let videoPlayer = document.querySelector(`.book-section-video-player[data-player='${playerId}'`);
+        videoPlayer.style.display = "block";
+        comparissonContainer.style.display = "none";
+    }
 }
 
 function terminateMobileView() {
