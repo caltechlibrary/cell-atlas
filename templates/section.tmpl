@@ -11,8 +11,8 @@
     <div class="book-section-video-container">
 
         <div class="book-section-comparison-button-container">
-            <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="video">${noun_Video.svg()}</button>
-            <button onclick="toggleImageSlider(this)" data-player="${playerId}" value="image">${noun_Image.svg()}</button>
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="selected" value="video">${noun_Video.svg()}</button>
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="" value="image">${noun_Image.svg()}</button>
         </div>
 
         <div class="book-section-comparison-slider-container" data-player="${playerId}">

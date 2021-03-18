@@ -518,6 +518,16 @@ function useKeyboardFocus(event) {
     el.classList.remove("book-section-video-player-controls-mouse-focus");
 }
 
+let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
+for(let comparisonVideoButton of comparisonVideoButtons) {
+    comparisonVideoButton.addEventListener("mousedown", function() {
+        comparisonVideoButton.classList.add("book-section-video-player-controls-mouse-focus");
+    });
+    comparisonVideoButton.addEventListener("keydown", function() {
+        comparisonVideoButton.classList.remove("book-section-video-player-controls-mouse-focus");
+    });
+}
+
 function toggleImageSlider(el) {
     let selectedValue = el.getAttribute("value");
     let videoPlayerId = el.getAttribute("data-player");
@@ -525,6 +535,7 @@ function toggleImageSlider(el) {
     let videoContainer = document.querySelector(`.book-section-video-player[data-player='${videoPlayerId}']`);
     let videoElement = videoContainer.querySelector("video");
     let comparissonContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${videoPlayerId}']`);
+    let currSelectedButton = el.parentElement.querySelector("button[data-state='selected']");
 
     if(!videoElement.paused) videoElement.pause();
 
@@ -537,6 +548,8 @@ function toggleImageSlider(el) {
         videoContainer.style.display = "block";
         videoQualitySwitcher.style.display = "flex";
     }
+    currSelectedButton.setAttribute("data-state", "");
+    el.setAttribute("data-state", "selected");
 }
 
 let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
