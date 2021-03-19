@@ -84,7 +84,7 @@ function toggleNavTabable(tabIndex) {
     setTabIndex(chapterHeaders, tabIndex);
     setTabIndex(navButtons, tabIndex);
     setTabIndex(expandedSectionLinks, tabIndex);
-    setTabIndex([offlineLink], tabIndex);
+    if(offlineLink) setTabIndex([offlineLink], tabIndex);
 }
 
 function setTabIndex(elements, tabIndex) {
