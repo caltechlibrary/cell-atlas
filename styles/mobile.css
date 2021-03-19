@@ -631,6 +631,7 @@ blockquote {
     }
 
     .book-section-comparison-before {
+        height: 100%;
         width: 100%;
         border-radius: 5px;
     }
@@ -949,11 +950,13 @@ blockquote {
     .book-section-comparison-slider-container {
         height: 100%;
         max-height: inherit;
+        width: fit-content;
     }
 
     .book-section-comparison-before {
+        height: auto;
+        max-height: 100%;
         width: auto;
-        height: 100%;
     }
 
     .video-quality-changer {
