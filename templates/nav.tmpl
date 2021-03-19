@@ -13,7 +13,7 @@
                                 ${nav.chapter} <span class="nav-menu-chapter-title">${nav.title}</span>
                             </h1>
                         </a>
-                        ${if(nav.sections)}<button onclick="toggleSectionList(this)">${noun_Chevron.svg()}</button>${endif}
+                        ${if(nav.sections)}<button onclick="toggleSectionList(this)" tabindex="-1">${noun_Chevron.svg()}</button>${endif}
                     </div>
                 ${endif}
                 ${if(nav.sections)}
@@ -36,7 +36,7 @@
     ${if(offline)}
     ${else}
         <div class="nav-menu-footer">
-            <a href="download.html">Offline Version</a>
+            <a href="download.html" tabindex="-1">Offline Version</a>
         </div>
     ${endif}
     <ul class="mobile-footer-data">
