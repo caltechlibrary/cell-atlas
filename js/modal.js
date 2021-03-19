@@ -5,15 +5,23 @@ function openModal(modalId) {
     let modal = document.getElementById(modalId);
     let modalOverlay = document.getElementById("modalOverlay");
     let lastFocused = document.activeElement;
+    let modalText = modal.querySelector(".subsection-modal-text");
 
     modalOverlay.style.display = "block";
     modal.style.display = "flex";
     modal.setAttribute("tabindex", 0);
     modal.focus();
+    modalText.setAttribute("tabindex", "0");
 
     document.addEventListener("focusin", restrictFocus);
     document.addEventListener("keydown", closeModalKey);
     modalOverlay.addEventListener("click", closeModalClick);
+    modalText.addEventListener("mousedown", function() {
+        modalText.classList.add("book-section-video-player-controls-mouse-focus");
+    });
+    modalText.addEventListener("keydown", function() {
+        modalText.classList.remove("book-section-video-player-controls-mouse-focus"); 
+    });
 
     function restrictFocus(event) {
         if(!modal.contains(event.target)) {
@@ -42,6 +50,7 @@ function openModal(modalId) {
         modalOverlay.removeEventListener("click", closeModalClick);
         modalOverlay.style.display = "none";
         modal.style.display = "none";
+        modalText.setAttribute("tabindex", "-1");
         lastFocused.focus();
     }
 }

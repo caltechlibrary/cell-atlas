@@ -1,6 +1,6 @@
 ${if(chapter)}
     ${if(prevSection)}
-        <a href="${prevSection}.html" class="book-page-nav book-appendix-nav">&#8249;</a>
+        <a href="${prevSection}.html" class="book-page-nav book-appendix-nav" data-nav="prev">&#8249;</a>
     ${else}
         <a class="book-page-nav hidden">&#8249;</a>
     ${endif}
@@ -39,7 +39,7 @@ ${endif}
 </div>
 ${if(chapter)}
     ${if(nextSection)}
-        <a href="${nextSection}.html" class="book-page-nav book-appendix-nav book-appendix-nav-right">&#8250;</a>
+        <a href="${nextSection}.html" class="book-page-nav book-appendix-nav book-appendix-nav-right" data-nav="next">&#8250;</a>
     ${else}
         <a class="book-page-nav hidden">&#8250;</a>
     ${endif}
