@@ -148,7 +148,7 @@ function toggleView(el) {
         pageControls.removeAttribute("style");
     } else if(el.value == "video") {
         textContent.style.display = "none";
-        nonTextContent.style.display = "block";
+        nonTextContent.style.display = "flex";
         videoPlayer.style.display = "block";
         comparisonSliderContainer.style.display = "none";
         qualityChanger.style.display = "flex";
@@ -157,7 +157,7 @@ function toggleView(el) {
         pageControls.style.position = "fixed";
     } else if(el.value == "image") {
         textContent.style.display = "none";
-        nonTextContent.style.display = "block";
+        nonTextContent.style.display = "flex";
         comparisonSliderContainer.style.display = "flex";
         videoPlayer.style.display = "none";
         qualityChanger.style.display = "none";
