@@ -591,7 +591,8 @@ function initializeCompSlider(compSliderContainer) {
     function getCursorPos(event) {
         event = event || window.event;
         let boundingRect = beforeImage.getBoundingClientRect();
-        let positionX = event.pageX - boundingRect.left;
+        pageX = event.pageX || event.changedTouches[0].pageX;
+        let positionX = pageX - boundingRect.left;
         positionX = positionX - window.pageXOffset;
         return positionX;
     }

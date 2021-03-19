@@ -557,6 +557,109 @@ blockquote {
         line-height: 1.5;
     }
 
+    /*---------------------COMPARISON SLIDER--------------------------*/ 
+
+    .book-section-comparison-button-container {
+        margin-left: 10px;
+    }
+
+    .book-section-comparison-button-container button {
+        background: #cccccc;
+        border: 1px solid hsl(219, 1%, 72%);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 0 0.2em hsl(0deg 0% 0%);
+    }
+
+    .book-section-comparison-button-container button svg {
+        width: 1.75em;
+        margin: 0.15em 0.75em 0em 0.75em;
+        fill: #ffffff;
+    }
+
+    .book-section-comparison-button-container button[data-state="selected"] svg {
+        fill: #15404e;
+    }
+
+    .book-section-comparison-slider-container {
+        position: relative;
+        display: none;
+        align-items: center;
+        max-height: 81vh;
+        width: fit-content;
+        max-width: 100%;
+        margin: auto;
+        border: 7px #cccccc solid;
+        border-radius: 10px;
+        background: #cccccc;
+    }
+
+    .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
+        outline: -webkit-focus-ring-color auto 1px;
+    }
+
+    .book-section-comparison-slider {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: ew-resize;
+        height: 100%;
+        width: 0.3em;
+        left: 50%;
+        background: #cccccc;
+    }
+    
+    .book-section-comparison-button {
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: ew-resize;
+        width: 50px;
+        height: 50px;
+        background-color: #15404e;
+        border-radius: 100%;
+        box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
+    }
+
+    .book-section-comparison-button svg {
+        fill: #cccccc;
+        width: 55%;
+        margin: 0 -2px;
+    }
+
+    .book-section-comparison-button svg:nth-child(1) {
+        transform: rotate(270deg);
+    }
+
+    .book-section-comparison-button svg:nth-child(2) {
+        transform: rotate(90deg);
+    }
+
+    .book-section-comparison-before {
+        position: relative;
+        max-height: inherit;
+        max-width: inherit;
+        border-radius: 5px;
+    }
+
+    .book-section-comparison-after {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-image: url(../img/comparissons/2_1_after.jpg);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        border-radius: 5px;
+    }
+
+    /*---------------------COMPARISON SLIDER--------------------------*/
+
     /* || MODAL styles */
     .subsection-modal-overlay {
         display: none;

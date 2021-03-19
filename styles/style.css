@@ -649,6 +649,7 @@
     .book-section-comparison-slider-container {
         position: relative;
         display: none;
+        align-items: center;
         max-height: 81vh;
         width: fit-content;
         max-width: 100%;
