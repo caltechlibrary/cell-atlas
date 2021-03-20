@@ -96,6 +96,7 @@ function setTabIndex(elements, tabIndex) {
 function toggleSectionList(el) {
     let sectionList = el.parentElement.parentElement.querySelector("ol");
     let sectionListLinks = sectionList.querySelectorAll("a");
+    let navMenu = document.getElementById("navMenu");
     if(sectionList.offsetHeight > 0) {
         sectionList.style.height = "0px";
         el.style.transform = "rotate(0deg)";
@@ -112,6 +113,6 @@ function toggleSectionList(el) {
         el.style.transform = "rotate(180deg)";
         sectionList.style.height = `${sectionList.scrollHeight}px`;
         sectionList.setAttribute("expanded", "true");
-        setTabIndex(sectionListLinks, 0);
+        if(navMenu.offsetHeight > 0) setTabIndex(sectionListLinks, 0);
     }
 }

@@ -25,6 +25,16 @@ if(sectionText) {
     }
 }
 
+let sectionTextMaterial = document.querySelector(".book-section-text-material");
+if(sectionTextMaterial) {
+    sectionTextMaterial.addEventListener("mousedown", function() {
+        sectionTextMaterial.classList.add("book-section-video-player-controls-mouse-focus");
+    });
+    sectionTextMaterial.addEventListener("keydown", function() {
+        sectionTextMaterial.classList.remove("book-section-video-player-controls-mouse-focus"); 
+    });
+}
+
 // Add event listener to video player to shelf text on first play
 let video = document.querySelector("#nonTextContent video");
 if(video) {
@@ -52,6 +62,21 @@ for(let i = 0; i < qualityChangerButtons.length; i++) {
     });
     qualityChangerButtons[i].addEventListener("mousedown", useMouseFocus);
 }
+
+document.addEventListener("keydown", function(event) {
+    let focusedElement = document.activeElement;
+    if(!focusedElement || 
+        focusedElement.tagName == "INPUT") {
+            return;
+        }
+    if(event.key === "ArrowLeft"){
+        let prevLink = document.querySelector("a[data-nav='prev']");
+        if(prevLink) prevLink.click();
+    } else if (event.key === "ArrowRight") {
+        let nextLink = document.querySelector("a[data-nav='next']");
+        if(nextLink) nextLink.click();
+    }
+});
 
 function shelfOnFirstPlay(event) {
     shelfText();
