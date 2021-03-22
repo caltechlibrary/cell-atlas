@@ -76,6 +76,11 @@ function initializeMobileView() {
         videoPlayer.style.display = "block";
         comparissonContainer.style.display = "none";
     }
+
+    let sliderContainer = document.querySelector("#nonTextContent .book-section-comparison-slider-container");
+    window.addEventListener("resize", function(){
+        sliderContainerImgResize(sliderContainer);
+    });
 }
 
 function terminateMobileView() {
@@ -191,4 +196,41 @@ function resizeDropdown(element) {
             element.style.height = element.scrollHeight + "px";
         }, 500); 
     }, { once: true });
+}
+
+function imageSliderFullscreen(element) {
+    let playerId = element.getAttribute("data-player");
+    let nonTextContent = document.querySelector("#nonTextContent");
+    let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
+    let sliderContainerImg = sliderContainer.querySelector("img");
+    let currentSliderState = element.getAttribute("data-state");
+    let videoContainer = document.querySelector(".book-section-video-container");
+    if(currentSliderState == "fullscreen") {
+        element.setAttribute("data-state", "initial");
+        nonTextContent.style["z-index"] = "initial";
+        nonTextContent.style.background = "initial";
+        nonTextContent.style.padding = "56px 1em";
+        videoContainer.style["max-height"] = "90%";
+        sliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
+    } else {
+        element.setAttribute("data-state", "fullscreen");
+        nonTextContent.style["z-index"] = 100;
+        nonTextContent.style.background = "#000";
+        nonTextContent.style.padding = 0;
+        videoContainer.style["max-height"] = "none";
+        sliderContainerImg.style.removeProperty("height");
+        sliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
+    }
+}
+
+function sliderContainerImgResize(sliderContainer) {
+    let sliderContainerBtn = sliderContainer.querySelector("button");
+    let containerState = sliderContainerBtn.getAttribute("data-state");
+    if(containerState == "fullscreen") return;
+    let sliderContainerImg = sliderContainer.querySelector("img");
+    if(window.innerWidth < 480) {
+        sliderContainerImg.style.removeProperty("height");
+    } else {
+        sliderContainerImg.style.height = `${sliderContainer.scrollHeight}px`;
+    }
 }

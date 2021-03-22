@@ -585,6 +585,22 @@ blockquote {
         background: #cccccc;
     }
 
+    .book-section-comparison-slider-container-fullscreen {
+        object-fit: contain;
+        position: fixed !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        left: 0px !important;
+        box-sizing: border-box !important;
+        min-width: 0px !important;
+        max-width: none !important;
+        min-height: 0px !important;
+        max-height: none !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0px !important;
+    }
+
     .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
         outline: -webkit-focus-ring-color auto 1px;
     }
@@ -631,6 +647,7 @@ blockquote {
     }
 
     .book-section-comparison-before {
+        flex: 1;
         height: 100%;
         width: 100%;
         border-radius: 5px;
@@ -646,6 +663,24 @@ blockquote {
         background-repeat: no-repeat;
         background-size: auto 100%;
         border-radius: 5px;
+    }
+
+    .book-section-comparison-slider-container button {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 2% 1% 1% 2%;
+        background: #cccccc;
+        border: 1px solid hsl(219, 1%, 72%);
+        border-bottom: none;
+        border-right: none;
+        border-radius: 10px 0 0 0;
+    }
+
+    .book-section-comparison-slider-container button svg {
+        width: 1.25em;
+        fill: #15404e;
     }
 
     /*---------------------COMPARISON SLIDER--------------------------*/
@@ -950,7 +985,7 @@ blockquote {
     .book-section-comparison-slider-container {
         height: 100%;
         max-height: inherit;
-        width: fit-content;
+        /* width: fit-content; */
     }
 
     .book-section-comparison-before {
@@ -965,6 +1000,24 @@ blockquote {
         top: 50%;
         left: 100%;
         transform: translate(0, -50%);
+    }
+
+    .book-section-comparison-slider-container-fullscreen {
+        object-fit: contain;
+        position: relative !important;
+        top: 0px !important;
+        right: 0px !important;
+        bottom: 0px !important;
+        left: 0px !important;
+        box-sizing: border-box !important;
+        min-width: 0px !important;
+        max-width: none !important;
+        min-height: 0px !important;
+        max-height: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        margin: 0px !important;
     }
 
     /* || MODAL styles */
