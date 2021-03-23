@@ -68,6 +68,7 @@ function initializeMobileView() {
         videoEl.setAttribute("controls", "");
     }
 
+    // Properly resize image slider whenever the screen size changes
     let sliderContainer = document.querySelector("#nonTextContent .book-section-comparison-slider-container");
     window.addEventListener("resize", function(){
         sliderContainerImgResize(sliderContainer);
@@ -265,7 +266,7 @@ function imageSliderExitFullscreen(element) {
 function sliderContainerImgResize(sliderContainer) {
     let sliderContainerBtn = sliderContainer.querySelector("button");
     let containerState = sliderContainerBtn.getAttribute("data-state");
-    if(containerState == "fullscreen") return;
+    if(containerState == "fullscreen" || sliderContainer.scrollHeight == 0) return;
     let sliderContainerImg = sliderContainer.querySelector("img");
     if(window.innerWidth < 480) {
         sliderContainerImg.style.removeProperty("height");
