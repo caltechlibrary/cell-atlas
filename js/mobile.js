@@ -211,13 +211,16 @@ function imageSliderFullscreen(element) {
         nonTextContent.style.background = "initial";
         nonTextContent.style.padding = "56px 1em";
         videoContainer.style["max-height"] = "90%";
+        videoContainer.style.display = "flex";
         sliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
+        sliderContainerImgResize(sliderContainer);
     } else {
         element.setAttribute("data-state", "fullscreen");
         nonTextContent.style["z-index"] = 100;
         nonTextContent.style.background = "#000";
         nonTextContent.style.padding = 0;
         videoContainer.style["max-height"] = "none";
+        videoContainer.style.display = "block";
         sliderContainerImg.style.removeProperty("height");
         sliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
     }
