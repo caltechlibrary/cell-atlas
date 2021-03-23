@@ -235,5 +235,8 @@ function sliderContainerImgResize(sliderContainer) {
         sliderContainerImg.style.removeProperty("height");
     } else {
         sliderContainerImg.style.height = `${sliderContainer.scrollHeight}px`;
+        setTimeout(function(){
+            sliderContainerImg.style.height = `${sliderContainer.scrollHeight}px`;
+        }, 400);
     }
 }
