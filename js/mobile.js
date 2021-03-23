@@ -68,15 +68,6 @@ function initializeMobileView() {
         videoEl.setAttribute("controls", "");
     }
 
-    // Remove comparisson slider if it is showing
-    let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
-    for(let comparissonContainer of comparissonContainers) {
-        let playerId = comparissonContainer.getAttribute("data-player");
-        let videoPlayer = document.querySelector(`.book-section-video-player[data-player='${playerId}'`);
-        videoPlayer.style.display = "block";
-        comparissonContainer.style.display = "none";
-    }
-
     let sliderContainer = document.querySelector("#nonTextContent .book-section-comparison-slider-container");
     window.addEventListener("resize", function(){
         sliderContainerImgResize(sliderContainer);
@@ -199,10 +190,10 @@ function resizeDropdown(element) {
 }
 
 function imageSliderEnterFullscreen(element) {
-    let exitFullBtn = document.querySelector("#compExitFull");
     let playerId = element.getAttribute("data-player");
     let videoContainer = document.querySelector(".book-section-video-container");
     let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
+    let exitFullBtn = document.querySelector(`#compExitFull-${playerId}`);
     let sliderContainerImg = sliderContainer.querySelector("img");
     element.style.display = "none"; 
     exitFullBtn.style.display = "flex";
@@ -225,10 +216,10 @@ function imageSliderEnterFullscreen(element) {
 }
 
 function imageSliderExitFullscreen(element) {
-    let enterFullBtn = document.querySelector("#compEnterFull");
     let playerId = element.getAttribute("data-player");
     let videoContainer = document.querySelector(".book-section-video-container");
     let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
+    let enterFullBtn = document.querySelector(`#compEnterFull-${playerId}`);
     element.style.display = "none"; 
     enterFullBtn.style.display = "flex";
     if(videoContainer.requestFullscreen) {

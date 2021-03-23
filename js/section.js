@@ -545,7 +545,7 @@ function toggleImageSlider(el) {
         videoQualitySwitcher.style.display = "none";
     } else {
         comparissonContainer.style.display = "none";
-        videoContainer.style.display = "block";
+        videoContainer.style.display = "flex";
         videoQualitySwitcher.style.display = "flex";
     }
     currSelectedButton.setAttribute("data-state", "");
