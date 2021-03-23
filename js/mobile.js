@@ -192,6 +192,7 @@ function resizeDropdown(element) {
 function imageSliderEnterFullscreen(element) {
     let playerId = element.getAttribute("data-player");
     let fullBackground = document.querySelector(`#fullBackground-${playerId}`);
+    let backgroundParent = fullBackground.parentElement;
     let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
     let exitFullBtn = document.querySelector(`#compExitFull-${playerId}`);
     let sliderContainerImg = sliderContainer.querySelector("img");
@@ -210,12 +211,22 @@ function imageSliderEnterFullscreen(element) {
         fullBackground.classList.add("book-section-comparison-slider-fullscreen-background");
         sliderContainerImg.style.removeProperty("height");
         sliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
+        if(backgroundParent.classList[0] == "subsection-modal-container") {
+            backgroundParent.style.top = "initial";
+            backgroundParent.style.left = "initial";
+            backgroundParent.style.transform = "initial";
+            backgroundParent.style.width = "initial";
+            backgroundParent.style.height = "100%";
+            backgroundParent.style["max-height"] = "initial";
+            backgroundParent.style.border = "initial";
+        }
     }
 }
 
 function imageSliderExitFullscreen(element) {
     let playerId = element.getAttribute("data-player");
     let fullBackground = document.querySelector(`#fullBackground-${playerId}`);
+    let backgroundParent = fullBackground.parentElement;
     let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
     let enterFullBtn = document.querySelector(`#compEnterFull-${playerId}`);
     element.style.display = "none"; 
@@ -232,6 +243,15 @@ function imageSliderExitFullscreen(element) {
         fullBackground.classList.remove("book-section-comparison-slider-fullscreen-background");
         sliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
         sliderContainerImgResize(sliderContainer);
+        if(backgroundParent.classList[0] == "subsection-modal-container") {
+            backgroundParent.style.top = "50%";
+            backgroundParent.style.left = "50%";
+            backgroundParent.style.transform = "translate(-50%, -50%)";
+            backgroundParent.style.width = "82.5%";
+            backgroundParent.style.height = "initial";
+            backgroundParent.style["max-height"] = "90%";
+            backgrounParent.style.border = "4px solid #000000";
+        }
     }
 }
 

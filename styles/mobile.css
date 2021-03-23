@@ -1090,6 +1090,7 @@ blockquote {
     }
 
     .subsection-modal-container .book-section-comparison-before {
+        height: 100%;
         width: 100%;
     }
 
