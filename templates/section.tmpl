@@ -25,7 +25,8 @@
                     ${noun_Triangle.svg()}
                 </div>
             </div>
-            <button onclick="imageSliderFullscreen(this)" data-player="${playerId}" data-state="initial">${noun_Fullscreen.svg()}</button>
+            <button id="compEnterFull" class="book-section-comparison-slider-fullscreen" onclick="imageSliderEnterFullscreen(this)" data-player="${playerId}" data-state="initial">${noun_Fullscreen.svg()}</button>
+            <button id="compExitFull" class="book-section-comparison-slider-exit-fullscreen" onclick="imageSliderExitFullscreen(this)" data-player="${playerId}" data-state="initial">${noun_X.svg()}</button>
         </div>
 
         <div class="book-section-video-player" data-player="${playerId}">

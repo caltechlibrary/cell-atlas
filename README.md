@@ -85,3 +85,5 @@ Library and the Jensen Lab.
 "[Image](https://thenounproject.com/search/?q=image&i=3776456)" by Dooder from [the Noun Project](https://thenounproject.com/).
 
 "[triangle](https://thenounproject.com/term/triangle/2309918/)" by Nawicon from [the Noun Project](https://thenounproject.com/).
+
+"[X](https://thenounproject.com/search/?q=x&i=2222119)" by Imam from [the Noun Project](https://thenounproject.com/).

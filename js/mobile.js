@@ -198,43 +198,52 @@ function resizeDropdown(element) {
     }, { once: true });
 }
 
-function imageSliderFullscreen(element) {
+function imageSliderEnterFullscreen(element) {
+    let exitFullBtn = document.querySelector("#compExitFull");
     let playerId = element.getAttribute("data-player");
     let videoContainer = document.querySelector(".book-section-video-container");
     let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
     let sliderContainerImg = sliderContainer.querySelector("img");
+    element.style.display = "none"; 
+    exitFullBtn.style.display = "flex";
     if(videoContainer.requestFullscreen) {
-        if(document.fullscreenElement) {
-            document.exitFullscreen();
-            sliderContainer.classList.remove("book-section-comparison-slider-fullscreen-api");
-        } else {
-            sliderContainerImg.style.removeProperty("height");
-            videoContainer.requestFullscreen();
-            sliderContainer.classList.add("book-section-comparison-slider-fullscreen-api");
-        }
+        sliderContainerImg.style.removeProperty("height");
+        videoContainer.requestFullscreen();
+        sliderContainer.classList.add("book-section-comparison-slider-fullscreen-api");
     } else {
         let nonTextContent = document.querySelector("#nonTextContent");
         let sliderContainerImg = sliderContainer.querySelector("img");
-        let currentSliderState = element.getAttribute("data-state");
-        if(currentSliderState == "fullscreen") {
-            element.setAttribute("data-state", "initial");
-            nonTextContent.style["z-index"] = "initial";
-            nonTextContent.style.background = "initial";
-            nonTextContent.style.padding = "56px 1em";
-            videoContainer.style["max-height"] = "90%";
-            videoContainer.style.display = "flex";
-            sliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
-            sliderContainerImgResize(sliderContainer);
-        } else {
-            element.setAttribute("data-state", "fullscreen");
-            nonTextContent.style["z-index"] = 100;
-            nonTextContent.style.background = "#000";
-            nonTextContent.style.padding = 0;
-            videoContainer.style["max-height"] = "none";
-            videoContainer.style.display = "block";
-            sliderContainerImg.style.removeProperty("height");
-            sliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
-        }
+        element.setAttribute("data-state", "fullscreen");
+        nonTextContent.style["z-index"] = 100;
+        nonTextContent.style.background = "#000";
+        nonTextContent.style.padding = 0;
+        videoContainer.style["max-height"] = "none";
+        videoContainer.style.display = "block";
+        sliderContainerImg.style.removeProperty("height");
+        sliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
+    }
+}
+
+function imageSliderExitFullscreen(element) {
+    let enterFullBtn = document.querySelector("#compEnterFull");
+    let playerId = element.getAttribute("data-player");
+    let videoContainer = document.querySelector(".book-section-video-container");
+    let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
+    element.style.display = "none"; 
+    enterFullBtn.style.display = "flex";
+    if(videoContainer.requestFullscreen) {
+        document.exitFullscreen();
+        sliderContainer.classList.remove("book-section-comparison-slider-fullscreen-api");
+    } else {
+        let nonTextContent = document.querySelector("#nonTextContent");
+        element.setAttribute("data-state", "initial");
+        nonTextContent.style["z-index"] = "initial";
+        nonTextContent.style.background = "initial";
+        nonTextContent.style.padding = "56px 1em";
+        videoContainer.style["max-height"] = "90%";
+        videoContainer.style.display = "flex";
+        sliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
+        sliderContainerImgResize(sliderContainer);
     }
 }
 
