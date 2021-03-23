@@ -585,6 +585,12 @@ blockquote {
         background: #cccccc;
     }
 
+    .book-section-comparison-slider-fullscreen-api {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
     .book-section-comparison-slider-container-fullscreen {
         object-fit: contain;
         position: fixed !important;
@@ -1003,6 +1009,14 @@ blockquote {
         top: 50%;
         left: 100%;
         transform: translate(0, -50%);
+    }
+
+    .book-section-comparison-slider-fullscreen-api {
+        top: initial;
+        left: initial;
+        transform: initial;
+        box-sizing: border-box;
+        margin: auto;
     }
 
     .book-section-comparison-slider-container-fullscreen {
