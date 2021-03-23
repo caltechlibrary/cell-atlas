@@ -29,7 +29,10 @@ function openModal(modalId) {
     }
     
     function closeModalClick(event) {
-        if(event.target == modalOverlay){
+        console.log("closeModalClick fired from event");
+        console.log(event);
+        if(event.target == modalOverlay || event.target.classList[0] == "modal-exit-button-mobile"){
+            console.log("modalOverlay was clicked. Calling hideModal()");
             hideModal();
         }
     }
@@ -40,6 +43,7 @@ function openModal(modalId) {
         document.removeEventListener("focusin", restrictFocus);
         document.removeEventListener("keydown", closeModalKey);
         modalOverlay.removeEventListener("click", closeModalClick);
+        console.log("Making modalOverlay display = none");
         modalOverlay.style.display = "none";
         modal.style.display = "none";
         lastFocused.focus();

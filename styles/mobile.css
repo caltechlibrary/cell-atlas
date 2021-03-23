@@ -9,6 +9,7 @@
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || CHAPTER - Chapter landing pages */
 /* || SECTION -  Styles for every page of the book that is a section */
+/* || SLIDER - Styles for the image comparison slider element */
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
 /* || APPENDIX - Appendix pages at end of book */
@@ -490,9 +491,6 @@ blockquote {
         width: 100%;
     }
 
-    .book-section-video-container {
-    }
-
     .video-quality-changer {
         display: flex;
         float: right;
@@ -553,7 +551,7 @@ blockquote {
         line-height: 1.5;
     }
 
-    /*---------------------COMPARISON SLIDER--------------------------*/ 
+    /* || SLIDER styles */
 
     .book-section-comparison-button-container {
         margin-left: 10px;
@@ -703,8 +701,6 @@ blockquote {
         width: 1.25em;
         fill: #15404e;
     }
-
-    /*---------------------COMPARISON SLIDER--------------------------*/
 
     /* || MODAL styles */
     .subsection-modal-overlay {
@@ -1004,6 +1000,8 @@ blockquote {
         height: 100%;
         max-height: 90%;
     }
+
+    /* || SLIDER styles */
 
     .book-section-comparison-slider-container {
         height: 100%;

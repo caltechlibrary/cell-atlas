@@ -6,6 +6,8 @@
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || CHAPTER - Chapter landing pages */
 /* || SECTION - Section/Summary pages of book */
+/* || PLAYER - Styles for the custom video player */
+/* || SLIDER - Styles for the image comparison slider element */
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || FOOTER - Footer used on all pages */
 /* || APPENDIX - Appendix pages at end of book */
@@ -493,7 +495,7 @@
         max-width: 77.5vw;
     }
 
-    /*---------------------VIDEO PLAYER--------------------------*/
+    /* || PLAYER styles */
 
 
     .book-section-video-player {
@@ -619,10 +621,7 @@
       border: 0; 
     }
 
-
-    /*---------------------VIDEO PLAYER--------------------------*/
-
-    /*---------------------COMPARISON SLIDER--------------------------*/ 
+    /* || SLIDER styles */
 
     .book-section-comparison-button-container {
         margin-left: 10px;
@@ -722,9 +721,6 @@
         background-size: auto 100%;
         border-radius: 5px;
     }
-
-
-    /*---------------------COMPARISON SLIDER--------------------------*/
 
     .video-quality-changer {
         position: relative;
