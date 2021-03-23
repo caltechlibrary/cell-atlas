@@ -1079,6 +1079,15 @@ blockquote {
         margin: auto !important;
     }
 
+    .subsection-modal-container .book-section-comparison-before {
+        height: 100%;
+        width: 100%;
+    }
+
+    .subsection-modal-container-comparison-img {
+        width: auto !important;
+    }
+
     /* || MODAL styles */
     .subsection-modal-container {
         width: 90%;
@@ -1087,11 +1096,6 @@ blockquote {
 
     .subsection-modal-container video {
         max-height: 50vh;
-    }
-
-    .subsection-modal-container .book-section-comparison-before {
-        height: 100%;
-        width: 100%;
     }
 
     /* || CHAPTER styles */

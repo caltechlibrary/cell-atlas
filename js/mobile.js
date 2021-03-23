@@ -203,6 +203,9 @@ function imageSliderEnterFullscreen(element) {
         fullBackground.requestFullscreen();
         sliderContainer.classList.add("book-section-comparison-slider-fullscreen-api");
         fullBackground.classList.add("book-section-comparison-slider-fullscreen-background-api");
+        if(backgroundParent.classList[0] == "subsection-modal-container") {
+            sliderContainerImg.classList.add("subsection-modal-container-comparison-img");
+        }
     } else {
         let nonTextContent = document.querySelector("#nonTextContent");
         let sliderContainerImg = sliderContainer.querySelector("img");
@@ -229,11 +232,15 @@ function imageSliderExitFullscreen(element) {
     let backgroundParent = fullBackground.parentElement;
     let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
     let enterFullBtn = document.querySelector(`#compEnterFull-${playerId}`);
+    let sliderContainerImg = sliderContainer.querySelector("img");
     element.style.display = "none"; 
     enterFullBtn.style.display = "flex";
     if(fullBackground.requestFullscreen) {
         document.exitFullscreen();
         sliderContainer.classList.remove("book-section-comparison-slider-fullscreen-api");
+        if(backgroundParent.classList[0] == "subsection-modal-container") {
+            sliderContainerImg.classList.remove("subsection-modal-container-comparison-img");
+        }
     } else {
         let nonTextContent = document.querySelector("#nonTextContent");
         element.setAttribute("data-state", "initial");
