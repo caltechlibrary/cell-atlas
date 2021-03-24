@@ -551,7 +551,7 @@ function toggleImageSlider(el) {
                 afterImage.style.left = window.getComputedStyle(beforeImage)["margin-left"];
                 let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
                 marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-                let newPercentage = compInputRange.value - ((marginLeft / compSliderContainer.offsetWidth) * 100);
+                let newPercentage = compInputRange.value - ((marginLeft / comparissonContainer.offsetWidth) * 100);
                 if(newPercentage < 0) newPercentage = 0;
                 afterImage.style.width = `${newPercentage}%`;
             } else {

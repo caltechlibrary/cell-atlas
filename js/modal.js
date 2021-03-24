@@ -20,6 +20,7 @@ function openModal(modalId) {
     modalOverlay.addEventListener("mousedown", closeModalClick);
 
     if(afterImage && 900 >= window.innerWidth) {
+        resizeSliderMobile();
         window.addEventListener("resize", resizeSliderMobile);
     }
 
@@ -55,7 +56,6 @@ function openModal(modalId) {
     }
 
     function resizeSliderMobile() {
-        console.log("In resizeSliderMobile()");
         if(window.innerWidth >= 480) {
             afterImage.style.left = window.getComputedStyle(beforeImage)["margin-left"];
             let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
