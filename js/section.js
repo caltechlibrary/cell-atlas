@@ -536,6 +536,7 @@ function toggleImageSlider(el) {
     let videoElement = videoContainer.querySelector("video");
     let comparissonContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${videoPlayerId}']`);
     let currSelectedButton = el.parentElement.querySelector("button[data-state='selected']");
+    let compInputRange = comparissonContainer.querySelector(".book-section-comparison-range");
 
     if(!videoElement.paused) videoElement.pause();
 
@@ -543,6 +544,21 @@ function toggleImageSlider(el) {
         comparissonContainer.style.display = "flex";
         videoContainer.style.display = "none";
         videoQualitySwitcher.style.display = "none";
+        if(comparissonContainer.getAttribute("data-modal") && 900 >= window.innerWidth) {
+            let afterImage = comparissonContainer.querySelector(".book-section-comparison-after");
+            if(window.innerWidth >= 480) {
+                let beforeImage = comparissonContainer.querySelector("img");
+                afterImage.style.left = window.getComputedStyle(beforeImage)["margin-left"];
+                let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+                marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
+                let newPercentage = compInputRange.value - ((marginLeft / compSliderContainer.offsetWidth) * 100);
+                if(newPercentage < 0) newPercentage = 0;
+                afterImage.style.width = `${newPercentage}%`;
+            } else {
+                afterImage.style.removeProperty("left");
+                afterImage.style.width = `${compInputRange.value}%`;
+            }
+        }
     } else {
         comparissonContainer.style.display = "none";
         videoContainer.style.display = "flex";
@@ -558,7 +574,8 @@ for(let comparissonContainer of comparissonContainers) {
 }
 
 function initializeCompSlider(compSliderContainer) {
-    let beforeImage = compSliderContainer.querySelector(".book-section-comparison-after");
+    let afterImage = compSliderContainer.querySelector(".book-section-comparison-after");
+    let beforeImage = compSliderContainer.querySelector("img");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
 
@@ -590,7 +607,7 @@ function initializeCompSlider(compSliderContainer) {
 
     function getCursorPos(event) {
         event = event || window.event;
-        let boundingRect = beforeImage.getBoundingClientRect();
+        let boundingRect = compSliderContainer.getBoundingClientRect();
         pageX = event.pageX || event.changedTouches[0].pageX;
         let positionX = pageX - boundingRect.left;
         positionX = positionX - window.pageXOffset;
@@ -598,13 +615,16 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function slide(position) {
-        beforeImage.style.width = `${(position / compSliderContainer.offsetWidth) * 100}%`;
-        comparissonSlider.style.left = `${(position / compSliderContainer.offsetWidth) * 100}%`;
-        compInputRange.value = (position / compSliderContainer.offsetWidth) * 100;
+        let afterValue = (position / compSliderContainer.offsetWidth) * 100;
+        comparissonSlider.style.left = `${afterValue}%`;
+        compInputRange.value = afterValue;
+        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
+        afterImage.style.width = `${afterValue - ((marginLeft / compSliderContainer.offsetWidth) * 100)}%`;
     }
 
     function inputToSlide() {
-        beforeImage.style.width = `${compInputRange.value}%`;
+        afterImage.style.width = `${compInputRange.value}%`;
         comparissonSlider.style.left = `${compInputRange.value}%`;
     }
 

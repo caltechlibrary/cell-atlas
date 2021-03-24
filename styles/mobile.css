@@ -1081,7 +1081,14 @@ blockquote {
         margin: auto !important;
     }
 
+    .subsection-modal-container .book-section-comparison-slider-container {
+        background: none;
+    }
+
     .subsection-modal-container .book-section-comparison-before {
+        max-height: 50vh;
+        flex: 0;
+        margin: auto;
         height: 100%;
         width: 100%;
     }
