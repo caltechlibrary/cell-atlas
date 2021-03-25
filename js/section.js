@@ -618,7 +618,7 @@ function initializeCompSlider(compSliderContainer) {
         comparissonSlider.style.left = `${compInputRange.value}%`;
     }
 
-    function compEnterFullScreen(event) {
+    function compEnterFullScreen() {
         enterFullBtn.style.display = "none"; 
         exitFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "fullscreen");
@@ -640,6 +640,9 @@ function initializeCompSlider(compSliderContainer) {
                 modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
             }
         }
+        beforeImage.classList.add("book-section-comparison-before-on");
+        compSliderContainer.classList.add("book-section-comparison-slider-container-on");
+        fullBackground.classList.add("book-section-comparison-slider-fullscreen-on");
     }
 
     function compExitFullScreen() {
@@ -666,6 +669,9 @@ function initializeCompSlider(compSliderContainer) {
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
             }
         }
+        beforeImage.classList.remove("book-section-comparison-before-on");
+        compSliderContainer.classList.remove("book-section-comparison-slider-container-on");
+        fullBackground.classList.remove("book-section-comparison-slider-fullscreen-on");
     }
 
 }
