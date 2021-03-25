@@ -559,21 +559,14 @@ blockquote {
         max-height: inherit;
     }
 
-    .book-section-comparison-slider-fullscreen-background {
-        display: flex;
+    .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] {
+        border: none !important;
         position: fixed;
         top: 0;
         left: 0;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        z-index: 100;
         background: #000;
         max-height: none;
-    }
-
-    .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] {
-        border: none !important;
+        z-index: 100;
     }
 
     .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-slider-container {
@@ -586,6 +579,7 @@ blockquote {
 
     .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-before {
         margin: 0 !important;
+        max-height: 100% !important;
     }
 
     .book-section-comparison-button-container {

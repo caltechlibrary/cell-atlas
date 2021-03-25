@@ -624,7 +624,6 @@ function initializeCompSlider(compSliderContainer) {
         fullBackground.setAttribute("data-state", "fullscreen");
         if(fullBackground.requestFullscreen) {
             fullBackground.requestFullscreen();
-            fullBackground.classList.add("book-section-comparison-slider-fullscreen-background-api");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 beforeImage.classList.add("subsection-modal-container-comparison-img");
             }
@@ -632,7 +631,6 @@ function initializeCompSlider(compSliderContainer) {
             let nonTextContent = document.querySelector("#nonTextContent");
             enterFullBtn.setAttribute("data-state", "fullscreen");
             nonTextContent.style["z-index"] = 100;
-            fullBackground.classList.add("book-section-comparison-slider-fullscreen-background");
             compSliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
@@ -654,11 +652,7 @@ function initializeCompSlider(compSliderContainer) {
             let nonTextContent = document.querySelector("#nonTextContent");
             exitFullBtn.setAttribute("data-state", "initial");
             nonTextContent.style["z-index"] = "initial";
-            nonTextContent.style.background = "initial";
-            nonTextContent.style.padding = "56px 1em";
-            fullBackground.classList.remove("book-section-comparison-slider-fullscreen-background");
             compSliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
-            sliderContainerImgResize(compSliderContainer);
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
