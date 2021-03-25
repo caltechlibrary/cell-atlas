@@ -624,7 +624,6 @@ function initializeCompSlider(compSliderContainer) {
         fullBackground.setAttribute("data-state", "fullscreen");
         if(fullBackground.requestFullscreen) {
             fullBackground.requestFullscreen();
-            compSliderContainer.classList.add("book-section-comparison-slider-fullscreen-api");
             fullBackground.classList.add("book-section-comparison-slider-fullscreen-background-api");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 beforeImage.classList.add("subsection-modal-container-comparison-img");
@@ -640,9 +639,6 @@ function initializeCompSlider(compSliderContainer) {
                 modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
             }
         }
-        beforeImage.classList.add("book-section-comparison-before-on");
-        compSliderContainer.classList.add("book-section-comparison-slider-container-on");
-        fullBackground.classList.add("book-section-comparison-slider-fullscreen-on");
     }
 
     function compExitFullScreen() {
@@ -651,7 +647,6 @@ function initializeCompSlider(compSliderContainer) {
         fullBackground.setAttribute("data-state", "initial");
         if(fullBackground.requestFullscreen) {
             document.exitFullscreen();
-            compSliderContainer.classList.remove("book-section-comparison-slider-fullscreen-api");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 beforeImage.classList.remove("subsection-modal-container-comparison-img");
             }
@@ -669,9 +664,6 @@ function initializeCompSlider(compSliderContainer) {
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
             }
         }
-        beforeImage.classList.remove("book-section-comparison-before-on");
-        compSliderContainer.classList.remove("book-section-comparison-slider-container-on");
-        fullBackground.classList.remove("book-section-comparison-slider-fullscreen-on");
     }
 
 }

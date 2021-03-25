@@ -622,8 +622,7 @@
     }
 
     /* || SLIDER styles */
-
-    .book-section-comparison-slider-fullscreen-initial {
+    .book-section-comparison-slider-fullscreen-container {
         display: none;
     }
 
