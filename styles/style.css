@@ -623,6 +623,10 @@
 
     /* || SLIDER styles */
 
+    .book-section-comparison-slider-fullscreen-initial {
+        display: none;
+    }
+
     .book-section-comparison-button-container {
         margin-left: 10px;
     }
@@ -647,7 +651,7 @@
 
     .book-section-comparison-slider-container {
         position: relative;
-        display: none;
+        display: flex;
         align-items: center;
         max-height: 81vh;
         width: fit-content;

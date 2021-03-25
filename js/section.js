@@ -539,33 +539,17 @@ function toggleImageSlider(el) {
     let videoQualitySwitcher = document.querySelector(`.video-quality-changer[data-player='${videoPlayerId}']`);
     let videoContainer = document.querySelector(`.book-section-video-player[data-player='${videoPlayerId}']`);
     let videoElement = videoContainer.querySelector("video");
-    let comparissonContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${videoPlayerId}']`);
+    let comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
     let currSelectedButton = el.parentElement.querySelector("button[data-state='selected']");
-    let compInputRange = comparissonContainer.querySelector(".book-section-comparison-range");
 
     if(!videoElement.paused) videoElement.pause();
 
     if(selectedValue == "image") {
-        comparissonContainer.style.display = "flex";
+        comparissonFullBackground.style.display = "block";
         videoContainer.style.display = "none";
         videoQualitySwitcher.style.display = "none";
-        if(comparissonContainer.getAttribute("data-modal") && 900 >= window.innerWidth) {
-            let afterImage = comparissonContainer.querySelector(".book-section-comparison-after");
-            if(window.innerWidth >= 480) {
-                let beforeImage = comparissonContainer.querySelector("img");
-                afterImage.style.left = window.getComputedStyle(beforeImage)["margin-left"];
-                let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
-                marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-                let newPercentage = compInputRange.value - ((marginLeft / comparissonContainer.offsetWidth) * 100);
-                if(newPercentage < 0) newPercentage = 0;
-                afterImage.style.width = `${newPercentage}%`;
-            } else {
-                afterImage.style.removeProperty("left");
-                afterImage.style.width = `${compInputRange.value}%`;
-            }
-        }
     } else {
-        comparissonContainer.style.display = "none";
+        comparissonFullBackground.style.display = "none";
         videoContainer.style.display = "flex";
         videoQualitySwitcher.style.display = "flex";
     }
@@ -588,7 +572,6 @@ function initializeCompSlider(compSliderContainer) {
     compInputRange.addEventListener("input", inputToSlide);
     enterFullBtn.addEventListener("click", compEnterFullScreen);
     exitFullBtn.addEventListener("click", compExitFullScreen);
-    window.addEventListener("resize", resizeCompSlider);
 
     function slideReady(e) {
         e.preventDefault();
@@ -635,12 +618,11 @@ function initializeCompSlider(compSliderContainer) {
         comparissonSlider.style.left = `${compInputRange.value}%`;
     }
 
-    function compEnterFullScreen() {
+    function compEnterFullScreen(event) {
         enterFullBtn.style.display = "none"; 
         exitFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "fullscreen");
         if(fullBackground.requestFullscreen) {
-            beforeImage.style.removeProperty("height");
             fullBackground.requestFullscreen();
             compSliderContainer.classList.add("book-section-comparison-slider-fullscreen-api");
             fullBackground.classList.add("book-section-comparison-slider-fullscreen-background-api");
@@ -652,7 +634,6 @@ function initializeCompSlider(compSliderContainer) {
             enterFullBtn.setAttribute("data-state", "fullscreen");
             nonTextContent.style["z-index"] = 100;
             fullBackground.classList.add("book-section-comparison-slider-fullscreen-background");
-            beforeImage.style.removeProperty("height");
             compSliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
@@ -684,19 +665,6 @@ function initializeCompSlider(compSliderContainer) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
             }
-        }
-    }
-
-    function resizeCompSlider() {
-        if(window.innerWidth >= 900) return;
-        if(fullBackground.getAttribute("data-state") == "fullscreen" || compSliderContainer.scrollHeight == 0) return;
-        if(window.innerWidth < 480) {
-            beforeImage.style.removeProperty("height");
-        } else {
-            beforeImage.style.height = `${compSliderContainer.scrollHeight}px`;
-            setTimeout(function(){
-                beforeImage.style.height = `${compSliderContainer.scrollHeight}px`;
-            }, 400);
         }
     }
 
