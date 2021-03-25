@@ -67,12 +67,6 @@ function initializeMobileView() {
     for(let videoEl of allVideos) {
         videoEl.setAttribute("controls", "");
     }
-
-    // Properly resize image slider whenever the screen size changes
-    let sliderContainer = document.querySelector("#nonTextContent .book-section-comparison-slider-container");
-    window.addEventListener("resize", function(){
-        sliderContainerImgResize(sliderContainer);
-    });
 }
 
 function terminateMobileView() {
@@ -188,92 +182,4 @@ function resizeDropdown(element) {
             element.style.height = element.scrollHeight + "px";
         }, 500); 
     }, { once: true });
-}
-
-function imageSliderEnterFullscreen(element) {
-    let playerId = element.getAttribute("data-player");
-    let fullBackground = document.querySelector(`#fullBackground-${playerId}`);
-    let backgroundParent = fullBackground.parentElement;
-    let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
-    let exitFullBtn = document.querySelector(`#compExitFull-${playerId}`);
-    let sliderContainerImg = sliderContainer.querySelector("img");
-    element.style.display = "none"; 
-    exitFullBtn.style.display = "flex";
-    if(fullBackground.requestFullscreen) {
-        sliderContainerImg.style.removeProperty("height");
-        fullBackground.requestFullscreen();
-        sliderContainer.classList.add("book-section-comparison-slider-fullscreen-api");
-        fullBackground.classList.add("book-section-comparison-slider-fullscreen-background-api");
-        if(backgroundParent.classList[0] == "subsection-modal-container") {
-            sliderContainerImg.classList.add("subsection-modal-container-comparison-img");
-        }
-    } else {
-        let nonTextContent = document.querySelector("#nonTextContent");
-        let sliderContainerImg = sliderContainer.querySelector("img");
-        element.setAttribute("data-state", "fullscreen");
-        nonTextContent.style["z-index"] = 100;
-        fullBackground.classList.add("book-section-comparison-slider-fullscreen-background");
-        sliderContainerImg.style.removeProperty("height");
-        sliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
-        if(backgroundParent.classList[0] == "subsection-modal-container") {
-            backgroundParent.style.top = "initial";
-            backgroundParent.style.left = "initial";
-            backgroundParent.style.transform = "initial";
-            backgroundParent.style.width = "initial";
-            backgroundParent.style.height = "100%";
-            backgroundParent.style["max-height"] = "initial";
-            backgroundParent.style.border = "initial";
-        }
-    }
-}
-
-function imageSliderExitFullscreen(element) {
-    let playerId = element.getAttribute("data-player");
-    let fullBackground = document.querySelector(`#fullBackground-${playerId}`);
-    let backgroundParent = fullBackground.parentElement;
-    let sliderContainer = document.querySelector(`.book-section-comparison-slider-container[data-player='${playerId}']`);
-    let enterFullBtn = document.querySelector(`#compEnterFull-${playerId}`);
-    let sliderContainerImg = sliderContainer.querySelector("img");
-    element.style.display = "none"; 
-    enterFullBtn.style.display = "flex";
-    if(fullBackground.requestFullscreen) {
-        document.exitFullscreen();
-        sliderContainer.classList.remove("book-section-comparison-slider-fullscreen-api");
-        if(backgroundParent.classList[0] == "subsection-modal-container") {
-            sliderContainerImg.classList.remove("subsection-modal-container-comparison-img");
-        }
-    } else {
-        let nonTextContent = document.querySelector("#nonTextContent");
-        element.setAttribute("data-state", "initial");
-        nonTextContent.style["z-index"] = "initial";
-        nonTextContent.style.background = "initial";
-        nonTextContent.style.padding = "56px 1em";
-        fullBackground.classList.remove("book-section-comparison-slider-fullscreen-background");
-        sliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
-        sliderContainerImgResize(sliderContainer);
-        if(backgroundParent.classList[0] == "subsection-modal-container") {
-            backgroundParent.style.top = "50%";
-            backgroundParent.style.left = "50%";
-            backgroundParent.style.transform = "translate(-50%, -50%)";
-            backgroundParent.style.width = "82.5%";
-            backgroundParent.style.height = "initial";
-            backgroundParent.style["max-height"] = "90%";
-            backgrounParent.style.border = "4px solid #000000";
-        }
-    }
-}
-
-function sliderContainerImgResize(sliderContainer) {
-    let sliderContainerBtn = sliderContainer.querySelector("button");
-    let containerState = sliderContainerBtn.getAttribute("data-state");
-    if(containerState == "fullscreen" || sliderContainer.scrollHeight == 0) return;
-    let sliderContainerImg = sliderContainer.querySelector("img");
-    if(window.innerWidth < 480) {
-        sliderContainerImg.style.removeProperty("height");
-    } else {
-        sliderContainerImg.style.height = `${sliderContainer.scrollHeight}px`;
-        setTimeout(function(){
-            sliderContainerImg.style.height = `${sliderContainer.scrollHeight}px`;
-        }, 400);
-    }
 }

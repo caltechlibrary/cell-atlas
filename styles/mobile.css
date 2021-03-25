@@ -748,6 +748,16 @@ blockquote {
         overflow: auto;
     }
 
+    .subsection-modal-container-slider-fullscreen {
+        top: initial !important;
+        left: initial !important;
+        transform: initial !important;
+        width: initial !important;
+        height: 100% !important;
+        max-height: initial !important;
+        border: initial !important;
+    }
+
     .modal-exit-button-mobile {
         flex: 0 0 auto;
         background: #ffffff;

@@ -53,6 +53,21 @@ for(let i = 0; i < qualityChangerButtons.length; i++) {
     qualityChangerButtons[i].addEventListener("mousedown", useMouseFocus);
 }
 
+let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
+for(let comparisonVideoButton of comparisonVideoButtons) {
+    comparisonVideoButton.addEventListener("mousedown", function() {
+        comparisonVideoButton.classList.add("book-section-video-player-controls-mouse-focus");
+    });
+    comparisonVideoButton.addEventListener("keydown", function() {
+        comparisonVideoButton.classList.remove("book-section-video-player-controls-mouse-focus");
+    });
+}
+
+let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
+for(let comparissonContainer of comparissonContainers) {
+    initializeCompSlider(comparissonContainer);
+}
+
 function shelfOnFirstPlay(event) {
     shelfText();
     event.target.removeEventListener("play", shelfOnFirstPlay);
@@ -518,16 +533,6 @@ function useKeyboardFocus(event) {
     el.classList.remove("book-section-video-player-controls-mouse-focus");
 }
 
-let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
-for(let comparisonVideoButton of comparisonVideoButtons) {
-    comparisonVideoButton.addEventListener("mousedown", function() {
-        comparisonVideoButton.classList.add("book-section-video-player-controls-mouse-focus");
-    });
-    comparisonVideoButton.addEventListener("keydown", function() {
-        comparisonVideoButton.classList.remove("book-section-video-player-controls-mouse-focus");
-    });
-}
-
 function toggleImageSlider(el) {
     let selectedValue = el.getAttribute("value");
     let videoPlayerId = el.getAttribute("data-player");
@@ -568,20 +573,22 @@ function toggleImageSlider(el) {
     el.setAttribute("data-state", "selected");
 }
 
-let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
-for(let comparissonContainer of comparissonContainers) {
-    initializeCompSlider(comparissonContainer);
-}
-
 function initializeCompSlider(compSliderContainer) {
+    let playerId = compSliderContainer.getAttribute("data-player");
     let afterImage = compSliderContainer.querySelector(".book-section-comparison-after");
     let beforeImage = compSliderContainer.querySelector("img");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
+    let enterFullBtn = compSliderContainer.querySelector(`#compEnterFull-${playerId}`);
+    let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
+    let fullBackground = compSliderContainer.parentElement;
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
     compInputRange.addEventListener("input", inputToSlide);
+    enterFullBtn.addEventListener("click", compEnterFullScreen);
+    exitFullBtn.addEventListener("click", compExitFullScreen);
+    window.addEventListener("resize", resizeCompSlider);
 
     function slideReady(e) {
         e.preventDefault();
@@ -626,6 +633,71 @@ function initializeCompSlider(compSliderContainer) {
     function inputToSlide() {
         afterImage.style.width = `${compInputRange.value}%`;
         comparissonSlider.style.left = `${compInputRange.value}%`;
+    }
+
+    function compEnterFullScreen() {
+        enterFullBtn.style.display = "none"; 
+        exitFullBtn.style.display = "flex";
+        fullBackground.setAttribute("data-state", "fullscreen");
+        if(fullBackground.requestFullscreen) {
+            beforeImage.style.removeProperty("height");
+            fullBackground.requestFullscreen();
+            compSliderContainer.classList.add("book-section-comparison-slider-fullscreen-api");
+            fullBackground.classList.add("book-section-comparison-slider-fullscreen-background-api");
+            if(compSliderContainer.getAttribute("data-modal") == "true") {
+                beforeImage.classList.add("subsection-modal-container-comparison-img");
+            }
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            enterFullBtn.setAttribute("data-state", "fullscreen");
+            nonTextContent.style["z-index"] = 100;
+            fullBackground.classList.add("book-section-comparison-slider-fullscreen-background");
+            beforeImage.style.removeProperty("height");
+            compSliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
+            if(compSliderContainer.getAttribute("data-modal") == "true") {
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
+            }
+        }
+    }
+
+    function compExitFullScreen() {
+        exitFullBtn.style.display = "none"; 
+        enterFullBtn.style.display = "flex";
+        fullBackground.setAttribute("data-state", "initial");
+        if(fullBackground.requestFullscreen) {
+            document.exitFullscreen();
+            compSliderContainer.classList.remove("book-section-comparison-slider-fullscreen-api");
+            if(compSliderContainer.getAttribute("data-modal") == "true") {
+                beforeImage.classList.remove("subsection-modal-container-comparison-img");
+            }
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            exitFullBtn.setAttribute("data-state", "initial");
+            nonTextContent.style["z-index"] = "initial";
+            nonTextContent.style.background = "initial";
+            nonTextContent.style.padding = "56px 1em";
+            fullBackground.classList.remove("book-section-comparison-slider-fullscreen-background");
+            compSliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
+            sliderContainerImgResize(compSliderContainer);
+            if(compSliderContainer.getAttribute("data-modal") == "true") {
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
+            }
+        }
+    }
+
+    function resizeCompSlider() {
+        if(window.innerWidth >= 900) return;
+        if(fullBackground.getAttribute("data-state") == "fullscreen" || compSliderContainer.scrollHeight == 0) return;
+        if(window.innerWidth < 480) {
+            beforeImage.style.removeProperty("height");
+        } else {
+            beforeImage.style.height = `${compSliderContainer.scrollHeight}px`;
+            setTimeout(function(){
+                beforeImage.style.height = `${compSliderContainer.scrollHeight}px`;
+            }, 400);
+        }
     }
 
 }

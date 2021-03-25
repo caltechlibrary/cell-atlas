@@ -15,7 +15,7 @@
             <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="" value="image">${noun_Image.svg()}</button>
         </div>
 
-        <div id="fullBackground-${playerId}" class="book-section-comparison-slider-fullscreen-initial">
+        <div id="fullBackground-${playerId}" class="book-section-comparison-slider-fullscreen-initial" data-state="initial">
             <div class="book-section-comparison-slider-container" data-player="${playerId}">
                 <img class="book-section-comparison-before" src="img/comparissons/2_1_before.jpg">
                 <div class="book-section-comparison-after"></div>
@@ -26,8 +26,8 @@
                         ${noun_Triangle.svg()}
                     </div>
                 </div>
-                <button id="compEnterFull-${playerId}" class="book-section-comparison-slider-fullscreen" onclick="imageSliderEnterFullscreen(this)" data-player="${playerId}" data-state="initial">${noun_Fullscreen.svg()}</button>
-                <button id="compExitFull-${playerId}" class="book-section-comparison-slider-exit-fullscreen" onclick="imageSliderExitFullscreen(this)" data-player="${playerId}" data-state="initial">${noun_X.svg()}</button>
+                <button id="compEnterFull-${playerId}" class="book-section-comparison-slider-fullscreen" data-player="${playerId}">${noun_Fullscreen.svg()}</button>
+                <button id="compExitFull-${playerId}" class="book-section-comparison-slider-exit-fullscreen" data-player="${playerId}">${noun_X.svg()}</button>
             </div>
         </div>
 

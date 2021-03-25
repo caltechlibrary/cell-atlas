@@ -1,4 +1,4 @@
-<div class="subsection-modal-container" id="${it.id}">
+<div class="subsection-modal-container" id="${it.id}" data-player="${it.playerId}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
 
@@ -7,7 +7,7 @@
             <button onclick="toggleImageSlider(this)" data-player="${it.playerId}" data-state="" value="image">${noun_Image.svg()}</button>
         </div>
 
-        <div id="fullBackground-${it.playerId}" class="book-section-comparison-slider-fullscreen-initial">
+        <div id="fullBackground-${it.playerId}" class="book-section-comparison-slider-fullscreen-initial" data-state="initial">
             <div class="book-section-comparison-slider-container" data-player="${it.playerId}" data-modal="true">
                 <img class="book-section-comparison-before" src="img/comparissons/2_1_before.jpg">
                 <div class="book-section-comparison-after" data-modal="true"></div>
@@ -18,8 +18,8 @@
                         ${noun_Triangle.svg()}
                     </div>
                 </div>
-                <button id="compEnterFull-${it.playerId}" class="book-section-comparison-slider-fullscreen" onclick="imageSliderEnterFullscreen(this)" data-player="${it.playerId}" data-state="initial">${noun_Fullscreen.svg()}</button>
-                <button id="compExitFull-${it.playerId}" class="book-section-comparison-slider-exit-fullscreen" onclick="imageSliderExitFullscreen(this)" data-player="${it.playerId}" data-state="initial">${noun_X.svg()}</button>
+                <button id="compEnterFull-${it.playerId}" class="book-section-comparison-slider-fullscreen" data-player="${it.playerId}">${noun_Fullscreen.svg()}</button>
+                <button id="compExitFull-${it.playerId}" class="book-section-comparison-slider-exit-fullscreen" data-player="${it.playerId}">${noun_X.svg()}</button>
             </div>
         </div>
 
