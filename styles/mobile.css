@@ -616,22 +616,6 @@ blockquote {
         background: #cccccc;
     }
 
-    .book-section-comparison-slider-container-fullscreen {
-        object-fit: contain;
-        position: fixed !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        left: 0px !important;
-        box-sizing: border-box !important;
-        min-width: 0px !important;
-        max-width: none !important;
-        min-height: 0px !important;
-        max-height: none !important;
-        width: 100% !important;
-        height: auto !important;
-        margin: 0px !important;
-    }
-
     .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
         outline: -webkit-focus-ring-color auto 1px;
     }
@@ -1074,24 +1058,6 @@ blockquote {
         transform: translate(0, -50%);
     }
 
-    .book-section-comparison-slider-container-fullscreen {
-        object-fit: contain;
-        position: relative !important;
-        top: 0px !important;
-        right: 0px !important;
-        bottom: 0px !important;
-        left: 0px !important;
-        box-sizing: border-box !important;
-        min-width: 0px !important;
-        max-width: none !important;
-        min-height: 0px !important;
-        max-height: none !important;
-        width: auto !important;
-        height: 100% !important;
-        transform: none !important;
-        margin: auto !important;
-    }
-
     .subsection-modal-container .book-section-comparison-slider-container {
         background: none;
         border: none;
@@ -1104,6 +1070,10 @@ blockquote {
         flex: 0;
         margin: auto;
         height: 100%;
+    }
+
+    .book-section-comparison-fullscreen-polyfill {
+        height: 100vh;
     }
 
     /* || MODAL styles */

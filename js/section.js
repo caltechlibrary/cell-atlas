@@ -626,9 +626,9 @@ function initializeCompSlider(compSliderContainer) {
             fullBackground.requestFullscreen();
         } else {
             let nonTextContent = document.querySelector("#nonTextContent");
-            enterFullBtn.setAttribute("data-state", "fullscreen");
             nonTextContent.style["z-index"] = 100;
-            compSliderContainer.classList.add("book-section-comparison-slider-container-fullscreen");
+            beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
@@ -644,13 +644,13 @@ function initializeCompSlider(compSliderContainer) {
             document.exitFullscreen();
         } else {
             let nonTextContent = document.querySelector("#nonTextContent");
-            exitFullBtn.setAttribute("data-state", "initial");
             nonTextContent.style["z-index"] = "initial";
-            compSliderContainer.classList.remove("book-section-comparison-slider-container-fullscreen");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
             }
+            beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
         }
     }
 
