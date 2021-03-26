@@ -575,7 +575,8 @@ blockquote {
     .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-slider-container {
         border: 7px #cccccc solid !important;
         border-radius: 10px !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
+        margin: auto !important;
     }
 
     .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-before {
