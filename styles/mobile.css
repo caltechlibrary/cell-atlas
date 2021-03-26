@@ -641,8 +641,8 @@ blockquote {
         align-items: center;
         justify-content: center;
         cursor: ew-resize;
-        width: 50px;
-        height: 50px;
+        width: 6vh;
+        height: 6vh;
         background-color: #15404e;
         border-radius: 100%;
         box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
@@ -1077,6 +1077,11 @@ blockquote {
 
     .book-section-comparison-fullscreen-polyfill {
         height: 100vh;
+    }
+
+    .book-section-comparison-button {
+        width: 11vh;
+        height: 11vh;
     }
 
     /* || MODAL styles */
