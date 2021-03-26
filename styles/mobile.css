@@ -686,8 +686,9 @@ blockquote {
         position: absolute;
         top: 0;
         right: 0;
-        background: #cccccc;
-        border: 1px solid hsl(219, 1%, 72%);
+        background: #0000006e;
+        background: #ffffff87;
+        border: none;
         border-right: none;
         margin: 0;
         padding: 1% 1% 2% 2%;
@@ -697,6 +698,7 @@ blockquote {
 
     .book-section-comparison-control-button svg {
         width: 1.25em;
+        fill: #fff;
         fill: #15404e;
     }
 
