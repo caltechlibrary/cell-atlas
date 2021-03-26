@@ -570,6 +570,7 @@ blockquote {
         background: #000;
         max-height: none;
         z-index: 100;
+        overflow: auto;
     }
 
     .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-slider-container {
