@@ -563,9 +563,9 @@ function initializeCompSlider(compSliderContainer) {
     let beforeImage = compSliderContainer.querySelector("img");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
-    let enterFullBtn = compSliderContainer.querySelector(`#compEnterFull-${playerId}`);
     let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
     let fullBackground = compSliderContainer.parentElement;
+    let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
