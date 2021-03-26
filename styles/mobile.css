@@ -1106,10 +1106,6 @@ blockquote {
         height: 100%;
     }
 
-    .subsection-modal-container-comparison-img {
-        width: auto !important;
-    }
-
     /* || MODAL styles */
     .subsection-modal-container {
         width: 90%;

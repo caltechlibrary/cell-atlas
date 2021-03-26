@@ -624,9 +624,6 @@ function initializeCompSlider(compSliderContainer) {
         fullBackground.setAttribute("data-state", "fullscreen");
         if(fullBackground.requestFullscreen) {
             fullBackground.requestFullscreen();
-            if(compSliderContainer.getAttribute("data-modal") == "true") {
-                beforeImage.classList.add("subsection-modal-container-comparison-img");
-            }
         } else {
             let nonTextContent = document.querySelector("#nonTextContent");
             enterFullBtn.setAttribute("data-state", "fullscreen");
@@ -645,9 +642,6 @@ function initializeCompSlider(compSliderContainer) {
         fullBackground.setAttribute("data-state", "initial");
         if(fullBackground.requestFullscreen) {
             document.exitFullscreen();
-            if(compSliderContainer.getAttribute("data-modal") == "true") {
-                beforeImage.classList.remove("subsection-modal-container-comparison-img");
-            }
         } else {
             let nonTextContent = document.querySelector("#nonTextContent");
             exitFullBtn.setAttribute("data-state", "initial");
