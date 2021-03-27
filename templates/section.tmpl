@@ -10,7 +10,28 @@
     <a href="${prevSection}.html" class="book-page-nav" data-nav="prev">&#8249;</a>
     <div class="book-section-video-container">
 
-        <div class="book-section-video-player">
+        <div class="book-section-comparison-button-container">
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="selected" value="video">${noun_Video.svg()}</button>
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="" value="image">${noun_Image.svg()}</button>
+        </div>
+
+        <div id="fullBackground-${playerId}" class="book-section-comparison-slider-fullscreen-container" data-state="initial">
+            <div class="book-section-comparison-slider-container" data-player="${playerId}">
+                <img class="book-section-comparison-before" src="img/comparissons/2_1_before.jpg">
+                <div class="book-section-comparison-after"></div>
+                <input class="book-section-comparison-range sr-only" type="range" value="50" max="100">
+                <div class="book-section-comparison-slider">
+                    <div class="book-section-comparison-button">
+                        ${noun_Triangle.svg()}
+                        ${noun_Triangle.svg()}
+                    </div>
+                </div>
+                <button id="compExitFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-exit-fullscreen" data-player="${playerId}">${noun_X.svg()}</button>
+            </div>
+            <button id="compEnterFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-go-fullscreen" data-player="${playerId}">${noun_Fullscreen.svg()}</button>
+        </div>
+
+        <div class="book-section-video-player" data-player="${playerId}">
             <video id="${playerId}" ${if(doi)}doi="${doi}"${endif} data-file="${video}" poster="img/thumbnails/${thumbnail}.jpg" ${if(offline)}${else}crossorigin${endif}>
                 ${if(offline)}
                     <source src="videos/${video}">

@@ -81,3 +81,9 @@ Library and the Jensen Lab.
 "[Fullscreen](https://thenounproject.com/search/?q=fullscreen&i=1953799)" by Nociconist from [the Noun Project](https://thenounproject.com/).
 
 "[chevron](https://thenounproject.com/search/?q=chevron&i=933246)" by Numero Uno from [the Noun Project](https://thenounproject.com/).
+
+"[Image](https://thenounproject.com/search/?q=image&i=3776456)" by Dooder from [the Noun Project](https://thenounproject.com/).
+
+"[triangle](https://thenounproject.com/term/triangle/2309918/)" by Nawicon from [the Noun Project](https://thenounproject.com/).
+
+"[X](https://thenounproject.com/search/?q=x&i=2222119)" by Imam from [the Noun Project](https://thenounproject.com/).

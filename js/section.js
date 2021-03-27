@@ -77,6 +77,20 @@ document.addEventListener("keydown", function(event) {
         if(nextLink) nextLink.click();
     }
 });
+let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
+for(let comparisonVideoButton of comparisonVideoButtons) {
+    comparisonVideoButton.addEventListener("mousedown", function() {
+        comparisonVideoButton.classList.add("book-section-video-player-controls-mouse-focus");
+    });
+    comparisonVideoButton.addEventListener("keydown", function() {
+        comparisonVideoButton.classList.remove("book-section-video-player-controls-mouse-focus");
+    });
+}
+
+let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
+for(let comparissonContainer of comparissonContainers) {
+    initializeCompSlider(comparissonContainer);
+}
 
 function shelfOnFirstPlay(event) {
     shelfText();
@@ -163,6 +177,7 @@ function shelfText(el) {
     let nonTextSection = document.getElementById("nonTextContent");
     let textSection = document.getElementById("textContent");
     let unshelfButton = document.getElementById("unshelfButton");
+    let compSliderContainer = document.querySelector(".book-section-non-text-content .book-section-comparison-slider-container");
 
     // Make content of text section untabable
     let textSectionChildren = textSection.getElementsByTagName("*");
@@ -177,7 +192,6 @@ function shelfText(el) {
     nonTextSection.style.right = "0";
     nonTextSection.style.width = "100%";
 
-
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){
         // Calculate top margin value for unshelf button
@@ -185,7 +199,7 @@ function shelfText(el) {
         let heightFromTop = (pageContainer.offsetHeight - textSection.offsetHeight) / 2;
         unshelfButton.style.top = `${heightFromTop}px`;
         unshelfButton.style.transform =  "translate(-100%, 0px)";
-        unshelfButton.setAttribute("tabindex", "0");;
+        unshelfButton.setAttribute("tabindex", "0");
     }, 1000);
 }
 
@@ -541,4 +555,130 @@ function useMouseFocus(event) {
 function useKeyboardFocus(event) {
     let el = event.target;
     el.classList.remove("book-section-video-player-controls-mouse-focus");
+}
+
+function toggleImageSlider(el) {
+    let selectedValue = el.getAttribute("value");
+    let videoPlayerId = el.getAttribute("data-player");
+    let videoQualitySwitcher = document.querySelector(`.video-quality-changer[data-player='${videoPlayerId}']`);
+    let videoContainer = document.querySelector(`.book-section-video-player[data-player='${videoPlayerId}']`);
+    let videoElement = videoContainer.querySelector("video");
+    let comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
+    let currSelectedButton = el.parentElement.querySelector("button[data-state='selected']");
+
+    if(!videoElement.paused) videoElement.pause();
+
+    if(selectedValue == "image") {
+        comparissonFullBackground.style.display = "block";
+        videoContainer.style.display = "none";
+        videoQualitySwitcher.style.display = "none";
+    } else {
+        comparissonFullBackground.style.display = "none";
+        videoContainer.style.display = "flex";
+        videoQualitySwitcher.style.display = "flex";
+    }
+    currSelectedButton.setAttribute("data-state", "");
+    el.setAttribute("data-state", "selected");
+}
+
+function initializeCompSlider(compSliderContainer) {
+    let playerId = compSliderContainer.getAttribute("data-player");
+    let afterImage = compSliderContainer.querySelector(".book-section-comparison-after");
+    let beforeImage = compSliderContainer.querySelector("img");
+    let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
+    let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
+    let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
+    let fullBackground = compSliderContainer.parentElement;
+    let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
+
+    comparissonSlider.addEventListener("mousedown", slideReady);
+    comparissonSlider.addEventListener("touchstart", slideReady);
+    compInputRange.addEventListener("input", inputToSlide);
+    enterFullBtn.addEventListener("click", compEnterFullScreen);
+    exitFullBtn.addEventListener("click", compExitFullScreen);
+
+    function slideReady(e) {
+        e.preventDefault();
+        window.addEventListener("mousemove", slideMove);
+        window.addEventListener("touchmove", slideMove);
+        window.addEventListener("mouseup", slideFinish);
+        window.addEventListener("touchend", slideFinish);
+    }
+    
+    function slideFinish() {
+        window.removeEventListener("mousemove", slideMove);
+        window.removeEventListener("touchmove", slideMove);
+        window.removeEventListener("mouseup", slideFinish);
+        window.removeEventListener("touchend", slideFinish);
+    }
+
+    function slideMove(event) {
+        let position = getCursorPos(event);
+        if (position < 0) position = 0;
+        if (position > compSliderContainer.offsetWidth) position = compSliderContainer.offsetWidth;
+        slide(position);
+    }
+
+    function getCursorPos(event) {
+        event = event || window.event;
+        let boundingRect = compSliderContainer.getBoundingClientRect();
+        pageX = event.pageX || event.changedTouches[0].pageX;
+        let positionX = pageX - boundingRect.left;
+        positionX = positionX - window.pageXOffset;
+        return positionX;
+    }
+
+    function slide(position) {
+        let afterValue = (position / compSliderContainer.offsetWidth) * 100;
+        comparissonSlider.style.left = `${afterValue}%`;
+        compInputRange.value = afterValue;
+        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
+        afterImage.style.width = `${afterValue - ((marginLeft / compSliderContainer.offsetWidth) * 100)}%`;
+    }
+
+    function inputToSlide() {
+        afterImage.style.width = `${compInputRange.value}%`;
+        comparissonSlider.style.left = `${compInputRange.value}%`;
+    }
+
+    function compEnterFullScreen() {
+        enterFullBtn.style.display = "none"; 
+        exitFullBtn.style.display = "flex";
+        fullBackground.setAttribute("data-state", "fullscreen");
+        if(fullBackground.requestFullscreen) {
+            fullBackground.requestFullscreen();
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            nonTextContent.style["z-index"] = 100;
+            beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
+            if(compSliderContainer.getAttribute("data-modal") == "true") {
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                let textContent = document.querySelector("#textContent");
+                modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "none";
+            }
+        }
+    }
+
+    function compExitFullScreen() {
+        exitFullBtn.style.display = "none"; 
+        enterFullBtn.style.display = "flex";
+        fullBackground.setAttribute("data-state", "initial");
+        if(fullBackground.requestFullscreen) {
+            document.exitFullscreen();
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            nonTextContent.style["z-index"] = "initial";
+            beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
+            if(compSliderContainer.getAttribute("data-modal") == "true") {
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "flex";
+            }
+        }
+    }
+
 }

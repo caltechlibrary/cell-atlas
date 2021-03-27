@@ -1,7 +1,29 @@
-<div class="subsection-modal-container" id="${it.id}">
+<div class="subsection-modal-container" id="${it.id}" data-player="${it.playerId}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
-        <div class="book-section-video-player">
+
+        <div class="book-section-comparison-button-container">
+            <button onclick="toggleImageSlider(this)" data-player="${it.playerId}" data-state="selected" value="video">${noun_Video.svg()}</button>
+            <button onclick="toggleImageSlider(this)" data-player="${it.playerId}" data-state="" value="image">${noun_Image.svg()}</button>
+        </div>
+
+        <div id="fullBackground-${it.playerId}" class="book-section-comparison-slider-fullscreen-container" data-state="initial">
+            <div class="book-section-comparison-slider-container" data-player="${it.playerId}" data-modal="true">
+                <img class="book-section-comparison-before" src="img/comparissons/2_1_before.jpg">
+                <div class="book-section-comparison-after" data-modal="true"></div>
+                <input class="book-section-comparison-range sr-only" type="range" value="50" max="100">
+                <div class="book-section-comparison-slider">
+                    <div class="book-section-comparison-button">
+                        ${noun_Triangle.svg()}
+                        ${noun_Triangle.svg()}
+                    </div>
+                </div>
+                <button id="compExitFull-${it.playerId}" class="book-section-comparison-control-button book-section-comparison-exit-fullscreen" data-player="${it.playerId}">${noun_X.svg()}</button>
+            </div>
+            <button id="compEnterFull-${it.playerId}" class="book-section-comparison-control-button book-section-comparison-go-fullscreen" data-player="${it.playerId}">${noun_Fullscreen.svg()}</button>
+        </div>
+
+        <div class="book-section-video-player" data-player="${it.playerId}">
             <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}" poster="img/thumbnails/${it.thumbnail}.jpg" ${if(offline)}${else}crossorigin${endif}>
                 ${if(offline)}
                     <source src="videos/${it.video}">
@@ -20,7 +42,7 @@
             </div>
         </div>
     ${elseif(it.graphic)}
-        <img src="img/schematics/${it.graphic}">
+        <img class="subsection-modal-img" src="img/schematics/${it.graphic}">
     ${endif}
     ${if(it.species)}
         <div class="video-citation">
