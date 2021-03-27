@@ -570,6 +570,8 @@ blockquote {
         max-height: none;
         z-index: 100;
         border-radius: 0 !important;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-slider-container {
@@ -691,7 +693,7 @@ blockquote {
         border: none;
         border-right: none;
         margin: 0;
-        padding: 1% 1% 2% 2%;
+        padding: 2%;
         border-top: none;
         border-radius: 0 0 0 10px;
     }
