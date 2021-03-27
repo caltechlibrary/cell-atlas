@@ -9,6 +9,7 @@
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || CHAPTER - Chapter landing pages */
 /* || SECTION -  Styles for every page of the book that is a section */
+/* || SLIDER - Styles for the image comparison slider element */
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
 /* || APPENDIX - Appendix pages at end of book */
@@ -90,7 +91,8 @@ blockquote {
 #nonTextContent, footer, .book-page-nav, .header-logo, .book-section-text-close-button, 
 .book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
 .nav-menu-footer, .landing-page-download-button, .book-section-video-player-scrub-canvas,
-.book-section-video-player-paint-canvas, .book-section-video-player-controls {
+.book-section-video-player-paint-canvas, .book-section-video-player-controls,
+.book-section-comparison-button-container {
     display: none;
 }
 
@@ -474,10 +476,14 @@ blockquote {
     }
 
     .book-section-non-text-content {
-        height: 100vh;
-        width: 100%;
         background: #717171;
         position: fixed;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 56px 1em;
+        align-items: center;
+        justify-content: center;
     }
 
     .book-section-non-text-content video {
@@ -485,20 +491,9 @@ blockquote {
         width: 100%;
     }
 
-    .book-section-video-container {
-        width: 90%;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
     .video-quality-changer {
-        position: absolute;
         display: flex;
-        bottom: 0;
-        right: 0;
-        transform: translateY(100%);
+        float: right;
         color: #ffffff;
         font-size: 1em;
     }
@@ -556,6 +551,167 @@ blockquote {
         line-height: 1.5;
     }
 
+    /* || SLIDER styles */
+    .book-section-comparison-slider-fullscreen-container {
+        display: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] {
+        display: flex !important;
+        align-items: center !important;
+        border: none !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #000;
+        max-height: none;
+        z-index: 100;
+        border-radius: 0 !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-slider-container {
+        border: 7px #cccccc solid !important;
+        border-radius: 10px !important;
+        box-sizing: border-box !important;
+        margin: auto !important;
+        background: #cccccc !important;
+    }
+
+    .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-before {
+        margin: 0 !important;
+        max-height: 100% !important;
+    }
+
+    .book-section-comparison-button-container {
+        margin-left: 10px;
+    }
+
+    .book-section-comparison-button-container button {
+        margin: 0;
+        padding: 0;
+        background: #cccccc;
+        border: 1px solid hsl(219, 1%, 72%);
+        border-bottom: none;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 0 0.2em hsl(0deg 0% 0%);
+    }
+
+    .book-section-comparison-button-container button svg {
+        width: 1.75em;
+        margin: 0.15em 0.75em 0em 0.75em;
+        fill: #ffffff;
+    }
+
+    .book-section-comparison-button-container button[data-state="selected"] svg {
+        fill: #15404e;
+    }
+
+    .book-section-comparison-slider-container {
+        display: flex;
+        position: relative;
+        border: 7px #cccccc solid;
+        border-radius: 10px;
+        background: #cccccc;
+    }
+
+    .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
+        outline: -webkit-focus-ring-color auto 1px;
+    }
+
+    .book-section-comparison-slider {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: ew-resize;
+        height: 100%;
+        width: 0.3em;
+        left: 50%;
+        background: #cccccc;
+    }
+    
+    .book-section-comparison-button {
+        position: absolute;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: ew-resize;
+        width: 6vh;
+        height: 6vh;
+        background-color: #15404e;
+        border-radius: 100%;
+        box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
+    }
+
+    .book-section-comparison-button svg {
+        fill: #cccccc;
+        width: 55%;
+        margin: 0 -2px;
+    }
+
+    .book-section-comparison-button svg:nth-child(1) {
+        transform: rotate(270deg);
+    }
+
+    .book-section-comparison-button svg:nth-child(2) {
+        transform: rotate(90deg);
+    }
+
+    .book-section-comparison-before {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .book-section-comparison-after {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-image: url(../img/comparissons/2_1_after.jpg);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        border-radius: 5px;
+    }
+
+    .book-section-comparison-control-button {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #0000006e;
+        background: #ffffff87;
+        border: none;
+        border-right: none;
+        margin: 0;
+        padding: 2%;
+        border-top: none;
+        border-radius: 0 0 0 10px;
+    }
+
+    .book-section-comparison-control-button svg {
+        width: 1.25em;
+        fill: #fff;
+        fill: #15404e;
+    }
+
+    .book-section-comparison-go-fullscreen {
+        margin: 7px;
+    }
+
+    .book-section-comparison-exit-fullscreen {
+        display: none;
+    }
+
     /* || MODAL styles */
     .subsection-modal-overlay {
         display: none;
@@ -582,6 +738,16 @@ blockquote {
         overflow: auto;
     }
 
+    .subsection-modal-container-slider-fullscreen {
+        top: initial !important;
+        left: initial !important;
+        transform: initial !important;
+        width: initial !important;
+        height: 100% !important;
+        max-height: initial !important;
+        border: initial !important;
+    }
+
     .modal-exit-button-mobile {
         flex: 0 0 auto;
         background: #ffffff;
@@ -591,6 +757,12 @@ blockquote {
         padding: 0;
         margin-left: auto;
         margin-bottom: 8px;
+        z-index: 2;
+    }
+
+    .subsection-modal-container .book-section-comparison-button-container {
+        display: block;
+        margin-top: -2em;
     }
 
     .subsection-modal-container .book-section-video-player {
@@ -598,8 +770,14 @@ blockquote {
         background: #ffffff;
         display: flex;
         align-items: center;
+        border: 7px #cccccc solid;
+        border-radius: 10px 10px 0 0;
         flex: 1 0 auto;
     }
+
+    .subsection-modal-container .book-section-comparison-slider-container {
+        border-radius: 10px 10px 0 0;
+    }   
 
     .subsection-modal-text {
         margin-top: 1em;
@@ -618,7 +796,7 @@ blockquote {
         font-size: 1.75em;
     }
 
-    .subsection-modal-container img {
+    .subsection-modal-img {
         width: 100%;
         max-height: 50vh;
         object-fit: contain;
@@ -839,25 +1017,71 @@ blockquote {
     }
 
     .book-section-non-text-content video {
-        width: auto;
         height: 100%;
+        width: auto;
     }
 
     .book-section-video-player {
-        width: auto;
         height: 100%;
     }
 
     .book-section-video-container {
-        width: auto;
+        position: relative;
         height: 100%;
-        max-height: 57%;
+        max-height: 90%;
+    }
+
+    /* || SLIDER styles */
+    .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
+        border: 7px #cccccc solid;
+        border-radius: 10px 10px 0 0;
+        box-sizing: border-box;
+    }
+
+    .book-section-comparison-slider-container {
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .subsection-modal-container .book-section-comparison-go-fullscreen {
+        margin: 0;
+    }
+
+    .book-section-comparison-before {
+        height: auto;
+        max-height: 100%;
+        width: auto;
     }
 
     .video-quality-changer {
-        bottom: initial;
+        flex-direction: column;
+        position: absolute;
         top: 50%;
-        transform: translate(100%, -50%);
+        left: 100%;
+        transform: translate(0, -50%);
+    }
+
+    .subsection-modal-container .book-section-comparison-slider-container {
+        background: none;
+        border: none;
+        margin: auto;
+        width: fit-content;
+    }
+
+    .subsection-modal-container .book-section-comparison-before {
+        max-height: 50vh;
+        flex: 0;
+        margin: auto;
+        height: 100%;
+    }
+
+    .book-section-comparison-fullscreen-polyfill {
+        height: 100vh;
+    }
+
+    .book-section-comparison-button {
+        width: 11vh;
+        height: 11vh;
     }
 
     /* || MODAL styles */

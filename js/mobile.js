@@ -129,6 +129,10 @@ function toggleView(el) {
     let textContent = document.querySelector("#textContent");
     let nonTextContent = document.querySelector("#nonTextContent");
     let pageControls = document.querySelector(".page-controls-mobile");
+    let videoPlayer = nonTextContent.querySelector(".book-section-video-player");
+    let videoPlayerId = videoPlayer.getAttribute("data-player");
+    let comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
+    let qualityChanger = nonTextContent.querySelector(".video-quality-changer");
     if(el.value == "text") {
         textContent.style.display = "flex";
         nonTextContent.style.display = "none";
@@ -136,7 +140,19 @@ function toggleView(el) {
         pageControls.removeAttribute("style");
     } else if(el.value == "video") {
         textContent.style.display = "none";
-        nonTextContent.style.display = "block";
+        nonTextContent.style.display = "flex";
+        videoPlayer.style.display = "block";
+        comparissonFullBackground.style.display = "none";
+        qualityChanger.style.display = "flex";
+        closeModalMobile();
+        // Video portions of section pages will always have fixed page controls
+        pageControls.style.position = "fixed";
+    } else if(el.value == "image") {
+        textContent.style.display = "none";
+        nonTextContent.style.display = "flex";
+        comparissonFullBackground.style.display = "block";
+        videoPlayer.style.display = "none";
+        qualityChanger.style.display = "none";
         closeModalMobile();
         // Video portions of section pages will always have fixed page controls
         pageControls.style.position = "fixed";
