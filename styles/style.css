@@ -1185,4 +1185,8 @@
     .book-section-comparison-slider-container button {
         display: none;
     }
+
+    .book-section-comparison-slider-fullscreen-container button {
+        display: none;
+    }
 }
