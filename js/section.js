@@ -631,7 +631,9 @@ function initializeCompSlider(compSliderContainer) {
             compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                let textContent = document.querySelector("#textContent");
                 modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "none";
             }
         }
     }
@@ -645,12 +647,13 @@ function initializeCompSlider(compSliderContainer) {
         } else {
             let nonTextContent = document.querySelector("#nonTextContent");
             nonTextContent.style["z-index"] = "initial";
+            beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
             if(compSliderContainer.getAttribute("data-modal") == "true") {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "flex";
             }
-            beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
-            compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
         }
     }
 
