@@ -152,7 +152,9 @@ def processSubsection(subsectionFile):
     addCollectorData(metadata, "collector")
     addCollectorData(metadata, "source")
     # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
-    if("source" in metadata): metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
+    if("source" in metadata): 
+        metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
+        metadata["collector"] = metadata["source"]
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
@@ -275,6 +277,7 @@ def addCollectorData(metadata, identifier):
             if "vidMetadata" in metadata:
                 metadata["vidMetadata"]["collectorProfile"] = metadata["collectorProfile"]
                 metadata["vidMetadata"]["collectorId"] = metadata["collectorId"]
+            
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful

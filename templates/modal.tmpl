@@ -44,21 +44,9 @@
     ${elseif(it.graphic)}
         <img class="subsection-modal-img" src="img/schematics/${it.graphic}">
     ${endif}
-    ${if(it.species)}
-        ${it:vid-citation.tmpl()}
-    ${elseif(it.source)}
-        <div class="video-citation">
-            <span>
-                Source: 
-                ${if(it.collectorProfile)}
-                    <a href="B-scientist-profiles.html#${it.collectorId}">${it.source}</a>
-                ${else}
-                    <span class="video-citation-value">${it.source}</span>
-                ${endif}
-            </span>
-            ${if(it.structure)}<span>Structure: <span class="video-citation-value">${it.structure}</span></span>${endif}
-        </div>
-    ${endif}
+
+    ${it:vid-citation.tmpl()}
+    
     ${if(it.video)}
         <div class="video-quality-changer" data-player="${it.playerId}">
             <label class="video-quality-changer-entry">

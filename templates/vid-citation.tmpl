@@ -1,12 +1,20 @@
 <div class="video-citation">
-    <a href="C-phylogenetic-tree.html"><i>${it.species}</i></a>
+    ${if(it.species)}
+        <a href="C-phylogenetic-tree.html"><i>${it.species}</i></a>
+    ${endif}
+
     <span>
-        Collected by: 
+        ${if(it.source)}Source:${elseif(it.collector)}Collected by:${endif} 
         ${if(it.collectorProfile)}
             <a href="B-scientist-profiles.html#${it.collectorId}">${it.collector}</a>
         ${else}
             <span class="video-citation-value">${it.collector}</span>
         ${endif}
     </span>
-    <span>DOI: <a href="https://doi.org/${it.doi}" target="_blank">${it.doi}</a></span>
+
+    ${if(it.doi)}
+        <span>DOI: <a href="https://doi.org/${it.doi}" target="_blank">${it.doi}</a></span>
+    ${elseif(it.structure)}
+        <span>Structure: <span class="video-citation-value">${it.structure}</span></span>
+    ${endif}
 </div>
