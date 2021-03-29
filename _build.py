@@ -42,6 +42,8 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         metadata["vidMetadata"]["species"] = metadata["videoTitle"]
         metadata["vidMetadata"]["doi"] = metadata["doi"]
         metadata["vidMetadata"]["collector"] = metadata["collector"]
+        metadata["vidMetadata"]["video"] = metadata["video"]
+        metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
 
         if "sections/" in sourceFile:
             metadata["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]

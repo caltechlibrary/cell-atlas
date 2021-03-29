@@ -1,0 +1,18 @@
+<div class="book-section-video-player" data-player="${it.playerId}">
+    <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}" poster="img/thumbnails/${it.thumbnail}.jpg" ${if(offline)}${else}crossorigin${endif}>
+        ${if(offline)}
+            <source src="videos/${it.video}">
+        ${endif}
+        There was an error loading the video.
+    </video>
+    <canvas id="${it.playerId}-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
+    <canvas id="${it.playerId}-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
+    <div id="${it.playerId}-videoControls" class="book-section-video-player-controls">
+        <div class="book-section-video-player-controls-buttons">
+            <button id="${it.playerId}-playPauseButton" type="button" data-state="play" disabled></button>
+            <span id="${it.playerId}-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+            <button id="${it.playerId}-fullScreenButton" type="button" data-state="go-fullscreen" disabled></button>
+        </div>
+        <input type="range" id="${it.playerId}-seekBar" value="0" max="100">
+    </div>
+</div>
