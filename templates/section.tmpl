@@ -49,22 +49,7 @@
 
         ${if(offline)}
         ${else}
-            <div class="video-quality-changer" data-player="${playerId}">
-                <label class="video-quality-changer-entry">
-                    <span class="video-quality-changer-input">
-                        <input id="vidMed" type="radio" name="quality-${playerId}" value="480" onchange="changeQuality(this)" data-player="${playerId}">
-                        <span class="video-quality-changer-control"></span>
-                    </span>
-                    <span class="video-quality-changer-label">480p</span>
-                </label>
-                <label class="video-quality-changer-entry">
-                    <span class="video-quality-changer-input">
-                        <input id="vidHigh" type="radio" name="quality-${playerId}" value="1080" onchange="changeQuality(this)" data-player="${playerId}">
-                        <span class="video-quality-changer-control"></span>
-                    </span>
-                    <span class="video-quality-changer-label">1080p</span>
-                </label>
-            </div>
+            ${vidMetadata:quality-changer.tmpl()}
         ${endif}
     </div>
     <a href="${nextSection}.html" class="book-page-nav" data-nav="next">&#8250;</a>
