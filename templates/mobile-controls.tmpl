@@ -6,13 +6,13 @@
     ${endif}
     ${if(video)}
         <button onclick="toggleView(this)" value="text" class="page-controls-button page-controls-selected">
-            ${noun_File.svg()}
+            ${svg/noun_File.svg()}
         </button>
         <button onclick="toggleView(this)" value="video" class="page-controls-button">
-            ${noun_Video.svg()}
+            ${svg/noun_Video.svg()}
         </button>
         <button onclick="toggleView(this)" value="image" class="page-controls-button">
-            ${noun_Image.svg()}
+            ${svg/noun_Image.svg()}
         </button>
     ${else}
         <button onclick="toggleView(this)" value="text" class="page-controls-button hidden">Text</button>

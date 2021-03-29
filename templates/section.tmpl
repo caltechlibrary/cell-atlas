@@ -11,8 +11,8 @@
     <div class="book-section-video-container">
 
         <div class="book-section-comparison-button-container">
-            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="selected" value="video">${noun_Video.svg()}</button>
-            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="" value="image">${noun_Image.svg()}</button>
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="selected" value="video">${svg/noun_Video.svg()}</button>
+            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="" value="image">${svg/noun_Image.svg()}</button>
         </div>
 
         <div id="fullBackground-${playerId}" class="book-section-comparison-slider-fullscreen-container" data-state="initial">
@@ -22,13 +22,13 @@
                 <input class="book-section-comparison-range sr-only" type="range" value="50" max="100">
                 <div class="book-section-comparison-slider">
                     <div class="book-section-comparison-button">
-                        ${noun_Triangle.svg()}
-                        ${noun_Triangle.svg()}
+                        ${svg/noun_Triangle.svg()}
+                        ${svg/noun_Triangle.svg()}
                     </div>
                 </div>
-                <button id="compExitFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-exit-fullscreen" data-player="${playerId}">${noun_X.svg()}</button>
+                <button id="compExitFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-exit-fullscreen" data-player="${playerId}">${svg/noun_X.svg()}</button>
             </div>
-            <button id="compEnterFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-go-fullscreen" data-player="${playerId}">${noun_Fullscreen.svg()}</button>
+            <button id="compEnterFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-go-fullscreen" data-player="${playerId}">${svg/noun_Fullscreen.svg()}</button>
         </div>
 
         <div class="book-section-video-player" data-player="${playerId}">
