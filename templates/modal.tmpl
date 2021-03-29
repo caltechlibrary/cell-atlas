@@ -45,18 +45,7 @@
         <img class="subsection-modal-img" src="img/schematics/${it.graphic}">
     ${endif}
     ${if(it.species)}
-        <div class="video-citation">
-            <a href="C-phylogenetic-tree.html"><i>${it.species}</i></a>
-            <span>
-                Collected by: 
-                ${if(it.collectorProfile)}
-                    <a href="B-scientist-profiles.html#${it.collectorId}">${it.collector}</a>
-                ${else}
-                    <span class="video-citation-value">${it.collector}</span>
-                ${endif}
-            </span>
-            <span>DOI: <a href="https://doi.org/${it.doi}" target="_blank">${it.doi}</a></span>
-        </div>
+        ${it:vid-citation.tmpl()}
     ${elseif(it.source)}
         <div class="video-citation">
             <span>
