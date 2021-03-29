@@ -83,18 +83,7 @@
         ${body}
     </div>
     ${if(videoTitle)}
-        <div class="video-citation">
-            <a href="C-phylogenetic-tree.html"><i>${videoTitle}</i></a>
-            <span>
-                Collected by: 
-                ${if(collectorProfile)}
-                    <a href="B-scientist-profiles.html#${collectorId}">${collector}</a>
-                ${else}
-                    <span class="video-citation-value">${collector}</span>
-                ${endif}
-            </span>
-            <span>DOI: <a href="https://doi.org/${doi}" target="_blank">${doi}</a></span>
-        </div>
+        ${vidMetadata:vid-citation.tmpl()}
     ${endif}
     ${if(subsectionsData)}
         <div class="book-section-learn-more">

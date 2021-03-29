@@ -38,11 +38,16 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     metadata["nav"] = siteNav
     # Add ID for the video player if there is one
     if "doi" in metadata: 
+        metadata["vidMetadata"] = {}
+        metadata["vidMetadata"]["species"] = metadata["videoTitle"]
+        metadata["vidMetadata"]["doi"] = metadata["doi"]
+        metadata["vidMetadata"]["collector"] = metadata["collector"]
+
         if "sections/" in sourceFile:
             metadata["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]
         else:
             metadata["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
-    # Check if collector profile exist in in scientist profiles
+    # Check if collector profile exist in scientist profiles
     addCollectorData(metadata, "collector")
     # create temp file with inserted references/profiles
     sourceFormatted = insertLinks(sourceFile, "section.md")
@@ -266,6 +271,10 @@ def addCollectorData(metadata, identifier):
         if metadata[identifier] in profileDict:
             metadata["collectorProfile"] = profileDict[metadata[identifier]]["name"]
             metadata["collectorId"] = profileDict[metadata[identifier]]["id"]
+
+            if "vidMetadata" in metadata:
+                metadata["vidMetadata"]["collectorProfile"] = metadata["collectorProfile"]
+                metadata["vidMetadata"]["collectorId"] = metadata["collectorId"]
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
