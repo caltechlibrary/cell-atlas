@@ -2,10 +2,7 @@
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
 
-        <div class="book-section-comparison-button-container">
-            <button onclick="toggleImageSlider(this)" data-player="${it.playerId}" data-state="selected" value="video">${svg/noun_Video.svg()}</button>
-            <button onclick="toggleImageSlider(this)" data-player="${it.playerId}" data-state="" value="image">${svg/noun_Image.svg()}</button>
-        </div>
+        ${it:toggleImgVid.tmpl()}
 
         <div id="fullBackground-${it.playerId}" class="book-section-comparison-slider-fullscreen-container" data-state="initial">
             <div class="book-section-comparison-slider-container" data-player="${it.playerId}" data-modal="true">

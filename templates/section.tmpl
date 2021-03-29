@@ -10,10 +10,7 @@
     <a href="${prevSection}.html" class="book-page-nav" data-nav="prev">&#8249;</a>
     <div class="book-section-video-container">
 
-        <div class="book-section-comparison-button-container">
-            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="selected" value="video">${svg/noun_Video.svg()}</button>
-            <button onclick="toggleImageSlider(this)" data-player="${playerId}" data-state="" value="image">${svg/noun_Image.svg()}</button>
-        </div>
+        ${vidMetadata:toggleImgVid.tmpl()}
 
         <div id="fullBackground-${playerId}" class="book-section-comparison-slider-fullscreen-container" data-state="initial">
             <div class="book-section-comparison-slider-container" data-player="${playerId}">

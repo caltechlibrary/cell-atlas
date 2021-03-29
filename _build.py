@@ -45,8 +45,10 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
 
         if "sections/" in sourceFile:
             metadata["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]
+            metadata["vidMetadata"]["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]
         else:
             metadata["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
+            metadata["vidMetadata"]["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
     # Check if collector profile exist in scientist profiles
     addCollectorData(metadata, "collector")
     # create temp file with inserted references/profiles
