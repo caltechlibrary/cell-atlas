@@ -841,10 +841,18 @@ blockquote {
         transform: translateY(-60%);
     }
 
+    #book-chapter-text-section-Outlook {
+        right: 0;
+    }
+
     .book-chapter-title {
         font-size: 60px;
         margin-left: auto;
         text-align: right;
+    }
+
+    #book-chapter-title-Introduction {
+        font-size: 54px;
     }
 
     .book-chapter-quote {
@@ -1007,7 +1015,7 @@ blockquote {
     }
 
     /* || CONTROLS styles */
-    .page-controls-mobile {
+    .page-controls-mobile:not([data-chapter="true"]) {
         position: relative;
     }
 

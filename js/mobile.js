@@ -37,27 +37,7 @@ function initializeMobileView() {
         pageVideo.setAttribute("preload", "metadata");
     }
 
-    // Force "Introduction" title to be smaller font since it is so long
-    let chTitle = document.querySelector(".book-chapter-title h1");
-    if(chTitle && chTitle.innerText == "Introduction") {
-        chTitle.style["font-size"] = "54px";
-    }else if(chTitle && chTitle.innerText == "Outlook") {
-        let titleContainer = document.querySelector(".book-chapter-text-section");
-        titleContainer.style.right = 0;
-    }
-
-    // Page controls are always fixed on chapter pages
-    if(document.querySelector(".book-chapter-content")) {
-        let pageControls = document.querySelector(".page-controls-mobile");
-        pageControls.style.position = "fixed";
-    }
-
     // Fix height of appendix dropdown lists when the screen is rotated
-    if(document.querySelector(".nav-menu-sections")) {
-        window.addEventListener("orientationchange", fixDropdownHeight);
-    }
-
-    // Fix height of nav dropdown lists when the screen is rotated
     if(document.querySelector(".nav-menu-sections")) {
         window.addEventListener("orientationchange", fixDropdownHeight);
     }
@@ -86,14 +66,6 @@ function terminateMobileView() {
     for(let pageVideo of pageVideos) {
         pageVideo.removeEventListener("play", requestFullscreen);
         pageVideo.removeAttribute("preload");
-    }
-
-    let chTitle = document.querySelector(".book-chapter-title h1");
-    if(chTitle && chTitle.innerText == "Introduction") {
-        chTitle.removeAttribute("style");
-    }else if(chTitle && chTitle.innerText == "Outlook") {
-        let titleContainer = document.querySelector(".book-chapter-text-section");
-        titleContainer.removeAttribute("style");
     }
 
     if(document.querySelector(".book-appendix-dropdown-list")) {

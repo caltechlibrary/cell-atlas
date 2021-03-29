@@ -4,11 +4,11 @@
     ${else}
         <a class="book-page-nav hidden">&#8249;</a>
     ${endif}
-    <div class="book-chapter-text-section">
+    <div id="book-chapter-text-section-${title}" class="book-chapter-text-section">
         <div class="book-text-content book-chapter-quote">
             ${body}
         </div>
-        <div class="book-chapter-title">
+        <div id="book-chapter-title-${title}" class="book-chapter-title">
             ${if(chapter)}<h1>Chapter ${chapter}</h1>${endif}
             <h1>${title}</h1>
         </div>
