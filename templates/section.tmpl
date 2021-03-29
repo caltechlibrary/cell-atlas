@@ -12,21 +12,7 @@
 
         ${vidMetadata:toggleImgVid.tmpl()}
 
-        <div id="fullBackground-${playerId}" class="book-section-comparison-slider-fullscreen-container" data-state="initial">
-            <div class="book-section-comparison-slider-container" data-player="${playerId}">
-                <img class="book-section-comparison-before" src="img/comparissons/2_1_before.jpg">
-                <div class="book-section-comparison-after"></div>
-                <input class="book-section-comparison-range sr-only" type="range" value="50" max="100">
-                <div class="book-section-comparison-slider">
-                    <div class="book-section-comparison-button">
-                        ${svg/noun_Triangle.svg()}
-                        ${svg/noun_Triangle.svg()}
-                    </div>
-                </div>
-                <button id="compExitFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-exit-fullscreen" data-player="${playerId}">${svg/noun_X.svg()}</button>
-            </div>
-            <button id="compEnterFull-${playerId}" class="book-section-comparison-control-button book-section-comparison-go-fullscreen" data-player="${playerId}">${svg/noun_Fullscreen.svg()}</button>
-        </div>
+        ${vidMetadata:slider.tmpl()}
 
         ${vidMetadata:player.tmpl()}
 
