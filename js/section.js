@@ -105,7 +105,7 @@ function sourceVideo(el) {
         window.sessionStorage.setItem("vidQuality", currentQuality);
     }
     let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vid${currentQuality}`);
-    qualityButton.checked = true;
+    if(qualityButton) qualityButton.checked = true;
     if(currentQuality == "Med") {
         sourceVideoSmall(el);
         el.load();
@@ -571,11 +571,11 @@ function toggleImageSlider(el) {
     if(selectedValue == "image") {
         comparissonFullBackground.style.display = "block";
         videoContainer.style.display = "none";
-        videoQualitySwitcher.style.display = "none";
+        if(videoQualitySwitcher) videoQualitySwitcher.style.display = "none";
     } else {
         comparissonFullBackground.style.display = "none";
         videoContainer.style.display = "flex";
-        videoQualitySwitcher.style.display = "flex";
+        if(videoQualitySwitcher) videoQualitySwitcher.style.display = "flex";
     }
     currSelectedButton.setAttribute("data-state", "");
     el.setAttribute("data-state", "selected");
