@@ -30,23 +30,16 @@ function initializeMobileView() {
         document.addEventListener("fullscreenchange", pauseOnMinimize);
     }
 
-    // All current videos need to be played in fullscreen
+    // All current videos need to be played in fullscreen and use native controls
     let pageVideos = document.querySelectorAll("video");
     for(let pageVideo of pageVideos) {
         pageVideo.addEventListener("play", requestFullscreen);
         pageVideo.setAttribute("preload", "metadata");
+        pageVideo.setAttribute("controls", "");
     }
 
     // Fix height of appendix dropdown lists when the screen is rotated
-    if(document.querySelector(".nav-menu-sections")) {
-        window.addEventListener("orientationchange", fixDropdownHeight);
-    }
-
-    // Add controls to all videos
-    let allVideos = document.querySelectorAll("video");
-    for(let videoEl of allVideos) {
-        videoEl.setAttribute("controls", "");
-    }
+    window.addEventListener("orientationchange", fixDropdownHeight);
 }
 
 function terminateMobileView() {
@@ -66,17 +59,10 @@ function terminateMobileView() {
     for(let pageVideo of pageVideos) {
         pageVideo.removeEventListener("play", requestFullscreen);
         pageVideo.removeAttribute("preload");
+        pageVideo.removeAttribute("controls");
     }
 
-    if(document.querySelector(".book-appendix-dropdown-list")) {
-        window.removeEventListener("orientationchange", fixDropdownHeight);
-    }
-
-    // Add controls to all videos
-    let allVideos = document.querySelectorAll("video");
-    for(let videoEl of allVideos) {
-        videoEl.removeAttribute("controls");
-    }
+    window.removeEventListener("orientationchange", fixDropdownHeight);
 }
 
 function requestFullscreen(event) {
