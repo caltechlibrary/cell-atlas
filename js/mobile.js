@@ -26,7 +26,6 @@ function initializeMobileView() {
     // Video is decalred in section.js and represents the main section video
     if(video) {
         video.removeEventListener("play", shelfOnFirstPlay);
-        // Add event listener to pause videos when full screen exits
         document.addEventListener("fullscreenchange", pauseOnMinimize);
     }
 
@@ -46,10 +45,8 @@ function terminateMobileView() {
     window.currVideoPlaying = undefined;
     let textContent = document.querySelector("#textContent");
     let nonTextContent = document.querySelector("#nonTextContent");
-    let pageControls = document.querySelector(".page-controls-mobile");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
-    if(pageControls) pageControls.removeAttribute("style");
     if(video) {
         video.addEventListener("play", shelfOnFirstPlay);
         document.removeEventListener("fullscreenchange", pauseOnMinimize);
@@ -73,9 +70,9 @@ function requestFullscreen(event) {
 
 function pauseOnMinimize(event) {
     if (document.fullscreenElement && document.fullscreenElement.tagName == "VIDEO") {
-        currVideoPlaying = document.fullscreenElement;
+        window.currVideoPlaying = document.fullscreenElement;
     } else if (currVideoPlaying){
-        currVideoPlaying.pause();
+        window.currVideoPlaying.pause();
     }
 }
 
