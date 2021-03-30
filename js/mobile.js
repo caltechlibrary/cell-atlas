@@ -26,57 +26,27 @@ function initializeMobileView() {
     // Video is decalred in section.js and represents the main section video
     if(video) {
         video.removeEventListener("play", shelfOnFirstPlay);
-        // Add event listener to pause videos when full screen exits
         document.addEventListener("fullscreenchange", pauseOnMinimize);
     }
 
-    // All current videos need to be played in fullscreen
+    // All current videos need to be played in fullscreen and use native controls
     let pageVideos = document.querySelectorAll("video");
     for(let pageVideo of pageVideos) {
         pageVideo.addEventListener("play", requestFullscreen);
         pageVideo.setAttribute("preload", "metadata");
-    }
-
-    // Force "Introduction" title to be smaller font since it is so long
-    let chTitle = document.querySelector(".book-chapter-title h1");
-    if(chTitle && chTitle.innerText == "Introduction") {
-        chTitle.style["font-size"] = "54px";
-    }else if(chTitle && chTitle.innerText == "Outlook") {
-        let titleContainer = document.querySelector(".book-chapter-text-section");
-        titleContainer.style.right = 0;
-    }
-
-    // Page controls are always fixed on chapter pages
-    if(document.querySelector(".book-chapter-content")) {
-        let pageControls = document.querySelector(".page-controls-mobile");
-        pageControls.style.position = "fixed";
+        pageVideo.setAttribute("controls", "");
     }
 
     // Fix height of appendix dropdown lists when the screen is rotated
-    if(document.querySelector(".nav-menu-sections")) {
-        window.addEventListener("orientationchange", fixDropdownHeight);
-    }
-
-    // Fix height of nav dropdown lists when the screen is rotated
-    if(document.querySelector(".nav-menu-sections")) {
-        window.addEventListener("orientationchange", fixDropdownHeight);
-    }
-
-    // Add controls to all videos
-    let allVideos = document.querySelectorAll("video");
-    for(let videoEl of allVideos) {
-        videoEl.setAttribute("controls", "");
-    }
+    window.addEventListener("orientationchange", fixDropdownHeight);
 }
 
 function terminateMobileView() {
     window.currVideoPlaying = undefined;
     let textContent = document.querySelector("#textContent");
     let nonTextContent = document.querySelector("#nonTextContent");
-    let pageControls = document.querySelector(".page-controls-mobile");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
-    if(pageControls) pageControls.removeAttribute("style");
     if(video) {
         video.addEventListener("play", shelfOnFirstPlay);
         document.removeEventListener("fullscreenchange", pauseOnMinimize);
@@ -86,25 +56,10 @@ function terminateMobileView() {
     for(let pageVideo of pageVideos) {
         pageVideo.removeEventListener("play", requestFullscreen);
         pageVideo.removeAttribute("preload");
+        pageVideo.removeAttribute("controls");
     }
 
-    let chTitle = document.querySelector(".book-chapter-title h1");
-    if(chTitle && chTitle.innerText == "Introduction") {
-        chTitle.removeAttribute("style");
-    }else if(chTitle && chTitle.innerText == "Outlook") {
-        let titleContainer = document.querySelector(".book-chapter-text-section");
-        titleContainer.removeAttribute("style");
-    }
-
-    if(document.querySelector(".book-appendix-dropdown-list")) {
-        window.removeEventListener("orientationchange", fixDropdownHeight);
-    }
-
-    // Add controls to all videos
-    let allVideos = document.querySelectorAll("video");
-    for(let videoEl of allVideos) {
-        videoEl.removeAttribute("controls");
-    }
+    window.removeEventListener("orientationchange", fixDropdownHeight);
 }
 
 function requestFullscreen(event) {
@@ -115,9 +70,9 @@ function requestFullscreen(event) {
 
 function pauseOnMinimize(event) {
     if (document.fullscreenElement && document.fullscreenElement.tagName == "VIDEO") {
-        currVideoPlaying = document.fullscreenElement;
+        window.currVideoPlaying = document.fullscreenElement;
     } else if (currVideoPlaying){
-        currVideoPlaying.pause();
+        window.currVideoPlaying.pause();
     }
 }
 
