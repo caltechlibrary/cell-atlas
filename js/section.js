@@ -218,7 +218,6 @@ function openText(el) {
     nonTextSection.style.right = "62%";
     nonTextSection.style.width = "62%";
 
-
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){
         textSection.style.transform = "translate(0, -50%)";
@@ -606,6 +605,7 @@ function initializeCompSlider(compSliderContainer) {
     }
     
     function slideFinish() {
+        posToPercent();
         window.removeEventListener("mousemove", slideMove);
         window.removeEventListener("touchmove", slideMove);
         window.removeEventListener("mouseup", slideFinish);
@@ -615,7 +615,7 @@ function initializeCompSlider(compSliderContainer) {
     function slideMove(event) {
         let position = getCursorPos(event);
         if (position < 0) position = 0;
-        if (position > compSliderContainer.offsetWidth) position = compSliderContainer.offsetWidth;
+        if (position > beforeImage.offsetWidth) position = beforeImage.offsetWidth;
         slide(position);
     }
 
@@ -629,12 +629,12 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function slide(position) {
-        let afterValue = (position / compSliderContainer.offsetWidth) * 100;
-        comparissonSlider.style.left = `${afterValue}%`;
-        compInputRange.value = afterValue;
+        let afterValue = position;
+        comparissonSlider.style.left = `${afterValue}px`;
+        compInputRange.value = (afterValue / beforeImage.offsetWidth) * 100;
         let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
         marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-        afterImage.style.width = `${afterValue - ((marginLeft / compSliderContainer.offsetWidth) * 100)}%`;
+        afterImage.style.width = `${afterValue - marginLeft}px`;
     }
 
     function inputToSlide() {
@@ -679,6 +679,15 @@ function initializeCompSlider(compSliderContainer) {
                 textContent.style.display = "flex";
             }
         }
+    }
+
+    function posToPercent() {
+        let percentage = (afterImage.getBoundingClientRect().width / beforeImage.offsetWidth) * 100;
+        comparissonSlider.style.left = `${percentage}%`;
+        compInputRange.value = Math.floor(percentage);
+        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
+        afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
     }
 
 }
