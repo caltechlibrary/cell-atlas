@@ -235,11 +235,6 @@
         font-weight: 500;
     }
 
-    .landing-page-download-icon {
-        height: 3.5em;
-        margin-right: 1em;
-    }
-
     /* || PAGE styles (styles for every page of the book) */
     .book-page-container {
         display: flex;
