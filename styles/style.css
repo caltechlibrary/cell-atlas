@@ -208,7 +208,7 @@
         width: -moz-fit-content;
         width: fit-content;
         border: none;
-        padding: 0em 2.5em;
+        padding: 0.9em 2.5em;
         display: flex;
         align-items: center;
         font-family: system-ui;
@@ -217,9 +217,10 @@
         background-color: #24788f;
     }
 
-    .landing-page-start-button span {
-        font-size: 3em;
-        margin-right: 0.2em;
+    .landing-page-start-button svg {
+        width: 1.7em;
+        fill: #fff;
+        margin-right: 0.5em;
     }
 
     .landing-page-download-button {

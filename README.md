@@ -87,3 +87,5 @@ Library and the Jensen Lab.
 "[triangle](https://thenounproject.com/term/triangle/2309918/)" by Nawicon from [the Noun Project](https://thenounproject.com/).
 
 "[X](https://thenounproject.com/search/?q=x&i=2222119)" by Imam from [the Noun Project](https://thenounproject.com/).
+
+"[play](https://thenounproject.com/search/?q=play&i=86420)" by Slicon from [the Noun Project](https://thenounproject.com/).
