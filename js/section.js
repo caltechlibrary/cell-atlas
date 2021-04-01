@@ -371,6 +371,7 @@ function createVideoPlayer(videoEl) {
         if(document.fullscreenElement ||
             document.webkitFullscreenElement ||
             document.msFullscreenElement) {
+            window.addEventListener("touchstart", detectSwipe);
             videoPlayer.classList.remove("book-section-video-player-fullscreen");
             if (document.exitFullscreen) {
                 document.exitFullscreen();
@@ -566,8 +567,10 @@ function createVideoPlayer(videoEl) {
         if(document.fullscreenElement ||
             document.webkitFullscreenElement ||
             document.msFullscreenElement) {
+            window.removeEventListener("touchstart", detectSwipe);
             videoPlayer.classList.add("book-section-video-player-fullscreen");
         } else {
+            window.addEventListener("touchstart", detectSwipe);
             videoPlayer.classList.remove("book-section-video-player-fullscreen");
         }
     }
