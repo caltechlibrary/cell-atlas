@@ -376,7 +376,13 @@ function createVideoPlayer(videoEl) {
             document.exitFullscreen();
         } else {
             videoEl.style["max-height"] = "initial";
-            videoPlayer.requestFullscreen();
+            if (videoPlayer.requestFullscreen) {
+                videoPlayer.requestFullscreen();
+            } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
+                videoPlayer.webkitRequestFullscreen();
+            } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
+                videoPlayer.msRequestFullscreen();
+            }
         }
     });
 
