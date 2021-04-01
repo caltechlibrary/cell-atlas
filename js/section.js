@@ -369,14 +369,31 @@ function createVideoPlayer(videoEl) {
     });
 
     fullScreenButton.addEventListener("click", function() {
-        if(document.fullscreenElement 
-            && document.fullscreenElement.querySelector("video") 
-            && document.fullscreenElement.querySelector("video") .getAttribute("id") == playerId) {
-            videoEl.style["max-height"] = "82vh";
-            document.exitFullscreen();
+        if(document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.msFullscreenElement) {
+            videoPlayer.classList.remove("book-section-video-player-fullscreen");
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+                document.removeEventListener("fullscreenchange", toggleFullscreen);
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+                document.removeEventListener("webkitfullscreenchange", toggleFullscreen);
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+                document.removeEventListener("msfullscreenchange", toggleFullscreen);
+            }
         } else {
-            videoEl.style["max-height"] = "initial";
-            videoPlayer.requestFullscreen();
+            if (videoPlayer.requestFullscreen) {
+                videoPlayer.requestFullscreen();
+                document.addEventListener("fullscreenchange", toggleFullscreen);
+            } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
+                videoPlayer.webkitRequestFullscreen();
+                document.addEventListener("webkitfullscreenchange", toggleFullscreen);
+            } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
+                videoPlayer.msRequestFullscreen();
+                document.addEventListener("msfullscreenchange", toggleFullscreen);
+            }
         }
     });
 
@@ -544,6 +561,16 @@ function createVideoPlayer(videoEl) {
         imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
         imageBitmap = await createImageBitmap(imageData);
         frameImages[Math.round(currentFrameTime * fps) / fps] = imageBitmap;
+    }
+
+    function toggleFullscreen() {
+        if(document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.msFullscreenElement) {
+            videoPlayer.classList.add("book-section-video-player-fullscreen");
+        } else {
+            videoPlayer.classList.remove("book-section-video-player-fullscreen");
+        }
     }
 }
 
