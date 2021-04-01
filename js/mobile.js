@@ -1,6 +1,10 @@
 // Global variable to keep track of window width and prevent event listeners that depend
 // on window width to fire prematurely
 let currWindowWidth = window.innerWidth;
+let maxSwipeTime = 200;
+let minSwipeDist = 150;
+let maxVertSwipe = 100;
+let validSwipe = false;
 
 if(window.innerWidth < 900) {
     initializeMobileView();
@@ -16,6 +20,8 @@ window.addEventListener("resize", function() {
     }
     currWindowWidth = window.innerWidth;
 });
+
+window.addEventListener("touchstart", detectSwipe);
 
 function initializeMobileView() {
     let textContent = document.querySelector("#textContent");
@@ -64,6 +70,7 @@ function terminateMobileView() {
 
 function requestFullscreen(event) {
     if(event.target.requestFullscreen) {
+        window.removeEventListener("touchstart", detectSwipe);
         event.target.requestFullscreen();
     }
 }
@@ -73,6 +80,7 @@ function pauseOnMinimize(event) {
         window.currVideoPlaying = document.fullscreenElement;
     } else if (currVideoPlaying){
         window.currVideoPlaying.pause();
+        window.addEventListener("touchstart", detectSwipe);
     }
 }
 
@@ -137,5 +145,38 @@ function resizeDropdown(element) {
         setTimeout(function(){
             element.style.height = element.scrollHeight + "px";
         }, 500); 
+    }, { once: true });
+}
+
+function detectSwipe(event) {
+    validSwipe = true;
+    if(event.touches.length > 1) {
+        validSwipe = false;
+        return;
+    }
+    let imageSliders = document.querySelectorAll(".book-section-comparison-button");
+    for(let imageSlider of imageSliders) {
+        if(imageSlider.contains(event.target)) {
+            return;
+        }
+    }
+    let touchobj = event.changedTouches[0];
+    let startX = touchobj.pageX;
+    let startY = touchobj.pageY;
+    let startTime = new Date().getTime();
+
+    window.addEventListener("touchend", function(event) {
+        touchobj = event.changedTouches[0];
+        let distX = touchobj.pageX - startX;
+        let distY = touchobj.pageY - startY;
+        let elaspedTime = new Date().getTime() - startTime;
+        if(elaspedTime <= maxSwipeTime) {
+            if(validSwipe && Math.abs(distX) >= minSwipeDist && Math.abs(distY) <= maxVertSwipe) {
+                let navLink = (distX < 0) ? "next" : "prev";
+                let navButton = document.querySelector(`.book-page-nav[data-nav='${navLink}']`);
+                if(navButton) navButton.click();
+            }
+        }
+
     }, { once: true });
 }
