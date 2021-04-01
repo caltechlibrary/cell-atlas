@@ -152,6 +152,12 @@ function detectSwipe(event) {
         validSwipe = false;
         return;
     }
+    let imageSliders = document.querySelectorAll(".book-section-comparison-button");
+    for(let imageSlider of imageSliders) {
+        if(imageSlider.contains(event.target)) {
+            return;
+        }
+    }
     let touchobj = event.changedTouches[0];
     let startX = touchobj.pageX;
     let startY = touchobj.pageY;
