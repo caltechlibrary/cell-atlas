@@ -70,6 +70,7 @@ function terminateMobileView() {
 
 function requestFullscreen(event) {
     if(event.target.requestFullscreen) {
+        window.removeEventListener("touchstart", detectSwipe);
         event.target.requestFullscreen();
     }
 }
@@ -79,6 +80,7 @@ function pauseOnMinimize(event) {
         window.currVideoPlaying = document.fullscreenElement;
     } else if (currVideoPlaying){
         window.currVideoPlaying.pause();
+        window.addEventListener("touchstart", detectSwipe);
     }
 }
 
