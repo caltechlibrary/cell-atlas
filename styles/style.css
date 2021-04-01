@@ -491,7 +491,7 @@
 
     .book-section-video-container {
         position: relative;
-        width: fit-content;
+        width: 100%;
         max-width: 77.5vw;
     }
 
