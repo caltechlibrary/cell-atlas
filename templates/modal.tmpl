@@ -11,7 +11,11 @@
         <img class="subsection-modal-img" src="img/schematics/${it.graphic}">
     ${endif}
 
-    ${it:vid-citation.tmpl()}
+    ${if(it.species)}
+        ${it:vid-citation.tmpl()}
+    ${elseif(it.source)}
+        ${it:vid-citation.tmpl()}
+    ${endif}
     
     ${if(it.video)}
         ${if(offline)}
