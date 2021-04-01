@@ -643,6 +643,7 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function compEnterFullScreen() {
+        window.removeEventListener("touchstart", detectSwipe);
         enterFullBtn.style.display = "none"; 
         exitFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "fullscreen");
@@ -663,6 +664,7 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function compExitFullScreen() {
+        window.addEventListener("touchstart", detectSwipe);
         exitFullBtn.style.display = "none"; 
         enterFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "initial");
