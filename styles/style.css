@@ -507,6 +507,20 @@
         border-radius: 10px;
     }
 
+    .book-section-video-player-fullscreen {
+        border: none;
+        border-radius: 0;
+    }
+
+    .book-section-video-player-fullscreen video {
+        max-height: initial;
+        border-radius: 0;
+    }
+
+    .book-section-video-player-fullscreen .book-section-video-player-controls {
+        border-radius: 0;
+    }
+
     .book-section-video-player video {
         width: 100%;
         max-height: 78vh;
