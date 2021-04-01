@@ -37,13 +37,14 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add site navigation to metadata
     metadata["nav"] = siteNav
     # Add ID for the video player if there is one
-    if "doi" in metadata: 
+    if "doi" in metadata or "video" in metadata: 
         metadata["vidMetadata"] = {}
-        metadata["vidMetadata"]["species"] = metadata["videoTitle"]
-        metadata["vidMetadata"]["doi"] = metadata["doi"]
-        metadata["vidMetadata"]["collector"] = metadata["collector"]
         metadata["vidMetadata"]["video"] = metadata["video"]
         metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
+        if "doi" in metadata:
+            metadata["vidMetadata"]["species"] = metadata["videoTitle"]
+            metadata["vidMetadata"]["doi"] = metadata["doi"]
+            metadata["vidMetadata"]["collector"] = metadata["collector"]
 
         if "sections/" in sourceFile:
             metadata["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]
@@ -51,6 +52,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         else:
             metadata["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
             metadata["vidMetadata"]["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
+    
     # Check if collector profile exist in scientist profiles
     addCollectorData(metadata, "collector")
     # create temp file with inserted references/profiles

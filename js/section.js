@@ -218,7 +218,6 @@ function openText(el) {
     nonTextSection.style.right = "62%";
     nonTextSection.style.width = "62%";
 
-
     // Bring unshelf button on screen once text is transitioned off screen
     setTimeout(function(){
         textSection.style.transform = "translate(0, -50%)";
@@ -369,14 +368,32 @@ function createVideoPlayer(videoEl) {
     });
 
     fullScreenButton.addEventListener("click", function() {
-        if(document.fullscreenElement 
-            && document.fullscreenElement.querySelector("video") 
-            && document.fullscreenElement.querySelector("video") .getAttribute("id") == playerId) {
-            videoEl.style["max-height"] = "82vh";
-            document.exitFullscreen();
+        if(document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.msFullscreenElement) {
+            window.addEventListener("touchstart", detectSwipe);
+            videoPlayer.classList.remove("book-section-video-player-fullscreen");
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+                document.removeEventListener("fullscreenchange", toggleFullscreen);
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+                document.removeEventListener("webkitfullscreenchange", toggleFullscreen);
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+                document.removeEventListener("msfullscreenchange", toggleFullscreen);
+            }
         } else {
-            videoEl.style["max-height"] = "initial";
-            videoPlayer.requestFullscreen();
+            if (videoPlayer.requestFullscreen) {
+                videoPlayer.requestFullscreen();
+                document.addEventListener("fullscreenchange", toggleFullscreen);
+            } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
+                videoPlayer.webkitRequestFullscreen();
+                document.addEventListener("webkitfullscreenchange", toggleFullscreen);
+            } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
+                videoPlayer.msRequestFullscreen();
+                document.addEventListener("msfullscreenchange", toggleFullscreen);
+            }
         }
     });
 
@@ -545,6 +562,18 @@ function createVideoPlayer(videoEl) {
         imageBitmap = await createImageBitmap(imageData);
         frameImages[Math.round(currentFrameTime * fps) / fps] = imageBitmap;
     }
+
+    function toggleFullscreen() {
+        if(document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.msFullscreenElement) {
+            window.removeEventListener("touchstart", detectSwipe);
+            videoPlayer.classList.add("book-section-video-player-fullscreen");
+        } else {
+            window.addEventListener("touchstart", detectSwipe);
+            videoPlayer.classList.remove("book-section-video-player-fullscreen");
+        }
+    }
 }
 
 function useMouseFocus(event) {
@@ -606,6 +635,7 @@ function initializeCompSlider(compSliderContainer) {
     }
     
     function slideFinish() {
+        posToPercent();
         window.removeEventListener("mousemove", slideMove);
         window.removeEventListener("touchmove", slideMove);
         window.removeEventListener("mouseup", slideFinish);
@@ -615,7 +645,7 @@ function initializeCompSlider(compSliderContainer) {
     function slideMove(event) {
         let position = getCursorPos(event);
         if (position < 0) position = 0;
-        if (position > compSliderContainer.offsetWidth) position = compSliderContainer.offsetWidth;
+        if (position > beforeImage.offsetWidth) position = beforeImage.offsetWidth;
         slide(position);
     }
 
@@ -629,12 +659,12 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function slide(position) {
-        let afterValue = (position / compSliderContainer.offsetWidth) * 100;
-        comparissonSlider.style.left = `${afterValue}%`;
-        compInputRange.value = afterValue;
+        let afterValue = position;
+        comparissonSlider.style.left = `${afterValue}px`;
+        compInputRange.value = (afterValue / beforeImage.offsetWidth) * 100;
         let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
         marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-        afterImage.style.width = `${afterValue - ((marginLeft / compSliderContainer.offsetWidth) * 100)}%`;
+        afterImage.style.width = `${afterValue - marginLeft}px`;
     }
 
     function inputToSlide() {
@@ -643,6 +673,7 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function compEnterFullScreen() {
+        window.removeEventListener("touchstart", detectSwipe);
         enterFullBtn.style.display = "none"; 
         exitFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "fullscreen");
@@ -663,6 +694,7 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function compExitFullScreen() {
+        window.addEventListener("touchstart", detectSwipe);
         exitFullBtn.style.display = "none"; 
         enterFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "initial");
@@ -679,6 +711,15 @@ function initializeCompSlider(compSliderContainer) {
                 textContent.style.display = "flex";
             }
         }
+    }
+
+    function posToPercent() {
+        let percentage = (afterImage.getBoundingClientRect().width / beforeImage.offsetWidth) * 100;
+        comparissonSlider.style.left = `${percentage}%`;
+        compInputRange.value = Math.floor(percentage);
+        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
+        afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
     }
 
 }

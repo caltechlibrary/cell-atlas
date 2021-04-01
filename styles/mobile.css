@@ -160,24 +160,23 @@ blockquote {
     }
 
     .landing-page-start-button {
-        display: block;
+        display: flex;
+        align-items: center;
         color: #f5f5f5;
         background-color: #24788f;
         width: -moz-fit-content;
         width: fit-content;
-        padding: 0.25em 2em;
+        padding: 0.25em 1.5em;
         font-family: system-ui;
         font-size: 1em;
         height: 40px;
         line-height: 2.25;
     }
 
-    .landing-page-start-button span {
-        display: none;
-    }
-
-    .landing-page-download-icon {
-        height: 3.5em;
+    .landing-page-start-button svg {
+        width: 1.7em;
+        fill: #fff;
+        margin-right: 0.5em;
     }
 
     /* || HEADER styles */
