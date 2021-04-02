@@ -61,7 +61,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         # Aggregate "learn more" subsection content associated with this section
         metadata["subsectionsData"] = []
         for subsection in metadata["subsections"]:
-            metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection), pageName))
+            metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection), pageName, metadata))
     # create temp metadata file to pass to pandoc
     with open("metadata.json", "w") as f:
         json.dump(metadata, f)
@@ -141,7 +141,7 @@ def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
     subprocess.run(pandocArgs)
     os.remove("metadataOffline.json")
 
-def processSubsection(subsectionFile, pageName):
+def processSubsection(subsectionFile, pageName, parentData):
     metadata = getMarkdownMetadata(subsectionFile)
     metadata["id"] = subsectionFile.split("/")[-1][:-3]
     metadata["collectorProfile"] = False
@@ -154,7 +154,7 @@ def processSubsection(subsectionFile, pageName):
             metadata["thumbnail"] = "{}_thumbnail".format("_".join(currVideoName.split(".")[0].split("_")[:-1]))
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
-    if("species" in metadata): addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]))
+    if("species" in metadata): addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{} : {}".format(parentData["title"], metadata["title"]))
 
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")
@@ -286,11 +286,18 @@ def addCollectorData(metadata, identifier):
                 metadata["vidMetadata"]["collectorProfile"] = metadata["collectorProfile"]
                 metadata["vidMetadata"]["collectorId"] = metadata["collectorId"]
             
-def addSpeciesToDict(species, pageName):
-        if(species in speciesDict):
-            speciesDict[species].append(pageName)
-        else:
-            speciesDict[species] = [ pageName ]
+def addSpeciesToDict(species, pageName, chapter, section, title):
+    speciesObj = {}
+    if(chapter != ""): speciesObj["chapter"] = chapter
+    if(section != ""): speciesObj["section"] = section
+    speciesObj["title"] = title
+    speciesObj["page"] = pageName
+    if(species in speciesDict):
+        speciesDict[species]["speciesObjs"].append(speciesObj)
+    else:
+        speciesDict[species] = {}
+        speciesDict[species]["species"] = species
+        speciesDict[species]["speciesObjs"] = [ speciesObj ]
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
@@ -377,7 +384,7 @@ introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
 introFileMetaData["thumbnail"] = "0_1_thumbnail"
-addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html")
+addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html", "", "", "Introduction")
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 
 # Render section pages
@@ -419,7 +426,7 @@ for i in range(len(sectionFiles)):
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
 
-    if("videoTitle" in metadata): addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName))
+    if("videoTitle" in metadata): addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
 
     if metadata["section"] != "0":
         metadata["typeSection"] = True
@@ -443,7 +450,7 @@ keepLookingFileMetaData["prevSection"] = "outlook"
 keepLookingFileMetaData["nextSection"] = "A-feature-index"
 keepLookingFileMetaData["subsectionsData"] = []
 keepLookingFileMetaData["thumbnail"] = "11_1_thumbnail"
-addSpeciesToDict(keepLookingFileMetaData["videoTitle"], "keep-looking.html")
+addSpeciesToDict(keepLookingFileMetaData["videoTitle"], "keep-looking.html", "", "", "Keep Looking")
 writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)
 
 # Render feature index page
@@ -479,8 +486,13 @@ metadata["chapter"] = "C"
 metadata["title"] = "Phylogenetic Tree"
 metadata["prevSection"] = "B-scientist-profiles"
 metadata["nextSection"] = "D-references"
-print(len(speciesDict))
-print(speciesDict)
+speciesList = []
+for species in speciesDict:
+    speciesObj = {}
+    speciesObj["species"] = speciesDict[species]["species"]
+    speciesObj["speciesObjs"] = speciesDict[species]["speciesObjs"]
+    speciesList.append(speciesObj)
+metadata["speciesList"] = speciesList 
 writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
 
 # Render bibliography page 

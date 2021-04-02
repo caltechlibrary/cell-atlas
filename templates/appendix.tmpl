@@ -20,6 +20,16 @@ ${endif}
             <div class="book-text-content">
                 ${body}
             </div>
+            ${for(speciesList)}
+                <div class="book-appendix-tree-section-list">
+                    <h2>${speciesList.species}</h2>
+                    <ol>
+                        ${for(speciesList.speciesObjs)}
+                            <li> <a href="${speciesList.speciesObjs.page}">${speciesList.speciesObjs.chapter} ${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a></li>
+                        ${endfor}
+                    </ol>
+                </div>
+            ${endfor}
             ${svg/tree.svg()}
         ${elseif(appendixTypeAbout)}
             ${about.tmpl()}

@@ -1114,6 +1114,10 @@
         margin: 2em 0;
     }
 
+    .book-appendix-tree-section-list {
+        display: none;
+    }
+
     /* || REFERENCES styles */
     .csl-entry {
         display: flex;
