@@ -486,18 +486,24 @@
     }
 
     .book-section-video-container {
+        flex: 1;
         position: relative;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 98%;
         max-width: 77.5vw;
     }
 
     /* || PLAYER styles */
 
-
     .book-section-video-player {
         position: relative;
+        flex: 0 1 auto;
+        min-height: 0;
         background: #ffffff;
         display: flex;
+        flex-direction: column;
         align-items: center;
         border: 7px #cccccc solid;
         border-radius: 10px;
@@ -518,8 +524,10 @@
     }
 
     .book-section-video-player video {
-        width: 100%;
-        max-height: 78vh;
+        flex: 1;
+        min-height: 0;
+        max-width: 100%;
+        max-height: 100%;
         border-radius: 5px;
     }
 
@@ -637,6 +645,7 @@
     }
 
     .book-section-comparison-button-container {
+        flex: 0;
         margin-left: 10px;
     }
 
@@ -736,10 +745,11 @@
     }
 
     .video-quality-changer {
+        flex: 0;
         position: relative;
         display: flex;
         width: fit-content;
-        float: right;
+        margin-left: auto;
         color: #ffffff;
         font-size: 1em;
     }

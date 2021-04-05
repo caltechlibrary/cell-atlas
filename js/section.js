@@ -177,7 +177,6 @@ function shelfText(el) {
     let nonTextSection = document.getElementById("nonTextContent");
     let textSection = document.getElementById("textContent");
     let unshelfButton = document.getElementById("unshelfButton");
-    let compSliderContainer = document.querySelector(".book-section-non-text-content .book-section-comparison-slider-container");
 
     // Make content of text section untabable
     let textSectionChildren = textSection.getElementsByTagName("*");
