@@ -94,4 +94,37 @@ if(treeViewer) {
         tx = newTx;
         ty = newTy;
     });
+
+    treeViewer.addEventListener("mousedown", function(event) {
+        let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
+        let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
+        let posX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
+        let posY = (event.pageY - treeViewer.getBoundingClientRect().y) - centerY;
+
+        treeViewer.addEventListener("mousemove", trackMouse);
+
+        treeViewer.addEventListener("mouseup", removeTracking, { once: true });
+
+        treeViewer.addEventListener("mouseleave", removeTracking, { once: true });
+
+        function trackMouse(event) {
+            event.preventDefault();
+            let currX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
+            let currY = (event.pageY - treeViewer.getBoundingClientRect().y) - centerY;
+            let dx = posX - currX;
+            let dy = posY - currY;
+            let newTx = tx - dx;
+            let newTy = ty - dy;
+
+            treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
+            tx = newTx;
+            ty = newTy; 
+            posX = currX;
+            posY = currY;
+        }
+
+        function removeTracking() {
+            treeViewer.removeEventListener("mousemove", trackMouse);
+        }
+    });
 }
