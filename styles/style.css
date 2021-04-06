@@ -1128,6 +1128,14 @@
         display: none;
     }
 
+    .book-appendix-tree-viewer {
+        overflow: hidden;
+    }
+
+    .book-appendix-tree-viewer svg {
+        transform: matrix(1,0,0,1,0,0);
+    }
+
     /* || REFERENCES styles */
     .csl-entry {
         display: flex;

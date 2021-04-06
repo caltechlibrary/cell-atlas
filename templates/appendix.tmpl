@@ -30,7 +30,9 @@ ${endif}
                     </ol>
                 </div>
             ${endfor}
-            ${svg/tree.svg()}
+            <div class="book-appendix-tree-viewer">
+                ${svg/tree.svg()}
+            </div>
         ${elseif(appendixTypeAbout)}
             ${about.tmpl()}
         ${elseif(appendixTypeReferences)}

@@ -65,3 +65,33 @@ function toggleListDropdown(el) {
         list.removeAttribute("showing");
     }
 }
+
+let treeViewer = document.querySelector(".book-appendix-tree-viewer");
+if(treeViewer) {
+    let treeGraphic = treeViewer.querySelector("svg");
+    let currScale = 1;
+    let zoomFactor = 1.05;
+    let tx = 0;
+    let ty = 0;
+    treeViewer.addEventListener("wheel", function(event) {
+        event.preventDefault();
+
+        let currZoomFactor = zoomFactor;
+        if(event.deltaY >= 0) currZoomFactor = 1/zoomFactor;  
+        currScale *= currZoomFactor;
+
+        // Calculate displacement of zooming position
+        let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
+        let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
+        let posX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
+        let posY = (event.pageY - treeViewer.getBoundingClientRect().y) - centerY;
+        let dx = (posX - tx) * (currZoomFactor - 1);
+        let dy = (posY - ty) * (currZoomFactor - 1);
+        let newTx = tx - dx;
+        let newTy = ty - dy;
+
+        treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
+        tx = newTx;
+        ty = newTy;
+    });
+}
