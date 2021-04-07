@@ -127,4 +127,10 @@ if(treeViewer) {
             treeViewer.removeEventListener("mousemove", trackMouse);
         }
     });
+
+    let speciesMenus = document.querySelectorAll(".book-appendix-tree-section-list");
+    for(let speciesMenu of speciesMenus) {
+        let speciesName = speciesMenu.getAttribute("data-species");
+        
+    }
 }

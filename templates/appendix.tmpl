@@ -21,7 +21,7 @@ ${endif}
                 ${body}
             </div>
             ${for(speciesList)}
-                <div class="book-appendix-tree-section-list">
+                <div class="book-appendix-tree-section-list" id="${speciesList.id}" data-species="${speciesList.species}">
                     <h2>${speciesList.species}</h2>
                     <ol>
                         ${for(speciesList.speciesObjs)}

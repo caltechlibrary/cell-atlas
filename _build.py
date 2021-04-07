@@ -298,6 +298,7 @@ def addSpeciesToDict(species, pageName, chapter, section, title):
         speciesDict[species] = {}
         speciesDict[species]["species"] = species
         speciesDict[species]["speciesObjs"] = [ speciesObj ]
+        speciesDict[species]["id"] = species.replace(" ", "-")
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
@@ -491,6 +492,7 @@ for species in speciesDict:
     speciesObj = {}
     speciesObj["species"] = speciesDict[species]["species"]
     speciesObj["speciesObjs"] = speciesDict[species]["speciesObjs"]
+    speciesObj["id"] = speciesDict[species]["id"]
     speciesList.append(speciesObj)
 metadata["speciesList"] = speciesList 
 writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
