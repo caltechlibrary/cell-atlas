@@ -25,11 +25,11 @@
         font-family: sans-serif;
     }
 
-    h1, h2, button {
+    h1, h2, h3, button {
         font-size: 100%;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
         margin-block-start: 0;
         margin-block-end: 0;
     }
@@ -1124,10 +1124,6 @@
         margin: 2em 0;
     }
 
-    .book-appendix-tree-section-list {
-        display: none;
-    }
-
     .book-appendix-tree-viewer {
         position: relative;
         overflow: hidden;
@@ -1137,6 +1133,11 @@
 
     .book-appendix-tree-viewer svg {
         transform: matrix(1,0,0,1,0,0);
+    }
+
+    .book-appendix-tree-viewer svg a {
+        color: initial;
+        text-decoration: none;
     }
 
     .book-appendix-tree-viewer-controls {
@@ -1169,6 +1170,55 @@
 
     .book-appendix-tree-viewer-controls button svg {
         width: 1.5em;
+    }
+
+    .book-appendix-tree-section-list {
+        display: none;
+        position: fixed;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: #363636 5px 8px 7px 1px;
+        transform: translateY(-100%);
+        color: #000;
+        z-index: 100;
+    }
+
+    .book-appendix-tree-section-title {
+        width: 100%;
+        text-align: center;
+        background: #dcdcdc;
+        font-size: 1.25em;
+        padding: 0.25em 0;
+    }
+
+    .book-appendix-tree-section-content {
+        padding: 0.5em 1em;
+    }
+
+    .book-appendix-tree-section-subheader {
+        font-weight: 300;
+        font-size: 1.15em;
+    }
+
+    .book-appendix-tree-section-example-list {
+        list-style-type: disc;
+        list-style-position: inside;
+    }
+
+    .book-appendix-tree-section-example-list li {
+        margin: 0.5em 0;
+    }
+
+    .book-appendix-tree-section-example-list li span {
+        position: relative;
+        left: -10px;
+    }
+
+    .book-appendix-tree-section-example-list a {
+        color: #325c69;
+        text-decoration: underline;
     }
 
     /* || REFERENCES styles */

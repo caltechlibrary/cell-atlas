@@ -75,6 +75,7 @@ if(treeViewer) {
     let zoomFactor = 1.05;
     let tx = 0;
     let ty = 0;
+
     treeViewer.addEventListener("wheel", function(event) {
         event.preventDefault();
 
@@ -144,8 +145,52 @@ if(treeViewer) {
         ty = newTy;
     }
 
-    let speciesMenus = document.querySelectorAll(".book-appendix-tree-section-list");
-    for(let speciesMenu of speciesMenus) {
-        let speciesName = speciesMenu.getAttribute("data-species");
+    let speciesEntries = document.querySelectorAll(".book-appendix-tree-species-entry");
+    for(let speciesEntry of speciesEntries) {
+        let speciesId = speciesEntry.getAttribute("id");
+        let popUp = document.querySelector(`.book-appendix-tree-section-list[data-species='${speciesId}']`);
+        let hidePopUpCalls = [];
+        speciesEntry.addEventListener("mouseenter", function(event) {
+            clearHideCalls();
+            popUp.removeEventListener("mouseenter", popUpHandleHover);
+            popUp.removeEventListener("mouseleave", popUpHandleLeave);
+            popUp.style.display = "block";
+            popUp.style.left = `${event.pageX}px`;
+            popUp.style.top = `${event.pageY}px`;
+
+            speciesEntry.addEventListener("mouseleave", function(event) {
+                hidePopUpCalls.push(hidePopUp(popUp));
+            }, {once: true});
+
+            popUp.addEventListener("mouseenter", popUpHandleHover);
+            popUp.addEventListener("mouseleave", popUpHandleLeave);
+
+        });
+
+        function clearHideCalls() {
+            for(let hidePopUpCall of hidePopUpCalls) {
+                window.clearTimeout(hidePopUpCall);
+            }
+        }
+
+        function popUpHandleHover() {
+            clearHideCalls();
+            popUp.setAttribute("data-hover", "true");
+        }
+
+        function popUpHandleLeave() {
+            popUp.setAttribute("data-hover", "false");
+            hidePopUpCalls.push(hidePopUp(popUp));
+        }
+
+        function hidePopUp(popUp) {
+            let timeoutNum = setTimeout(function() {
+                if(popUp.getAttribute("data-hover") != "true") {
+                    popUp.style.display = "none";
+                }
+            }, 1000);
+            return timeoutNum;
+        }
     }
+            
 }
