@@ -89,3 +89,7 @@ Library and the Jensen Lab.
 "[X](https://thenounproject.com/search/?q=x&i=2222119)" by Imam from [the Noun Project](https://thenounproject.com/).
 
 "[play](https://thenounproject.com/search/?q=play&i=86420)" by Slicon from [the Noun Project](https://thenounproject.com/).
+
+"[Plus](https://thenounproject.com/search/?q=plus&i=705287)" by Eagle Eye from [the Noun Project](https://thenounproject.com/).
+
+"[Minus](https://thenounproject.com/term/minus/705290/)" by Eagle Eye from [the Noun Project](https://thenounproject.com/).

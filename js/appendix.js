@@ -68,7 +68,9 @@ function toggleListDropdown(el) {
 
 let treeViewer = document.querySelector(".book-appendix-tree-viewer");
 if(treeViewer) {
-    let treeGraphic = treeViewer.querySelector("svg");
+    let treeGraphic = treeViewer.querySelector("#treeSvg");
+    let zoomInButton = treeViewer.querySelector("#treeZoomIn");
+    let zoomOutButton = treeViewer.querySelector("#treeZoomOut");
     let currScale = 1;
     let zoomFactor = 1.05;
     let tx = 0;
@@ -85,14 +87,7 @@ if(treeViewer) {
         let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
         let posX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
         let posY = (event.pageY - treeViewer.getBoundingClientRect().y) - centerY;
-        let dx = (posX - tx) * (currZoomFactor - 1);
-        let dy = (posY - ty) * (currZoomFactor - 1);
-        let newTx = tx - dx;
-        let newTy = ty - dy;
-
-        treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
-        tx = newTx;
-        ty = newTy;
+        calcTransform(posX, posY, currZoomFactor);
     });
 
     treeViewer.addEventListener("mousedown", function(event) {
@@ -128,9 +123,29 @@ if(treeViewer) {
         }
     });
 
+    zoomInButton.addEventListener("click", function(event) {
+        currScale *= zoomFactor;
+        calcTransform(0, 0, zoomFactor);
+    });
+
+    zoomOutButton.addEventListener("click", function(event) {
+        currScale *= 1/zoomFactor;
+        calcTransform(0, 0, 1/zoomFactor);
+    });
+
+    function calcTransform(posX, posY, zoomF) {
+        let dx = (posX - tx) * (zoomF - 1);
+        let dy = (posY - ty) * (zoomF - 1);
+        let newTx = tx - dx;
+        let newTy = ty - dy;
+
+        treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
+        tx = newTx;
+        ty = newTy;
+    }
+
     let speciesMenus = document.querySelectorAll(".book-appendix-tree-section-list");
     for(let speciesMenu of speciesMenus) {
         let speciesName = speciesMenu.getAttribute("data-species");
-        
     }
 }

@@ -31,6 +31,10 @@ ${endif}
                 </div>
             ${endfor}
             <div class="book-appendix-tree-viewer">
+                <div class="book-appendix-tree-viewer-controls">
+                    <button id="treeZoomIn">${svg/noun_Plus.svg()}</button>
+                    <button id="treeZoomOut">${svg/noun_Minus.svg()}</button>
+                </div>
                 ${svg/tree.svg()}
             </div>
         ${elseif(appendixTypeAbout)}
