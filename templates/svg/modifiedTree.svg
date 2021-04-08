@@ -35,17 +35,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M-194.7-1487.9l35.6,237.3"/>
-			<text transform="matrix(0.5686 3.7924 -3.7924 0.5686 -271.6414 -1907.9895)" class="st5 st6 st7">Haloferax gibbonsii</text>
+			<a class="book-appendix-tree-species-entry" id="Haloferax-gibbonsii"><text transform="matrix(0.5686 3.7924 -3.7924 0.5686 -271.6414 -1907.9895)" class="st5 st6 st7">Haloferax gibbonsii</text></a>
 			<path class="st3" d="M-159.1-1250.6l29.7,197.8"/>
 		</g>
 		<g>
 			<path class="st4" d="M-96.4,1282.5l249.1-410.3"/>
-			<text transform="matrix(1.9901 -3.278 3.278 1.9901 -272.9695 1599.9531)" class="st5 st6 st7">Brucella abortus</text>
+			<a class="book-appendix-tree-species-entry" id="Brucella-abortus"><text transform="matrix(1.9901 -3.278 3.278 1.9901 -272.9695 1599.9531)" class="st5 st6 st7">Brucella abortus</text></a>
 			<path class="st3" d="M152.7,872.2l103.8-171"/>
 		</g>
 		<g>
 			<path class="st4" d="M538.2,1483.7l-41.6-357.6"/>
-			<text transform="matrix(0.4429 3.8091 -3.8091 0.4429 524.4925 1485.2729)" class="st5 st6 st7">Helicobacter pylori</text>
+			<a class="book-appendix-tree-species-entry" id="Helicobacter-pylori"><text transform="matrix(0.4429 3.8091 -3.8091 0.4429 524.4925 1485.2729)" class="st5 st6 st7">Helicobacter pylori</text></a>
 			<path class="st3" d="M496.6,1126.1l-23.1-198.7"/>
 		</g>
 		<g>
@@ -56,17 +56,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M-486.9-1190.6l275.7,392.9"/>
-			<text transform="matrix(2.2024 3.1393 -3.1393 2.2024 -810.8918 -1628.4033)" class="st5 st6 st7">Methanoregula formicica</text>
+			<a class="book-appendix-tree-species-entry" id="Methanoregula-formicica"><text transform="matrix(2.2024 3.1393 -3.1393 2.2024 -810.8918 -1628.4033)" class="st5 st6 st7">Methanoregula formicica</text></a>
 			<path class="st3" d="M-211.2-797.7L-96.4-634"/>
 		</g>
 		<g>
 			<path class="st4" d="M-650.3,469.1l479.7-15.9"/>
-			<text transform="matrix(3.8327 -0.1268 0.1268 3.8327 -1393.3219 507.5217)" class="st5 st6 st7">Pseudoalteromonas luteoviolacea</text>
+			<a class="book-appendix-tree-species-entry" id="Pseudoalteromonas-luteoviolacea"><text transform="matrix(3.8327 -0.1268 0.1268 3.8327 -1393.3219 507.5217)" class="st5 st6 st7">Pseudoalteromonas luteoviolacea</text></a>
 			<path class="st3" d="M-170.5,453.3l199.9-6.6"/>
 		</g>
 		<g>
 			<path class="st4" d="M-810-355.3L7.6-162.6"/>
-			<text transform="matrix(3.7325 0.8798 -0.8798 3.7325 -1106.6635 -411.0234)" class="st8 st9 st10">Asgard group</text>
+			<a class="book-appendix-tree-species-entry" id="Asgard-group"><text transform="matrix(3.7325 0.8798 -0.8798 3.7325 -1106.6635 -411.0234)" class="st8 st9 st10">Asgard group</text></a>
 			<path class="st3" d="M7.6-162.6l194.7,45.9"/>
 		</g>
 		<g>
@@ -77,17 +77,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M40.9,1432.7l122.5-338.5"/>
-			<text transform="matrix(-1.305 3.6059 -3.6059 -1.305 27.9561 1428.0502)" class="st5 st6 st7">Magnetospirillum magneticum</text>
+			<a class="book-appendix-tree-species-entry" id="Magnetospirillum-magneticum"><text transform="matrix(-1.305 3.6059 -3.6059 -1.305 27.9561 1428.0502)" class="st5 st6 st7">Magnetospirillum magneticum</text></a>
 			<path class="st3" d="M163.4,1094.2l68.1-188.1"/>
 		</g>
 		<g>
 			<path class="st4" d="M580,1396.9l-86.8-472.1"/>
-			<text transform="matrix(0.6936 3.7715 -3.7715 0.6936 566.4377 1399.3894)" class="st5 st6 st7">Campylobacter jejuni</text>
+			<a class="book-appendix-tree-species-entry" id="Campylobacter-jejuni"><text transform="matrix(0.6936 3.7715 -3.7715 0.6936 566.4377 1399.3894)" class="st5 st6 st7">Campylobacter jejuni</text></a>
 			<path class="st3" d="M493.2,924.8L457,728.1"/>
 		</g>
 		<g>
 			<path class="st4" d="M684.6-868.6L532.7-42.5"/>
-			<text transform="matrix(-0.6936 3.7715 -3.7715 -0.6936 733.5011 -1210.554)" class="st8 st9 st10">Chrysiogenetes</text>
+			<a class="book-appendix-tree-species-entry" id="Chrysiogenetes"><text transform="matrix(-0.6936 3.7715 -3.7715 -0.6936 733.5011 -1210.554)" class="st8 st9 st10">Chrysiogenetes</text></a>
 			<path class="st3" d="M532.7-42.5l-36.2,196.7"/>
 		</g>
 		<g>
@@ -95,22 +95,22 @@
 		</g>
 		<g>
 			<path class="st4" d="M410.7-882.2L480-45.1"/>
-			<text transform="matrix(0.3167 3.8217 -3.8217 0.3167 369.0271 -1217.4691)" class="st8 st9 st10">Deferribacteres</text>
+			<a class="book-appendix-tree-species-entry" id="Deferribacteres"><text transform="matrix(0.3167 3.8217 -3.8217 0.3167 369.0271 -1217.4691)" class="st8 st9 st10">Deferribacteres</text></a>
 			<path class="st3" d="M480-45.1l16.5,199.3"/>
 		</g>
 		<g>
 			<path class="st4" d="M-231.1,1081.7l344.6-491.2"/>
-			<text transform="matrix(2.2024 -3.1393 3.1393 2.2024 -589.6935 1616.8997)" class="st5 st6 st7">Hydrogenovibrio crunogenus</text>
+			<a class="book-appendix-tree-species-entry" id="Hydrogenovibrio-crunogenus"><text transform="matrix(2.2024 -3.1393 3.1393 2.2024 -589.6935 1616.8997)" class="st5 st6 st7">Hydrogenovibrio crunogenus</text></a>
 			<path class="st3" d="M113.5,590.6l114.9-163.7"/>
 		</g>
 		<g>
 			<path class="st4" d="M1581.8-119.3L886.8,69"/>
-			<text transform="matrix(3.7014 -1.0027 1.0027 3.7014 1585.4083 -105.9465)" class="st5 st6 st7">Porphyromonas gingivalis</text>
+			<a class="book-appendix-tree-species-entry" id="Porphyromonas-gingivalis"><text transform="matrix(3.7014 -1.0027 1.0027 3.7014 1585.4083 -105.9465)" class="st5 st6 st7">Porphyromonas gingivalis</text></a>
 			<path class="st3" d="M886.8,69l-193,52.3"/>
 		</g>
 		<g>
 			<path class="st4" d="M-779.8-805.6L-294.3-453"/>
-			<text transform="matrix(3.1024 2.254 -2.254 3.1024 -1188.1798 -1091.7424)" class="st5 st6 st7">Sulfolobus solfataricus</text>
+			<a class="book-appendix-tree-species-entry" id="Sulfolobus-solfataricus"><text transform="matrix(3.1024 2.254 -2.254 3.1024 -1188.1798 -1091.7424)" class="st5 st6 st7">Sulfolobus solfataricus</text></a>
 			<path class="st3" d="M-294.3-453l161.8,117.6"/>
 		</g>
 		<g>
@@ -118,42 +118,42 @@
 		</g>
 		<g>
 			<path class="st4" d="M630.3,1305L483,723.3"/>
-			<text transform="matrix(0.9414 3.7175 -3.7175 0.9414 616.9269 1308.3534)" class="st5 st6 st7">Myxococcus xanthus</text>
+			<a class="book-appendix-tree-species-entry" id="Myxococcus-xanthus"><text transform="matrix(0.9414 3.7175 -3.7175 0.9414 616.9269 1308.3534)" class="st5 st6 st7">Myxococcus xanthus</text></a>
 			<path class="st3" d="M483,723.3l-49.1-193.9"/>
 		</g>
 		<g>
 			<path class="st4" d="M-351.2,978.3L83.5,564.7"/>
-			<text transform="matrix(2.778 -2.6435 2.6435 2.778 -714.4688 1343.0833)" class="st5 st6 st7">Lysobacter antibioticus</text>
+			<a class="book-appendix-tree-species-entry" id="Lysobacter-antibioticus"><text transform="matrix(2.778 -2.6435 2.6435 2.778 -714.4688 1343.0833)" class="st5 st6 st7">Lysobacter antibioticus</text></a>
 			<path class="st3" d="M83.5,564.7l144.9-137.9"/>
 		</g>
 		<g>
 			<path class="st4" d="M830,1236.4L571,695.2"/>
-			<text transform="matrix(1.6557 3.459 -3.459 1.6557 817.5564 1242.3627)" class="st5 st6 st7">Cupriavidus necator</text>
+			<a class="book-appendix-tree-species-entry" id="Cupriavidus-necator"><text transform="matrix(1.6557 3.459 -3.459 1.6557 817.5564 1242.3627)" class="st5 st6 st7">Cupriavidus necator</text></a>
 			<path class="st3" d="M571,695.2l-86.4-180.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M-743.1-550.1L20.5-200"/>
-			<text transform="matrix(3.4859 1.5983 -1.5983 3.4859 -1204.4052 -746.4576)" class="st8 st9 st10">Archaea incertae sedis</text>
+			<a class="book-appendix-tree-species-entry" id="Archaea-incertae-sedis"><text transform="matrix(3.4859 1.5983 -1.5983 3.4859 -1204.4052 -746.4576)" class="st8 st9 st10">Archaea incertae sedis</text></a>
 			<path class="st3" d="M20.5-200l181.8,83.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M-512.6,901.4l406.1-255.9"/>
-			<text transform="matrix(3.2446 -2.0441 2.0441 3.2446 -937.7964 1185.6433)" class="st5 st6 st7">Pseudomonas flexibilis</text>
+			<a class="book-appendix-tree-species-entry" id="Pseudomonas-flexibilis"><text transform="matrix(3.2446 -2.0441 2.0441 3.2446 -937.7964 1185.6433)" class="st5 st6 st7">Pseudomonas flexibilis</text></a>
 			<path class="st3" d="M-106.5,645.6L62.8,539"/>
 		</g>
 		<g>
 			<path class="st4" d="M-568.7,799.6l436.3-200.1"/>
-			<text transform="matrix(3.4859 -1.5983 1.5983 3.4859 -1187.9438 1098.6838)" class="st5 st6 st7">Methylomicrobium alcaliphilum</text>
+			<a class="book-appendix-tree-species-entry" id="Methylomicrobium-alcaliphilum"><text transform="matrix(3.4859 -1.5983 1.5983 3.4859 -1187.9438 1098.6838)" class="st5 st6 st7">Methylomicrobium alcaliphilum</text></a>
 			<path class="st3" d="M-132.4,599.5l181.8-83.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M-304.8-1460l81.7,225.7"/>
-			<text transform="matrix(1.305 3.6059 -3.6059 1.305 -483.0829 -1912.0314)" class="st5 st6 st7">Halohasta litchfieldiae</text>
+			<a class="book-appendix-tree-species-entry" id="Halohasta-litchfieldiae"><text transform="matrix(1.305 3.6059 -3.6059 1.305 -483.0829 -1912.0314)" class="st5 st6 st7">Halohasta litchfieldiae</text></a>
 			<path class="st3" d="M-223.2-1234.3l68.1,188.1"/>
 		</g>
 		<g>
 			<path class="st4" d="M805.1,1334.3L626.9,888.6"/>
-			<text transform="matrix(1.4235 3.5608 -3.5608 1.4235 792.2618 1339.4159)" class="st5 st6 st7">Delftia acidovorans</text>
+			<a class="book-appendix-tree-species-entry" id="Delftia-acidovorans"><text transform="matrix(1.4235 3.5608 -3.5608 1.4235 792.2618 1339.4159)" class="st5 st6 st7">Delftia acidovorans</text></a>
 			<path class="st3" d="M626.9,888.6l-74.2-185.7"/>
 		</g>
 		<g>
@@ -161,12 +161,12 @@
 		</g>
 		<g>
 			<path class="st4" d="M230.2,1315l89-593.4"/>
-			<text transform="matrix(-0.5686 3.7924 -3.7924 -0.5686 216.5244 1312.9186)" class="st5 st6 st7">Caulobacter crescentus </text>
+			<a class="book-appendix-tree-species-entry" id="Caulobacter-crescentus"><text transform="matrix(-0.5686 3.7924 -3.7924 -0.5686 216.5244 1312.9186)" class="st5 st6 st7">Caulobacter crescentus </text></a>
 			<path class="st3" d="M319.1,721.6l29.7-197.8"/>
 		</g>
 		<g>
 			<path class="st4" d="M1121.7-676.9L616.7-5.6"/>
-			<text transform="matrix(2.305 -3.0647 3.0647 2.305 1132.6866 -668.6503)" class="st8 st9 st10">Candidatus Krumholzibacteriota</text>
+			<a class="book-appendix-tree-species-entry" id="Candidatus-Krumholzibacteriota"><text transform="matrix(2.305 -3.0647 3.0647 2.305 1132.6866 -668.6503)" class="st8 st9 st10">Candidatus Krumholzibacteriota</text></a>
 			<path class="st3" d="M616.7-5.6L496.5,154.2"/>
 		</g>
 		<g>
@@ -174,17 +174,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M-16.6,1324l192.8-439.6"/>
-			<text transform="matrix(-1.5404 3.5118 -3.5118 -1.5404 -29.2776 1318.4329)" class="st5 st6 st7">Agrobacterium tumefaciens</text>
+			<a class="book-appendix-tree-species-entry" id="Agrobacterium-tumefaciens"><text transform="matrix(-1.5404 3.5118 -3.5118 -1.5404 -29.2776 1318.4329)" class="st5 st6 st7">Agrobacterium tumefaciens</text></a>
 			<path class="st3" d="M176.2,884.4l80.3-183.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M1346.3,1099.2l-288.5-383.6"/>
-			<text transform="matrix(2.305 3.0647 -3.0647 2.305 1335.2412 1107.5117)" class="st5 st6 st7">Listeria monocytogenes</text>
+			<a class="book-appendix-tree-species-entry" id="Listeria-monocytogenes"><text transform="matrix(2.305 3.0647 -3.0647 2.305 1335.2412 1107.5117)" class="st5 st6 st7">Listeria monocytogenes</text></a>
 			<path class="st3" d="M1057.8,715.6L937.5,555.8"/>
 		</g>
 		<g>
 			<path class="st4" d="M1528.6,765.4l-518-302.9"/>
-			<text transform="matrix(3.3104 1.9357 -1.9357 3.3104 1521.6698 777.2693)" class="st5 st6 st7">Mycoplasma genitalium</text>
+			<a class="book-appendix-tree-species-entry" id="Mycoplasma-genitalium"><text transform="matrix(3.3104 1.9357 -1.9357 3.3104 1521.6698 777.2693)" class="st5 st6 st7">Mycoplasma genitalium</text></a>
 			<path class="st3" d="M1010.7,462.5L838,361.5"/>
 		</g>
 		<g>
@@ -192,7 +192,7 @@
 		</g>
 		<g>
 			<path class="st4" d="M1414.4,1040.6l-336.6-342.2"/>
-			<text transform="matrix(2.6891 2.7339 -2.7339 2.6891 1404.5399 1050.2393)" class="st5 st6 st7">Staphylococcus aureus</text>
+			<a class="book-appendix-tree-species-entry" id="Staphylococcus-aureus"><text transform="matrix(2.6891 2.7339 -2.7339 2.6891 1404.5399 1050.2393)" class="st5 st6 st7">Staphylococcus aureus</text></a>
 			<path class="st3" d="M1077.8,698.4L937.5,555.8"/>
 		</g>
 		<g>
@@ -203,7 +203,7 @@
 		</g>
 		<g>
 			<path class="st4" d="M1225.8-587.2l-589,598.9"/>
-			<text transform="matrix(2.6891 -2.7339 2.7339 2.6891 1235.6613 -577.5594)" class="st8 st9 st10">Nitrospinae/Tectomicrobia group</text>
+			<a class="book-appendix-tree-species-entry" id="Nitrospinae/Tectomicrobia-group"><text transform="matrix(2.6891 -2.7339 2.7339 2.6891 1235.6613 -577.5594)" class="st8 st9 st10">Nitrospinae/Tectomicrobia group</text></a>
 			<path class="st3" d="M636.8,11.6L496.5,154.2"/>
 		</g>
 		<g>
@@ -214,12 +214,12 @@
 		</g>
 		<g>
 			<path class="st4" d="M1605.7,597.3l-567.5-194.8"/>
-			<text transform="matrix(3.627 1.2452 -1.2452 3.627 1601.2228 610.3274)" class="st5 st6 st7">Tetrasphaera remsis</text>
+			<a class="book-appendix-tree-species-entry" id="Tetrasphaera-remsis"><text transform="matrix(3.627 1.2452 -1.2452 3.627 1601.2228 610.3274)" class="st5 st6 st7">Tetrasphaera remsis</text></a>
 			<path class="st3" d="M1038.2,402.5l-189.2-65"/>
 		</g>
 		<g>
 			<path class="st4" d="M-647.3,514l477.6-47.5"/>
-			<text transform="matrix(3.8159 -0.3798 0.3798 3.8159 -1101.241 573.0532)" class="st5 st6 st7">Idiomarina loihiensis</text>
+			<a class="book-appendix-tree-species-entry" id="Idiomarina-loihiensis"><text transform="matrix(3.8159 -0.3798 0.3798 3.8159 -1101.241 573.0532)" class="st5 st6 st7">Idiomarina loihiensis</text></a>
 			<path class="st3" d="M-169.7,466.5l199-19.8"/>
 		</g>
 		<g>
@@ -230,12 +230,12 @@
 		</g>
 		<g>
 			<path class="st4" d="M1532-272.5L867.9,5.8"/>
-			<text transform="matrix(3.5368 -1.4821 1.4821 3.5368 1537.2906 -259.8008)" class="st5 st6 st7">Borreliella burgdorferi</text>
+			<a class="book-appendix-tree-species-entry" id="Borreliella-burgdorferi"><text transform="matrix(3.5368 -1.4821 1.4821 3.5368 1537.2906 -259.8008)" class="st5 st6 st7">Borreliella burgdorferi</text></a>
 			<path class="st3" d="M867.9,5.8L683.4,83.1"/>
 		</g>
 		<g>
 			<path class="st4" d="M-386.4,938.8l461-384"/>
-			<text transform="matrix(2.9467 -2.4542 2.4542 2.9467 -878.3297 1366.5228)" class="st5 st6 st7">Halothiobacillus neapolitanus</text>
+			<a class="book-appendix-tree-species-entry" id="Halothiobacillus-neapolitanus"><text transform="matrix(2.9467 -2.4542 2.4542 2.9467 -878.3297 1366.5228)" class="st5 st6 st7">Halothiobacillus neapolitanus</text></a>
 			<path class="st3" d="M74.7,554.8l153.7-128"/>
 		</g>
 		<g>
@@ -243,17 +243,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M-427.1-1318.3l186.8,307.7"/>
-			<text transform="matrix(1.9901 3.278 -3.278 1.9901 -724.123 -1780.9653)" class="st5 st6 st7">Halobacterium salinarum</text>
+			<a class="book-appendix-tree-species-entry" id="Halobacterium-salinarum"><text transform="matrix(1.9901 3.278 -3.278 1.9901 -724.123 -1780.9653)" class="st5 st6 st7">Halobacterium salinarum</text></a>
 			<path class="st3" d="M-240.3-1010.6l103.8,171"/>
 		</g>
 		<g>
 			<path class="st4" d="M882.6-811.5l-311.8,780"/>
-			<text transform="matrix(-1.4235 3.5608 -3.5608 -1.4235 1123.1373 -1450.4127)" class="st8 st9 st10">Caldiserica/Cryosericota group</text>
+			<a class="book-appendix-tree-species-entry" id="Caldiserica/Cryosericota-group"><text transform="matrix(-1.4235 3.5608 -3.5608 -1.4235 1123.1373 -1450.4127)" class="st8 st9 st10">Caldiserica/Cryosericota group</text></a>
 			<path class="st3" d="M570.8-31.5l-74.2,185.7"/>
 		</g>
 		<g>
 			<path class="st4" d="M1006.6-752.1l-412,732"/>
-			<text transform="matrix(-1.8807 3.342 -3.342 -1.8807 1220.244 -1159.9629)" class="st8 st9 st10">unclassified Bacteria</text>
+			<a class="book-appendix-tree-species-entry" id="unclassified-Bacteria"><text transform="matrix(-1.8807 3.342 -3.342 -1.8807 1220.244 -1159.9629)" class="st8 st9 st10">unclassified Bacteria</text></a>
 			<path class="st3" d="M594.6-20.1l-98.1,174.3"/>
 		</g>
 		<g>
@@ -261,37 +261,37 @@
 		</g>
 		<g>
 			<path class="st4" d="M1757.7,367.4l-470.6-94.6"/>
-			<text transform="matrix(3.7596 0.7559 -0.7559 3.7596 1755.0168 380.8902)" class="st5 st6 st7">Prosthecobacter vanneervenii</text>
+			<a class="book-appendix-tree-species-entry" id="Prosthecobacter-vanneervenii"><text transform="matrix(3.7596 0.7559 -0.7559 3.7596 1755.0168 380.8902)" class="st5 st6 st7">Prosthecobacter vanneervenii</text></a>
 			<path class="st3" d="M1287.2,272.7l-196.1-39.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M-691.3,702l344.2-105.6"/>
-			<text transform="matrix(3.6662 -1.1246 1.1246 3.6662 -1347.1478 922.6569)" class="st5 st6 st7">Salmonella enterica Typhimurium</text>
+			<a class="book-appendix-tree-species-entry" id="Salmonella-enterica-Typhimurium"><text transform="matrix(3.6662 -1.1246 1.1246 3.6662 -1347.1478 922.6569)" class="st5 st6 st7">Salmonella enterica Typhimurium</text></a>
 			<path class="st3" d="M-347.1,596.4l191.2-58.6"/>
 		</g>
 		<g>
 			<path class="st4" d="M-832.6-219.7L3.3-136.5"/>
-			<text transform="matrix(3.8159 0.3798 -0.3798 3.8159 -1571.6089 -279.3667)" class="st8 st9 st10">Candidatus Hydrothermarchaeota</text>
+			<a class="book-appendix-tree-species-entry" id="Candidatus-Hydrothermarchaeota"><text transform="matrix(3.8159 0.3798 -0.3798 3.8159 -1571.6089 -279.3667)" class="st8 st9 st10">Candidatus Hydrothermarchaeota</text></a>
 			<path class="st3" d="M3.3-136.5l199,19.8"/>
 		</g>
 		<g>
 			<path class="st4" d="M-641.4,558.6l473.5-79"/>
-			<text transform="matrix(3.7825 -0.6312 0.6312 3.7825 -1135.8549 655.0822)" class="st5 st6 st7">Shewanella oneidensis</text>
+			<a class="book-appendix-tree-species-entry" id="Shewanella-oneidensis"><text transform="matrix(3.7825 -0.6312 0.6312 3.7825 -1135.8549 655.0822)" class="st5 st6 st7">Shewanella oneidensis</text></a>
 			<path class="st3" d="M-167.9,479.6l197.3-32.9"/>
 		</g>
 		<g>
 			<path class="st4" d="M1394.3-370.7l-725.1,424"/>
-			<text transform="matrix(3.3104 -1.9357 1.9357 3.3104 1401.2896 -358.8331)" class="st8 st9 st10">Dictyoglomi</text>
+			<a class="book-appendix-tree-species-entry" id="Dictyoglomi"><text transform="matrix(3.3104 -1.9357 1.9357 3.3104 1401.2896 -358.8331)" class="st8 st9 st10">Dictyoglomi</text></a>
 			<path class="st3" d="M669.2,53.3l-172.7,101"/>
 		</g>
 		<g>
 			<path class="st4" d="M1381.3,1071l-313.2-363.7"/>
-			<text transform="matrix(2.5025 2.9057 -2.9057 2.5025 1370.8403 1080.0276)" class="st5 st6 st7">Bacillus subtilis</text>
+			<a class="book-appendix-tree-species-entry" id="Bacillus-subtilis"><text transform="matrix(2.5025 2.9057 -2.9057 2.5025 1370.8403 1080.0276)" class="st5 st6 st7">Bacillus subtilis</text></a>
 			<path class="st3" d="M1068.1,707.3L937.5,555.8"/>
 		</g>
 		<g>
 			<path class="st4" d="M1550.1,506.9l-695-188.3"/>
-			<text transform="matrix(3.7014 1.0027 -1.0027 3.7014 1546.5223 520.2383)" class="st5 st6 st7">Chloroflexi</text>
+			<a class="book-appendix-tree-species-entry" id="Chloroflexi"><text transform="matrix(3.7014 1.0027 -1.0027 3.7014 1546.5223 520.2383)" class="st5 st6 st7">Chloroflexi</text></a>
 			<path class="st3" d="M855.2,318.6l-193-52.3"/>
 		</g>
 		<g>
@@ -302,47 +302,47 @@
 		</g>
 		<g>
 			<path class="st4" d="M945.6-783.9L582.9-26.2"/>
-			<text transform="matrix(-1.6557 3.459 -3.459 -1.6557 1058.908 -1052.6311)" class="st8 st9 st10">Thermotogae</text>
+			<a class="book-appendix-tree-species-entry" id="Thermotogae"><text transform="matrix(-1.6557 3.459 -3.459 -1.6557 1058.908 -1052.6311)" class="st8 st9 st10">Thermotogae</text></a>
 			<path class="st3" d="M582.9-26.2l-86.4,180.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M-223.3-1482.6l51.2,234.5"/>
-			<text transform="matrix(0.818 3.7466 -3.7466 0.818 -346.9385 -1984.1466)" class="st5 st6 st7">Haloquadratum walsbyi</text>
+			<a class="book-appendix-tree-species-entry" id="Haloquadratum-walsbyi"><text transform="matrix(0.818 3.7466 -3.7466 0.818 -346.9385 -1984.1466)" class="st5 st6 st7">Haloquadratum walsbyi</text></a>
 			<path class="st3" d="M-172.1-1248.2l42.7,195.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M1692.1,253.3l-598.7-39.7"/>
-			<text transform="matrix(3.8264 0.2534 -0.2534 3.8264 1691.1449 267.0466)" class="st5 st6 st7">Verrucomicrobium spinosum</text>
+			<a class="book-appendix-tree-species-entry" id="Verrucomicrobium-spinosum"><text transform="matrix(3.8264 0.2534 -0.2534 3.8264 1691.1449 267.0466)" class="st5 st6 st7">Verrucomicrobium spinosum</text></a>
 			<path class="st3" d="M1093.4,213.6l-199.6-13.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M282.7,1321.1l49.5-598"/>
-			<text transform="matrix(-0.3167 3.8217 -3.8217 -0.3167 268.9641 1319.9368)" class="st5 st6 st7">Hyphomonas neptunium</text>
+			<a class="book-appendix-tree-species-entry" id="Hyphomonas-neptunium"><text transform="matrix(-0.3167 3.8217 -3.8217 -0.3167 268.9641 1319.9368)" class="st5 st6 st7">Hyphomonas neptunium</text></a>
 			<path class="st3" d="M332.3,723.1l16.5-199.3"/>
 		</g>
 		<g>
 			<path class="st4" d="M335.6,1323.7l9.9-599.9"/>
-			<text transform="matrix(-6.341115e-02 3.8343 -3.8343 -6.341115e-02 321.7577 1323.4681)" class="st5 st6 st7">Sphingopyxis alaskensis</text>
+			<a class="book-appendix-tree-species-entry" id="Sphingopyxis-alaskensis"><text transform="matrix(-6.341115e-02 3.8343 -3.8343 -6.341115e-02 321.7577 1323.4681)" class="st5 st6 st7">Sphingopyxis alaskensis</text></a>
 			<path class="st3" d="M345.5,723.8l3.3-200"/>
 		</g>
 		<g>
 			<path class="st4" d="M1317.2-484.6l-662.8,516"/>
-			<text transform="matrix(3.0262 -2.3554 2.3554 3.0262 1325.7219 -473.6808)" class="st8 st9 st10">Nitrospirae</text>
+			<a class="book-appendix-tree-species-entry" id="Nitrospirae"><text transform="matrix(3.0262 -2.3554 2.3554 3.0262 1325.7219 -473.6808)" class="st8 st9 st10">Nitrospirae</text></a>
 			<path class="st3" d="M654.4,31.4L496.5,154.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M-812.2-17.2l959.5,31.7"/>
-			<text transform="matrix(3.8327 0.1268 -0.1268 3.8327 -1393.9773 3.1538)" class="st5 st9 st11">EUKARYOTES</text>
+			<a class="book-appendix-tree-species-entry" id="EUKARYOTES"><text transform="matrix(3.8327 0.1268 -0.1268 3.8327 -1393.9773 3.1538)" class="st5 st9 st11">EUKARYOTES</text></a>
 			<path class="st3" d="M147.3,14.6l199.9,6.6"/>
 		</g>
 		<g>
 			<path class="st4" d="M548.1-884.5l-41.7,839"/>
-			<text transform="matrix(-0.1901 3.8301 -3.8301 -0.1901 548.5151 -1171.153)" class="st8 st9 st10">Fusobacteria</text>
+			<a class="book-appendix-tree-species-entry" id="Fusobacteria"><text transform="matrix(-0.1901 3.8301 -3.8301 -0.1901 548.5151 -1171.153)" class="st8 st9 st10">Fusobacteria</text></a>
 			<path class="st3" d="M506.4-45.5l-9.9,199.8"/>
 		</g>
 		<g>
 			<path class="st4" d="M-548.6,839.8l422.1-228.5"/>
-			<text transform="matrix(3.3726 -1.8252 1.8252 3.3726 -1094.963 1151.1622)" class="st5 st6 st7">Methyloprofundus sedimenti</text>
+			<a class="book-appendix-tree-species-entry" id="Methyloprofundus-sedimenti"><text transform="matrix(3.3726 -1.8252 1.8252 3.3726 -1094.963 1151.1622)" class="st5 st6 st7">Methyloprofundus sedimenti</text></a>
 			<path class="st3" d="M-126.5,611.4l175.9-95.2"/>
 		</g>
 		<g>
@@ -350,7 +350,7 @@
 		</g>
 		<g>
 			<path class="st4" d="M76.2,1444.2l99.9-345.9"/>
-			<text transform="matrix(-1.0638 3.6843 -3.6843 -1.0638 62.8953 1440.3644)" class="st5 st6 st7">Azospirillum brasilense</text>
+			<a class="book-appendix-tree-species-entry" id="Azospirillum-brasilense"><text transform="matrix(-1.0638 3.6843 -3.6843 -1.0638 62.8953 1440.3644)" class="st5 st6 st7">Azospirillum brasilense</text></a>
 			<path class="st3" d="M176,1098.3l55.5-192.2"/>
 		</g>
 		<g>
@@ -358,12 +358,12 @@
 		</g>
 		<g>
 			<path class="st4" d="M-769.7-486.7l785,298.9"/>
-			<text transform="matrix(3.5839 1.3644 -1.3644 3.5839 -1057.9572 -581.683)" class="st8 st9 st10">DPANN group</text>
+			<a class="book-appendix-tree-species-entry" id="DPANN-group"><text transform="matrix(3.5839 1.3644 -1.3644 3.5839 -1057.9572 -581.683)" class="st8 st9 st10">DPANN group</text></a>
 			<path class="st3" d="M15.4-187.8l186.9,71.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M907.5,1101.8L513.7,499.1"/>
-			<text transform="matrix(2.0974 3.2104 -3.2104 2.0974 895.901 1109.4003)" class="st5 st6 st7">Bdellovibrio bacteriovorus</text>
+			<a class="book-appendix-tree-species-entry" id="Bdellovibrio-bacteriovorus"><text transform="matrix(2.0974 3.2104 -3.2104 2.0974 895.901 1109.4003)" class="st5 st6 st7">Bdellovibrio bacteriovorus</text></a>
 			<path class="st3" d="M513.7,499.1L404.3,331.7"/>
 		</g>
 		<g>
@@ -371,22 +371,22 @@
 		</g>
 		<g>
 			<path class="st4" d="M-598.3,727.4l448.6-170.8"/>
-			<text transform="matrix(3.5839 -1.3644 1.3644 3.5839 -942.2494 873.1248)" class="st5 st6 st7">Proteus mirabilis</text>
+			<a class="book-appendix-tree-species-entry" id="Proteus-mirabilis"><text transform="matrix(3.5839 -1.3644 1.3644 3.5839 -942.2494 873.1248)" class="st5 st6 st7">Proteus mirabilis</text></a>
 			<path class="st3" d="M-149.8,556.7l186.9-71.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M-399.6-1423l96.4,219.8"/>
-			<text transform="matrix(1.5404 3.5118 -3.5118 1.5404 -654.5172 -1969.8531)" class="st5 st6 st7">Halomicrobium mukohataei</text>
+			<a class="book-appendix-tree-species-entry" id="Halomicrobium-mukohataei"><text transform="matrix(1.5404 3.5118 -3.5118 1.5404 -654.5172 -1969.8531)" class="st5 st6 st7">Halomicrobium mukohataei</text></a>
 			<path class="st3" d="M-303.2-1203.2l80.3,183.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M1468.5,984.4L1110,665.2"/>
-			<text transform="matrix(2.8639 2.5502 -2.5502 2.8639 1459.3612 994.7473)" class="st5 st6 st7">Acetonema longum</text>
+			<a class="book-appendix-tree-species-entry" id="Acetonema-longum"><text transform="matrix(2.8639 2.5502 -2.5502 2.8639 1459.3612 994.7473)" class="st5 st6 st7">Acetonema longum</text></a>
 			<path class="st3" d="M1110.1,665.2l-149.4-133"/>
 		</g>
 		<g>
 			<path class="st4" d="M1175.2-633.8L627,2.7"/>
-			<text transform="matrix(2.5025 -2.9057 2.9057 2.5025 1185.682 -624.8087)" class="st8 st9 st10">Thermodesulfobacteria</text>
+			<a class="book-appendix-tree-species-entry" id="Thermodesulfobacteria"><text transform="matrix(2.5025 -2.9057 2.9057 2.5025 1185.682 -624.8087)" class="st8 st9 st10">Thermodesulfobacteria</text></a>
 			<path class="st3" d="M627,2.7L496.5,154.2"/>
 		</g>
 		<g>
@@ -394,17 +394,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M1469.4,852.8L972.6,516.4"/>
-			<text transform="matrix(3.1752 2.1502 -2.1502 3.1752 1461.6913 864.2258)" class="st5 st6 st7">Clostridium thermocellum</text>
+			<a class="book-appendix-tree-species-entry" id="Clostridium-thermocellum"><text transform="matrix(3.1752 2.1502 -2.1502 3.1752 1461.6913 864.2258)" class="st5 st6 st7">Clostridium thermocellum</text></a>
 			<path class="st3" d="M972.6,516.4L807,404.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M-487.4,938.7L-99,656.5"/>
-			<text transform="matrix(3.1024 -2.254 2.254 3.1024 -942.4964 1286.4132)" class="st5 st6 st7">Pseudomonas aeruginosa</text>
+			<a class="book-appendix-tree-species-entry" id="Pseudomonas-aeruginosa"><text transform="matrix(3.1024 -2.254 2.254 3.1024 -942.4964 1286.4132)" class="st5 st6 st7">Pseudomonas aeruginosa</text></a>
 			<path class="st3" d="M-99,656.5L62.8,539"/>
 		</g>
 		<g>
 			<path class="st4" d="M1427.1-310.3L675.5,64.9"/>
-			<text transform="matrix(3.4311 -1.7127 1.7127 3.4311 1433.2197 -297.9133)" class="st8 st9 st10">Coleospermum</text>
+			<a class="book-appendix-tree-species-entry" id="Coleospermum"><text transform="matrix(3.4311 -1.7127 1.7127 3.4311 1433.2197 -297.9133)" class="st8 st9 st10">Coleospermum</text></a>
 			<path class="st3" d="M675.5,64.9l-178.9,89.3"/>
 		</g>
 		<g>
@@ -415,7 +415,7 @@
 		</g>
 		<g>
 			<path class="st4" d="M1065.4-716.4L605.9-13.2"/>
-			<text transform="matrix(2.0974 -3.2104 3.2104 2.0974 1076.915 -708.8976)" class="st8 st9 st10">Acidobacteria</text>
+			<a class="book-appendix-tree-species-entry" id="Acidobacteria"><text transform="matrix(2.0974 -3.2104 3.2104 2.0974 1076.915 -708.8976)" class="st8 st9 st10">Acidobacteria</text></a>
 			<path class="st3" d="M605.9-13.2L496.5,154.2"/>
 		</g>
 		<g>
@@ -423,17 +423,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M751.8-854L545.6-39.7"/>
-			<text transform="matrix(-0.9414 3.7175 -3.7175 -0.9414 812.5144 -1149.7751)" class="st8 st9 st10">Elusimicrobia</text>
+			<a class="book-appendix-tree-species-entry" id="Elusimicrobia"><text transform="matrix(-0.9414 3.7175 -3.7175 -0.9414 812.5144 -1149.7751)" class="st8 st9 st10">Elusimicrobia</text></a>
 			<path class="st3" d="M545.6-39.7l-49.1,193.9"/>
 		</g>
 		<g>
 			<path class="st4" d="M876.9,1212L582.7,689.1"/>
-			<text transform="matrix(1.8807 3.342 -3.342 1.8807 864.9135 1218.767)" class="st5 st6 st7">Thiomonas intermedia</text>
+			<a class="book-appendix-tree-species-entry" id="Thiomonas-intermedia"><text transform="matrix(1.8807 3.342 -3.342 1.8807 864.9135 1218.767)" class="st5 st6 st7">Thiomonas intermedia</text></a>
 			<path class="st3" d="M582.7,689.1l-98.1-174.3"/>
 		</g>
 		<g>
 			<path class="st4" d="M1553.8,718.8l-536.8-268"/>
-			<text transform="matrix(3.4311 1.7127 -1.7127 3.4311 1547.6511 731.181)" class="st5 st6 st7">Mycoplasma pneumoniae</text>
+			<a class="book-appendix-tree-species-entry" id="Mycoplasma-pneumoniae"><text transform="matrix(3.4311 1.7127 -1.7127 3.4311 1547.6511 731.181)" class="st5 st6 st7">Mycoplasma pneumoniae</text></a>
 			<path class="st3" d="M1017,450.9l-179-89.4"/>
 		</g>
 		<g>
@@ -441,22 +441,22 @@
 		</g>
 		<g>
 			<path class="st4" d="M-522.8-1163.6l301,373.9"/>
-			<text transform="matrix(2.4051 2.9868 -2.9868 2.4051 -900.6349 -1610.7744)" class="st5 st6 st7">Methanospirillum hungatei</text>
+			<a class="book-appendix-tree-species-entry" id="Methanospirillum-hungatei"><text transform="matrix(2.4051 2.9868 -2.9868 2.4051 -900.6349 -1610.7744)" class="st5 st6 st7">Methanospirillum hungatei</text></a>
 			<path class="st3" d="M-221.8-789.7L-96.4-634"/>
 		</g>
 		<g>
 			<path class="st4" d="M479.3-885.7l13.9,839.9"/>
-			<text transform="matrix(6.339820e-02 3.8343 -3.8343 6.339820e-02 462.1189 -1092.4396)" class="st8 st9 st10">Aquificae</text>
+			<a class="book-appendix-tree-species-entry" id="Aquificae"><text transform="matrix(6.339820e-02 3.8343 -3.8343 6.339820e-02 462.1189 -1092.4396)" class="st8 st9 st10">Aquificae</text></a>
 			<path class="st3" d="M493.2-45.8l3.3,200"/>
 		</g>
 		<g>
 			<path class="st4" d="M-57.2,1304.6l221.4-425.9"/>
-			<text transform="matrix(-1.7692 3.4023 -3.4023 -1.7692 -69.4407 1298.1962)" class="st5 st6 st7">Rhodopseudomonas palustris</text>
+			<a class="book-appendix-tree-species-entry" id="Rhodopseudomonas-palustris"><text transform="matrix(-1.7692 3.4023 -3.4023 -1.7692 -69.4407 1298.1962)" class="st5 st6 st7">Rhodopseudomonas palustris</text></a>
 			<path class="st3" d="M164.2,878.7l92.3-177.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M616.6-878.8l-97,834.4"/>
-			<text transform="matrix(-0.4429 3.8091 -3.8091 -0.4429 637.7703 -1180.1056)" class="st8 st9 st10">Synergistetes</text>
+			<a class="book-appendix-tree-species-entry" id="Synergistetes"><text transform="matrix(-0.4429 3.8091 -3.8091 -0.4429 637.7703 -1180.1056)" class="st8 st9 st10">Synergistetes</text></a>
 			<path class="st3" d="M519.6-44.5l-23.1,198.7"/>
 		</g>
 		<g>
@@ -470,37 +470,37 @@
 		</g>
 		<g>
 			<path class="st4" d="M-602.7-879.7L-49.5-419"/>
-			<text transform="matrix(2.9467 2.4542 -2.4542 2.9467 -1126.1407 -1297.7069)" class="st5 st6 st7">Methanobacterium formicicum</text>
+			<a class="book-appendix-tree-species-entry" id="Methanobacterium-formicicum"><text transform="matrix(2.9467 2.4542 -2.4542 2.9467 -1126.1407 -1297.7069)" class="st5 st6 st7">Methanobacterium formicicum</text></a>
 			<path class="st3" d="M-49.5-419l153.7,128"/>
 		</g>
 		<g>
 			<path class="st4" d="M-700.9,666.3l350.4-82.6"/>
-			<text transform="matrix(3.7325 -0.8798 0.8798 3.7325 -1038.7186 760.0603)" class="st5 st6 st7">Escherichia coli</text>
+			<a class="book-appendix-tree-species-entry" id="Escherichia-coli"><text transform="matrix(3.7325 -0.8798 0.8798 3.7325 -1038.7186 760.0603)" class="st5 st6 st7">Escherichia coli</text></a>
 			<path class="st3" d="M-350.5,583.7l194.7-45.9"/>
 		</g>
 		<g>
 			<path class="st4" d="M-277.2-1469l66.6,230.6"/>
-			<text transform="matrix(1.0638 3.6843 -3.6843 1.0638 -416.6119 -1902.2533)" class="st5 st6 st7">Halorubrum litoreum</text>
+			<a class="book-appendix-tree-species-entry" id="Halorubrum-litoreum"><text transform="matrix(1.0638 3.6843 -3.6843 1.0638 -416.6119 -1902.2533)" class="st5 st6 st7">Halorubrum litoreum</text></a>
 			<path class="st3" d="M-210.6-1238.4l55.5,192.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M1595.8-60.1l-705.9,142"/>
-			<text transform="matrix(3.7596 -0.7559 0.7559 3.7596 1598.4779 -46.5254)" class="st5 st6 st7"> Amoebophilus asiaticus</text>
+			<a class="book-appendix-tree-species-entry" id="Amoebophilus-asiaticus"><text transform="matrix(3.7596 -0.7559 0.7559 3.7596 1598.4779 -46.5254)" class="st5 st6 st7"> Amoebophilus asiaticus</text></a>
 			<path class="st3" d="M889.9,81.9l-196.1,39.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M1497.3,949.9l-378.8-294.8"/>
-			<text transform="matrix(3.0262 2.3554 -2.3554 3.0262 1488.843 960.7756)" class="st5 st6 st7">Sporomusa acidovorans</text>
+			<a class="book-appendix-tree-species-entry" id="Sporomusa-acidovorans"><text transform="matrix(3.0262 2.3554 -2.3554 3.0262 1488.843 960.7756)" class="st5 st6 st7">Sporomusa acidovorans</text></a>
 			<path class="st3" d="M1118.5,655.1L960.7,532.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M817.9-834.9L558.3-36"/>
-			<text transform="matrix(-1.185 3.6471 -3.6471 -1.185 958.7984 -1313.1492)" class="st8 st9 st10">Coprothermobacterota</text>
+			<a class="book-appendix-tree-species-entry" id="Coprothermobacterota"><text transform="matrix(-1.185 3.6471 -3.6471 -1.185 958.7984 -1313.1492)" class="st8 st9 st10">Coprothermobacterota</text></a>
 			<path class="st3" d="M558.3-36l-61.8,190.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M-563.6-923.5l525.5,497.4"/>
-			<text transform="matrix(2.8333 2.5843 -2.5843 2.8333 -1041.0078 -1352.2477)" class="st5 st6 st7">Thermococcus kodakarensis</text>
+			<a class="book-appendix-tree-species-entry" id="Thermococcus-kodakarensis"><text transform="matrix(2.8333 2.5843 -2.5843 2.8333 -1041.0078 -1352.2477)" class="st5 st6 st7">Thermococcus kodakarensis</text></a>
 			<path class="st3" d="M-38.2-426.2L104.2-291"/>
 		</g>
 		<g>
@@ -508,37 +508,37 @@
 		</g>
 		<g>
 			<path class="st4" d="M-425.8-1410.4l110.7,212.9"/>
-			<text transform="matrix(1.7691 3.4023 -3.4023 1.7691 -690.4431 -1889.4263)" class="st5 st6 st7">Haloarcula argentinensis</text>
+			<a class="book-appendix-tree-species-entry" id="Haloarcula-argentinensis"><text transform="matrix(1.7691 3.4023 -3.4023 1.7691 -690.4431 -1889.4263)" class="st5 st6 st7">Haloarcula argentinensis</text></a>
 			<path class="st3" d="M-315.1-1197.5l92.3,177.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M1605.8,0L892.1,95"/>
-			<text transform="matrix(3.8013 -0.5058 0.5058 3.8013 1607.5918 13.6281)" class="st5 st6 st7">unclassified Bacteroidetes</text>
+			<a class="book-appendix-tree-species-entry" id="unclassified-Bacteroidetes"><text transform="matrix(3.8013 -0.5058 0.5058 3.8013 1607.5918 13.6281)" class="st5 st6 st7">unclassified Bacteroidetes</text></a>
 			<path class="st3" d="M892.1,94.9l-198.3,26.4"/>
 		</g>
 		<g>
 			<path class="st4" d="M762.8,1349.6L614.5,893.1"/>
-			<text transform="matrix(1.185 3.6471 -3.6471 1.185 749.6677 1353.8621)" class="st5 st6 st7">Hylemonella gracilis</text>
+			<a class="book-appendix-tree-species-entry" id="Hylemonella-gracilis"><text transform="matrix(1.185 3.6471 -3.6471 1.185 749.6677 1353.8621)" class="st5 st6 st7">Hylemonella gracilis</text></a>
 			<path class="st3" d="M614.5,893.1l-61.8-190.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M1586.9,646.7l-553.4-231.9"/>
-			<text transform="matrix(3.5368 1.4822 -1.4822 3.5368 1581.5466 659.4413)" class="st5 st6 st7">Mycobacterium marinum</text>
+			<a class="book-appendix-tree-species-entry" id="Mycobacterium-marinum"><text transform="matrix(3.5368 1.4822 -1.4822 3.5368 1581.5466 659.4413)" class="st5 st6 st7">Mycobacterium marinum</text></a>
 			<path class="st3" d="M1033.5,414.8L849,337.5"/>
 		</g>
 		<g>
 			<path class="st4" d="M1273.2-537.4L645.9,21.2"/>
-			<text transform="matrix(2.8639 -2.5502 2.5502 2.8639 1282.4067 -527.1083)" class="st8 st9 st10">Calditrichaeota</text>
+			<a class="book-appendix-tree-species-entry" id="Calditrichaeota"><text transform="matrix(2.8639 -2.5502 2.5502 2.8639 1282.4067 -527.1083)" class="st8 st9 st10">Calditrichaeota</text></a>
 			<path class="st3" d="M645.9,21.2l-149.4,133"/>
 		</g>
 		<g>
 			<path class="st4" d="M-776.1-661.1l633.2,342.7"/>
-			<text transform="matrix(3.3726 1.8252 -1.8252 3.3726 -1283.8932 -920.287)" class="st5 st6 st7">Nitrosopumilus maritimus</text>
+			<a class="book-appendix-tree-species-entry" id="Nitrosopumilus-maritimus"><text transform="matrix(3.3726 1.8252 -1.8252 3.3726 -1283.8932 -920.287)" class="st5 st6 st7">Nitrosopumilus maritimus</text></a>
 			<path class="st3" d="M-142.8-318.5l175.9,95.2"/>
 		</g>
 		<g>
 			<path class="st4" d="M148.3,1380.3l102.4-469"/>
-			<text transform="matrix(-0.818 3.7466 -3.7466 -0.818 134.7762 1377.3663)" class="st5 st6 st7">Gluconacetobacter hansenii</text>
+			<a class="book-appendix-tree-species-entry" id="Gluconacetobacter-hansenii"><text transform="matrix(-0.818 3.7466 -3.7466 -0.818 134.7762 1377.3663)" class="st5 st6 st7">Gluconacetobacter hansenii</text></a>
 			<path class="st3" d="M250.6,911.4L293.3,716"/>
 		</g>
 		<g>
@@ -549,12 +549,12 @@
 		</g>
 		<g>
 			<path class="st4" d="M1553.6-215.7l-681,233.8"/>
-			<text transform="matrix(3.627 -1.2452 1.2452 3.627 1558.0835 -202.62)" class="st5 st6 st7">Treponema primitia</text>
+			<a class="book-appendix-tree-species-entry" id="Treponema-primitia"><text transform="matrix(3.627 -1.2452 1.2452 3.627 1558.0835 -202.62)" class="st5 st6 st7">Treponema primitia</text></a>
 			<path class="st3" d="M872.6,18.1l-189.2,65"/>
 		</g>
 		<g>
 			<path class="st4" d="M-273.4,1049.9l376.3-467.3"/>
-			<text transform="matrix(2.4051 -2.9868 2.9868 2.4051 -592.8269 1468.6709)" class="st5 st6 st7">Legionella pneumophila</text>
+			<a class="book-appendix-tree-species-entry" id="Legionella-pneumophila"><text transform="matrix(2.4051 -2.9868 2.9868 2.4051 -592.8269 1468.6709)" class="st5 st6 st7">Legionella pneumophila</text></a>
 			<path class="st3" d="M102.9,582.6l125.4-155.8"/>
 		</g>
 		<g>
@@ -562,22 +562,22 @@
 		</g>
 		<g>
 			<path class="st4" d="M-792-421.6L11.1-175.3"/>
-			<text transform="matrix(3.6662 1.1246 -1.1246 3.6662 -1234.3812 -542.9123)" class="st8 st9 st10">unclassified Archaea</text>
+			<a class="book-appendix-tree-species-entry" id="unclassified-Archaea"><text transform="matrix(3.6662 1.1246 -1.1246 3.6662 -1234.3812 -542.9123)" class="st8 st9 st10">unclassified Archaea</text></a>
 			<path class="st3" d="M11.1-175.3l191.2,58.7"/>
 		</g>
 		<g>
 			<path class="st4" d="M-823.5-287.8L5-149.6"/>
-			<text transform="matrix(3.7825 0.6312 -0.6312 3.7825 -1330.1351 -358.3926)" class="st8 st9 st10">environmental samples</text>
+			<a class="book-appendix-tree-species-entry" id="environmental-samples"><text transform="matrix(3.7825 0.6312 -0.6312 3.7825 -1330.1351 -358.3926)" class="st8 st9 st10">environmental samples</text></a>
 			<path class="st3" d="M5-149.6l197.3,32.9"/>
 		</g>
 		<g>
 			<path class="st4" d="M1765.1,323l-475.8-63.3"/>
-			<text transform="matrix(3.8013 0.5058 -0.5058 3.8013 1763.3153 336.6837)" class="st5 st6 st7">Prosthecobacter debontii</text>
+			<a class="book-appendix-tree-species-entry" id="Prosthecobacter-debontii"><text transform="matrix(3.8013 0.5058 -0.5058 3.8013 1763.3153 336.6837)" class="st5 st6 st7">Prosthecobacter debontii</text></a>
 			<path class="st3" d="M1289.3,259.7L1091,233.3"/>
 		</g>
 		<g>
 			<path class="st4" d="M1611.8,60.5l-718.4,47.6"/>
-			<text transform="matrix(3.8264 -0.2534 0.2534 3.8264 1612.7102 74.2621)" class="st5 st6 st7">Flavobacterium johnsoniae</text>
+			<a class="book-appendix-tree-species-entry" id="Flavobacterium-johnsoniae"><text transform="matrix(3.8264 -0.2534 0.2534 3.8264 1612.7102 74.2621)" class="st5 st6 st7">Flavobacterium johnsoniae</text></a>
 			<path class="st3" d="M893.4,108.1l-199.6,13.2"/>
 		</g>
 		<g>
@@ -585,17 +585,17 @@
 		</g>
 		<g>
 			<path class="st4" d="M-809.4-761.8L-301.8-442"/>
-			<text transform="matrix(3.2446 2.0441 -2.0441 3.2446 -1301.2034 -1055.3615)" class="st5 st6 st7">Sulfolobus acidocaldarius</text>
+			<a class="book-appendix-tree-species-entry" id="Sulfolobus-acidocaldarius"><text transform="matrix(3.2446 2.0441 -2.0441 3.2446 -1301.2034 -1055.3615)" class="st5 st6 st7">Sulfolobus acidocaldarius</text></a>
 			<path class="st3" d="M-301.8-442l169.2,106.6"/>
 		</g>
 		<g>
 			<path class="st4" d="M1615.6,174l-720,0"/>
-			<text transform="matrix(3.8348 0 0 3.8348 1615.5521 187.8236)" class="st5 st6 st7">Simkania negevensis</text>
+			<a class="book-appendix-tree-species-entry" id="Simkania-negevensis"><text transform="matrix(3.8348 0 0 3.8348 1615.5521 187.8236)" class="st5 st6 st7">Simkania negevensis</text></a>
 			<path class="st3" d="M895.5,174l-200,0"/>
 		</g>
 		<g>
 			<path class="st4" d="M501.3,1486.7l-17.8-359.6"/>
-			<text transform="matrix(0.1901 3.8301 -3.8301 0.1901 487.5127 1487.4241)" class="st5 st6 st7">Helicobacter hepaticus</text>
+			<a class="book-appendix-tree-species-entry" id="Helicobacter-hepaticus"><text transform="matrix(0.1901 3.8301 -3.8301 0.1901 487.5127 1487.4241)" class="st5 st6 st7">Helicobacter hepaticus</text></a>
 			<path class="st3" d="M483.4,1127.2l-9.9-199.8"/>
 		</g>
 		<g>
@@ -612,12 +612,12 @@
 		</g>
 		<g>
 			<path class="st4" d="M-313.5,1015.4L92.9,574"/>
-			<text transform="matrix(2.5972 -2.8214 2.8214 2.5972 -527.8256 1268.662)" class="st5 st6 st7">Vibrio cholerae</text>
+			<a class="book-appendix-tree-species-entry" id="Vibrio-cholerae"><text transform="matrix(2.5972 -2.8214 2.8214 2.5972 -527.8256 1268.662)" class="st5 st6 st7">Vibrio cholerae</text></a>
 			<path class="st3" d="M92.9,574l135.5-147.1"/>
 		</g>
 		<g>
 			<path class="st4" d="M1357.7-428.9l-695.5,471"/>
-			<text transform="matrix(3.1753 -2.1502 2.1502 3.1753 1365.4044 -417.5041)" class="st8 st9 st10">Bacteria incertae sedis</text>
+			<a class="book-appendix-tree-species-entry" id="Bacteria-incertae-sedis"><text transform="matrix(3.1753 -2.1502 2.1502 3.1753 1365.4044 -417.5041)" class="st8 st9 st10">Bacteria incertae sedis</text></a>
 			<path class="st3" d="M662.1,42.1L496.5,154.2"/>
 		</g>
 	</g>
@@ -1080,6 +1080,6 @@
 <path class="st13" d="M1424.3,290.9c14.3,16.4,38,59,42.7,81.7"/>
 <path class="st13" d="M1335.5,191.4c24.5,18.6,48.6,44.6,65.7,69"/>
 <path class="st13" d="M1275.7,146.4c12,8,20.7,13.1,30.7,22.2"/>
-<text transform="matrix(0.9816 -0.1908 0.1908 0.9816 775.717 100.6135)" class="st5 st9 st14">BACTERIA</text>
-<text transform="matrix(0.9986 -5.233693e-02 5.233693e-02 0.9986 439.4709 124.9379)" class="st5 st9 st14">ARCHAEA</text>
+			<a class="book-appendix-tree-species-entry" id="BACTERIA"><text transform="matrix(0.9816 -0.1908 0.1908 0.9816 775.717 100.6135)" class="st5 st9 st14">BACTERIA</text></a>
+			<a class="book-appendix-tree-species-entry" id="ARCHAEA"><text transform="matrix(0.9986 -5.233693e-02 5.233693e-02 0.9986 439.4709 124.9379)" class="st5 st9 st14">ARCHAEA</text></a>
 </svg>

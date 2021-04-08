@@ -68,7 +68,7 @@ function toggleListDropdown(el) {
 
 let treeViewer = document.querySelector(".book-appendix-tree-viewer");
 if(treeViewer) {
-    let treeGraphic = treeViewer.querySelector("#treeSvg");
+    let treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
     let zoomInButton = treeViewer.querySelector("#treeZoomIn");
     let zoomOutButton = treeViewer.querySelector("#treeZoomOut");
     let currScale = 1;
