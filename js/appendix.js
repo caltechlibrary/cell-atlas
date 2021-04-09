@@ -67,14 +67,21 @@ function toggleListDropdown(el) {
 }
 
 let treeViewer = document.querySelector(".book-appendix-tree-viewer");
+let treeGraphic;
+let zoomInButton;
+let currScale;
+let zoomFactor;
+let tx;
+let ty;
+let hidePopUpCalls;
 if(treeViewer) {
-    let treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
-    let zoomInButton = treeViewer.querySelector("#treeZoomIn");
-    let zoomOutButton = treeViewer.querySelector("#treeZoomOut");
-    let currScale = 1;
-    let zoomFactor = 1.05;
-    let tx = 0;
-    let ty = 0;
+    treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
+    zoomInButton = treeViewer.querySelector("#treeZoomIn");
+    zoomOutButton = treeViewer.querySelector("#treeZoomOut");
+    currScale = 1;
+    zoomFactor = 1.05;
+    tx = 0;
+    ty = 0;
 
     treeViewer.addEventListener("wheel", function(event) {
         event.preventDefault();
@@ -150,7 +157,7 @@ if(treeViewer) {
     for(let speciesEntry of speciesEntries) {
         let speciesId = speciesEntry.getAttribute("id");
         let popUp = document.querySelector(`.book-appendix-tree-section-list[data-species='${speciesId}']`);
-        let hidePopUpCalls = [];
+        hidePopUpCalls = [];
         speciesEntry.addEventListener("mouseenter", function(event) {
             if(currPopUp) currPopUp.style.display = "none";
             currPopUp = popUp;
@@ -176,12 +183,12 @@ if(treeViewer) {
             }
         }
 
-        function popUpHandleHover() {
+        let popUpHandleHover = function() {
             clearHideCalls();
             popUp.setAttribute("data-hover", "true");
         }
 
-        function popUpHandleLeave() {
+        let popUpHandleLeave = function() {
             popUp.setAttribute("data-hover", "false");
             hidePopUpCalls.push(hidePopUp(popUp));
         }
