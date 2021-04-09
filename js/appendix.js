@@ -146,11 +146,14 @@ if(treeViewer) {
     }
 
     let speciesEntries = document.querySelectorAll(".book-appendix-tree-species-entry");
+    let currPopUp = undefined;
     for(let speciesEntry of speciesEntries) {
         let speciesId = speciesEntry.getAttribute("id");
         let popUp = document.querySelector(`.book-appendix-tree-section-list[data-species='${speciesId}']`);
         let hidePopUpCalls = [];
         speciesEntry.addEventListener("mouseenter", function(event) {
+            if(currPopUp) currPopUp.style.display = "none";
+            currPopUp = popUp;
             clearHideCalls();
             popUp.removeEventListener("mouseenter", popUpHandleHover);
             popUp.removeEventListener("mouseleave", popUpHandleLeave);
