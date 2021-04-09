@@ -1019,15 +1019,13 @@ blockquote {
         margin: 0;
     }
 
-    .book-appendix-tree-viewer-controls button:nth-child(1) {
+    .book-appendix-tree-viewer-zoom-in {
         border-bottom: none;
-        box-shadow: inset 0px -7px 0px -6px #fff;
         border-radius: 10px 10px 0px 0px;
     }
 
-    .book-appendix-tree-viewer-controls button:nth-child(2) {
+    .book-appendix-tree-viewer-zoom-out {
         border-top: none;
-        box-shadow: inset 0px 7px 0px -6px #fff;
         border-radius: 0px 0px 10px 10px;
     }
 
@@ -1072,11 +1070,6 @@ blockquote {
 
     .book-appendix-tree-section-example-list li {
         margin: 0.5em 0;
-    }
-
-    .book-appendix-tree-section-example-list li span {
-        position: relative;
-        left: -10px;
     }
 
     .book-appendix-tree-section-example-list a {

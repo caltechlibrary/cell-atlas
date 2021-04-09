@@ -1156,16 +1156,26 @@
         margin: 0;
     }
 
-    .book-appendix-tree-viewer-controls button:nth-child(1) {
+    .book-appendix-tree-viewer-controls .book-appendix-tree-viewer-zoom-in {
         border-bottom: none;
-        box-shadow: inset 0px -7px 0px -6px #fff;
         border-radius: 10px 10px 0px 0px;
+        box-shadow: 0 -1px 0 1px rgb(0 0 0 / 20%), 0 -1px 2px 0px rgb(0 0 0 / 60%), inset 0px 0px 3px 0px rgb(255 255 255 / 30%);
     }
 
-    .book-appendix-tree-viewer-controls button:nth-child(2) {
+    .book-appendix-tree-viewer-controls .book-appendix-tree-viewer-zoom-out {
         border-top: none;
-        box-shadow: inset 0px 7px 0px -6px #fff;
         border-radius: 0px 0px 10px 10px;
+        box-shadow: 0 1px 0 1px rgb(0 0 0 / 20%), 0 1px 2px 0px rgb(0 0 0 / 60%), inset 0px 0px 3px 0px rgb(255 255 255 / 30%);
+    }
+
+    .book-appendix-tree-viewer-controls-divider {
+        position: absolute;
+        background: #fff;
+        height: 1px;
+        width: 70%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .book-appendix-tree-viewer-controls button svg {
@@ -1209,11 +1219,6 @@
 
     .book-appendix-tree-section-example-list li {
         margin: 0.5em 0;
-    }
-
-    .book-appendix-tree-section-example-list li span {
-        position: relative;
-        left: -10px;
     }
 
     .book-appendix-tree-section-example-list a {
