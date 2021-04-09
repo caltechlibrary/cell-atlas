@@ -27,7 +27,7 @@ ${endif}
                         <h3 class="book-appendix-tree-section-subheader">Examples:</h3>
                         <ol class="book-appendix-tree-section-example-list">
                             ${for(speciesList.speciesObjs)}
-                                <li><a href="${speciesList.speciesObjs.page}">${speciesList.speciesObjs.chapter}.${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a></li>
+                                <li><a href="${speciesList.speciesObjs.page}">${if(speciesList.speciesObjs.chapter)}${speciesList.speciesObjs.chapter}.${endif}${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a></li>
                             ${endfor}
                         </ol>
                     </div>

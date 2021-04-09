@@ -1146,7 +1146,7 @@
         right: 10px;
         display: flex;
         flex-direction: column;
-        z-index: 100;
+        z-index: 1;
     }
 
     .book-appendix-tree-viewer-controls button {
@@ -1186,10 +1186,10 @@
         display: none;
         position: fixed;
         background: #fff;
-        border: 2px solid #000;
+        border: 3px solid #000;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: #363636 5px 8px 7px 1px;
+        box-shadow: #363636bf 5px 8px 7px 1px;
         transform: translateY(-100%);
         color: #000;
         z-index: 100;
@@ -1199,7 +1199,7 @@
         width: 100%;
         text-align: center;
         background: #dcdcdc;
-        font-size: 1.25em;
+        font-size: 1.375em;
         padding: 0.25em 1em;
         box-sizing: border-box;
     }
@@ -1216,6 +1216,7 @@
     .book-appendix-tree-section-example-list {
         list-style-type: disc;
         list-style-position: inside;
+        margin-left: 10px;
     }
 
     .book-appendix-tree-section-example-list li {
