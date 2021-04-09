@@ -74,6 +74,7 @@ let zoomFactor;
 let tx;
 let ty;
 let hidePopUpCalls;
+let currSpeciesEntry;
 if(treeViewer) {
     treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
     zoomInButton = treeViewer.querySelector("#treeZoomIn");
@@ -154,7 +155,6 @@ if(treeViewer) {
 
     let speciesEntries = document.querySelectorAll(".book-appendix-tree-species-entry");
     let currPopUp = undefined;
-    let currSpeciesEntry = undefined;
     for(let speciesEntry of speciesEntries) {
         let speciesId = speciesEntry.getAttribute("id");
         let popUp = document.querySelector(`.book-appendix-tree-section-list[data-species='${speciesId}']`);
@@ -202,7 +202,7 @@ if(treeViewer) {
             let timeoutNum = setTimeout(function() {
                 if(popUp.getAttribute("data-hover") != "true") {
                     popUp.style.display = "none";
-                    speciesEntry.style["text-decoration"] = "none";
+                    currSpeciesEntry.style["text-decoration"] = "none";
                 }
             }, 1000);
             return timeoutNum;
