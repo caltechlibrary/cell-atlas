@@ -1200,7 +1200,8 @@
         text-align: center;
         background: #dcdcdc;
         font-size: 1.25em;
-        padding: 0.25em 0;
+        padding: 0.25em 1em;
+        box-sizing: border-box;
     }
 
     .book-appendix-tree-section-content {

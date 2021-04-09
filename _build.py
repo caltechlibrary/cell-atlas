@@ -154,7 +154,7 @@ def processSubsection(subsectionFile, pageName, parentData):
             metadata["thumbnail"] = "{}_thumbnail".format("_".join(currVideoName.split(".")[0].split("_")[:-1]))
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
-    if("species" in metadata): addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{} : {}".format(parentData["title"], metadata["title"]))
+    if("species" in metadata): addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
 
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")

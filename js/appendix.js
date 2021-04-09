@@ -157,6 +157,7 @@ if(treeViewer) {
     for(let speciesEntry of speciesEntries) {
         let speciesId = speciesEntry.getAttribute("id");
         let popUp = document.querySelector(`.book-appendix-tree-section-list[data-species='${speciesId}']`);
+        if(!popUp) continue;
         hidePopUpCalls = [];
         speciesEntry.addEventListener("mouseenter", function(event) {
             if(currPopUp) currPopUp.style.display = "none";
