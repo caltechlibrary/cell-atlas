@@ -154,6 +154,7 @@ if(treeViewer) {
 
     let speciesEntries = document.querySelectorAll(".book-appendix-tree-species-entry");
     let currPopUp = undefined;
+    let currSpeciesEntry = undefined;
     for(let speciesEntry of speciesEntries) {
         let speciesId = speciesEntry.getAttribute("id");
         let popUp = document.querySelector(`.book-appendix-tree-section-list[data-species='${speciesId}']`);
@@ -161,7 +162,10 @@ if(treeViewer) {
         hidePopUpCalls = [];
         speciesEntry.addEventListener("mouseenter", function(event) {
             if(currPopUp) currPopUp.style.display = "none";
+            if(currSpeciesEntry) currSpeciesEntry.style["text-decoration"] = "none";
             currPopUp = popUp;
+            currSpeciesEntry = speciesEntry;
+            speciesEntry.style["text-decoration"] = "underline";
             clearHideCalls();
             popUp.removeEventListener("mouseenter", popUpHandleHover);
             popUp.removeEventListener("mouseleave", popUpHandleLeave);
@@ -198,6 +202,7 @@ if(treeViewer) {
             let timeoutNum = setTimeout(function() {
                 if(popUp.getAttribute("data-hover") != "true") {
                     popUp.style.display = "none";
+                    speciesEntry.style["text-decoration"] = "none";
                 }
             }, 1000);
             return timeoutNum;
