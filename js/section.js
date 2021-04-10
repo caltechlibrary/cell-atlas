@@ -1,21 +1,6 @@
 // Script still a WIP. Script was written to just to get the job done for the static site prototype. 
 // Will be improving this script where needed as time goes on.
 
-// Check url to see if modal anchor is included. If so, trigger button press
-let secUrl = window.location.href;
-let secSplit = secUrl.split("#");
-if(secSplit.length > 1) {
-    let buttons = [];
-    let anchor = secSplit[1];
-    let learnMore = document.querySelector(".book-section-learn-more");
-    if(learnMore) buttons = learnMore.getElementsByTagName("button");
-    for(let button of buttons){
-        if (button.value == anchor) {
-            button.click();
-        }
-    }
-}
-
 // Check if there is "Learn More" content. If not, add margin on bottom of text seciton on desktop only
 let sectionText = document.querySelector(".book-section-text");
 if(sectionText) {
@@ -90,6 +75,21 @@ for(let comparisonVideoButton of comparisonVideoButtons) {
 let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
 for(let comparissonContainer of comparissonContainers) {
     initializeCompSlider(comparissonContainer);
+}
+
+// Check url to see if modal anchor is included. If so, trigger button press
+let secUrl = window.location.href;
+let secSplit = secUrl.split("#");
+if(secSplit.length > 1) {
+    let buttons = [];
+    let anchor = secSplit[1];
+    let learnMore = document.querySelector(".book-section-learn-more");
+    if(learnMore) buttons = learnMore.getElementsByTagName("button");
+    for(let button of buttons){
+        if (button.value == anchor) {
+            button.click();
+        }
+    }
 }
 
 function shelfOnFirstPlay(event) {
