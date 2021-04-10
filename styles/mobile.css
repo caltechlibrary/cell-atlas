@@ -814,6 +814,9 @@ blockquote {
         color: #000000;
         transform: translateY(0);
         margin-bottom: -1em;
+        flex-direction: row;
+        left: initial;
+        top: initial;
     }
 
     .subsection-modal-container .video-quality-changer-control {
