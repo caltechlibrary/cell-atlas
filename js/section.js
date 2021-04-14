@@ -618,12 +618,15 @@ function initializeCompSlider(compSliderContainer) {
     let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
     let fullBackground = compSliderContainer.parentElement;
     let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
+    let imgFileName = compSliderContainer.getAttribute("data-img-name");
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
     compInputRange.addEventListener("input", inputToSlide);
     enterFullBtn.addEventListener("click", compEnterFullScreen);
     exitFullBtn.addEventListener("click", compExitFullScreen);
+
+    afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
 
     function slideReady(e) {
         e.preventDefault();
@@ -719,6 +722,16 @@ function initializeCompSlider(compSliderContainer) {
         let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
         marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
         afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
+    }
+
+    if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {
+        let nonTextContent = document.querySelector("#nonTextContent");
+        let videoContainer = nonTextContent.querySelector(".book-section-video-container");
+        let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+        if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+        window.addEventListener("resize", function() {
+            if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+        });
     }
 
 }
