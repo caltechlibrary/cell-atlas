@@ -63,7 +63,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         for subsection in metadata["subsections"]:
             metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection), pageName, metadata))
     # create temp metadata file to pass to pandoc
-    with open("metadata.json", "w") as f:
+    with open("metadata.json", "w", encoding='utf-8') as f:
         json.dump(metadata, f)
 
     if("appendixTypeDownload" not in metadata):
@@ -129,7 +129,7 @@ def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
                 if("doi" in offlineMetadata["subsectionsData"][i]):
                     offlineMetadata["subsectionsData"][i]["video"] = movieDict[offlineMetadata["subsectionsData"][i]["doi"]]
     
-    with open("metadataOffline.json", "w") as f:
+    with open("metadataOffline.json", "w", encoding='utf-8') as f:
         json.dump(offlineMetadata, f)
     if("appendixTypeReferences" in offlineMetadata):
         pandocArgs = pandocArgs + [
@@ -232,10 +232,10 @@ def createNavData():
     return navData
 
 def insertLinks(sourceFile, outFile):
-    with open(sourceFile, "r") as f:
+    with open(sourceFile, "r", encoding='utf-8') as f:
         formattedContent = insertRefLinks(f.read())
         formattedContent = insertProfileLinks(formattedContent)
-        with open(outFile, "w") as f:
+        with open(outFile, "w", encoding='utf-8') as f:
             f.write(formattedContent)
             return f
 
@@ -358,7 +358,7 @@ for profileFile in profileFiles:
     profileDict[profile["name"]] = profile
 # Create dictionary of DOIs to video file names
 movieDict = {}
-with open("dois.csv", "r") as csvfile:
+with open("dois.csv", "r", encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         doi = row["DOI"]
@@ -463,7 +463,7 @@ metadata["title"] = "Feature Index"
 metadata["prevSection"] = "keep-looking"
 metadata["nextSection"] = "B-scientist-profiles"
 featureIndex = None
-with open("features.json", "r") as f:
+with open("features.json", "r", encoding='utf-8') as f:
     featureIndex = json.load(f)
 metadata["featureIndex"] = [{"name": key, "refs": featureIndex[key]} for key in featureIndex]
 writePage(SITEDIR, "features.md", "page", "A-feature-index", metadata)
@@ -504,7 +504,7 @@ metadata["appendixTypeReferences"] = True
 metadata["chapter"] = "D"
 metadata["title"] = "References"
 metadata["prevSection"] = "C-phylogenetic-tree"
-with open("bib.json", "w") as f:
+with open("bib.json", "w", encoding='utf-8') as f:
     json.dump(usedBibs, f)
 writePage(SITEDIR, "bib.json", "page", "D-references", metadata)
 os.remove("bib.json")
@@ -514,7 +514,7 @@ metadata = {}
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
 aboutEntries = []
-with open("about.md", 'r') as f:
+with open("about.md", 'r', encoding='utf-8') as f:
     for line in f.readlines():
         if re.search(r"##", line):
             entry = {}
