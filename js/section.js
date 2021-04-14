@@ -728,9 +728,9 @@ function initializeCompSlider(compSliderContainer) {
         let nonTextContent = document.querySelector("#nonTextContent");
         let videoContainer = nonTextContent.querySelector(".book-section-video-container");
         let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
-        beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+        if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
         window.addEventListener("resize", function() {
-            beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+            if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
         });
     }
 
