@@ -724,4 +724,14 @@ function initializeCompSlider(compSliderContainer) {
         afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
     }
 
+    if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {
+        let nonTextContent = document.querySelector("#nonTextContent");
+        let videoContainer = nonTextContent.querySelector(".book-section-video-container");
+        let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+        beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+        window.addEventListener("resize", function() {
+            beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+        });
+    }
+
 }

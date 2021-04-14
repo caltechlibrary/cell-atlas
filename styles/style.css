@@ -642,6 +642,9 @@
     /* || SLIDER styles */
     .book-section-comparison-slider-fullscreen-container {
         display: none;
+        border: 7px #ccc solid;
+        border-radius: 10px;
+        background: #fff;
     }
 
     .book-section-comparison-button-container {
@@ -671,13 +674,9 @@
         position: relative;
         display: flex;
         align-items: center;
-        max-height: 81vh;
         width: fit-content;
         max-width: 100%;
         margin: auto;
-        border: 7px #cccccc solid;
-        border-radius: 10px;
-        background: #cccccc;
     }
 
     .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
@@ -966,7 +965,7 @@
         border-radius: 10px 10px 0 0;
     }
 
-    .subsection-modal-container .book-section-comparison-slider-container {
+    .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
         border-radius: 10px 10px 0 0;
     }
 
