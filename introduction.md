@@ -6,6 +6,7 @@ video: 0_1_Cjejuni.mp4
 videoAlt: 0_1.png
 collector: Morgan Beeby
 subsections: ['acknowledgements']
+noSlider: true
 ---
 
 In the 1960s, electron microscopes were opening a new window in biology, allowing scientists to look not just *at* cells, but *into* them. This revealed a rich world of ultrastructures too small to resolve with light microscopes, including organelles inside eukaryotic cells. To share this new vista with scientists and medical students who did not have microscopes to look for themselves, authors like Don Fawcett [@fawcett1966] and John Dodge [@dodge1968] created atlases of electron microscopy images that remain valuable resources for biological and medical novices, as well as experts.

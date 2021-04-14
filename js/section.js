@@ -618,12 +618,15 @@ function initializeCompSlider(compSliderContainer) {
     let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
     let fullBackground = compSliderContainer.parentElement;
     let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
+    let imgFileName = compSliderContainer.getAttribute("data-img-name");
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
     compInputRange.addEventListener("input", inputToSlide);
     enterFullBtn.addEventListener("click", compEnterFullScreen);
     exitFullBtn.addEventListener("click", compExitFullScreen);
+
+    afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
 
     function slideReady(e) {
         e.preventDefault();

@@ -105,7 +105,7 @@ function toggleView(el) {
         textContent.style.display = "none";
         nonTextContent.style.display = "flex";
         videoPlayer.style.display = "block";
-        comparissonFullBackground.style.display = "none";
+        if(comparissonFullBackground) comparissonFullBackground.style.display = "none";
         qualityChanger.style.display = "flex";
         closeModalMobile();
         // Video portions of section pages will always have fixed page controls

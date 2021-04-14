@@ -10,9 +10,10 @@
     <a href="${prevSection}.html" class="book-page-nav" data-nav="prev">&#8249;</a>
     <div class="book-section-video-container">
 
-        ${vidMetadata:toggleImgVid.tmpl()}
-
-        ${vidMetadata:slider.tmpl()}
+        ${if(vidMetadata.sliderImgName)}
+            ${vidMetadata:toggleImgVid.tmpl()}
+            ${vidMetadata:slider.tmpl()}
+        ${endif}
 
         ${vidMetadata:player.tmpl()}
 

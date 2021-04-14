@@ -11,9 +11,11 @@
         <button onclick="toggleView(this)" value="video" class="page-controls-button">
             ${svg/noun_Video.svg()}
         </button>
-        <button onclick="toggleView(this)" value="image" class="page-controls-button">
-            ${svg/noun_Image.svg()}
-        </button>
+        ${if(vidMetadata.sliderImgName)}
+            <button onclick="toggleView(this)" value="image" class="page-controls-button">
+                ${svg/noun_Image.svg()}
+            </button>
+        ${endif}
     ${else}
         <button onclick="toggleView(this)" value="text" class="page-controls-button hidden">Text</button>
         <button onclick="toggleView(this)" value="video" class="page-controls-button hidden">Video</button>

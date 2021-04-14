@@ -2,9 +2,10 @@
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
 
-        ${it:toggleImgVid.tmpl()}
-
-        ${it:slider.tmpl()}
+        ${if(it.sliderImgName)}
+            ${it:toggleImgVid.tmpl()}
+            ${it:slider.tmpl()}
+        ${endif}
 
         ${it:player.tmpl()}
     ${elseif(it.graphic)}

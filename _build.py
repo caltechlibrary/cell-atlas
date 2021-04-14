@@ -41,6 +41,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         metadata["vidMetadata"] = {}
         metadata["vidMetadata"]["video"] = metadata["video"]
         metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
+        if "sliderImgName" in metadata:  metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
         if "doi" in metadata:
             metadata["vidMetadata"]["species"] = metadata["videoTitle"]
             metadata["vidMetadata"]["doi"] = metadata["doi"]
@@ -152,8 +153,10 @@ def processSubsection(subsectionFile, pageName, parentData):
             metadata["thumbnail"] = "{}_thumbnail".format(currVideoName)
         else:
             metadata["thumbnail"] = "{}_thumbnail".format("_".join(currVideoName.split(".")[0].split("_")[:-1]))
+        addSliderData(metadata, currVideoName)
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
+        addSliderData(metadata, metadata["video"])
     if("species" in metadata): addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
 
     # Check if collector profile exist in in scientist profiles
@@ -286,6 +289,11 @@ def addCollectorData(metadata, identifier):
                 metadata["vidMetadata"]["collectorProfile"] = metadata["collectorProfile"]
                 metadata["vidMetadata"]["collectorId"] = metadata["collectorId"]
             
+def addSliderData(metadata, videoName):
+    if "noSlider" in metadata: return
+    videoTitle = videoName.split(".")[0]
+    metadata["sliderImgName"] = videoTitle
+
 def addSpeciesToDict(species, pageName, chapter, section, title):
     speciesObj = {}
     if(chapter != ""): speciesObj["chapter"] = chapter
@@ -385,6 +393,7 @@ introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
 introFileMetaData["thumbnail"] = "0_1_thumbnail"
+addSliderData(introFileMetaData, movieDict[introFileMetaData["doi"]])
 addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html", "", "", "Introduction")
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 
@@ -396,6 +405,11 @@ for i in range(len(sectionFiles)):
     metadata["collectorProfile"] = False
     metadata["prevSection"] = None
     metadata["nextSection"] = None
+    if("doi" in metadata):
+        if metadata["doi"] in movieDict:
+            addSliderData(metadata, movieDict[metadata["doi"]])
+        else:
+            print("{} section file does not have DOI field".format(fileName)) 
     if(title[0] == "summary.md"):
         metadata["thumbnail"] = "{}_thumbnail".format(metadata["video"].split(".")[0])
     else:
@@ -451,6 +465,7 @@ keepLookingFileMetaData["prevSection"] = "outlook"
 keepLookingFileMetaData["nextSection"] = "A-feature-index"
 keepLookingFileMetaData["subsectionsData"] = []
 keepLookingFileMetaData["thumbnail"] = "11_1_thumbnail"
+addSliderData(keepLookingFileMetaData, movieDict[keepLookingFileMetaData["doi"]])
 addSpeciesToDict(keepLookingFileMetaData["videoTitle"], "keep-looking.html", "", "", "Keep Looking")
 writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)
 
