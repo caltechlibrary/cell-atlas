@@ -731,7 +731,8 @@ blockquote {
         padding-top: 8px;
         border: 4px solid #000000;
         background: #ffffff;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .subsection-modal-container-slider-fullscreen {

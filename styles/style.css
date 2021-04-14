@@ -953,7 +953,8 @@
         padding: 1em;
         border: 4px solid rgb(0 0 0);
         background: rgb(255 255 255);
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .subsection-modal-container .book-section-video-player {
