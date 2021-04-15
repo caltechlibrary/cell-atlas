@@ -95,3 +95,5 @@ Library and the Jensen Lab.
 "[Minus](https://thenounproject.com/term/minus/705290/)" by Eagle Eye from [the Noun Project](https://thenounproject.com/).
 
 "[Check](https://thenounproject.com/search/?q=check&i=3850095)" by Justin Henry from [the Noun Project](https://thenounproject.com/).
+
+"[up and down](https://thenounproject.com/search/?q=up+and+down&i=3861732)" by Mas Dhimas from [the Noun Project](https://thenounproject.com/).

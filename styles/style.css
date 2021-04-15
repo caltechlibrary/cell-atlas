@@ -648,11 +648,14 @@
     .video-quality-changer-button {
         outline: none !important;
         position: relative;
+        display: grid;
+        grid-template-columns: auto min-content;
+        grid-gap: 0.5em;
         background: none;
         border: none;
         border-radius: 6px;
         margin: 0;
-        padding: 3px 0px;
+        padding: 0;
         width: 5.5em;
         color: #fff;
         font-size: 0.85em;
@@ -723,6 +726,16 @@
     }
 
     .video-quality-changer-control svg {
+        width: 1.5em;
+    }
+
+    .video-quality-changer-button span {
+        line-height: 1.5em;
+        margin-left: auto;
+    }
+
+    .video-quality-changer-button-icon svg {
+        fill: #fff;
         width: 1.5em;
     }
 

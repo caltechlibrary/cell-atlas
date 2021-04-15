@@ -1,6 +1,9 @@
 <div id="${it.playerId}-qualityChanger" class="video-quality-player-control" data-player="${it.playerId}" data-state="collapsed">
     <button class="video-quality-changer-button" onclick="expandQualityChanger(this)">
-        <span>1080p</span>
+        <span></span>
+        <div class="video-quality-changer-button-icon">
+            ${svg/noun_UpDown.svg()}
+        </div>
     </button>
     <div class="video-quality-changer video-quality-changer-selector" data-player="${it.playerId}">
         <label class="video-quality-changer-entry">
