@@ -11,6 +11,10 @@
         <div class="book-section-video-player-controls-buttons">
             <button id="${it.playerId}-playPauseButton" type="button" data-state="play" disabled></button>
             <span id="${it.playerId}-videoTimeStatus" class="book-section-video-player-time">0:00</span>
+            ${if(offline)}
+            ${else}
+                ${it:quality-changer.tmpl()}
+            ${endif}
             <button id="${it.playerId}-fullScreenButton" type="button" data-state="go-fullscreen" disabled></button>
         </div>
         <input type="range" id="${it.playerId}-seekBar" value="0" max="100">

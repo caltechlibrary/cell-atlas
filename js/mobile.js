@@ -95,7 +95,7 @@ function toggleView(el) {
     let videoPlayer = nonTextContent.querySelector(".book-section-video-player");
     let videoPlayerId = videoPlayer.getAttribute("data-player");
     let comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
-    let qualityChanger = nonTextContent.querySelector(".video-quality-changer");
+    let qualityChanger = nonTextContent.querySelector(".video-quality-changer-mobile");
     if(el.value == "text") {
         textContent.style.display = "flex";
         nonTextContent.style.display = "none";
