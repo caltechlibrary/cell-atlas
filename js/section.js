@@ -95,6 +95,7 @@ function sourceVideo(el) {
         window.sessionStorage.setItem("vidQuality", currentQuality);
     }
     checkQualityButtons(el.getAttribute("id"), currentQuality);
+    changeQualityButtonText(currentQuality == "High" ? "1080" : "480");
     if(currentQuality == "Med") {
         sourceVideoSmall(el);
         el.load();
@@ -259,6 +260,8 @@ function changeQuality(el) {
             swapVideo(video, vidQuality);
         }
     }
+
+    changeQualityButtonText(el.value);
 }
 
 function checkQualityButtons(playerId, vidQuality) {
@@ -267,6 +270,13 @@ function checkQualityButtons(playerId, vidQuality) {
         for(let qualityButton of qualityButtons) {
             qualityButton.checked = true;
         }
+    }
+}
+
+function changeQualityButtonText(quality) {
+    let qualityChangerButtonsTexts = document.querySelectorAll(".video-quality-changer-button span");
+    for(let qualityChangerButtonsText of qualityChangerButtonsTexts) {
+        qualityChangerButtonsText.innerHTML = `${quality}p`;
     }
 }
 
