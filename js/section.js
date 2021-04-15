@@ -94,12 +94,7 @@ function sourceVideo(el) {
         currentQuality = "High";
         window.sessionStorage.setItem("vidQuality", currentQuality);
     }
-    let qualityButtons = document.querySelectorAll(`.video-quality-changer-selector[data-player='${el.getAttribute("id")}'] input#vid${currentQuality}`);
-    if(qualityButtons) {
-        for(let qualityButton of qualityButtons) {
-            qualityButton.checked = true;
-        }
-    }
+    checkQualityButtons(el.getAttribute("id"), currentQuality);
     if(currentQuality == "Med") {
         sourceVideoSmall(el);
         el.load();
@@ -260,13 +255,17 @@ function changeQuality(el) {
     for(let video of allVideos) {
         if(video.getAttribute("id") != playerId) {
             video.setAttribute("preload", "none");
-            let qualityButtons = document.querySelectorAll(`.video-quality-changer-selector[data-player='${video.getAttribute("id")}'] input#vid${vidQuality}`);
-            if(qualityButtons) {
-                for(let qualityButton of qualityButtons) {
-                    qualityButton.checked = true;
-                }
-            }
+            checkQualityButtons(video.getAttribute("id"), vidQuality);
             swapVideo(video, vidQuality);
+        }
+    }
+}
+
+function checkQualityButtons(playerId, vidQuality) {
+    let qualityButtons = document.querySelectorAll(`.video-quality-changer-selector[data-player='${playerId}'] input#vid${vidQuality}`);
+    if(qualityButtons) {
+        for(let qualityButton of qualityButtons) {
+            qualityButton.checked = true;
         }
     }
 }

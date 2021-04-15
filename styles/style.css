@@ -7,6 +7,7 @@
 /* || CHAPTER - Chapter landing pages */
 /* || SECTION - Section/Summary pages of book */
 /* || PLAYER - Styles for the custom video player */
+/* || QUALITY - Styles for the quality changer */
 /* || SLIDER - Styles for the image comparison slider element */
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || FOOTER - Footer used on all pages */
@@ -638,6 +639,93 @@
       border: 0; 
     }
 
+    /* || QUALITY */
+    .video-quality-player-control {
+        position: relative; 
+        margin-left: auto;
+    }
+
+    .video-quality-changer-button {
+        outline: none !important;
+        position: relative;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        margin: 0;
+        padding: 3px 0px;
+        width: 5.5em;
+        color: #fff;
+        font-size: 0.85em;
+        font-weight: 600;
+        transition: background 0.1s, box-shadow 0.1s;
+        box-shadow: 0px 0px #fff;
+        z-index: 1;
+    }
+
+    .video-quality-changer-button:hover {
+        background: #363636;
+    }
+
+    .video-quality-changer {
+        display: flex;
+        flex: 0;
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        height: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        flex-direction: column;
+        color: #ffffff;
+        background: #363636;
+        border-radius: 6px;
+        font-size: 0.85em;
+        transition: height 0.5s, padding 0.5s;
+    }
+
+    .video-quality-player-control[data-state="expanded"] .video-quality-changer-button {
+        background: #363636;
+        box-shadow: 0px 0px 0px 2px #fff;
+    }
+
+    .video-quality-changer * {
+        box-sizing: border-box;
+    }
+
+    .video-quality-changer-entry {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto min-content;
+        grid-gap: 0.5em;
+        height: 1.5em;
+        font-weight: 600;
+        z-index: 0;
+    }
+
+    .video-quality-changer-input {
+        display: flex;
+        align-items: center;
+    }
+
+    .video-quality-changer-label {
+        line-height: 1.5;
+        margin-left: auto;
+    }
+
+    .video-quality-changer-control {
+        display: flex;
+        visibility: hidden;
+        margin-left: auto;
+    }
+
+    .video-quality-changer-entry input:checked + .video-quality-changer-control {
+        visibility: visible;
+    }
+
+    .video-quality-changer-control svg {
+        width: 1.5em;
+    }
+
     /* || SLIDER styles */
     .book-section-comparison-slider-fullscreen-container {
         display: none;
@@ -737,92 +825,6 @@
         height: 100%;
         background-repeat: no-repeat;
         background-size: auto 100%;
-    }
-
-    .video-quality-widget {
-        position: relative; 
-        margin-left: auto;
-    }
-
-    .video-quality-changer-button {
-        outline: none !important;
-        position: relative;
-        background: none;
-        border: none;
-        border-radius: 6px;
-        margin: 0;
-        padding: 3px 0px;
-        width: 5.5em;
-        color: #fff;
-        font-size: 0.85em;
-        font-weight: 600;
-        transition: background 0.1s, box-shadow 0.1s;
-        box-shadow: 0px 0px #fff;
-        z-index: 1;
-    }
-
-    .video-quality-changer-button:hover {
-        background: #363636;
-    }
-
-    .video-quality-changer {
-        display: flex;
-        flex: 0;
-        position: absolute;
-        bottom: 5px;
-        width: 100%;
-        height: 0;
-        box-sizing: border-box;
-        overflow: hidden;
-        flex-direction: column;
-        color: #ffffff;
-        background: #363636;
-        border-radius: 6px;
-        font-size: 0.85em;
-        transition: height 0.5s, padding 0.5s;
-    }
-
-    .video-quality-widget[data-state="expanded"] .video-quality-changer-button {
-        background: #363636;
-        box-shadow: 0px 0px 0px 2px #fff;
-    }
-
-    .video-quality-changer * {
-        box-sizing: border-box;
-    }
-
-    .video-quality-changer-entry {
-        position: relative;
-        display: grid;
-        grid-template-columns: auto min-content;
-        grid-gap: 0.5em;
-        height: 1.5em;
-        font-weight: 600;
-        z-index: 0;
-    }
-
-    .video-quality-changer-input {
-        display: flex;
-        align-items: center;
-    }
-
-    .video-quality-changer-label {
-        line-height: 1.5;
-        margin-left: auto;
-    }
-
-    .video-quality-changer-control {
-        display: flex;
-        visibility: hidden;
-        margin-left: auto;
-    }
-
-    .video-quality-changer-entry input:checked + .video-quality-changer-control {
-        visibility: visible;
-    }
-
-    .video-quality-changer-control svg {
-        width: 1.5em;
     }
 
     .book-section-text-open-button {

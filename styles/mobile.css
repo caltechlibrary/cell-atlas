@@ -9,6 +9,7 @@
 /* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
 /* || CHAPTER - Chapter landing pages */
 /* || SECTION -  Styles for every page of the book that is a section */
+/* || QUALITY - Styles for the quality changer */
 /* || SLIDER - Styles for the image comparison slider element */
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
@@ -92,7 +93,7 @@ blockquote {
 .book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
 .nav-menu-footer, .landing-page-download-button, .book-section-video-player-scrub-canvas,
 .book-section-video-player-paint-canvas, .book-section-video-player-controls,
-.book-section-comparison-button-container, .video-quality-widget {
+.book-section-comparison-button-container, .video-quality-player-control {
     display: none;
 }
 
@@ -490,6 +491,7 @@ blockquote {
         width: 100%;
     }
 
+    /* || QUALITY styles */
     .video-quality-changer-mobile {
         display: flex;
         float: right;
@@ -548,6 +550,21 @@ blockquote {
     .video-quality-changer-label {
         font-size: 0.95em;
         line-height: 1.5;
+    }
+
+    .subsection-modal-container .video-quality-changer-mobile {
+        position: relative;
+        margin-left: auto;
+        color: #000000;
+        transform: translateY(0);
+        margin-bottom: -1em;
+        flex-direction: row;
+        left: initial;
+        top: initial;
+    }
+
+    .subsection-modal-container .video-quality-changer-control {
+        border: 0.1em solid #000;
     }
 
     /* || SLIDER styles */
@@ -804,21 +821,6 @@ blockquote {
         width: 100%;
         border: 1px solid #000000;
         box-sizing: border-box;
-    }
-
-    .subsection-modal-container .video-quality-changer-mobile {
-        position: relative;
-        margin-left: auto;
-        color: #000000;
-        transform: translateY(0);
-        margin-bottom: -1em;
-        flex-direction: row;
-        left: initial;
-        top: initial;
-    }
-
-    .subsection-modal-container .video-quality-changer-control {
-        border: 0.1em solid #000;
     }
 
     /* || CHAPTER styles */
@@ -1141,6 +1143,16 @@ blockquote {
         max-height: 90%;
     }
 
+
+    /* || QUALITY styles */
+    .video-quality-changer-mobile {
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(0, -50%);
+    }
+
     /* || SLIDER styles */
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
         border: 7px #cccccc solid;
@@ -1161,14 +1173,6 @@ blockquote {
         height: auto;
         max-height: 100%;
         width: auto;
-    }
-
-    .video-quality-changer-mobile {
-        flex-direction: column;
-        position: absolute;
-        top: 50%;
-        left: 100%;
-        transform: translate(0, -50%);
     }
 
     .subsection-modal-container .book-section-comparison-slider-container {
