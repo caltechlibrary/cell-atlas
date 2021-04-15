@@ -221,16 +221,29 @@ function expandQualityChanger(el) {
     let widgetContainer = el.parentElement;
     let changerContainer = widgetContainer.querySelector(".video-quality-changer");
     let state = widgetContainer.getAttribute("data-state");
+    let closeChangerClick = function(event) {
+        if(!widgetContainer.contains(event.target)) {
+            window.removeEventListener("click", closeChangerClick);
+            collapseChanger();
+        }
+    }
+
     if(state == "expanded") {
-        changerContainer.style.height = 0;
-        changerContainer.style.padding = 0;
-        changerContainer.addEventListener("transitionend", function() {
-            widgetContainer.setAttribute("data-state", "collapsed");
-        }, { once: true });
+        collapseChanger();
     } else {
         changerContainer.style.padding = "3px 0 1.5em 3px";
         changerContainer.style.height = `${changerContainer.scrollHeight + 19}px`;
         widgetContainer.setAttribute("data-state", "expanded");
+        window.addEventListener("click", closeChangerClick);
+    }
+
+    function collapseChanger() {
+        changerContainer.style.height = 0;
+        changerContainer.style.padding = 0;
+        window.removeEventListener("click", closeChangerClick);
+        changerContainer.addEventListener("transitionend", function() {
+            widgetContainer.setAttribute("data-state", "collapsed");
+        }, { once: true });
     }
 }
 
