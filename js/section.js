@@ -232,7 +232,7 @@ function expandQualityChanger(el) {
         collapseChanger();
     } else {
         changerContainer.style.padding = "3px 0 1.5em 3px";
-        changerContainer.style.height = `${changerContainer.scrollHeight + 19}px`;
+        changerContainer.style.height = "4.5em";
         widgetContainer.setAttribute("data-state", "expanded");
         window.addEventListener("click", closeChangerClick);
     }

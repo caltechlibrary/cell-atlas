@@ -648,9 +648,7 @@
     .video-quality-changer-button {
         outline: none !important;
         position: relative;
-        display: grid;
-        grid-template-columns: auto min-content;
-        grid-gap: 0.5em;
+        display: flex;
         background: none;
         border: none;
         border-radius: 6px;
@@ -697,9 +695,7 @@
 
     .video-quality-changer-entry {
         position: relative;
-        display: grid;
-        grid-template-columns: auto min-content;
-        grid-gap: 0.5em;
+        display: flex;
         height: 1.5em;
         font-weight: 600;
         z-index: 0;
@@ -726,12 +722,17 @@
     }
 
     .video-quality-changer-control svg {
+        margin-left: 0.5em;
         width: 1.5em;
     }
 
     .video-quality-changer-button span {
         line-height: 1.5em;
         margin-left: auto;
+    }
+
+    .video-quality-changer-button-icon {
+        margin-left: 0.5em;
     }
 
     .video-quality-changer-button-icon svg {
