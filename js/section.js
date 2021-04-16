@@ -250,7 +250,6 @@ function collapseState(event) {
 function closeChangerClick(event) {
     let widgetContainer = document.querySelector(".video-quality-player-control[data-state='expanded']");
     if(widgetContainer && !widgetContainer.contains(event.target)) {
-        window.removeEventListener("click", closeChangerClick);
         collapseChanger();
     }
 }
