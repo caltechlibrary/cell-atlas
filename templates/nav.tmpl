@@ -19,7 +19,7 @@
                 ${if(nav.sections)}
                     <ol class="nav-menu-sections">
                         ${for(nav.sections)}
-                            <li id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
+                            <li id="nav${nav.sections.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
                                 <a tabindex="-1" href="${nav.sections.page}.html">
                                     <div class="nav-menu-section-entry">
                                         <span class="nav-menu-section-number">${if(nav.chapter)}${nav.chapter}.${endif}${nav.sections.section}</span> 

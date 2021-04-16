@@ -77,6 +77,10 @@
         visibility: hidden;
     }
 
+    .appendix-hidden {
+        display: none;
+    }
+
     .dark-background-text {
         background-color: rgb(54 54 54);
         color: rgb(245 245 245)
