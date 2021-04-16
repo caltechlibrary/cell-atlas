@@ -7,6 +7,7 @@
 /* || CHAPTER - Chapter landing pages */
 /* || SECTION - Section/Summary pages of book */
 /* || PLAYER - Styles for the custom video player */
+/* || QUALITY - Styles for the quality changer */
 /* || SLIDER - Styles for the image comparison slider element */
 /* || MODAL - "Learn more" modals (also used in about project page) */
 /* || FOOTER - Footer used on all pages */
@@ -315,6 +316,7 @@
 
     .nav-menu-chapter-container button svg {
         flex: 1;
+        fill: #8c8c8c;
     }
 
     .nav-menu-chapter h1 {
@@ -579,7 +581,7 @@
         outline: none !important;
     }
 
-    .book-section-video-player-controls-buttons span {
+    .book-section-video-player-time {
         font-size: 0.85em;
         font-family: sans-serif;
         margin: 0 1em;
@@ -595,7 +597,7 @@
     
     .book-section-video-player-controls-buttons button[data-state="go-fullscreen"] {
         background-image: url("../img/noun_Fullscreen.svg");
-        margin-left: auto;
+        margin: 0 1em;
     }
 
     .book-section-video-player-controls input {
@@ -635,6 +637,107 @@
     .book-section-video-player-controls input::-moz-focus-inner,
     .book-section-video-player-controls input::-moz-focus-outer { 
       border: 0; 
+    }
+
+    /* || QUALITY */
+    .video-quality-player-control {
+        position: relative; 
+        margin-left: auto;
+    }
+
+    .video-quality-changer-button {
+        outline: none !important;
+        position: relative;
+        display: flex;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        margin: 0;
+        padding: 0;
+        width: 5.5em;
+        color: #fff;
+        font-size: 0.85em;
+        font-weight: 600;
+        transition: background 0.1s, box-shadow 0.1s;
+        box-shadow: 0px 0px #fff;
+        z-index: 1;
+    }
+
+    .video-quality-changer-button:hover {
+        background: #363636;
+    }
+
+    .video-quality-changer {
+        display: flex;
+        flex: 0;
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        height: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        flex-direction: column;
+        color: #ffffff;
+        background: #363636;
+        border-radius: 6px;
+        font-size: 0.85em;
+        transition: height 0.5s, padding 0.5s;
+    }
+
+    .video-quality-player-control[data-state="expanded"] .video-quality-changer-button {
+        background: #363636;
+        box-shadow: 0px 0px 0px 2px #fff;
+    }
+
+    .video-quality-changer * {
+        box-sizing: border-box;
+    }
+
+    .video-quality-changer-entry {
+        position: relative;
+        display: flex;
+        height: 1.5em;
+        font-weight: 600;
+        z-index: 0;
+    }
+
+    .video-quality-changer-input {
+        display: flex;
+        align-items: center;
+    }
+
+    .video-quality-changer-label {
+        line-height: 1.5;
+        margin-left: auto;
+    }
+
+    .video-quality-changer-control {
+        display: flex;
+        visibility: hidden;
+        margin-left: auto;
+    }
+
+    .video-quality-changer-entry input:checked + .video-quality-changer-control {
+        visibility: visible;
+    }
+
+    .video-quality-changer-control svg {
+        margin-left: 0.5em;
+        width: 1.5em;
+    }
+
+    .video-quality-changer-button span {
+        line-height: 1.5em;
+        margin-left: auto;
+    }
+
+    .video-quality-changer-button-icon {
+        margin-left: 0.5em;
+    }
+
+    .video-quality-changer-button-icon svg {
+        fill: #fff;
+        width: 1.5em;
     }
 
     /* || SLIDER styles */
@@ -736,73 +839,6 @@
         height: 100%;
         background-repeat: no-repeat;
         background-size: auto 100%;
-    }
-
-    .video-quality-changer {
-        flex: 0;
-        position: relative;
-        display: flex;
-        width: fit-content;
-        margin-left: auto;
-        color: #ffffff;
-        font-size: 1em;
-    }
-
-    .video-quality-changer * {
-        box-sizing: border-box;
-    }
-
-    .video-quality-changer-entry {
-        display: grid;
-        grid-template-columns: min-content auto;
-        grid-gap: 0.5em;
-        margin-left: 0.75em;
-    }
-
-    .video-quality-changer-input {
-        display: flex;
-        align-items: center;
-    }
-
-    .video-quality-changer-input input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-        margin: 0;
-        display: flex;
-    }
-
-    .video-quality-changer-control {
-        display: grid;
-        place-items: center;
-        width: 0.85em;
-        height: 0.85em;
-        border-radius: 50%;
-        border: 0.1em solid #fff;
-        background-color: #fff;
-        transform: translateY(-0.05em);
-    }
-
-    .video-quality-changer-input input + .video-quality-changer-control.book-section-video-player-controls-mouse-focus {
-        box-shadow: none;
-    }
-
-    .video-quality-changer-input input + .video-quality-changer-control::before {
-        content: "";
-        width: 0.6em;
-        height: 0.6em;
-        box-shadow: inset 0.5em 0.5em #717171;
-        border-radius: 50%;
-        transform: scale(1);
-    }
-
-    .video-quality-changer-input input:checked + .video-quality-changer-control::before {
-        transform: scale(0);
-    }
-
-    .video-quality-changer-label {
-        font-size: 0.95em;
-        line-height: 1.5;
     }
 
     .book-section-text-open-button {
@@ -934,7 +970,7 @@
         height: 100%;
         width: 100%;
         background: rgb(156 156 156 / 50%);
-        z-index: 1;
+        z-index: 2;
     }
 
     .subsection-modal-container {
@@ -989,18 +1025,6 @@
     .subsection-modal-container video {
         width: 100%;
         background-color: rgb(255 255 255);
-    }
-
-    .subsection-modal-container .video-quality-changer {
-        position: relative;
-        margin-left: auto;
-        color: #000000;
-        transform: translateY(0);
-        margin-bottom: -1em;
-    }
-
-    .subsection-modal-container .video-quality-changer-control {
-        border: 0.1em solid #717171;
     }
 
     #concept-check-questions, #further-reading {
@@ -1305,6 +1329,10 @@
     }
 
     .book-section-comparison-slider-fullscreen-container button {
+        display: none;
+    }
+
+    .video-quality-changer-mobile {
         display: none;
     }
 }

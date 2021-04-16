@@ -38,16 +38,6 @@ if(modalVideos) {
     }
 }
 
-// Add keyboard only focus styles to quality changer
-let qualityChangerButtons = document.querySelectorAll(".video-quality-changer-input span");
-let qualityChangerInputs = document.querySelectorAll(".video-quality-changer-input input");
-for(let i = 0; i < qualityChangerButtons.length; i++) {
-    qualityChangerInputs[i].addEventListener("keydown", function() {
-        useKeyboardFocus({ target: qualityChangerButtons[i] });
-    });
-    qualityChangerButtons[i].addEventListener("mousedown", useMouseFocus);
-}
-
 document.addEventListener("keydown", function(event) {
     let focusedElement = document.activeElement;
     if(!focusedElement || 
@@ -104,8 +94,8 @@ function sourceVideo(el) {
         currentQuality = "High";
         window.sessionStorage.setItem("vidQuality", currentQuality);
     }
-    let qualityButton = document.querySelector(`.video-quality-changer[data-player='${el.getAttribute("id")}'] input#vid${currentQuality}`);
-    if(qualityButton) qualityButton.checked = true;
+    checkQualityButtons(el.getAttribute("id"), currentQuality);
+    changeQualityButtonText(currentQuality == "High" ? "1080" : "480");
     if(currentQuality == "Med") {
         sourceVideoSmall(el);
         el.load();
@@ -227,6 +217,43 @@ function openText(el) {
     }, 1000);
 }
 
+function expandQualityChanger(el) {
+    let widgetContainer = el.parentElement;
+    let changerContainer = widgetContainer.querySelector(".video-quality-changer");
+    let state = widgetContainer.getAttribute("data-state");
+
+    if(state == "expanded") {
+        collapseChanger();
+    } else {
+        changerContainer.removeEventListener("transitionend", collapseState);
+        widgetContainer.setAttribute("data-state", "expanded");
+        changerContainer.style.padding = "3px 0 1.5em 3px";
+        changerContainer.style.height = "4.5em";
+        window.addEventListener("click", closeChangerClick);
+    }
+}
+
+function collapseChanger() {
+    let widgetContainer = document.querySelector(".video-quality-player-control[data-state='expanded']");
+    let changerContainer = widgetContainer.querySelector(".video-quality-changer");
+    changerContainer.style.height = 0;
+    changerContainer.style.padding = 0;
+    window.removeEventListener("click", closeChangerClick);
+    changerContainer.addEventListener("transitionend", collapseState, { once: true });
+}
+
+function collapseState(event) {
+    let widgetContainer = event.target.parentElement;
+    widgetContainer.setAttribute("data-state", "collapsed");
+}
+
+function closeChangerClick(event) {
+    let widgetContainer = document.querySelector(".video-quality-player-control[data-state='expanded']");
+    if(widgetContainer && !widgetContainer.contains(event.target)) {
+        collapseChanger();
+    }
+}
+
 function changeQuality(el) {
     let vidQuality = (el.value == "480") ? "Med" : "High";
     let playerId = el.getAttribute("data-player");
@@ -249,10 +276,27 @@ function changeQuality(el) {
     for(let video of allVideos) {
         if(video.getAttribute("id") != playerId) {
             video.setAttribute("preload", "none");
-            let qualityButton = document.querySelector(`.video-quality-changer[data-player='${video.getAttribute("id")}'] input#vid${vidQuality}`);
-            qualityButton.checked = true;
+            checkQualityButtons(video.getAttribute("id"), vidQuality);
             swapVideo(video, vidQuality);
         }
+    }
+
+    changeQualityButtonText(el.value);
+}
+
+function checkQualityButtons(playerId, vidQuality) {
+    let qualityButtons = document.querySelectorAll(`.video-quality-changer-selector[data-player='${playerId}'] input#vid${vidQuality}`);
+    if(qualityButtons) {
+        for(let qualityButton of qualityButtons) {
+            qualityButton.checked = true;
+        }
+    }
+}
+
+function changeQualityButtonText(quality) {
+    let qualityChangerButtonsTexts = document.querySelectorAll(".video-quality-changer-button span");
+    for(let qualityChangerButtonsText of qualityChangerButtonsTexts) {
+        qualityChangerButtonsText.innerHTML = `${quality}p`;
     }
 }
 
@@ -588,7 +632,7 @@ function useKeyboardFocus(event) {
 function toggleImageSlider(el) {
     let selectedValue = el.getAttribute("value");
     let videoPlayerId = el.getAttribute("data-player");
-    let videoQualitySwitcher = document.querySelector(`.video-quality-changer[data-player='${videoPlayerId}']`);
+    let videoQualitySwitcherMobile = document.querySelector(`.video-quality-changer-mobile[data-player='${videoPlayerId}']`);
     let videoContainer = document.querySelector(`.book-section-video-player[data-player='${videoPlayerId}']`);
     let videoElement = videoContainer.querySelector("video");
     let comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
@@ -599,11 +643,11 @@ function toggleImageSlider(el) {
     if(selectedValue == "image") {
         comparissonFullBackground.style.display = "block";
         videoContainer.style.display = "none";
-        if(videoQualitySwitcher) videoQualitySwitcher.style.display = "none";
+        if(window.innerWidth <= 900 && videoQualitySwitcherMobile) videoQualitySwitcherMobile.style.display = "none";
     } else {
         comparissonFullBackground.style.display = "none";
         videoContainer.style.display = "flex";
-        if(videoQualitySwitcher) videoQualitySwitcher.style.display = "flex";
+        if(window.innerWidth <= 900 && videoQualitySwitcherMobile) videoQualitySwitcherMobile.style.display = "flex";
     }
     currSelectedButton.setAttribute("data-state", "");
     el.setAttribute("data-state", "selected");
