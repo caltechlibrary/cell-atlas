@@ -51,7 +51,13 @@ function openModal(modalId) {
         modalOverlay.removeEventListener("click", closeModalClick);
         modalOverlay.style.display = "none";
         modal.style.display = "none";
-        if(qualityChangerDesktop) qualityChangerDesktop.setAttribute("data-state", "collapsed");
+        if(qualityChangerDesktop && qualityChangerDesktop.getAttribute("data-state") == "expanded") {
+            let changerContainer = qualityChangerDesktop.querySelector(".video-quality-changer");
+            qualityChangerDesktop.setAttribute("data-state", "collapsed");
+            window.removeEventListener("click", closeChangerClick);
+            changerContainer.style.height = 0;
+            changerContainer.style.padding = 0;
+        }
         modalText.setAttribute("tabindex", "-1");
         lastFocused.focus();
     }

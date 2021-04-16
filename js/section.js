@@ -221,12 +221,6 @@ function expandQualityChanger(el) {
     let widgetContainer = el.parentElement;
     let changerContainer = widgetContainer.querySelector(".video-quality-changer");
     let state = widgetContainer.getAttribute("data-state");
-    let closeChangerClick = function(event) {
-        if(!widgetContainer.contains(event.target)) {
-            window.removeEventListener("click", closeChangerClick);
-            collapseChanger();
-        }
-    }
 
     if(state == "expanded") {
         collapseChanger();
@@ -237,18 +231,28 @@ function expandQualityChanger(el) {
         changerContainer.style.height = "4.5em";
         window.addEventListener("click", closeChangerClick);
     }
+}
 
-    function collapseChanger() {
-        changerContainer.style.height = 0;
-        changerContainer.style.padding = 0;
-        window.removeEventListener("click", closeChangerClick);
-        changerContainer.addEventListener("transitionend", collapseState, { once: true });
-    }
+function collapseChanger() {
+    let widgetContainer = document.querySelector(".video-quality-player-control[data-state='expanded']");
+    let changerContainer = widgetContainer.querySelector(".video-quality-changer");
+    changerContainer.style.height = 0;
+    changerContainer.style.padding = 0;
+    window.removeEventListener("click", closeChangerClick);
+    changerContainer.addEventListener("transitionend", collapseState, { once: true });
 }
 
 function collapseState(event) {
     let widgetContainer = event.target.parentElement;
     widgetContainer.setAttribute("data-state", "collapsed");
+}
+
+function closeChangerClick(event) {
+    let widgetContainer = document.querySelector(".video-quality-player-control[data-state='expanded']");
+    if(widgetContainer && !widgetContainer.contains(event.target)) {
+        window.removeEventListener("click", closeChangerClick);
+        collapseChanger();
+    }
 }
 
 function changeQuality(el) {
