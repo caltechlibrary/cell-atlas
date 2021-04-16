@@ -231,9 +231,10 @@ function expandQualityChanger(el) {
     if(state == "expanded") {
         collapseChanger();
     } else {
+        changerContainer.removeEventListener("transitionend", collapseState);
+        widgetContainer.setAttribute("data-state", "expanded");
         changerContainer.style.padding = "3px 0 1.5em 3px";
         changerContainer.style.height = "4.5em";
-        widgetContainer.setAttribute("data-state", "expanded");
         window.addEventListener("click", closeChangerClick);
     }
 
@@ -241,10 +242,13 @@ function expandQualityChanger(el) {
         changerContainer.style.height = 0;
         changerContainer.style.padding = 0;
         window.removeEventListener("click", closeChangerClick);
-        changerContainer.addEventListener("transitionend", function() {
-            widgetContainer.setAttribute("data-state", "collapsed");
-        }, { once: true });
+        changerContainer.addEventListener("transitionend", collapseState, { once: true });
     }
+}
+
+function collapseState(event) {
+    let widgetContainer = event.target.parentElement;
+    widgetContainer.setAttribute("data-state", "collapsed");
 }
 
 function changeQuality(el) {

@@ -6,10 +6,7 @@ function openModal(modalId) {
     let modalOverlay = document.getElementById("modalOverlay");
     let lastFocused = document.activeElement;
     let modalText = modal.querySelector(".subsection-modal-text");
-    let beforeImage = modal.querySelector(".book-section-comparison-before");
-    let afterImage = modal.querySelector(".book-section-comparison-after");
-    let imageInput = modal.querySelector(".book-section-comparison-range");
-    let compSliderContainer = modal.querySelector(".book-section-comparison-slider-container");
+    let qualityChangerDesktop = modal.querySelector(".video-quality-player-control");
 
     modalOverlay.style.display = "block";
     modal.style.display = "flex";
@@ -54,6 +51,7 @@ function openModal(modalId) {
         modalOverlay.removeEventListener("click", closeModalClick);
         modalOverlay.style.display = "none";
         modal.style.display = "none";
+        if(qualityChangerDesktop) qualityChangerDesktop.setAttribute("data-state", "collapsed");
         modalText.setAttribute("tabindex", "-1");
         lastFocused.focus();
     }
