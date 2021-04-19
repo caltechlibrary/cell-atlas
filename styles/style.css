@@ -981,16 +981,17 @@
     .subsection-modal-container {
         display: none;
         position: absolute;
+        box-sizing: border-box;
         right: 0;
         left: 0;
         top: 0;
         bottom: 0;
         margin: auto;
         flex-direction: column;
-        width: fit-content;
+        width: 100vh;
         height: fit-content;
-        max-width: 50%;
-        max-height: 90%;
+        max-width: 52%;
+        max-height: 97%;
         padding: 1em;
         border: 4px solid rgb(0 0 0);
         background: rgb(255 255 255);
@@ -1010,6 +1011,12 @@
     .subsection-modal-text {
         margin-top: 1em;
         overflow: auto;
+    }
+
+    @media (max-height:700px) {
+        .subsection-modal-text {
+            flex: 1 0 auto;
+        }
     }
 
     .subsection-modal-text a {
