@@ -14,6 +14,11 @@ function openModal(modalId) {
     modal.focus();
     modalText.setAttribute("tabindex", "0");
 
+    if(window.innerWidth > 900) {
+        window.addEventListener("resize", computeMaxWidth);
+        computeMaxWidth();
+    }
+
     document.addEventListener("focusin", restrictFocus);
     document.addEventListener("keydown", closeModalKey);
     modalOverlay.addEventListener("mousedown", closeModalClick);
@@ -48,6 +53,7 @@ function openModal(modalId) {
         if(modalVideo && !modalVideo.paused) modalVideo.pause();
         document.removeEventListener("focusin", restrictFocus);
         document.removeEventListener("keydown", closeModalKey);
+        window.removeEventListener("resize", computeMaxWidth);
         modalOverlay.removeEventListener("click", closeModalClick);
         modalOverlay.style.display = "none";
         modal.style.display = "none";
@@ -60,5 +66,19 @@ function openModal(modalId) {
         }
         modalText.setAttribute("tabindex", "-1");
         lastFocused.focus();
+    }
+
+    function computeMaxWidth() {
+        console.log("In computMaxWidth");
+        if(window.innerWidth > 900) {
+            if(window.innerHeight < 900) {
+                let maxHeight = modalOverlay.offsetHeight * 0.97
+                let fixedMaxWidth = (maxHeight * 1.28) - (maxHeight * 0.1);
+                let currentMaxWidth = window.innerWidth * 0.52;
+                modal.style["max-width"] = (fixedMaxWidth < currentMaxWidth) ? `${fixedMaxWidth}px` : "52%";
+            } else {
+                modal.style["max-width"] = "52%";
+            }
+        }
     }
 }
