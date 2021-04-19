@@ -988,7 +988,6 @@
         bottom: 0;
         margin: auto;
         flex-direction: column;
-        width: 100vh;
         height: fit-content;
         max-width: 52%;
         max-height: 97%;
@@ -1011,12 +1010,6 @@
     .subsection-modal-text {
         margin-top: 1em;
         overflow: auto;
-    }
-
-    @media (max-height:700px) {
-        .subsection-modal-text {
-            flex: 1 0 auto;
-        }
     }
 
     .subsection-modal-text a {
