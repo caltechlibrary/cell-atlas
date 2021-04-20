@@ -69,7 +69,6 @@ function openModal(modalId) {
     }
 
     function computeMaxWidth() {
-        console.log("In computMaxWidth");
         if(window.innerWidth > 900) {
             if(window.innerHeight < 900) {
                 let maxHeight = modalOverlay.offsetHeight * 0.97
