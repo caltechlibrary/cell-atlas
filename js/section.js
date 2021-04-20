@@ -239,7 +239,11 @@ function collapseChanger() {
     changerContainer.style.height = 0;
     changerContainer.style.padding = 0;
     window.removeEventListener("click", closeChangerClick);
-    changerContainer.addEventListener("transitionend", collapseState, { once: true });
+    if(document.querySelector("body").classList.contains("preload")) {
+        widgetContainer.setAttribute("data-state", "collapsed");
+    } else {
+        changerContainer.addEventListener("transitionend", collapseState, { once: true });
+    }
 }
 
 function collapseState(event) {
