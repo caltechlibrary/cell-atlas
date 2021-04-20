@@ -1002,6 +1002,16 @@ blockquote {
         transform: translate(0, -50%);
     }
 
+    .book-appendix-tree-viewer-fullbackground-polyfill {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: #000;
+        z-index: 100;
+    }
+
     .book-appendix-tree-viewer svg {
         transform: matrix(1,0,0,1,0,0);
     }
