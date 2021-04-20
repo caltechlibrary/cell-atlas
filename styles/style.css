@@ -1336,4 +1336,8 @@
     .video-quality-changer-mobile {
         display: none;
     }
+
+    #treeFullScreenMobile {
+        display: none;
+    }
 }

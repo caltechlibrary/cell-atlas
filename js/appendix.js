@@ -75,10 +75,16 @@ let tx;
 let ty;
 let hidePopUpCalls;
 let currSpeciesEntry;
+let fullscreenBackground;
+let fullscreenButtonMobile;
+let minimizeButtonMobile;
 if(treeViewer) {
     treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
     zoomInButton = treeViewer.querySelector("#treeZoomIn");
     zoomOutButton = treeViewer.querySelector("#treeZoomOut");
+    fullscreenBackground = treeViewer.parentElement;
+    fullscreenButtonMobile = treeViewer.querySelector("#treeFullScreenMobile");
+    minimizeButtonMobile = treeViewer.querySelector("#treeMinimizeMobile");
     currScale = 1;
     zoomFactor = 1.05;
     tx = 0;
@@ -140,6 +146,30 @@ if(treeViewer) {
     zoomOutButton.addEventListener("click", function(event) {
         currScale *= 1/zoomFactor;
         calcTransform(0, 0, 1/zoomFactor);
+    });
+
+    fullscreenButtonMobile.addEventListener("click", function(event) {
+        window.removeEventListener("touchstart", detectSwipe);
+        fullscreenButtonMobile.style.display = "none"; 
+        minimizeButtonMobile.style.display = "flex";
+        fullscreenBackground.setAttribute("data-state", "fullscreen");
+        if(fullscreenBackground.requestFullscreen) {
+            fullscreenBackground.requestFullscreen();
+        } else {
+            // Do something later
+        }
+    });
+
+    minimizeButtonMobile.addEventListener("click", function(event) {
+        window.removeEventListener("touchstart", detectSwipe);
+        minimizeButtonMobile.style.display = "none"; 
+        fullscreenButtonMobile.style.display = "flex";
+        fullscreenBackground.setAttribute("data-state", "initial");
+        if(fullscreenBackground.requestFullscreen) {
+            document.exitFullscreen();
+        } else {
+            // Do something later
+        }
     });
 
     function calcTransform(posX, posY, zoomF) {

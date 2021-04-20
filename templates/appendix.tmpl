@@ -33,14 +33,7 @@ ${endif}
                     </div>
                 </div>
             ${endfor}
-            <div class="book-appendix-tree-viewer">
-                <div class="book-appendix-tree-viewer-controls">
-                    <button class="book-appendix-tree-viewer-zoom-in" id="treeZoomIn">${svg/noun_Plus.svg()}</button>
-                    <div class="book-appendix-tree-viewer-controls-divider"></div>
-                    <button class="book-appendix-tree-viewer-zoom-out" id="treeZoomOut">${svg/noun_Minus.svg()}</button>
-                </div>
-                ${svg/modifiedTree.svg()}
-            </div>
+            ${tree-viewer.tmpl()}
         ${elseif(appendixTypeAbout)}
             ${about.tmpl()}
         ${elseif(appendixTypeReferences)}
