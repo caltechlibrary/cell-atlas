@@ -5,19 +5,17 @@
 let sectionText = document.querySelector(".book-section-text");
 if(sectionText) {
     let learnMore = sectionText.querySelector(".book-section-learn-more");
-    if(!learnMore && window.innerWidth > 800) {
+    if(!learnMore && window.innerWidth > 900) {
         sectionText.style["padding-bottom"] = "1em";
     }
 }
 
 let sectionTextMaterial = document.querySelector(".book-section-text-material");
-if(sectionTextMaterial) {
-    sectionTextMaterial.addEventListener("mousedown", function() {
-        sectionTextMaterial.classList.add("book-section-video-player-controls-mouse-focus");
-    });
-    sectionTextMaterial.addEventListener("keydown", function() {
-        sectionTextMaterial.classList.remove("book-section-video-player-controls-mouse-focus"); 
-    });
+if(sectionTextMaterial) addTypeFocusToggle(sectionTextMaterial);
+
+let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
+for(let comparisonVideoButton of comparisonVideoButtons) {
+    addTypeFocusToggle(comparisonVideoButton);
 }
 
 // Add event listener to video player to shelf text on first play
@@ -52,15 +50,6 @@ document.addEventListener("keydown", function(event) {
         if(nextLink) nextLink.click();
     }
 });
-let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
-for(let comparisonVideoButton of comparisonVideoButtons) {
-    comparisonVideoButton.addEventListener("mousedown", function() {
-        comparisonVideoButton.classList.add("book-section-video-player-controls-mouse-focus");
-    });
-    comparisonVideoButton.addEventListener("keydown", function() {
-        comparisonVideoButton.classList.remove("book-section-video-player-controls-mouse-focus");
-    });
-}
 
 let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
 for(let comparissonContainer of comparissonContainers) {
@@ -369,12 +358,9 @@ function createVideoPlayer(videoEl) {
     let frameImages;
     let frameInterval;
 
-    playPauseButton.addEventListener("mousedown", useMouseFocus);
-    fullScreenButton.addEventListener("mousedown", useMouseFocus);
-    seekBar.addEventListener("mousedown", useMouseFocus);
-    playPauseButton.addEventListener("keydown", useKeyboardFocus);
-    fullScreenButton.addEventListener("keydown", useKeyboardFocus);
-    seekBar.addEventListener("keydown", useKeyboardFocus);
+    addTypeFocusToggle(playPauseButton);
+    addTypeFocusToggle(fullScreenButton);
+    addTypeFocusToggle(seekBar);
 
     videoEl.addEventListener("canplay", function() {
         playPauseButton.removeAttribute("disabled");
@@ -621,16 +607,6 @@ function createVideoPlayer(videoEl) {
             videoPlayer.classList.remove("book-section-video-player-fullscreen");
         }
     }
-}
-
-function useMouseFocus(event) {
-    let el = event.target;
-    el.classList.add("book-section-video-player-controls-mouse-focus");
-}
-
-function useKeyboardFocus(event) {
-    let el = event.target;
-    el.classList.remove("book-section-video-player-controls-mouse-focus");
 }
 
 function toggleImageSlider(el) {

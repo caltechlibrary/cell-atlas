@@ -582,10 +582,6 @@
         outline: #000000 auto 1px;
     }
 
-    .book-section-video-player-controls-mouse-focus {
-        outline: none !important;
-    }
-
     .book-section-video-player-time {
         font-size: 0.85em;
         font-family: sans-serif;

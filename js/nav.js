@@ -27,7 +27,7 @@ if (typeof(Storage) !== "undefined") {
 
 let openSectionButtons = document.querySelectorAll(".nav-menu button");
 for(let openSectionButton of openSectionButtons) {
-    openSectionButton.addEventListener("mousedown", forceMouseFocus);
+    addTypeFocusToggle(openSectionButton);
 }
 
 function toggleNav(el) {
