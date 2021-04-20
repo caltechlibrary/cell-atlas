@@ -5,7 +5,7 @@
 let sectionText = document.querySelector(".book-section-text");
 if(sectionText) {
     let learnMore = sectionText.querySelector(".book-section-learn-more");
-    if(!learnMore && window.innerWidth > 800) {
+    if(!learnMore && window.innerWidth > 900) {
         sectionText.style["padding-bottom"] = "1em";
     }
 }
