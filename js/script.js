@@ -18,10 +18,11 @@ for(let link of allLinks) {
     }
 }
 
-function forceMouseFocus(event) {
-    let element = event.currentTarget;
-    element.classList.add("mouse-focus");
-    element.addEventListener("keydown", function(){
-        element.classList.remove("mouse-focus");
+function addTypeFocusToggle(el) {
+    el.addEventListener("mousedown", function() {
+        el.classList.add("mouse-focus");
+    });
+    el.addEventListener("keydown", function() {
+        el.classList.remove("mouse-focus"); 
     });
 }
