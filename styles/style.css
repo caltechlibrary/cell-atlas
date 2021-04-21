@@ -1340,4 +1340,8 @@
     #treeFullScreenMobile {
         display: none;
     }
+
+    #treeMinimizeMobile {
+        display: none;
+    }
 }

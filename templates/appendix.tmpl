@@ -20,19 +20,6 @@ ${endif}
             <div class="book-text-content">
                 ${body}
             </div>
-            ${for(speciesList)}
-                <div class="book-appendix-tree-section-list" data-species="${speciesList.id}">
-                    <h2 class="book-appendix-tree-section-title">${speciesList.species}</h2>
-                    <div class="book-appendix-tree-section-content">
-                        <h3 class="book-appendix-tree-section-subheader">Examples:</h3>
-                        <ol class="book-appendix-tree-section-example-list">
-                            ${for(speciesList.speciesObjs)}
-                                <li><a href="${speciesList.speciesObjs.page}">${if(speciesList.speciesObjs.chapter)}${speciesList.speciesObjs.chapter}.${endif}${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a></li>
-                            ${endfor}
-                        </ol>
-                    </div>
-                </div>
-            ${endfor}
             ${tree-viewer.tmpl()}
         ${elseif(appendixTypeAbout)}
             ${about.tmpl()}

@@ -78,6 +78,7 @@ let currSpeciesEntry;
 let fullscreenBackground;
 let fullscreenButtonMobile;
 let minimizeButtonMobile;
+let touchCount;
 if(treeViewer) {
     treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
     zoomInButton = treeViewer.querySelector("#treeZoomIn");
@@ -85,6 +86,7 @@ if(treeViewer) {
     fullscreenBackground = treeViewer.parentElement;
     fullscreenButtonMobile = treeViewer.querySelector("#treeFullScreenMobile");
     minimizeButtonMobile = treeViewer.querySelector("#treeMinimizeMobile");
+    touchCount = 0;
     currScale = 1;
     zoomFactor = 1.05;
     tx = 0;
@@ -135,6 +137,40 @@ if(treeViewer) {
 
         function removeTracking() {
             treeViewer.removeEventListener("mousemove", trackMouse);
+        }
+    });
+
+    treeViewer.addEventListener("touchstart", function(event) {
+        touchCount++;
+        let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
+        let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
+        let posX = (event.changedTouches[0].pageX - treeViewer.getBoundingClientRect().x) - centerX;
+        let posY = (event.changedTouches[0].pageY - treeViewer.getBoundingClientRect().y) - centerY;
+
+        treeViewer.addEventListener("touchmove", trackMouse);
+
+        treeViewer.addEventListener("touchend", removeTracking, { once: true });
+
+        function trackMouse(event) {
+            event.preventDefault();if(touchCount == 1) {
+                let currX = (event.changedTouches[0].pageX - treeViewer.getBoundingClientRect().x) - centerX;
+                let currY = (event.changedTouches[0].pageY - treeViewer.getBoundingClientRect().y) - centerY;
+                let dx = posX - currX;
+                let dy = posY - currY;
+                let newTx = tx - dx;
+                let newTy = ty - dy;
+
+                treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
+                tx = newTx;
+                ty = newTy; 
+                posX = currX;
+                posY = currY;
+            }
+        }
+
+        function removeTracking() {
+            touchCount--;
+            treeViewer.removeEventListener("touchmove", trackMouse);
         }
     });
 
@@ -237,6 +273,5 @@ if(treeViewer) {
             }, 1000);
             return timeoutNum;
         }
-    }
-            
+    }                  
 }
