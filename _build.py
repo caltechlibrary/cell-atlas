@@ -111,10 +111,10 @@ def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
             elif("video" in offlineMetadata):
                 videoName = offlineMetadata["video"]
             smallVideoName = videoName.split(".")[0] + "_480p." + videoName.split(".")[1]
-            pandocArgs.append("--metadata=video:{}".format(smallVideoName))
+            offlineMetadata["vidMetadata"]["video"] = smallVideoName
     else:
         if("doi" in offlineMetadata):
-            pandocArgs.append("--metadata=video:{}".format(movieDict[offlineMetadata["doi"]]))
+            offlineMetadata["vidMetadata"]["video"] = movieDict[offlineMetadata["doi"]]
 
     if "subsectionsData" in offlineMetadata and offlineMetadata["subsectionsData"]:
         for i in range(len(offlineMetadata["subsectionsData"])):

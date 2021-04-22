@@ -31,7 +31,7 @@ if(video) {
 let modalVideos = document.querySelectorAll(".subsection-modal-container video");
 if(modalVideos) {
     for(let modalVideo of modalVideos) {
-        sourceVideo(modalVideo);
+        if(!video.querySelector("source")) sourceVideo(modalVideo);
         createVideoPlayer(modalVideo);
     }
 }
