@@ -210,6 +210,8 @@ if(treeViewer) {
             fullscreenBackground.requestFullscreen();
         } else {
             fullscreenBackground.classList.add("book-appendix-tree-viewer-fullbackground-polyfill");
+            let appendixPageEl = document.querySelector(".book-appendix-page");
+            appendixPageEl.classList.add("book-appendix-page-fullscreen-polyfill");
         }
     });
 
@@ -222,6 +224,8 @@ if(treeViewer) {
             document.exitFullscreen();
         } else {
             fullscreenBackground.classList.remove("book-appendix-tree-viewer-fullbackground-polyfill");
+            let appendixPageEl = document.querySelector(".book-appendix-page");
+            appendixPageEl.classList.remove("book-appendix-page-fullscreen-polyfill");
         }
     });
 
