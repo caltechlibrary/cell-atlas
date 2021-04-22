@@ -873,6 +873,12 @@ blockquote {
         min-height: 100vh;
     }
 
+    .book-appendix-page-fullscreen-polyfill {
+        min-height: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
     .book-appendix-inner {
         padding: 72px 16px;
     }
@@ -1066,6 +1072,7 @@ blockquote {
     .book-appendix-tree-section-list {
         display: none;
         position: fixed;
+        width: fit-content;
         background: #fff;
         border: 3px solid #000;
         border-radius: 10px;
@@ -1086,6 +1093,7 @@ blockquote {
 
     .book-appendix-tree-section-content {
         padding: 0.5em 1em;
+        overflow: auto;
     }
 
     .book-appendix-tree-section-subheader {
@@ -1280,7 +1288,12 @@ blockquote {
     .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
         box-sizing: border-box;
         height: 100vh;
-        width: 100vw;
+    }
+
+    @supports(padding: max(0px)) {
+        .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
+            margin: 0px max(15px, env(safe-area-inset-right)) 0 max(15px, env(safe-area-inset-left));
+        }
     }
 }
 
