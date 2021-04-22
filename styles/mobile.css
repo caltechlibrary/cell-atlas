@@ -272,6 +272,7 @@ blockquote {
 
     .nav-menu-chapter-container button svg {
         flex: 1;
+        fill: #8c8c8c;
     }
     
     .nav-menu-chapter h1 {
