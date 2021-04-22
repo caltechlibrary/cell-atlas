@@ -23,7 +23,7 @@ let video = document.querySelector("#nonTextContent video");
 if(video) {
     video.addEventListener("play", shelfOnFirstPlay);
     // Source the video using the DOI only if a local path is not being used
-    if(!video.querySelector("source")) sourceVideo(video);
+    if(!OFFLINE) sourceVideo(video);
     createVideoPlayer(video);
 }
 
@@ -31,7 +31,7 @@ if(video) {
 let modalVideos = document.querySelectorAll(".subsection-modal-container video");
 if(modalVideos) {
     for(let modalVideo of modalVideos) {
-        sourceVideo(modalVideo);
+        if(!OFFLINE) sourceVideo(modalVideo);
         createVideoPlayer(modalVideo);
     }
 }
@@ -650,7 +650,11 @@ function initializeCompSlider(compSliderContainer) {
     enterFullBtn.addEventListener("click", compEnterFullScreen);
     exitFullBtn.addEventListener("click", compExitFullScreen);
 
-    afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+    if(OFFLINE) {
+        afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
+    } else {
+        afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+    }
 
     function slideReady(e) {
         e.preventDefault();
