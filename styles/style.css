@@ -1211,7 +1211,7 @@
         box-shadow: #363636bf 5px 8px 7px 1px;
         transform: translateY(-100%);
         color: #000;
-        z-index: 100;
+        z-index: 1000;
     }
 
     .book-appendix-tree-section-title {

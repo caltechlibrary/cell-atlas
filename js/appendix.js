@@ -78,7 +78,9 @@ let currSpeciesEntry;
 let fullscreenBackground;
 let fullscreenButtonMobile;
 let minimizeButtonMobile;
-let touchCount;
+let touchX;
+let touchY;
+let touchDist;
 if(treeViewer) {
     treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
     zoomInButton = treeViewer.querySelector("#treeZoomIn");
@@ -86,7 +88,6 @@ if(treeViewer) {
     fullscreenBackground = treeViewer.parentElement;
     fullscreenButtonMobile = treeViewer.querySelector("#treeFullScreenMobile");
     minimizeButtonMobile = treeViewer.querySelector("#treeMinimizeMobile");
-    touchCount = 0;
     currScale = 1;
     zoomFactor = 1.05;
     tx = 0;
@@ -140,37 +141,53 @@ if(treeViewer) {
         }
     });
 
-    treeViewer.addEventListener("touchstart", function(event) {
-        touchCount++;
-        let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
-        let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
-        let posX = (event.changedTouches[0].pageX - treeViewer.getBoundingClientRect().x) - centerX;
-        let posY = (event.changedTouches[0].pageY - treeViewer.getBoundingClientRect().y) - centerY;
-
-        treeViewer.addEventListener("touchmove", trackMouse);
-
-        treeViewer.addEventListener("touchend", removeTracking, { once: true });
-
-        function trackMouse(event) {
-            event.preventDefault();if(touchCount == 1) {
-                let currX = (event.changedTouches[0].pageX - treeViewer.getBoundingClientRect().x) - centerX;
-                let currY = (event.changedTouches[0].pageY - treeViewer.getBoundingClientRect().y) - centerY;
-                let dx = posX - currX;
-                let dy = posY - currY;
-                let newTx = tx - dx;
-                let newTy = ty - dy;
-
-                treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
-                tx = newTx;
-                ty = newTy; 
-                posX = currX;
-                posY = currY;
+    treeViewer.addEventListener("touchmove", function(event) {
+        event.preventDefault();
+        if(event.touches.length == 1) {
+            let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
+            let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
+            let currX = (event.changedTouches[0].clientX - treeViewer.getBoundingClientRect().x) - centerX;
+            let currY = (event.changedTouches[0].clientY - treeViewer.getBoundingClientRect().y) - centerY;
+            if(!touchX || !touchY) {
+                touchX = (event.changedTouches[0].clientX - treeViewer.getBoundingClientRect().x) - centerX;
+                touchY = (event.changedTouches[0].clientY - treeViewer.getBoundingClientRect().y) - centerY;
             }
-        }
+            let dx = touchX - currX;
+            let dy = touchY - currY;
+            let newTx = tx - dx;
+            let newTy = ty - dy;
 
-        function removeTracking() {
-            touchCount--;
-            treeViewer.removeEventListener("touchmove", trackMouse);
+            treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
+            tx = newTx;
+            ty = newTy; 
+            touchX = currX;
+            touchY = currY;
+        } else if(event.touches.length == 2) {
+            let currDist = Math.hypot(event.touches[0].clientX - event.touches[1].clientX, event.touches[0].clientY - event.touches[1].clientY);
+            if(!touchDist) {
+                touchDist = currDist;
+                return;
+            }
+            let deltaDist = touchDist - currDist;
+
+            let currZoomFactor = zoomFactor;
+            if(deltaDist >= 0) currZoomFactor = 1/zoomFactor;  
+            currScale *= currZoomFactor;
+
+            // Calculate displacement of zooming position
+            let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
+            let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
+            let posX = (((event.touches[0].clientX - treeViewer.getBoundingClientRect().x) - centerX) + ((event.touches[1].clientX - treeViewer.getBoundingClientRect().x) - centerX)) / 2;
+            let posY = (((event.touches[0].clientY - treeViewer.getBoundingClientRect().y) - centerY) + ((event.touches[1].clientY - treeViewer.getBoundingClientRect().y) - centerY)) / 2;
+            calcTransform(posX, posY, currZoomFactor);
+            touchDist = currDist;
+        }
+    });
+
+    treeViewer.addEventListener("touchend", function(event) {
+        if(event.touches.length == 0) {
+            touchX = undefined;
+            touchY = undefined;
         }
     });
 
@@ -236,8 +253,25 @@ if(treeViewer) {
             popUp.removeEventListener("mouseenter", popUpHandleHover);
             popUp.removeEventListener("mouseleave", popUpHandleLeave);
             popUp.style.display = "block";
-            popUp.style.left = `${event.pageX}px`;
-            popUp.style.top = `${event.pageY}px`;
+
+            popUp.style.left = `${event.clientX}px`;
+            popUp.style.top = `${event.clientY}px`;
+
+            if(window.innerWidth < 900) {
+                let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
+                let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
+                let posX = (event.clientX - treeViewer.getBoundingClientRect().x) - centerX;
+                let posY = (event.clientY - treeViewer.getBoundingClientRect().y) - centerY;
+                let translateX = 0;
+                let translateY = 0;
+                if(posX > 0) {
+                    translateX = -100;
+                }
+                if (posY > 0) {
+                    translateY = -100;
+                }
+                popUp.style.transform = `translate(${translateX}%, ${translateY}%)`;
+            }
 
             speciesEntry.addEventListener("mouseleave", function(event) {
                 hidePopUpCalls.push(hidePopUp(popUp));
@@ -245,6 +279,7 @@ if(treeViewer) {
 
             popUp.addEventListener("mouseenter", popUpHandleHover);
             popUp.addEventListener("mouseleave", popUpHandleLeave);
+            window.addEventListener("touchstart", touchHandleLeave);
 
         });
 
@@ -262,6 +297,15 @@ if(treeViewer) {
         let popUpHandleLeave = function() {
             popUp.setAttribute("data-hover", "false");
             hidePopUpCalls.push(hidePopUp(popUp));
+        }
+
+        let touchHandleLeave = function(event) {
+            if(!popUp.contains(event.target)) {
+                popUp.setAttribute("data-hover", "false");
+                popUp.style.display = "none";
+                currSpeciesEntry.style["text-decoration"] = "none";
+                window.removeEventListener("touchstart", touchHandleLeave);
+            }
         }
 
         function hidePopUp(popUp) {
