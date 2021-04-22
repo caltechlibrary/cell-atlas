@@ -182,6 +182,18 @@
         font-family: system-ui;
     }
 
+    @media (max-height:850px) {
+        .landing-page-text {
+            width: auto;
+        }
+    }
+
+    @media (max-height:650px) {
+        .landing-page-text {
+            font-size: 0.8em;
+        }
+    }
+
     .landing-page-text h1 {
         font-family: serif;
         font-size: 4.5em;
