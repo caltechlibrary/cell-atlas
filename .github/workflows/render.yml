@@ -16,7 +16,7 @@ jobs:
   Render:
     runs-on: ubuntu-20.04
     container: 
-      image: docker://pandoc/ubuntu:2.11
+      image: docker://pandoc/ubuntu:2.13
     steps:
       - name: Checkout
         uses: actions/checkout@v2
