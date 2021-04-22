@@ -10,7 +10,7 @@ window.addEventListener('load', (event) => {
 let { origin } = new URL(window.location.href); 
 let allLinks = document.querySelectorAll("a");
 for(let link of allLinks) {
-    if(!link.href || link.getAttribute("xlink:href")) continue;
+    if(!link.href || typeof(link.href) == "object") continue;
     let currLink = new URL(link.href);
     if(currLink.origin != origin && !currLink.href.includes("https://data.caltech.edu/tindfiles/serve")) {
         link.setAttribute("target", "_blank");
