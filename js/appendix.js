@@ -304,7 +304,7 @@ if(treeViewer) {
         }
 
         let touchHandleLeave = function(event) {
-            if(!popUp.contains(event.target)) {
+            if(!popUp.contains(event.target) && !speciesEntry.contains(event.target)) {
                 popUp.setAttribute("data-hover", "false");
                 popUp.style.display = "none";
                 currSpeciesEntry.style["text-decoration"] = "none";
