@@ -1072,6 +1072,7 @@ blockquote {
     .book-appendix-tree-section-list {
         display: none;
         position: fixed;
+        width: fit-content;
         background: #fff;
         border: 3px solid #000;
         border-radius: 10px;
@@ -1092,6 +1093,7 @@ blockquote {
 
     .book-appendix-tree-section-content {
         padding: 0.5em 1em;
+        overflow: auto;
     }
 
     .book-appendix-tree-section-subheader {

@@ -266,15 +266,26 @@ if(treeViewer) {
                 let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
                 let posX = (event.clientX - treeViewer.getBoundingClientRect().x) - centerX;
                 let posY = (event.clientY - treeViewer.getBoundingClientRect().y) - centerY;
+                let exampleList = popUp.querySelector(".book-appendix-tree-section-content");
                 let translateX = 0;
                 let translateY = 0;
+                let maxHeight = 0;
+                let maxWidth = 0;
                 if(posX > 0) {
                     translateX = -100;
+                    maxWidth = event.clientX - 16;
+                } else {
+                    maxWidth = window.innerWidth - event.clientX - 16;
                 }
                 if (posY > 0) {
                     translateY = -100;
+                    maxHeight = event.clientY - (popUp.offsetHeight - exampleList.offsetHeight) - 32;
+                } else {
+                    maxHeight = window.innerHeight - event.clientY - (popUp.offsetHeight - exampleList.offsetHeight) - 32;
                 }
                 popUp.style.transform = `translate(${translateX}%, ${translateY}%)`;
+                popUp.style["max-width"] = `${maxWidth}px`;
+                exampleList.style["max-height"] = `${maxHeight}px`;
             }
 
             speciesEntry.addEventListener("mouseleave", function(event) {
