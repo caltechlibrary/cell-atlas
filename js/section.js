@@ -650,7 +650,11 @@ function initializeCompSlider(compSliderContainer) {
     enterFullBtn.addEventListener("click", compEnterFullScreen);
     exitFullBtn.addEventListener("click", compExitFullScreen);
 
-    afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+    if(OFFLINE) {
+        afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
+    } else {
+        afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+    }
 
     function slideReady(e) {
         e.preventDefault();
