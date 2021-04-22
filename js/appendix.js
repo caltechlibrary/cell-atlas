@@ -192,12 +192,12 @@ if(treeViewer) {
     });
 
     zoomInButton.addEventListener("click", function(event) {
-        currScale *= zoomFactor;
+        currScale *= (zoomFactor * 1.25);
         calcTransform(0, 0, zoomFactor);
     });
 
     zoomOutButton.addEventListener("click", function(event) {
-        currScale *= 1/zoomFactor;
+        currScale *= 1/(zoomFactor * 1.25);
         calcTransform(0, 0, 1/zoomFactor);
     });
 
