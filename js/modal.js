@@ -12,7 +12,7 @@ function openModal(modalId) {
     modal.style.display = "flex";
     modal.setAttribute("tabindex", 0);
     modal.focus();
-    modalText.setAttribute("tabindex", "0");
+    if(modalText) modalText.setAttribute("tabindex", "0");
 
     if(window.innerWidth > 900) {
         window.addEventListener("resize", computeMaxWidth);
@@ -22,12 +22,7 @@ function openModal(modalId) {
     document.addEventListener("focusin", restrictFocus);
     document.addEventListener("keydown", closeModalKey);
     modalOverlay.addEventListener("mousedown", closeModalClick);
-    modalText.addEventListener("mousedown", function() {
-        modalText.classList.add("book-section-video-player-controls-mouse-focus");
-    });
-    modalText.addEventListener("keydown", function() {
-        modalText.classList.remove("book-section-video-player-controls-mouse-focus"); 
-    });
+    if(modalText) addTypeFocusToggle(modalText);
 
     function restrictFocus(event) {
         if(!modal.contains(event.target)) {
@@ -64,7 +59,7 @@ function openModal(modalId) {
             changerContainer.style.height = 0;
             changerContainer.style.padding = 0;
         }
-        modalText.setAttribute("tabindex", "-1");
+        if(modalText) modalText.setAttribute("tabindex", "-1");
         lastFocused.focus();
     }
 
