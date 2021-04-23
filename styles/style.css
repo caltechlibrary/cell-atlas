@@ -756,6 +756,7 @@
     /* || SLIDER styles */
     .book-section-comparison-slider-fullscreen-container {
         display: none;
+        position: relative;
         border: 7px #ccc solid;
         border-radius: 10px;
         background: #fff;
@@ -852,6 +853,39 @@
         height: 100%;
         background-repeat: no-repeat;
         background-size: auto 100%;
+    }
+
+    .book-section-comparison-control-button {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #0000006e;
+        background: #ffffff87;
+        border: none;
+        border-right: none;
+        margin: 0;
+        padding: 2%;
+        border-top: none;
+        border-radius: 10px 0 0 0;
+    }
+
+    .book-section-comparison-slider-enlarged {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px !important;
+    }
+
+    .book-section-comparison-control-button svg {
+        width: 1.25em;
+        fill: #15404e;
+    }
+
+    .book-section-comparison-exit-fullscreen-desktop {
+        display: none;
     }
 
     .book-section-text-open-button {
@@ -1338,11 +1372,7 @@
         display: none;
     }
 
-    .book-section-comparison-slider-container button {
-        display: none;
-    }
-
-    .book-section-comparison-slider-fullscreen-container button {
+    .book-section-comparison-exit-fullscreen {
         display: none;
     }
 

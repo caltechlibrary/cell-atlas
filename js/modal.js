@@ -7,6 +7,7 @@ function openModal(modalId) {
     let lastFocused = document.activeElement;
     let modalText = modal.querySelector(".subsection-modal-text");
     let qualityChangerDesktop = modal.querySelector(".video-quality-player-control");
+    let fullBackground = modal.querySelector(".book-section-comparison-slider-fullscreen-container");
 
     modalOverlay.style.display = "block";
     modal.style.display = "flex";
@@ -60,6 +61,10 @@ function openModal(modalId) {
             changerContainer.style.padding = 0;
         }
         if(modalText) modalText.setAttribute("tabindex", "-1");
+        if(fullBackground && window.innerWidth > 900) {
+            let minimizeButton = fullBackground.querySelector(".book-section-comparison-exit-fullscreen-desktop");
+            minimizeButton.click();
+        }
         lastFocused.focus();
     }
 
