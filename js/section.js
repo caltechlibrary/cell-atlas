@@ -785,6 +785,7 @@ function initializeCompSlider(compSliderContainer) {
     function enlargeCompModal() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
+        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
         let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
         let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
         let availWidth = window.innerWidth - 100;
@@ -797,12 +798,14 @@ function initializeCompSlider(compSliderContainer) {
             beforeImage.style.height = `${availWidth / aspectRatio}px`;
         }
         fullBackground.classList.add("book-section-comparison-slider-enlarged");
+        fullBackground.style.top = `${posTop}px`;
         window.addEventListener("resize", resizeEnlargedCompModal);
     }
 
     function resizeEnlargedCompModal() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
+        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
         let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
         let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
         let availWidth = window.innerWidth - 100;
@@ -814,10 +817,12 @@ function initializeCompSlider(compSliderContainer) {
             fullBackground.style.width = `${availWidth}px`;
             beforeImage.style.height = `${availWidth / aspectRatio}px`;
         }
+        fullBackground.style.top = `${posTop}px`;
     }
 
     function minimizeCompModal() {
         fullBackground.style.width = "initial";
+        fullBackground.style.top = "initial";
         beforeImage.style.height = "initial";
         fullBackground.classList.remove("book-section-comparison-slider-enlarged");
         window.removeEventListener("resize", resizeEnlargedCompModal);
