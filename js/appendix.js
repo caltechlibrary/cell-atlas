@@ -10,10 +10,7 @@ for(link of feedbackLinks) {
 // Account for scrollbar width in right nav margins
 let navRight = document.querySelector(".book-page-nav.book-appendix-nav.book-appendix-nav-right");
 if(navRight) {
-    let appendixContainer = document.querySelector(".book-appendix-page");
-    let scrollbarWidth = appendixContainer.offsetWidth - appendixContainer.clientWidth;
-    let marginRight = parseInt(window.getComputedStyle(navRight).getPropertyValue("margin-right").slice(0, -2));
-    navRight.style["margin-right"] = `${marginRight + scrollbarWidth}px`;
+    addNavRightMargin();
 }
 
 // Account for scroll bar width in profile bios
@@ -53,6 +50,13 @@ for(let link of whatsNewLinks){
     });
 }
 
+function addNavRightMargin() {
+    let appendixContainer = document.querySelector(".book-appendix-page");
+    let scrollbarWidth = appendixContainer.offsetWidth - appendixContainer.clientWidth;
+    let marginRight = parseInt(window.getComputedStyle(navRight).getPropertyValue("margin-right").slice(0, -2));
+    navRight.style["margin-right"] = `${marginRight + scrollbarWidth}px`;
+}
+
 function toggleListDropdown(el) {
     let list = document.getElementById(el.value).querySelector(".book-appendix-li-dropdown");
     if(list.offsetHeight == 0) {
@@ -86,8 +90,8 @@ if(treeViewer) {
     zoomInButton = treeViewer.querySelector("#treeZoomIn");
     zoomOutButton = treeViewer.querySelector("#treeZoomOut");
     fullscreenBackground = treeViewer.parentElement;
-    fullscreenButtonMobile = treeViewer.querySelector("#treeFullScreenMobile");
-    minimizeButtonMobile = treeViewer.querySelector("#treeMinimizeMobile");
+    fullscreenButtonMobile = treeViewer.querySelector("#treeFullScreen");
+    minimizeButtonMobile = treeViewer.querySelector("#treeMinimize");
     currScale = 1;
     zoomFactor = 1.05;
     tx = 0;
@@ -206,12 +210,16 @@ if(treeViewer) {
         fullscreenButtonMobile.style.display = "none"; 
         minimizeButtonMobile.style.display = "flex";
         fullscreenBackground.setAttribute("data-state", "fullscreen");
-        if(fullscreenBackground.requestFullscreen) {
-            fullscreenBackground.requestFullscreen();
+        if(window.innerWidth > 900) {
+            enlargeTreeViewer();
         } else {
-            fullscreenBackground.classList.add("book-appendix-tree-viewer-fullbackground-polyfill");
-            let appendixPageEl = document.querySelector(".book-appendix-page");
-            appendixPageEl.classList.add("book-appendix-page-fullscreen-polyfill");
+            if(fullscreenBackground.requestFullscreen) {
+                fullscreenBackground.requestFullscreen();
+            } else {
+                fullscreenBackground.classList.add("book-appendix-tree-viewer-fullbackground-polyfill");
+                let appendixPageEl = document.querySelector(".book-appendix-page");
+                appendixPageEl.classList.add("book-appendix-page-fullscreen-polyfill");
+            }
         }
     });
 
@@ -220,14 +228,73 @@ if(treeViewer) {
         minimizeButtonMobile.style.display = "none"; 
         fullscreenButtonMobile.style.display = "flex";
         fullscreenBackground.setAttribute("data-state", "initial");
-        if(fullscreenBackground.requestFullscreen) {
-            document.exitFullscreen();
+        if(window.innerWidth > 900) {
+            minimizeTreeViewer();
         } else {
-            fullscreenBackground.classList.remove("book-appendix-tree-viewer-fullbackground-polyfill");
-            let appendixPageEl = document.querySelector(".book-appendix-page");
-            appendixPageEl.classList.remove("book-appendix-page-fullscreen-polyfill");
+            if(fullscreenBackground.requestFullscreen) {
+                document.exitFullscreen();
+            } else {
+                fullscreenBackground.classList.remove("book-appendix-tree-viewer-fullbackground-polyfill");
+                let appendixPageEl = document.querySelector(".book-appendix-page");
+                appendixPageEl.classList.remove("book-appendix-page-fullscreen-polyfill");
+            }
         }
     });
+
+    function enlargeTreeViewer() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
+        let availWidth = window.innerWidth - 100;
+        let imageWidth = availHeight * aspectRatio;
+        if(imageWidth < availWidth) {
+            fullscreenBackground.style.width = `${imageWidth}px`;
+        } else {
+            fullscreenBackground.style.width = `${availWidth}px`;
+        }
+        let posTop = (header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2)) - (fullscreenBackground.offsetHeight / 2);
+        let posLeft = (window.innerWidth / 2) - (fullscreenBackground.offsetWidth / 2);
+        fullscreenBackground.classList.add("book-appendix-tree-viewer-enlarged");
+        fullscreenBackground.style.top = `${posTop}px`;
+        fullscreenBackground.style.left = `${posLeft}px`;
+        window.addEventListener("resize", resizeEnlargedTree);
+        window.addEventListener("click", minimizeTreeClick);
+        navRight.style["margin-right"] = "1rem";
+    }
+
+    function minimizeTreeViewer() {
+        fullscreenBackground.style.width = "initial";
+        fullscreenBackground.style.top = "initial";
+        fullscreenBackground.style.left = "initial";
+        fullscreenBackground.classList.remove("book-appendix-tree-viewer-enlarged");
+        window.removeEventListener("resize", resizeEnlargedTree);
+        window.removeEventListener("click", minimizeTreeClick);
+        addNavRightMargin();
+    }
+
+    function resizeEnlargedTree() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
+        let availWidth = window.innerWidth - 100;
+        let imageWidth = availHeight * aspectRatio;
+        if(imageWidth < availWidth) {
+            fullscreenBackground.style.width = `${imageWidth}px`;
+        } else {
+            fullscreenBackground.style.width = `${availWidth}px`;
+        }
+        let posTop = (header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2)) - (fullscreenBackground.offsetHeight / 2);
+        let posLeft = (window.innerWidth / 2) - (fullscreenBackground.offsetWidth / 2);
+        fullscreenBackground.classList.add("book-appendix-tree-viewer-enlarged");
+        fullscreenBackground.style.top = `${posTop}px`;
+        fullscreenBackground.style.left = `${posLeft}px`;
+    }
+
+    function minimizeTreeClick(event) {
+        if(!fullscreenBackground.contains(event.target)) minimizeButtonMobile.click();
+    }
 
     function calcTransform(posX, posY, zoomF) {
         let dx = (posX - tx) * (zoomF - 1);
