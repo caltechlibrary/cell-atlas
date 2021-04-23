@@ -875,6 +875,10 @@
         fill: #15404e;
     }
 
+    .book-section-comparison-exit-fullscreen-desktop {
+        display: none;
+    }
+
     .book-section-text-open-button {
         position: absolute;
         border: none;
@@ -1359,7 +1363,7 @@
         display: none;
     }
 
-    .book-section-comparison-slider-container button {
+    .book-section-comparison-exit-fullscreen {
         display: none;
     }
 

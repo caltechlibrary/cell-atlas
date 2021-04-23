@@ -642,6 +642,7 @@ function initializeCompSlider(compSliderContainer) {
     let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
     let fullBackground = compSliderContainer.parentElement;
     let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
+    let exitFullBtnDesktop = fullBackground.querySelector(`#compExitFullDesktop-${playerId}`);
     let imgFileName = compSliderContainer.getAttribute("data-img-name");
 
     comparissonSlider.addEventListener("mousedown", slideReady);
@@ -649,6 +650,7 @@ function initializeCompSlider(compSliderContainer) {
     compInputRange.addEventListener("input", inputToSlide);
     enterFullBtn.addEventListener("click", compEnterFullScreen);
     exitFullBtn.addEventListener("click", compExitFullScreen);
+    exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
 
     if(OFFLINE) {
         afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
@@ -705,11 +707,12 @@ function initializeCompSlider(compSliderContainer) {
     function compEnterFullScreen() {
         window.removeEventListener("touchstart", detectSwipe);
         enterFullBtn.style.display = "none"; 
-        exitFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "fullscreen");
         if(window.innerWidth > 900) {
+            exitFullBtnDesktop.style.display = "flex";
             shelfText();
         } else {
+            exitFullBtn.style.display = "flex";
             if(fullBackground.requestFullscreen) {
                 fullBackground.requestFullscreen();
             } else {
@@ -730,6 +733,7 @@ function initializeCompSlider(compSliderContainer) {
     function compExitFullScreen() {
         window.addEventListener("touchstart", detectSwipe);
         exitFullBtn.style.display = "none"; 
+        exitFullBtnDesktop.style.display = "none";
         enterFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "initial");
         if(window.innerWidth > 900) {
