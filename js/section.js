@@ -787,7 +787,7 @@ function initializeCompSlider(compSliderContainer) {
         let footer = document.querySelector("footer");
         let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
         let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
         let availWidth = window.innerWidth - 100;
         let imageWidth = availHeight * aspectRatio;
         if(imageWidth < availWidth) {
@@ -807,7 +807,7 @@ function initializeCompSlider(compSliderContainer) {
         let footer = document.querySelector("footer");
         let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
         let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
         let availWidth = window.innerWidth - 100;
         let imageWidth = availHeight * aspectRatio;
         if(imageWidth < availWidth) {

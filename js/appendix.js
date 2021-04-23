@@ -245,7 +245,7 @@ if(treeViewer) {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
         let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
         let availWidth = window.innerWidth - 100;
         let imageWidth = availHeight * aspectRatio;
         if(imageWidth < availWidth) {
@@ -277,7 +277,7 @@ if(treeViewer) {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
         let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
         let availWidth = window.innerWidth - 100;
         let imageWidth = availHeight * aspectRatio;
         if(imageWidth < availWidth) {
