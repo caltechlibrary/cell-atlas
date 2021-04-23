@@ -1110,8 +1110,8 @@
         height: fit-content;
         width: auto;
         max-width: 57.5em;
-        padding: 0 3em;
-        margin: 4em auto;
+        padding: 4em 3em;
+        margin: 0 auto;
     }
 
     .book-appendix-page h1 {
