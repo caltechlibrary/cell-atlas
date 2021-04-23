@@ -259,6 +259,7 @@ if(treeViewer) {
         fullscreenBackground.style.top = `${posTop}px`;
         fullscreenBackground.style.left = `${posLeft}px`;
         window.addEventListener("resize", resizeEnlargedTree);
+        window.addEventListener("click", minimizeTreeClick);
         navRight.style["margin-right"] = "1rem";
     }
 
@@ -268,6 +269,7 @@ if(treeViewer) {
         fullscreenBackground.style.left = "initial";
         fullscreenBackground.classList.remove("book-appendix-tree-viewer-enlarged");
         window.removeEventListener("resize", resizeEnlargedTree);
+        window.removeEventListener("click", minimizeTreeClick);
         addNavRightMargin();
     }
 
@@ -288,6 +290,10 @@ if(treeViewer) {
         fullscreenBackground.classList.add("book-appendix-tree-viewer-enlarged");
         fullscreenBackground.style.top = `${posTop}px`;
         fullscreenBackground.style.left = `${posLeft}px`;
+    }
+
+    function minimizeTreeClick(event) {
+        if(!fullscreenBackground.contains(event.target)) minimizeButtonMobile.click();
     }
 
     function calcTransform(posX, posY, zoomF) {
