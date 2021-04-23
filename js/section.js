@@ -710,7 +710,16 @@ function initializeCompSlider(compSliderContainer) {
         fullBackground.setAttribute("data-state", "fullscreen");
         if(window.innerWidth > 900) {
             exitFullBtnDesktop.style.display = "flex";
-            shelfText();
+            if(fullBackground.parentElement.classList.contains("subsection-modal-container")) {
+                enlargeCompModal(fullBackground);
+            } else {
+                exitFullBtnDesktop.disabled = true;
+                let unshelfButton = document.getElementById("unshelfButton");
+                unshelfButton.addEventListener("transitionend", function() {
+                    exitFullBtnDesktop.disabled = false;
+                }, { once: true });
+                shelfText();
+            }
         } else {
             exitFullBtn.style.display = "flex";
             if(fullBackground.requestFullscreen) {
@@ -737,7 +746,16 @@ function initializeCompSlider(compSliderContainer) {
         enterFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "initial");
         if(window.innerWidth > 900) {
-            openText();
+            if(fullBackground.parentElement.classList.contains("subsection-modal-container")) {
+                minimizeCompModal(fullBackground);
+            } else {
+                enterFullBtn.disabled = true;
+                let textSection = document.getElementById("textContent");
+                textSection.addEventListener("transitionend", function() {
+                    enterFullBtn.disabled = false;
+                }, { once: true });
+                openText();
+            }
         } else {
             if(fullBackground.requestFullscreen) {
                 document.exitFullscreen();
@@ -762,6 +780,47 @@ function initializeCompSlider(compSliderContainer) {
         let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
         marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
         afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
+    }
+
+    function enlargeCompModal() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
+        let availWidth = window.innerWidth - 100;
+        let imageWidth = availHeight * aspectRatio;
+        if(imageWidth < availWidth) {
+            fullBackground.style.width = `${imageWidth}px`;
+            beforeImage.style.height = `${imageWidth / aspectRatio}px`;
+        } else {
+            fullBackground.style.width = `${availWidth}px`;
+            beforeImage.style.height = `${availWidth / aspectRatio}px`;
+        }
+        fullBackground.classList.add("book-section-comparison-slider-enlarged");
+        window.addEventListener("resize", resizeEnlargedCompModal);
+    }
+
+    function resizeEnlargedCompModal() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
+        let availWidth = window.innerWidth - 100;
+        let imageWidth = availHeight * aspectRatio;
+        if(imageWidth < availWidth) {
+            fullBackground.style.width = `${imageWidth}px`;
+            beforeImage.style.height = `${imageWidth / aspectRatio}px`;
+        } else {
+            fullBackground.style.width = `${availWidth}px`;
+            beforeImage.style.height = `${availWidth / aspectRatio}px`;
+        }
+    }
+
+    function minimizeCompModal() {
+        fullBackground.style.width = "initial";
+        beforeImage.style.height = "initial";
+        fullBackground.classList.remove("book-section-comparison-slider-enlarged");
+        window.removeEventListener("resize", resizeEnlargedCompModal);
     }
 
     if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {

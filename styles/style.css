@@ -867,7 +867,16 @@
         margin: 0;
         padding: 2%;
         border-top: none;
-        border-radius: 0 0 0 10px;
+        border-radius: 10px 0 0 0;
+    }
+
+    .book-section-comparison-slider-enlarged {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px !important;
     }
 
     .book-section-comparison-control-button svg {
