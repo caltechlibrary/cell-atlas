@@ -10,10 +10,7 @@ for(link of feedbackLinks) {
 // Account for scrollbar width in right nav margins
 let navRight = document.querySelector(".book-page-nav.book-appendix-nav.book-appendix-nav-right");
 if(navRight) {
-    let appendixContainer = document.querySelector(".book-appendix-page");
-    let scrollbarWidth = appendixContainer.offsetWidth - appendixContainer.clientWidth;
-    let marginRight = parseInt(window.getComputedStyle(navRight).getPropertyValue("margin-right").slice(0, -2));
-    navRight.style["margin-right"] = `${marginRight + scrollbarWidth}px`;
+    addNavRightMargin();
 }
 
 // Account for scroll bar width in profile bios
@@ -51,6 +48,13 @@ for(let link of whatsNewLinks){
     link.addEventListener("click", function(){
         if (whatsNewSection.offsetHeight == 0) whatsNewButton.click();
     });
+}
+
+function addNavRightMargin() {
+    let appendixContainer = document.querySelector(".book-appendix-page");
+    let scrollbarWidth = appendixContainer.offsetWidth - appendixContainer.clientWidth;
+    let marginRight = parseInt(window.getComputedStyle(navRight).getPropertyValue("margin-right").slice(0, -2));
+    navRight.style["margin-right"] = `${marginRight + scrollbarWidth}px`;
 }
 
 function toggleListDropdown(el) {
@@ -255,6 +259,7 @@ if(treeViewer) {
         fullscreenBackground.style.top = `${posTop}px`;
         fullscreenBackground.style.left = `${posLeft}px`;
         window.addEventListener("resize", resizeEnlargedTree);
+        navRight.style["margin-right"] = "1rem";
     }
 
     function minimizeTreeViewer() {
@@ -263,6 +268,7 @@ if(treeViewer) {
         fullscreenBackground.style.left = "initial";
         fullscreenBackground.classList.remove("book-appendix-tree-viewer-enlarged");
         window.removeEventListener("resize", resizeEnlargedTree);
+        addNavRightMargin();
     }
 
     function resizeEnlargedTree() {
