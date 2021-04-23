@@ -240,7 +240,6 @@ if(treeViewer) {
     function enlargeTreeViewer() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
-        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
         let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
         let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
         let availWidth = window.innerWidth - 100;
@@ -250,14 +249,18 @@ if(treeViewer) {
         } else {
             fullscreenBackground.style.width = `${availWidth}px`;
         }
+        let posTop = (header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2)) - (fullscreenBackground.offsetHeight / 2);
+        let posLeft = (window.innerWidth / 2) - (fullscreenBackground.offsetWidth / 2);
         fullscreenBackground.classList.add("book-appendix-tree-viewer-enlarged");
         fullscreenBackground.style.top = `${posTop}px`;
+        fullscreenBackground.style.left = `${posLeft}px`;
         window.addEventListener("resize", resizeEnlargedTree);
     }
 
     function minimizeTreeViewer() {
         fullscreenBackground.style.width = "initial";
         fullscreenBackground.style.top = "initial";
+        fullscreenBackground.style.left = "initial";
         fullscreenBackground.classList.remove("book-appendix-tree-viewer-enlarged");
         window.removeEventListener("resize", resizeEnlargedTree);
     }
@@ -265,7 +268,6 @@ if(treeViewer) {
     function resizeEnlargedTree() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
-        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
         let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
         let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 100;
         let availWidth = window.innerWidth - 100;
@@ -275,7 +277,11 @@ if(treeViewer) {
         } else {
             fullscreenBackground.style.width = `${availWidth}px`;
         }
+        let posTop = (header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2)) - (fullscreenBackground.offsetHeight / 2);
+        let posLeft = (window.innerWidth / 2) - (fullscreenBackground.offsetWidth / 2);
+        fullscreenBackground.classList.add("book-appendix-tree-viewer-enlarged");
         fullscreenBackground.style.top = `${posTop}px`;
+        fullscreenBackground.style.left = `${posLeft}px`;
     }
 
     function calcTransform(posX, posY, zoomF) {
