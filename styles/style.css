@@ -284,7 +284,7 @@
         top: 0;
         left: 0;
         height: 0%;
-        width: 20.75em;
+        width: 21.75em;
         padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
         background-color: rgb(245 245 245);
@@ -293,10 +293,6 @@
         opacity: 0;
         transition: height 0.5s, opacity 0.2s;
         color: rgb(54 54 54);
-
-        /* Remove scroll bar for different types of browsers */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
     }
 
     .nav-menu-opened {
@@ -306,11 +302,6 @@
     .nav-menu a {
         color: inherit;
         width: 100%;
-    }
-
-    /* Remove scroll bar for different types of browsers */
-    .nav-menu::-webkit-scrollbar {
-        display: none;
     }
 
     .nav-menu-chapter-container {
