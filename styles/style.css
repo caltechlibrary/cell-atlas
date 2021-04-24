@@ -329,6 +329,7 @@
 
     .nav-menu-chapter h1 {
         padding: 0.75em 0 0.75em 0.75em;
+        font-weight: 600
     }
 
     .nav-menu-chapter-title {
@@ -344,6 +345,7 @@
 
     .nav-menu-section-entry {
         padding: 0.75em 0 0.75em 0.75em;
+        font-weight: 300;
     }
 
     .nav-menu-section-number {
