@@ -288,7 +288,8 @@
         padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
         background-color: rgb(245 245 245);
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         z-index: 99;
         opacity: 0;
         transition: height 0.5s, opacity 0.2s;
