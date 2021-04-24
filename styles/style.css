@@ -444,7 +444,7 @@
     }
 
     .book-chapter-title {
-        font-size: 8em;
+        font-size: 7em;
         padding-right: 0.15em;
         margin-left: 1em;
         display: flex;
@@ -464,7 +464,7 @@
         font-size: 1.25em;
     }
 
-    @media only screen and (max-width: 1280px) {
+    @media only screen and (max-width: 1400px) {
         .book-chapter-text-section {
             flex-direction: column-reverse;
             justify-content: center;
