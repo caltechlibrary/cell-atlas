@@ -405,9 +405,11 @@ for i in range(len(sectionFiles)):
     metadata["collectorProfile"] = False
     metadata["prevSection"] = None
     metadata["nextSection"] = None
-    if("doi" in metadata):
-        if metadata["doi"] in movieDict:
+    if("doi" in metadata or "video" in metadata):
+        if "doi" in metadata and metadata["doi"] in movieDict:
             addSliderData(metadata, movieDict[metadata["doi"]])
+        elif "video" in metadata:
+            addSliderData(metadata, metadata["video"])
         else:
             print("{} section file does not have DOI field".format(fileName)) 
     if(title[0] == "summary.md"):
