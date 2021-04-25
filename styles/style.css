@@ -243,6 +243,10 @@
         margin-right: 0.5em;
     }
 
+    #readNowButton {
+        font-weight: 600;
+    }
+
     .landing-page-download-button {
         color: #ffffff;
         margin-top: 1.75em;
