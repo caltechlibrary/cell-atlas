@@ -6,23 +6,21 @@ ${head.tmpl()}
 <body class="preload">
     <div class="book-page-container" ${if(offline)}data-offline="true"${endif}>
         <div class="landing-page-container">
-            <div class="landing-page-background-overlay">
-                <div class="main-color-background landing-page-logo">
-                    <img alt="Atlas of Bacterial and Archaeal Cell Structure Logo" src="img/AtlasLogoInvertedLong.png">
+            <div class="main-color-background landing-page-logo">
+                <img alt="Atlas of Bacterial and Archaeal Cell Structure Logo" src="img/AtlasLogoInvertedLong.png">
+            </div>
+            <div class="landing-page-text">
+                <h1>${title}</h1>
+                <h2>by ${author}</h2>
+                <div class="landing-page-blurb">
+                    ${body}
                 </div>
-                <div class="landing-page-text">
-                    <h1>${title}</h1>
-                    <h2>by ${author}</h2>
-                    <div class="landing-page-blurb">
-                        ${body}
-                    </div>
-                    <div class="landing-page-options-container">
-                        <a href="${firstPage}.html" class="landing-page-start-button">${svg/noun_Play.svg()}READ ONLINE NOW</a>
-                        ${if(offline)}
-                        ${else}
-                            <p class="landing-page-download-button">or <a href="download.html">DOWNLOAD</a></p>
-                        ${endif}
-                    </div>
+                <div class="landing-page-options-container">
+                    <a href="${firstPage}.html" id="readNowButton" class="landing-page-start-button">${svg/noun_Play.svg()}READ ONLINE NOW</a>
+                    ${if(offline)}
+                    ${else}
+                        <p class="landing-page-download-button">or <a href="download.html">DOWNLOAD</a></p>
+                    ${endif}
                 </div>
             </div>
         </div>
