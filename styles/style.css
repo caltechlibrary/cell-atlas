@@ -245,6 +245,12 @@
 
     #readNowButton {
         font-weight: 600;
+        padding: 0.55em 0.875em;
+        font-size: 1.25em;
+    }
+
+    #readNowButton span {
+        line-height: 1;
     }
 
     .landing-page-download-button {
@@ -291,19 +297,16 @@
         top: 0;
         left: 0;
         height: 0%;
-        width: 20.75em;
+        width: 21.75em;
         padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
         background-color: rgb(245 245 245);
-        overflow: auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
         z-index: 99;
         opacity: 0;
         transition: height 0.5s, opacity 0.2s;
         color: rgb(54 54 54);
-
-        /* Remove scroll bar for different types of browsers */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
     }
 
     .nav-menu-opened {
@@ -313,11 +316,6 @@
     .nav-menu a {
         color: inherit;
         width: 100%;
-    }
-
-    /* Remove scroll bar for different types of browsers */
-    .nav-menu::-webkit-scrollbar {
-        display: none;
     }
 
     .nav-menu-chapter-container {
@@ -344,10 +342,11 @@
 
     .nav-menu-chapter h1 {
         padding: 0.75em 0 0.75em 0.75em;
+        font-weight: 600
     }
 
     .nav-menu-chapter-title {
-        font-weight: 300;
+        
     }
 
     .nav-menu-sections {
@@ -359,6 +358,7 @@
 
     .nav-menu-section-entry {
         padding: 0.75em 0 0.75em 0.75em;
+        font-weight: 300;
     }
 
     .nav-menu-section-number {
@@ -1048,8 +1048,12 @@
     }
 
     .subsection-modal-container .book-section-video-player {
-        flex: 1 0 auto;
+        flex: 0 0 auto;
         border-radius: 10px 10px 0 0;
+    }
+
+    .subsection-modal-container .video-citation {
+        flex: 0 0 auto;
     }
 
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
