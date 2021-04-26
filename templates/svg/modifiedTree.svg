@@ -6,8 +6,8 @@
 	.st0{fill:#e6e5e2;enable-background:new    ;}
 	.st1{fill:#fbf2da;enable-background:new    ;}
 	.st2{fill:#e2e7db;enable-background:new    ;}
-	.st3{fill:none;stroke:#A7A9AC;stroke-width:0.204;stroke-linecap:round;stroke-miterlimit:10;}
-	.st4{fill:none;stroke:#AAAAAA;stroke-width:2.719831e-02;stroke-linecap:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#A7A9AC;stroke-width:1;stroke-linecap:round;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#AAAAAA;stroke-width:1;stroke-linecap:round;stroke-miterlimit:10;}
 	.st5{fill:#003B4C;}
 	.st6{font-family:'Arial-ItalicMT';}
 	.st7{font-size:11.9954px;}
