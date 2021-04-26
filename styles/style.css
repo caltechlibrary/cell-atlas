@@ -1048,8 +1048,12 @@
     }
 
     .subsection-modal-container .book-section-video-player {
-        flex: 1 0 auto;
+        flex: 0 0 auto;
         border-radius: 10px 10px 0 0;
+    }
+
+    .subsection-modal-container .video-citation {
+        flex: 0 0 auto;
     }
 
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
