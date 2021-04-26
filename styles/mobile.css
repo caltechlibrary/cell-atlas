@@ -232,7 +232,8 @@ blockquote {
         padding: 0;
         box-sizing: border-box;
         background-color: #f5f5f5;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         z-index: 2;
         opacity: 0;
         color: #363636;
@@ -281,7 +282,7 @@ blockquote {
     }
     
     .nav-menu-chapter-title {
-        font-weight: 300;
+
     }
     
     .nav-menu-sections {
