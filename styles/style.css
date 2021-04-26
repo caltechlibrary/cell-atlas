@@ -1198,22 +1198,24 @@
     }
 
     .book-appendix-tree-viewer {
+        cursor: grab;
         position: relative;
         overflow: hidden;
         border: 5px solid #cccccc;
         border-radius: 10px;
     }
 
-    .book-appendix-tree-viewer svg {
+    .book-appendix-tree-viewer-tree {
         transform: matrix(1,0,0,1,0,0);
     }
 
-    .book-appendix-tree-viewer svg a {
+    .book-appendix-tree-viewer-tree a {
         color: initial;
         text-decoration: none;
     }
 
     .book-appendix-tree-viewer-controls {
+        cursor: default;
         position: absolute;
         top: 10px;
         right: 10px;
@@ -1256,6 +1258,7 @@
     }
 
     .book-appendix-tree-viewer-fullscreen-button {
+        cursor: default;
         display: flex;
         position: absolute;
         bottom: 0;
