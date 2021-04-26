@@ -249,6 +249,10 @@
         font-size: 1.25em;
     }
 
+    #readNowButton span {
+        line-height: 1;
+    }
+
     .landing-page-download-button {
         color: #ffffff;
         margin-top: 1.75em;
