@@ -113,6 +113,8 @@ if(treeViewer) {
     });
 
     treeViewer.addEventListener("mousedown", function(event) {
+        event.preventDefault();
+        treeViewer.style.cursor = "grabbing";
         let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
         let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
         let posX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
@@ -141,6 +143,7 @@ if(treeViewer) {
         }
 
         function removeTracking() {
+            treeViewer.style.cursor = "grab";
             treeViewer.removeEventListener("mousemove", trackMouse);
         }
     });
