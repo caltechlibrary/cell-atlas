@@ -245,6 +245,8 @@
 
     #readNowButton {
         font-weight: 600;
+        padding: 0.55em 0.875em;
+        font-size: 1.25em;
     }
 
     .landing-page-download-button {
