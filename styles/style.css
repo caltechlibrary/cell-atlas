@@ -288,7 +288,7 @@
         padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
         background-color: rgb(245 245 245);
-        overflow-y: auto;
+        overflow-y: scroll;
         overflow-x: hidden;
         z-index: 99;
         opacity: 0;
