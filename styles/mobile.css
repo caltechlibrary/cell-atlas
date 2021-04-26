@@ -1008,6 +1008,7 @@ blockquote {
         overflow: hidden;
         border: 5px solid #cccccc;
         border-radius: 10px;
+        background-color: #363636;
     }
 
     .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
