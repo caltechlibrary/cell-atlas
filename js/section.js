@@ -636,7 +636,7 @@ function toggleImageSlider(el) {
 function initializeCompSlider(compSliderContainer) {
     let playerId = compSliderContainer.getAttribute("data-player");
     let afterImage = compSliderContainer.querySelector(".book-section-comparison-after");
-    let beforeImage = compSliderContainer.querySelector("img");
+    let beforeImage = compSliderContainer.querySelector(".book-section-comparison-before");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
     let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
