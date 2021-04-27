@@ -645,24 +645,9 @@ function initializeCompSlider(compSliderContainer) {
     let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
     let exitFullBtnDesktop = fullBackground.querySelector(`#compExitFullDesktop-${playerId}`);
     let imgFileName = compSliderContainer.getAttribute("data-img-name");
+    let inModal = !document.querySelector("#nonTextContent").contains(fullBackground);
 
-    comparissonSlider.addEventListener("mousedown", slideReady);
-    comparissonSlider.addEventListener("touchstart", slideReady);
-    compInputRange.addEventListener("input", inputToSlide);
-    enterFullBtn.addEventListener("click", compEnterFullScreen);
-    exitFullBtn.addEventListener("click", compExitFullScreen);
-    exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
-
-    if(!fullBackground.parentElement.classList.contains("subsection-modal-container") && window.innerWidth >= 900) {
-        let shelfButton = document.getElementById("shelfButton");
-        let unshelfButton = document.getElementById("unshelfButton");
-
-        updateMainCompMaxHeight();
-        window.addEventListener("resize", updateMainCompMaxHeight);
-        shelfButton.addEventListener("click", handleFullscreenState);
-        unshelfButton.addEventListener("click", handleFullscreenState);
-    }
-
+    // Source the images and listen to errors that may arise
     if(OFFLINE) {
         beforeImage.setAttribute("src", `img/stillimages/${imgFileName}_before.jpg`);
         afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
@@ -677,6 +662,23 @@ function initializeCompSlider(compSliderContainer) {
         });
         testImgEl.addEventListener("error", handleCompLoadError);
         testImgEl.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg`);
+    }
+
+    comparissonSlider.addEventListener("mousedown", slideReady);
+    comparissonSlider.addEventListener("touchstart", slideReady);
+    compInputRange.addEventListener("input", inputToSlide);
+    enterFullBtn.addEventListener("click", compEnterFullScreen);
+    exitFullBtn.addEventListener("click", compExitFullScreen);
+    exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
+
+    if(!inModal && window.innerWidth >= 900) {
+        let shelfButton = document.getElementById("shelfButton");
+        let unshelfButton = document.getElementById("unshelfButton");
+
+        updateMainCompMaxHeight();
+        window.addEventListener("resize", updateMainCompMaxHeight);
+        shelfButton.addEventListener("click", handleFullscreenState);
+        unshelfButton.addEventListener("click", handleFullscreenState);
     }
 
     function slideReady(e) {
