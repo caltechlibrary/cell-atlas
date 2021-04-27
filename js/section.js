@@ -645,8 +645,6 @@ function initializeCompSlider(compSliderContainer) {
     let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
     let exitFullBtnDesktop = fullBackground.querySelector(`#compExitFullDesktop-${playerId}`);
     let imgFileName = compSliderContainer.getAttribute("data-img-name");
-    let shelfButton = document.getElementById("shelfButton");
-    let unshelfButton = document.getElementById("unshelfButton");
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
@@ -655,9 +653,12 @@ function initializeCompSlider(compSliderContainer) {
     exitFullBtn.addEventListener("click", compExitFullScreen);
     exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
 
-    if(!fullBackground.parentElement.classList.contains("subsection-modal-container")) {
+    if(!fullBackground.parentElement.classList.contains("subsection-modal-container") && window.innerWidth >= 900) {
         let shelfButton = document.getElementById("shelfButton");
         let unshelfButton = document.getElementById("unshelfButton");
+
+        updateMainCompMaxHeight();
+        window.addEventListener("resize", updateMainCompMaxHeight);
         shelfButton.addEventListener("click", handleFullscreenState);
         unshelfButton.addEventListener("click", handleFullscreenState);
     }
@@ -894,14 +895,11 @@ function initializeCompSlider(compSliderContainer) {
         
     }
 
-    if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {
+    function updateMainCompMaxHeight() {
         let nonTextContent = document.querySelector("#nonTextContent");
         let videoContainer = nonTextContent.querySelector(".book-section-video-container");
         let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
-        if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-        window.addEventListener("resize", function() {
-            if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-        });
+        beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
     }
 
 }
