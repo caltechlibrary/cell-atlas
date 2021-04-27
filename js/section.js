@@ -644,6 +644,8 @@ function initializeCompSlider(compSliderContainer) {
     let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
     let exitFullBtnDesktop = fullBackground.querySelector(`#compExitFullDesktop-${playerId}`);
     let imgFileName = compSliderContainer.getAttribute("data-img-name");
+    let shelfButton = document.getElementById("shelfButton");
+    let unshelfButton = document.getElementById("unshelfButton");
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
@@ -651,6 +653,13 @@ function initializeCompSlider(compSliderContainer) {
     enterFullBtn.addEventListener("click", compEnterFullScreen);
     exitFullBtn.addEventListener("click", compExitFullScreen);
     exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
+
+    if(!fullBackground.parentElement.classList.contains("subsection-modal-container")) {
+        let shelfButton = document.getElementById("shelfButton");
+        let unshelfButton = document.getElementById("unshelfButton");
+        shelfButton.addEventListener("click", handleFullscreenState);
+        unshelfButton.addEventListener("click", handleFullscreenState);
+    }
 
     if(OFFLINE) {
         beforeImage.setAttribute("src", `img/stillimages/${imgFileName}_before.jpg`);
@@ -716,7 +725,6 @@ function initializeCompSlider(compSliderContainer) {
                 enlargeCompModal(fullBackground);
             } else {
                 exitFullBtnDesktop.disabled = true;
-                let unshelfButton = document.getElementById("unshelfButton");
                 unshelfButton.addEventListener("transitionend", function() {
                     exitFullBtnDesktop.disabled = false;
                 }, { once: true });
@@ -828,6 +836,30 @@ function initializeCompSlider(compSliderContainer) {
         beforeImage.style.height = "initial";
         fullBackground.classList.remove("book-section-comparison-slider-enlarged");
         window.removeEventListener("resize", resizeEnlargedCompModal);
+    }
+
+    function handleFullscreenState(event) {
+        if(event.currentTarget == shelfButton) {
+            window.removeEventListener("touchstart", detectSwipe);
+            fullBackground.setAttribute("data-state", "fullscreen");
+            enterFullBtn.style.display = "none"; 
+            exitFullBtnDesktop.style.display = "flex";
+            exitFullBtnDesktop.disabled = true;
+            unshelfButton.addEventListener("transitionend", function() {
+                exitFullBtnDesktop.disabled = false;
+            }, { once: true });
+        } else if(event.currentTarget == unshelfButton){
+            window.addEventListener("touchstart", detectSwipe);
+            fullBackground.setAttribute("data-state", "initial");
+            exitFullBtn.style.display = "none"; 
+            exitFullBtnDesktop.style.display = "none";
+            enterFullBtn.style.display = "flex";
+            enterFullBtn.disabled = true;
+            let textSection = document.getElementById("textContent");
+            textSection.addEventListener("transitionend", function() {
+                enterFullBtn.disabled = false;
+            }, { once: true });
+        }
     }
 
     if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {
