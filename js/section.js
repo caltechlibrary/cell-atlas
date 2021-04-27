@@ -726,13 +726,22 @@ function initializeCompSlider(compSliderContainer) {
         comparissonSlider.style.left = `${compInputRange.value}%`;
     }
 
+    function posToPercent() {
+        let percentage = (afterImage.getBoundingClientRect().width / beforeImage.offsetWidth) * 100;
+        comparissonSlider.style.left = `${percentage}%`;
+        compInputRange.value = Math.floor(percentage);
+        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
+        afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
+    }
+
     function compEnterFullScreen() {
         window.removeEventListener("touchstart", detectSwipe);
         enterFullBtn.style.display = "none"; 
         fullBackground.setAttribute("data-state", "fullscreen");
         if(window.innerWidth > 900) {
             exitFullBtnDesktop.style.display = "flex";
-            if(fullBackground.parentElement.classList.contains("subsection-modal-container")) {
+            if(inModal) {
                 enlargeCompModal(fullBackground);
             } else {
                 exitFullBtnDesktop.disabled = true;
@@ -750,7 +759,7 @@ function initializeCompSlider(compSliderContainer) {
                 nonTextContent.style["z-index"] = 100;
                 beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
                 compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
-                if(compSliderContainer.getAttribute("data-modal") == "true") {
+                if(inModal) {
                     let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                     let textContent = document.querySelector("#textContent");
                     modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
@@ -767,7 +776,7 @@ function initializeCompSlider(compSliderContainer) {
         enterFullBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "initial");
         if(window.innerWidth > 900) {
-            if(fullBackground.parentElement.classList.contains("subsection-modal-container")) {
+            if(inModal) {
                 minimizeCompModal(fullBackground);
             } else {
                 enterFullBtn.disabled = true;
@@ -785,22 +794,13 @@ function initializeCompSlider(compSliderContainer) {
                 nonTextContent.style["z-index"] = "initial";
                 beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
                 compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
-                if(compSliderContainer.getAttribute("data-modal") == "true") {
+                if(inModal) {
                     let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                     modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
                     textContent.style.display = "flex";
                 }
             }
         }
-    }
-
-    function posToPercent() {
-        let percentage = (afterImage.getBoundingClientRect().width / beforeImage.offsetWidth) * 100;
-        comparissonSlider.style.left = `${percentage}%`;
-        compInputRange.value = Math.floor(percentage);
-        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
-        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-        afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
     }
 
     function enlargeCompModal() {
