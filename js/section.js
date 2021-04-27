@@ -653,8 +653,10 @@ function initializeCompSlider(compSliderContainer) {
     exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
 
     if(OFFLINE) {
+        beforeImage.setAttribute("src", `img/stillimages/${imgFileName}_before.jpg`);
         afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
     } else {
+        beforeImage.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_before.jpg`);
         afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
     }
 
