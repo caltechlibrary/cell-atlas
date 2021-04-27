@@ -665,8 +665,16 @@ function initializeCompSlider(compSliderContainer) {
         beforeImage.setAttribute("src", `img/stillimages/${imgFileName}_before.jpg`);
         afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
     } else {
+        beforeImage.addEventListener("error", handleCompLoadError);
         beforeImage.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_before.jpg`);
-        afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+        
+        let testImgEl = document.createElement("img");
+        testImgEl.addEventListener("load", function() {
+            testImgEl.remove();
+            afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+        });
+        testImgEl.addEventListener("error", handleCompLoadError);
+        testImgEl.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg`);
     }
 
     function slideReady(e) {
@@ -860,6 +868,16 @@ function initializeCompSlider(compSliderContainer) {
                 enterFullBtn.disabled = false;
             }, { once: true });
         }
+    }
+
+    function handleCompLoadError() {
+        beforeImage.style.display = "none";
+        afterImage.style.display = "none";
+        compInputRange.style.display = "none";
+        comparissonSlider.style.display = "none";
+        enterFullBtn.style.display = "none";
+        exitFullBtn.style.display = "none";
+        exitFullBtnDesktop.style.display = "none";
     }
 
     if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {
