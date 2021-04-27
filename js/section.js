@@ -714,12 +714,11 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function slide(position) {
-        let afterValue = position;
-        comparissonSlider.style.left = `${afterValue}px`;
-        compInputRange.value = (afterValue / beforeImage.offsetWidth) * 100;
         let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+        comparissonSlider.style.left = `${position}px`;
+        compInputRange.value = (position / beforeImage.offsetWidth) * 100;
         marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-        afterImage.style.width = `${afterValue - marginLeft}px`;
+        afterImage.style.width = `${position - marginLeft}px`;
     }
 
     function inputToSlide() {
