@@ -733,6 +733,12 @@ blockquote {
         display: none;
     }
 
+    .book-section-comparison-load-failed {
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+
     /* || MODAL styles */
     .subsection-modal-overlay {
         display: none;
@@ -1254,6 +1260,10 @@ blockquote {
     .book-section-comparison-button {
         width: 11vh;
         height: 11vh;
+    }
+
+    .book-section-comparison-load-failed {
+        width: auto;
     }
 
     /* || MODAL styles */

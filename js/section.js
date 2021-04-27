@@ -637,6 +637,7 @@ function initializeCompSlider(compSliderContainer) {
     let playerId = compSliderContainer.getAttribute("data-player");
     let afterImage = compSliderContainer.querySelector(".book-section-comparison-after");
     let beforeImage = compSliderContainer.querySelector(".book-section-comparison-before");
+    let loadFailedImg = compSliderContainer.querySelector(".book-section-comparison-load-failed");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
     let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
@@ -871,13 +872,26 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function handleCompLoadError() {
-        beforeImage.style.display = "none";
-        afterImage.style.display = "none";
-        compInputRange.style.display = "none";
-        comparissonSlider.style.display = "none";
-        enterFullBtn.style.display = "none";
-        exitFullBtn.style.display = "none";
-        exitFullBtnDesktop.style.display = "none";
+        beforeImage.style.setProperty("display", "none", "important");
+        afterImage.style.setProperty("display", "none", "important");
+        compInputRange.style.setProperty("display", "none", "important");
+        comparissonSlider.style.setProperty("display", "none", "important");
+        enterFullBtn.style.setProperty("display", "none", "important");
+        exitFullBtn.style.setProperty("display", "none", "important");
+        exitFullBtnDesktop.style.setProperty("display", "none", "important");
+        loadFailedImg.style.display = "block";
+        if(loadFailedImg === document.querySelector("#nonTextContent .book-section-comparison-load-failed")) {
+            shelfButton.removeEventListener("click", handleFullscreenState);
+            unshelfButton.removeEventListener("click", handleFullscreenState);
+            let nonTextContent = document.querySelector("#nonTextContent");
+            let videoContainer = nonTextContent.querySelector(".book-section-video-container");
+            let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+            if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+            window.addEventListener("resize", function() {
+                if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+            });
+        }
+        
     }
 
     if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {
