@@ -1,3 +1,12 @@
+// Check if nav bar should be opened
+if (typeof(Storage) !== "undefined") {
+    let wasOpened = window.sessionStorage.getItem("navOpened");
+    if(wasOpened == "true") {
+        let openNavButton = document.getElementById("openNavButton");
+        openNavButton.click();
+    }
+}
+
 // Get current section and highlight it on nav bar
 let pageName = window.location.pathname.split("/").pop().split(".")[0];
 let navEntry = document.getElementById(`nav${pageName}`);
