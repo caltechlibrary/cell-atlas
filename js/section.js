@@ -640,10 +640,10 @@ function initializeCompSlider(compSliderContainer) {
     let loadFailedImg = compSliderContainer.querySelector(".book-section-comparison-load-failed");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
-    let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
+    let minimizeBtnMobile = compSliderContainer.querySelector(`#compMinimizeMobile-${playerId}`);
     let fullBackground = compSliderContainer.parentElement;
-    let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
-    let exitFullBtnDesktop = fullBackground.querySelector(`#compExitFullDesktop-${playerId}`);
+    let enlargeBtn = fullBackground.querySelector(`#compEnlarge-${playerId}`);
+    let minimizeBtnDesk = fullBackground.querySelector(`#compMinimizeDesktop-${playerId}`);
     let imgFileName = compSliderContainer.getAttribute("data-img-name");
     let inModal = !document.querySelector("#nonTextContent").contains(fullBackground);
 
@@ -667,9 +667,9 @@ function initializeCompSlider(compSliderContainer) {
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
     compInputRange.addEventListener("input", inputToSlide);
-    enterFullBtn.addEventListener("click", compEnterFullScreen);
-    exitFullBtn.addEventListener("click", compExitFullScreen);
-    exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
+    enlargeBtn.addEventListener("click", enlargeSlider);
+    minimizeBtnMobile.addEventListener("click", minimizeSlider);
+    minimizeBtnDesk.addEventListener("click", minimizeSlider);
 
     if(!inModal && window.innerWidth >= 900) {
         let shelfButton = document.getElementById("shelfButton");
@@ -735,95 +735,98 @@ function initializeCompSlider(compSliderContainer) {
         afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
     }
 
-    function compEnterFullScreen() {
+    function enlargeSlider() {
         window.removeEventListener("touchstart", detectSwipe);
-        enterFullBtn.style.display = "none"; 
+        enlargeBtn.style.display = "none"; 
         fullBackground.setAttribute("data-state", "fullscreen");
         if(window.innerWidth > 900) {
-            exitFullBtnDesktop.style.display = "flex";
-            if(inModal) {
-                enlargeCompModal(fullBackground);
-            } else {
-                exitFullBtnDesktop.disabled = true;
-                unshelfButton.addEventListener("transitionend", function() {
-                    exitFullBtnDesktop.disabled = false;
-                }, { once: true });
-                shelfText();
-            }
+            enlargeDesktop();
         } else {
-            exitFullBtn.style.display = "flex";
-            if(fullBackground.requestFullscreen) {
-                fullBackground.requestFullscreen();
-            } else {
-                let nonTextContent = document.querySelector("#nonTextContent");
-                nonTextContent.style["z-index"] = 100;
-                beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
-                compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
-                if(inModal) {
-                    let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                    let textContent = document.querySelector("#textContent");
-                    modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
-                    textContent.style.display = "none";
-                }
+            enlargeMobile();
+        }
+    }
+
+    function enlargeDesktop() {
+        minimizeBtnDesk.style.display = "flex";
+        if(inModal) {
+            fullBackground.classList.add("book-section-comparison-slider-enlarged");
+            positionEnlargedModalSlider();
+            window.addEventListener("resize", positionEnlargedModalSlider);
+        } else {
+            let unshelfBtn = document.querySelector("#unshelfButton");
+            minimizeBtnDesk.disabled = true;
+            unshelfBtn.addEventListener("transitionend", function() {
+                minimizeBtnDesk.disabled = false;
+            }, { once: true });
+            shelfText();
+        }
+    }
+
+    function enlargeMobile() {
+        minimizeBtnMobile.style.display = "flex";
+        if(fullBackground.requestFullscreen) {
+            fullBackground.requestFullscreen();
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            nonTextContent.style["z-index"] = 100;
+            beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
+            if(inModal) {
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                let textContent = document.querySelector("#textContent");
+                modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "none";
             }
         }
     }
 
-    function compExitFullScreen() {
+    function minimizeSlider() {
         window.addEventListener("touchstart", detectSwipe);
-        exitFullBtn.style.display = "none"; 
-        exitFullBtnDesktop.style.display = "none";
-        enterFullBtn.style.display = "flex";
+        minimizeBtnMobile.style.display = "none"; 
+        minimizeBtnDesk.style.display = "none";
+        enlargeBtn.style.display = "flex";
         fullBackground.setAttribute("data-state", "initial");
         if(window.innerWidth > 900) {
+            minimizeDesktop();
+        } else {
+            minimizeMobile();
+        }
+    }
+
+    function minimizeDesktop() {
+        if(inModal) {
+            fullBackground.classList.remove("book-section-comparison-slider-enlarged");
+            fullBackground.style.width = "initial";
+            fullBackground.style.top = "initial";
+            beforeImage.style.height = "initial";
+            window.removeEventListener("resize", positionEnlargedModalSlider);
+        } else {
+            enlargeBtn.disabled = true;
+            let textSection = document.getElementById("textContent");
+            textSection.addEventListener("transitionend", function() {
+                enlargeBtn.disabled = false;
+            }, { once: true });
+            openText();
+        }
+    }
+
+    function minimizeMobile() {
+        if(fullBackground.requestFullscreen) {
+            document.exitFullscreen();
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            nonTextContent.style["z-index"] = "initial";
+            beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
             if(inModal) {
-                minimizeCompModal(fullBackground);
-            } else {
-                enterFullBtn.disabled = true;
-                let textSection = document.getElementById("textContent");
-                textSection.addEventListener("transitionend", function() {
-                    enterFullBtn.disabled = false;
-                }, { once: true });
-                openText();
-            }
-        } else {
-            if(fullBackground.requestFullscreen) {
-                document.exitFullscreen();
-            } else {
-                let nonTextContent = document.querySelector("#nonTextContent");
-                nonTextContent.style["z-index"] = "initial";
-                beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
-                compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
-                if(inModal) {
-                    let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                    modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
-                    textContent.style.display = "flex";
-                }
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "flex";
             }
         }
     }
 
-    function enlargeCompModal() {
-        let header = document.querySelector("header");
-        let footer = document.querySelector("footer");
-        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
-        let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
-        let availWidth = window.innerWidth - 100;
-        let imageWidth = availHeight * aspectRatio;
-        if(imageWidth < availWidth) {
-            fullBackground.style.width = `${imageWidth}px`;
-            beforeImage.style.height = `${imageWidth / aspectRatio}px`;
-        } else {
-            fullBackground.style.width = `${availWidth}px`;
-            beforeImage.style.height = `${availWidth / aspectRatio}px`;
-        }
-        fullBackground.classList.add("book-section-comparison-slider-enlarged");
-        fullBackground.style.top = `${posTop}px`;
-        window.addEventListener("resize", resizeEnlargedCompModal);
-    }
-
-    function resizeEnlargedCompModal() {
+    function positionEnlargedModalSlider() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
         let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
@@ -839,36 +842,28 @@ function initializeCompSlider(compSliderContainer) {
             beforeImage.style.height = `${availWidth / aspectRatio}px`;
         }
         fullBackground.style.top = `${posTop}px`;
-    }
-
-    function minimizeCompModal() {
-        fullBackground.style.width = "initial";
-        fullBackground.style.top = "initial";
-        beforeImage.style.height = "initial";
-        fullBackground.classList.remove("book-section-comparison-slider-enlarged");
-        window.removeEventListener("resize", resizeEnlargedCompModal);
     }
 
     function handleFullscreenState(event) {
         if(event.currentTarget == shelfButton) {
             window.removeEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "fullscreen");
-            enterFullBtn.style.display = "none"; 
-            exitFullBtnDesktop.style.display = "flex";
-            exitFullBtnDesktop.disabled = true;
+            enlargeBtn.style.display = "none"; 
+            minimizeBtnDesk.style.display = "flex";
+            minimizeBtnDesk.disabled = true;
             unshelfButton.addEventListener("transitionend", function() {
-                exitFullBtnDesktop.disabled = false;
+                minimizeBtnDesk.disabled = false;
             }, { once: true });
         } else if(event.currentTarget == unshelfButton){
             window.addEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "initial");
-            exitFullBtn.style.display = "none"; 
-            exitFullBtnDesktop.style.display = "none";
-            enterFullBtn.style.display = "flex";
-            enterFullBtn.disabled = true;
+            minimizeBtnMobile.style.display = "none"; 
+            minimizeBtnDesk.style.display = "none";
+            enlargeBtn.style.display = "flex";
+            enlargeBtn.disabled = true;
             let textSection = document.getElementById("textContent");
             textSection.addEventListener("transitionend", function() {
-                enterFullBtn.disabled = false;
+                enlargeBtn.disabled = false;
             }, { once: true });
         }
     }
@@ -878,9 +873,9 @@ function initializeCompSlider(compSliderContainer) {
         afterImage.style.setProperty("display", "none", "important");
         compInputRange.style.setProperty("display", "none", "important");
         comparissonSlider.style.setProperty("display", "none", "important");
-        enterFullBtn.style.setProperty("display", "none", "important");
-        exitFullBtn.style.setProperty("display", "none", "important");
-        exitFullBtnDesktop.style.setProperty("display", "none", "important");
+        enlargeBtn.style.setProperty("display", "none", "important");
+        minimizeBtnMobile.style.setProperty("display", "none", "important");
+        minimizeBtnDesk.style.setProperty("display", "none", "important");
         loadFailedImg.style.display = "block";
         if(loadFailedImg === document.querySelector("#nonTextContent .book-section-comparison-load-failed")) {
             shelfButton.removeEventListener("click", handleFullscreenState);
