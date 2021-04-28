@@ -880,6 +880,7 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function handleCompLoadError() {
+        fullBackground.setAttribute("data-state", "failed");
         beforeImage.style.setProperty("display", "none", "important");
         afterImage.style.setProperty("display", "none", "important");
         compInputRange.style.setProperty("display", "none", "important");
