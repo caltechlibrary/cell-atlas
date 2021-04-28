@@ -895,6 +895,11 @@
         display: none;
     }
 
+    .book-section-comparison-load-failed {
+        display: none;
+        width: 100%;
+    }
+
     .book-section-text-open-button {
         position: absolute;
         border: none;

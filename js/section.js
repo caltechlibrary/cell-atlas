@@ -636,27 +636,52 @@ function toggleImageSlider(el) {
 function initializeCompSlider(compSliderContainer) {
     let playerId = compSliderContainer.getAttribute("data-player");
     let afterImage = compSliderContainer.querySelector(".book-section-comparison-after");
-    let beforeImage = compSliderContainer.querySelector("img");
+    let beforeImage = compSliderContainer.querySelector(".book-section-comparison-before");
+    let loadFailedImg = compSliderContainer.querySelector(".book-section-comparison-load-failed");
     let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
     let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
-    let exitFullBtn = compSliderContainer.querySelector(`#compExitFull-${playerId}`);
+    let minimizeBtnMobile = compSliderContainer.querySelector(`#compMinimizeMobile-${playerId}`);
     let fullBackground = compSliderContainer.parentElement;
-    let enterFullBtn = fullBackground.querySelector(`#compEnterFull-${playerId}`);
-    let exitFullBtnDesktop = fullBackground.querySelector(`#compExitFullDesktop-${playerId}`);
+    let enlargeBtn = fullBackground.querySelector(`#compEnlarge-${playerId}`);
+    let minimizeBtnDesk = fullBackground.querySelector(`#compMinimizeDesktop-${playerId}`);
     let imgFileName = compSliderContainer.getAttribute("data-img-name");
+    let inModal = !document.querySelector("#nonTextContent").contains(fullBackground);
+
+    // Source the images and listen to errors that may arise
+    if(OFFLINE) {
+        beforeImage.setAttribute("src", `img/stillimages/${imgFileName}_before.jpg`);
+        afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
+    } else {
+        beforeImage.addEventListener("error", handleCompLoadError);
+        beforeImage.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_before.jpg`);
+        
+        let testImgEl = document.createElement("img");
+        testImgEl.addEventListener("load", function() {
+            testImgEl.remove();
+            afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+        });
+        testImgEl.addEventListener("error", handleCompLoadError);
+        testImgEl.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg`);
+    }
 
     comparissonSlider.addEventListener("mousedown", slideReady);
     comparissonSlider.addEventListener("touchstart", slideReady);
     compInputRange.addEventListener("input", inputToSlide);
-    enterFullBtn.addEventListener("click", compEnterFullScreen);
-    exitFullBtn.addEventListener("click", compExitFullScreen);
-    exitFullBtnDesktop.addEventListener("click", compExitFullScreen);
+    enlargeBtn.addEventListener("click", enlargeSlider);
+    minimizeBtnMobile.addEventListener("click", minimizeSlider);
+    minimizeBtnDesk.addEventListener("click", minimizeSlider);
 
-    if(OFFLINE) {
-        afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
-    } else {
-        afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
+    if(!inModal && window.innerWidth >= 900) {
+        let shelfButton = document.getElementById("shelfButton");
+        let unshelfButton = document.getElementById("unshelfButton");
+
+        updateMainCompMaxHeight();
+        window.addEventListener("resize", updateMainCompMaxHeight);
+        shelfButton.addEventListener("click", respondToTextShelving);
+        unshelfButton.addEventListener("click", respondToTextShelving);
     }
+
+    // Functions to handle the before/after sliding
 
     function slideReady(e) {
         e.preventDefault();
@@ -684,93 +709,23 @@ function initializeCompSlider(compSliderContainer) {
     function getCursorPos(event) {
         event = event || window.event;
         let boundingRect = compSliderContainer.getBoundingClientRect();
-        pageX = event.pageX || event.changedTouches[0].pageX;
+        pageX = ("pageX" in event) ? event.pageX : event.changedTouches[0].pageX;
         let positionX = pageX - boundingRect.left;
         positionX = positionX - window.pageXOffset;
         return positionX;
     }
 
     function slide(position) {
-        let afterValue = position;
-        comparissonSlider.style.left = `${afterValue}px`;
-        compInputRange.value = (afterValue / beforeImage.offsetWidth) * 100;
         let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
+        comparissonSlider.style.left = `${position}px`;
+        compInputRange.value = (position / beforeImage.offsetWidth) * 100;
         marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-        afterImage.style.width = `${afterValue - marginLeft}px`;
+        afterImage.style.width = `${position - marginLeft}px`;
     }
 
     function inputToSlide() {
         afterImage.style.width = `${compInputRange.value}%`;
         comparissonSlider.style.left = `${compInputRange.value}%`;
-    }
-
-    function compEnterFullScreen() {
-        window.removeEventListener("touchstart", detectSwipe);
-        enterFullBtn.style.display = "none"; 
-        fullBackground.setAttribute("data-state", "fullscreen");
-        if(window.innerWidth > 900) {
-            exitFullBtnDesktop.style.display = "flex";
-            if(fullBackground.parentElement.classList.contains("subsection-modal-container")) {
-                enlargeCompModal(fullBackground);
-            } else {
-                exitFullBtnDesktop.disabled = true;
-                let unshelfButton = document.getElementById("unshelfButton");
-                unshelfButton.addEventListener("transitionend", function() {
-                    exitFullBtnDesktop.disabled = false;
-                }, { once: true });
-                shelfText();
-            }
-        } else {
-            exitFullBtn.style.display = "flex";
-            if(fullBackground.requestFullscreen) {
-                fullBackground.requestFullscreen();
-            } else {
-                let nonTextContent = document.querySelector("#nonTextContent");
-                nonTextContent.style["z-index"] = 100;
-                beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
-                compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
-                if(compSliderContainer.getAttribute("data-modal") == "true") {
-                    let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                    let textContent = document.querySelector("#textContent");
-                    modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
-                    textContent.style.display = "none";
-                }
-            }
-        }
-    }
-
-    function compExitFullScreen() {
-        window.addEventListener("touchstart", detectSwipe);
-        exitFullBtn.style.display = "none"; 
-        exitFullBtnDesktop.style.display = "none";
-        enterFullBtn.style.display = "flex";
-        fullBackground.setAttribute("data-state", "initial");
-        if(window.innerWidth > 900) {
-            if(fullBackground.parentElement.classList.contains("subsection-modal-container")) {
-                minimizeCompModal(fullBackground);
-            } else {
-                enterFullBtn.disabled = true;
-                let textSection = document.getElementById("textContent");
-                textSection.addEventListener("transitionend", function() {
-                    enterFullBtn.disabled = false;
-                }, { once: true });
-                openText();
-            }
-        } else {
-            if(fullBackground.requestFullscreen) {
-                document.exitFullscreen();
-            } else {
-                let nonTextContent = document.querySelector("#nonTextContent");
-                nonTextContent.style["z-index"] = "initial";
-                beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
-                compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
-                if(compSliderContainer.getAttribute("data-modal") == "true") {
-                    let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                    modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
-                    textContent.style.display = "flex";
-                }
-            }
-        }
     }
 
     function posToPercent() {
@@ -782,7 +737,100 @@ function initializeCompSlider(compSliderContainer) {
         afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
     }
 
-    function enlargeCompModal() {
+    // Functions to handle the the enlarging/minimizing
+
+    function enlargeSlider() {
+        window.removeEventListener("touchstart", detectSwipe);
+        enlargeBtn.style.display = "none"; 
+        fullBackground.setAttribute("data-state", "fullscreen");
+        if(window.innerWidth > 900) {
+            enlargeDesktop();
+        } else {
+            enlargeMobile();
+        }
+    }
+
+    function enlargeDesktop() {
+        minimizeBtnDesk.style.display = "flex";
+        if(inModal) {
+            fullBackground.classList.add("book-section-comparison-slider-enlarged");
+            positionEnlargedModalSlider();
+            window.addEventListener("resize", positionEnlargedModalSlider);
+        } else {
+            let unshelfBtn = document.querySelector("#unshelfButton");
+            minimizeBtnDesk.disabled = true;
+            unshelfBtn.addEventListener("transitionend", function() {
+                minimizeBtnDesk.disabled = false;
+            }, { once: true });
+            shelfText();
+        }
+    }
+
+    function enlargeMobile() {
+        minimizeBtnMobile.style.display = "flex";
+        if(fullBackground.requestFullscreen) {
+            fullBackground.requestFullscreen();
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            nonTextContent.style["z-index"] = 100;
+            beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
+            if(inModal) {
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                let textContent = document.querySelector("#textContent");
+                modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "none";
+            }
+        }
+    }
+
+    function minimizeSlider() {
+        window.addEventListener("touchstart", detectSwipe);
+        minimizeBtnMobile.style.display = "none"; 
+        minimizeBtnDesk.style.display = "none";
+        enlargeBtn.style.display = "flex";
+        fullBackground.setAttribute("data-state", "initial");
+        if(window.innerWidth > 900) {
+            minimizeDesktop();
+        } else {
+            minimizeMobile();
+        }
+    }
+
+    function minimizeDesktop() {
+        if(inModal) {
+            fullBackground.classList.remove("book-section-comparison-slider-enlarged");
+            fullBackground.style.width = "initial";
+            fullBackground.style.top = "initial";
+            beforeImage.style.height = "initial";
+            window.removeEventListener("resize", positionEnlargedModalSlider);
+        } else {
+            enlargeBtn.disabled = true;
+            let textSection = document.getElementById("textContent");
+            textSection.addEventListener("transitionend", function() {
+                enlargeBtn.disabled = false;
+            }, { once: true });
+            openText();
+        }
+    }
+
+    function minimizeMobile() {
+        if(fullBackground.requestFullscreen) {
+            document.exitFullscreen();
+        } else {
+            let nonTextContent = document.querySelector("#nonTextContent");
+            nonTextContent.style["z-index"] = "initial";
+            beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
+            compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
+            if(inModal) {
+                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
+                textContent.style.display = "flex";
+            }
+        }
+    }
+
+    function positionEnlargedModalSlider() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
         let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
@@ -797,45 +845,64 @@ function initializeCompSlider(compSliderContainer) {
             fullBackground.style.width = `${availWidth}px`;
             beforeImage.style.height = `${availWidth / aspectRatio}px`;
         }
-        fullBackground.classList.add("book-section-comparison-slider-enlarged");
         fullBackground.style.top = `${posTop}px`;
-        window.addEventListener("resize", resizeEnlargedCompModal);
     }
 
-    function resizeEnlargedCompModal() {
-        let header = document.querySelector("header");
-        let footer = document.querySelector("footer");
-        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
-        let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
-        let availWidth = window.innerWidth - 100;
-        let imageWidth = availHeight * aspectRatio;
-        if(imageWidth < availWidth) {
-            fullBackground.style.width = `${imageWidth}px`;
-            beforeImage.style.height = `${imageWidth / aspectRatio}px`;
-        } else {
-            fullBackground.style.width = `${availWidth}px`;
-            beforeImage.style.height = `${availWidth / aspectRatio}px`;
+    function respondToTextShelving(event) {
+        if(event.currentTarget.id == "shelfButton") {
+            window.removeEventListener("touchstart", detectSwipe);
+            fullBackground.setAttribute("data-state", "fullscreen");
+            enlargeBtn.style.display = "none"; 
+            minimizeBtnDesk.style.display = "flex";
+            minimizeBtnDesk.disabled = true;
+            unshelfButton.addEventListener("transitionend", function() {
+                minimizeBtnDesk.disabled = false;
+            }, { once: true });
+        } else if(event.currentTarget.id == "unshelfButton"){
+            window.addEventListener("touchstart", detectSwipe);
+            fullBackground.setAttribute("data-state", "initial");
+            minimizeBtnMobile.style.display = "none"; 
+            minimizeBtnDesk.style.display = "none";
+            enlargeBtn.style.display = "flex";
+            enlargeBtn.disabled = true;
+            let textSection = document.getElementById("textContent");
+            textSection.addEventListener("transitionend", function() {
+                enlargeBtn.disabled = false;
+            }, { once: true });
         }
-        fullBackground.style.top = `${posTop}px`;
     }
 
-    function minimizeCompModal() {
-        fullBackground.style.width = "initial";
-        fullBackground.style.top = "initial";
-        beforeImage.style.height = "initial";
-        fullBackground.classList.remove("book-section-comparison-slider-enlarged");
-        window.removeEventListener("resize", resizeEnlargedCompModal);
-    }
-
-    if(beforeImage === document.querySelector("#nonTextContent .book-section-comparison-before")) {
+    function updateMainCompMaxHeight() {
         let nonTextContent = document.querySelector("#nonTextContent");
         let videoContainer = nonTextContent.querySelector(".book-section-video-container");
         let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
-        if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-        window.addEventListener("resize", function() {
-            if(window.innerWidth >= 900) beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-        });
+        beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+    }
+
+    function handleCompLoadError() {
+        fullBackground.setAttribute("data-state", "failed");
+        beforeImage.style.setProperty("display", "none", "important");
+        afterImage.style.setProperty("display", "none", "important");
+        compInputRange.style.setProperty("display", "none", "important");
+        comparissonSlider.style.setProperty("display", "none", "important");
+        enlargeBtn.style.setProperty("display", "none", "important");
+        minimizeBtnMobile.style.setProperty("display", "none", "important");
+        minimizeBtnDesk.style.setProperty("display", "none", "important");
+        loadFailedImg.style.display = "block";
+        if(loadFailedImg === document.querySelector("#nonTextContent .book-section-comparison-load-failed")) {
+            let shelfButton = document.getElementById("shelfButton");
+            let unshelfButton = document.getElementById("unshelfButton");
+            let nonTextContent = document.querySelector("#nonTextContent");
+            let videoContainer = nonTextContent.querySelector(".book-section-video-container");
+            let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+            shelfButton.removeEventListener("click", respondToTextShelving);
+            unshelfButton.removeEventListener("click", respondToTextShelving);
+            if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+            window.addEventListener("resize", function() {
+                if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+            });
+        }
+        
     }
 
 }

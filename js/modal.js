@@ -61,7 +61,7 @@ function openModal(modalId) {
             changerContainer.style.padding = 0;
         }
         if(modalText) modalText.setAttribute("tabindex", "-1");
-        if(fullBackground && window.innerWidth > 900) {
+        if(fullBackground && window.innerWidth > 900 && fullBackground.getAttribute("data-state") != "failed") {
             let minimizeButton = fullBackground.querySelector(".book-section-comparison-exit-fullscreen-desktop");
             minimizeButton.click();
         }
