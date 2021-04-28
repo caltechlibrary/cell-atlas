@@ -1,7 +1,17 @@
+// Check if nav bar should be opened
+if (typeof(Storage) !== "undefined") {
+    let wasOpened = window.sessionStorage.getItem("navOpened");
+    if(wasOpened == "true") {
+        let openNavButton = document.getElementById("openNavButton");
+        openNavButton.click();
+    }
+}
+
 // Get current section and highlight it on nav bar
 let pageName = window.location.pathname.split("/").pop().split(".")[0];
 let navEntry = document.getElementById(`nav${pageName}`);
 if(navEntry) {
+    let navMenu = document.querySelector("#navMenu");
     // Get chapter of page
     let chapter = pageName.split("-")[0];
     if(!isNaN(parseInt(chapter))) {
@@ -9,19 +19,17 @@ if(navEntry) {
     }
     navEntry.style["font-style"] = "italic";
 
-    // Ugly selector, but will do for now
     let toggleSectionListButton = navEntry.parentElement.parentElement.querySelector("button");
     if(toggleSectionListButton) {
         toggleSectionListButton.click();
-    }
-}
-
-// Check if nav bar should be opened
-if (typeof(Storage) !== "undefined") {
-    let wasOpened = window.sessionStorage.getItem("navOpened");
-    if(wasOpened == "true") {
-        let openNavButton = document.getElementById("openNavButton");
-        openNavButton.click();
+        if(window.innerWidth < 900 && navMenu.offsetHeight == 0) {
+            let sectionList = navEntry.parentElement;
+            let openNavBtn = document.querySelector(".header-nav-button-mobile");
+            sectionList.style.height = "auto";
+            openNavBtn.addEventListener("click", function() {
+                sectionList.style.height = `${sectionList.scrollHeight}px`;
+            }, { once: true });
+        }
     }
 }
 
