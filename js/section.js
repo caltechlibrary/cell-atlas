@@ -677,9 +677,11 @@ function initializeCompSlider(compSliderContainer) {
 
         updateMainCompMaxHeight();
         window.addEventListener("resize", updateMainCompMaxHeight);
-        shelfButton.addEventListener("click", handleFullscreenState);
-        unshelfButton.addEventListener("click", handleFullscreenState);
+        shelfButton.addEventListener("click", respondToTextShelving);
+        unshelfButton.addEventListener("click", respondToTextShelving);
     }
+
+    // Functions to handle the before/after sliding
 
     function slideReady(e) {
         e.preventDefault();
@@ -734,6 +736,8 @@ function initializeCompSlider(compSliderContainer) {
         marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
         afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
     }
+
+    // Functions to handle the the enlarging/minimizing
 
     function enlargeSlider() {
         window.removeEventListener("touchstart", detectSwipe);
@@ -844,8 +848,8 @@ function initializeCompSlider(compSliderContainer) {
         fullBackground.style.top = `${posTop}px`;
     }
 
-    function handleFullscreenState(event) {
-        if(event.currentTarget == shelfButton) {
+    function respondToTextShelving(event) {
+        if(event.currentTarget.id == "shelfButton") {
             window.removeEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "fullscreen");
             enlargeBtn.style.display = "none"; 
@@ -854,7 +858,7 @@ function initializeCompSlider(compSliderContainer) {
             unshelfButton.addEventListener("transitionend", function() {
                 minimizeBtnDesk.disabled = false;
             }, { once: true });
-        } else if(event.currentTarget == unshelfButton){
+        } else if(event.currentTarget.id == "unshelfButton"){
             window.addEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "initial");
             minimizeBtnMobile.style.display = "none"; 
@@ -868,6 +872,13 @@ function initializeCompSlider(compSliderContainer) {
         }
     }
 
+    function updateMainCompMaxHeight() {
+        let nonTextContent = document.querySelector("#nonTextContent");
+        let videoContainer = nonTextContent.querySelector(".book-section-video-container");
+        let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+        beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
+    }
+
     function handleCompLoadError() {
         beforeImage.style.setProperty("display", "none", "important");
         afterImage.style.setProperty("display", "none", "important");
@@ -878,24 +889,19 @@ function initializeCompSlider(compSliderContainer) {
         minimizeBtnDesk.style.setProperty("display", "none", "important");
         loadFailedImg.style.display = "block";
         if(loadFailedImg === document.querySelector("#nonTextContent .book-section-comparison-load-failed")) {
-            shelfButton.removeEventListener("click", handleFullscreenState);
-            unshelfButton.removeEventListener("click", handleFullscreenState);
+            let shelfButton = document.getElementById("shelfButton");
+            let unshelfButton = document.getElementById("unshelfButton");
             let nonTextContent = document.querySelector("#nonTextContent");
             let videoContainer = nonTextContent.querySelector(".book-section-video-container");
             let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+            shelfButton.removeEventListener("click", respondToTextShelving);
+            unshelfButton.removeEventListener("click", respondToTextShelving);
             if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
             window.addEventListener("resize", function() {
                 if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
             });
         }
         
-    }
-
-    function updateMainCompMaxHeight() {
-        let nonTextContent = document.querySelector("#nonTextContent");
-        let videoContainer = nonTextContent.querySelector(".book-section-video-container");
-        let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
-        beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
     }
 
 }
