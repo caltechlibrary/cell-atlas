@@ -25,15 +25,6 @@ if(navEntry) {
     }
 }
 
-// Check if nav bar should be opened
-if (typeof(Storage) !== "undefined") {
-    let wasOpened = window.sessionStorage.getItem("navOpened");
-    if(wasOpened == "true") {
-        let openNavButton = document.getElementById("openNavButton");
-        openNavButton.click();
-    }
-}
-
 let openSectionButtons = document.querySelectorAll(".nav-menu button");
 for(let openSectionButton of openSectionButtons) {
     addTypeFocusToggle(openSectionButton);
