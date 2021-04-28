@@ -343,6 +343,10 @@ blockquote {
         background-color: #baafcc;
     }
 
+    #nav {
+        opacity: 0.3;
+    }
+
     .mobile-footer-data {
         border-top: 1px solid #000000;
         margin-left: -12px;
