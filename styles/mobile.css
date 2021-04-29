@@ -184,6 +184,16 @@ blockquote {
         margin-right: 0.5em;
     }
 
+    #readNowButton {
+        font-weight: 600;
+        padding: 0.2em 0.8em;
+        font-size: 1.25em;
+    }
+
+    #readNowButton span {
+        line-height: 1
+    }
+
     /* || HEADER styles */
     header {
         position: fixed;
