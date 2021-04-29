@@ -885,14 +885,13 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function resizePolyFullscreen(event) {
-        beforeImage.style.removeProperty("height");
-        compSliderContainer.style.removeProperty("height");
-        console.log(`window.innerWidth=${window.innerWidth} ... window.innerHeight=${window.innerHeight}`);
-        
         setTimeout(function() {
             if(window.innerWidth > window.innerHeight) {
                 beforeImage.style.height = `${window.innerHeight}px`;
                 compSliderContainer.style.height = `${window.innerHeight}px`;
+            } else {
+                beforeImage.style.removeProperty("height");
+                compSliderContainer.style.removeProperty("height");
             }
         }, 200);
     }
