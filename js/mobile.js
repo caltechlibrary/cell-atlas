@@ -139,12 +139,10 @@ function fixDropdownHeight(event) {
 }
 
 function resizeDropdown(element) {
-    element.style.height = "0";
+    element.style.height = "auto";
     // Recalculate height for open lists once screen is resized
     window.addEventListener("resize", function(){
-        setTimeout(function(){
-            element.style.height = element.scrollHeight + "px";
-        }, 500); 
+        element.style.height = `${element.scrollHeight}px`;
     }, { once: true });
 }
 
