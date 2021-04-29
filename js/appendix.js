@@ -219,6 +219,8 @@ if(treeViewer) {
             if(fullscreenBackground.requestFullscreen) {
                 fullscreenBackground.requestFullscreen();
             } else {
+                resizePolyFullscreen();
+                window.addEventListener("resize", resizePolyFullscreen);
                 fullscreenBackground.classList.add("book-appendix-tree-viewer-fullbackground-polyfill");
                 let appendixPageEl = document.querySelector(".book-appendix-page");
                 appendixPageEl.classList.add("book-appendix-page-fullscreen-polyfill");
@@ -237,12 +239,25 @@ if(treeViewer) {
             if(fullscreenBackground.requestFullscreen) {
                 document.exitFullscreen();
             } else {
+                window.removeEventListener("resize", resizePolyFullscreen);
+                treeViewer.style.removeProperty("height");
                 fullscreenBackground.classList.remove("book-appendix-tree-viewer-fullbackground-polyfill");
                 let appendixPageEl = document.querySelector(".book-appendix-page");
                 appendixPageEl.classList.remove("book-appendix-page-fullscreen-polyfill");
             }
         }
     });
+
+    function resizePolyFullscreen(event) {
+        treeViewer.style.removeProperty("height");
+        console.log(`window.innerWidth=${window.innerWidth} ... window.innerHeight=${window.innerHeight}`);
+        
+        setTimeout(function() {
+            if(window.innerWidth > window.innerHeight) {
+                treeViewer.style.height = `${window.innerHeight}px`;
+            }
+        }, 200);
+    }
 
     function enlargeTreeViewer() {
         let header = document.querySelector("header");
