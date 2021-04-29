@@ -30,7 +30,7 @@ h1, h2, button {
     font-size: 100%;
 }
 
-h1, h2 {
+h1, h2, h3 {
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     margin-block-start: 0;
@@ -1032,8 +1032,9 @@ blockquote {
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh;
-        width: 100vw;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
         background: #000;
         z-index: 100;
     }
@@ -1107,6 +1108,7 @@ blockquote {
         width: 100%;
         text-align: center;
         background: #dcdcdc;
+        font-size: 1.15em;
         padding: 0.25em 1em;
         box-sizing: border-box;
     }
@@ -1118,7 +1120,7 @@ blockquote {
 
     .book-appendix-tree-section-subheader {
         font-weight: 300;
-        font-size: 1.15em;
+        font-size: 1.05em;
     }
 
     .book-appendix-tree-section-example-list {
