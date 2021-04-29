@@ -567,6 +567,14 @@ blockquote {
         transform: scale(0);
     }
 
+    .subsection-modal-container .video-quality-changer-input input + .video-quality-changer-control::before {
+        transform: scale(0);
+    }
+
+    .subsection-modal-container .video-quality-changer-input input:checked + .video-quality-changer-control::before {
+        transform: scale(1);
+    }
+
     .video-quality-changer-label {
         font-size: 0.95em;
         line-height: 1.5;
