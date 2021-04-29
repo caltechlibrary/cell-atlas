@@ -57,11 +57,7 @@ function toggleNav(el) {
         toggleNavTabable(-1);
     } else {
         navMenu.classList.add("nav-menu-opened");
-        if(window.innerWidth > 800) {
-            navMenu.style.height = "100%";
-        } else {
-            navMenu.style.height = "initial";
-        }
+        navMenu.style.height = "100%";
         navMenu.style.opacity = "1";
         window.navOpened = true;
         window.sessionStorage.setItem("navOpened", true);
