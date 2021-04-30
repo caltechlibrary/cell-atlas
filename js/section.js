@@ -372,7 +372,7 @@ function createVideoPlayer(videoEl) {
         });
     }, { once: true });
 
-    if(window.createImageBitmap) {
+    if(!OFFLINE && window.createImageBitmap) {
         videoEl.addEventListener("playing", function() {
             frameInterval = setInterval(function(){
                 saveFrame();
