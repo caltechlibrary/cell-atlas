@@ -1046,9 +1046,15 @@ blockquote {
         background-color: #363636;
     }
 
+    .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
     .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
-        top: 50%;
-        transform: translate(0, -50%);
+        box-sizing: border-box;
+        flex: 1;
     }
 
     .book-appendix-tree-viewer-fullbackground-polyfill {
@@ -1341,13 +1347,18 @@ blockquote {
 
     .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
         box-sizing: border-box;
-        height: 100vh;
+        height: 100%;
     }
 
     @supports(padding: max(0px)) {
         .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
             margin: 0px max(15px, env(safe-area-inset-right)) 0 max(15px, env(safe-area-inset-left));
         }
+    }
+
+    .book-appendix-tree-viewer-fullbackground-polyfill[data-state="fullscreen"] .book-appendix-tree-viewer {
+        height: 100vh;
+        max-width: 85vw;
     }
 }
 
