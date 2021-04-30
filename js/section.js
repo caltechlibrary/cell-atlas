@@ -492,7 +492,7 @@ function createVideoPlayer(videoEl) {
     seekBar.addEventListener("input", function() {
         let seekBarTime = (parseFloat(seekBar.value) / 100) * videoDuration;
 
-        if(window.createImageBitmap) {
+        if(!OFFLINE && window.createImageBitmap) {
             videoScrubCanvas.style.display = "block";
             let roundedTime = Math.round(seekBarTime * fps) / fps;
             if(roundedTime in frameImages) {
