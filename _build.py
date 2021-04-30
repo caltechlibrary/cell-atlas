@@ -414,8 +414,8 @@ for i in range(len(sectionFiles)):
             print("{} section file does not have DOI field".format(fileName)) 
     if(title[0] == "summary.md"):
         metadata["thumbnail"] = "{}_thumbnail".format(metadata["video"].split(".")[0])
-    else:
-        metadata["thumbnail"] = "{}_{}_thumbnail".format(metadata["chapter"], metadata["section"])
+    elif("video" in metadata):
+        metadata["thumbnail"] = "{}_thumbnail".format("_".join(metadata["video"].split("_")[:2]))
     
     # Add links to next and prev pages
     # If we are not at the last file, then there is a next section
