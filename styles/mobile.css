@@ -1024,8 +1024,8 @@ blockquote {
     }
 
     .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
-        top: 50%;
-        transform: translate(0, -50%);
+        box-sizing: border-box;
+        flex: 1;
     }
 
     .book-appendix-tree-viewer-fullbackground-polyfill {
@@ -1033,6 +1033,9 @@ blockquote {
         top: 0;
         left: 0;
         box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         height: 100%;
         width: 100%;
         background: #000;
@@ -1325,6 +1328,10 @@ blockquote {
         .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
             margin: 0px max(15px, env(safe-area-inset-right)) 0 max(15px, env(safe-area-inset-left));
         }
+    }
+
+    .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
+        max-width: 85vw;
     }
 }
 

@@ -248,13 +248,12 @@ if(treeViewer) {
         }
     });
 
-    function resizePolyFullscreen(event) {
-        treeViewer.style.removeProperty("height");
-        console.log(`window.innerWidth=${window.innerWidth} ... window.innerHeight=${window.innerHeight}`);
-        
+    function resizePolyFullscreen(event) {        
         setTimeout(function() {
             if(window.innerWidth > window.innerHeight) {
                 treeViewer.style.height = `${window.innerHeight}px`;
+            } else {
+                treeViewer.style.removeProperty("height");
             }
         }, 200);
     }
