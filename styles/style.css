@@ -605,6 +605,7 @@
         font-size: 0.85em;
         font-family: sans-serif;
         margin: 0 1em;
+        margin-right: auto;
     }
 
     .book-section-video-player-controls-buttons button[data-state="play"] {
@@ -662,7 +663,6 @@
     /* || QUALITY */
     .video-quality-player-control {
         position: relative; 
-        margin-left: auto;
     }
 
     .video-quality-changer-button {
