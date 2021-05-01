@@ -674,11 +674,13 @@ function initializeCompSlider(compSliderContainer) {
     if(!inModal && window.innerWidth >= 900) {
         let shelfButton = document.getElementById("shelfButton");
         let unshelfButton = document.getElementById("unshelfButton");
+        let vidPlayBtn = document.querySelector(`#${playerId}-playPauseButton`);
 
         updateMainCompMaxHeight();
         window.addEventListener("resize", updateMainCompMaxHeight);
         shelfButton.addEventListener("click", respondToTextShelving);
         unshelfButton.addEventListener("click", respondToTextShelving);
+        vidPlayBtn.addEventListener("click", respondToTextShelving, { once: true });
     }
 
     // Functions to handle the before/after sliding
@@ -854,7 +856,7 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function respondToTextShelving(event) {
-        if(event.currentTarget.id == "shelfButton") {
+        if(event.currentTarget.id == "shelfButton" || event.currentTarget.id == `${playerId}-playPauseButton`) {
             window.removeEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "fullscreen");
             enlargeBtn.style.display = "none"; 
