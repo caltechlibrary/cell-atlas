@@ -533,6 +533,10 @@ function createVideoPlayer(videoEl) {
         nonTextSection.addEventListener("transitionend", function(event) {
             if(event.propertyName == "width") resizeCanvases();
         });
+
+        // Add an event listener to always resize the canvases when the video button is clicked
+        let showVidBtn = document.querySelector(`#nonTextContent button[data-player='${playerId}']`);
+        showVidBtn.addEventListener("click", resizeCanvases);
     }
 
     function togglePlayPause() {
