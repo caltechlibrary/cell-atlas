@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg data-id="treeSvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1969.3 1137.3" style="enable-background:new 0 0 1969.3 1137.3;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#e6e5e2;enable-background:new    ;}
-	.st1{fill:#fbf2da;enable-background:new    ;}
-	.st2{fill:#e2e7db;enable-background:new    ;}
-	.st3{fill:none;stroke:#A7A9AC;stroke-width:0.204;stroke-linecap:round;stroke-miterlimit:10;}
-	.st4{fill:none;stroke:#AAAAAA;stroke-width:2.719831e-02;stroke-linecap:round;stroke-miterlimit:10;}
-	.st5{fill:#003B4C;}
-	.st6{font-family:'Arial-ItalicMT';}
-	.st7{font-size:11.9954px;}
-	.st8{fill:#5E5E5E;}
-	.st9{font-family:'Arial-BoldMT';}
-	.st10{font-size:11px;}
-	.st11{font-size:24px;}
-	.st12{opacity:0.85;}
-	.st13{fill:none;stroke:#A7A9AC;stroke-miterlimit:10;}
-	.st14{font-size:28px;}
+	.st0{opacity:0.3;fill:#AAA99F;enable-background:new    ;}
+	.st1{opacity:0.3;fill:#F1D384;enable-background:new    ;}
+	.st2{opacity:0.3;fill:#9DAE88;enable-background:new    ;}
+	.st3{fill:none;stroke:#A7A9AC;stroke-linecap:round;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.954,1.954;}
+	.st6{fill:#003B4C;}
+	.st7{font-family:'Arial-ItalicMT';}
+	.st8{font-size:11.9954px;}
+	.st9{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0192,2.0192;}
+	.st10{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0418,2.0418;}
+	.st11{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0191,2.0191;}
+	.st12{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.019,2.019;}
+	.st13{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9913,1.9913;}
+	.st14{fill:#5E5E5E;}
+	.st15{font-family:'Arial-BoldMT';}
+	.st16{font-size:11px;}
+	.st17{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0416,2.0416;}
+	.st18{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9911,1.9911;}
+	.st19{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9912,1.9912;}
+	.st20{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0061,2.0061;}
+	.st21{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9975,1.9975;}
+	.st22{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0062,2.0062;}
+	.st23{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0059,2.0059;}
+	.st24{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9546,1.9546;}
+	.st25{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9914,1.9914;}
+	.st26{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0193,2.0193;}
+	.st27{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.006,2.006;}
+	.st28{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0415,2.0415;}
+	.st29{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0419,2.0419;}
+	.st30{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0194,2.0194;}
+	.st31{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9868,1.9868;}
+	.st32{font-size:24px;}
+	.st33{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9972,1.9972;}
+	.st34{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9544,1.9544;}
+	.st35{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0196,2.0196;}
+	.st36{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9971,1.9971;}
+	.st37{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0417,2.0417;}
+	.st38{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0074,2.0074;}
+	.st39{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9973,1.9973;}
+	.st40{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.9974,1.9974;}
+	.st41{fill:none;stroke:#AAAAAA;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:2.0058,2.0058;}
+	.st42{opacity:0.85;}
+	.st43{fill:none;stroke:#A7A9AC;stroke-miterlimit:10;}
+	.st44{font-size:28px;}
 </style>
 <path class="st0" d="M506.3,734.7c-4,9.8,11.7,36.7,20.2,40.3s418.9-250.8,419.3-251.9C946.3,522,510.3,725,506.3,734.7z"/>
 <path class="st1" d="M611,117.2c-58.3-56-123.1-58.5-184.5-6.8C297.2,219.1,338.1,517,420,668c36.2,66.7,48.5,59.3,119,29
@@ -34,18 +64,36 @@
 			<path class="st3" d="M49.4,516.2l178.9-89.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M-194.7-1487.9l35.6,237.3"/>
-			<text transform="matrix(0.5686 3.7924 -3.7924 0.5686 -271.6414 -1907.9895)" class="st5 st6 st7">Haloferax gibbonsii</text>
+			<g>
+				<g>
+					<line class="st4" x1="-194.7" y1="-1487.9" x2="-194.1" y2="-1484.1"/>
+					<line class="st5" x1="-193" y1="-1476.7" x2="-160.2" y2="-1258.1"/>
+					<line class="st4" x1="-159.7" y1="-1254.4" x2="-159.1" y2="-1250.6"/>
+				</g>
+			</g>
+			<text transform="matrix(0.5686 3.7924 -3.7924 0.5686 -256.9265 -1905.8765)" class="st6 st7 st8">Haloferax gibbonsii</text>
 			<path class="st3" d="M-159.1-1250.6l29.7,197.8"/>
 		</g>
 		<g>
-			<path class="st4" d="M-96.4,1282.5l249.1-410.3"/>
-			<text transform="matrix(1.9901 -3.278 3.278 1.9901 -272.9695 1599.9531)" class="st5 st6 st7">Brucella abortus</text>
+			<g>
+				<g>
+					<line class="st4" x1="-96.4" y1="1282.5" x2="-94.4" y2="1279.2"/>
+					<line class="st9" x1="-90.4" y1="1272.6" x2="148.7" y2="878.8"/>
+					<line class="st4" x1="150.7" y1="875.5" x2="152.7" y2="872.2"/>
+				</g>
+			</g>
+			<text transform="matrix(1.9901 -3.278 3.278 1.9901 -283.5478 1590.6674)" class="st6 st7 st8">Brucella abortus</text>
 			<path class="st3" d="M152.7,872.2l103.8-171"/>
 		</g>
 		<g>
-			<path class="st4" d="M538.2,1483.7l-41.6-357.6"/>
-			<text transform="matrix(0.4429 3.8091 -3.8091 0.4429 524.4925 1485.2729)" class="st5 st6 st7">Helicobacter pylori</text>
+			<g>
+				<g>
+					<line class="st4" x1="538.2" y1="1483.7" x2="537.8" y2="1479.9"/>
+					<line class="st10" x1="536.9" y1="1472.1" x2="497.5" y2="1133.8"/>
+					<line class="st4" x1="497" y1="1129.9" x2="496.6" y2="1126.1"/>
+				</g>
+			</g>
+			<text transform="matrix(0.4429 3.8091 -3.8091 0.4429 529.5394 1504.1315)" class="st6 st7 st8">Helicobacter pylori</text>
 			<path class="st3" d="M496.6,1126.1l-23.1-198.7"/>
 		</g>
 		<g>
@@ -55,18 +103,36 @@
 			<path class="st3" d="M937.5,555.8L807,404.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-486.9-1190.6l275.7,392.9"/>
-			<text transform="matrix(2.2024 3.1393 -3.1393 2.2024 -810.8918 -1628.4033)" class="st5 st6 st7">Methanoregula formicica</text>
+			<g>
+				<g>
+					<line class="st4" x1="-486.9" y1="-1190.6" x2="-484.7" y2="-1187.5"/>
+					<line class="st11" x1="-480.2" y1="-1181.1" x2="-215.6" y2="-804"/>
+					<line class="st4" x1="-213.4" y1="-800.8" x2="-211.2" y2="-797.7"/>
+				</g>
+			</g>
+			<text transform="matrix(2.2024 3.1393 -3.1393 2.2024 -810.8922 -1628.4102)" class="st6 st7 st8">Methanoregula formicica</text>
 			<path class="st3" d="M-211.2-797.7L-96.4-634"/>
 		</g>
 		<g>
-			<path class="st4" d="M-650.3,469.1l479.7-15.9"/>
-			<text transform="matrix(3.8327 -0.1268 0.1268 3.8327 -1393.3219 507.5217)" class="st5 st6 st7">Pseudoalteromonas luteoviolacea</text>
+			<g>
+				<g>
+					<line class="st4" x1="-650.3" y1="469.1" x2="-646.5" y2="469"/>
+					<line class="st12" x1="-638.7" y1="468.7" x2="-178.3" y2="453.5"/>
+					<line class="st4" x1="-174.4" y1="453.3" x2="-170.6" y2="453.2"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8327 -0.1268 0.1268 3.8327 -1389.1807 500.3452)" class="st6 st7 st8">Pseudoalteromonas luteoviolacea</text>
 			<path class="st3" d="M-170.5,453.3l199.9-6.6"/>
 		</g>
 		<g>
-			<path class="st4" d="M-810-355.3L7.6-162.6"/>
-			<text transform="matrix(3.7325 0.8798 -0.8798 3.7325 -1106.6635 -411.0234)" class="st8 st9 st10">Asgard group</text>
+			<g>
+				<g>
+					<line class="st4" x1="-810" y1="-355.3" x2="-806.3" y2="-354.4"/>
+					<line class="st13" x1="-798.8" y1="-352.7" x2="0.2" y2="-164.4"/>
+					<line class="st4" x1="3.9" y1="-163.5" x2="7.6" y2="-162.6"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7325 0.8798 -0.8798 3.7325 -1106.6656 -411.029)" class="st14 st15 st16">Asgard group</text>
 			<path class="st3" d="M7.6-162.6l194.7,45.9"/>
 		</g>
 		<g>
@@ -76,123 +142,249 @@
 			<path class="st3" d="M-44.2-662.2l68.1,188.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M40.9,1432.7l122.5-338.5"/>
-			<text transform="matrix(-1.305 3.6059 -3.6059 -1.305 27.9561 1428.0502)" class="st5 st6 st7">Magnetospirillum magneticum</text>
+			<g>
+				<g>
+					<line class="st4" x1="40.9" y1="1432.7" x2="42.2" y2="1429.1"/>
+					<line class="st17" x1="44.9" y1="1421.7" x2="160.8" y2="1101.5"/>
+					<line class="st4" x1="162.1" y1="1097.8" x2="163.4" y2="1094.2"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.305 3.6059 -3.6059 -1.305 14.8897 1439.642)" class="st6 st7 st8">Magnetospirillum magneticum</text>
 			<path class="st3" d="M163.4,1094.2l68.1-188.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M580,1396.9l-86.8-472.1"/>
-			<text transform="matrix(0.6936 3.7715 -3.7715 0.6936 566.4377 1399.3894)" class="st5 st6 st7">Campylobacter jejuni</text>
+			<g>
+				<g>
+					<line class="st4" x1="580" y1="1396.9" x2="579.3" y2="1393.1"/>
+					<line class="st9" x1="577.9" y1="1385.5" x2="494.6" y2="932.4"/>
+					<line class="st4" x1="493.9" y1="928.6" x2="493.2" y2="924.8"/>
+				</g>
+			</g>
+			<text transform="matrix(0.6936 3.7715 -3.7715 0.6936 572.8641 1415.8585)" class="st6 st7 st8">Campylobacter jejuni</text>
 			<path class="st3" d="M493.2,924.8L457,728.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M684.6-868.6L532.7-42.5"/>
-			<text transform="matrix(-0.6936 3.7715 -3.7715 -0.6936 733.5011 -1210.554)" class="st8 st9 st10">Chrysiogenetes</text>
+			<g>
+				<g>
+					<line class="st4" x1="684.6" y1="-868.6" x2="683.9" y2="-864.8"/>
+					<line class="st18" x1="682.5" y1="-857.3" x2="534.1" y2="-50"/>
+					<line class="st4" x1="533.4" y1="-46.3" x2="532.7" y2="-42.5"/>
+				</g>
+			</g>
+			<text transform="matrix(-0.6936 3.7715 -3.7715 -0.6936 733.5027 -1210.5568)" class="st14 st15 st16">Chrysiogenetes</text>
 			<path class="st3" d="M532.7-42.5l-36.2,196.7"/>
 		</g>
 		<g>
 			<path class="st3" d="M348.8,523.8l55.5-192.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M410.7-882.2L480-45.1"/>
-			<text transform="matrix(0.3167 3.8217 -3.8217 0.3167 369.0271 -1217.4691)" class="st8 st9 st10">Deferribacteres</text>
+			<g>
+				<g>
+					<line class="st4" x1="410.7" y1="-882.2" x2="411" y2="-878.4"/>
+					<line class="st19" x1="411.6" y1="-870.8" x2="479.4" y2="-52.7"/>
+					<line class="st4" x1="479.7" y1="-48.9" x2="480" y2="-45.1"/>
+				</g>
+			</g>
+			<text transform="matrix(0.3167 3.8217 -3.8217 0.3167 369.0299 -1217.474)" class="st14 st15 st16">Deferribacteres</text>
 			<path class="st3" d="M480-45.1l16.5,199.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M-231.1,1081.7l344.6-491.2"/>
-			<text transform="matrix(2.2024 -3.1393 3.1393 2.2024 -589.6935 1616.8997)" class="st5 st6 st7">Hydrogenovibrio crunogenus</text>
+			<g>
+				<g>
+					<line class="st4" x1="-231.1" y1="1081.7" x2="-228.9" y2="1078.6"/>
+					<line class="st20" x1="-224.5" y1="1072.3" x2="109.1" y2="596.8"/>
+					<line class="st4" x1="111.3" y1="593.6" x2="113.5" y2="590.5"/>
+				</g>
+			</g>
+			<text transform="matrix(2.2024 -3.1393 3.1393 2.2024 -584.547 1613.5056)" class="st6 st7 st8">Hydrogenovibrio crunogenus</text>
 			<path class="st3" d="M113.5,590.6l114.9-163.7"/>
 		</g>
 		<g>
-			<path class="st4" d="M1581.8-119.3L886.8,69"/>
-			<text transform="matrix(3.7014 -1.0027 1.0027 3.7014 1585.4083 -105.9465)" class="st5 st6 st7">Porphyromonas gingivalis</text>
+			<g>
+				<g>
+					<line class="st4" x1="1581.8" y1="-119.3" x2="1578.1" y2="-118.3"/>
+					<line class="st21" x1="1570.7" y1="-116.3" x2="894.2" y2="67"/>
+					<line class="st4" x1="890.5" y1="68" x2="886.8" y2="69"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7014 -1.0027 1.0027 3.7014 1596.726 -108.9797)" class="st6 st7 st8">Porphyromonas gingivalis</text>
 			<path class="st3" d="M886.8,69l-193,52.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M-779.8-805.6L-294.3-453"/>
-			<text transform="matrix(3.1024 2.254 -2.254 3.1024 -1188.1798 -1091.7424)" class="st5 st6 st7">Sulfolobus solfataricus</text>
+			<g>
+				<g>
+					<line class="st4" x1="-779.8" y1="-805.6" x2="-776.7" y2="-803.3"/>
+					<line class="st20" x1="-770.5" y1="-798.8" x2="-300.5" y2="-457.5"/>
+					<line class="st4" x1="-297.4" y1="-455.3" x2="-294.3" y2="-453"/>
+				</g>
+			</g>
+			<text transform="matrix(3.1024 2.254 -2.254 3.1024 -1188.1805 -1091.745)" class="st6 st7 st8">Sulfolobus solfataricus</text>
 			<path class="st3" d="M-294.3-453l161.8,117.6"/>
 		</g>
 		<g>
 			<path class="st3" d="M457,728.1l-23.1-198.7"/>
 		</g>
 		<g>
-			<path class="st4" d="M630.3,1305L483,723.3"/>
-			<text transform="matrix(0.9414 3.7175 -3.7175 0.9414 616.9269 1308.3534)" class="st5 st6 st7">Myxococcus xanthus</text>
+			<g>
+				<g>
+					<line class="st4" x1="630.3" y1="1305" x2="629.4" y2="1301.3"/>
+					<line class="st22" x1="627.5" y1="1293.8" x2="484.9" y2="730.7"/>
+					<line class="st4" x1="483.9" y1="727" x2="483" y2="723.3"/>
+				</g>
+			</g>
+			<text transform="matrix(0.9414 3.7175 -3.7175 0.9414 621.9739 1327.2119)" class="st6 st7 st8">Myxococcus xanthus</text>
 			<path class="st3" d="M483,723.3l-49.1-193.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M-351.2,978.3L83.5,564.7"/>
-			<text transform="matrix(2.778 -2.6435 2.6435 2.778 -714.4688 1343.0833)" class="st5 st6 st7">Lysobacter antibioticus</text>
+			<g>
+				<g>
+					<line class="st4" x1="-351.2" y1="978.3" x2="-348.4" y2="975.7"/>
+					<line class="st20" x1="-342.8" y1="970.4" x2="77.9" y2="570"/>
+					<line class="st4" x1="80.7" y1="567.3" x2="83.5" y2="564.7"/>
+				</g>
+			</g>
+			<text transform="matrix(2.778 -2.6435 2.6435 2.778 -714.4758 1343.0879)" class="st6 st7 st8">Lysobacter antibioticus</text>
 			<path class="st3" d="M83.5,564.7l144.9-137.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M830,1236.4L571,695.2"/>
-			<text transform="matrix(1.6557 3.459 -3.459 1.6557 817.5564 1242.3627)" class="st5 st6 st7">Cupriavidus necator</text>
+			<g>
+				<g>
+					<line class="st4" x1="830" y1="1236.4" x2="828.3" y2="1232.9"/>
+					<line class="st23" x1="825" y1="1226" x2="574.3" y2="702.1"/>
+					<line class="st4" x1="572.7" y1="698.7" x2="571" y2="695.2"/>
+				</g>
+			</g>
+			<text transform="matrix(1.6557 3.459 -3.459 1.6557 820.5897 1253.6802)" class="st6 st7 st8">Cupriavidus necator</text>
 			<path class="st3" d="M571,695.2l-86.4-180.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M-743.1-550.1L20.5-200"/>
-			<text transform="matrix(3.4859 1.5983 -1.5983 3.4859 -1204.4052 -746.4576)" class="st8 st9 st10">Archaea incertae sedis</text>
+			<g>
+				<g>
+					<line class="st4" x1="-743.1" y1="-550.1" x2="-739.6" y2="-548.5"/>
+					<line class="st13" x1="-732.7" y1="-545.3" x2="13.5" y2="-203.2"/>
+					<line class="st4" x1="17" y1="-201.6" x2="20.5" y2="-200"/>
+				</g>
+			</g>
+			<text transform="matrix(3.4859 1.5983 -1.5983 3.4859 -1204.4071 -746.4593)" class="st14 st15 st16">Archaea incertae sedis</text>
 			<path class="st3" d="M20.5-200l181.8,83.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M-512.6,901.4l406.1-255.9"/>
-			<text transform="matrix(3.2446 -2.0441 2.0441 3.2446 -937.7964 1185.6433)" class="st5 st6 st7">Pseudomonas flexibilis</text>
+			<g>
+				<g>
+					<line class="st4" x1="-512.6" y1="901.4" x2="-509.4" y2="899.4"/>
+					<line class="st9" x1="-502.8" y1="895.2" x2="-113" y2="649.6"/>
+					<line class="st4" x1="-109.7" y1="647.5" x2="-106.5" y2="645.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.2446 -2.0441 2.0441 3.2446 -937.7999 1185.6456)" class="st6 st7 st8">Pseudomonas flexibilis</text>
 			<path class="st3" d="M-106.5,645.6L62.8,539"/>
 		</g>
 		<g>
-			<path class="st4" d="M-568.7,799.6l436.3-200.1"/>
-			<text transform="matrix(3.4859 -1.5983 1.5983 3.4859 -1187.9438 1098.6838)" class="st5 st6 st7">Methylomicrobium alcaliphilum</text>
+			<g>
+				<g>
+					<line class="st4" x1="-568.7" y1="799.6" x2="-565.2" y2="798"/>
+					<line class="st9" x1="-558.2" y1="794.8" x2="-139.4" y2="602.7"/>
+					<line class="st4" x1="-135.9" y1="601.1" x2="-132.4" y2="599.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.4859 -1.5983 1.5983 3.4859 -1167.3483 1085.0875)" class="st6 st7 st8">Methylomicrobium alcaliphilum</text>
 			<path class="st3" d="M-132.4,599.5l181.8-83.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M-304.8-1460l81.7,225.7"/>
-			<text transform="matrix(1.305 3.6059 -3.6059 1.305 -483.0829 -1912.0314)" class="st5 st6 st7">Halohasta litchfieldiae</text>
+			<g>
+				<g>
+					<line class="st4" x1="-304.8" y1="-1460" x2="-303.5" y2="-1456.4"/>
+					<line class="st24" x1="-300.9" y1="-1449.3" x2="-225.7" y2="-1241.4"/>
+					<line class="st4" x1="-224.4" y1="-1237.9" x2="-223.1" y2="-1234.3"/>
+				</g>
+			</g>
+			<text transform="matrix(1.305 3.6059 -3.6059 1.305 -483.0801 -1912.0361)" class="st6 st7 st8">Halohasta litchfieldiae</text>
 			<path class="st3" d="M-223.2-1234.3l68.1,188.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M805.1,1334.3L626.9,888.6"/>
-			<text transform="matrix(1.4235 3.5608 -3.5608 1.4235 792.2618 1339.4159)" class="st5 st6 st7">Delftia acidovorans</text>
+			<g>
+				<g>
+					<line class="st4" x1="805.1" y1="1334.3" x2="803.7" y2="1330.7"/>
+					<line class="st9" x1="800.8" y1="1323.6" x2="629.8" y2="895.8"/>
+					<line class="st4" x1="628.3" y1="892.2" x2="626.9" y2="888.6"/>
+				</g>
+			</g>
+			<text transform="matrix(1.4235 3.5608 -3.5608 1.4235 800.0811 1353.4989)" class="st6 st7 st8">Delftia acidovorans</text>
 			<path class="st3" d="M626.9,888.6l-74.2-185.7"/>
 		</g>
 		<g>
 			<path class="st3" d="M-96.4-634L23.9-474.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M230.2,1315l89-593.4"/>
-			<text transform="matrix(-0.5686 3.7924 -3.7924 -0.5686 216.5244 1312.9186)" class="st5 st6 st7">Caulobacter crescentus </text>
+			<g>
+				<g>
+					<line class="st4" x1="230.2" y1="1315" x2="230.8" y2="1311.2"/>
+					<line class="st20" x1="231.9" y1="1303.6" x2="318.1" y2="729.2"/>
+					<line class="st4" x1="318.6" y1="725.4" x2="319.2" y2="721.6"/>
+				</g>
+			</g>
+			<text transform="matrix(-0.5686 3.7924 -3.7924 -0.5686 214.4007 1327.6371)" class="st6 st7 st8">Caulobacter crescentus </text>
 			<path class="st3" d="M319.1,721.6l29.7-197.8"/>
 		</g>
 		<g>
-			<path class="st4" d="M1121.7-676.9L616.7-5.6"/>
-			<text transform="matrix(2.305 -3.0647 3.0647 2.305 1132.6866 -668.6503)" class="st8 st9 st10">Candidatus Krumholzibacteriota</text>
+			<g>
+				<g>
+					<line class="st4" x1="1121.7" y1="-676.9" x2="1119.4" y2="-673.8"/>
+					<line class="st25" x1="1114.8" y1="-667.7" x2="621.3" y2="-11.7"/>
+					<line class="st4" x1="619" y1="-8.7" x2="616.7" y2="-5.6"/>
+				</g>
+			</g>
+			<text transform="matrix(2.305 -3.0647 3.0647 2.305 1146.1227 -686.3889)" class="st14 st15 st16">Candidatus Krumholzibacteriota</text>
 			<path class="st3" d="M616.7-5.6L496.5,154.2"/>
 		</g>
 		<g>
 			<path class="st3" d="M960.7,532.2L807,404.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-16.6,1324l192.8-439.6"/>
-			<text transform="matrix(-1.5404 3.5118 -3.5118 -1.5404 -29.2776 1318.4329)" class="st5 st6 st7">Agrobacterium tumefaciens</text>
+			<g>
+				<g>
+					<line class="st4" x1="-16.6" y1="1324" x2="-15.1" y2="1320.5"/>
+					<line class="st26" x1="-12" y1="1313.4" x2="173.1" y2="891.5"/>
+					<line class="st4" x1="174.7" y1="887.9" x2="176.2" y2="884.4"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.5404 3.5118 -3.5118 -1.5404 -32.7817 1335.5422)" class="st6 st7 st8">Agrobacterium tumefaciens</text>
 			<path class="st3" d="M176.2,884.4l80.3-183.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M1346.3,1099.2l-288.5-383.6"/>
-			<text transform="matrix(2.305 3.0647 -3.0647 2.305 1335.2412 1107.5117)" class="st5 st6 st7">Listeria monocytogenes</text>
+			<g>
+				<g>
+					<line class="st4" x1="1346.3" y1="1099.2" x2="1344" y2="1096.1"/>
+					<line class="st11" x1="1339.3" y1="1089.9" x2="1062.4" y2="721.8"/>
+					<line class="st4" x1="1060.1" y1="718.7" x2="1057.8" y2="715.6"/>
+				</g>
+			</g>
+			<text transform="matrix(2.305 3.0647 -3.0647 2.305 1337.9086 1124.9943)" class="st6 st7 st8">Listeria monocytogenes</text>
 			<path class="st3" d="M1057.8,715.6L937.5,555.8"/>
 		</g>
 		<g>
-			<path class="st4" d="M1528.6,765.4l-518-302.9"/>
-			<text transform="matrix(3.3104 1.9357 -1.9357 3.3104 1521.6698 777.2693)" class="st5 st6 st7">Mycoplasma genitalium</text>
+			<g>
+				<g>
+					<line class="st4" x1="1528.6" y1="765.4" x2="1525.3" y2="763.5"/>
+					<line class="st22" x1="1518.6" y1="759.6" x2="1017.2" y2="466.4"/>
+					<line class="st4" x1="1013.9" y1="464.4" x2="1010.6" y2="462.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.3104 1.9357 -1.9357 3.3104 1533.6276 784.1747)" class="st6 st7 st8">Mycoplasma genitalium</text>
 			<path class="st3" d="M1010.7,462.5L838,361.5"/>
 		</g>
 		<g>
 			<path class="st3" d="M552.7,702.9l-68.1-188.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M1414.4,1040.6l-336.6-342.2"/>
-			<text transform="matrix(2.6891 2.7339 -2.7339 2.6891 1404.5399 1050.2393)" class="st5 st6 st7">Staphylococcus aureus</text>
+			<g>
+				<g>
+					<line class="st4" x1="1414.4" y1="1040.6" x2="1411.7" y2="1037.9"/>
+					<line class="st9" x1="1406.3" y1="1032.3" x2="1083.2" y2="703.9"/>
+					<line class="st4" x1="1080.5" y1="701.1" x2="1077.8" y2="698.4"/>
+				</g>
+			</g>
+			<text transform="matrix(2.6891 2.7339 -2.7339 2.6891 1416.4974 1057.145)" class="st6 st7 st8">Staphylococcus aureus</text>
 			<path class="st3" d="M1077.8,698.4L937.5,555.8"/>
 		</g>
 		<g>
@@ -202,8 +394,14 @@
 			<path class="st3" d="M662.1,266.4L496.5,154.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M1225.8-587.2l-589,598.9"/>
-			<text transform="matrix(2.6891 -2.7339 2.7339 2.6891 1235.6613 -577.5594)" class="st8 st9 st10">Nitrospinae/Tectomicrobia group</text>
+			<g>
+				<g>
+					<line class="st4" x1="1225.8" y1="-587.2" x2="1223.1" y2="-584.5"/>
+					<line class="st13" x1="1217.8" y1="-579" x2="642.2" y2="6.2"/>
+					<line class="st4" x1="639.5" y1="9" x2="636.8" y2="11.7"/>
+				</g>
+			</g>
+			<text transform="matrix(2.6891 -2.7339 2.7339 2.6891 1252.4969 -590.1482)" class="st14 st15 st16">Nitrospinae/Tectomicrobia group</text>
 			<path class="st3" d="M636.8,11.6L496.5,154.2"/>
 		</g>
 		<g>
@@ -213,13 +411,25 @@
 			<path class="st3" d="M256.5,701.2l92.3-177.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M1605.7,597.3l-567.5-194.8"/>
-			<text transform="matrix(3.627 1.2452 -1.2452 3.627 1601.2228 610.3274)" class="st5 st6 st7">Tetrasphaera remsis</text>
+			<g>
+				<g>
+					<line class="st4" x1="1605.7" y1="597.3" x2="1602.1" y2="596.1"/>
+					<line class="st27" x1="1594.8" y1="593.6" x2="1045.5" y2="405"/>
+					<line class="st4" x1="1041.8" y1="403.7" x2="1038.2" y2="402.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.627 1.2452 -1.2452 3.627 1609.7804 612.0844)" class="st6 st7 st8">Tetrasphaera remsis</text>
 			<path class="st3" d="M1038.2,402.5l-189.2-65"/>
 		</g>
 		<g>
-			<path class="st4" d="M-647.3,514l477.6-47.5"/>
-			<text transform="matrix(3.8159 -0.3798 0.3798 3.8159 -1101.241 573.0532)" class="st5 st6 st7">Idiomarina loihiensis</text>
+			<g>
+				<g>
+					<line class="st4" x1="-647.3" y1="514" x2="-643.5" y2="513.6"/>
+					<line class="st12" x1="-635.8" y1="512.9" x2="-177.4" y2="467.3"/>
+					<line class="st4" x1="-173.5" y1="466.9" x2="-169.7" y2="466.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8159 -0.3798 0.3798 3.8159 -1102.2543 569.2789)" class="st6 st7 st8">Idiomarina loihiensis</text>
 			<path class="st3" d="M-169.7,466.5l199-19.8"/>
 		</g>
 		<g>
@@ -229,69 +439,141 @@
 			<path class="st3" d="M1091.1,233.3l-197.3-32.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M1532-272.5L867.9,5.8"/>
-			<text transform="matrix(3.5368 -1.4821 1.4821 3.5368 1537.2906 -259.8008)" class="st5 st6 st7">Borreliella burgdorferi</text>
+			<g>
+				<g>
+					<line class="st4" x1="1532" y1="-272.5" x2="1528.5" y2="-271"/>
+					<line class="st21" x1="1521.4" y1="-268.1" x2="875" y2="2.8"/>
+					<line class="st4" x1="871.4" y1="4.3" x2="867.9" y2="5.8"/>
+				</g>
+			</g>
+			<text transform="matrix(3.5368 -1.4821 1.4821 3.5368 1544.8376 -261.8174)" class="st6 st7 st8">Borrelia burgdorferi</text>
 			<path class="st3" d="M867.9,5.8L683.4,83.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M-386.4,938.8l461-384"/>
-			<text transform="matrix(2.9467 -2.4542 2.4542 2.9467 -878.3297 1366.5228)" class="st5 st6 st7">Halothiobacillus neapolitanus</text>
+			<g>
+				<g>
+					<line class="st4" x1="-386.4" y1="938.8" x2="-383.5" y2="936.3"/>
+					<line class="st23" x1="-377.5" y1="931.4" x2="68.7" y2="559.7"/>
+					<line class="st4" x1="71.7" y1="557.3" x2="74.6" y2="554.8"/>
+				</g>
+			</g>
+			<text transform="matrix(2.9467 -2.4542 2.4542 2.9467 -878.3367 1366.5275)" class="st6 st7 st8">Halothiobacillus neapolitanus</text>
 			<path class="st3" d="M74.7,554.8l153.7-128"/>
 		</g>
 		<g>
 			<path class="st3" d="M-132.5-335.4L33.1-223.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M-427.1-1318.3l186.8,307.7"/>
-			<text transform="matrix(1.9901 3.278 -3.278 1.9901 -724.123 -1780.9653)" class="st5 st6 st7">Halobacterium salinarum</text>
+			<g>
+				<g>
+					<line class="st4" x1="-427.1" y1="-1318.3" x2="-425.1" y2="-1315"/>
+					<line class="st28" x1="-421" y1="-1308.3" x2="-244.3" y2="-1017.2"/>
+					<line class="st4" x1="-242.3" y1="-1013.9" x2="-240.3" y2="-1010.6"/>
+				</g>
+			</g>
+			<text transform="matrix(1.9901 3.278 -3.278 1.9901 -724.1235 -1780.972)" class="st6 st7 st8">Halobacterium salinarum</text>
 			<path class="st3" d="M-240.3-1010.6l103.8,171"/>
 		</g>
 		<g>
-			<path class="st4" d="M882.6-811.5l-311.8,780"/>
-			<text transform="matrix(-1.4235 3.5608 -3.5608 -1.4235 1123.1373 -1450.4127)" class="st8 st9 st10">Caldiserica/Cryosericota group</text>
+			<g>
+				<g>
+					<line class="st4" x1="882.6" y1="-811.5" x2="881.2" y2="-807.9"/>
+					<line class="st13" x1="878.3" y1="-800.8" x2="573.6" y2="-38.6"/>
+					<line class="st4" x1="572.2" y1="-35.1" x2="570.8" y2="-31.5"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.4235 3.5608 -3.5608 -1.4235 1123.1394 -1450.4163)" class="st14 st15 st16">Caldiserica/Cryosericota group</text>
 			<path class="st3" d="M570.8-31.5l-74.2,185.7"/>
 		</g>
 		<g>
-			<path class="st4" d="M1006.6-752.1l-412,732"/>
-			<text transform="matrix(-1.8807 3.342 -3.342 -1.8807 1220.244 -1159.9629)" class="st8 st9 st10">unclassified Bacteria</text>
+			<g>
+				<g>
+					<line class="st4" x1="1006.6" y1="-752.1" x2="1004.7" y2="-748.8"/>
+					<line class="st19" x1="1001" y1="-742.1" x2="598.4" y2="-26.8"/>
+					<line class="st4" x1="596.5" y1="-23.4" x2="594.6" y2="-20.1"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.8807 3.342 -3.342 -1.8807 1220.2454 -1159.9653)" class="st14 st15 st16">unclassified Bacteria</text>
 			<path class="st3" d="M594.6-20.1l-98.1,174.3"/>
 		</g>
 		<g>
 			<path class="st3" d="M849,337.5l-186.9-71.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M1757.7,367.4l-470.6-94.6"/>
-			<text transform="matrix(3.7596 0.7559 -0.7559 3.7596 1755.0168 380.8902)" class="st5 st6 st7">Prosthecobacter vanneervenii</text>
+			<g>
+				<g>
+					<line class="st4" x1="1757.7" y1="367.4" x2="1753.9" y2="366.6"/>
+					<line class="st9" x1="1746.4" y1="365.1" x2="1294.7" y2="274.3"/>
+					<line class="st4" x1="1290.9" y1="273.6" x2="1287.1" y2="272.8"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7596 0.7559 -0.7559 3.7596 1764.5858 386.417)" class="st6 st7 st8">Prosthecobacter vanneervenii</text>
 			<path class="st3" d="M1287.2,272.7l-196.1-39.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M-691.3,702l344.2-105.6"/>
-			<text transform="matrix(3.6662 -1.1246 1.1246 3.6662 -1347.1478 922.6569)" class="st5 st6 st7">Salmonella enterica Typhimurium</text>
+			<g>
+				<g>
+					<line class="st4" x1="-691.3" y1="702" x2="-687.6" y2="700.9"/>
+					<line class="st29" x1="-680.1" y1="698.6" x2="-354.5" y2="598.7"/>
+					<line class="st4" x1="-350.8" y1="597.5" x2="-347.1" y2="596.4"/>
+				</g>
+			</g>
+			<text transform="matrix(3.6662 -1.1246 1.1246 3.6662 -1185.2421 863.1019)" class="st6 st7 st8">Salmonella typhimurium</text>
 			<path class="st3" d="M-347.1,596.4l191.2-58.6"/>
 		</g>
 		<g>
-			<path class="st4" d="M-832.6-219.7L3.3-136.5"/>
-			<text transform="matrix(3.8159 0.3798 -0.3798 3.8159 -1571.6089 -279.3667)" class="st8 st9 st10">Candidatus Hydrothermarchaeota</text>
+			<g>
+				<g>
+					<line class="st4" x1="-832.6" y1="-219.7" x2="-828.8" y2="-219.3"/>
+					<line class="st13" x1="-821.2" y1="-218.6" x2="-4.3" y2="-137.3"/>
+					<line class="st4" x1="-0.5" y1="-136.9" x2="3.3" y2="-136.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8159 0.3798 -0.3798 3.8159 -1571.6129 -279.3711)" class="st14 st15 st16">Candidatus Hydrothermarchaeota</text>
 			<path class="st3" d="M3.3-136.5l199,19.8"/>
 		</g>
 		<g>
-			<path class="st4" d="M-641.4,558.6l473.5-79"/>
-			<text transform="matrix(3.7825 -0.6312 0.6312 3.7825 -1135.8549 655.0822)" class="st5 st6 st7">Shewanella oneidensis</text>
+			<g>
+				<g>
+					<line class="st4" x1="-641.4" y1="558.6" x2="-637.6" y2="558"/>
+					<line class="st30" x1="-630" y1="556.7" x2="-175.5" y2="480.9"/>
+					<line class="st4" x1="-171.7" y1="480.2" x2="-167.9" y2="479.6"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7825 -0.6312 0.6312 3.7825 -1135.8568 655.0854)" class="st6 st7 st8">Shewanella oneidensis</text>
 			<path class="st3" d="M-167.9,479.6l197.3-32.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M1394.3-370.7l-725.1,424"/>
-			<text transform="matrix(3.3104 -1.9357 1.9357 3.3104 1401.2896 -358.8331)" class="st8 st9 st10">Dictyoglomi</text>
+			<g>
+				<g>
+					<line class="st4" x1="1394.3" y1="-370.7" x2="1391" y2="-368.8"/>
+					<line class="st19" x1="1384.4" y1="-364.9" x2="675.8" y2="49.4"/>
+					<line class="st4" x1="672.5" y1="51.4" x2="669.2" y2="53.3"/>
+				</g>
+			</g>
+			<text transform="matrix(3.3104 -1.9357 1.9357 3.3104 1421.5281 -366.2703)" class="st14 st15 st16">Dictyoglomi</text>
 			<path class="st3" d="M669.2,53.3l-172.7,101"/>
 		</g>
 		<g>
-			<path class="st4" d="M1381.3,1071l-313.2-363.7"/>
-			<text transform="matrix(2.5025 2.9057 -2.9057 2.5025 1370.8403 1080.0276)" class="st5 st6 st7">Bacillus subtilis</text>
+			<g>
+				<g>
+					<line class="st4" x1="1381.3" y1="1071" x2="1378.8" y2="1068.1"/>
+					<line class="st12" x1="1373.7" y1="1062.2" x2="1073.1" y2="713.1"/>
+					<line class="st4" x1="1070.6" y1="710.2" x2="1068.1" y2="707.3"/>
+				</g>
+			</g>
+			<text transform="matrix(2.5025 2.9057 -2.9057 2.5025 1383.4423 1096.8741)" class="st6 st7 st8">Bacillus subtilis</text>
 			<path class="st3" d="M1068.1,707.3L937.5,555.8"/>
 		</g>
 		<g>
-			<path class="st4" d="M1550.1,506.9l-695-188.3"/>
-			<text transform="matrix(3.7014 1.0027 -1.0027 3.7014 1546.5223 520.2383)" class="st5 st6 st7">Chloroflexi</text>
+			<g>
+				<g>
+					<line class="st4" x1="1550.1" y1="506.9" x2="1546.4" y2="505.9"/>
+					<line class="st21" x1="1539" y1="503.9" x2="862.5" y2="320.6"/>
+					<line class="st4" x1="858.8" y1="319.6" x2="855.1" y2="318.6"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7014 1.0027 -1.0027 3.7014 1559.8621 524.7531)" class="st14 st15 st16">Chloroflexi</text>
 			<path class="st3" d="M855.2,318.6l-193-52.3"/>
 		</g>
 		<g>
@@ -301,110 +583,224 @@
 			<path class="st3" d="M-222.8-1020l86.4,180.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M945.6-783.9L582.9-26.2"/>
-			<text transform="matrix(-1.6557 3.459 -3.459 -1.6557 1058.908 -1052.6311)" class="st8 st9 st10">Thermotogae</text>
+			<g>
+				<g>
+					<line class="st4" x1="945.6" y1="-783.9" x2="943.9" y2="-780.4"/>
+					<line class="st13" x1="940.6" y1="-773.6" x2="586.2" y2="-33.1"/>
+					<line class="st4" x1="584.6" y1="-29.7" x2="582.9" y2="-26.2"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.6557 3.459 -3.459 -1.6557 1058.9167 -1052.6315)" class="st14 st15 st16">Thermotogae</text>
 			<path class="st3" d="M582.9-26.2l-86.4,180.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M-223.3-1482.6l51.2,234.5"/>
-			<text transform="matrix(0.818 3.7466 -3.7466 0.818 -346.9385 -1984.1466)" class="st5 st6 st7">Haloquadratum walsbyi</text>
+			<g>
+				<g>
+					<line class="st4" x1="-223.3" y1="-1482.6" x2="-222.5" y2="-1478.9"/>
+					<line class="st24" x1="-220.9" y1="-1471.5" x2="-173.7" y2="-1255.5"/>
+					<line class="st4" x1="-172.9" y1="-1251.8" x2="-172.1" y2="-1248.1"/>
+				</g>
+			</g>
+			<text transform="matrix(0.818 3.7466 -3.7466 0.818 -346.9413 -1984.1569)" class="st6 st7 st8">Haloquadratum walsbyi</text>
 			<path class="st3" d="M-172.1-1248.2l42.7,195.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M1692.1,253.3l-598.7-39.7"/>
-			<text transform="matrix(3.8264 0.2534 -0.2534 3.8264 1691.1449 267.0466)" class="st5 st6 st7">Verrucomicrobium spinosum</text>
+			<g>
+				<g>
+					<line class="st4" x1="1692.1" y1="253.3" x2="1688.3" y2="253"/>
+					<line class="st20" x1="1680.6" y1="252.5" x2="1101.1" y2="214.1"/>
+					<line class="st4" x1="1097.2" y1="213.9" x2="1093.4" y2="213.6"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8264 0.2534 -0.2534 3.8264 1703.4756 267.7918)" class="st6 st7 st8">Verrucomicrobium spinosum</text>
 			<path class="st3" d="M1093.4,213.6l-199.6-13.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M282.7,1321.1l49.5-598"/>
-			<text transform="matrix(-0.3167 3.8217 -3.8217 -0.3167 268.9641 1319.9368)" class="st5 st6 st7">Hyphomonas neptunium</text>
+			<g>
+				<g>
+					<line class="st4" x1="282.7" y1="1321.1" x2="283" y2="1317.3"/>
+					<line class="st22" x1="283.7" y1="1309.6" x2="331.6" y2="730.8"/>
+					<line class="st4" x1="331.9" y1="726.9" x2="332.2" y2="723.1"/>
+				</g>
+			</g>
+			<text transform="matrix(-0.3167 3.8217 -3.8217 -0.3167 265.4594 1337.0471)" class="st6 st7 st8">Hyphomonas neptunium</text>
 			<path class="st3" d="M332.3,723.1l16.5-199.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M335.6,1323.7l9.9-599.9"/>
-			<text transform="matrix(-6.341115e-02 3.8343 -3.8343 -6.341115e-02 321.7577 1323.4681)" class="st5 st6 st7">Sphingopyxis alaskensis</text>
+			<g>
+				<g>
+					<line class="st4" x1="335.6" y1="1323.7" x2="335.7" y2="1319.9"/>
+					<line class="st23" x1="335.8" y1="1312.2" x2="345.4" y2="731.5"/>
+					<line class="st4" x1="345.4" y1="727.6" x2="345.5" y2="723.8"/>
+				</g>
+			</g>
+			<text transform="matrix(-6.341781e-02 3.8343 -3.8343 -6.341781e-02 321.0175 1335.7975)" class="st6 st7 st8">Sphingopyxis alaskensis</text>
 			<path class="st3" d="M345.5,723.8l3.3-200"/>
 		</g>
 		<g>
-			<path class="st4" d="M1317.2-484.6l-662.8,516"/>
-			<text transform="matrix(3.0262 -2.3554 2.3554 3.0262 1325.7219 -473.6808)" class="st8 st9 st10">Nitrospirae</text>
+			<g>
+				<g>
+					<line class="st4" x1="1317.2" y1="-484.6" x2="1314.2" y2="-482.2"/>
+					<line class="st19" x1="1308.2" y1="-477.6" x2="660.4" y2="26.7"/>
+					<line class="st4" x1="657.4" y1="29" x2="654.4" y2="31.4"/>
+				</g>
+			</g>
+			<text transform="matrix(3.0262 -2.3554 2.3554 3.0262 1341.1801 -483.8779)" class="st14 st15 st16">Nitrospirae</text>
 			<path class="st3" d="M654.4,31.4L496.5,154.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-812.2-17.2l959.5,31.7"/>
-			<text transform="matrix(3.8327 0.1268 -0.1268 3.8327 -1393.9773 3.1538)" class="st5 st9 st11">EUKARYOTES</text>
+			<g>
+				<g>
+					<line class="st4" x1="-812.2" y1="-17.2" x2="-808.4" y2="-17.1"/>
+					<line class="st31" x1="-800.8" y1="-16.8" x2="139.7" y2="14.2"/>
+					<line class="st4" x1="143.5" y1="14.4" x2="147.3" y2="14.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8327 0.1268 -0.1268 3.8327 -1476.4884 -3.037)" class="st6 st15 st32">EUKARYOTES</text>
 			<path class="st3" d="M147.3,14.6l199.9,6.6"/>
 		</g>
 		<g>
-			<path class="st4" d="M548.1-884.5l-41.7,839"/>
-			<text transform="matrix(-0.1901 3.8301 -3.8301 -0.1901 548.5151 -1171.153)" class="st8 st9 st10">Fusobacteria</text>
+			<g>
+				<g>
+					<line class="st4" x1="548.1" y1="-884.5" x2="547.9" y2="-880.7"/>
+					<line class="st13" x1="547.5" y1="-873" x2="506.8" y2="-53.1"/>
+					<line class="st4" x1="506.6" y1="-49.3" x2="506.4" y2="-45.5"/>
+				</g>
+			</g>
+			<text transform="matrix(-0.1901 3.8301 -3.8301 -0.1901 548.5161 -1171.1545)" class="st14 st15 st16">Fusobacteria</text>
 			<path class="st3" d="M506.4-45.5l-9.9,199.8"/>
 		</g>
 		<g>
-			<path class="st4" d="M-548.6,839.8l422.1-228.5"/>
-			<text transform="matrix(3.3726 -1.8252 1.8252 3.3726 -1094.963 1151.1622)" class="st5 st6 st7">Methyloprofundus sedimenti</text>
+			<g>
+				<g>
+					<line class="st4" x1="-548.6" y1="839.8" x2="-545.2" y2="838"/>
+					<line class="st11" x1="-538.4" y1="834.3" x2="-133.3" y2="615"/>
+					<line class="st4" x1="-129.9" y1="613.1" x2="-126.5" y2="611.3"/>
+				</g>
+			</g>
+			<text transform="matrix(3.3726 -1.8252 1.8252 3.3726 -1083.6515 1148.1321)" class="st6 st7 st8">Methyloprofundus sedimenti</text>
 			<path class="st3" d="M-126.5,611.4l175.9-95.2"/>
 		</g>
 		<g>
 			<path class="st3" d="M29.4,446.7l199-19.8"/>
 		</g>
 		<g>
-			<path class="st4" d="M76.2,1444.2l99.9-345.9"/>
-			<text transform="matrix(-1.0638 3.6843 -3.6843 -1.0638 62.8953 1440.3644)" class="st5 st6 st7">Azospirillum brasilense</text>
+			<g>
+				<g>
+					<line class="st4" x1="76.2" y1="1444.2" x2="77.3" y2="1440.5"/>
+					<line class="st29" x1="79.4" y1="1433" x2="173.9" y2="1105.7"/>
+					<line class="st4" x1="175" y1="1102" x2="176.1" y2="1098.3"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.0638 3.6843 -3.6843 -1.0638 60.7718 1455.0825)" class="st6 st7 st8">Azospirillum brasilense</text>
 			<path class="st3" d="M176,1098.3l55.5-192.2"/>
 		</g>
 		<g>
 			<path class="st3" d="M37.2,485.5l191.2-58.6"/>
 		</g>
 		<g>
-			<path class="st4" d="M-769.7-486.7l785,298.9"/>
-			<text transform="matrix(3.5839 1.3644 -1.3644 3.5839 -1057.9572 -581.683)" class="st8 st9 st10">DPANN group</text>
+			<g>
+				<g>
+					<line class="st4" x1="-769.7" y1="-486.7" x2="-766.1" y2="-485.3"/>
+					<line class="st19" x1="-759" y1="-482.6" x2="8.1" y2="-190.5"/>
+					<line class="st4" x1="11.7" y1="-189.2" x2="15.3" y2="-187.8"/>
+				</g>
+			</g>
+			<text transform="matrix(3.5839 1.3644 -1.3644 3.5839 -1057.9596 -581.6871)" class="st14 st15 st16">DPANN group</text>
 			<path class="st3" d="M15.4-187.8l186.9,71.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M907.5,1101.8L513.7,499.1"/>
-			<text transform="matrix(2.0974 3.2104 -3.2104 2.0974 895.901 1109.4003)" class="st5 st6 st7">Bdellovibrio bacteriovorus</text>
+			<g>
+				<g>
+					<line class="st4" x1="907.5" y1="1101.8" x2="905.4" y2="1098.6"/>
+					<line class="st33" x1="901.2" y1="1092.2" x2="517.9" y2="505.5"/>
+					<line class="st4" x1="515.8" y1="502.3" x2="513.7" y2="499.1"/>
+				</g>
+			</g>
+			<text transform="matrix(2.0974 3.2104 -3.2104 2.0974 903.717 1123.4813)" class="st6 st7 st8">Bdellovibrio bacteriovorus</text>
 			<path class="st3" d="M513.7,499.1L404.3,331.7"/>
 		</g>
 		<g>
 			<path class="st3" d="M293.3,716l55.5-192.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-598.3,727.4l448.6-170.8"/>
-			<text transform="matrix(3.5839 -1.3644 1.3644 3.5839 -942.2494 873.1248)" class="st5 st6 st7">Proteus mirabilis</text>
+			<g>
+				<g>
+					<line class="st4" x1="-598.3" y1="727.4" x2="-594.7" y2="726"/>
+					<line class="st9" x1="-587.5" y1="723.3" x2="-156.9" y2="559.3"/>
+					<line class="st4" x1="-153.3" y1="558" x2="-149.7" y2="556.6"/>
+				</g>
+			</g>
+			<text transform="matrix(3.5839 -1.3644 1.3644 3.5839 -942.2548 873.1303)" class="st6 st7 st8">Proteus mirabilis</text>
 			<path class="st3" d="M-149.8,556.7l186.9-71.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-399.6-1423l96.4,219.8"/>
-			<text transform="matrix(1.5404 3.5118 -3.5118 1.5404 -654.5172 -1969.8531)" class="st5 st6 st7">Halomicrobium mukohataei</text>
+			<g>
+				<g>
+					<line class="st4" x1="-399.6" y1="-1423" x2="-398.1" y2="-1419.5"/>
+					<line class="st34" x1="-395" y1="-1412.6" x2="-306.2" y2="-1210.1"/>
+					<line class="st4" x1="-304.7" y1="-1206.7" x2="-303.2" y2="-1203.2"/>
+				</g>
+			</g>
+			<text transform="matrix(1.5404 3.5118 -3.5118 1.5404 -644.5806 -1970.5)" class="st6 st7 st8">Halomicrobium mukohataei</text>
 			<path class="st3" d="M-303.2-1203.2l80.3,183.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M1468.5,984.4L1110,665.2"/>
-			<text transform="matrix(2.8639 2.5502 -2.5502 2.8639 1459.3612 994.7473)" class="st5 st6 st7">Acetonema longum</text>
+			<g>
+				<g>
+					<line class="st4" x1="1468.5" y1="984.4" x2="1465.6" y2="981.9"/>
+					<line class="st9" x1="1459.9" y1="976.7" x2="1115.8" y2="670.3"/>
+					<line class="st4" x1="1112.9" y1="667.8" x2="1110" y2="665.2"/>
+				</g>
+			</g>
+			<text transform="matrix(2.8639 2.5502 -2.5502 2.8639 1473.3401 1009.1996)" class="st6 st7 st8">Acetonema longum</text>
 			<path class="st3" d="M1110.1,665.2l-149.4-133"/>
 		</g>
 		<g>
-			<path class="st4" d="M1175.2-633.8L627,2.7"/>
-			<text transform="matrix(2.5025 -2.9057 2.9057 2.5025 1185.682 -624.8087)" class="st8 st9 st10">Thermodesulfobacteria</text>
+			<g>
+				<g>
+					<line class="st4" x1="1175.2" y1="-633.8" x2="1172.7" y2="-630.9"/>
+					<line class="st13" x1="1167.7" y1="-625.1" x2="632" y2="-3.1"/>
+					<line class="st4" x1="629.5" y1="-0.2" x2="627" y2="2.7"/>
+				</g>
+			</g>
+			<text transform="matrix(2.5025 -2.9057 2.9057 2.5025 1194.9746 -635.3785)" class="st14 st15 st16">Thermodesulfobacteria</text>
 			<path class="st3" d="M627,2.7L496.5,154.2"/>
 		</g>
 		<g>
 			<path class="st3" d="M23.9-474.1L104.2-291"/>
 		</g>
 		<g>
-			<path class="st4" d="M1469.4,852.8L972.6,516.4"/>
-			<text transform="matrix(3.1752 2.1502 -2.1502 3.1752 1461.6913 864.2258)" class="st5 st6 st7">Clostridium thermocellum</text>
+			<g>
+				<g>
+					<line class="st4" x1="1469.4" y1="852.8" x2="1466.2" y2="850.7"/>
+					<line class="st23" x1="1459.9" y1="846.3" x2="979" y2="520.7"/>
+					<line class="st4" x1="975.8" y1="518.6" x2="972.6" y2="516.4"/>
+				</g>
+			</g>
+			<text transform="matrix(3.1752 2.1502 -2.1502 3.1752 1476.0422 872.5156)" class="st6 st7 st8">Clostridium thermocellum</text>
 			<path class="st3" d="M972.6,516.4L807,404.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-487.4,938.7L-99,656.5"/>
-			<text transform="matrix(3.1024 -2.254 2.254 3.1024 -942.4964 1286.4132)" class="st5 st6 st7">Pseudomonas aeruginosa</text>
+			<g>
+				<g>
+					<line class="st4" x1="-487.4" y1="938.7" x2="-484.3" y2="936.4"/>
+					<line class="st35" x1="-478" y1="931.9" x2="-105.2" y2="661"/>
+					<line class="st4" x1="-102.1" y1="658.8" x2="-99" y2="656.5"/>
+				</g>
+			</g>
+			<text transform="matrix(3.1024 -2.254 2.254 3.1024 -942.505 1286.4169)" class="st6 st7 st8">Pseudomonas aeruginosa</text>
 			<path class="st3" d="M-99,656.5L62.8,539"/>
 		</g>
 		<g>
-			<path class="st4" d="M1427.1-310.3L675.5,64.9"/>
-			<text transform="matrix(3.4311 -1.7127 1.7127 3.4311 1433.2197 -297.9133)" class="st8 st9 st10">Coleospermum</text>
+			<g>
+				<g>
+					<line class="st4" x1="1427.1" y1="-310.3" x2="1423.7" y2="-308.6"/>
+					<line class="st25" x1="1416.8" y1="-305.2" x2="682.3" y2="61.5"/>
+					<line class="st4" x1="678.9" y1="63.2" x2="675.5" y2="64.9"/>
+				</g>
+			</g>
+			<text transform="matrix(3.4311 -1.7127 1.7127 3.4311 1449.6904 -304.3388)" class="st14 st15 st16">Coleospermum</text>
 			<path class="st3" d="M675.5,64.9l-178.9,89.3"/>
 		</g>
 		<g>
@@ -414,49 +810,97 @@
 			<path class="st3" d="M838,361.5l-175.9-95.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M1065.4-716.4L605.9-13.2"/>
-			<text transform="matrix(2.0974 -3.2104 3.2104 2.0974 1076.915 -708.8976)" class="st8 st9 st10">Acidobacteria</text>
+			<g>
+				<g>
+					<line class="st4" x1="1065.4" y1="-716.4" x2="1063.3" y2="-713.2"/>
+					<line class="st13" x1="1059.1" y1="-706.8" x2="610.1" y2="-19.6"/>
+					<line class="st4" x1="608" y1="-16.4" x2="605.9" y2="-13.2"/>
+				</g>
+			</g>
+			<text transform="matrix(2.0974 -3.2104 3.2104 2.0974 1086.5779 -725.6276)" class="st14 st15 st16">Acidobacteria</text>
 			<path class="st3" d="M605.9-13.2L496.5,154.2"/>
 		</g>
 		<g>
 			<path class="st3" d="M807,404.2L662.1,266.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M751.8-854L545.6-39.7"/>
-			<text transform="matrix(-0.9414 3.7175 -3.7175 -0.9414 812.5144 -1149.7751)" class="st8 st9 st10">Elusimicrobia</text>
+			<g>
+				<g>
+					<line class="st4" x1="751.8" y1="-854" x2="750.9" y2="-850.3"/>
+					<line class="st13" x1="749" y1="-842.9" x2="547.5" y2="-47.1"/>
+					<line class="st4" x1="546.5" y1="-43.4" x2="545.6" y2="-39.7"/>
+				</g>
+			</g>
+			<text transform="matrix(-0.9414 3.7175 -3.7175 -0.9414 812.5167 -1149.7792)" class="st14 st15 st16">Elusimicrobia</text>
 			<path class="st3" d="M545.6-39.7l-49.1,193.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M876.9,1212L582.7,689.1"/>
-			<text transform="matrix(1.8807 3.342 -3.342 1.8807 864.9135 1218.767)" class="st5 st6 st7">Thiomonas intermedia</text>
+			<g>
+				<g>
+					<line class="st4" x1="876.9" y1="1212" x2="875" y2="1208.7"/>
+					<line class="st23" x1="871.2" y1="1202" x2="586.5" y2="695.8"/>
+					<line class="st4" x1="584.6" y1="692.4" x2="582.7" y2="689.1"/>
+				</g>
+			</g>
+			<text transform="matrix(1.8807 3.342 -3.342 1.8807 869.3253 1227.6968)" class="st6 st7 st8">Thiomonas intermedia</text>
 			<path class="st3" d="M582.7,689.1l-98.1-174.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M1553.8,718.8l-536.8-268"/>
-			<text transform="matrix(3.4311 1.7127 -1.7127 3.4311 1547.6511 731.181)" class="st5 st6 st7">Mycoplasma pneumoniae</text>
+			<g>
+				<g>
+					<line class="st4" x1="1553.8" y1="718.8" x2="1550.4" y2="717.1"/>
+					<line class="st23" x1="1543.5" y1="713.7" x2="1023.9" y2="454.2"/>
+					<line class="st4" x1="1020.4" y1="452.5" x2="1017" y2="450.8"/>
+				</g>
+			</g>
+			<text transform="matrix(3.4311 1.7127 -1.7127 3.4311 1563.3812 737.0782)" class="st6 st7 st8">Mycoplasma pneumoniae</text>
 			<path class="st3" d="M1017,450.9l-179-89.4"/>
 		</g>
 		<g>
 			<path class="st3" d="M693.8,121.3l-197.3,32.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M-522.8-1163.6l301,373.9"/>
-			<text transform="matrix(2.4051 2.9868 -2.9868 2.4051 -900.6349 -1610.7744)" class="st5 st6 st7">Methanospirillum hungatei</text>
+			<g>
+				<g>
+					<line class="st4" x1="-522.8" y1="-1163.6" x2="-520.4" y2="-1160.6"/>
+					<line class="st9" x1="-515.5" y1="-1154.6" x2="-226.6" y2="-795.7"/>
+					<line class="st4" x1="-224.2" y1="-792.7" x2="-221.8" y2="-789.7"/>
+				</g>
+			</g>
+			<text transform="matrix(2.4051 2.9868 -2.9868 2.4051 -900.6353 -1610.7811)" class="st6 st7 st8">Methanospirillum hungatei</text>
 			<path class="st3" d="M-221.8-789.7L-96.4-634"/>
 		</g>
 		<g>
-			<path class="st4" d="M479.3-885.7l13.9,839.9"/>
-			<text transform="matrix(6.339820e-02 3.8343 -3.8343 6.339820e-02 462.1189 -1092.4396)" class="st8 st9 st10">Aquificae</text>
+			<g>
+				<g>
+					<line class="st4" x1="479.3" y1="-885.7" x2="479.4" y2="-881.9"/>
+					<line class="st13" x1="479.5" y1="-874.2" x2="493.1" y2="-53.5"/>
+					<line class="st4" x1="493.1" y1="-49.6" x2="493.2" y2="-45.8"/>
+				</g>
+			</g>
+			<text transform="matrix(6.339184e-02 3.8343 -3.8343 6.339184e-02 462.1217 -1092.4449)" class="st14 st15 st16">Aquificae</text>
 			<path class="st3" d="M493.2-45.8l3.3,200"/>
 		</g>
 		<g>
-			<path class="st4" d="M-57.2,1304.6l221.4-425.9"/>
-			<text transform="matrix(-1.7692 3.4023 -3.4023 -1.7692 -69.4407 1298.1962)" class="st5 st6 st7">Rhodopseudomonas palustris</text>
+			<g>
+				<g>
+					<line class="st4" x1="-57.2" y1="1304.6" x2="-55.4" y2="1301.2"/>
+					<line class="st9" x1="-51.9" y1="1294.3" x2="160.6" y2="885.5"/>
+					<line class="st4" x1="162.4" y1="882.1" x2="164.2" y2="878.7"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.7692 3.4023 -3.4023 -1.7692 -80.1187 1311.1635)" class="st6 st7 st8">Rhodopseudomonas palustris</text>
 			<path class="st3" d="M164.2,878.7l92.3-177.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M616.6-878.8l-97,834.4"/>
-			<text transform="matrix(-0.4429 3.8091 -3.8091 -0.4429 637.7703 -1180.1056)" class="st8 st9 st10">Synergistetes</text>
+			<g>
+				<g>
+					<line class="st4" x1="616.6" y1="-878.8" x2="616.2" y2="-875"/>
+					<line class="st13" x1="615.3" y1="-867.4" x2="520.5" y2="-52"/>
+					<line class="st4" x1="520" y1="-48.2" x2="519.6" y2="-44.4"/>
+				</g>
+			</g>
+			<text transform="matrix(-0.4429 3.8091 -3.8091 -0.4429 637.7722 -1180.1088)" class="st14 st15 st16">Synergistetes</text>
 			<path class="st3" d="M519.6-44.5l-23.1,198.7"/>
 		</g>
 		<g>
@@ -469,76 +913,160 @@
 			<path class="st3" d="M893.8,200.4L695.5,174"/>
 		</g>
 		<g>
-			<path class="st4" d="M-602.7-879.7L-49.5-419"/>
-			<text transform="matrix(2.9467 2.4542 -2.4542 2.9467 -1126.1407 -1297.7069)" class="st5 st6 st7">Methanobacterium formicicum</text>
+			<g>
+				<g>
+					<line class="st4" x1="-602.7" y1="-879.7" x2="-599.8" y2="-877.2"/>
+					<line class="st36" x1="-593.9" y1="-872.3" x2="-55.4" y2="-423.9"/>
+					<line class="st4" x1="-52.4" y1="-421.5" x2="-49.5" y2="-419"/>
+				</g>
+			</g>
+			<text transform="matrix(2.9467 2.4542 -2.4542 2.9467 -1126.1417 -1297.7118)" class="st6 st7 st8">Methanobacterium formicicum</text>
 			<path class="st3" d="M-49.5-419l153.7,128"/>
 		</g>
 		<g>
-			<path class="st4" d="M-700.9,666.3l350.4-82.6"/>
-			<text transform="matrix(3.7325 -0.8798 0.8798 3.7325 -1038.7186 760.0603)" class="st5 st6 st7">Escherichia coli</text>
+			<g>
+				<g>
+					<line class="st4" x1="-700.9" y1="666.3" x2="-697.2" y2="665.4"/>
+					<line class="st37" x1="-689.5" y1="663.6" x2="-358" y2="585.5"/>
+					<line class="st4" x1="-354.2" y1="584.6" x2="-350.5" y2="583.7"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7325 -0.8798 0.8798 3.7325 -1040.7456 752.5161)" class="st6 st7 st8">Escherichia coli</text>
 			<path class="st3" d="M-350.5,583.7l194.7-45.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M-277.2-1469l66.6,230.6"/>
-			<text transform="matrix(1.0638 3.6843 -3.6843 1.0638 -416.6119 -1902.2533)" class="st5 st6 st7">Halorubrum litoreum</text>
+			<g>
+				<g>
+					<line class="st4" x1="-277.2" y1="-1469" x2="-276.1" y2="-1465.3"/>
+					<line class="st24" x1="-274.1" y1="-1458.1" x2="-212.7" y2="-1245.7"/>
+					<line class="st4" x1="-211.7" y1="-1242.1" x2="-210.6" y2="-1238.4"/>
+				</g>
+			</g>
+			<text transform="matrix(1.0638 3.6843 -3.6843 1.0638 -409.0667 -1904.2819)" class="st6 st7 st8">Halorubrum litoreum</text>
 			<path class="st3" d="M-210.6-1238.4l55.5,192.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M1595.8-60.1l-705.9,142"/>
-			<text transform="matrix(3.7596 -0.7559 0.7559 3.7596 1598.4779 -46.5254)" class="st5 st6 st7"> Amoebophilus asiaticus</text>
+			<g>
+				<g>
+					<line class="st4" x1="1595.8" y1="-60.1" x2="1592" y2="-59.3"/>
+					<line class="st21" x1="1584.5" y1="-57.8" x2="897.4" y2="80.4"/>
+					<line class="st4" x1="893.7" y1="81.1" x2="889.9" y2="81.9"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7596 -0.7559 0.7559 3.7596 1607.4061 -50.9382)" class="st6 st7 st8"> Amoebophilus asiaticus</text>
 			<path class="st3" d="M889.9,81.9l-196.1,39.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M1497.3,949.9l-378.8-294.8"/>
-			<text transform="matrix(3.0262 2.3554 -2.3554 3.0262 1488.843 960.7756)" class="st5 st6 st7">Sporomusa acidovorans</text>
+			<g>
+				<g>
+					<line class="st4" x1="1497.3" y1="949.9" x2="1494.3" y2="947.5"/>
+					<line class="st9" x1="1488.2" y1="942.8" x2="1124.6" y2="659.8"/>
+					<line class="st4" x1="1121.5" y1="657.5" x2="1118.5" y2="655.1"/>
+				</g>
+			</g>
+			<text transform="matrix(3.0262 2.3554 -2.3554 3.0262 1506.9639 968.0519)" class="st6 st7 st8">Sporomusa acidovorans</text>
 			<path class="st3" d="M1118.5,655.1L960.7,532.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M817.9-834.9L558.3-36"/>
-			<text transform="matrix(-1.185 3.6471 -3.6471 -1.185 958.7984 -1313.1492)" class="st8 st9 st10">Coprothermobacterota</text>
+			<g>
+				<g>
+					<line class="st4" x1="817.9" y1="-834.9" x2="816.7" y2="-831.3"/>
+					<line class="st13" x1="814.4" y1="-824" x2="560.7" y2="-43.3"/>
+					<line class="st4" x1="559.5" y1="-39.6" x2="558.3" y2="-36"/>
+				</g>
+			</g>
+			<text transform="matrix(-1.185 3.6471 -3.6471 -1.185 958.7998 -1313.1516)" class="st14 st15 st16">Coprothermobacterota</text>
 			<path class="st3" d="M558.3-36l-61.8,190.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-563.6-923.5l525.5,497.4"/>
-			<text transform="matrix(2.8333 2.5843 -2.5843 2.8333 -1041.0078 -1352.2477)" class="st5 st6 st7">Thermococcus kodakarensis</text>
+			<g>
+				<g>
+					<line class="st4" x1="-563.6" y1="-923.5" x2="-560.8" y2="-920.9"/>
+					<line class="st38" x1="-555.2" y1="-915.6" x2="-43.7" y2="-431.4"/>
+					<line class="st4" x1="-40.9" y1="-428.7" x2="-38.1" y2="-426.1"/>
+				</g>
+			</g>
+			<text transform="matrix(2.8333 2.5843 -2.5843 2.8333 -1050.2035 -1363.9373)" class="st6 st7 st8">Thermococcus kodakaraensis</text>
 			<path class="st3" d="M-38.2-426.2L104.2-291"/>
 		</g>
 		<g>
 			<path class="st3" d="M683.4,83.1l-186.9,71.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-425.8-1410.4l110.7,212.9"/>
-			<text transform="matrix(1.7691 3.4023 -3.4023 1.7691 -690.4431 -1889.4263)" class="st5 st6 st7">Haloarcula argentinensis</text>
+			<g>
+				<g>
+					<line class="st4" x1="-425.8" y1="-1410.4" x2="-424" y2="-1407"/>
+					<line class="st5" x1="-420.6" y1="-1400.4" x2="-318.6" y2="-1204.2"/>
+					<line class="st4" x1="-316.9" y1="-1200.9" x2="-315.1" y2="-1197.5"/>
+				</g>
+			</g>
+			<text transform="matrix(1.7691 3.4023 -3.4023 1.7691 -691.824 -1887.0419)" class="st6 st7 st8">Haloarcula argentinensis</text>
 			<path class="st3" d="M-315.1-1197.5l92.3,177.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M1605.8,0L892.1,95"/>
-			<text transform="matrix(3.8013 -0.5058 0.5058 3.8013 1607.5918 13.6281)" class="st5 st6 st7">unclassified Bacteroidetes</text>
+			<g>
+				<g>
+					<line class="st4" x1="1605.8" y1="0" x2="1602" y2="0.5"/>
+					<line class="st39" x1="1594.4" y1="1.5" x2="899.7" y2="94"/>
+					<line class="st4" x1="895.9" y1="94.5" x2="892.1" y2="95"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8013 -0.5058 0.5058 3.8013 1619.9211 14.3682)" class="st6 st7 st8">Bacteroidetes JT5</text>
 			<path class="st3" d="M892.1,94.9l-198.3,26.4"/>
 		</g>
 		<g>
-			<path class="st4" d="M762.8,1349.6L614.5,893.1"/>
-			<text transform="matrix(1.185 3.6471 -3.6471 1.185 749.6677 1353.8621)" class="st5 st6 st7">Hylemonella gracilis</text>
+			<g>
+				<g>
+					<line class="st4" x1="762.8" y1="1349.6" x2="761.6" y2="1346"/>
+					<line class="st11" x1="759.2" y1="1338.6" x2="616.9" y2="900.4"/>
+					<line class="st4" x1="615.7" y1="896.7" x2="614.5" y2="893.1"/>
+				</g>
+			</g>
+			<text transform="matrix(1.185 3.6471 -3.6471 1.185 752.3299 1371.3459)" class="st6 st7 st8">Hylemonella gracilis</text>
 			<path class="st3" d="M614.5,893.1l-61.8-190.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M1586.9,646.7l-553.4-231.9"/>
-			<text transform="matrix(3.5368 1.4822 -1.4822 3.5368 1581.5466 659.4413)" class="st5 st6 st7">Mycobacterium marinum</text>
+			<g>
+				<g>
+					<line class="st4" x1="1586.9" y1="646.7" x2="1583.4" y2="645.2"/>
+					<line class="st20" x1="1576.3" y1="642.2" x2="1040.6" y2="417.8"/>
+					<line class="st4" x1="1037" y1="416.3" x2="1033.5" y2="414.8"/>
+				</g>
+			</g>
+			<text transform="matrix(3.5368 1.4822 -1.4822 3.5368 1597.2775 665.3383)" class="st6 st7 st8">Mycobacterium marinum</text>
 			<path class="st3" d="M1033.5,414.8L849,337.5"/>
 		</g>
 		<g>
-			<path class="st4" d="M1273.2-537.4L645.9,21.2"/>
-			<text transform="matrix(2.8639 -2.5502 2.5502 2.8639 1282.4067 -527.1083)" class="st8 st9 st10">Calditrichaeota</text>
+			<g>
+				<g>
+					<line class="st4" x1="1273.2" y1="-537.4" x2="1270.3" y2="-534.8"/>
+					<line class="st19" x1="1264.6" y1="-529.8" x2="651.6" y2="16.1"/>
+					<line class="st4" x1="648.8" y1="18.7" x2="645.9" y2="21.2"/>
+				</g>
+			</g>
+			<text transform="matrix(2.8639 -2.5502 2.5502 2.8639 1299.2432 -539.6967)" class="st14 st15 st16">Calditrichaeota</text>
 			<path class="st3" d="M645.9,21.2l-149.4,133"/>
 		</g>
 		<g>
-			<path class="st4" d="M-776.1-661.1l633.2,342.7"/>
-			<text transform="matrix(3.3726 1.8252 -1.8252 3.3726 -1283.8932 -920.287)" class="st5 st6 st7">Nitrosopumilus maritimus</text>
+			<g>
+				<g>
+					<line class="st4" x1="-776.1" y1="-661.1" x2="-772.7" y2="-659.3"/>
+					<line class="st39" x1="-766" y1="-655.6" x2="-149.6" y2="-322"/>
+					<line class="st4" x1="-146.3" y1="-320.2" x2="-142.9" y2="-318.4"/>
+				</g>
+			</g>
+			<text transform="matrix(3.3726 1.8252 -1.8252 3.3726 -1283.895 -920.2908)" class="st6 st7 st8">Nitrosopumilus maritimus</text>
 			<path class="st3" d="M-142.8-318.5l175.9,95.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M148.3,1380.3l102.4-469"/>
-			<text transform="matrix(-0.818 3.7466 -3.7466 -0.818 134.7762 1377.3663)" class="st5 st6 st7">Gluconacetobacter hansenii</text>
+			<g>
+				<g>
+					<line class="st4" x1="148.3" y1="1380.3" x2="149.1" y2="1376.6"/>
+					<line class="st30" x1="150.8" y1="1369" x2="249.1" y2="918.8"/>
+					<line class="st4" x1="249.9" y1="915" x2="250.7" y2="911.3"/>
+				</g>
+			</g>
+			<text transform="matrix(-0.818 3.7466 -3.7466 -0.818 130.2622 1390.7048)" class="st6 st7 st8">Gluconacetobacter hansenii</text>
 			<path class="st3" d="M250.6,911.4L293.3,716"/>
 		</g>
 		<g>
@@ -548,54 +1076,108 @@
 			<path class="st3" d="M-155.9,537.8l193-52.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M1553.6-215.7l-681,233.8"/>
-			<text transform="matrix(3.627 -1.2452 1.2452 3.627 1558.0835 -202.62)" class="st5 st6 st7">Treponema primitia</text>
+			<g>
+				<g>
+					<line class="st4" x1="1553.6" y1="-215.7" x2="1550" y2="-214.5"/>
+					<line class="st40" x1="1542.7" y1="-212" x2="879.9" y2="15.6"/>
+					<line class="st4" x1="876.2" y1="16.9" x2="872.6" y2="18.1"/>
+				</g>
+			</g>
+			<text transform="matrix(3.627 -1.2452 1.2452 3.627 1568.0253 -203.2627)" class="st6 st7 st8">Treponema primitia</text>
 			<path class="st3" d="M872.6,18.1l-189.2,65"/>
 		</g>
 		<g>
-			<path class="st4" d="M-273.4,1049.9l376.3-467.3"/>
-			<text transform="matrix(2.4051 -2.9868 2.9868 2.4051 -592.8269 1468.6709)" class="st5 st6 st7">Legionella pneumophila</text>
+			<g>
+				<g>
+					<line class="st4" x1="-273.4" y1="1049.9" x2="-271" y2="1046.9"/>
+					<line class="st23" x1="-266.2" y1="1040.9" x2="98.1" y2="588.6"/>
+					<line class="st4" x1="100.5" y1="585.6" x2="102.9" y2="582.6"/>
+				</g>
+			</g>
+			<text transform="matrix(2.4051 -2.9868 2.9868 2.4051 -592.8287 1468.6741)" class="st6 st7 st8">Legionella pneumophila</text>
 			<path class="st3" d="M102.9,582.6l125.4-155.8"/>
 		</g>
 		<g>
 			<path class="st3" d="M-93.3-856.1l49.1,193.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M-792-421.6L11.1-175.3"/>
-			<text transform="matrix(3.6662 1.1246 -1.1246 3.6662 -1234.3812 -542.9123)" class="st8 st9 st10">unclassified Archaea</text>
+			<g>
+				<g>
+					<line class="st4" x1="-792" y1="-421.6" x2="-788.3" y2="-420.5"/>
+					<line class="st13" x1="-781" y1="-418.2" x2="3.8" y2="-177.5"/>
+					<line class="st4" x1="7.4" y1="-176.4" x2="11.1" y2="-175.3"/>
+				</g>
+			</g>
+			<text transform="matrix(3.6662 1.1246 -1.1246 3.6662 -1234.3843 -542.9163)" class="st14 st15 st16">unclassified Archaea</text>
 			<path class="st3" d="M11.1-175.3l191.2,58.7"/>
 		</g>
 		<g>
-			<path class="st4" d="M-823.5-287.8L5-149.6"/>
-			<text transform="matrix(3.7825 0.6312 -0.6312 3.7825 -1330.1351 -358.3926)" class="st8 st9 st10">environmental samples</text>
+			<g>
+				<g>
+					<line class="st4" x1="-823.5" y1="-287.8" x2="-819.7" y2="-287.2"/>
+					<line class="st18" x1="-812.2" y1="-285.9" x2="-2.5" y2="-150.9"/>
+					<line class="st4" x1="1.2" y1="-150.2" x2="5" y2="-149.6"/>
+				</g>
+			</g>
+			<text transform="matrix(3.7825 0.6312 -0.6312 3.7825 -1330.1375 -358.3961)" class="st14 st15 st16">environmental samples</text>
 			<path class="st3" d="M5-149.6l197.3,32.9"/>
 		</g>
 		<g>
-			<path class="st4" d="M1765.1,323l-475.8-63.3"/>
-			<text transform="matrix(3.8013 0.5058 -0.5058 3.8013 1763.3153 336.6837)" class="st5 st6 st7">Prosthecobacter debontii</text>
+			<g>
+				<g>
+					<line class="st4" x1="1765.1" y1="323" x2="1761.3" y2="322.5"/>
+					<line class="st11" x1="1753.6" y1="321.5" x2="1296.9" y2="260.7"/>
+					<line class="st4" x1="1293.1" y1="260.2" x2="1289.3" y2="259.7"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8013 0.5058 -0.5058 3.8013 1778.0371 338.8094)" class="st6 st7 st8">Prosthecobacter debontii</text>
 			<path class="st3" d="M1289.3,259.7L1091,233.3"/>
 		</g>
 		<g>
-			<path class="st4" d="M1611.8,60.5l-718.4,47.6"/>
-			<text transform="matrix(3.8264 -0.2534 0.2534 3.8264 1612.7102 74.2621)" class="st5 st6 st7">Flavobacterium johnsoniae</text>
+			<g>
+				<g>
+					<line class="st4" x1="1611.8" y1="60.5" x2="1608" y2="60.8"/>
+					<line class="st39" x1="1600.3" y1="61.3" x2="901" y2="107.6"/>
+					<line class="st4" x1="897.2" y1="107.8" x2="893.4" y2="108.1"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8264 -0.2534 0.2534 3.8264 1627.4338 76.3845)" class="st6 st7 st8">Flavobacterium johnsoniae</text>
 			<path class="st3" d="M893.4,108.1l-199.6,13.2"/>
 		</g>
 		<g>
 			<path class="st3" d="M-155.1-1046.3l61.8,190.2"/>
 		</g>
 		<g>
-			<path class="st4" d="M-809.4-761.8L-301.8-442"/>
-			<text transform="matrix(3.2446 2.0441 -2.0441 3.2446 -1301.2034 -1055.3615)" class="st5 st6 st7">Sulfolobus acidocaldarius</text>
+			<g>
+				<g>
+					<line class="st4" x1="-809.4" y1="-761.8" x2="-806.2" y2="-759.8"/>
+					<line class="st41" x1="-799.6" y1="-755.7" x2="-308.3" y2="-446.1"/>
+					<line class="st4" x1="-305" y1="-444" x2="-301.8" y2="-442"/>
+				</g>
+			</g>
+			<text transform="matrix(3.2446 2.0441 -2.0441 3.2446 -1301.2059 -1055.3688)" class="st6 st7 st8">Sulfolobus acidocaldarius</text>
 			<path class="st3" d="M-301.8-442l169.2,106.6"/>
 		</g>
 		<g>
-			<path class="st4" d="M1615.6,174l-720,0"/>
-			<text transform="matrix(3.8348 0 0 3.8348 1615.5521 187.8236)" class="st5 st6 st7">Simkania negevensis</text>
+			<g>
+				<g>
+					<line class="st4" x1="1615.6" y1="174" x2="1611.8" y2="174"/>
+					<line class="st40" x1="1604.1" y1="174" x2="903.3" y2="174"/>
+					<line class="st4" x1="899.4" y1="174" x2="895.6" y2="174"/>
+				</g>
+			</g>
+			<text transform="matrix(3.8348 0 0 3.8348 1627.8787 188.5685)" class="st6 st7 st8">Simkania negevensis</text>
 			<path class="st3" d="M895.5,174l-200,0"/>
 		</g>
 		<g>
-			<path class="st4" d="M501.3,1486.7l-17.8-359.6"/>
-			<text transform="matrix(0.1901 3.8301 -3.8301 0.1901 487.5127 1487.4241)" class="st5 st6 st7">Helicobacter hepaticus</text>
+			<g>
+				<g>
+					<line class="st4" x1="501.3" y1="1486.7" x2="501.1" y2="1482.9"/>
+					<line class="st29" x1="500.7" y1="1475.1" x2="483.9" y2="1134.8"/>
+					<line class="st4" x1="483.7" y1="1130.9" x2="483.5" y2="1127.1"/>
+				</g>
+			</g>
+			<text transform="matrix(0.1901 3.8301 -3.8301 0.1901 475.4573 1502.7847)" class="st6 st7 st8">Helicobacter hepaticus</text>
 			<path class="st3" d="M483.4,1127.2l-9.9-199.8"/>
 		</g>
 		<g>
@@ -611,13 +1193,25 @@
 			<path class="st3" d="M33.1-223.3l169.2,106.6"/>
 		</g>
 		<g>
-			<path class="st4" d="M-313.5,1015.4L92.9,574"/>
-			<text transform="matrix(2.5972 -2.8214 2.8214 2.5972 -527.8256 1268.662)" class="st5 st6 st7">Vibrio cholerae</text>
+			<g>
+				<g>
+					<line class="st4" x1="-313.5" y1="1015.4" x2="-310.9" y2="1012.6"/>
+					<line class="st27" x1="-305.7" y1="1006.9" x2="87.7" y2="579.7"/>
+					<line class="st4" x1="90.3" y1="576.8" x2="92.9" y2="574"/>
+				</g>
+			</g>
+			<text transform="matrix(2.5972 -2.8214 2.8214 2.5972 -532.9837 1272.0667)" class="st6 st7 st8">Vibrio cholerae</text>
 			<path class="st3" d="M92.9,574l135.5-147.1"/>
 		</g>
 		<g>
-			<path class="st4" d="M1357.7-428.9l-695.5,471"/>
-			<text transform="matrix(3.1753 -2.1502 2.1502 3.1753 1365.4044 -417.5041)" class="st8 st9 st10">Bacteria incertae sedis</text>
+			<g>
+				<g>
+					<line class="st4" x1="1357.7" y1="-428.9" x2="1354.5" y2="-426.7"/>
+					<line class="st19" x1="1348.2" y1="-422.5" x2="668.5" y2="37.8"/>
+					<line class="st4" x1="665.4" y1="40" x2="662.2" y2="42.1"/>
+				</g>
+			</g>
+			<text transform="matrix(3.1753 -2.1502 2.1502 3.1753 1380.8608 -427.7022)" class="st14 st15 st16">Bacteria incertae sedis</text>
 			<path class="st3" d="M662.1,42.1L496.5,154.2"/>
 		</g>
 	</g>
@@ -634,42 +1228,42 @@
 </g>
 <g id="legendHolder">
 </g>
-<g class="st12">
+<g class="st42">
 	<g>
-		<path class="st8" d="M927.5,1084.6c0.5-3.1,0.8-4.7,1.3-7.8c1,0.2,1.5,0.2,2.5,0.4c1,0.1,1.6,0.3,1.9,0.4c0.4,0.2,0.8,0.5,1,0.9
+		<path class="st14" d="M927.5,1084.6c0.5-3.1,0.8-4.7,1.3-7.8c1,0.2,1.5,0.2,2.5,0.4c1,0.1,1.6,0.3,1.9,0.4c0.4,0.2,0.8,0.5,1,0.9
 			s0.3,1,0.2,1.6c-0.1,0.5-0.2,0.9-0.4,1.2c-0.2,0.3-0.5,0.5-0.8,0.7c-0.3,0.1-0.6,0.2-0.9,0.2c-0.4,0-1,0-1.7-0.1
 			c-0.4-0.1-0.6-0.1-1-0.2c-0.2,1.2-0.3,1.8-0.5,2.9C928.5,1084.8,928.2,1084.8,927.5,1084.6z M930.2,1078.4
 			c-0.1,0.9-0.2,1.3-0.3,2.2c0.3,0.1,0.5,0.1,0.9,0.1c0.6,0.1,1.1,0.1,1.3,0.1s0.4-0.2,0.6-0.3c0.1-0.2,0.2-0.3,0.3-0.6
 			c0-0.3,0-0.5-0.1-0.7s-0.3-0.4-0.6-0.4c-0.2-0.1-0.6-0.1-1.1-0.2C930.6,1078.5,930.5,1078.5,930.2,1078.4z"/>
-		<path class="st8" d="M936.5,1086c-0.6-0.1-0.9-0.1-1.5-0.2c0.3-2.3,0.5-3.4,0.8-5.7c0.6,0.1,0.8,0.1,1.4,0.2
+		<path class="st14" d="M936.5,1086c-0.6-0.1-0.9-0.1-1.5-0.2c0.3-2.3,0.5-3.4,0.8-5.7c0.6,0.1,0.8,0.1,1.4,0.2
 			c0,0.3-0.1,0.5-0.1,0.8c0.3-0.3,0.5-0.6,0.7-0.7s0.4-0.1,0.7-0.1s0.7,0.2,1,0.4c-0.3,0.5-0.4,0.7-0.6,1.2
 			c-0.2-0.2-0.5-0.3-0.7-0.3s-0.4,0-0.6,0.1c-0.2,0.1-0.3,0.3-0.4,0.6c-0.1,0.3-0.3,0.9-0.4,1.9
 			C936.6,1084.9,936.6,1085.3,936.5,1086z"/>
-		<path class="st8" d="M939.4,1083.4c0.1-0.5,0.2-1,0.6-1.4c0.3-0.4,0.7-0.7,1.2-0.9c0.5-0.2,1-0.3,1.6-0.2c0.9,0.1,1.5,0.5,2,1.1
+		<path class="st14" d="M939.4,1083.4c0.1-0.5,0.2-1,0.6-1.4c0.3-0.4,0.7-0.7,1.2-0.9c0.5-0.2,1-0.3,1.6-0.2c0.9,0.1,1.5,0.5,2,1.1
 			s0.7,1.3,0.6,2.2c-0.1,0.9-0.4,1.5-1.1,2c-0.6,0.5-1.4,0.7-2.2,0.6c-0.5-0.1-1-0.2-1.5-0.5s-0.8-0.7-1-1.2
 			S939.3,1084,939.4,1083.4z M940.9,1083.6c-0.1,0.6,0,1,0.3,1.3c0.2,0.3,0.6,0.5,1,0.6c0.4,0,0.8-0.1,1.1-0.3
 			c0.3-0.3,0.5-0.7,0.6-1.3c0.1-0.6,0-1-0.3-1.3c-0.2-0.3-0.6-0.5-0.9-0.6s-0.7,0.1-1.1,0.3C941.2,1082.7,941,1083.1,940.9,1083.6z"
 			/>
-		<path class="st8" d="M949.5,1081.7c0,0.5-0.1,0.7-0.1,1.2c-0.4,0-0.6-0.1-1-0.1c-0.1,0.9-0.1,1.4-0.2,2.3c0,0.5-0.1,0.7,0,0.8
+		<path class="st14" d="M949.5,1081.7c0,0.5-0.1,0.7-0.1,1.2c-0.4,0-0.6-0.1-1-0.1c-0.1,0.9-0.1,1.4-0.2,2.3c0,0.5-0.1,0.7,0,0.8
 			c0,0.1,0.1,0.1,0.1,0.2c0.1,0.1,0.2,0.1,0.3,0.1s0.4,0,0.6-0.1c0,0.5,0,0.7,0,1.2c-0.4,0.1-0.8,0.2-1.2,0.1
 			c-0.3,0-0.5-0.1-0.7-0.2s-0.4-0.2-0.5-0.4c-0.1-0.2-0.1-0.4-0.2-0.6c0-0.2,0-0.5,0.1-1.1c0.1-1,0.1-1.5,0.2-2.5
 			c-0.3,0-0.4,0-0.7-0.1c0-0.5,0.1-0.7,0.1-1.2c0.3,0,0.4,0,0.7,0.1c0-0.5,0.1-0.7,0.1-1.1c0.6-0.3,1-0.4,1.6-0.7
 			c-0.1,0.8-0.1,1.2-0.2,2C948.8,1081.6,949,1081.6,949.5,1081.7z"/>
-		<path class="st8" d="M953.5,1085.9c0.6,0.1,0.9,0.2,1.5,0.4c-0.2,0.5-0.6,0.9-1,1.2c-0.4,0.3-1,0.4-1.6,0.3
+		<path class="st14" d="M953.5,1085.9c0.6,0.1,0.9,0.2,1.5,0.4c-0.2,0.5-0.6,0.9-1,1.2c-0.4,0.3-1,0.4-1.6,0.3
 			c-1-0.1-1.7-0.5-2.2-1.2c-0.3-0.5-0.5-1.2-0.4-2c0.1-0.9,0.4-1.7,0.9-2.1c0.5-0.5,1.2-0.7,2-0.6c0.9,0.1,1.5,0.4,2,1
 			s0.6,1.5,0.5,2.6c-1.5-0.1-2.3-0.2-3.9-0.3c0,0.4,0.1,0.8,0.3,1.1c0.2,0.3,0.5,0.4,0.9,0.4c0.2,0,0.5,0,0.6-0.1
 			C953.3,1086.4,953.4,1086.2,953.5,1085.9z M953.7,1084.4c0-0.4-0.1-0.8-0.3-1s-0.5-0.4-0.8-0.4s-0.6,0.1-0.9,0.3s-0.4,0.5-0.4,0.9
 			C952.4,1084.3,952.8,1084.3,953.7,1084.4z"/>
-		<path class="st8" d="M956.1,1085c0-0.5,0.2-1,0.5-1.4c0.3-0.5,0.7-0.8,1.1-1c0.5-0.2,1-0.3,1.6-0.3c0.9,0.1,1.6,0.4,2.1,1
+		<path class="st14" d="M956.1,1085c0-0.5,0.2-1,0.5-1.4c0.3-0.5,0.7-0.8,1.1-1c0.5-0.2,1-0.3,1.6-0.3c0.9,0.1,1.6,0.4,2.1,1
 			s0.8,1.3,0.7,2.2c0,0.9-0.4,1.6-1,2.1s-1.3,0.8-2.2,0.7c-0.5,0-1-0.2-1.5-0.4c-0.5-0.3-0.8-0.6-1-1.1
 			C956.2,1086.2,956.1,1085.6,956.1,1085z M957.7,1085.2c0,0.6,0.1,1,0.3,1.3c0.3,0.3,0.6,0.5,1,0.5s0.8-0.1,1-0.4
 			c0.3-0.3,0.4-0.7,0.5-1.3c0-0.6-0.1-1-0.3-1.3c-0.3-0.3-0.6-0.5-1-0.5s-0.7,0.1-1,0.4S957.7,1084.6,957.7,1085.2z"/>
-		<path class="st8" d="M963.1,1088.3c0.1-3.1,0.2-4.7,0.4-7.9c0.6,0,0.9,0,1.5,0.1c0,1.1-0.1,1.7-0.1,2.8c0.5-0.5,1.1-0.8,1.7-0.7
+		<path class="st14" d="M963.1,1088.3c0.1-3.1,0.2-4.7,0.4-7.9c0.6,0,0.9,0,1.5,0.1c0,1.1-0.1,1.7-0.1,2.8c0.5-0.5,1.1-0.8,1.7-0.7
 			c0.7,0,1.3,0.3,1.7,0.8s0.7,1.2,0.6,2.2c0,1-0.3,1.7-0.8,2.2s-1.1,0.8-1.8,0.7c-0.3,0-0.7-0.1-1-0.3c-0.3-0.2-0.6-0.4-0.8-0.8
 			c0,0.3,0,0.5,0,0.8C964,1088.3,963.7,1088.3,963.1,1088.3z M964.8,1085.4c0,0.6,0.1,1,0.2,1.3c0.3,0.4,0.6,0.6,1,0.6
 			c0.3,0,0.6-0.1,0.9-0.4c0.2-0.3,0.4-0.7,0.4-1.3c0-0.7-0.1-1.1-0.3-1.4s-0.5-0.4-0.9-0.5c-0.4,0-0.7,0.1-0.9,0.4
 			S964.8,1084.8,964.8,1085.4z"/>
-		<path class="st8" d="M971.4,1084.6c-0.6-0.1-0.8-0.2-1.4-0.3c0.2-0.5,0.4-0.9,0.8-1.2c0.4-0.3,1-0.4,1.7-0.4s1.2,0.1,1.5,0.3
+		<path class="st14" d="M971.4,1084.6c-0.6-0.1-0.8-0.2-1.4-0.3c0.2-0.5,0.4-0.9,0.8-1.2c0.4-0.3,1-0.4,1.7-0.4s1.2,0.1,1.5,0.3
 			c0.3,0.2,0.6,0.4,0.7,0.6c0.1,0.2,0.2,0.7,0.2,1.4c0,0.7,0,1.1,0,1.8c0,0.5,0,0.9,0.1,1.1c0,0.2,0.1,0.5,0.3,0.8
 			c-0.6,0-0.9,0-1.5,0c0-0.1-0.1-0.3-0.1-0.4s0-0.1-0.1-0.2c-0.3,0.2-0.6,0.4-0.9,0.6c-0.3,0.1-0.6,0.2-1,0.2
 			c-0.6,0-1.1-0.2-1.4-0.5c-0.3-0.3-0.5-0.7-0.5-1.2c0-0.3,0.1-0.6,0.3-0.9c0.2-0.2,0.4-0.4,0.7-0.6c0.3-0.1,0.7-0.2,1.2-0.3
@@ -677,27 +1271,27 @@
 			C971.6,1084.2,971.5,1084.3,971.4,1084.6z M973.4,1085.9c-0.2,0.1-0.5,0.1-0.9,0.2s-0.7,0.2-0.8,0.2c-0.2,0.1-0.3,0.3-0.3,0.5
 			s0.1,0.4,0.2,0.6c0.2,0.2,0.4,0.2,0.6,0.2c0.3,0,0.6-0.1,0.8-0.3c0.2-0.1,0.3-0.3,0.4-0.5c0-0.1,0.1-0.4,0.1-0.7
 			C973.4,1086,973.4,1086,973.4,1085.9z"/>
-		<path class="st8" d="M981.5,1084.6c-0.6,0.1-0.9,0.2-1.5,0.3c-0.1-0.3-0.2-0.5-0.4-0.7c-0.2-0.1-0.4-0.2-0.7-0.2
+		<path class="st14" d="M981.5,1084.6c-0.6,0.1-0.9,0.2-1.5,0.3c-0.1-0.3-0.2-0.5-0.4-0.7c-0.2-0.1-0.4-0.2-0.7-0.2
 			c-0.4,0-0.7,0.1-0.9,0.4s-0.3,0.7-0.3,1.3c0,0.7,0.1,1.2,0.4,1.4c0.2,0.3,0.5,0.4,0.9,0.4c0.3,0,0.5-0.1,0.7-0.2
 			c0.2-0.2,0.3-0.4,0.4-0.8c0.6,0.1,0.9,0.1,1.5,0.2c-0.1,0.7-0.4,1.2-0.9,1.6c-0.4,0.4-1,0.5-1.8,0.5c-0.9,0-1.5-0.3-2.1-0.8
 			c-0.5-0.5-0.8-1.3-0.8-2.2c0-0.9,0.3-1.7,0.8-2.2s1.2-0.8,2-0.8c0.7,0,1.3,0.1,1.7,0.4S981.3,1084,981.5,1084.6z"/>
-		<path class="st8" d="M985.3,1082.8c0,0.5,0,0.7,0,1.2c-0.4,0-0.6,0-1,0c0,0.9,0,1.4,0.1,2.3c0,0.5,0,0.7,0,0.8
+		<path class="st14" d="M985.3,1082.8c0,0.5,0,0.7,0,1.2c-0.4,0-0.6,0-1,0c0,0.9,0,1.4,0.1,2.3c0,0.5,0,0.7,0,0.8
 			c0,0.1,0.1,0.1,0.1,0.2c0.1,0,0.2,0.1,0.3,0.1s0.4-0.1,0.6-0.2c0.1,0.5,0.1,0.7,0.2,1.2c-0.4,0.2-0.8,0.2-1.2,0.3
 			c-0.3,0-0.5,0-0.8-0.1c-0.2-0.1-0.4-0.2-0.5-0.3c-0.1-0.1-0.2-0.3-0.2-0.6c0-0.2-0.1-0.5-0.1-1.1c0-1,0-1.5,0-2.5
 			c-0.3,0-0.4,0-0.7,0c0-0.5,0-0.7,0-1.2c0.3,0,0.4,0,0.7,0c0-0.5,0-0.7,0-1.1c0.6-0.4,0.9-0.5,1.5-0.9c0,0.8,0,1.2,0,2
 			C984.7,1082.8,984.9,1082.8,985.3,1082.8z"/>
-		<path class="st8" d="M989.8,1086.5c0.6,0.1,0.9,0.1,1.6,0.2c-0.2,0.6-0.5,1-0.9,1.3s-1,0.5-1.6,0.5c-1,0-1.8-0.3-2.3-0.9
+		<path class="st14" d="M989.8,1086.5c0.6,0.1,0.9,0.1,1.6,0.2c-0.2,0.6-0.5,1-0.9,1.3s-1,0.5-1.6,0.5c-1,0-1.8-0.3-2.3-0.9
 			c-0.4-0.5-0.6-1.2-0.6-1.9c0-0.9,0.2-1.7,0.7-2.2s1.1-0.8,1.9-0.9c0.9,0,1.5,0.2,2.1,0.8c0.5,0.5,0.8,1.4,0.8,2.5
 			c-1.5,0.1-2.3,0.1-3.9,0.2c0,0.4,0.2,0.8,0.4,1s0.6,0.4,0.9,0.3c0.2,0,0.4-0.1,0.6-0.2C989.7,1087,989.8,1086.8,989.8,1086.5z
 			 M989.9,1085c0-0.4-0.2-0.8-0.4-1s-0.5-0.3-0.8-0.3s-0.6,0.1-0.8,0.4c-0.2,0.2-0.3,0.6-0.3,1
 			C988.5,1085.1,988.9,1085.1,989.9,1085z"/>
-		<path class="st8" d="M994.3,1088.1c-0.6,0-0.9,0.1-1.6,0.1c-0.1-2.3-0.2-3.4-0.3-5.7c0.6,0,0.9,0,1.4-0.1c0,0.3,0,0.5,0,0.8
+		<path class="st14" d="M994.3,1088.1c-0.6,0-0.9,0.1-1.6,0.1c-0.1-2.3-0.2-3.4-0.3-5.7c0.6,0,0.9,0,1.4-0.1c0,0.3,0,0.5,0,0.8
 			c0.2-0.4,0.4-0.7,0.6-0.8c0.2-0.1,0.4-0.2,0.6-0.2c0.3,0,0.7,0.1,1,0.2c-0.2,0.5-0.2,0.8-0.4,1.3c-0.3-0.1-0.5-0.2-0.7-0.2
 			s-0.4,0.1-0.5,0.2s-0.2,0.3-0.3,0.7c-0.1,0.3-0.1,0.9,0,1.9C994.3,1087.1,994.3,1087.4,994.3,1088.1z"/>
-		<path class="st8" d="M997.2,1088c-0.1-2.3-0.2-3.4-0.4-5.7c0.6,0,0.9-0.1,1.5-0.1c0.2,2.3,0.2,3.4,0.4,5.7
+		<path class="st14" d="M997.2,1088c-0.1-2.3-0.2-3.4-0.4-5.7c0.6,0,0.9-0.1,1.5-0.1c0.2,2.3,0.2,3.4,0.4,5.7
 			C998.2,1087.9,997.9,1087.9,997.2,1088z M996.8,1081.5c0-0.6-0.1-0.8-0.1-1.4c0.6,0,0.9-0.1,1.5-0.1c0,0.6,0.1,0.8,0.1,1.4
 			C997.7,1081.4,997.4,1081.5,996.8,1081.5z"/>
-		<path class="st8" d="M1001.2,1083.7c-0.6-0.1-0.8-0.1-1.4-0.1c0.1-0.6,0.4-1,0.7-1.3c0.4-0.3,0.9-0.5,1.7-0.5
+		<path class="st14" d="M1001.2,1083.7c-0.6-0.1-0.8-0.1-1.4-0.1c0.1-0.6,0.4-1,0.7-1.3c0.4-0.3,0.9-0.5,1.7-0.5
 			c0.7-0.1,1.2,0,1.5,0.1s0.6,0.3,0.8,0.5s0.3,0.7,0.3,1.3c0.1,0.7,0.1,1.1,0.1,1.8c0,0.5,0.1,0.9,0.2,1.1c0.1,0.2,0.2,0.5,0.3,0.7
 			c-0.6,0.1-0.9,0.1-1.5,0.1c0-0.1-0.1-0.2-0.2-0.4c0-0.1-0.1-0.1-0.1-0.2c-0.2,0.3-0.5,0.5-0.8,0.6c-0.3,0.2-0.6,0.2-1,0.3
 			c-0.6,0-1.1-0.1-1.5-0.4s-0.6-0.7-0.6-1.2c0-0.3,0-0.6,0.2-0.9c0.1-0.3,0.3-0.5,0.6-0.6c0.3-0.2,0.7-0.3,1.2-0.4
@@ -707,21 +1301,21 @@
 			c0-0.1,0-0.4,0-0.7C1003.4,1084.9,1003.4,1084.9,1003.4,1084.8z"/>
 	</g>
 </g>
-<g class="st12">
+<g class="st42">
 	<g>
-		<path class="st8" d="M1498.7,527.1c2.6,0.1,3.9,0.1,6.5,0.2c0-1,0-1.4,0.1-2.4c0.5,0,0.8,0,1.3,0c-0.1,2.6-0.1,3.9-0.2,6.4
+		<path class="st14" d="M1498.7,527.1c2.6,0.1,3.9,0.1,6.5,0.2c0-1,0-1.4,0.1-2.4c0.5,0,0.8,0,1.3,0c-0.1,2.6-0.1,3.9-0.2,6.4
 			c-0.5,0-0.8,0-1.3-0.1c0-1,0-1.4,0.1-2.4c-2.6-0.1-3.9-0.1-6.5-0.2C1498.7,528.1,1498.7,527.8,1498.7,527.1z"/>
-		<path class="st8" d="M1500.3,534.7c-0.1,0.6-0.2,0.9-0.3,1.5c-0.5-0.2-0.9-0.5-1.2-1c-0.3-0.4-0.4-1-0.4-1.6c0-1,0.4-1.7,1.1-2.2
+		<path class="st14" d="M1500.3,534.7c-0.1,0.6-0.2,0.9-0.3,1.5c-0.5-0.2-0.9-0.5-1.2-1c-0.3-0.4-0.4-1-0.4-1.6c0-1,0.4-1.7,1.1-2.2
 			c0.5-0.4,1.2-0.5,2-0.5c0.9,0,1.7,0.3,2.2,0.8s0.8,1.2,0.7,1.9c0,0.9-0.3,1.5-0.9,2s-1.4,0.7-2.6,0.6c0.1-1.5,0.1-2.3,0.2-3.8
 			c-0.4,0-0.8,0.1-1.1,0.3c-0.3,0.2-0.4,0.5-0.4,0.9c0,0.2,0,0.4,0.2,0.6C1499.8,534.5,1500,534.6,1500.3,534.7z M1501.8,534.9
 			c0.4,0,0.8-0.1,1-0.3s0.4-0.5,0.4-0.8s-0.1-0.6-0.3-0.8c-0.2-0.2-0.6-0.3-1-0.4C1501.9,533.5,1501.9,534,1501.8,534.9z"/>
-		<path class="st8" d="M1498.3,538.9c0-0.6,0-0.9,0.1-1.5c2.3,0.1,3.4,0.2,5.7,0.3c0,0.6,0,0.9-0.1,1.4c-0.3,0-0.5,0-0.8,0
+		<path class="st14" d="M1498.3,538.9c0-0.6,0-0.9,0.1-1.5c2.3,0.1,3.4,0.2,5.7,0.3c0,0.6,0,0.9-0.1,1.4c-0.3,0-0.5,0-0.8,0
 			c0.4,0.3,0.6,0.5,0.7,0.7s0.2,0.4,0.1,0.7c0,0.4-0.1,0.7-0.3,1c-0.5-0.2-0.8-0.3-1.3-0.5c0.2-0.2,0.3-0.5,0.3-0.7s0-0.4-0.1-0.6
 			c-0.1-0.2-0.3-0.3-0.6-0.4c-0.3-0.1-0.9-0.2-1.9-0.2C1499.3,539,1499,539,1498.3,538.9z"/>
-		<path class="st8" d="M1498.1,543.2c0-0.6,0.1-0.9,0.1-1.5c2.3,0.1,3.4,0.2,5.7,0.3c0,0.6,0,0.9-0.1,1.4c-0.3,0-0.5,0-0.8,0
+		<path class="st14" d="M1498.1,543.2c0-0.6,0.1-0.9,0.1-1.5c2.3,0.1,3.4,0.2,5.7,0.3c0,0.6,0,0.9-0.1,1.4c-0.3,0-0.5,0-0.8,0
 			c0.4,0.3,0.6,0.5,0.7,0.7s0.2,0.4,0.1,0.7c0,0.3-0.1,0.7-0.3,1c-0.5-0.2-0.8-0.3-1.3-0.6c0.2-0.2,0.3-0.5,0.3-0.7s0-0.4-0.1-0.6
 			c-0.1-0.2-0.3-0.3-0.6-0.4c-0.3-0.1-0.9-0.2-1.9-0.2C1499.1,543.3,1498.8,543.3,1498.1,543.2z"/>
-		<path class="st8" d="M1501.8,547.5c0.1-0.5,0.2-0.8,0.3-1.4c0.5,0.2,0.9,0.5,1.2,0.9c0.2,0.4,0.3,1,0.3,1.7s-0.2,1.2-0.3,1.5
+		<path class="st14" d="M1501.8,547.5c0.1-0.5,0.2-0.8,0.3-1.4c0.5,0.2,0.9,0.5,1.2,0.9c0.2,0.4,0.3,1,0.3,1.7s-0.2,1.2-0.3,1.5
 			c-0.2,0.3-0.4,0.5-0.7,0.7c-0.3,0.1-0.7,0.2-1.4,0.1c-0.7-0.1-1.1-0.1-1.8-0.1c-0.5,0-0.9,0-1.1,0s-0.5,0.1-0.8,0.2
 			c0-0.6,0.1-0.9,0.1-1.5c0.1,0,0.3-0.1,0.5-0.1c0.1,0,0.2,0,0.2,0c-0.2-0.3-0.4-0.6-0.5-0.9c-0.1-0.3-0.1-0.6-0.1-1
 			c0-0.6,0.2-1,0.6-1.4c0.3-0.3,0.8-0.5,1.2-0.4c0.3,0,0.6,0.1,0.8,0.3c0.2,0.2,0.4,0.4,0.5,0.7s0.2,0.7,0.3,1.2
@@ -729,12 +1323,12 @@
 			C1502.2,547.7,1502,547.6,1501.8,547.5z M1500.4,549.5c-0.1-0.2-0.1-0.5-0.2-0.9s-0.1-0.7-0.2-0.8c-0.1-0.2-0.3-0.3-0.5-0.3
 			s-0.4,0.1-0.6,0.2c-0.2,0.1-0.3,0.3-0.3,0.6s0.1,0.5,0.2,0.8c0.1,0.2,0.3,0.3,0.5,0.4c0.1,0,0.4,0.1,0.7,0.1
 			C1500.2,549.4,1500.3,549.4,1500.4,549.5z"/>
-		<path class="st8" d="M1497.5,552.2c3.1,0.2,4.7,0.4,7.9,0.6c0,0.6-0.1,0.9-0.1,1.5c-1.1-0.1-1.7-0.1-2.8-0.2
+		<path class="st14" d="M1497.5,552.2c3.1,0.2,4.7,0.4,7.9,0.6c0,0.6-0.1,0.9-0.1,1.5c-1.1-0.1-1.7-0.1-2.8-0.2
 			c0.5,0.5,0.7,1.1,0.7,1.7c-0.1,0.7-0.4,1.3-0.9,1.7s-1.3,0.6-2.2,0.5c-1-0.1-1.7-0.4-2.2-0.9s-0.7-1.1-0.7-1.8
 			c0-0.3,0.1-0.6,0.3-0.9c0.2-0.3,0.4-0.6,0.8-0.8c-0.3,0-0.5,0-0.8-0.1C1497.4,553,1497.4,552.8,1497.5,552.2z M1500.3,553.9
 			c-0.6,0-1,0-1.3,0.2c-0.4,0.2-0.6,0.6-0.7,1c0,0.3,0.1,0.6,0.4,0.9c0.3,0.3,0.7,0.4,1.3,0.5c0.6,0.1,1.1,0,1.4-0.2
 			s0.5-0.5,0.5-0.9s-0.1-0.7-0.3-0.9C1501.3,554.1,1500.9,554,1500.3,553.9z"/>
-		<path class="st8" d="M1500.8,560.5c0.1-0.5,0.2-0.8,0.4-1.4c0.5,0.2,0.9,0.5,1.2,0.9c0.2,0.4,0.3,1,0.2,1.7
+		<path class="st14" d="M1500.8,560.5c0.1-0.5,0.2-0.8,0.4-1.4c0.5,0.2,0.9,0.5,1.2,0.9c0.2,0.4,0.3,1,0.2,1.7
 			c-0.1,0.7-0.2,1.2-0.4,1.5c-0.2,0.3-0.4,0.5-0.7,0.6c-0.3,0.1-0.7,0.1-1.4,0.1c-0.7-0.1-1.1-0.1-1.8-0.2c-0.5,0-0.9-0.1-1.1,0
 			c-0.2,0-0.5,0.1-0.8,0.2c0.1-0.6,0.1-0.9,0.1-1.5c0.1,0,0.3-0.1,0.5-0.1c0.1,0,0.2,0,0.2,0c-0.2-0.3-0.4-0.6-0.5-0.9
 			c-0.1-0.3-0.1-0.6-0.1-1c0.1-0.6,0.3-1,0.6-1.3c0.3-0.3,0.8-0.4,1.2-0.4c0.3,0,0.6,0.1,0.8,0.3c0.2,0.2,0.4,0.4,0.5,0.7
@@ -742,27 +1336,27 @@
 			C1501.2,560.7,1501,560.6,1500.8,560.5z M1499.4,562.4c0-0.2-0.1-0.5-0.1-0.9c-0.1-0.4-0.1-0.7-0.2-0.9s-0.3-0.3-0.5-0.3
 			s-0.4,0-0.6,0.2c-0.2,0.1-0.3,0.3-0.3,0.6s0,0.5,0.2,0.8c0.1,0.2,0.3,0.3,0.5,0.4c0.1,0.1,0.4,0.1,0.7,0.1
 			C1499.2,562.4,1499.3,562.4,1499.4,562.4z"/>
-		<path class="st8" d="M1499.9,570.5c0-0.6-0.1-0.9-0.1-1.5c0.3,0,0.5-0.1,0.7-0.3s0.3-0.4,0.3-0.7c0-0.4-0.1-0.7-0.3-0.9
+		<path class="st14" d="M1499.9,570.5c0-0.6-0.1-0.9-0.1-1.5c0.3,0,0.5-0.1,0.7-0.3s0.3-0.4,0.3-0.7c0-0.4-0.1-0.7-0.3-0.9
 			c-0.2-0.3-0.7-0.4-1.3-0.5c-0.7-0.1-1.2,0-1.5,0.2s-0.5,0.5-0.5,0.9c0,0.3,0,0.5,0.2,0.7c0.1,0.2,0.4,0.4,0.8,0.5
 			c-0.2,0.6-0.2,0.9-0.4,1.5c-0.7-0.2-1.1-0.6-1.4-1.1s-0.4-1.1-0.3-1.8c0.1-0.8,0.4-1.5,1-1.9s1.3-0.6,2.2-0.5
 			c0.9,0.1,1.6,0.4,2.1,1s0.7,1.3,0.6,2.1c-0.1,0.7-0.3,1.2-0.6,1.6C1501,570.2,1500.5,570.4,1499.9,570.5z"/>
-		<path class="st8" d="M1501.1,574.5c-0.5-0.1-0.7-0.1-1.2-0.1c0-0.4,0.1-0.6,0.1-1c-0.9-0.1-1.4-0.2-2.3-0.3
+		<path class="st14" d="M1501.1,574.5c-0.5-0.1-0.7-0.1-1.2-0.1c0-0.4,0.1-0.6,0.1-1c-0.9-0.1-1.4-0.2-2.3-0.3
 			c-0.5-0.1-0.7-0.1-0.8-0.1c-0.1,0-0.1,0-0.2,0.1s-0.1,0.1-0.1,0.2c0,0.1,0,0.3,0.1,0.6c-0.5,0-0.7,0-1.2,0
 			c-0.1-0.4-0.1-0.8-0.1-1.2c0-0.3,0.1-0.5,0.2-0.7s0.3-0.4,0.4-0.4c0.2-0.1,0.4-0.1,0.6-0.1s0.5,0,1.1,0.1c1,0.1,1.5,0.2,2.5,0.3
 			c0-0.3,0-0.4,0.1-0.7c0.5,0.1,0.7,0.1,1.2,0.1c0,0.3,0,0.4-0.1,0.7c0.5,0.1,0.7,0.1,1.1,0.1c0.3,0.7,0.4,1,0.7,1.6
 			c-0.8-0.1-1.2-0.1-2-0.2C1501.2,573.9,1501.2,574.1,1501.1,574.5z"/>
-		<path class="st8" d="M1496.7,578.4c-0.2,0.6-0.3,0.9-0.4,1.5c-0.5-0.3-0.9-0.6-1.1-1.1s-0.3-1-0.2-1.6c0.1-1,0.5-1.7,1.2-2.1
+		<path class="st14" d="M1496.7,578.4c-0.2,0.6-0.3,0.9-0.4,1.5c-0.5-0.3-0.9-0.6-1.1-1.1s-0.3-1-0.2-1.6c0.1-1,0.5-1.7,1.2-2.1
 			c0.6-0.3,1.2-0.4,2-0.3c0.9,0.1,1.6,0.4,2.1,1s0.7,1.2,0.6,2c-0.1,0.9-0.5,1.5-1.1,1.9s-1.5,0.5-2.6,0.4c0.2-1.5,0.3-2.3,0.5-3.8
 			c-0.4,0-0.8,0-1.1,0.2c-0.3,0.2-0.4,0.5-0.5,0.8c0,0.2,0,0.4,0.1,0.6C1496.3,578.1,1496.5,578.3,1496.7,578.4z M1498.2,578.7
 			c0.4,0,0.8,0,1-0.2c0.3-0.2,0.4-0.4,0.4-0.7s0-0.6-0.3-0.9c-0.2-0.2-0.5-0.4-0.9-0.4C1498.4,577.3,1498.4,577.8,1498.2,578.7z"/>
-		<path class="st8" d="M1494.4,582.4c0.1-0.6,0.1-0.9,0.2-1.5c2.3,0.3,3.4,0.4,5.7,0.7c-0.1,0.6-0.1,0.8-0.2,1.4
+		<path class="st14" d="M1494.4,582.4c0.1-0.6,0.1-0.9,0.2-1.5c2.3,0.3,3.4,0.4,5.7,0.7c-0.1,0.6-0.1,0.8-0.2,1.4
 			c-0.3,0-0.5-0.1-0.8-0.1c0.4,0.3,0.6,0.5,0.7,0.7s0.1,0.4,0.1,0.7s-0.2,0.7-0.4,1c-0.5-0.3-0.7-0.4-1.2-0.6
 			c0.2-0.2,0.3-0.5,0.3-0.7s0-0.4-0.1-0.6c-0.1-0.2-0.3-0.3-0.6-0.4c-0.3-0.1-0.9-0.2-1.9-0.4
 			C1495.5,582.6,1495.1,582.5,1494.4,582.4z"/>
-		<path class="st8" d="M1494,585.2c2.3,0.3,3.4,0.5,5.7,0.8c-0.1,0.6-0.1,0.9-0.2,1.5c-2.3-0.3-3.4-0.5-5.6-0.8
+		<path class="st14" d="M1494,585.2c2.3,0.3,3.4,0.5,5.7,0.8c-0.1,0.6-0.1,0.9-0.2,1.5c-2.3-0.3-3.4-0.5-5.6-0.8
 			C1493.9,586.1,1493.9,585.8,1494,585.2z M1500.4,586.1c0.6,0.1,0.8,0.1,1.4,0.2c-0.1,0.6-0.1,0.9-0.2,1.5
 			c-0.6-0.1-0.8-0.1-1.4-0.2C1500.3,587,1500.4,586.7,1500.4,586.1z"/>
-		<path class="st8" d="M1497.4,590c0.2-0.5,0.3-0.8,0.4-1.3c0.5,0.2,0.9,0.6,1.1,1s0.3,1,0.2,1.7c-0.1,0.7-0.3,1.2-0.5,1.5
+		<path class="st14" d="M1497.4,590c0.2-0.5,0.3-0.8,0.4-1.3c0.5,0.2,0.9,0.6,1.1,1s0.3,1,0.2,1.7c-0.1,0.7-0.3,1.2-0.5,1.5
 			s-0.4,0.5-0.7,0.6c-0.3,0.1-0.7,0.1-1.4,0c-0.7-0.1-1-0.2-1.7-0.3c-0.5-0.1-0.9-0.1-1.1-0.1s-0.5,0.1-0.8,0.2
 			c0.1-0.6,0.1-0.9,0.2-1.5c0.1,0,0.3-0.1,0.5-0.1c0.1,0,0.2,0,0.2,0c-0.2-0.3-0.4-0.6-0.4-0.9c-0.1-0.3-0.1-0.6,0-1
 			c0.1-0.6,0.3-1,0.7-1.3c0.4-0.3,0.8-0.4,1.3-0.3c0.3,0,0.6,0.2,0.8,0.4c0.2,0.2,0.4,0.4,0.5,0.7s0.2,0.7,0.2,1.2
@@ -772,41 +1366,41 @@
 			C1495.7,591.8,1495.7,591.8,1495.9,591.8z"/>
 	</g>
 </g>
-<g class="st12">
+<g class="st42">
 	<g>
-		<path class="st8" d="M1445.6,301.4c2.7-1.7,4-2.5,6.6-4.2c0.5,0.9,0.8,1.3,1.4,2.2c0.5,0.8,0.8,1.4,0.9,1.7c0.1,0.4,0.1,0.9,0,1.4
-			c-0.2,0.5-0.5,0.9-1.1,1.2c-0.4,0.3-0.8,0.4-1.2,0.4c-0.4,0-0.7,0-1-0.2c-0.3-0.1-0.6-0.3-0.8-0.5c-0.3-0.3-0.6-0.7-1-1.3
-			c-0.2-0.4-0.3-0.5-0.6-0.9c-1,0.6-1.5,1-2.5,1.6C1446.1,302.3,1445.9,302,1445.6,301.4z M1452,299.3c-0.8,0.5-1.1,0.7-1.9,1.2
-			c0.2,0.3,0.3,0.4,0.5,0.7c0.3,0.5,0.6,0.9,0.8,1c0.2,0.1,0.4,0.2,0.6,0.2s0.4,0,0.6-0.2s0.4-0.4,0.5-0.6s0-0.5,0-0.7
-			c-0.1-0.2-0.3-0.5-0.6-1C1452.2,299.7,1452.1,299.6,1452,299.3z"/>
-		<path class="st8" d="M1450.5,309.4c2.1-2.6,3.2-4,5.3-6.6c0.4,0.6,0.6,0.9,0.9,1.5c-1.6,1.9-2.3,2.9-3.9,4.8
+		<path class="st14" d="M1445.6,301.4c2.7-1.7,4-2.5,6.6-4.2c0.5,0.9,0.8,1.3,1.4,2.2c0.5,0.8,0.8,1.4,0.9,1.7
+			c0.1,0.4,0.1,0.9,0,1.4c-0.2,0.5-0.5,0.9-1.1,1.2c-0.4,0.3-0.8,0.4-1.2,0.4c-0.4,0-0.7,0-1-0.2c-0.3-0.1-0.6-0.3-0.8-0.5
+			c-0.3-0.3-0.6-0.7-1-1.3c-0.2-0.4-0.3-0.5-0.6-0.9c-1,0.6-1.5,1-2.5,1.6C1446.1,302.3,1445.9,302,1445.6,301.4z M1452,299.3
+			c-0.8,0.5-1.1,0.7-1.9,1.2c0.2,0.3,0.3,0.4,0.5,0.7c0.3,0.5,0.6,0.9,0.8,1c0.2,0.1,0.4,0.2,0.6,0.2s0.4,0,0.6-0.2s0.4-0.4,0.5-0.6
+			s0-0.5,0-0.7c-0.1-0.2-0.3-0.5-0.6-1C1452.2,299.7,1452.1,299.6,1452,299.3z"/>
+		<path class="st14" d="M1450.5,309.4c2.1-2.6,3.2-4,5.3-6.6c0.4,0.6,0.6,0.9,0.9,1.5c-1.6,1.9-2.3,2.9-3.9,4.8
 			c2.4-0.6,3.7-0.9,6.1-1.5c0.4,0.6,0.6,0.9,0.9,1.4c-3.4,0.7-5.1,1.1-8.4,1.8C1451.1,310.3,1450.9,310,1450.5,309.4z"/>
-		<path class="st8" d="M1458.5,316.9c0.1,0.7,0.2,1,0.4,1.6c-0.9,0.3-1.7,0.2-2.3,0c-0.7-0.3-1.2-0.8-1.6-1.5
+		<path class="st14" d="M1458.5,316.9c0.1,0.7,0.2,1,0.4,1.6c-0.9,0.3-1.7,0.2-2.3,0c-0.7-0.3-1.2-0.8-1.6-1.5
 			c-0.5-0.9-0.7-1.8-0.4-2.8c0.3-1,1-1.8,2.1-2.5c1.2-0.7,2.2-1,3.2-0.8s1.8,0.8,2.4,1.7c0.5,0.8,0.7,1.7,0.5,2.5
 			c-0.1,0.5-0.4,1-0.9,1.5c-0.5-0.5-0.7-0.7-1.2-1.2c0.3-0.3,0.5-0.7,0.6-1c0.1-0.4,0-0.8-0.2-1.1c-0.3-0.5-0.7-0.8-1.3-0.9
 			c-0.6-0.1-1.3,0.1-2.1,0.6c-0.9,0.5-1.4,1.1-1.6,1.6s-0.1,1.1,0.2,1.6c0.2,0.4,0.5,0.6,0.9,0.7
 			C1457.4,317.1,1457.9,317,1458.5,316.9z"/>
-		<path class="st8" d="M1458.5,323.8c0.3,0.7,0.4,1,0.7,1.7c-0.2,0.1-0.3,0.3-0.3,0.4c0,0.2,0,0.4,0.2,0.7c0.2,0.4,0.4,0.6,0.6,0.7
+		<path class="st14" d="M1458.5,323.8c0.3,0.7,0.4,1,0.7,1.7c-0.2,0.1-0.3,0.3-0.3,0.4c0,0.2,0,0.4,0.2,0.7c0.2,0.4,0.4,0.6,0.6,0.7
 			c0.1,0.1,0.3,0.1,0.5,0.1c0.1,0,0.4-0.1,0.7-0.3c0.3-0.2,0.5-0.3,0.8-0.4c-0.8-0.1-1.3-0.5-1.7-1.1c-0.4-0.7-0.4-1.4,0-2.2
 			c0.3-0.6,0.8-1.1,1.5-1.5c0.9-0.5,1.6-0.7,2.3-0.5c0.7,0.2,1.2,0.6,1.6,1.2c0.4,0.7,0.4,1.4,0,2.1c0.3-0.2,0.4-0.3,0.7-0.4
 			c0.3,0.5,0.4,0.8,0.7,1.3c-1.9,1.1-2.8,1.6-4.7,2.6c-0.6,0.3-1.1,0.5-1.5,0.6s-0.7,0.1-0.9,0c-0.3-0.1-0.5-0.3-0.8-0.5
 			c-0.3-0.3-0.5-0.6-0.8-1.1c-0.5-0.9-0.7-1.6-0.6-2.1s0.4-0.9,0.8-1.2C1458.4,323.9,1458.4,323.9,1458.5,323.8z M1462.2,323.3
 			c-0.5,0.3-0.9,0.7-1,1c-0.1,0.4-0.1,0.7,0,1c0.2,0.3,0.5,0.6,0.9,0.6c0.4,0.1,0.8,0,1.4-0.3c0.5-0.3,0.9-0.7,1-1
 			c0.1-0.4,0.1-0.7-0.1-1.1c-0.2-0.3-0.5-0.5-0.8-0.6C1463.2,322.9,1462.7,323,1462.2,323.3z"/>
-		<path class="st8" d="M1462.9,331.3c-0.3-0.6-0.4-0.8-0.7-1.4c2.1-1.1,3.1-1.7,5.2-2.9c0.3,0.5,0.4,0.8,0.7,1.3
+		<path class="st14" d="M1462.9,331.3c-0.3-0.6-0.4-0.8-0.7-1.4c2.1-1.1,3.1-1.7,5.2-2.9c0.3,0.5,0.4,0.8,0.7,1.3
 			c-0.3,0.2-0.4,0.3-0.7,0.4c0.5,0,0.8,0.1,1,0.2s0.4,0.3,0.5,0.5c0.2,0.3,0.2,0.7,0.2,1.1c-0.6,0.1-0.9,0.1-1.4,0.2
 			c0-0.3,0-0.6-0.1-0.8c-0.1-0.2-0.2-0.3-0.4-0.4c-0.2-0.1-0.4-0.1-0.7,0c-0.3,0.1-0.9,0.4-1.8,0.8
 			C1463.9,330.8,1463.6,330.9,1462.9,331.3z"/>
-		<path class="st8" d="M1466.8,332.2c0.5-0.2,1-0.4,1.5-0.4s1,0.2,1.5,0.5c0.4,0.3,0.8,0.7,1.1,1.2c0.4,0.8,0.5,1.6,0.2,2.4
+		<path class="st14" d="M1466.8,332.2c0.5-0.2,1-0.4,1.5-0.4s1,0.2,1.5,0.5c0.4,0.3,0.8,0.7,1.1,1.2c0.4,0.8,0.5,1.6,0.2,2.4
 			s-0.8,1.4-1.6,1.8c-0.8,0.4-1.6,0.5-2.4,0.2s-1.3-0.8-1.7-1.5c-0.2-0.5-0.4-1-0.4-1.6s0.2-1.1,0.5-1.5
 			C1465.8,332.9,1466.2,332.5,1466.8,332.2z M1467.5,333.6c-0.5,0.3-0.9,0.6-1,1c-0.2,0.4-0.1,0.8,0,1.1c0.2,0.4,0.5,0.6,0.9,0.7
 			s0.9,0,1.4-0.3s0.9-0.6,1-1c0.2-0.4,0.1-0.8,0-1.1c-0.2-0.4-0.5-0.6-0.9-0.7C1468.5,333.3,1468,333.4,1467.5,333.6z"/>
-		<path class="st8" d="M1468.8,343.7c0.3-0.2,0.5-0.2,0.8-0.4c-0.4-0.1-0.7-0.2-1-0.4c-0.3-0.2-0.5-0.5-0.7-0.9s-0.2-0.7-0.2-1.1
+		<path class="st14" d="M1468.8,343.7c0.3-0.2,0.5-0.2,0.8-0.4c-0.4-0.1-0.7-0.2-1-0.4c-0.3-0.2-0.5-0.5-0.7-0.9s-0.2-0.7-0.2-1.1
 			s0.2-0.7,0.4-1c0.2-0.3,0.6-0.5,1.1-0.8c1.3-0.7,2-1,3.4-1.7c0.3,0.6,0.4,0.9,0.6,1.4c-1,0.5-1.5,0.8-2.4,1.3
 			c-0.7,0.4-1.2,0.6-1.3,0.8c-0.1,0.1-0.2,0.3-0.3,0.5c0,0.2,0,0.4,0.1,0.6s0.3,0.4,0.5,0.6c0.2,0.1,0.4,0.2,0.7,0.1
 			c0.2,0,0.7-0.2,1.5-0.6c0.9-0.5,1.3-0.7,2.2-1.1c0.2,0.6,0.4,0.9,0.6,1.4c-2.1,1.1-3.2,1.6-5.3,2.7
 			C1469.2,344.5,1469,344.2,1468.8,343.7z"/>
-		<path class="st8" d="M1475.3,343.8c0.2,0.5,0.3,0.8,0.6,1.3c-0.3,0.2-0.5,0.2-0.8,0.4c0.3,0,0.6,0.2,0.9,0.4
+		<path class="st14" d="M1475.3,343.8c0.2,0.5,0.3,0.8,0.6,1.3c-0.3,0.2-0.5,0.2-0.8,0.4c0.3,0,0.6,0.2,0.9,0.4
 			c0.3,0.2,0.5,0.5,0.7,0.9c0.3,0.6,0.2,1.3,0,2c-0.3,0.7-0.8,1.2-1.7,1.7c-0.9,0.4-1.6,0.6-2.3,0.3c-0.7-0.2-1.2-0.6-1.4-1.3
 			c-0.1-0.3-0.2-0.6-0.2-0.9s0.1-0.7,0.3-1.1c-1.1,0.5-1.6,0.8-2.6,1.3c-0.3-0.6-0.4-0.9-0.6-1.4
 			C1470.9,346,1472.3,345.3,1475.3,343.8z M1473.3,346.5c-0.6,0.3-1,0.6-1.2,1s-0.2,0.8,0,1.1c0.1,0.3,0.4,0.6,0.7,0.6
@@ -814,9 +1408,9 @@
 			/>
 	</g>
 </g>
-<g class="st12">
+<g class="st42">
 	<g>
-		<path class="st8" d="M1361.9,185.9c1,0.9,1.4,1.4,2.4,2.3c0.5,0.4,0.8,0.8,1,1.1s0.3,0.5,0.4,0.8s0,0.6-0.1,0.9
+		<path class="st14" d="M1361.9,185.9c1,0.9,1.4,1.4,2.4,2.3c0.5,0.4,0.8,0.8,1,1.1s0.3,0.5,0.4,0.8s0,0.6-0.1,0.9
 			c-0.1,0.3-0.3,0.6-0.5,0.8c-0.3,0.3-0.6,0.4-1,0.5s-0.8,0-1.2-0.1c0.3,0.4,0.3,0.9,0.3,1.3c-0.1,0.4-0.3,0.8-0.6,1.1
 			c-0.3,0.2-0.6,0.4-1,0.5s-0.8,0.1-1.1,0.1c-0.4-0.1-0.7-0.2-1.1-0.5c-0.2-0.2-0.7-0.6-1.5-1.3c-0.8-0.8-1.2-1.1-2-1.9
 			C1358.1,189.2,1359.4,188.1,1361.9,185.9z M1359.6,190.1c-0.7,0.6-1,0.9-1.6,1.5c0.4,0.4,0.7,0.6,1.1,1.1c0.4,0.4,0.7,0.7,0.9,0.7
@@ -824,7 +1418,7 @@
 			C1360.2,190.7,1360,190.5,1359.6,190.1z M1362,187.9c-0.6,0.5-0.9,0.8-1.4,1.3c0.3,0.3,0.5,0.4,0.8,0.7c0.5,0.4,0.8,0.7,0.9,0.8
 			c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3s0.3-0.4,0.3-0.6c0-0.2-0.1-0.4-0.2-0.6c-0.1-0.1-0.4-0.5-1-1
 			C1362.5,188.3,1362.3,188.2,1362,187.9z"/>
-		<path class="st8" d="M1365.7,195.1c-0.3-0.5-0.5-0.7-0.8-1.2c0.5-0.3,1.1-0.4,1.6-0.3c0.5,0.1,1,0.4,1.6,0.9
+		<path class="st14" d="M1365.7,195.1c-0.3-0.5-0.5-0.7-0.8-1.2c0.5-0.3,1.1-0.4,1.6-0.3c0.5,0.1,1,0.4,1.6,0.9
 			c0.5,0.5,0.8,0.9,0.9,1.3c0.1,0.3,0.1,0.7,0,0.9c-0.1,0.3-0.4,0.6-0.9,1.1c-0.6,0.5-0.8,0.7-1.4,1.2c-0.4,0.3-0.7,0.6-0.8,0.8
 			c-0.1,0.2-0.3,0.4-0.4,0.7c-0.4-0.4-0.7-0.6-1.1-1.1c0-0.1,0.1-0.2,0.2-0.4c0.1-0.1,0.1-0.1,0.1-0.2c-0.4,0-0.7-0.1-1.1-0.2
 			c-0.3-0.1-0.6-0.3-0.8-0.5c-0.4-0.4-0.7-0.9-0.7-1.3c0-0.5,0.2-0.9,0.6-1.2c0.3-0.2,0.5-0.4,0.8-0.4c0.3-0.1,0.6,0,0.9,0.1
@@ -832,52 +1426,53 @@
 			C1366.2,195,1365.9,195,1365.7,195.1z M1366.2,197.4c-0.2-0.1-0.5-0.3-0.9-0.5s-0.7-0.4-0.8-0.4c-0.3,0-0.5,0-0.6,0.2
 			c-0.2,0.1-0.2,0.3-0.2,0.5s0.1,0.4,0.3,0.6c0.2,0.2,0.5,0.3,0.8,0.4c0.2,0,0.5,0,0.7-0.1c0.1-0.1,0.3-0.2,0.6-0.5
 			C1366.1,197.6,1366.1,197.5,1366.2,197.4z"/>
-		<path class="st8" d="M1373.1,202.3c-0.5-0.4-0.8-0.5-1.3-0.9c0.2-0.2,0.3-0.5,0.3-0.7s-0.1-0.5-0.3-0.7c-0.3-0.3-0.6-0.4-1-0.4
+		<path class="st14" d="M1373.1,202.3c-0.5-0.4-0.8-0.5-1.3-0.9c0.2-0.2,0.3-0.5,0.3-0.7s-0.1-0.5-0.3-0.7c-0.3-0.3-0.6-0.4-1-0.4
 			s-0.8,0.2-1.3,0.6c-0.5,0.5-0.8,0.9-0.9,1.2s0.1,0.7,0.4,1c0.2,0.2,0.4,0.3,0.7,0.3c0.3,0,0.6-0.1,0.9-0.3
 			c0.4,0.5,0.5,0.8,0.9,1.3c-0.6,0.4-1.3,0.5-1.8,0.4c-0.6-0.1-1.2-0.4-1.7-0.9c-0.6-0.6-0.9-1.3-0.9-2s0.4-1.4,1.1-2s1.5-1,2.3-1
 			s1.5,0.3,2.1,0.9c0.5,0.5,0.8,1,0.9,1.5C1373.6,201.3,1373.4,201.8,1373.1,202.3z"/>
-		<path class="st8" d="M1377.1,203.9c-0.4,0.3-0.6,0.5-0.9,0.8c-0.3-0.3-0.4-0.5-0.7-0.8c-0.7,0.6-1.1,0.9-1.8,1.6
+		<path class="st14" d="M1377.1,203.9c-0.4,0.3-0.6,0.5-0.9,0.8c-0.3-0.3-0.4-0.5-0.7-0.8c-0.7,0.6-1.1,0.9-1.8,1.6
 			c-0.4,0.3-0.6,0.5-0.6,0.6s-0.1,0.1-0.1,0.2c0,0.1,0.1,0.2,0.1,0.2c0.1,0.1,0.3,0.2,0.6,0.3c-0.3,0.4-0.5,0.5-0.8,0.9
 			c-0.4-0.2-0.7-0.4-1-0.7c-0.2-0.2-0.3-0.4-0.4-0.6c-0.1-0.2-0.1-0.4-0.1-0.6c0-0.2,0.1-0.4,0.3-0.6c0.1-0.1,0.4-0.4,0.8-0.8
 			c0.8-0.7,1.2-1,1.9-1.7c-0.2-0.2-0.3-0.3-0.5-0.5c0.4-0.3,0.6-0.5,0.9-0.8c0.2,0.2,0.3,0.3,0.5,0.5c0.4-0.3,0.5-0.5,0.9-0.8
 			c0.7,0.2,1.1,0.3,1.8,0.5c-0.6,0.5-1,0.8-1.6,1.4C1376.7,203.5,1376.8,203.6,1377.1,203.9z"/>
-		<path class="st8" d="M1377.2,209.8c0.4,0.5,0.5,0.8,0.9,1.3c-0.6,0.2-1.1,0.3-1.6,0.2s-1-0.4-1.5-0.9c-0.7-0.7-1-1.5-0.8-2.3
+		<path class="st14" d="M1377.2,209.8c0.4,0.5,0.5,0.8,0.9,1.3c-0.6,0.2-1.1,0.3-1.6,0.2s-1-0.4-1.5-0.9c-0.7-0.7-1-1.5-0.8-2.3
 			c0.1-0.6,0.5-1.2,1.1-1.7c0.7-0.6,1.5-1,2.3-1s1.4,0.3,2,0.8c0.6,0.6,0.9,1.3,0.8,2.1c-0.1,0.7-0.6,1.5-1.5,2.3
 			c-1.1-1.1-1.6-1.7-2.7-2.8c-0.3,0.3-0.5,0.6-0.5,1c0,0.3,0.1,0.6,0.3,0.9c0.2,0.2,0.4,0.3,0.6,0.3
 			C1376.7,210,1377,209.9,1377.2,209.8z M1378.5,208.8c0.3-0.3,0.5-0.6,0.5-0.9c0-0.3-0.1-0.6-0.3-0.8c-0.2-0.2-0.5-0.4-0.9-0.4
 			c-0.3,0-0.7,0.1-1,0.4C1377.5,207.8,1377.8,208.1,1378.5,208.8z"/>
-		<path class="st8" d="M1378.9,214.1c-0.4-0.4-0.6-0.7-1.1-1.1c1.8-1.5,2.7-2.3,4.4-3.8c0.4,0.4,0.6,0.6,1,1
+		<path class="st14" d="M1378.9,214.1c-0.4-0.4-0.6-0.7-1.1-1.1c1.8-1.5,2.7-2.3,4.4-3.8c0.4,0.4,0.6,0.6,1,1
 			c-0.3,0.2-0.4,0.3-0.6,0.5c0.5-0.1,0.8-0.1,1.1,0c0.2,0.1,0.4,0.2,0.6,0.4c0.2,0.3,0.4,0.6,0.5,0.9c-0.5,0.2-0.8,0.3-1.4,0.5
 			c-0.1-0.3-0.2-0.5-0.3-0.7c-0.1-0.2-0.3-0.3-0.5-0.3s-0.4,0-0.7,0.2c-0.3,0.1-0.8,0.5-1.6,1.2
 			C1379.7,213.4,1379.4,213.7,1378.9,214.1z"/>
-		<path class="st8" d="M1382.9,214c0.4-0.3,0.9-0.6,1.4-0.7c0.5-0.1,1.1-0.1,1.6,0.1c0.5,0.2,1,0.5,1.4,0.9c0.6,0.6,0.9,1.4,0.8,2.1
-			c-0.1,0.8-0.4,1.5-1.1,2c-0.7,0.6-1.4,0.8-2.2,0.8c-0.8,0-1.5-0.4-2.1-1c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.1-1,0-1.5
-			C1382.1,214.9,1382.4,214.5,1382.9,214z M1383.9,215.2c-0.4,0.4-0.7,0.8-0.7,1.2s0.1,0.7,0.3,1c0.3,0.3,0.6,0.4,1,0.4
-			s0.9-0.2,1.3-0.6c0.4-0.4,0.7-0.8,0.7-1.2s-0.1-0.7-0.3-1c-0.3-0.3-0.6-0.4-1-0.4C1384.8,214.7,1384.4,214.8,1383.9,215.2z"/>
-		<path class="st8" d="M1385.6,221.2c1.8-1.5,2.7-2.3,4.4-3.8c0.4,0.5,0.6,0.7,1,1.1c-1.8,1.5-2.7,2.3-4.4,3.8
+		<path class="st14" d="M1382.9,214c0.4-0.3,0.9-0.6,1.4-0.7c0.5-0.1,1.1-0.1,1.6,0.1c0.5,0.2,1,0.5,1.4,0.9
+			c0.6,0.6,0.9,1.4,0.8,2.1c-0.1,0.8-0.4,1.5-1.1,2c-0.7,0.6-1.4,0.8-2.2,0.8c-0.8,0-1.5-0.4-2.1-1c-0.4-0.4-0.6-0.8-0.8-1.3
+			c-0.2-0.5-0.1-1,0-1.5C1382.1,214.9,1382.4,214.5,1382.9,214z M1383.9,215.2c-0.4,0.4-0.7,0.8-0.7,1.2s0.1,0.7,0.3,1
+			c0.3,0.3,0.6,0.4,1,0.4s0.9-0.2,1.3-0.6c0.4-0.4,0.7-0.8,0.7-1.2s-0.1-0.7-0.3-1c-0.3-0.3-0.6-0.4-1-0.4
+			C1384.8,214.7,1384.4,214.8,1383.9,215.2z"/>
+		<path class="st14" d="M1385.6,221.2c1.8-1.5,2.7-2.3,4.4-3.8c0.4,0.5,0.6,0.7,1,1.1c-1.8,1.5-2.7,2.3-4.4,3.8
 			C1386.2,221.9,1386,221.7,1385.6,221.2z M1390.6,217c0.4-0.4,0.7-0.6,1.1-0.9c0.4,0.5,0.6,0.7,1,1.1c-0.4,0.4-0.7,0.6-1.1,0.9
 			C1391.2,217.6,1391,217.4,1390.6,217z"/>
-		<path class="st8" d="M1391.3,227.5c-0.4-0.4-0.6-0.6-1-1.1c0.3-0.2,0.4-0.3,0.6-0.6c-0.4,0-0.8,0-1.1-0.1
+		<path class="st14" d="M1391.3,227.5c-0.4-0.4-0.6-0.6-1-1.1c0.3-0.2,0.4-0.3,0.6-0.6c-0.4,0-0.8,0-1.1-0.1
 			c-0.3-0.1-0.6-0.3-0.8-0.6c-0.4-0.5-0.6-1.1-0.5-1.8s0.5-1.4,1.2-2c0.8-0.6,1.5-1,2.2-0.9s1.3,0.3,1.8,0.8
 			c0.4,0.5,0.6,1.1,0.5,1.8c0.9-0.7,1.3-1.1,2.2-1.9c0.4,0.5,0.6,0.7,1,1.1C1394.9,224.4,1393.7,225.4,1391.3,227.5z M1390.8,222.5
 			c-0.5,0.4-0.8,0.8-0.9,1.1c-0.1,0.4-0.1,0.8,0.2,1.2c0.2,0.3,0.6,0.4,0.9,0.4c0.4,0,0.8-0.2,1.3-0.6c0.5-0.4,0.8-0.8,0.9-1.2
 			s0-0.7-0.3-1c-0.2-0.3-0.6-0.4-0.9-0.4C1391.7,221.9,1391.3,222.1,1390.8,222.5z"/>
-		<path class="st8" d="M1395.9,229.9c0.3,0.5,0.5,0.8,0.8,1.3c-0.6,0.2-1.1,0.3-1.6,0.1c-0.5-0.1-1-0.4-1.4-0.9
+		<path class="st14" d="M1395.9,229.9c0.3,0.5,0.5,0.8,0.8,1.3c-0.6,0.2-1.1,0.3-1.6,0.1c-0.5-0.1-1-0.4-1.4-0.9
 			c-0.7-0.7-0.9-1.5-0.7-2.3c0.1-0.6,0.5-1.2,1.1-1.7c0.7-0.6,1.5-0.9,2.2-0.9c0.8,0,1.4,0.3,1.9,0.9c0.6,0.6,0.8,1.3,0.7,2.1
 			c-0.1,0.7-0.6,1.5-1.5,2.2c-1-1.1-1.5-1.7-2.5-2.9c-0.3,0.3-0.5,0.6-0.6,1c0,0.3,0.1,0.6,0.3,0.9c0.2,0.2,0.3,0.3,0.5,0.3
 			C1395.4,230.1,1395.6,230,1395.9,229.9z M1397.1,229c0.3-0.3,0.5-0.6,0.5-0.9c0-0.3-0.1-0.6-0.3-0.8c-0.2-0.3-0.5-0.4-0.8-0.4
 			s-0.7,0.1-1,0.4C1396.2,227.9,1396.5,228.3,1397.1,229z"/>
-		<path class="st8" d="M1402.5,231.5c-0.4,0.3-0.6,0.5-0.9,0.8c-0.3-0.3-0.4-0.5-0.7-0.8c-0.7,0.6-1.1,0.9-1.8,1.5
+		<path class="st14" d="M1402.5,231.5c-0.4,0.3-0.6,0.5-0.9,0.8c-0.3-0.3-0.4-0.5-0.7-0.8c-0.7,0.6-1.1,0.9-1.8,1.5
 			c-0.4,0.3-0.6,0.5-0.6,0.5c0,0.1-0.1,0.1-0.1,0.2c0,0.1,0,0.2,0.1,0.2c0.1,0.1,0.3,0.2,0.5,0.4c-0.3,0.3-0.5,0.5-0.8,0.9
 			c-0.3-0.2-0.7-0.4-1-0.8c-0.2-0.2-0.3-0.4-0.4-0.6c-0.1-0.2-0.1-0.4,0-0.6c0-0.2,0.1-0.4,0.3-0.5c0.1-0.1,0.4-0.4,0.8-0.7
 			c0.8-0.6,1.2-1,1.9-1.6c-0.2-0.2-0.3-0.3-0.5-0.5c0.4-0.3,0.6-0.5,0.9-0.8c0.2,0.2,0.3,0.3,0.5,0.5c0.4-0.3,0.5-0.4,0.9-0.7
 			c0.7,0.2,1,0.4,1.7,0.6c-0.6,0.5-0.9,0.8-1.6,1.3C1402.1,231,1402.2,231.2,1402.5,231.5z"/>
-		<path class="st8" d="M1402.3,237.3c0.3,0.5,0.5,0.8,0.8,1.3c-0.6,0.2-1.1,0.2-1.6,0.1s-0.9-0.4-1.4-0.9c-0.6-0.8-0.9-1.5-0.7-2.3
+		<path class="st14" d="M1402.3,237.3c0.3,0.5,0.5,0.8,0.8,1.3c-0.6,0.2-1.1,0.2-1.6,0.1s-0.9-0.4-1.4-0.9c-0.6-0.8-0.9-1.5-0.7-2.3
 			c0.2-0.6,0.5-1.2,1.1-1.7c0.7-0.6,1.5-0.9,2.2-0.9s1.4,0.3,1.9,0.9c0.6,0.7,0.8,1.3,0.7,2.1c-0.1,0.7-0.6,1.5-1.5,2.2
 			c-1-1.2-1.5-1.7-2.5-2.9c-0.3,0.3-0.5,0.6-0.6,1c0,0.3,0.1,0.6,0.3,0.9c0.2,0.2,0.3,0.3,0.5,0.3
 			C1401.8,237.5,1402.1,237.5,1402.3,237.3z M1403.6,236.4c0.3-0.3,0.5-0.6,0.6-0.9c0-0.3,0-0.6-0.2-0.8c-0.2-0.3-0.5-0.4-0.8-0.4
 			s-0.6,0.1-1,0.4C1402.7,235.4,1403,235.7,1403.6,236.4z"/>
-		<path class="st8" d="M1403.7,239.2c0.5,0.4,0.7,0.6,1.2,1c-0.2,0.2-0.3,0.5-0.3,0.7s0.1,0.5,0.4,0.8c0.2,0.3,0.5,0.5,0.7,0.5
+		<path class="st14" d="M1403.7,239.2c0.5,0.4,0.7,0.6,1.2,1c-0.2,0.2-0.3,0.5-0.3,0.7s0.1,0.5,0.4,0.8c0.2,0.3,0.5,0.5,0.7,0.5
 			s0.3,0,0.4-0.1s0.1-0.2,0.2-0.3c0-0.1,0-0.3-0.2-0.5c-0.6-1.1-0.9-1.9-0.9-2.3c-0.1-0.5,0.1-1,0.6-1.3c0.4-0.3,0.8-0.4,1.3-0.3
 			s1,0.4,1.6,1.1c0.5,0.6,0.8,1.1,0.8,1.6s-0.1,0.9-0.4,1.3c-0.4-0.4-0.7-0.6-1.1-0.9c0.1-0.2,0.2-0.4,0.2-0.6
 			c0-0.2-0.1-0.4-0.3-0.7c-0.3-0.3-0.5-0.5-0.7-0.6c-0.1,0-0.3,0-0.3,0.1c-0.1,0.1-0.1,0.2-0.1,0.3c0,0.2,0.2,0.6,0.6,1.4
@@ -885,42 +1480,42 @@
 			C1403.2,240.2,1403.4,239.7,1403.7,239.2z"/>
 	</g>
 </g>
-<g class="st12">
+<g class="st42">
 	<g>
-		<path class="st8" d="M1269.9,123.2c0.6,0.3,0.8,0.5,1.4,0.8c-0.2,0.5-0.3,0.9-0.2,1.3c0.1,0.4,0.3,0.7,0.8,1
+		<path class="st14" d="M1269.9,123.2c0.6,0.3,0.8,0.5,1.4,0.8c-0.2,0.5-0.3,0.9-0.2,1.3c0.1,0.4,0.3,0.7,0.8,1
 			c0.4,0.3,0.8,0.4,1.2,0.4c0.4,0,0.6-0.2,0.8-0.4c0.1-0.2,0.2-0.3,0.1-0.5c0-0.2-0.1-0.4-0.3-0.6c-0.1-0.2-0.4-0.5-0.9-1
 			c-0.6-0.7-1-1.2-1.1-1.7c-0.2-0.6,0-1.2,0.3-1.7c0.2-0.3,0.6-0.6,1-0.7c0.4-0.2,0.8-0.2,1.3-0.1s1,0.3,1.5,0.7
 			c0.8,0.6,1.3,1.2,1.5,1.8c0.2,0.6,0,1.3-0.4,1.9c-0.6-0.3-0.8-0.5-1.4-0.9c0.2-0.4,0.2-0.7,0.2-1c-0.1-0.3-0.3-0.5-0.7-0.8
 			c-0.4-0.3-0.8-0.4-1.1-0.4c-0.2,0-0.4,0.1-0.5,0.3c-0.1,0.2-0.1,0.3-0.1,0.5c0.1,0.3,0.4,0.7,0.9,1.3c0.5,0.6,0.9,1.1,1.1,1.5
 			s0.3,0.8,0.3,1.2c0,0.4-0.2,0.8-0.5,1.2c-0.3,0.4-0.6,0.6-1.1,0.8s-0.9,0.2-1.4,0.1c-0.5-0.1-1-0.4-1.6-0.8
 			c-0.8-0.6-1.4-1.2-1.5-1.9C1269.3,124.7,1269.5,123.9,1269.9,123.2z"/>
-		<path class="st8" d="M1278.4,125c0.5,0.3,0.7,0.5,1.2,0.8c-0.2,0.3-0.3,0.4-0.5,0.7c0.3-0.1,0.7-0.2,1.1-0.1s0.7,0.2,1,0.4
+		<path class="st14" d="M1278.4,125c0.5,0.3,0.7,0.5,1.2,0.8c-0.2,0.3-0.3,0.4-0.5,0.7c0.3-0.1,0.7-0.2,1.1-0.1s0.7,0.2,1,0.4
 			c0.6,0.4,0.9,0.9,0.9,1.6c0.1,0.7-0.2,1.4-0.7,2.2c-0.6,0.8-1.2,1.2-1.9,1.4c-0.7,0.2-1.3,0-1.9-0.3c-0.3-0.2-0.5-0.4-0.6-0.7
 			s-0.2-0.6-0.3-1c-0.7,0.9-1,1.4-1.7,2.3c-0.5-0.3-0.8-0.5-1.3-0.9C1275.5,128.9,1276.4,127.6,1278.4,125z M1277.9,128.2
 			c-0.4,0.5-0.6,1-0.5,1.4c0,0.4,0.2,0.7,0.5,0.9s0.6,0.3,1,0.2s0.7-0.4,1.1-0.9s0.5-0.9,0.5-1.3c0-0.4-0.2-0.7-0.5-0.9
 			c-0.3-0.2-0.7-0.3-1-0.2C1278.6,127.4,1278.3,127.7,1277.9,128.2z"/>
-		<path class="st8" d="M1280.6,133.6c1.4-1.9,2.1-2.8,3.5-4.6c0.5,0.4,0.8,0.5,1.3,0.9c-1.4,1.8-2.1,2.8-3.5,4.6
+		<path class="st14" d="M1280.6,133.6c1.4-1.9,2.1-2.8,3.5-4.6c0.5,0.4,0.8,0.5,1.3,0.9c-1.4,1.8-2.1,2.8-3.5,4.6
 			C1281.4,134.1,1281.1,134,1280.6,133.6z M1284.5,128.4c0.3-0.5,0.5-0.7,0.9-1.1c0.5,0.4,0.8,0.5,1.3,0.9c-0.3,0.5-0.5,0.7-0.9,1.1
 			C1285.3,128.9,1285.1,128.7,1284.5,128.4z"/>
-		<path class="st8" d="M1284.4,136.3c-0.5-0.4-0.8-0.5-1.3-0.9c1.4-1.8,2.1-2.8,3.5-4.6c0.5,0.3,0.7,0.5,1.2,0.8
+		<path class="st14" d="M1284.4,136.3c-0.5-0.4-0.8-0.5-1.3-0.9c1.4-1.8,2.1-2.8,3.5-4.6c0.5,0.3,0.7,0.5,1.2,0.8
 			c-0.2,0.3-0.3,0.4-0.5,0.7c0.4-0.2,0.8-0.2,1-0.2s0.5,0.1,0.7,0.2c0.3,0.2,0.5,0.5,0.7,0.8c-0.5,0.3-0.7,0.5-1.2,0.8
 			c-0.1-0.3-0.3-0.5-0.4-0.6c-0.2-0.1-0.4-0.2-0.6-0.2s-0.4,0.1-0.7,0.3c-0.3,0.2-0.7,0.7-1.3,1.5
 			C1285,135.4,1284.8,135.7,1284.4,136.3z"/>
-		<path class="st8" d="M1288.2,135.3c0.3-0.4,0.7-0.7,1.2-1c0.5-0.2,1-0.3,1.5-0.2s1,0.3,1.5,0.6c0.7,0.5,1.1,1.2,1.2,1.9
+		<path class="st14" d="M1288.2,135.3c0.3-0.4,0.7-0.7,1.2-1c0.5-0.2,1-0.3,1.5-0.2s1,0.3,1.5,0.6c0.7,0.5,1.1,1.2,1.2,1.9
 			c0.1,0.8-0.1,1.5-0.6,2.2s-1.2,1.1-2,1.2c-0.8,0.1-1.6-0.1-2.3-0.6c-0.4-0.3-0.8-0.7-1-1.2c-0.3-0.5-0.3-1-0.3-1.5
 			C1287.6,136.4,1287.8,135.9,1288.2,135.3z M1289.5,136.3c-0.3,0.5-0.5,0.9-0.5,1.3c0,0.4,0.2,0.7,0.6,1c0.3,0.2,0.7,0.3,1.1,0.2
 			s0.8-0.4,1.1-0.8c0.3-0.4,0.5-0.9,0.5-1.3c0-0.4-0.2-0.7-0.5-1c-0.3-0.2-0.7-0.3-1.1-0.2C1290.2,135.6,1289.8,135.9,1289.5,136.3z
 			"/>
-		<path class="st8" d="M1298.9,141.6c-0.6-0.3-0.8-0.4-1.4-0.7c0.1-0.3,0.2-0.5,0.1-0.7s-0.2-0.4-0.4-0.6c-0.3-0.2-0.6-0.3-1-0.2
+		<path class="st14" d="M1298.9,141.6c-0.6-0.3-0.8-0.4-1.4-0.7c0.1-0.3,0.2-0.5,0.1-0.7s-0.2-0.4-0.4-0.6c-0.3-0.2-0.6-0.3-1-0.2
 			c-0.3,0.1-0.7,0.4-1.1,0.8c-0.4,0.5-0.6,1-0.6,1.4s0.2,0.7,0.5,0.9c0.2,0.2,0.5,0.2,0.7,0.2c0.3,0,0.5-0.2,0.8-0.4
 			c0.4,0.4,0.6,0.7,1.1,1.1c-0.5,0.5-1.1,0.7-1.7,0.7s-1.2-0.2-1.8-0.6c-0.7-0.5-1.1-1.1-1.2-1.8s0.2-1.5,0.7-2.2
 			c0.6-0.8,1.2-1.2,2-1.3c0.7-0.1,1.5,0.1,2.2,0.6c0.6,0.4,0.9,0.9,1.1,1.4C1299.2,140.5,1299.1,141,1298.9,141.6z"/>
-		<path class="st8" d="M1303.5,140.1c-0.7,0.9-1.1,1.4-1.8,2.3c0.8-0.2,1.4,0,2,0.4c0.3,0.2,0.5,0.4,0.7,0.7
+		<path class="st14" d="M1303.5,140.1c-0.7,0.9-1.1,1.4-1.8,2.3c0.8-0.2,1.4,0,2,0.4c0.3,0.2,0.5,0.4,0.7,0.7
 			c0.1,0.3,0.2,0.5,0.2,0.8c0,0.2-0.1,0.5-0.2,0.7s-0.3,0.5-0.6,1c-0.8,1.1-1.2,1.6-2.1,2.7c-0.5-0.4-0.7-0.5-1.2-0.9
 			c0.7-1,1.1-1.4,1.9-2.4c0.4-0.5,0.6-0.8,0.6-1c0.1-0.2,0-0.3,0-0.5c-0.1-0.2-0.2-0.3-0.4-0.4c-0.2-0.2-0.4-0.2-0.7-0.3
 			c-0.2,0-0.5,0-0.7,0.2c-0.2,0.1-0.5,0.4-0.8,0.8c-0.7,0.9-1.1,1.4-1.8,2.3c-0.5-0.4-0.7-0.5-1.2-0.9c1.9-2.5,2.9-3.8,4.9-6.3
 			C1302.7,139.6,1303,139.8,1303.5,140.1z"/>
-		<path class="st8" d="M1306.2,147.1c-0.4-0.4-0.6-0.6-1-1c0.5-0.3,0.9-0.5,1.4-0.5s1,0.2,1.6,0.7c0.5,0.4,0.9,0.8,1.1,1.1
+		<path class="st14" d="M1306.2,147.1c-0.4-0.4-0.6-0.6-1-1c0.5-0.3,0.9-0.5,1.4-0.5s1,0.2,1.6,0.7c0.5,0.4,0.9,0.8,1.1,1.1
 			s0.2,0.6,0.2,0.9c0,0.3-0.3,0.7-0.7,1.2c-0.4,0.6-0.7,0.8-1.1,1.4c-0.3,0.4-0.5,0.7-0.6,0.9s-0.2,0.5-0.3,0.8
 			c-0.5-0.4-0.7-0.5-1.2-0.9c0-0.1,0.1-0.3,0.2-0.4c0-0.1,0.1-0.1,0.1-0.2c-0.4,0-0.7,0-1,0c-0.3-0.1-0.6-0.2-0.9-0.4
 			c-0.5-0.4-0.8-0.8-0.8-1.2c-0.1-0.5,0-0.9,0.3-1.3c0.2-0.3,0.4-0.4,0.7-0.5c0.3-0.1,0.6-0.1,0.9-0.1c0.3,0.1,0.7,0.2,1.2,0.4
@@ -928,17 +1523,17 @@
 			C1306.7,146.9,1306.5,146.9,1306.2,147.1z M1307.1,149.3c-0.2-0.1-0.5-0.2-0.9-0.4s-0.7-0.3-0.8-0.3c-0.2,0-0.4,0.1-0.6,0.2
 			c-0.1,0.2-0.2,0.4-0.1,0.6c0,0.2,0.1,0.4,0.3,0.5c0.2,0.2,0.5,0.3,0.8,0.3c0.2,0,0.4-0.1,0.6-0.2c0.1-0.1,0.3-0.3,0.5-0.5
 			C1307,149.4,1307,149.4,1307.1,149.3z"/>
-		<path class="st8" d="M1311.6,153.8c0.4,0.4,0.6,0.7,1.1,1.1c-0.5,0.3-1,0.5-1.5,0.4c-0.5,0-1-0.2-1.5-0.6
+		<path class="st14" d="M1311.6,153.8c0.4,0.4,0.6,0.7,1.1,1.1c-0.5,0.3-1,0.5-1.5,0.4c-0.5,0-1-0.2-1.5-0.6
 			c-0.8-0.6-1.2-1.3-1.2-2.1c0-0.6,0.3-1.3,0.8-1.9c0.6-0.8,1.2-1.2,2-1.3c0.7-0.1,1.4,0,2,0.5c0.7,0.5,1.1,1.1,1.1,1.9
 			c0,0.7-0.3,1.6-1,2.5c-1.2-0.9-1.8-1.4-3.1-2.3c-0.3,0.4-0.4,0.7-0.4,1.1c0,0.3,0.2,0.6,0.5,0.8c0.2,0.1,0.4,0.2,0.6,0.2
 			C1311.1,154.1,1311.4,154,1311.6,153.8z M1312.6,152.7c0.3-0.4,0.4-0.7,0.3-1c0-0.3-0.2-0.6-0.4-0.7c-0.3-0.2-0.6-0.3-0.9-0.2
 			s-0.6,0.3-0.9,0.6C1311.5,151.9,1311.9,152.1,1312.6,152.7z"/>
-		<path class="st8" d="M1318.4,154.1c-0.3,0.4-0.5,0.6-0.7,0.9c-0.3-0.3-0.5-0.4-0.8-0.6c-0.6,0.7-0.9,1.1-1.4,1.8
+		<path class="st14" d="M1318.4,154.1c-0.3,0.4-0.5,0.6-0.7,0.9c-0.3-0.3-0.5-0.4-0.8-0.6c-0.6,0.7-0.9,1.1-1.4,1.8
 			c-0.3,0.4-0.4,0.6-0.5,0.7c0,0.1,0,0.2,0,0.2c0,0.1,0.1,0.2,0.2,0.2c0.1,0.1,0.3,0.2,0.6,0.3c-0.2,0.4-0.4,0.6-0.6,1
 			c-0.4-0.1-0.7-0.3-1.1-0.5c-0.2-0.2-0.4-0.4-0.5-0.6c-0.1-0.2-0.2-0.4-0.2-0.6c0-0.2,0.1-0.4,0.2-0.6c0.1-0.2,0.3-0.4,0.6-0.9
 			c0.6-0.8,0.9-1.2,1.5-2c-0.2-0.2-0.3-0.3-0.6-0.4c0.3-0.4,0.4-0.6,0.7-1c0.2,0.2,0.3,0.3,0.6,0.4c0.3-0.4,0.4-0.5,0.7-0.9
 			c0.7,0.1,1.1,0.1,1.8,0.2c-0.5,0.6-0.8,1-1.3,1.6C1317.9,153.7,1318.1,153.8,1318.4,154.1z"/>
-		<path class="st8" d="M1319.1,156.8c-0.4-0.4-0.6-0.6-0.9-1c0.5-0.3,0.9-0.5,1.4-0.5s1,0.3,1.6,0.7c0.5,0.4,0.9,0.8,1.1,1.1
+		<path class="st14" d="M1319.1,156.8c-0.4-0.4-0.6-0.6-0.9-1c0.5-0.3,0.9-0.5,1.4-0.5s1,0.3,1.6,0.7c0.5,0.4,0.9,0.8,1.1,1.1
 			s0.2,0.6,0.2,0.9c0,0.3-0.3,0.7-0.7,1.2c-0.4,0.6-0.7,0.8-1.1,1.4c-0.3,0.4-0.5,0.7-0.6,0.9s-0.2,0.5-0.3,0.8
 			c-0.5-0.4-0.7-0.6-1.2-0.9c0-0.1,0.1-0.3,0.2-0.4c0-0.1,0.1-0.1,0.1-0.2c-0.4,0-0.7,0-1-0.1s-0.6-0.2-0.9-0.4
 			c-0.5-0.4-0.7-0.8-0.8-1.2c-0.1-0.5,0-0.9,0.3-1.3c0.2-0.3,0.4-0.4,0.7-0.5c0.3-0.1,0.6-0.1,0.9-0.1c0.3,0.1,0.7,0.2,1.2,0.5
@@ -946,14 +1541,14 @@
 			S1319.3,156.6,1319.1,156.8z M1319.9,159c-0.2-0.1-0.5-0.2-0.9-0.4s-0.7-0.3-0.8-0.3c-0.2,0-0.4,0.1-0.6,0.2
 			c-0.1,0.2-0.2,0.4-0.1,0.6c0,0.2,0.1,0.4,0.3,0.6c0.2,0.2,0.5,0.3,0.8,0.3c0.2,0,0.4-0.1,0.6-0.2c0.1-0.1,0.3-0.3,0.5-0.5
 			C1319.8,159.1,1319.8,159.1,1319.9,159z"/>
-		<path class="st8" d="M1320.6,163c2-2.5,2.9-3.7,4.9-6.2c0.5,0.4,0.7,0.6,1.2,0.9c-2,2.5-3,3.7-4.9,6.2
+		<path class="st14" d="M1320.6,163c2-2.5,2.9-3.7,4.9-6.2c0.5,0.4,0.7,0.6,1.2,0.9c-2,2.5-3,3.7-4.9,6.2
 			C1321.3,163.5,1321.1,163.4,1320.6,163z"/>
-		<path class="st8" d="M1326.7,165.5c0.4,0.5,0.6,0.7,1,1.1c-0.5,0.3-1,0.5-1.5,0.4c-0.5,0-1-0.2-1.5-0.6c-0.8-0.6-1.2-1.3-1.1-2.1
+		<path class="st14" d="M1326.7,165.5c0.4,0.5,0.6,0.7,1,1.1c-0.5,0.3-1,0.5-1.5,0.4c-0.5,0-1-0.2-1.5-0.6c-0.8-0.6-1.2-1.3-1.1-2.1
 			c0-0.6,0.3-1.3,0.8-1.9c0.6-0.7,1.2-1.2,2-1.3c0.7-0.1,1.4,0.1,2,0.5c0.7,0.5,1,1.2,1.1,1.9c0,0.7-0.3,1.6-1.1,2.5
 			c-1.2-0.9-1.8-1.4-3-2.3c-0.3,0.4-0.4,0.7-0.4,1s0.2,0.6,0.5,0.8c0.2,0.1,0.4,0.2,0.6,0.2C1326.3,165.7,1326.5,165.7,1326.7,165.5
 			z M1327.8,164.3c0.3-0.3,0.4-0.7,0.4-1s-0.2-0.6-0.4-0.8c-0.3-0.2-0.5-0.3-0.9-0.2c-0.3,0.1-0.6,0.2-0.9,0.6
 			C1326.7,163.5,1327,163.8,1327.8,164.3z"/>
-		<path class="st8" d="M1328.4,167.1c0.5,0.3,0.8,0.5,1.3,0.8c-0.1,0.3-0.2,0.5-0.1,0.8c0.1,0.2,0.2,0.5,0.5,0.7s0.6,0.4,0.8,0.4
+		<path class="st14" d="M1328.4,167.1c0.5,0.3,0.8,0.5,1.3,0.8c-0.1,0.3-0.2,0.5-0.1,0.8c0.1,0.2,0.2,0.5,0.5,0.7s0.6,0.4,0.8,0.4
 			c0.2,0,0.3-0.1,0.4-0.2c0.1-0.1,0.1-0.2,0.1-0.3s-0.1-0.3-0.3-0.5c-0.8-1-1.2-1.6-1.4-2c-0.2-0.5-0.1-1,0.3-1.4
 			c0.3-0.4,0.7-0.6,1.2-0.6s1.1,0.2,1.7,0.7s1,1,1.1,1.4s0.1,0.9-0.1,1.4c-0.5-0.3-0.8-0.4-1.3-0.7c0.1-0.2,0.1-0.4,0-0.6
 			c-0.1-0.2-0.2-0.4-0.5-0.6c-0.3-0.2-0.6-0.4-0.8-0.4c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.1,0.2-0.1,0.3c0,0.2,0.3,0.6,0.8,1.2
@@ -961,109 +1556,110 @@
 			C1328.2,168.1,1328.2,167.6,1328.4,167.1z"/>
 	</g>
 </g>
-<g class="st12">
+<g class="st42">
 	<g>
-		<path class="st8" d="M394.2,526.3c-2.6,0.3-3.9,0.5-6.5,0.8c0.1,0.9,0.2,1.4,0.3,2.3c-0.5,0.1-0.8,0.1-1.3,0.2
+		<path class="st14" d="M394.2,526.3c-2.6,0.3-3.9,0.5-6.5,0.8c0.1,0.9,0.2,1.4,0.3,2.3c-0.5,0.1-0.8,0.1-1.3,0.2
 			c-0.3-2.5-0.4-3.8-0.7-6.3c0.5-0.1,0.8-0.1,1.3-0.1c0.1,0.9,0.2,1.4,0.3,2.3c2.6-0.3,3.9-0.5,6.5-0.7
 			C394.1,525.3,394.1,525.7,394.2,526.3z"/>
-		<path class="st8" d="M392.9,515.1c0.1,0.7,0.1,1,0.2,1.7c-0.7,0.3-1,0.5-1.7,0.9c0.1,1.3,0.2,1.9,0.3,3.1c0.7,0.2,1.1,0.3,1.8,0.4
-			c0.1,0.7,0.1,1,0.2,1.7c-3.3-0.9-4.9-1.3-8.2-2.2c-0.1-0.7-0.1-1-0.2-1.7C388.4,517.5,389.9,516.7,392.9,515.1z M390.1,518.4
-			c-1.1,0.6-1.7,0.8-2.8,1.4c1.2,0.3,1.8,0.4,3,0.7C390.3,519.7,390.2,519.2,390.1,518.4z"/>
-		<path class="st8" d="M389.5,509.6c0.1-0.6,0.2-1,0.3-1.6c0.9,0.2,1.6,0.5,2,1c0.5,0.5,0.7,1.2,0.8,2c0.1,1-0.2,1.9-0.8,2.7
+		<path class="st14" d="M392.9,515.1c0.1,0.7,0.1,1,0.2,1.7c-0.7,0.3-1,0.5-1.7,0.9c0.1,1.3,0.2,1.9,0.3,3.1
+			c0.7,0.2,1.1,0.3,1.8,0.4c0.1,0.7,0.1,1,0.2,1.7c-3.3-0.9-4.9-1.3-8.2-2.2c-0.1-0.7-0.1-1-0.2-1.7
+			C388.4,517.5,389.9,516.7,392.9,515.1z M390.1,518.4c-1.1,0.6-1.7,0.8-2.8,1.4c1.2,0.3,1.8,0.4,3,0.7
+			C390.3,519.7,390.2,519.2,390.1,518.4z"/>
+		<path class="st14" d="M389.5,509.6c0.1-0.6,0.2-1,0.3-1.6c0.9,0.2,1.6,0.5,2,1c0.5,0.5,0.7,1.2,0.8,2c0.1,1-0.2,1.9-0.8,2.7
 			c-0.6,0.7-1.6,1.2-2.8,1.3c-1.3,0.1-2.4-0.1-3.1-0.7c-0.8-0.6-1.2-1.5-1.4-2.6c-0.1-1,0.1-1.8,0.6-2.4c0.3-0.4,0.8-0.7,1.4-1
 			c0.2,0.6,0.3,0.9,0.5,1.5c-0.4,0.1-0.7,0.4-0.9,0.7c-0.2,0.3-0.3,0.7-0.2,1.1c0.1,0.6,0.3,1,0.8,1.4c0.5,0.3,1.1,0.4,2.1,0.3
 			c1-0.1,1.7-0.4,2.1-0.8c0.4-0.4,0.5-0.9,0.5-1.5c0-0.4-0.2-0.8-0.5-1C390.5,509.8,390,509.6,389.5,509.6z"/>
-		<path class="st8" d="M392.1,506.3c-3.1,0.3-4.7,0.5-7.8,0.8c-0.1-0.6-0.1-1-0.2-1.6c1.4-0.1,2.1-0.2,3.5-0.3
+		<path class="st14" d="M392.1,506.3c-3.1,0.3-4.7,0.5-7.8,0.8c-0.1-0.6-0.1-1-0.2-1.6c1.4-0.1,2.1-0.2,3.5-0.3
 			c-1.5-1.2-2.3-1.7-3.8-2.9c-0.1-0.9-0.1-1.3-0.2-2.2c1.3,1.1,2,1.6,3.3,2.7c1.8-1.4,2.7-2.1,4.5-3.6c0.1,0.8,0.1,1.2,0.2,2.1
 			c-1.4,1-2.1,1.5-3.5,2.5c0.6,0.5,0.9,0.7,1.4,1.2c0.9-0.1,1.4-0.1,2.4-0.2C392,505.4,392,505.7,392.1,506.3z"/>
-		<path class="st8" d="M391.4,495.5c0-0.7,0-1,0.1-1.7c0.2,0,0.3-0.1,0.4-0.2c0.1-0.2,0.1-0.4,0.1-0.7c0-0.4-0.1-0.7-0.2-0.9
+		<path class="st14" d="M391.4,495.5c0-0.7,0-1,0.1-1.7c0.2,0,0.3-0.1,0.4-0.2c0.1-0.2,0.1-0.4,0.1-0.7c0-0.4-0.1-0.7-0.2-0.9
 			c-0.1-0.1-0.2-0.2-0.4-0.3c-0.1,0-0.4,0-0.7,0c-0.3,0-0.5,0-0.8,0.1c0.7,0.4,1,0.9,1.1,1.6c0.1,0.8-0.2,1.4-0.8,1.9
 			c-0.5,0.4-1.1,0.6-1.9,0.7c-1,0.1-1.7-0.1-2.2-0.5s-0.8-1-0.9-1.7s0.2-1.3,0.8-1.8c-0.3,0-0.5,0-0.8,0.1c0-0.6-0.1-0.9-0.1-1.4
 			c2-0.2,3.1-0.2,5.1-0.4c0.7-0.1,1.2,0,1.5,0c0.3,0.1,0.6,0.2,0.8,0.4c0.2,0.2,0.4,0.4,0.5,0.8c0.1,0.3,0.2,0.7,0.3,1.3
 			c0.1,1,0,1.7-0.3,2.1s-0.7,0.7-1.2,0.7C391.6,495.5,391.5,495.5,391.4,495.5z M388,494.4c0.6-0.1,1-0.2,1.3-0.5s0.4-0.6,0.3-0.9
 			c0-0.4-0.2-0.7-0.5-0.9c-0.3-0.2-0.7-0.3-1.3-0.3c-0.6,0-1,0.2-1.3,0.5s-0.4,0.6-0.4,1s0.2,0.7,0.5,0.9
 			C387,494.4,387.4,494.5,388,494.4z"/>
-		<path class="st8" d="M390.4,487.2c0,0.6,0.1,0.9,0.1,1.5c-2.3,0.2-3.4,0.3-5.7,0.5c0-0.6-0.1-0.8-0.1-1.4c0.3,0,0.5,0,0.8-0.1
+		<path class="st14" d="M390.4,487.2c0,0.6,0.1,0.9,0.1,1.5c-2.3,0.2-3.4,0.3-5.7,0.5c0-0.6-0.1-0.8-0.1-1.4c0.3,0,0.5,0,0.8-0.1
 			c-0.4-0.2-0.7-0.4-0.8-0.6c-0.1-0.2-0.2-0.4-0.2-0.6c0-0.3,0-0.7,0.2-1c0.5,0.1,0.8,0.2,1.3,0.4c-0.1,0.3-0.2,0.5-0.2,0.7
 			s0.1,0.4,0.2,0.5s0.3,0.2,0.7,0.3c0.3,0.1,0.9,0.1,1.9,0C389.3,487.3,389.7,487.3,390.4,487.2z"/>
-		<path class="st8" d="M387.3,485c-0.5,0-1,0-1.5-0.3c-0.5-0.2-0.9-0.5-1.1-1c-0.3-0.4-0.4-0.9-0.5-1.5c-0.1-0.9,0.2-1.6,0.7-2.2
+		<path class="st14" d="M387.3,485c-0.5,0-1,0-1.5-0.3c-0.5-0.2-0.9-0.5-1.1-1c-0.3-0.4-0.4-0.9-0.5-1.5c-0.1-0.9,0.2-1.6,0.7-2.2
 			s1.2-0.9,2.1-1s1.6,0.2,2.2,0.7s0.9,1.2,1,2c0,0.5,0,1-0.2,1.5s-0.5,0.9-1,1.2C388.5,484.8,387.9,484.9,387.3,485z M387.3,483.4
 			c0.6,0,1-0.2,1.3-0.5s0.4-0.6,0.4-1s-0.2-0.7-0.5-1c-0.3-0.2-0.8-0.3-1.3-0.3c-0.6,0-1,0.2-1.3,0.5s-0.4,0.6-0.4,1s0.2,0.7,0.5,1
 			C386.2,483.4,386.7,483.5,387.3,483.4z"/>
-		<path class="st8" d="M389.5,473.9c-0.3,0-0.5,0-0.9,0.1c0.3,0.2,0.6,0.4,0.8,0.8c0.2,0.3,0.3,0.7,0.3,1.1s0,0.7-0.2,1.1
+		<path class="st14" d="M389.5,473.9c-0.3,0-0.5,0-0.9,0.1c0.3,0.2,0.6,0.4,0.8,0.8c0.2,0.3,0.3,0.7,0.3,1.1s0,0.7-0.2,1.1
 			c-0.1,0.3-0.4,0.6-0.7,0.7c-0.3,0.2-0.7,0.3-1.2,0.3c-1.4,0.1-2.2,0.1-3.6,0.2c0-0.6-0.1-0.9-0.1-1.5c1-0.1,1.6-0.1,2.6-0.2
 			c0.8-0.1,1.3-0.1,1.5-0.2s0.3-0.2,0.4-0.3c0.1-0.2,0.1-0.3,0.1-0.6c0-0.3-0.1-0.5-0.3-0.7c-0.2-0.2-0.3-0.3-0.6-0.4
 			c-0.2-0.1-0.7-0.1-1.5,0c-1,0.1-1.4,0.1-2.4,0.2c0-0.6-0.1-0.9-0.1-1.5c2.3-0.1,3.4-0.2,5.7-0.4
 			C389.4,473.1,389.4,473.3,389.5,473.9z"/>
-		<path class="st8" d="M383.6,471.3c0-0.6-0.1-0.9-0.1-1.4c0.3,0,0.5,0,0.8-0.1c-0.3-0.2-0.5-0.4-0.7-0.7c-0.2-0.3-0.3-0.6-0.3-1
+		<path class="st14" d="M383.6,471.3c0-0.6-0.1-0.9-0.1-1.4c0.3,0,0.5,0,0.8-0.1c-0.3-0.2-0.5-0.4-0.7-0.7c-0.2-0.3-0.3-0.6-0.3-1
 			c0-0.7,0.2-1.3,0.7-1.7c0.5-0.5,1.2-0.8,2.1-0.8c1-0.1,1.7,0.1,2.3,0.6c0.6,0.4,0.8,1,0.9,1.7c0,0.3,0,0.6-0.1,0.9
 			s-0.3,0.5-0.6,0.8c1.1-0.1,1.7-0.1,2.9-0.2c0,0.6,0.1,0.9,0.1,1.5C388.3,471,386.7,471.1,383.6,471.3z M386.2,469.7
 			c0.6,0,1.1-0.2,1.4-0.5s0.4-0.6,0.4-1s-0.2-0.6-0.5-0.9c-0.3-0.2-0.8-0.3-1.4-0.3s-1,0.2-1.3,0.4c-0.3,0.3-0.4,0.6-0.4,0.9
 			c0,0.4,0.2,0.7,0.5,0.9C385.3,469.6,385.7,469.7,386.2,469.7z"/>
 	</g>
 </g>
-<g class="st12">
+<g class="st42">
 	<g>
-		<path class="st8" d="M391.6,320.8c-3.1-0.6-4.6-0.9-7.7-1.6c0.4-2.4,0.6-3.6,1.1-6.1c0.5,0.1,0.8,0.2,1.3,0.3
+		<path class="st14" d="M391.6,320.8c-3.1-0.6-4.6-0.9-7.7-1.6c0.4-2.4,0.6-3.6,1.1-6.1c0.5,0.1,0.8,0.2,1.3,0.3
 			c-0.3,1.8-0.5,2.6-0.8,4.4c0.7,0.1,1,0.2,1.7,0.4c0.3-1.6,0.4-2.4,0.7-4.1c0.5,0.1,0.8,0.2,1.3,0.3c-0.3,1.6-0.5,2.4-0.7,4.1
 			c0.8,0.2,1.3,0.3,2.1,0.4c0.3-1.8,0.5-2.7,0.8-4.5c0.5,0.1,0.8,0.2,1.3,0.3C392.3,317.1,392,318.3,391.6,320.8z"/>
-		<path class="st8" d="M393.7,309.5c-0.3-0.1-0.5-0.1-0.8-0.2c0.3,0.3,0.4,0.6,0.5,1s0.1,0.8,0,1.1c-0.1,0.4-0.2,0.7-0.5,1
+		<path class="st14" d="M393.7,309.5c-0.3-0.1-0.5-0.1-0.8-0.2c0.3,0.3,0.4,0.6,0.5,1s0.1,0.8,0,1.1c-0.1,0.4-0.2,0.7-0.5,1
 			c-0.2,0.3-0.5,0.4-0.8,0.5s-0.8,0.1-1.3-0.1c-1.4-0.3-2.1-0.5-3.5-0.8c0.1-0.6,0.2-0.9,0.3-1.6c1,0.2,1.5,0.3,2.6,0.6
 			c0.8,0.2,1.3,0.2,1.5,0.2s0.3-0.1,0.5-0.2c0.1-0.1,0.2-0.3,0.3-0.5c0.1-0.3,0-0.5-0.1-0.7s-0.2-0.4-0.4-0.5
 			c-0.2-0.1-0.7-0.3-1.5-0.4c-0.9-0.2-1.4-0.3-2.4-0.5c0.1-0.6,0.2-0.9,0.3-1.5c2.2,0.5,3.3,0.8,5.6,1.3
 			C393.9,308.6,393.8,308.9,393.7,309.5z"/>
-		<path class="st8" d="M394.6,305c-0.1,0.6-0.2,0.9-0.3,1.5c-2.2-0.5-3.3-0.8-5.6-1.3c0.1-0.6,0.2-0.9,0.3-1.4
+		<path class="st14" d="M394.6,305c-0.1,0.6-0.2,0.9-0.3,1.5c-2.2-0.5-3.3-0.8-5.6-1.3c0.1-0.6,0.2-0.9,0.3-1.4
 			c0.3,0.1,0.5,0.1,0.8,0.2c-0.3-0.3-0.5-0.6-0.6-0.8c-0.1-0.2-0.1-0.5,0-0.7c0.1-0.4,0.2-0.7,0.5-0.9c0.5,0.3,0.7,0.5,1.2,0.8
 			c-0.2,0.2-0.3,0.4-0.4,0.7c0,0.2,0,0.4,0.1,0.6s0.3,0.3,0.5,0.5c0.3,0.2,0.9,0.3,1.8,0.6C393.6,304.8,393.9,304.9,394.6,305z"/>
-		<path class="st8" d="M389.5,301.6c0.1-0.7,0.2-1,0.4-1.6c1.7-0.2,2.6-0.3,4.3-0.4c-1.5-0.9-2.2-1.4-3.6-2.3c0.1-0.6,0.2-1,0.4-1.6
-			c1.9,1.4,2.9,2,4.9,3.3c0.4,0.2,0.5,0.4,0.9,0.6c0.3,0.2,0.5,0.4,0.7,0.6c0.1,0.2,0.3,0.3,0.3,0.5c0.1,0.2,0.1,0.4,0.1,0.6
-			s0,0.5-0.1,0.8s-0.2,0.6-0.3,0.8c-0.5-0.1-0.7-0.1-1.2-0.1c0.1-0.2,0.2-0.4,0.2-0.6c0.1-0.4,0-0.6-0.1-0.9
-			c-0.2-0.2-0.4-0.4-0.7-0.6C393.2,301,391.9,301.2,389.5,301.6z"/>
-		<path class="st8" d="M393,293.9c-0.2,0.5-0.3,0.8-0.6,1.3c-0.5-0.3-0.8-0.7-1-1.1s-0.2-1,0-1.8c0.2-0.7,0.4-1.2,0.6-1.5
+		<path class="st14" d="M389.5,301.6c0.1-0.7,0.2-1,0.4-1.6c1.7-0.2,2.6-0.3,4.3-0.4c-1.5-0.9-2.2-1.4-3.6-2.3
+			c0.1-0.6,0.2-1,0.4-1.6c1.9,1.4,2.9,2,4.9,3.3c0.4,0.2,0.5,0.4,0.9,0.6c0.3,0.2,0.5,0.4,0.7,0.6c0.1,0.2,0.3,0.3,0.3,0.5
+			c0.1,0.2,0.1,0.4,0.1,0.6s0,0.5-0.1,0.8s-0.2,0.6-0.3,0.8c-0.5-0.1-0.7-0.1-1.2-0.1c0.1-0.2,0.2-0.4,0.2-0.6
+			c0.1-0.4,0-0.6-0.1-0.9c-0.2-0.2-0.4-0.4-0.7-0.6C393.2,301,391.9,301.2,389.5,301.6z"/>
+		<path class="st14" d="M393,293.9c-0.2,0.5-0.3,0.8-0.6,1.3c-0.5-0.3-0.8-0.7-1-1.1s-0.2-1,0-1.8c0.2-0.7,0.4-1.2,0.6-1.5
 			s0.5-0.5,0.8-0.5c0.3-0.1,0.7,0,1.4,0.1c0.7,0.2,1,0.3,1.7,0.5c0.5,0.1,0.9,0.2,1.1,0.2s0.5,0,0.8-0.1c-0.1,0.6-0.2,0.9-0.4,1.5
 			c-0.1,0-0.3,0-0.5,0c-0.1,0-0.2,0-0.2,0c0.2,0.3,0.3,0.6,0.4,1c0.1,0.3,0,0.7,0,1c-0.1,0.6-0.4,1-0.8,1.3s-0.8,0.3-1.3,0.2
 			c-0.3-0.1-0.6-0.2-0.8-0.4c-0.2-0.2-0.3-0.5-0.4-0.8s-0.1-0.7-0.1-1.3c0-0.7,0-1.3,0-1.6c-0.1,0-0.1,0-0.1,0
 			c-0.3-0.1-0.5-0.1-0.7,0.1c-0.2,0.1-0.3,0.4-0.4,0.8c-0.1,0.3-0.1,0.5,0,0.7C392.6,293.6,392.8,293.8,393,293.9z M394.7,292.2
 			c0,0.2,0,0.5,0,1c0,0.4,0,0.7,0.1,0.9c0.1,0.2,0.2,0.4,0.4,0.4c0.2,0.1,0.4,0,0.6-0.1s0.3-0.3,0.4-0.5c0.1-0.3,0-0.6-0.1-0.8
 			c-0.1-0.2-0.2-0.4-0.4-0.5c-0.1-0.1-0.3-0.2-0.7-0.2C394.9,292.2,394.8,292.2,394.7,292.2z"/>
-		<path class="st8" d="M398.4,288.5c-0.1,0.6-0.2,0.9-0.4,1.5c-2.2-0.6-3.3-0.9-5.5-1.4c0.1-0.6,0.2-0.8,0.3-1.4
+		<path class="st14" d="M398.4,288.5c-0.1,0.6-0.2,0.9-0.4,1.5c-2.2-0.6-3.3-0.9-5.5-1.4c0.1-0.6,0.2-0.8,0.3-1.4
 			c0.3,0.1,0.5,0.1,0.8,0.2c-0.3-0.3-0.5-0.6-0.6-0.8c-0.1-0.2-0.1-0.5,0-0.7c0.1-0.3,0.3-0.7,0.5-0.9c0.5,0.3,0.7,0.5,1.2,0.8
 			c-0.2,0.2-0.4,0.4-0.4,0.6c-0.1,0.2,0,0.4,0,0.6c0.1,0.2,0.3,0.3,0.5,0.5c0.3,0.2,0.9,0.4,1.8,0.6
 			C397.4,288.2,397.7,288.3,398.4,288.5z"/>
-		<path class="st8" d="M396.5,279.7c-0.1,0.6-0.1,0.9-0.1,1.5c-0.3,0-0.5,0-0.7,0.2c-0.2,0.1-0.3,0.3-0.4,0.6
+		<path class="st14" d="M396.5,279.7c-0.1,0.6-0.1,0.9-0.1,1.5c-0.3,0-0.5,0-0.7,0.2c-0.2,0.1-0.3,0.3-0.4,0.6
 			c-0.1,0.4-0.1,0.7,0.1,1s0.6,0.5,1.2,0.7c0.7,0.2,1.1,0.2,1.5,0c0.3-0.2,0.5-0.4,0.6-0.8c0.1-0.3,0.1-0.5-0.1-0.8
 			c-0.1-0.2-0.3-0.4-0.7-0.6c0.3-0.6,0.4-0.8,0.6-1.4c0.6,0.3,1,0.8,1.3,1.3c0.2,0.5,0.2,1.1,0,1.9s-0.6,1.4-1.3,1.8
 			c-0.6,0.4-1.4,0.4-2.3,0.2c-0.9-0.2-1.6-0.7-1.9-1.3c-0.4-0.6-0.5-1.4-0.2-2.2c0.2-0.7,0.5-1.2,0.9-1.5
 			C395.4,279.9,395.9,279.7,396.5,279.7z"/>
-		<path class="st8" d="M393.5,276c1.1,0.3,1.7,0.5,2.8,0.8c-0.4-0.6-0.5-1.3-0.3-2c0.1-0.3,0.2-0.6,0.4-0.9c0.2-0.2,0.4-0.4,0.6-0.5
-			s0.5-0.1,0.7-0.1s0.6,0.1,1.1,0.2c1.3,0.4,1.9,0.6,3.2,0.9c-0.2,0.6-0.2,0.9-0.4,1.5c-1.2-0.3-1.7-0.5-2.9-0.8
-			c-0.6-0.2-0.9-0.2-1.1-0.2s-0.3,0.1-0.5,0.2c-0.1,0.1-0.2,0.3-0.3,0.5c-0.1,0.2-0.1,0.5,0,0.7s0.2,0.4,0.4,0.6
-			c0.2,0.2,0.5,0.3,1,0.4c1.1,0.3,1.7,0.5,2.8,0.8c-0.2,0.6-0.2,0.9-0.4,1.5c-3-0.8-4.6-1.3-7.6-2.2
+		<path class="st14" d="M393.5,276c1.1,0.3,1.7,0.5,2.8,0.8c-0.4-0.6-0.5-1.3-0.3-2c0.1-0.3,0.2-0.6,0.4-0.9
+			c0.2-0.2,0.4-0.4,0.6-0.5s0.5-0.1,0.7-0.1s0.6,0.1,1.1,0.2c1.3,0.4,1.9,0.6,3.2,0.9c-0.2,0.6-0.2,0.9-0.4,1.5
+			c-1.2-0.3-1.7-0.5-2.9-0.8c-0.6-0.2-0.9-0.2-1.1-0.2s-0.3,0.1-0.5,0.2c-0.1,0.1-0.2,0.3-0.3,0.5c-0.1,0.2-0.1,0.5,0,0.7
+			s0.2,0.4,0.4,0.6c0.2,0.2,0.5,0.3,1,0.4c1.1,0.3,1.7,0.5,2.8,0.8c-0.2,0.6-0.2,0.9-0.4,1.5c-3-0.8-4.6-1.3-7.6-2.2
 			C393.3,276.9,393.4,276.6,393.5,276z"/>
-		<path class="st8" d="M399,270.8c-0.2,0.5-0.4,0.8-0.6,1.3c-0.5-0.3-0.8-0.7-1-1.1c-0.1-0.4-0.1-1,0.1-1.8c0.2-0.7,0.4-1.1,0.7-1.4
-			c0.2-0.3,0.5-0.4,0.8-0.5s0.7,0,1.4,0.2c0.7,0.2,1,0.3,1.7,0.5c0.5,0.1,0.8,0.2,1.1,0.3c0.2,0,0.5,0,0.8,0
-			c-0.2,0.6-0.3,0.9-0.4,1.5c-0.1,0-0.3,0-0.5,0c-0.1,0-0.2,0-0.2,0c0.2,0.3,0.3,0.6,0.3,1c0,0.3,0,0.6-0.1,1
+		<path class="st14" d="M399,270.8c-0.2,0.5-0.4,0.8-0.6,1.3c-0.5-0.3-0.8-0.7-1-1.1c-0.1-0.4-0.1-1,0.1-1.8
+			c0.2-0.7,0.4-1.1,0.7-1.4c0.2-0.3,0.5-0.4,0.8-0.5s0.7,0,1.4,0.2c0.7,0.2,1,0.3,1.7,0.5c0.5,0.1,0.8,0.2,1.1,0.3
+			c0.2,0,0.5,0,0.8,0c-0.2,0.6-0.3,0.9-0.4,1.5c-0.1,0-0.3,0-0.5,0c-0.1,0-0.2,0-0.2,0c0.2,0.3,0.3,0.6,0.3,1c0,0.3,0,0.6-0.1,1
 			c-0.2,0.6-0.4,1-0.8,1.2s-0.8,0.3-1.3,0.2c-0.3-0.1-0.6-0.2-0.8-0.5c-0.2-0.2-0.3-0.5-0.4-0.8s-0.1-0.7,0-1.3
 			c0.1-0.7,0.1-1.2,0.1-1.5c-0.1,0-0.1,0-0.1,0c-0.3-0.1-0.5-0.1-0.7,0s-0.3,0.4-0.4,0.7c-0.1,0.3-0.1,0.5,0,0.7
 			C398.7,270.5,398.8,270.6,399,270.8z M400.8,269.2c0,0.2,0,0.5,0,1c0,0.4,0,0.7,0,0.9c0.1,0.2,0.2,0.4,0.4,0.4
 			c0.2,0.1,0.4,0,0.6-0.1s0.3-0.3,0.4-0.5c0.1-0.3,0.1-0.5,0-0.8c-0.1-0.2-0.2-0.4-0.4-0.5c-0.1-0.1-0.3-0.2-0.7-0.3
 			C401,269.2,400.9,269.2,400.8,269.2z"/>
-		<path class="st8" d="M403.5,263.4c0.3-0.6,0.4-0.8,0.7-1.4c0.5,0.4,0.8,0.8,0.9,1.3c0.2,0.5,0.1,1-0.1,1.6c-0.3,1-0.8,1.6-1.6,1.8
-			c-0.6,0.2-1.3,0.2-2,0c-0.9-0.3-1.5-0.7-1.9-1.4c-0.4-0.6-0.4-1.3-0.2-2.1c0.3-0.8,0.7-1.4,1.4-1.7c0.7-0.3,1.6-0.3,2.7,0.1
-			c-0.5,1.5-0.7,2.2-1.1,3.7c0.4,0.1,0.8,0.1,1.1,0c0.3-0.2,0.5-0.4,0.6-0.7c0.1-0.2,0.1-0.4,0-0.6
+		<path class="st14" d="M403.5,263.4c0.3-0.6,0.4-0.8,0.7-1.4c0.5,0.4,0.8,0.8,0.9,1.3c0.2,0.5,0.1,1-0.1,1.6
+			c-0.3,1-0.8,1.6-1.6,1.8c-0.6,0.2-1.3,0.2-2,0c-0.9-0.3-1.5-0.7-1.9-1.4c-0.4-0.6-0.4-1.3-0.2-2.1c0.3-0.8,0.7-1.4,1.4-1.7
+			c0.7-0.3,1.6-0.3,2.7,0.1c-0.5,1.5-0.7,2.2-1.1,3.7c0.4,0.1,0.8,0.1,1.1,0c0.3-0.2,0.5-0.4,0.6-0.7c0.1-0.2,0.1-0.4,0-0.6
 			C403.9,263.7,403.8,263.5,403.5,263.4z M402.1,262.8c-0.4-0.1-0.8-0.1-1.1,0c-0.3,0.1-0.5,0.4-0.6,0.7c-0.1,0.3-0.1,0.6,0.1,0.9
 			s0.4,0.5,0.8,0.6C401.7,264.1,401.8,263.7,402.1,262.8z"/>
-		<path class="st8" d="M403.2,260.6c-0.5-0.2-0.9-0.4-1.3-0.8s-0.6-0.8-0.7-1.4c-0.1-0.5-0.1-1,0.1-1.6c0.3-0.8,0.8-1.4,1.5-1.8
+		<path class="st14" d="M403.2,260.6c-0.5-0.2-0.9-0.4-1.3-0.8s-0.6-0.8-0.7-1.4c-0.1-0.5-0.1-1,0.1-1.6c0.3-0.8,0.8-1.4,1.5-1.8
 			c0.7-0.4,1.5-0.4,2.3-0.1c0.8,0.3,1.4,0.8,1.8,1.5s0.4,1.5,0.2,2.3c-0.2,0.5-0.4,0.9-0.8,1.3s-0.8,0.6-1.3,0.7
 			C404.4,260.9,403.8,260.8,403.2,260.6z M403.7,259.2c0.5,0.2,1,0.2,1.4,0s0.6-0.4,0.7-0.8s0.1-0.7-0.1-1.1
 			c-0.2-0.3-0.6-0.6-1.1-0.8c-0.5-0.2-1-0.2-1.3,0c-0.4,0.2-0.6,0.4-0.7,0.8s-0.1,0.7,0.1,1.1C402.8,258.7,403.2,259,403.7,259.2z"
 			/>
-		<path class="st8" d="M403.6,250.4c0.5,0.2,0.7,0.2,1.1,0.4c-0.1,0.4-0.2,0.6-0.3,1c0.9,0.3,1.3,0.4,2.2,0.7
+		<path class="st14" d="M403.6,250.4c0.5,0.2,0.7,0.2,1.1,0.4c-0.1,0.4-0.2,0.6-0.3,1c0.9,0.3,1.3,0.4,2.2,0.7
 			c0.4,0.1,0.7,0.2,0.8,0.2c0.1,0,0.2,0,0.2-0.1c0.1,0,0.1-0.1,0.2-0.2c0-0.1,0.1-0.3,0.1-0.6c0.5,0.1,0.7,0.2,1.1,0.3
 			c0,0.4,0,0.8-0.2,1.2c-0.1,0.3-0.2,0.5-0.4,0.7c-0.2,0.2-0.3,0.3-0.5,0.3c-0.2,0.1-0.4,0.1-0.6,0c-0.2,0-0.5-0.1-1-0.3
 			c-0.9-0.3-1.4-0.5-2.4-0.8c-0.1,0.3-0.1,0.4-0.2,0.7c-0.5-0.2-0.7-0.2-1.1-0.4c0.1-0.3,0.1-0.4,0.2-0.7c-0.4-0.1-0.6-0.2-1.1-0.4
 			c-0.1-0.7-0.2-1.1-0.3-1.8c0.8,0.3,1.1,0.4,1.9,0.7C403.4,251,403.5,250.8,403.6,250.4z"/>
-		<path class="st8" d="M406,248.9c-0.3,0.5-0.4,0.7-0.7,1.2c-0.5-0.3-0.8-0.7-0.9-1.2c-0.1-0.4-0.1-1,0.2-1.7
+		<path class="st14" d="M406,248.9c-0.3,0.5-0.4,0.7-0.7,1.2c-0.5-0.3-0.8-0.7-0.9-1.2c-0.1-0.4-0.1-1,0.2-1.7
 			c0.2-0.6,0.5-1.1,0.7-1.4c0.3-0.3,0.5-0.4,0.8-0.5c0.3,0,0.7,0,1.3,0.3c0.7,0.2,1,0.4,1.7,0.6c0.5,0.2,0.8,0.3,1.1,0.3
 			c0.2,0,0.5,0,0.8,0c-0.2,0.6-0.3,0.8-0.5,1.4c-0.1,0-0.3,0-0.5,0c-0.1,0-0.2,0-0.2,0c0.2,0.3,0.2,0.7,0.3,1c0,0.3,0,0.6-0.1,1
 			c-0.2,0.6-0.5,0.9-0.9,1.2c-0.4,0.2-0.8,0.2-1.3,0.1c-0.3-0.1-0.6-0.3-0.7-0.5c-0.2-0.2-0.3-0.5-0.3-0.8s0-0.7,0.1-1.3
@@ -1073,13 +1669,13 @@
 			C407.9,247.4,407.9,247.4,407.8,247.4z"/>
 	</g>
 </g>
-<path class="st13" d="M401.4,458.2c-1.1,6,1.8,65.4,4.2,72.6"/>
-<path class="st13" d="M551.2,141.4c-50,8-160.6,52.6-150.9,275.8"/>
-<path class="st13" d="M591.4,860.4c62.8,143,529.9,413.8,819.2-73.2"/>
-<path class="st13" d="M1480.7,428.6c13.8,58.2,8.2,196.4-28.8,274.2"/>
-<path class="st13" d="M1424.3,290.9c14.3,16.4,38,59,42.7,81.7"/>
-<path class="st13" d="M1335.5,191.4c24.5,18.6,48.6,44.6,65.7,69"/>
-<path class="st13" d="M1275.7,146.4c12,8,20.7,13.1,30.7,22.2"/>
-<text transform="matrix(0.9816 -0.1908 0.1908 0.9816 775.717 100.6135)" class="st5 st9 st14">BACTERIA</text>
-<text transform="matrix(0.9986 -5.233693e-02 5.233693e-02 0.9986 439.4709 124.9379)" class="st5 st9 st14">ARCHAEA</text>
+<path class="st43" d="M401.4,458.2c-1.1,6,1.8,65.4,4.2,72.6"/>
+<path class="st43" d="M551.2,141.4c-50,8-160.6,52.6-150.9,275.8"/>
+<path class="st43" d="M591.4,860.4c62.8,143,529.9,413.8,819.2-73.2"/>
+<path class="st43" d="M1480.7,428.6c13.8,58.2,8.2,196.4-28.8,274.2"/>
+<path class="st43" d="M1424.3,290.9c14.3,16.4,38,59,42.7,81.7"/>
+<path class="st43" d="M1335.5,191.4c24.5,18.6,48.6,44.6,65.7,69"/>
+<path class="st43" d="M1275.7,146.4c12,8,20.7,13.1,30.7,22.2"/>
+<text transform="matrix(0.9816 -0.1908 0.1908 0.9816 775.717 100.6135)" class="st6 st15 st44">BACTERIA</text>
+<text transform="matrix(0.9986 -5.233693e-02 5.233693e-02 0.9986 439.4709 124.9379)" class="st6 st15 st44">ARCHAEA</text>
 </svg>

@@ -511,11 +511,6 @@ for species in speciesDict:
     speciesObj["speciesObjs"] = speciesDict[species]["speciesObjs"]
     speciesObj["id"] = speciesDict[species]["id"]
     speciesList.append(speciesObj)
-speciesList.append({
-    "species": "unclassified Bacteroidetes",
-    "speciesObjs": [ { "chapter": "10", "section": "2", "title": "Contractile Tails", "page": "10-2-contractile-tails.html" } ],
-    "id": "unclassified-Bacteroidetes"
-})
 metadata["speciesList"] = speciesList 
 writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
 
