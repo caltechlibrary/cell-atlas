@@ -250,7 +250,7 @@ blockquote {
         z-index: 2;
         opacity: 0;
         color: #363636;
-        transition: height 0.5s, padding 0.5s, opacity 0.2s;
+        transition: none;
     }
 
     .nav-menu-opened {
@@ -299,7 +299,7 @@ blockquote {
     }
     
     .nav-menu-chapter-title {
-
+        font-weight: 300;
     }
     
     .nav-menu-sections {
