@@ -299,7 +299,7 @@ blockquote {
     }
     
     .nav-menu-chapter-title {
-        font-weight: 300;
+        font-weight: 400;
     }
     
     .nav-menu-sections {
@@ -311,7 +311,7 @@ blockquote {
     
     .nav-menu-section-entry {
         padding: 12px 0;
-        font-weight: 300;
+        font-weight: 400;
     }
     
     .nav-menu-section-number {
