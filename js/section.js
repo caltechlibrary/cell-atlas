@@ -123,7 +123,7 @@ function setSource(videoEl, fileName) {
         source = document.createElement("source");
         videoEl.appendChild(source);
     }
-    if(window.location.origin == "https://caltechlibrary.github.io") {
+    if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000") {
         source.setAttribute("src", `https://www.cellstructureatlas.org/videos/${fileName}`);
     } else {
         source.setAttribute("src", `videos/${fileName}`);
@@ -341,7 +341,7 @@ function playVidWhenReady(event) {
 
 function createVideoPlayer(videoEl) {
     let playerId = videoEl.getAttribute("id");
-    let videoPlayer = videoEl.parentElement;
+    let videoPlayer = document.querySelector(`.book-section-video-player[data-player='${playerId}']`);
     let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
     let videoTimeStatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
@@ -354,7 +354,6 @@ function createVideoPlayer(videoEl) {
     seekBar.bufferPercent = 0;
     let videoDuration = 0;
     let fps = 15;
-    let isPaused = true;
     let frameImages;
     let frameInterval;
 
@@ -362,134 +361,191 @@ function createVideoPlayer(videoEl) {
     addTypeFocusToggle(fullScreenButton);
     addTypeFocusToggle(seekBar);
 
-    videoEl.addEventListener("canplay", function() {
-        playPauseButton.removeAttribute("disabled");
-        fullScreenButton.removeAttribute("disabled");
-        seekBar.removeAttribute("disabled");
-
-        videoEl.addEventListener('click', function() {
-            playPauseButton.click();
-        });
-    }, { once: true });
-
+    window.addEventListener("resize", resizeCanvases);
+    videoEl.addEventListener("loadedmetadata", initializePlayer);
+    videoEl.addEventListener("canplay", enablePlayer, { once: true });
+    videoEl.addEventListener("play", onVidPlay);
+    videoEl.addEventListener("pause", onVidPause);
+    videoEl.addEventListener("timeupdate", handleTimeUpdate);
+    videoEl.addEventListener("progress", updateBufferedTime);
     if(!OFFLINE && window.createImageBitmap) {
-        videoEl.addEventListener("playing", function() {
-            frameInterval = setInterval(function(){
-                saveFrame();
-            }, 1000/fps);
-        });
-
-        videoEl.addEventListener("seeked", async function() {
-            // Overide scrub by displaying video and save frame to scrub
-            let seekedTime = videoEl.currentTime;
-            let roundedSeekedTime = Math.round(seekedTime * fps) / fps;
-            // Check if frame does not exist already
-            if(roundedSeekedTime in frameImages) return;
-            videoScrubCanvas.style.display = "none";
-            await saveFrame();
-            scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
-        });
+        videoEl.addEventListener("playing", initializeFrameInterval);
+        videoEl.addEventListener("seeked", onSeeked);
+        videoEl.addEventListener("ended", clearFrameInterval);
+        videoEl.addEventListener("waiting", clearFrameInterval);
     }
- 
-    videoEl.addEventListener("pause", function() {
-        clearInterval(frameInterval);
-    });
+    if(videoEl === document.querySelector("#nonTextContent video")) {
+        let showVidBtn = document.querySelector(`#nonTextContent button[data-player='${playerId}']`);
+        let nonTextSection = document.querySelector("#nonTextContent");
+        
+        nonTextSection.addEventListener("transitionend", resizeCanvases);
+        if(showVidBtn) showVidBtn.addEventListener("click", resizeCanvases);
+    }
+    playPauseButton.addEventListener('click', togglePlayPause);
+    fullScreenButton.addEventListener("click", toggleFullscreen);
+    seekBar.addEventListener("input", handleSeekInput);
+    seekBar.addEventListener("mousedown", pauseOnSeekControl);
+    seekBar.addEventListener("keydown", pauseOnSeekControl);
+    seekBar.addEventListener("mouseup", hideScrubCanvas);
+    seekBar.addEventListener("keyup", hideScrubCanvas); 
 
-    playPauseButton.addEventListener('click', function() {
-        if (videoEl.paused || videoEl.ended) videoEl.play();
-        else videoEl.pause();
-    });
+    function resizeCanvases() {
+        videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+        videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+    }
 
-    fullScreenButton.addEventListener("click", function() {
-        if(document.fullscreenElement ||
-            document.webkitFullscreenElement ||
-            document.msFullscreenElement) {
-            window.addEventListener("touchstart", detectSwipe);
-            videoPlayer.classList.remove("book-section-video-player-fullscreen");
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-                document.removeEventListener("fullscreenchange", toggleFullscreen);
-            } else if (document.webkitExitFullscreen) { /* Safari */
-                document.webkitExitFullscreen();
-                document.removeEventListener("webkitfullscreenchange", toggleFullscreen);
-            } else if (document.msExitFullscreen) { /* IE11 */
-                document.msExitFullscreen();
-                document.removeEventListener("msfullscreenchange", toggleFullscreen);
-            }
-        } else {
-            if (videoPlayer.requestFullscreen) {
-                videoPlayer.requestFullscreen();
-                document.addEventListener("fullscreenchange", toggleFullscreen);
-            } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
-                videoPlayer.webkitRequestFullscreen();
-                document.addEventListener("webkitfullscreenchange", toggleFullscreen);
-            } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
-                videoPlayer.msRequestFullscreen();
-                document.addEventListener("msfullscreenchange", toggleFullscreen);
-            }
-        }
-    });
-
-    videoEl.addEventListener('play', function() {
-        isPaused = false;
-        videoPlayer.addEventListener("mouseleave", hidePlayerControls);
-        videoPlayer.addEventListener("mouseenter", showPlayerControls);
-        togglePlayPause();
-    });
-    
-    videoEl.addEventListener('pause', function() {
-        isPaused = true;
-        videoControls.style.opacity = 1;
-        videoPlayer.removeEventListener("mouseleave", hidePlayerControls);
-        videoPlayer.removeEventListener("mouseenter", showPlayerControls);
-        togglePlayPause();
-    });
-
-    videoEl.addEventListener("loadedmetadata", function() {
-        // TODO: put clear interval in a better spot
-        clearInterval(frameInterval);
+    function initializePlayer() {
+        clearFrameInterval();
         frameImages = {};
         videoDuration = videoEl.duration;
-        videoPaintCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
-        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-        videoScrubCanvas.setAttribute("width", `${videoEl.offsetWidth}px`);
-        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+        resizeCanvases();
         seekBar.step = `${1/fps}`;
         let totalMinutes = (videoDuration >= 60) ? Math.floor(videoDuration / 60) : 0;
         let seconds = Math.round(videoDuration) - (totalMinutes * 60);
         let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
         videoTimeStatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
         updateBufferedTime(videoEl, seekBar);
-    });
+    }
 
-    videoEl.addEventListener("timeupdate", function() {
+    function enablePlayer() {
+        playPauseButton.removeAttribute("disabled");
+        fullScreenButton.removeAttribute("disabled");
+        seekBar.removeAttribute("disabled");
+        videoEl.addEventListener('click', function() {
+            playPauseButton.click();
+        });
+    }
+
+    function onVidPlay() {
+        videoPlayer.addEventListener("mouseleave", hidePlayerControls);
+        videoPlayer.addEventListener("mouseenter", showPlayerControls);
+        togglePlayState();
+    }
+
+    function onVidPause() {
+        clearFrameInterval();
+        videoControls.style.opacity = 1;
+        videoPlayer.removeEventListener("mouseleave", hidePlayerControls);
+        videoPlayer.removeEventListener("mouseenter", showPlayerControls);
+        togglePlayState();
+    }
+
+    function hidePlayerControls() {
+        videoControls.style.opacity = 0;
+    }
+    
+    function showPlayerControls() {
+        videoControls.style.opacity = 1;
+    }
+
+    function togglePlayState() {
+        if (videoEl.paused || videoEl.ended) {
+            playPauseButton.setAttribute('data-state', 'play');
+        }
+        else {
+            playPauseButton.setAttribute('data-state', 'pause');
+        }
+    }
+
+    function handleTimeUpdate() {
         if(videoEl.readyState > 0) {
             seekBar.value = (videoEl.currentTime / videoDuration) * 100;
-            // Update seek bar
             updateSeekBar();
-            // Update timestamp
             updateTimeStamp();
         }
-    });
+    }
 
-    videoEl.addEventListener("ended", function() {
-        clearInterval(frameInterval);
-    });
-
-    videoEl.addEventListener("waiting", function() {
-        clearInterval(frameInterval);
-    });
-
-    seekBar.addEventListener("mousedown", function() {
-        if(!videoEl.paused){
-            videoEl.pause();
-            seekBar.addEventListener("mouseup", function(){
-                videoEl.play();
-            }, { once: true });
+    function updateBufferedTime() {
+        if (videoDuration > 0) {
+            for (var i = 0; i < videoEl.buffered.length; i++) {
+                if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime || videoEl.buffered.start(videoEl.buffered.length - 1 - i) <= 0) {
+                    seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / videoDuration) * 100;
+                    updateSeekBar(seekBar);
+                    break;
+                }
+            }
         }
-    });
+    }
 
-    seekBar.addEventListener("input", function() {
+    function initializeFrameInterval() {
+        frameInterval = setInterval(function(){
+            saveFrame();
+        }, 1000/fps);
+    }
+
+    async function onSeeked() {
+        // Overide scrub by displaying video and save frame to scrub
+        let seekedTime = videoEl.currentTime;
+        let roundedSeekedTime = Math.round(seekedTime * fps) / fps;
+        // Check if frame does not exist already
+        if(roundedSeekedTime in frameImages) return;
+        videoScrubCanvas.style.display = "none";
+        await saveFrame();
+        scrubContext.drawImage(frameImages[roundedSeekedTime], 0, 0, videoScrubCanvas.width, videoScrubCanvas.height);
+    }
+
+    async function saveFrame() {
+        let currentFrameTime = videoEl.currentTime;
+        if(Math.round(currentFrameTime * fps) / fps in frameImages) return;
+        paintContext.drawImage(videoEl, 0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
+        imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
+        imageBitmap = await createImageBitmap(imageData);
+        frameImages[Math.round(currentFrameTime * fps) / fps] = imageBitmap;
+    }
+
+    function clearFrameInterval() {
+        clearInterval(frameInterval);
+    }
+
+    function togglePlayPause() {
+        if (videoEl.paused || videoEl.ended) {
+            videoEl.play();
+        } else {
+            videoEl.pause();
+        }
+    }
+
+    function toggleFullscreen() {
+        if(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+            window.addEventListener("touchstart", detectSwipe);
+            videoPlayer.classList.remove("book-section-video-player-fullscreen");
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+                document.removeEventListener("fullscreenchange", handleFullscreenChange);
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+                document.removeEventListener("webkitfullscreenchange", handleFullscreenChange);
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+                document.removeEventListener("msfullscreenchange", handleFullscreenChange);
+            }
+        } else {
+            if (videoPlayer.requestFullscreen) {
+                videoPlayer.requestFullscreen();
+                document.addEventListener("fullscreenchange", handleFullscreenChange);
+            } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
+                videoPlayer.webkitRequestFullscreen();
+                document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+            } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
+                videoPlayer.msRequestFullscreen();
+                document.addEventListener("msfullscreenchange", handleFullscreenChange);
+            }
+        }
+    }
+
+    function handleFullscreenChange() {
+        if(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+            window.removeEventListener("touchstart", detectSwipe);
+            videoPlayer.classList.add("book-section-video-player-fullscreen");
+        } else {
+            window.addEventListener("touchstart", detectSwipe);
+            videoPlayer.classList.remove("book-section-video-player-fullscreen");
+        }
+    }
+
+    function handleSeekInput() {
         let seekBarTime = (parseFloat(seekBar.value) / 100) * videoDuration;
 
         if(!OFFLINE && window.createImageBitmap) {
@@ -503,57 +559,24 @@ function createVideoPlayer(videoEl) {
         videoEl.currentTime = seekBarTime;
         updateSeekBar();
         updateTimeStamp();
-    });
+    }
 
-    seekBar.addEventListener("mouseup", function(){
-        videoScrubCanvas.style.display = "none";
-    });
-
-    seekBar.addEventListener("keyup", function(){
-        videoScrubCanvas.style.display = "none";
-    });
-
-    seekBar.addEventListener("keydown", function(){
-        if(!isPaused) {
+    function pauseOnSeekControl() {
+        if(!videoEl.paused) {
             videoEl.pause();
-            seekBar.addEventListener("keyup", function() {
-                videoEl.play();
-            }, { once: true });
-        }
-    });
-
-    videoEl.addEventListener("progress", function() {
-        updateBufferedTime();
-    });
-
-    window.addEventListener("resize", resizeCanvases);
-
-    if(videoEl === document.querySelector("#nonTextContent video")) {
-        let nonTextSection = document.querySelector("#nonTextContent");
-        nonTextSection.addEventListener("transitionend", function(event) {
-            if(event.propertyName == "width") resizeCanvases();
-        });
-
-        // Add an event listener to always resize the canvases when the video button is clicked
-        let showVidBtn = document.querySelector(`#nonTextContent button[data-player='${playerId}']`);
-        if(showVidBtn) showVidBtn.addEventListener("click", resizeCanvases);
-    }
-
-    function togglePlayPause() {
-        if (videoEl.paused || videoEl.ended) {
-            playPauseButton.setAttribute('data-state', 'play');
-        }
-        else {
-            playPauseButton.setAttribute('data-state', 'pause');
+            seekBar.addEventListener("keyup", autoResumeVid);
+            seekBar.addEventListener("mouseup", autoResumeVid);
         }
     }
 
-    function hidePlayerControls() {
-        videoControls.style.opacity = 0;
+    function autoResumeVid(event) {
+        event.target.removeEventListener("keyup", autoResumeVid);
+        event.target.removeEventListener("mouseup", autoResumeVid);
+        videoEl.play();
     }
-    
-    function showPlayerControls() {
-        videoControls.style.opacity = 1;
+
+    function hideScrubCanvas() {
+        videoScrubCanvas.style.display = "none";
     }
     
     function updateSeekBar() {
@@ -570,46 +593,6 @@ function createVideoPlayer(videoEl) {
         seconds = Math.round(seconds);
         let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
         videoTimeStatus.innerHTML = `${minute}:${secondsFormatted} / ${totalTime}`;
-    }
-    
-    function updateBufferedTime() {
-        if (videoDuration > 0) {
-            for (var i = 0; i < videoEl.buffered.length; i++) {
-                if (videoEl.buffered.start(videoEl.buffered.length - 1 - i) < videoEl.currentTime || videoEl.buffered.start(videoEl.buffered.length - 1 - i) <= 0) {
-                    seekBar.bufferPercent = (videoEl.buffered.end(videoEl.buffered.length - 1 - i) / videoDuration) * 100;
-                    updateSeekBar(seekBar);
-                    break;
-                }
-            }
-        }
-    }
-
-    function resizeCanvases() {
-        videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-        videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-    }
-
-    async function saveFrame() {
-        let currentFrameTime = videoEl.currentTime;
-        if(Math.round(currentFrameTime * fps) / fps in frameImages) return;
-        paintContext.drawImage(videoEl, 0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
-        imageData = paintContext.getImageData(0, 0, videoPaintCanvas.width, videoPaintCanvas.height);
-        imageBitmap = await createImageBitmap(imageData);
-        frameImages[Math.round(currentFrameTime * fps) / fps] = imageBitmap;
-    }
-
-    function toggleFullscreen() {
-        if(document.fullscreenElement ||
-            document.webkitFullscreenElement ||
-            document.msFullscreenElement) {
-            window.removeEventListener("touchstart", detectSwipe);
-            videoPlayer.classList.add("book-section-video-player-fullscreen");
-        } else {
-            window.addEventListener("touchstart", detectSwipe);
-            videoPlayer.classList.remove("book-section-video-player-fullscreen");
-        }
     }
 }
 
