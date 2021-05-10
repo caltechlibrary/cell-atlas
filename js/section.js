@@ -221,7 +221,7 @@ function createVideoPlayer(videoEl) {
 
         videoEl.appendChild(source);
         medSrc = `videos/${dataFileMed}`;
-        if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000") {
+        if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000" || window.location.origin == "http://bs-local.com:8000") {
             medSrc = "https://www.cellstructureatlas.org/" + medSrc;
         }
 
@@ -248,7 +248,7 @@ function createVideoPlayer(videoEl) {
                 });
         } else {
             highSrc = `videos/${dataFile}`;
-            if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000") {
+            if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000" || window.location.origin == "http://bs-local.com:8000") {
                 highSrc = "https://www.cellstructureatlas.org/" + highSrc;
             }
             if(currQuality == "High" || !currQuality) {
