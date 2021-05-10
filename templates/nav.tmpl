@@ -9,7 +9,7 @@
                 ${else}
                     <div class="nav-menu-chapter-container">
                         <a tabindex="-1" ${if(nav.page)}href="${nav.page}.html"${endif}>
-                            <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
+                            <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background" ${if(nav.isChapter)}data-chapter="true"${endif}>
                                 ${nav.chapter} <span class="nav-menu-chapter-title">${nav.title}</span>
                             </h1>
                         </a>

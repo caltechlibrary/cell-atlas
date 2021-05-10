@@ -191,6 +191,7 @@ def createNavData():
             navChapter["chapter"] = chapter
             navChapter["title"] = sectionMetadata["title"]
             navChapter["page"] = chapter + "-" + "-".join(title)
+            navChapter["isChapter"] = "true"
             navData.append(navChapter)
         else:
             sectionEntry = {}
@@ -202,6 +203,7 @@ def createNavData():
     navData.append({
         "title": "Outlook",
         "page": "outlook",
+        "isChapter": "true",
         "sections": [{
             "title": "Keep Looking",
             "page": "keep-looking"
