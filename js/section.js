@@ -23,7 +23,6 @@ let video = document.querySelector("#nonTextContent video");
 if(video) {
     video.addEventListener("play", shelfOnFirstPlay);
     // Source the video using the DOI only if a local path is not being used
-    if(!OFFLINE) sourceVideo(video);
     createVideoPlayer(video);
 }
 
@@ -31,7 +30,6 @@ if(video) {
 let modalVideos = document.querySelectorAll(".subsection-modal-container video");
 if(modalVideos) {
     for(let modalVideo of modalVideos) {
-        if(!OFFLINE) sourceVideo(modalVideo);
         createVideoPlayer(modalVideo);
     }
 }
@@ -74,60 +72,6 @@ if(secSplit.length > 1) {
 function shelfOnFirstPlay(event) {
     shelfText();
     event.target.removeEventListener("play", shelfOnFirstPlay);
-}
-
-function sourceVideo(el) {
-    // Check if quality is preset to 480. If yes, source it now
-    let currentQuality = window.sessionStorage.getItem("vidQuality");
-    if(!currentQuality) {
-        currentQuality = "High";
-        window.sessionStorage.setItem("vidQuality", currentQuality);
-    }
-    checkQualityButtons(el.getAttribute("id"), currentQuality);
-    changeQualityButtonText(currentQuality == "High" ? "1080" : "480");
-    if(currentQuality == "Med") {
-        sourceVideoSmall(el);
-        el.load();
-    }
-
-    let doi = el.getAttribute("doi");
-    if(!doi) {
-        // Check if quality is high and video is still relative
-        if(currentQuality == "High" || !currentQuality) setSource(el, el.getAttribute("data-file"));
-        return;
-    };
-    let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
-    fetch(doiUrl)
-        .then(function(res) {
-            return res.json();
-        })
-        .then(function(data){
-            let videoUrl = data.data[0].attributes.url;
-            // Create global var for url to access later
-            window[`video${el.getAttribute("id")}`] = videoUrl;
-            if(currentQuality == "High" || !currentQuality) {
-                let source = el.querySelector("source");
-                if(!source) {
-                    source = document.createElement("source");
-                    el.appendChild(source);
-                }
-                source.setAttribute("src", videoUrl);
-                el.load();
-            }
-        });
-}
-
-function setSource(videoEl, fileName) {
-    let source = videoEl.querySelector("source");
-    if(!source) {
-        source = document.createElement("source");
-        videoEl.appendChild(source);
-    }
-    if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000") {
-        source.setAttribute("src", `https://www.cellstructureatlas.org/videos/${fileName}`);
-    } else {
-        source.setAttribute("src", `videos/${fileName}`);
-    }
 }
 
 function showModal(el) {
@@ -247,104 +191,19 @@ function closeChangerClick(event) {
     }
 }
 
-function changeQuality(el) {
-    let vidQuality = (el.value == "480") ? "Med" : "High";
-    let playerId = el.getAttribute("data-player");
-    let videoPlayer = document.querySelector(`video#${playerId}`);
-    let paused = videoPlayer.paused;
-    let currTime = videoPlayer.currentTime;
-    let allVideos = document.querySelectorAll("video");
-    
-    window.sessionStorage.setItem("vidQuality", vidQuality);
-    videoPlayer.setAttribute("preload", "metadata");
-    swapVideo(videoPlayer, vidQuality);
-    videoPlayer.removeEventListener("play", loadVidSource);
-    videoPlayer.load();
-    videoPlayer.addEventListener("canplay", function() {
-        videoPlayer.currentTime = currTime;
-        if(!paused) videoPlayer.play();
-    }, { once: true });
-
-    // Change the quality for the other videos as well
-    for(let video of allVideos) {
-        if(video.getAttribute("id") != playerId) {
-            video.setAttribute("preload", "none");
-            checkQualityButtons(video.getAttribute("id"), vidQuality);
-            swapVideo(video, vidQuality);
-        }
-    }
-
-    changeQualityButtonText(el.value);
-}
-
-function checkQualityButtons(playerId, vidQuality) {
-    let qualityButtons = document.querySelectorAll(`.video-quality-changer-selector[data-player='${playerId}'] input#vid${vidQuality}`);
-    if(qualityButtons) {
-        for(let qualityButton of qualityButtons) {
-            qualityButton.checked = true;
-        }
-    }
-}
-
-function changeQualityButtonText(quality) {
-    let qualityChangerButtonsTexts = document.querySelectorAll(".video-quality-changer-button span");
-    for(let qualityChangerButtonsText of qualityChangerButtonsTexts) {
-        qualityChangerButtonsText.innerHTML = `${quality}p`;
-    }
-}
-
-function swapVideo(videoPlayer, vidQuality) {
-    let paused = videoPlayer.paused;
-    if(!paused) videoPlayer.pause();
-
-    if(vidQuality == "Med") {
-        sourceVideoSmall(videoPlayer)
-    } else {
-        let doi = videoPlayer.getAttribute("doi");
-        let source = videoPlayer.querySelector("source");
-        if(doi) {
-            source.setAttribute("src", window[`video${videoPlayer.getAttribute("id")}`]);
-        } else {
-            let videoFileName = videoPlayer.getAttribute("data-file");
-            if(window.location.origin == "https://caltechlibrary.github.io") {
-                source.setAttribute("src", `https://www.cellstructureatlas.org/videos/${videoFileName}`);
-            } else {
-                source.setAttribute("src", `videos/${videoFileName}`);
-            }
-        }
-    }
-    
-    // Add event listener to load the video when played
-    videoPlayer.addEventListener("play", loadVidSource);
-}
-
-function sourceVideoSmall(video) {
-    let videoFileName = video.getAttribute("data-file");
-    let videoFileNameSmall = `${videoFileName.substring(0, videoFileName.length-4)}_480p.mp4`;
-    setSource(video, videoFileNameSmall);
-}
-
-function loadVidSource(event) {
-    let videoPlayer = event.target;
-    let currTime = videoPlayer.currentTime;
-    videoPlayer.removeEventListener("play", loadVidSource);
-    videoPlayer.load();
-    videoPlayer.currentTime = currTime;
-    videoPlayer.addEventListener("canplay", playVidWhenReady);
-}
-
-function playVidWhenReady(event) {
-    let videoPlayer = event.target;
-    videoPlayer.removeEventListener("canplay", playVidWhenReady);
-    videoPlayer.play();
-}
-
 function createVideoPlayer(videoEl) {
     let playerId = videoEl.getAttribute("id");
+    let doi = videoEl.getAttribute("doi");
+    let highSrc;
+    let medSrc;
     let videoPlayer = document.querySelector(`.book-section-video-player[data-player='${playerId}']`);
     let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
     let videoTimeStatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
+    let qualityChangerDesktop = videoControls.querySelector(`#${playerId}-qualityChanger`);
+    let qualityText = qualityChangerDesktop.querySelector("button span");
+    let playerQualityInputs = document.querySelectorAll(`.video-quality-changer-entry input[data-player='${playerId}']`);
+    let allPageQualityInputs = document.querySelectorAll(".video-quality-changer-entry input");
     let fullScreenButton = videoControls.querySelector(`#${playerId}-fullScreenButton`);
     let seekBar = videoControls.querySelector(`#${playerId}-seekBar`);
     let videoPaintCanvas = videoPlayer.querySelector(`#${playerId}-videoPaintCanvas`);
@@ -352,7 +211,7 @@ function createVideoPlayer(videoEl) {
     let paintContext = videoPaintCanvas.getContext("2d");
     let scrubContext = videoScrubCanvas.getContext("2d");
     seekBar.bufferPercent = 0;
-    let videoDuration = 0;
+    let videoDuration;
     let fps = 15;
     let frameImages;
     let frameInterval;
@@ -382,12 +241,63 @@ function createVideoPlayer(videoEl) {
         if(showVidBtn) showVidBtn.addEventListener("click", resizeCanvases);
     }
     playPauseButton.addEventListener('click', togglePlayPause);
+    for(let qualityInput of allPageQualityInputs) {
+        qualityInput.addEventListener("change", loadQuality);
+    }
     fullScreenButton.addEventListener("click", toggleFullscreen);
     seekBar.addEventListener("input", handleSeekInput);
     seekBar.addEventListener("mousedown", pauseOnSeekControl);
     seekBar.addEventListener("keydown", pauseOnSeekControl);
     seekBar.addEventListener("mouseup", hideScrubCanvas);
     seekBar.addEventListener("keyup", hideScrubCanvas); 
+
+    if(!OFFLINE) {
+        let currQuality = window.sessionStorage.getItem("vidQuality");
+        let qualityValue = (currQuality == "Med") ? "480" : "1080";
+        let dataFile = videoEl.getAttribute("data-file");
+        let dataFileMed = `${dataFile.substring(0, dataFile.length-4)}_480p.mp4`;
+        let source = document.createElement("source");
+
+        videoEl.appendChild(source);
+        medSrc = `videos/${dataFileMed}`;
+        if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000") {
+            medSrc = "https://www.cellstructureatlas.org/" + medSrc;
+        }
+
+        if(currQuality == "Med") {
+            source.setAttribute("src", medSrc);
+            videoEl.load();
+        } else if(!doi) {
+            source.setAttribute("src", highSrc);
+            videoEl.load();
+        }
+
+        if(doi) {
+            let doiUrl = 'https://api.datacite.org/dois/' + doi + '/media';
+            fetch(doiUrl)
+                .then(function(res) {
+                    return res.json();
+                })
+                .then(function(data){
+                    highSrc = data.data[0].attributes.url;
+                    if(currQuality == "High" || !currQuality) {
+                        source.setAttribute("src", highSrc);
+                        videoEl.load();
+                    }
+                });
+        } else {
+            highSrc = `videos/${dataFile}`;
+            if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000") {
+                highSrc = "https://www.cellstructureatlas.org/" + highSrc;
+            }
+            if(currQuality == "High" || !currQuality) {
+                source.setAttribute("src", highSrc);
+                videoEl.load();
+            }
+        }
+
+        updateQualityChanger(qualityValue);
+    }
 
     function resizeCanvases() {
         videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
@@ -398,15 +308,17 @@ function createVideoPlayer(videoEl) {
 
     function initializePlayer() {
         clearFrameInterval();
-        frameImages = {};
-        videoDuration = videoEl.duration;
         resizeCanvases();
-        seekBar.step = `${1/fps}`;
-        let totalMinutes = (videoDuration >= 60) ? Math.floor(videoDuration / 60) : 0;
-        let seconds = Math.round(videoDuration) - (totalMinutes * 60);
-        let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
-        videoTimeStatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
         updateBufferedTime(videoEl, seekBar);
+        frameImages = {};
+        if(!videoDuration) {
+            videoDuration = videoEl.duration;
+            seekBar.step = `${1/fps}`;
+            let totalMinutes = (videoDuration >= 60) ? Math.floor(videoDuration / 60) : 0;
+            let seconds = Math.round(videoDuration) - (totalMinutes * 60);
+            let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
+            videoTimeStatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
+        }
     }
 
     function enablePlayer() {
@@ -504,6 +416,43 @@ function createVideoPlayer(videoEl) {
             videoEl.play();
         } else {
             videoEl.pause();
+        }
+    }
+
+    function loadQuality(event) {
+        let qualityInput = event.currentTarget;
+        let vidQuality = (qualityInput.value == "480") ? "Med" : "High";
+        let source = videoEl.querySelector("source");
+        let currentTime = videoEl.currentTime;
+        let paused = videoEl.paused;
+
+        window.sessionStorage.setItem("vidQuality", vidQuality);
+        videoEl.setAttribute("preload", "none");
+        for(let playerQualityInput of playerQualityInputs) {
+            if(playerQualityInput == event.target) {
+                videoEl.setAttribute("preload", "metadata");
+            }
+        }
+        updateQualityChanger(qualityInput.value);
+
+        if(vidQuality == "High") {
+            source.setAttribute("src", highSrc);
+        } else {
+            source.setAttribute("src", medSrc);
+        }
+
+        videoEl.load();
+        videoEl.addEventListener("canplay", function() {
+            videoEl.currentTime = currentTime;
+            if(!paused) videoEl.play();
+        }, { once: true });
+    }
+
+    function updateQualityChanger(quality) {
+        qualityText.innerHTML = `${quality}p`;
+        let qualityInputs = document.querySelectorAll(`.video-quality-changer-entry input[data-player='${playerId}'][value='${quality}']`);
+        for(qualityInput of qualityInputs) {
+            qualityInput.checked = true;
         }
     }
 
