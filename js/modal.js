@@ -54,11 +54,7 @@ function openModal(modalId) {
         modalOverlay.style.display = "none";
         modal.style.display = "none";
         if(qualityChangerDesktop && qualityChangerDesktop.getAttribute("data-state") == "expanded") {
-            let changerContainer = qualityChangerDesktop.querySelector(".video-quality-changer");
             qualityChangerDesktop.setAttribute("data-state", "collapsed");
-            window.removeEventListener("click", closeChangerClick);
-            changerContainer.style.height = 0;
-            changerContainer.style.padding = 0;
         }
         if(modalText) modalText.setAttribute("tabindex", "-1");
         if(fullBackground && window.innerWidth > 900 && fullBackground.getAttribute("data-state") != "failed") {

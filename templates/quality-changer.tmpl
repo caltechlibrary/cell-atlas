@@ -1,5 +1,5 @@
 <div id="${it.playerId}-qualityChanger" class="video-quality-player-control" data-player="${it.playerId}" data-state="collapsed">
-    <button class="video-quality-changer-button" onclick="expandQualityChanger(this)">
+    <button class="video-quality-changer-button">
         <span></span>
         <div class="video-quality-changer-button-icon">
             ${svg/noun_UpDown.svg()}
@@ -8,12 +8,12 @@
     <div class="video-quality-changer video-quality-changer-selector" data-player="${it.playerId}">
         <label class="video-quality-changer-entry">
             <span class="video-quality-changer-label">1080p</span>
-            <input id="vidHigh" class="sr-only" type="radio" name="quality-${it.playerId}-desktop" value="1080" onchange="changeQuality(this)" data-player="${it.playerId}">
+            <input id="vidHigh" class="sr-only" type="radio" name="quality-${it.playerId}-desktop" value="1080" data-player="${it.playerId}">
             <div class="video-quality-changer-control">${svg/noun_Check.svg()}</div>
         </label>
         <label class="video-quality-changer-entry">
             <span class="video-quality-changer-label">480p</span>
-            <input id="vidMed" class="sr-only" type="radio" name="quality-${it.playerId}-desktop" value="480" onchange="changeQuality(this)" data-player="${it.playerId}">
+            <input id="vidMed" class="sr-only" type="radio" name="quality-${it.playerId}-desktop" value="480" data-player="${it.playerId}">
             <div class="video-quality-changer-control">${svg/noun_Check.svg()}</div>
         </label>
     </div>
