@@ -56,7 +56,6 @@ function openModal(modalId) {
         if(qualityChangerDesktop && qualityChangerDesktop.getAttribute("data-state") == "expanded") {
             let changerContainer = qualityChangerDesktop.querySelector(".video-quality-changer");
             qualityChangerDesktop.setAttribute("data-state", "collapsed");
-            window.removeEventListener("click", closeChangerClick);
             changerContainer.style.height = 0;
             changerContainer.style.padding = 0;
         }

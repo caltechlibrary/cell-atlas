@@ -150,47 +150,6 @@ function openText(el) {
     }, 1000);
 }
 
-function expandQualityChanger(el) {
-    let widgetContainer = el.parentElement;
-    let changerContainer = widgetContainer.querySelector(".video-quality-changer");
-    let state = widgetContainer.getAttribute("data-state");
-
-    if(state == "expanded") {
-        collapseChanger();
-    } else {
-        changerContainer.removeEventListener("transitionend", collapseState);
-        widgetContainer.setAttribute("data-state", "expanded");
-        changerContainer.style.padding = "3px 0 1.5em 3px";
-        changerContainer.style.height = "4.5em";
-        window.addEventListener("click", closeChangerClick);
-    }
-}
-
-function collapseChanger() {
-    let widgetContainer = document.querySelector(".video-quality-player-control[data-state='expanded']");
-    let changerContainer = widgetContainer.querySelector(".video-quality-changer");
-    changerContainer.style.height = 0;
-    changerContainer.style.padding = 0;
-    window.removeEventListener("click", closeChangerClick);
-    if(document.querySelector("body").classList.contains("preload")) {
-        widgetContainer.setAttribute("data-state", "collapsed");
-    } else {
-        changerContainer.addEventListener("transitionend", collapseState, { once: true });
-    }
-}
-
-function collapseState(event) {
-    let widgetContainer = event.target.parentElement;
-    widgetContainer.setAttribute("data-state", "collapsed");
-}
-
-function closeChangerClick(event) {
-    let widgetContainer = document.querySelector(".video-quality-player-control[data-state='expanded']");
-    if(widgetContainer && !widgetContainer.contains(event.target)) {
-        collapseChanger();
-    }
-}
-
 function createVideoPlayer(videoEl) {
     let playerId = videoEl.getAttribute("id");
     let doi = videoEl.getAttribute("doi");
@@ -201,6 +160,7 @@ function createVideoPlayer(videoEl) {
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
     let videoTimeStatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
     let qualityChangerDesktop = videoControls.querySelector(`#${playerId}-qualityChanger`);
+    let qualityChangerOpenBtn = qualityChangerDesktop.querySelector("button");
     let qualityText = qualityChangerDesktop.querySelector("button span");
     let playerQualityInputs = document.querySelectorAll(`.video-quality-changer-entry input[data-player='${playerId}']`);
     let allPageQualityInputs = document.querySelectorAll(".video-quality-changer-entry input");
@@ -241,6 +201,7 @@ function createVideoPlayer(videoEl) {
         if(showVidBtn) showVidBtn.addEventListener("click", resizeCanvases);
     }
     playPauseButton.addEventListener('click', togglePlayPause);
+    qualityChangerOpenBtn.addEventListener("click", toggleQualityChanger);
     for(let qualityInput of allPageQualityInputs) {
         qualityInput.addEventListener("change", loadQuality);
     }
@@ -416,6 +377,43 @@ function createVideoPlayer(videoEl) {
             videoEl.play();
         } else {
             videoEl.pause();
+        }
+    }
+
+    function toggleQualityChanger() {
+        let changerContainer = qualityChangerDesktop.querySelector(".video-quality-changer");
+        let state = qualityChangerDesktop.getAttribute("data-state");
+    
+        if(state == "expanded") {
+            collapseChanger();
+        } else {
+            changerContainer.removeEventListener("transitionend", collapseState);
+            qualityChangerDesktop.setAttribute("data-state", "expanded");
+            changerContainer.style.padding = "3px 0 1.5em 3px";
+            changerContainer.style.height = "4.5em";
+            window.addEventListener("click", closeChangerClick);
+        }
+    }
+
+    function collapseChanger() {
+        let changerContainer = qualityChangerDesktop.querySelector(".video-quality-changer");
+        changerContainer.style.height = 0;
+        changerContainer.style.padding = 0;
+        window.removeEventListener("click", closeChangerClick);
+        if(document.querySelector("body").classList.contains("preload")) {
+            qualityChangerDesktop.setAttribute("data-state", "collapsed");
+        } else {
+            changerContainer.addEventListener("transitionend", collapseState, { once: true });
+        }
+    }
+
+    function collapseState(event) {
+        qualityChangerDesktop.setAttribute("data-state", "collapsed");
+    }
+    
+    function closeChangerClick(event) {
+        if(qualityChangerDesktop && !qualityChangerDesktop.contains(event.target)) {
+            collapseChanger();
         }
     }
 
