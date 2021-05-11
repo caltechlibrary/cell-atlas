@@ -1,15 +1,16 @@
+let pageName = window.location.pathname.split("/").pop().split(".")[0];
+let navEntry = document.getElementById(`nav${pageName}`);
+
 // Check if nav bar should be opened
 if (typeof(Storage) !== "undefined") {
     let wasOpened = window.sessionStorage.getItem("navOpened");
-    if(wasOpened == "true") {
+    if(wasOpened == "true" && navEntry && navEntry.getAttribute("data-chapter") == "true") {
         let openNavButton = document.getElementById("openNavButton");
         openNavButton.click();
     }
 }
 
 // Get current section and highlight it on nav bar
-let pageName = window.location.pathname.split("/").pop().split(".")[0];
-let navEntry = document.getElementById(`nav${pageName}`);
 if(navEntry) {
     let navMenu = document.querySelector("#navMenu");
     // Get chapter of page
@@ -44,7 +45,7 @@ function toggleNav(el) {
     let pageContainer = document.querySelector(".book-page-content");
     if(window.navOpened){
         pageContainer.removeEventListener("click", autoShelfNav);
-        navMenu.style.height = "0%";
+        navMenu.style["max-height"] = "0%";
         navMenu.classList.remove("nav-menu-opened");
         setTimeout(function(){
             navMenu.style.opacity = "0";
@@ -57,11 +58,7 @@ function toggleNav(el) {
         toggleNavTabable(-1);
     } else {
         navMenu.classList.add("nav-menu-opened");
-        if(window.innerWidth > 900) {
-            navMenu.style.height = "100%";
-        } else {
-            navMenu.style.height = "auto";
-        }
+        navMenu.style["max-height"] = "100%";
         navMenu.style.opacity = "1";
         window.navOpened = true;
         window.sessionStorage.setItem("navOpened", true);
