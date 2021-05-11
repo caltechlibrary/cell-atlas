@@ -45,7 +45,7 @@ function toggleNav(el) {
     let pageContainer = document.querySelector(".book-page-content");
     if(window.navOpened){
         pageContainer.removeEventListener("click", autoShelfNav);
-        navMenu.style.height = "0%";
+        navMenu.style["max-height"] = "0%";
         navMenu.classList.remove("nav-menu-opened");
         setTimeout(function(){
             navMenu.style.opacity = "0";
@@ -58,11 +58,7 @@ function toggleNav(el) {
         toggleNavTabable(-1);
     } else {
         navMenu.classList.add("nav-menu-opened");
-        if(window.innerWidth > 900) {
-            navMenu.style.height = "100%";
-        } else {
-            navMenu.style.height = "auto";
-        }
+        navMenu.style["max-height"] = "100%";
         navMenu.style.opacity = "1";
         window.navOpened = true;
         window.sessionStorage.setItem("navOpened", true);

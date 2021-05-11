@@ -296,7 +296,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 0%;
+        height: auto;
+        max-height: 0%;
         width: 21.75em;
         padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
@@ -305,7 +306,7 @@
         overflow-x: hidden;
         z-index: 99;
         opacity: 0;
-        transition: height 0.5s, opacity 0.2s;
+        transition: max-height 0.5s, opacity 0.2s;
         color: rgb(54 54 54);
     }
 
