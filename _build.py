@@ -195,8 +195,8 @@ def createNavData():
             navChapter["page"] = chapter + "-" + "-".join(title)
             navChapter["isChapter"] = "true"
             navChapter["progressData"] = {
-                "pageNum": pageNum + 1,
-                "progPercent": ((pageNum + 1) / (len(sectionFiles) + 1)) * 100
+                "pageNum": pageNum,
+                "progPercent": ((pageNum) / (len(sectionFiles) + 1)) * 100
             }
             navData.append(navChapter)
         else:
