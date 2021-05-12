@@ -94,7 +94,7 @@ blockquote {
 .nav-menu-footer, .landing-page-download-button, .book-section-video-player-scrub-canvas,
 .book-section-video-player-paint-canvas, .book-section-video-player-controls,
 .book-section-comparison-button-container, .video-quality-player-control,
-.book-section-comparison-exit-fullscreen-desktop {
+.book-section-comparison-exit-fullscreen-desktop, #customBookProgress {
     display: none;
 }
 
