@@ -182,7 +182,9 @@ def createNavData():
         "title": "Introduction",
         "page": "introduction"
     })
+    pageNum = 0
     for sectionFile in sectionFiles:
+        pageNum = pageNum + 1
         sectionMetadata = getMarkdownMetadata("sections/{}".format(sectionFile))
         chapter, navSection, *title = sectionFile[:-3].split("-")
         if navSection == "0":
@@ -192,6 +194,10 @@ def createNavData():
             navChapter["title"] = sectionMetadata["title"]
             navChapter["page"] = chapter + "-" + "-".join(title)
             navChapter["isChapter"] = "true"
+            navChapter["progressData"] = {
+                "pageNum": pageNum + 1,
+                "progPercent": ((pageNum + 1) / (len(sectionFiles) + 1)) * 100
+            }
             navData.append(navChapter)
         else:
             sectionEntry = {}
@@ -204,6 +210,10 @@ def createNavData():
         "title": "Outlook",
         "page": "outlook",
         "isChapter": "true",
+        "progressData": {
+            "pageNum": pageNum + 1,
+            "progPercent": ((pageNum + 1) / (len(sectionFiles) + 1)) * 100
+        },
         "sections": [{
             "title": "Keep Looking",
             "page": "keep-looking"
@@ -348,6 +358,7 @@ usedBibs = []
 sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 # Create nav menu data
 siteNav = createNavData()
+chapterPageValues = [ siteNav[i]["progressData"] for i in range(len(siteNav)) if "isChapter" in siteNav[i] ]
 # Create profiles data to use in section pages
 profiles = []
 profileDict = {}
@@ -395,6 +406,10 @@ introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
 introFileMetaData["thumbnail"] = "0_1_thumbnail"
+introFileMetaData["totalPages"] = len(sectionFiles) + 1
+introFileMetaData["currentPageNum"] = 0
+introFileMetaData["chapterPageNums"] = chapterPageValues
+introFileMetaData["progPercent"] = 0
 addSliderData(introFileMetaData, movieDict[introFileMetaData["doi"]])
 addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html", "", "", "Introduction")
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
@@ -407,6 +422,10 @@ for i in range(len(sectionFiles)):
     metadata["collectorProfile"] = False
     metadata["prevSection"] = None
     metadata["nextSection"] = None
+    metadata["totalPages"] = len(sectionFiles) + 1
+    metadata["currentPageNum"] = i + 1
+    metadata["chapterPageNums"] = chapterPageValues
+    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
     if("doi" in metadata or "video" in metadata):
         if "doi" in metadata and metadata["doi"] in movieDict:
             addSliderData(metadata, movieDict[metadata["doi"]])
@@ -459,6 +478,10 @@ metadata = {}
 metadata["prevSection"] = sectionFiles[-1][:-3]
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
+metadata["totalPages"] = len(sectionFiles) + 1
+metadata["currentPageNum"] = len(sectionFiles)
+metadata["chapterPageNums"] = chapterPageValues
+metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
 writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
 
 # Render keep looking page
@@ -469,6 +492,10 @@ keepLookingFileMetaData["prevSection"] = "outlook"
 keepLookingFileMetaData["nextSection"] = "A-feature-index"
 keepLookingFileMetaData["subsectionsData"] = []
 keepLookingFileMetaData["thumbnail"] = "11_1_thumbnail"
+keepLookingFileMetaData["totalPages"] = len(sectionFiles) + 1
+keepLookingFileMetaData["currentPageNum"] = len(sectionFiles) + 1
+keepLookingFileMetaData["chapterPageNums"] = chapterPageValues
+keepLookingFileMetaData["progPercent"] = (keepLookingFileMetaData["currentPageNum"] / keepLookingFileMetaData["totalPages"]) * 100
 addSliderData(keepLookingFileMetaData, movieDict[keepLookingFileMetaData["doi"]])
 addSpeciesToDict(keepLookingFileMetaData["videoTitle"], "keep-looking.html", "", "", "Keep Looking")
 writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)

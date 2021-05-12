@@ -1,0 +1,11 @@
+${if(currentPageNum)}
+    <div id="customBookProgress">
+        <div id="progressBarMarker" class="progress-current-pos-marker" style="left:${progPercent}%"></div>
+        <div class="progress-bar-container">
+            <progress id="bookProgress" value="${currentPageNum}" max="${totalPages}"></progress>
+            ${for(chapterPageNums)}
+                <div class="progress-bar-chapter-mark" data-page="${it.pageNum}" style="left:${it.progPercent}%"></div>
+            ${endfor}
+        </div>
+    </div>
+${endif}
