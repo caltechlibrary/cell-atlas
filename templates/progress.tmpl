@@ -1,7 +1,7 @@
 ${if(currentPageNum)}
     <div id="customBookProgress">
         <div id="progressPopUp" class="progress-popup progress-popup-hidden">
-            <span>${progPercent}%</span>
+            <span>${displayPercent}%</span>
             <span>Page ${currentPageNum} of ${totalPages}</span>
         </div>
         <div id="progressBarMarker" class="progress-current-pos-marker" style="left:${progPercent}%" data-percent="${progPercent}"></div>
