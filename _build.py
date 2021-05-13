@@ -425,7 +425,7 @@ for i in range(len(sectionFiles)):
     metadata["totalPages"] = len(sectionFiles) + 1
     metadata["currentPageNum"] = i + 1
     metadata["chapterPageNums"] = chapterPageValues
-    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
+    metadata["progPercent"] = round((metadata["currentPageNum"] / metadata["totalPages"]) * 100, 2)
     if("doi" in metadata or "video" in metadata):
         if "doi" in metadata and metadata["doi"] in movieDict:
             addSliderData(metadata, movieDict[metadata["doi"]])
@@ -481,7 +481,7 @@ metadata["typeChapter"] = True
 metadata["totalPages"] = len(sectionFiles) + 1
 metadata["currentPageNum"] = len(sectionFiles)
 metadata["chapterPageNums"] = chapterPageValues
-metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
+metadata["progPercent"] = round((metadata["currentPageNum"] / metadata["totalPages"]) * 100, 2)
 writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
 
 # Render keep looking page
@@ -495,7 +495,7 @@ keepLookingFileMetaData["thumbnail"] = "11_1_thumbnail"
 keepLookingFileMetaData["totalPages"] = len(sectionFiles) + 1
 keepLookingFileMetaData["currentPageNum"] = len(sectionFiles) + 1
 keepLookingFileMetaData["chapterPageNums"] = chapterPageValues
-keepLookingFileMetaData["progPercent"] = (keepLookingFileMetaData["currentPageNum"] / keepLookingFileMetaData["totalPages"]) * 100
+keepLookingFileMetaData["progPercent"] = round((keepLookingFileMetaData["currentPageNum"] / keepLookingFileMetaData["totalPages"]) * 100, 2)
 addSliderData(keepLookingFileMetaData, movieDict[keepLookingFileMetaData["doi"]])
 addSpeciesToDict(keepLookingFileMetaData["videoTitle"], "keep-looking.html", "", "", "Keep Looking")
 writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)

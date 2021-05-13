@@ -69,6 +69,31 @@ if(secSplit.length > 1) {
     }
 }
 
+let progressBar = document.getElementById("customBookProgress");
+let progressPopUp = document.getElementById("progressPopUp");
+let progressMarker = document.getElementById("progressBarMarker");
+progressBar.addEventListener("mouseenter", function() {
+    let halfLength = progressPopUp.scrollWidth / 2;
+    progressPopUp.classList.remove("progress-popup-hidden");
+    if(progressMarker.getBoundingClientRect().left - halfLength <= 0) {
+        progressPopUp.style.transform = `initial`;
+        progressPopUp.style.right = "initial";
+        progressPopUp.style.left = `0.25em`;
+    } else if(progressMarker.getBoundingClientRect().right + halfLength >= window.innerWidth) {
+        progressPopUp.style.transform = `initial`;
+        progressPopUp.style.left = `initial`;
+        progressPopUp.style.right = `0.25em`;
+    } else {
+        progressPopUp.style.transform = `translate(-50%, 0)`;
+        progressPopUp.style.right = `initial`;
+        progressPopUp.style.left = `${progressMarker.getAttribute("data-percent")}%`;
+    }
+});
+progressBar.addEventListener("mouseleave", function() {
+    progressPopUp.setAttribute("style", "");
+    progressPopUp.classList.add("progress-popup-hidden");
+});
+
 function shelfOnFirstPlay(event) {
     shelfText();
     event.target.removeEventListener("play", shelfOnFirstPlay);
