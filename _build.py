@@ -196,7 +196,7 @@ def createNavData():
             navChapter["isChapter"] = "true"
             navChapter["progressData"] = {
                 "pageNum": pageNum,
-                "progPercent": ((pageNum) / (len(sectionFiles) + 1)) * 100
+                "progPercent": ((pageNum) / (totalPages)) * 100
             }
             navData.append(navChapter)
         else:
@@ -212,7 +212,7 @@ def createNavData():
         "isChapter": "true",
         "progressData": {
             "pageNum": pageNum + 1,
-            "progPercent": ((pageNum + 1) / (len(sectionFiles) + 1)) * 100
+            "progPercent": ((pageNum + 1) / (totalPages)) * 100
         },
         "sections": [{
             "title": "Keep Looking",
@@ -357,6 +357,8 @@ usedBibs = []
 # Get all section files
 sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 # Create nav menu data
+totalExtraPages = 3
+totalPages = len(sectionFiles) + totalExtraPages
 siteNav = createNavData()
 chapterPageValues = [ siteNav[i]["progressData"] for i in range(len(siteNav)) if "isChapter" in siteNav[i] ]
 # Create profiles data to use in section pages
@@ -406,10 +408,10 @@ introFileMetaData["prevSection"] = "begin"
 introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
 introFileMetaData["subsectionsData"] = []
 introFileMetaData["thumbnail"] = "0_1_thumbnail"
-introFileMetaData["totalPages"] = len(sectionFiles) + 1
-introFileMetaData["currentPageNum"] = 0
+introFileMetaData["totalPages"] = totalPages
+introFileMetaData["currentPageNum"] = 1
 introFileMetaData["chapterPageNums"] = chapterPageValues
-introFileMetaData["progPercent"] = 0
+introFileMetaData["progPercent"] = round((introFileMetaData["currentPageNum"] / introFileMetaData["totalPages"]) * 100, 2)
 addSliderData(introFileMetaData, movieDict[introFileMetaData["doi"]])
 addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html", "", "", "Introduction")
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
@@ -422,8 +424,8 @@ for i in range(len(sectionFiles)):
     metadata["collectorProfile"] = False
     metadata["prevSection"] = None
     metadata["nextSection"] = None
-    metadata["totalPages"] = len(sectionFiles) + 1
-    metadata["currentPageNum"] = i + 1
+    metadata["totalPages"] = totalPages
+    metadata["currentPageNum"] = i + 2
     metadata["chapterPageNums"] = chapterPageValues
     metadata["progPercent"] = round((metadata["currentPageNum"] / metadata["totalPages"]) * 100, 2)
     if("doi" in metadata or "video" in metadata):
@@ -478,8 +480,8 @@ metadata = {}
 metadata["prevSection"] = sectionFiles[-1][:-3]
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
-metadata["totalPages"] = len(sectionFiles) + 1
-metadata["currentPageNum"] = len(sectionFiles)
+metadata["totalPages"] = totalPages
+metadata["currentPageNum"] = len(sectionFiles) + 2
 metadata["chapterPageNums"] = chapterPageValues
 metadata["progPercent"] = round((metadata["currentPageNum"] / metadata["totalPages"]) * 100, 2)
 writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
@@ -492,8 +494,8 @@ keepLookingFileMetaData["prevSection"] = "outlook"
 keepLookingFileMetaData["nextSection"] = "A-feature-index"
 keepLookingFileMetaData["subsectionsData"] = []
 keepLookingFileMetaData["thumbnail"] = "11_1_thumbnail"
-keepLookingFileMetaData["totalPages"] = len(sectionFiles) + 1
-keepLookingFileMetaData["currentPageNum"] = len(sectionFiles) + 1
+keepLookingFileMetaData["totalPages"] = totalPages
+keepLookingFileMetaData["currentPageNum"] = totalPages
 keepLookingFileMetaData["chapterPageNums"] = chapterPageValues
 keepLookingFileMetaData["progPercent"] = round((keepLookingFileMetaData["currentPageNum"] / keepLookingFileMetaData["totalPages"]) * 100, 2)
 addSliderData(keepLookingFileMetaData, movieDict[keepLookingFileMetaData["doi"]])
