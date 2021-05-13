@@ -150,7 +150,8 @@
     }
 
     .landing-page-logo {
-        position: absolute;
+        position: relative;
+        margin-bottom: 8.25vh;
         height: 90px;
         width: 690px;
         display: flex;
@@ -167,7 +168,7 @@
 
     .landing-page-text {
         position: absolute;
-        height: 100%;
+        height: auto;
         width: 38%;
         min-width: 44em;
         left: 0;
@@ -180,6 +181,10 @@
     }
 
     @media (max-height:850px) {
+        .landing-page-logo {
+            margin-bottom: 3.5%;
+        }
+
         .landing-page-container {
             overflow: auto;
         }
@@ -187,7 +192,6 @@
         .landing-page-text {
             width: 70%;
             height: auto;
-            padding-top: 8%;
         }
     }
 
