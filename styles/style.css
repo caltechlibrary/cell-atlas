@@ -1111,7 +1111,9 @@
 
     /* || PROGRESS styles */
     #customBookProgress {
-        position: relative;
+        position: absolute;
+        width: 100%;
+        transform: translate(0, -100%);
     }
 
     .progress-popup {
