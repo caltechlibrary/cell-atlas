@@ -151,7 +151,7 @@
 
     .landing-page-logo {
         position: relative;
-        margin-bottom: 5em;
+        margin-bottom: 8.25vh;
         height: 90px;
         width: 690px;
         display: flex;
@@ -182,7 +182,7 @@
 
     @media (max-height:850px) {
         .landing-page-logo {
-            margin-bottom: 4em;
+            margin-bottom: 3.5%;
         }
 
         .landing-page-container {
