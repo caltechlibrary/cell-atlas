@@ -72,8 +72,10 @@ if(secSplit.length > 1) {
 let progressBar = document.getElementById("customBookProgress");
 let progressPopUp = document.getElementById("progressPopUp");
 let progressMarker = document.getElementById("progressBarMarker");
+let hideProgTimeout;
 progressBar.addEventListener("mouseenter", function() {
     let halfLength = progressPopUp.scrollWidth / 2;
+    if(hideProgTimeout) window.clearTimeout(hideProgTimeout);
     progressPopUp.classList.remove("progress-popup-hidden");
     if(progressMarker.getBoundingClientRect().left - halfLength <= 0) {
         progressPopUp.style.transform = `initial`;
@@ -90,8 +92,10 @@ progressBar.addEventListener("mouseenter", function() {
     }
 });
 progressBar.addEventListener("mouseleave", function() {
-    progressPopUp.setAttribute("style", "");
-    progressPopUp.classList.add("progress-popup-hidden");
+    hideProgTimeout = setTimeout(function() {
+        progressPopUp.setAttribute("style", "");
+        progressPopUp.classList.add("progress-popup-hidden");
+    }, 1000);
 });
 
 function shelfOnFirstPlay(event) {
