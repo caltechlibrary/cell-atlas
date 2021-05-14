@@ -1109,6 +1109,88 @@
         margin-top: 2em;
     }
 
+    /* || PROGRESS styles */
+    #customBookProgress {
+        position: absolute;
+        width: 100%;
+        transform: translate(0, -100%);
+    }
+
+    .progress-popup {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        bottom: 0px;
+        margin-bottom: 1.25em;
+        color: #fff;
+        background-color: #363636;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        padding: 0.5em 1em;
+        font-weight: 600;
+        box-shadow: 0px 0px 10px 2px #383838;
+    }
+
+
+    .progress-popup-hidden {
+        left: -10000px;
+        top: auto;
+        overflow: hidden;
+    }
+
+    .progress-popup span {
+        white-space: nowrap;
+    }
+
+    .progress-bar-container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #customBookProgress progress[value]{
+        display: block;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 5px;
+    }
+
+    #customBookProgress progress[value]::-webkit-progress-bar {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    progress[value]::-webkit-progress-value {
+        background-color: #fff;
+    }
+
+    .progress-current-pos-marker {
+        position: absolute;
+        left: 0;
+        top: -9px;
+        width: 0px;
+        height: 0px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #ccc;
+        transform: translateX(-50%);
+    }
+
+    .progress-bar-chapter-mark {
+        position: absolute;
+        top: 0;
+        box-sizing: border-box;
+        width: 3px;
+        height: 100%;
+        background-color: #fff;
+        border-width: 0px 1px;
+        border-style: solid;
+        border-color: #000;
+        box-shadow: 0 0 10px 1px #000;
+    }
+
     /* || FOOTER styles */
     footer {
         position: relative;
