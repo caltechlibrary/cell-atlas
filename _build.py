@@ -182,7 +182,7 @@ def createNavData():
         "title": "Introduction",
         "page": "introduction"
     })
-    pageNum = 0
+    pageNum = 1
     for sectionFile in sectionFiles:
         pageNum = pageNum + 1
         sectionMetadata = getMarkdownMetadata("sections/{}".format(sectionFile))
