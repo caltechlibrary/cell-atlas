@@ -559,7 +559,10 @@ function createVideoPlayer(videoEl) {
         updateTimeStamp();
     }
 
-    function pauseOnSeekControl() {
+    function pauseOnSeekControl(event) {
+        if(event.type == "keydown") {
+            if(event.key != "ArrowDown" && event.key != "ArrowLeft" && event.key != "ArrowRight" && event.key != "ArrowUp") return;
+        }
         if(!videoEl.paused) {
             videoEl.pause();
             seekBar.addEventListener("keyup", autoResumeVid);
