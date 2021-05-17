@@ -36,16 +36,36 @@ if(modalVideos) {
 
 document.addEventListener("keydown", function(event) {
     let focusedElement = document.activeElement;
-    if(!focusedElement || 
-        focusedElement.tagName == "INPUT") {
-            return;
+
+    if(event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        if(focusedElement.tagName == "INPUT") return;
+        let direction = (event.key === "ArrowLeft") ? "prev" : "next" ;
+        let link = document.querySelector(`a[data-nav='${direction}']`);
+        if(link) link.click();
+    } else if(event.key == " ") {
+        if(focusedElement.tagName == "BUTTON") return;
+        let modalOverlay = document.getElementById("modalOverlay");
+        let videoPlayer;
+        if(modalOverlay.style.display == "block") {
+            let modalContainers = document.getElementsByClassName("subsection-modal-container");
+            for(let modalContainer of modalContainers) {
+                if(modalContainer.style.display == "flex") {
+                    videoPlayer = modalContainer.querySelector(".book-section-video-player");
+                }
+            }
+        } else {
+            let nonTextContent = document.getElementById("nonTextContent")
+            videoPlayer = nonTextContent.querySelector(".book-section-video-player");
         }
-    if(event.key === "ArrowLeft"){
-        let prevLink = document.querySelector("a[data-nav='prev']");
-        if(prevLink) prevLink.click();
-    } else if (event.key === "ArrowRight") {
-        let nextLink = document.querySelector("a[data-nav='next']");
-        if(nextLink) nextLink.click();
+        if(videoPlayer) {
+            let playerId = videoPlayer.getAttribute("data-player");
+            let selectedTab = document.querySelector(`.book-section-comparison-button-container button[data-player='${playerId}'][data-state='selected']`);
+            if(selectedTab && selectedTab.value == "video") {
+                console.log(`playing/pausing video ${playerId}`);
+                let playPauseButton = document.getElementById(`${playerId}-playPauseButton`);
+                playPauseButton.click();
+            }
+        }
     }
 });
 
