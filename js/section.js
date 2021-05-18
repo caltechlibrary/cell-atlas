@@ -74,6 +74,7 @@ if(progressBar) {
     let progressPopUp = document.getElementById("progressPopUp");
     let progressMarker = document.getElementById("progressBarMarker");
     let posElementsContainer = document.getElementById("posElementsContainer");
+    let progressSwitchInput = document.querySelector(".progress-switch-input");
     let hideProgTimeout;
     posElementsContainer.addEventListener("mouseenter", function() {
         let halfLength = progressPopUp.scrollWidth / 2;
@@ -98,6 +99,14 @@ if(progressBar) {
             progressPopUp.setAttribute("style", "");
             progressPopUp.classList.add("progress-popup-hidden");
         }, 500);
+    });
+
+    progressSwitchInput.addEventListener("change", function(event) {
+        if(progressSwitchInput.checked) {
+            progressBar.style.display = "initial";
+        } else {
+            progressBar.style.display = "none";
+        }
     });
 }
 
