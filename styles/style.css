@@ -1226,8 +1226,8 @@
         position: relative;
         display: inline-block;
         margin: 0 10px;
-        width: 40px;
-        height: 20px;
+        width: 42px;
+        height: 22px;
     }
 
     .progress-switch-slider {
@@ -1237,23 +1237,23 @@
         left: 0;
         right: 0;
         bottom: 0;
+        border: 2px solid #fff;
         border-radius: 50px;
-        background-color: #ccc;
         -webkit-transition: .4s;
         transition: .4s;
     }
 
     .progress-switch-input:checked + .progress-switch-slider {
-        background-color: #2196F3;
+        background-color: #15404e;
     }
 
     .progress-switch-slider:before {
         position: absolute;
         content: "";
-        height: 15px;
-        width: 15px;
-        left: 3px;
-        bottom: 3px;
+        height: 14.5px;
+        width: 14.5px;
+        left: 2px;
+        bottom: 2px;
         background-color: #fff;
         border-radius: 50%;
         -webkit-transition: .4s;
@@ -1264,6 +1264,10 @@
         -webkit-transform: translateX(19px);
         -ms-transform: translateX(19px);
         transform: translateX(19px);
+    }
+
+    .progress-switch-input:focus + .progress-switch-slider {
+        outline: -webkit-focus-ring-color auto 1px;
     }
 
     /* || APPENDIX styles */
