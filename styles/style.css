@@ -1129,6 +1129,7 @@
         border: 1px solid #fff;
         border-radius: 5px;
         padding: 0.5em 1em;
+        font-size: 0.85em;
         font-weight: 600;
         box-shadow: 0px 0px 10px 2px #383838;
     }
