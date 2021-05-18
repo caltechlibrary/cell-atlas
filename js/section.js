@@ -42,6 +42,26 @@ document.addEventListener("keydown", function(event) {
         let direction = (event.key === "ArrowLeft") ? "prev" : "next" ;
         let link = document.querySelector(`a[data-nav='${direction}']`);
         if(link) link.click();
+    } else if(event.key == "ArrowUp" || event.key == "ArrowDown") {
+        if(focusedElement.tagName == "INPUT") return;
+        // let direction = (event.key === "ArrowUp") ? 1 : -1 ;
+        let textMaterial = document.querySelector(".book-section-text-material");
+        let modalOverlay = document.getElementById("modalOverlay");
+        if(textMaterial) {
+            textMaterial.focus();
+        }
+        if(modalOverlay && modalOverlay.style.display == "block") {
+            let modalContainers = document.getElementsByClassName("subsection-modal-container");
+            for(let modalContainer of modalContainers) {
+                if(modalContainer.style.display == "flex") {
+                    let modalMaterial = modalContainer.querySelector(".subsection-modal-text");
+                    modalMaterial.focus();
+                }
+            }
+        } else if(textMaterial) {
+            let textMaterial = document.querySelector(".book-section-text-material");
+            textMaterial.focus();
+        }
     } else if(event.key == " ") {
         if(focusedElement.tagName == "BUTTON") return;
         let modalOverlay = document.getElementById("modalOverlay");
