@@ -73,8 +73,9 @@ let progressBar = document.getElementById("customBookProgress");
 if(progressBar) {
     let progressPopUp = document.getElementById("progressPopUp");
     let progressMarker = document.getElementById("progressBarMarker");
+    let posElementsContainer = document.getElementById("posElementsContainer");
     let hideProgTimeout;
-    progressBar.addEventListener("mouseenter", function() {
+    posElementsContainer.addEventListener("mouseenter", function() {
         let halfLength = progressPopUp.scrollWidth / 2;
         if(hideProgTimeout) window.clearTimeout(hideProgTimeout);
         progressPopUp.classList.remove("progress-popup-hidden");
@@ -92,11 +93,11 @@ if(progressBar) {
             progressPopUp.style.left = `${progressMarker.getAttribute("data-percent")}%`;
         }
     });
-    progressBar.addEventListener("mouseleave", function() {
+    posElementsContainer.addEventListener("mouseleave", function() {
         hideProgTimeout = setTimeout(function() {
             progressPopUp.setAttribute("style", "");
             progressPopUp.classList.add("progress-popup-hidden");
-        }, 1000);
+        }, 500);
     });
 }
 
