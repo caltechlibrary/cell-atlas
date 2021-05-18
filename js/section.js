@@ -437,6 +437,10 @@ function createVideoPlayer(videoEl) {
         if(state == "expanded") {
             collapseChanger();
         } else {
+            let qualityInputs = qualityChangerDesktop.getElementsByTagName("input");
+            for(let qualityInput of qualityInputs) {
+                qualityInput.setAttribute("tabindex", "0");
+            }
             changerContainer.removeEventListener("transitionend", collapseState);
             qualityChangerDesktop.setAttribute("data-state", "expanded");
             changerContainer.style.padding = "3px 0 1.5em 3px";
@@ -447,6 +451,10 @@ function createVideoPlayer(videoEl) {
 
     function collapseChanger() {
         let changerContainer = qualityChangerDesktop.querySelector(".video-quality-changer");
+        let qualityInputs = qualityChangerDesktop.getElementsByTagName("input");
+        for(let qualityInput of qualityInputs) {
+            qualityInput.setAttribute("tabindex", "-1");
+        }
         changerContainer.style.height = 0;
         changerContainer.style.padding = 0;
         window.removeEventListener("click", closeChangerClick);
