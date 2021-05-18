@@ -158,6 +158,7 @@ function shelfText(el) {
     }
     
     // Push text section offscreen
+    document.activeElement.blur();
     textSection.style.transform = "translate(100%, -50%)";
 
     // Bring non text section center screen and enlarge
@@ -184,6 +185,7 @@ function openText(el) {
     unshelfButton.setAttribute("tabindex", "-1");
 
     // Push open text button offscreen
+    document.activeElement.blur();
     unshelfButton.style.transform =  "translate(0px, 0px)";
 
     // Bring non text section back to the left and make smaller
