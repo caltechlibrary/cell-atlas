@@ -610,10 +610,7 @@
         background-size:contain;
         background-repeat:no-repeat;
         background-position: center;
-    }
-
-    .book-section-video-player-controls-buttons button:focus {
-        outline: #000000 auto 1px;
+        overflow: hidden;
     }
 
     .book-section-video-player-time {
@@ -681,7 +678,6 @@
     }
 
     .video-quality-changer-button {
-        outline: none !important;
         position: relative;
         display: flex;
         background: none;
@@ -1321,10 +1317,6 @@
         font-size: 2em;
         font-weight: 600;
         transition: transform 1s;
-    }
-
-    .book-appendix-li-header button:focus{
-        outline: none;
     }
 
     .book-appendix-li-dropdown {

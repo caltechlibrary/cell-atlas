@@ -36,16 +36,55 @@ if(modalVideos) {
 
 document.addEventListener("keydown", function(event) {
     let focusedElement = document.activeElement;
-    if(!focusedElement || 
-        focusedElement.tagName == "INPUT") {
-            return;
+
+    if(event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        if(focusedElement.tagName == "INPUT") return;
+        let direction = (event.key === "ArrowLeft") ? "prev" : "next" ;
+        let link = document.querySelector(`a[data-nav='${direction}']`);
+        if(link) link.click();
+    } else if(event.key == "ArrowUp" || event.key == "ArrowDown") {
+        if(focusedElement.tagName == "INPUT") return;
+        let textMaterial = document.querySelector(".book-section-text-material");
+        let modalOverlay = document.getElementById("modalOverlay");
+        if(modalOverlay && modalOverlay.style.display == "block") {
+            let modalContainers = document.getElementsByClassName("subsection-modal-container");
+            for(let modalContainer of modalContainers) {
+                if(modalContainer.style.display == "flex") {
+                    let modalMaterial = modalContainer.querySelector(".subsection-modal-text");
+                    modalMaterial.focus();
+                }
+            }
+        } else if(textMaterial && textMaterial.getAttribute("tabindex") == "0") {
+            let textMaterial = document.querySelector(".book-section-text-material");
+            textMaterial.focus();
         }
-    if(event.key === "ArrowLeft"){
-        let prevLink = document.querySelector("a[data-nav='prev']");
-        if(prevLink) prevLink.click();
-    } else if (event.key === "ArrowRight") {
-        let nextLink = document.querySelector("a[data-nav='next']");
-        if(nextLink) nextLink.click();
+    } else if(event.key == " ") {
+        if(focusedElement.tagName == "BUTTON") return;
+        let modalOverlay = document.getElementById("modalOverlay");
+        let nonTextContent = document.getElementById("nonTextContent");
+        let videoPlayer;
+        if(modalOverlay && modalOverlay.style.display == "block") {
+            let modalContainers = document.getElementsByClassName("subsection-modal-container");
+            for(let modalContainer of modalContainers) {
+                if(modalContainer.style.display == "flex") {
+                    let modalText = modalContainer.querySelector(".subsection-modal-text");
+                    if(modalText.contains(focusedElement)) return;
+                    videoPlayer = modalContainer.querySelector(".book-section-video-player");
+                }
+            }
+        } else if(nonTextContent) {
+            let textMaterial = document.querySelector(".book-section-text-material");
+            if(textMaterial.contains(focusedElement)) return;
+            videoPlayer = nonTextContent.querySelector(".book-section-video-player");
+        }
+        if(videoPlayer) {
+            let playerId = videoPlayer.getAttribute("data-player");
+            let selectedTab = document.querySelector(`.book-section-comparison-button-container button[data-player='${playerId}'][data-state='selected']`);
+            if(selectedTab && selectedTab.value == "video") {
+                let playPauseButton = document.getElementById(`${playerId}-playPauseButton`);
+                playPauseButton.click();
+            }
+        }
     }
 });
 
@@ -167,6 +206,7 @@ function shelfText(el) {
     }
     
     // Push text section offscreen
+    document.activeElement.blur();
     textSection.style.transform = "translate(100%, -50%)";
 
     // Bring non text section center screen and enlarge
@@ -193,6 +233,7 @@ function openText(el) {
     unshelfButton.setAttribute("tabindex", "-1");
 
     // Push open text button offscreen
+    document.activeElement.blur();
     unshelfButton.style.transform =  "translate(0px, 0px)";
 
     // Bring non text section back to the left and make smaller
@@ -203,8 +244,16 @@ function openText(el) {
     setTimeout(function(){
         textSection.style.transform = "translate(0, -50%)";
         let textSectionChildren = textSection.getElementsByTagName("*");
-        for(child of textSectionChildren) {
-            if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
+        if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
+            for(child of textSectionChildren) {
+                if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
+            }
+        } else {
+            textSection.addEventListener("transitionend", function() {
+                for(child of textSectionChildren) {
+                    if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
+                }
+            }, { once: true });
         }
     }, 1000);
 }
@@ -446,6 +495,10 @@ function createVideoPlayer(videoEl) {
         if(state == "expanded") {
             collapseChanger();
         } else {
+            let qualityInputs = qualityChangerDesktop.getElementsByTagName("input");
+            for(let qualityInput of qualityInputs) {
+                qualityInput.setAttribute("tabindex", "0");
+            }
             changerContainer.removeEventListener("transitionend", collapseState);
             qualityChangerDesktop.setAttribute("data-state", "expanded");
             changerContainer.style.padding = "3px 0 1.5em 3px";
@@ -456,6 +509,10 @@ function createVideoPlayer(videoEl) {
 
     function collapseChanger() {
         let changerContainer = qualityChangerDesktop.querySelector(".video-quality-changer");
+        let qualityInputs = qualityChangerDesktop.getElementsByTagName("input");
+        for(let qualityInput of qualityInputs) {
+            qualityInput.setAttribute("tabindex", "-1");
+        }
         changerContainer.style.height = 0;
         changerContainer.style.padding = 0;
         window.removeEventListener("click", closeChangerClick);
@@ -539,6 +596,7 @@ function createVideoPlayer(videoEl) {
                 document.addEventListener("msfullscreenchange", handleFullscreenChange);
             }
         }
+        document.activeElement.blur();
     }
 
     function handleFullscreenChange() {
@@ -567,7 +625,10 @@ function createVideoPlayer(videoEl) {
         updateTimeStamp();
     }
 
-    function pauseOnSeekControl() {
+    function pauseOnSeekControl(event) {
+        if(event.type == "keydown") {
+            if(event.key != "ArrowDown" && event.key != "ArrowLeft" && event.key != "ArrowRight" && event.key != "ArrowUp") return;
+        }
         if(!videoEl.paused) {
             videoEl.pause();
             seekBar.addEventListener("keyup", autoResumeVid);
