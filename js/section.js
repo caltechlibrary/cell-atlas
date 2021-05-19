@@ -46,9 +46,6 @@ document.addEventListener("keydown", function(event) {
         if(focusedElement.tagName == "INPUT") return;
         let textMaterial = document.querySelector(".book-section-text-material");
         let modalOverlay = document.getElementById("modalOverlay");
-        if(textMaterial) {
-            textMaterial.focus();
-        }
         if(modalOverlay && modalOverlay.style.display == "block") {
             let modalContainers = document.getElementsByClassName("subsection-modal-container");
             for(let modalContainer of modalContainers) {
@@ -57,7 +54,7 @@ document.addEventListener("keydown", function(event) {
                     modalMaterial.focus();
                 }
             }
-        } else if(textMaterial) {
+        } else if(textMaterial && textMaterial.getAttribute("tabindex") == "0") {
             let textMaterial = document.querySelector(".book-section-text-material");
             textMaterial.focus();
         }
@@ -219,8 +216,16 @@ function openText(el) {
     setTimeout(function(){
         textSection.style.transform = "translate(0, -50%)";
         let textSectionChildren = textSection.getElementsByTagName("*");
-        for(child of textSectionChildren) {
-            if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
+        if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
+            for(child of textSectionChildren) {
+                if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
+            }
+        } else {
+            textSection.addEventListener("transitionend", function() {
+                for(child of textSectionChildren) {
+                    if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
+                }
+            }, { once: true });
         }
     }, 1000);
 }
