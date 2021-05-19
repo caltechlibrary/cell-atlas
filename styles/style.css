@@ -1221,14 +1221,17 @@
 
     .progress-switch {
         position: relative;
-        display: inline-block;
-        margin: 0 10px;
-        width: 42px;
-        height: 22px;
+        display: flex;
+        align-items: center;
     }
 
     .progress-switch-slider {
-        position: absolute;
+        display: inline-block;
+        position: relative;
+        margin: 0 10px;
+        box-sizing: border-box;
+        width: 42px;
+        height: 22px;
         cursor: pointer;
         top: 0;
         left: 0;
