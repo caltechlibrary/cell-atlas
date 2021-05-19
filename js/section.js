@@ -104,9 +104,19 @@ if(progressBar) {
 
     progressSwitchInput.addEventListener("change", function(event) {
         if(progressSwitchInput.checked) {
-            progressBar.style.display = "initial";
+            progressSwitchInput.disabled = true;
+            progressBar.style.visibility = "visible";
+            progressBar.style.transform = "translate(0, -100%)";
+            progressBar.addEventListener("transitionend", function() {
+                progressSwitchInput.disabled = false;
+            }, { once: true });
         } else {
-            progressBar.style.display = "none";
+            progressSwitchInput.disabled = true;
+            progressBar.style.transform = "translate(0, 200%)";
+            progressBar.addEventListener("transitionend", function() {
+                progressBar.style.visibility = "hidden";
+                progressSwitchInput.disabled = false;
+            }, { once: true });
         }
     });
     progressSwitchSlider.addEventListener("click", function() {
