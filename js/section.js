@@ -116,6 +116,18 @@ if(progressBar) {
     let progressSwitchInput = document.querySelector(".progress-switch-input");
     let progressSwitchSlider = document.querySelector(".progress-switch-slider");
     let hideProgTimeout;
+
+    if (typeof(Storage) !== "undefined") {
+        let progressOn = window.sessionStorage.getItem("progressOn");
+        if(!progressOn || progressOn == "true") {
+            progressSwitchInput.checked = true;
+            progressBar.classList.add("showing");
+            progressBar.classList.add("unshelfed");
+        } else {
+            progressSwitchInput.checked = false;
+        }
+    }
+
     posElementsContainer.addEventListener("mouseenter", function() {
         let halfLength = progressPopUp.scrollWidth / 2;
         if(hideProgTimeout) window.clearTimeout(hideProgTimeout);
@@ -144,16 +156,18 @@ if(progressBar) {
     progressSwitchInput.addEventListener("change", function(event) {
         if(progressSwitchInput.checked) {
             progressSwitchInput.disabled = true;
-            progressBar.style.visibility = "visible";
-            progressBar.style.transform = "translate(0, -100%)";
+            window.sessionStorage.setItem("progressOn", true);
+            progressBar.classList.add("showing");
+            progressBar.classList.add("unshelfed");
             progressBar.addEventListener("transitionend", function() {
                 progressSwitchInput.disabled = false;
             }, { once: true });
         } else {
             progressSwitchInput.disabled = true;
-            progressBar.style.transform = "translate(0, 200%)";
+            window.sessionStorage.setItem("progressOn", false);
+            progressBar.classList.remove("unshelfed");
             progressBar.addEventListener("transitionend", function() {
-                progressBar.style.visibility = "hidden";
+                progressBar.classList.remove("showing");
                 progressSwitchInput.disabled = false;
             }, { once: true });
         }

@@ -1109,8 +1109,17 @@
     #customBookProgress {
         position: absolute;
         width: 100%;
-        transform: translate(0, -100%);
+        visibility: hidden;
+        transform: translate(0px, 200%);
         transition: transform 0.25s;
+    }
+
+    #customBookProgress.unshelfed {
+        transform: translate(0, -100%);
+    }
+    
+    #customBookProgress.showing {
+        visibility: visible;
     }
 
     .progress-popup {
@@ -1256,8 +1265,7 @@
         bottom: 2px;
         background-color: #fff;
         border-radius: 50%;
-        -webkit-transition: .4s;
-        transition: .4s;
+        transition: 0.25s;
     }
 
     .progress-switch-input:checked + .progress-switch-slider:before {
