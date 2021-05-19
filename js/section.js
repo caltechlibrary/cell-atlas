@@ -44,7 +44,6 @@ document.addEventListener("keydown", function(event) {
         if(link) link.click();
     } else if(event.key == "ArrowUp" || event.key == "ArrowDown") {
         if(focusedElement.tagName == "INPUT") return;
-        // let direction = (event.key === "ArrowUp") ? 1 : -1 ;
         let textMaterial = document.querySelector(".book-section-text-material");
         let modalOverlay = document.getElementById("modalOverlay");
         if(textMaterial) {
@@ -65,8 +64,9 @@ document.addEventListener("keydown", function(event) {
     } else if(event.key == " ") {
         if(focusedElement.tagName == "BUTTON") return;
         let modalOverlay = document.getElementById("modalOverlay");
+        let nonTextContent = document.getElementById("nonTextContent");
         let videoPlayer;
-        if(modalOverlay.style.display == "block") {
+        if(modalOverlay && modalOverlay.style.display == "block") {
             let modalContainers = document.getElementsByClassName("subsection-modal-container");
             for(let modalContainer of modalContainers) {
                 if(modalContainer.style.display == "flex") {
@@ -75,8 +75,7 @@ document.addEventListener("keydown", function(event) {
                     videoPlayer = modalContainer.querySelector(".book-section-video-player");
                 }
             }
-        } else {
-            let nonTextContent = document.getElementById("nonTextContent");
+        } else if(nonTextContent) {
             let textMaterial = document.querySelector(".book-section-text-material");
             if(textMaterial.contains(focusedElement)) return;
             videoPlayer = nonTextContent.querySelector(".book-section-video-player");
