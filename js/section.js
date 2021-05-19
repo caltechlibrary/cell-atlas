@@ -70,11 +70,15 @@ document.addEventListener("keydown", function(event) {
             let modalContainers = document.getElementsByClassName("subsection-modal-container");
             for(let modalContainer of modalContainers) {
                 if(modalContainer.style.display == "flex") {
+                    let modalText = modalContainer.querySelector(".subsection-modal-text");
+                    if(modalText.contains(focusedElement)) return;
                     videoPlayer = modalContainer.querySelector(".book-section-video-player");
                 }
             }
         } else {
-            let nonTextContent = document.getElementById("nonTextContent")
+            let nonTextContent = document.getElementById("nonTextContent");
+            let textMaterial = document.querySelector(".book-section-text-material");
+            if(textMaterial.contains(focusedElement)) return;
             videoPlayer = nonTextContent.querySelector(".book-section-video-player");
         }
         if(videoPlayer) {
