@@ -7,6 +7,8 @@ if (typeof(Storage) !== "undefined") {
     if(wasOpened == "true" && navEntry && navEntry.getAttribute("data-chapter") == "true") {
         let openNavButton = document.getElementById("openNavButton");
         openNavButton.click();
+    } else {
+        window.sessionStorage.setItem("navOpened", false);
     }
 }
 
