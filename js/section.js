@@ -115,6 +115,7 @@ if(progressBar) {
     let posElementsContainer = document.getElementById("posElementsContainer");
     let progressSwitchInput = document.querySelector(".progress-switch-input");
     let progressSwitchSlider = document.querySelector(".progress-switch-slider");
+    let footer = document.querySelector("footer");
     let hideProgTimeout;
 
     if (typeof(Storage) !== "undefined") {
@@ -163,20 +164,14 @@ if(progressBar) {
 
     progressSwitchInput.addEventListener("change", function(event) {
         if(progressSwitchInput.checked) {
-            progressSwitchInput.disabled = true;
             window.sessionStorage.setItem("progressOn", true);
             progressBar.classList.add("showing");
             progressBar.classList.add("unshelfed");
-            progressBar.addEventListener("transitionend", function() {
-                progressSwitchInput.disabled = false;
-            }, { once: true });
         } else {
-            progressSwitchInput.disabled = true;
             window.sessionStorage.setItem("progressOn", false);
             progressBar.classList.remove("unshelfed");
             progressBar.addEventListener("transitionend", function() {
-                progressBar.classList.remove("showing");
-                progressSwitchInput.disabled = false;
+                if(progressBar.getBoundingClientRect().top > footer.getBoundingClientRect().top) progressBar.classList.remove("showing");
             }, { once: true });
         }
     });
