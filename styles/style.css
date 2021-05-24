@@ -1240,7 +1240,7 @@
         margin: 0 10px;
         box-sizing: border-box;
         width: 42px;
-        height: 22px;
+        height: 15px;
         cursor: pointer;
         top: 0;
         left: 0;
@@ -1259,10 +1259,10 @@
     .progress-switch-slider:before {
         position: absolute;
         content: "";
-        height: 14.5px;
-        width: 14.5px;
+        height: 9px;
+        width: 9px;
         left: 2px;
-        bottom: 2px;
+        bottom: 1px;
         background-color: #fff;
         border-radius: 50%;
         display: none;
@@ -1275,9 +1275,9 @@
     }
 
     .progress-switch-input:checked + .progress-switch-slider:before {
-        -webkit-transform: translateX(19px);
-        -ms-transform: translateX(19px);
-        transform: translateX(19px);
+        -webkit-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px);
     }
 
     .progress-switch-input:focus + .progress-switch-slider {
