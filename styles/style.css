@@ -1265,6 +1265,12 @@
         bottom: 2px;
         background-color: #fff;
         border-radius: 50%;
+        display: none;
+        transition: none;
+    }
+
+    .progress-switch-slider.is-showing:before {
+        display: block;
         transition: 0.25s;
     }
 

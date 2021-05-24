@@ -126,6 +126,8 @@ if(progressBar) {
         } else {
             progressSwitchInput.checked = false;
         }
+        progressSwitchSlider.classList.add("is-showing");
+        progressSwitchInput.removeAttribute("disabled");
     }
 
     posElementsContainer.addEventListener("mouseenter", function() {
