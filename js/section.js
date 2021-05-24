@@ -127,7 +127,13 @@ if(progressBar) {
             progressSwitchInput.checked = false;
         }
         progressSwitchSlider.classList.add("is-showing");
-        progressSwitchInput.removeAttribute("disabled");
+        if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
+            window.addEventListener("load", () => {
+                progressSwitchInput.removeAttribute("disabled");
+            });
+        } else {
+            progressSwitchInput.removeAttribute("disabled");
+        }
     }
 
     posElementsContainer.addEventListener("mouseenter", function() {
