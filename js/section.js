@@ -59,7 +59,7 @@ document.addEventListener("keydown", function(event) {
             textMaterial.focus();
         }
     } else if(event.key == " ") {
-        if(focusedElement.tagName == "BUTTON") return;
+        if(focusedElement.tagName == "BUTTON" || focusedElement.type == "checkbox") return;
         let modalOverlay = document.getElementById("modalOverlay");
         let nonTextContent = document.getElementById("nonTextContent");
         let videoPlayer;
