@@ -1246,14 +1246,14 @@
         left: 0;
         right: 0;
         bottom: 0;
-        border: 2px solid #fff;
+        border: 2px solid #0E2F34;
         border-radius: 50px;
         -webkit-transition: .4s;
         transition: .4s;
     }
 
     .progress-switch-input:checked + .progress-switch-slider {
-        background-color: #15404e;
+        background-color: #E6E6E6;
     }
 
     .progress-switch-slider:before {
@@ -1263,7 +1263,7 @@
         width: 9px;
         left: 2px;
         bottom: 1px;
-        background-color: #fff;
+        background-color: #0E2F34;
         border-radius: 50%;
         display: none;
         transition: none;
