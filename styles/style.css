@@ -1109,7 +1109,17 @@
     #customBookProgress {
         position: absolute;
         width: 100%;
+        visibility: hidden;
+        transform: translate(0px, 200%);
+        transition: transform 0.25s;
+    }
+
+    #customBookProgress.unshelfed {
         transform: translate(0, -100%);
+    }
+    
+    #customBookProgress.showing {
+        visibility: visible;
     }
 
     .progress-popup {
@@ -1125,6 +1135,7 @@
         border: 1px solid #fff;
         border-radius: 5px;
         padding: 0.5em 1em;
+        font-size: 0.85em;
         font-weight: 600;
         box-shadow: 0px 0px 10px 2px #383838;
     }
@@ -1209,6 +1220,68 @@
     footer > * {
         flex: 1;
         text-align: center;
+    }
+
+    .progress-toggle-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .progress-switch {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .progress-switch-slider {
+        display: inline-block;
+        position: relative;
+        margin: 0 10px;
+        box-sizing: border-box;
+        width: 42px;
+        height: 15px;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid #0E2F34;
+        border-radius: 50px;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .progress-switch-input:checked + .progress-switch-slider {
+        background-color: #E6E6E6;
+    }
+
+    .progress-switch-slider:before {
+        position: absolute;
+        content: "";
+        height: 9px;
+        width: 9px;
+        left: 2px;
+        bottom: 1px;
+        background-color: #0E2F34;
+        border-radius: 50%;
+        display: none;
+        transition: none;
+    }
+
+    .progress-switch-slider.is-showing:before {
+        display: block;
+        transition: 0.25s;
+    }
+
+    .progress-switch-input:checked + .progress-switch-slider:before {
+        -webkit-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px);
+    }
+
+    .progress-switch-input:focus + .progress-switch-slider {
+        outline: -webkit-focus-ring-color auto 1px;
     }
 
     /* || APPENDIX styles */

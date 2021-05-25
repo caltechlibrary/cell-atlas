@@ -1301,11 +1301,13 @@
 
         <div class="footer-container">
               <div id="customBookProgress">
-                  <div id="progressPopUp" class="progress-popup progress-popup-hidden">
-                      <span>75%</span>
-                      <span>Page 91 of 121</span>
+                  <div id="posElementsContainer">
+                      <div id="progressPopUp" class="progress-popup progress-popup-hidden">
+                          <span>75%</span>
+                          <span>Page 91 of 121</span>
+                      </div>
+                      <div id="progressBarMarker" class="progress-current-pos-marker" style="left:75.20661157024794%" data-percent="75.20661157024794"></div>
                   </div>
-                  <div id="progressBarMarker" class="progress-current-pos-marker" style="left:75.20661157024794%" data-percent="75.20661157024794"></div>
                   <div class="progress-bar-container">
                       <progress id="bookProgress" value="91" max="121"></progress>
                                       <div class="progress-bar-chapter-mark" data-page="2" style="left:1.6528925619834711%"></div>
@@ -1325,7 +1327,14 @@
             <a href="https://www.library.caltech.edu/" target="_blank" class="footer-link">A PUBLICATION OF THE CALTECH LIBRARY</a>
             <span>&#169; 2020</span>
             <a href="about.html" class="footer-link">ABOUT THIS BOOK</a>
-          </footer>        </div>
+                  <div class="progress-toggle-container">
+                  <label class="progress-switch">
+                    Show Progress
+                    <input class="progress-switch-input sr-only" type="checkbox" disabled>
+                    <span class="progress-switch-slider"></span>
+                  </label>
+                </div>
+            </footer>        </div>
 
     </div>
 
