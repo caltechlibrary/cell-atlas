@@ -389,6 +389,10 @@ blockquote {
     }
 
     .page-controls-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1;
         font-size: 33.5px;
         color: #c2c2c2;
     }
