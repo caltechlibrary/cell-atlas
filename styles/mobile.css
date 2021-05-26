@@ -633,6 +633,7 @@ blockquote {
         box-sizing: border-box !important;
         margin: auto !important;
         background: #cccccc !important;
+        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] .book-section-comparison-before {
@@ -642,6 +643,8 @@ blockquote {
 
     .book-section-comparison-button-container {
         margin-left: 10px;
+        margin-bottom: 1px;
+        z-index: 1;
     }
 
     .book-section-comparison-button-container button {
@@ -651,7 +654,11 @@ blockquote {
         border: 1px solid hsl(219, 1%, 72%);
         border-bottom: none;
         border-radius: 10px 10px 0 0;
-        box-shadow: 0 0 0.2em hsl(0deg 0% 0%);
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
+    }
+
+    .book-section-comparison-button-container button[data-state="selected"] {
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
     }
 
     .book-section-comparison-button-container button svg {
@@ -670,6 +677,7 @@ blockquote {
         border: 7px #cccccc solid;
         border-radius: 10px;
         background: #cccccc;
+        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
@@ -833,11 +841,13 @@ blockquote {
         align-items: center;
         border: 7px #cccccc solid;
         border-radius: 10px 10px 0 0;
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
         flex: 1 0 auto;
     }
 
     .subsection-modal-container .book-section-comparison-slider-container {
         border-radius: 10px 10px 0 0;
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
     }   
 
     .subsection-modal-text {
@@ -846,6 +856,7 @@ blockquote {
 
     .subsection-modal-container .video-citation {
         flex: 1 0 auto;
+        box-shadow: 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
     }
 
     .subsection-modal-text a {
@@ -1049,6 +1060,7 @@ blockquote {
         border: 5px solid #cccccc;
         border-radius: 10px;
         background-color: #363636;
+        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] {
@@ -1263,6 +1275,7 @@ blockquote {
         border: 7px #cccccc solid;
         border-radius: 10px 10px 0 0;
         box-sizing: border-box;
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
     }
 
     .book-section-comparison-slider-container {
@@ -1285,6 +1298,7 @@ blockquote {
         border: none;
         margin: auto;
         width: fit-content;
+        box-shadow: none;
     }
 
     .subsection-modal-container .book-section-comparison-before {

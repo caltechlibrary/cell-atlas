@@ -547,6 +547,7 @@
         align-items: center;
         border: 7px #cccccc solid;
         border-radius: 10px;
+        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-section-video-player-fullscreen {
@@ -778,19 +779,27 @@
         border: 7px #ccc solid;
         border-radius: 10px;
         background: #fff;
+        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-section-comparison-button-container {
         flex: 0;
         margin-left: 10px;
+        margin-bottom: 1px;
+        z-index: 1;
     }
 
     .book-section-comparison-button-container button {
+        margin: 0;
         background: #cccccc;
         border: 1px solid hsl(219, 1%, 72%);
         border-bottom: none;
         border-radius: 10px 10px 0 0;
-        box-shadow: 0 0 0.2em hsl(0deg 0% 0%);
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
+    }
+
+    .book-section-comparison-button-container button[data-state="selected"] {
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
     }
 
     .book-section-comparison-button-container button svg {
@@ -894,7 +903,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        z-index: 2;
         border-radius: 10px !important;
+        box-shadow: 0px 0px 0 1px #444 !important;
     }
 
     .book-section-comparison-control-button svg {
@@ -1066,14 +1077,17 @@
     .subsection-modal-container .book-section-video-player {
         flex: 0 0 auto;
         border-radius: 10px 10px 0 0;
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
     }
 
     .subsection-modal-container .video-citation {
         flex: 0 0 auto;
+        box-shadow: 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
     }
 
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
         border-radius: 10px 10px 0 0;
+        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
     }
 
     .subsection-modal-text {
@@ -1377,6 +1391,7 @@
         overflow: hidden;
         border: 5px solid #cccccc;
         border-radius: 10px;
+        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-appendix-tree-viewer-tree {
