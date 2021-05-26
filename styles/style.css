@@ -790,6 +790,7 @@
     }
 
     .book-section-comparison-button-container button {
+        margin: 0;
         background: #cccccc;
         border: 1px solid hsl(219, 1%, 72%);
         border-bottom: none;
