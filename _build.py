@@ -401,6 +401,19 @@ metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
 
+## Viewer Demos
+metadata = getMarkdownMetadata("molstar-demo.md")
+metadata["typeSection"] = True
+metadata["thumbnail"] = "0_0_thumbnail"
+metadata["totalPages"] = totalPages
+metadata["currentPageNum"] = -1
+metadata["chapterPageNums"] = chapterPageValues
+metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
+metadata["displayPercent"] = round(metadata["progPercent"])
+metadata["sliderImgName"] = "molstar-demo"
+writePage(SITEDIR, "molstar-demo.md", "page", "molstar-demo", metadata)
+##################################
+
 # Render introduction page
 introFileMetaData = getMarkdownMetadata("introduction.md")
 introFileMetaData["typeSection"] = True
