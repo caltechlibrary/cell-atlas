@@ -83,13 +83,14 @@ function initializePVApp(viewerEl, id, pdb) {
         viewer.centerOn(struct);
     });
     viewerMenu.style.display = "block";
-    document.getElementById('cartoon').addEventListener("click", () => renderModel("cartoon"));
-    document.getElementById('lineTrace').addEventListener("click", () => renderModel("lineTrace"));
     document.getElementById('lines').addEventListener("click", () => renderModel("lines"));
-    document.getElementById('trace').addEventListener("click", () => renderModel("trace"));
-    document.getElementById('sline').addEventListener("click", () => renderModel("sline"));
-    document.getElementById('tube').addEventListener("click", () => renderModel("tube"));
+    document.getElementById('points').addEventListener("click", () => renderModel("points"));
     document.getElementById('spheres').addEventListener("click", () => renderModel("spheres"));
+    document.getElementById('lineTrace').addEventListener("click", () => renderModel("lineTrace"));
+    document.getElementById('sline').addEventListener("click", () => renderModel("sline"));
+    document.getElementById('trace').addEventListener("click", () => renderModel("trace"));
+    document.getElementById('tube').addEventListener("click", () => renderModel("tube"));
+    document.getElementById('cartoon').addEventListener("click", () => renderModel("cartoon"));
     document.getElementById('ballsAndSticks').addEventListener("click", () => renderModel("ballsAndSticks"));
 
     document.getElementById('uniform').onclick = uniform;
