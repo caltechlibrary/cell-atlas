@@ -35,10 +35,21 @@ function initializeMolstarApp(viewerEl) {
 
     imageBtn.addEventListener("click", () => resizeContainer());
     window.addEventListener("resize", () => resizeContainer());
-    if(id == "molstar-player-molstar-demo") textContent.addEventListener("transitionend", () => resizeContainer());
+    if(id == "molstar-player-molstar-demo") {
+        updateMainMaxHeight();
+        textContent.addEventListener("transitionend", () => resizeContainer());
+        window.addEventListener("resize", updateMainMaxHeight);
+    }
 
     function resizeContainer() {
         viewerEl.style.height = `${viewerEl.offsetWidth * 0.5625}px`;
         viewer.handleResize();
+    }
+
+    function updateMainMaxHeight() {
+        let nonTextContent = document.querySelector("#nonTextContent");
+        let videoContainer = nonTextContent.querySelector(".book-section-video-container");
+        let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+        viewerEl.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
     }
 }
