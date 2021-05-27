@@ -88,6 +88,8 @@ function initializePVApp(viewerEl, id, pdb) {
     document.getElementById('trace').onclick = trace;
     document.getElementById('sline').onclick = sline;
     document.getElementById('tube').onclick = tube;
+    document.getElementById('spheres').onclick = spheres;
+    document.getElementById('ballsAndSticks').onclick = ballsAndSticks;
 
     function lines() {
         viewer.clear();
@@ -110,15 +112,20 @@ function initializePVApp(viewerEl, id, pdb) {
         viewer.clear();
         viewer.tube('structure', structure);
     }
-
     function trace() {
         viewer.clear();
         viewer.trace('structure', structure);
     }
+    function spheres() {
+        viewer.clear();
+        viewer.spheres('structure', structure);
+    }
+    function ballsAndSticks() {
+        viewer.clear();
+        viewer.ballsAndSticks('structure', structure);
+    }
     function preset() {
         viewer.clear();
-        let ligand = structure.select({rnames : ['RVP', 'SAH']});
-        viewer.ballsAndSticks('ligand', ligand);
         viewer.cartoon('protein', structure);
     }
 
