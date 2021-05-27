@@ -74,59 +74,50 @@ function initializePVApp(viewerEl, id, pdb) {
     let viewerMenu = viewerEl.querySelector(".pv-menu");
     let viewer = pv.Viewer(document.getElementById(id), options);
     let structure;
+    let renderType;
 
     pv.io.fetchPdb(`https://files.rcsb.org/download/${pdb}.pdb`, function(struct) {
         structure = struct;
-        preset();
+        viewer.cartoon('structure', structure);
+        renderType = "cartoon";
         viewer.centerOn(struct);
     });
     viewerMenu.style.display = "block";
-    document.getElementById('cartoon').onclick = cartoon;
-    document.getElementById('line-trace').onclick = lineTrace;
-    document.getElementById('preset').onclick = preset;
-    document.getElementById('lines').onclick = lines;
-    document.getElementById('trace').onclick = trace;
-    document.getElementById('sline').onclick = sline;
-    document.getElementById('tube').onclick = tube;
-    document.getElementById('spheres').onclick = spheres;
-    document.getElementById('ballsAndSticks').onclick = ballsAndSticks;
+    document.getElementById('cartoon').addEventListener("click", () => renderModel("cartoon"));
+    document.getElementById('lineTrace').addEventListener("click", () => renderModel("lineTrace"));
+    document.getElementById('lines').addEventListener("click", () => renderModel("lines"));
+    document.getElementById('trace').addEventListener("click", () => renderModel("trace"));
+    document.getElementById('sline').addEventListener("click", () => renderModel("sline"));
+    document.getElementById('tube').addEventListener("click", () => renderModel("tube"));
+    document.getElementById('spheres').addEventListener("click", () => renderModel("spheres"));
+    document.getElementById('ballsAndSticks').addEventListener("click", () => renderModel("ballsAndSticks"));
 
-    function lines() {
+    document.getElementById('uniform').onclick = uniform;
+    document.getElementById('chain').onclick = chain;
+    document.getElementById('ssSuccession').onclick = ssSuccession;
+    document.getElementById('ss').onclick = ss;
+    document.getElementById('rainbow').onclick = rainbow;
+
+    function renderModel(name, options) {
         viewer.clear();
-        viewer.lines('structure', structure);
-    }
-    function cartoon() {
-        viewer.clear();
-        viewer.cartoon('structure', structure, { color: color.ssSuccession() });
-    }
-    function lineTrace() {
-        viewer.clear();
-        viewer.lineTrace('structure', structure);
-    }
-    function sline() {
-        viewer.clear();
-        viewer.sline('structure', structure);
+        renderType = name;
+        viewer.renderAs('structure', structure, name, options);
     }
 
-    function tube() {
-        viewer.clear();
-        viewer.tube('structure', structure);
+    function uniform() {
+        renderModel(renderType, { color: pv.color.uniform('blue') });
     }
-    function trace() {
-        viewer.clear();
-        viewer.trace('structure', structure);
+    function chain() {
+        renderModel(renderType, { color: pv.color.byChain() });
     }
-    function spheres() {
-        viewer.clear();
-        viewer.spheres('structure', structure);
+    function ssSuccession() {
+        renderModel(renderType, { color: pv.color.ssSuccession() });
     }
-    function ballsAndSticks() {
-        viewer.clear();
-        viewer.ballsAndSticks('structure', structure);
+    function ss() {
+        renderModel(renderType, { color: pv.color.bySS() });
     }
-    function preset() {
-        viewer.clear();
-        viewer.cartoon('protein', structure);
+    function rainbow() {
+        renderModel(renderType, { color: pv.color.rainbow() });
     }
 
     window.addEventListener("resize", () => viewer.resize(viewerEl.clientWidth, viewerEl.clientHeight));
