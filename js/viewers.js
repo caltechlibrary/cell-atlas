@@ -99,6 +99,12 @@ function initializePVApp(viewerEl, id, pdb) {
     document.getElementById('ss').onclick = ss;
     document.getElementById('rainbow').onclick = rainbow;
 
+    document.getElementById('bondCount').addEventListener("click", () => colorAtomProp("bondCount"));
+    document.getElementById('index').addEventListener("click", () => colorAtomProp("index"));
+    document.getElementById('isHetatm').addEventListener("click", () => colorAtomProp("isHetatm"));
+    document.getElementById('occupancy').addEventListener("click", () => colorAtomProp("occupancy"));
+    document.getElementById('tempFactor').addEventListener("click", () => colorAtomProp("tempFactor"));
+
     function renderModel(name, options) {
         viewer.clear();
         renderType = name;
@@ -119,6 +125,9 @@ function initializePVApp(viewerEl, id, pdb) {
     }
     function rainbow() {
         renderModel(renderType, { color: pv.color.rainbow() });
+    }
+    function colorAtomProp(prop) {
+        renderModel(renderType, { color: pv.color.byAtomProp(prop) });
     }
 
     window.addEventListener("resize", () => viewer.resize(viewerEl.clientWidth, viewerEl.clientHeight));
