@@ -122,7 +122,9 @@ function initializePVApp(viewerEl, id, pdb) {
         viewer.cartoon('protein', structure);
     }
 
+    window.addEventListener("resize", () => viewer.resize(viewerEl.clientWidth, viewerEl.clientHeight));
+
     return {
-        resize: () => viewer.resize(viewerEl.offsetWidth, viewerEl.offsetHeight)
+        resize: () => viewer.resize(viewerEl.clientWidth, viewerEl.clientHeight)
     }
 }
