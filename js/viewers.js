@@ -8,8 +8,9 @@ function initializeViewer(viewerEl) {
     let type = viewerEl.getAttribute("data-viewer");
     let pdb = viewerEl.getAttribute("data-pdb");
     let link = document.querySelector(`.video-citation-value[data-pdb='${pdb}']`);
+    let app;
     if(type == "molstar") {
-        initializeMolstarApp(id, pdb);
+        app = initializeMolstarApp(id, pdb);
     } else if (type == "pv"){
         console.log("PV viewer");
     }
@@ -20,6 +21,7 @@ function initializeViewer(viewerEl) {
     function showViewer() {
         viewerEl.style.display = "block";
         positionViewer();
+        app.resize();
     }
 
     function positionViewer() {
@@ -58,4 +60,8 @@ function initializeMolstarApp(id, pdb) {
         emdbProvider: 'rcsb',
     });
     viewer.loadPdb(pdb);
+
+    return {
+        resize: () => viewer.handleResize()
+    }
 }
