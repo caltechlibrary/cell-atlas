@@ -1611,4 +1611,11 @@
     .video-quality-changer-mobile {
         display: none;
     }
+
+    /* || Viewer Demo styles */
+    .molstar-app {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
 }
