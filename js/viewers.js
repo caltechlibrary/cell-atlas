@@ -71,19 +71,56 @@ function initializePVApp(viewerEl, id, pdb) {
         antialias: true,
         quality : 'medium'
     };
+    let viewerMenu = viewerEl.querySelector(".pv-menu");
     let viewer = pv.Viewer(document.getElementById(id), options);
-    pv.io.fetchPdb(`https://files.rcsb.org/download/${pdb}.pdb`, function(structure) {
-        // display the protein as cartoon, coloring the secondary structure
-        // elements in a rainbow gradient.
-        viewer.cartoon('protein', structure, { color : color.ssSuccession() });
-        // there are two ligands in the structure, the co-factor S-adenosyl
-        // homocysteine and the inhibitor ribavirin-5' triphosphate. They have
-        // the three-letter codes SAH and RVP, respectively. Let's display them
-        // with balls and sticks.
-        var ligands = structure.select({ rnames : ['SAH', 'RVP'] });
-        viewer.ballsAndSticks('ligands', ligands);
-        viewer.centerOn(structure);
+    let structure;
+
+    pv.io.fetchPdb(`https://files.rcsb.org/download/${pdb}.pdb`, function(struct) {
+        structure = struct;
+        preset();
+        viewer.centerOn(struct);
     });
+    viewerMenu.style.display = "block";
+    document.getElementById('cartoon').onclick = cartoon;
+    document.getElementById('line-trace').onclick = lineTrace;
+    document.getElementById('preset').onclick = preset;
+    document.getElementById('lines').onclick = lines;
+    document.getElementById('trace').onclick = trace;
+    document.getElementById('sline').onclick = sline;
+    document.getElementById('tube').onclick = tube;
+
+    function lines() {
+        viewer.clear();
+        viewer.lines('structure', structure);
+    }
+    function cartoon() {
+        viewer.clear();
+        viewer.cartoon('structure', structure, { color: color.ssSuccession() });
+    }
+    function lineTrace() {
+        viewer.clear();
+        viewer.lineTrace('structure', structure);
+    }
+    function sline() {
+        viewer.clear();
+        viewer.sline('structure', structure);
+    }
+
+    function tube() {
+        viewer.clear();
+        viewer.tube('structure', structure);
+    }
+
+    function trace() {
+        viewer.clear();
+        viewer.trace('structure', structure);
+    }
+    function preset() {
+        viewer.clear();
+        let ligand = structure.select({rnames : ['RVP', 'SAH']});
+        viewer.ballsAndSticks('ligand', ligand);
+        viewer.cartoon('protein', structure);
+    }
 
     return {
         resize: () => viewer.resize(viewerEl.offsetWidth, viewerEl.offsetHeight)
