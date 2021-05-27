@@ -24,6 +24,11 @@
             ${it:quality-changer-mobile.tmpl()}
         ${endif}
     ${endif}
+
+    ${if(it.viewerDemo)}
+        ${it:molstar.tmpl()}
+    ${endif}
+    
     <div class="subsection-modal-text" tabindex="-1">
         <h1>${it.title}</h1>
         <div class="book-text-content">

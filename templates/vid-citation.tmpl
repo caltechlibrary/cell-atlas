@@ -15,6 +15,6 @@
     ${if(it.doi)}
         <span>DOI: <a href="https://doi.org/${it.doi}" target="_blank">${it.doi}</a></span>
     ${elseif(it.structure)}
-        <span>Structure: <span class="video-citation-value">${it.structure}</span></span>
+        <span>Structure: <span class="video-citation-value" data-pdb="${it.pdb}">${it.structure}</span></span>
     ${endif}
 </div>
