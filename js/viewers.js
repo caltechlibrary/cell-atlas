@@ -10,9 +10,9 @@ function initializeViewer(viewerEl) {
     let link = document.querySelector(`.video-citation-value[data-pdb='${pdb}']`);
     let app;
     if(type == "molstar") {
-        app = initializeMolstarApp(id, pdb);
+        app = initializeMolstarApp(viewerEl, id, pdb);
     } else if (type == "pv"){
-        console.log("PV viewer");
+        app = initializePVApp(viewerEl, id, pdb);
     }
 
     window.addEventListener("resize", positionViewer);
@@ -43,7 +43,7 @@ function initializeViewer(viewerEl) {
     }
 }
 
-function initializeMolstarApp(id, pdb) {
+function initializeMolstarApp(viewerEl, id, pdb) {
     let viewer = new molstar.Viewer(id, {
         layoutIsExpanded: false,
         layoutShowControls: false,
@@ -63,5 +63,29 @@ function initializeMolstarApp(id, pdb) {
 
     return {
         resize: () => viewer.handleResize()
+    }
+}
+
+function initializePVApp(viewerEl, id, pdb) {
+    let options = {
+        antialias: true,
+        quality : 'medium'
+    };
+    let viewer = pv.Viewer(document.getElementById(id), options);
+    pv.io.fetchPdb(`https://files.rcsb.org/download/${pdb}.pdb`, function(structure) {
+        // display the protein as cartoon, coloring the secondary structure
+        // elements in a rainbow gradient.
+        viewer.cartoon('protein', structure, { color : color.ssSuccession() });
+        // there are two ligands in the structure, the co-factor S-adenosyl
+        // homocysteine and the inhibitor ribavirin-5' triphosphate. They have
+        // the three-letter codes SAH and RVP, respectively. Let's display them
+        // with balls and sticks.
+        var ligands = structure.select({ rnames : ['SAH', 'RVP'] });
+        viewer.ballsAndSticks('ligands', ligands);
+        viewer.centerOn(structure);
+    });
+
+    return {
+        resize: () => viewer.resize(viewerEl.offsetWidth, viewerEl.offsetHeight)
     }
 }
