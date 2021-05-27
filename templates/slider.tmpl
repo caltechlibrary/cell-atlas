@@ -1,5 +1,5 @@
 <div id="fullBackground-${it.playerId}" class="book-section-comparison-slider-fullscreen-container" data-state="initial">
-    ${if(viewerDemo)}
+    ${if(it.viewerDemo)}
         ${it:molstar.tmpl()}
     ${else}
         <div class="book-section-comparison-slider-container" data-img-name="${it.sliderImgName}" data-player="${it.playerId}" ${if(it.html)}data-modal="true"${endif}>

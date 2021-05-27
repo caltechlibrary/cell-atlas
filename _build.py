@@ -404,7 +404,6 @@ writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
 ## Viewer Demos
 metadata = getMarkdownMetadata("molstar-demo.md")
 metadata["typeSection"] = True
-metadata["viewerDemo"] = True
 metadata["thumbnail"] = "0_0_thumbnail"
 metadata["totalPages"] = totalPages
 metadata["currentPageNum"] = -1
