@@ -1613,7 +1613,7 @@
     }
 
     /* || Viewer Demo styles */
-    .molstar-app {
+    .viewer-app {
         display: none;
         position: fixed;
         left: 50%;

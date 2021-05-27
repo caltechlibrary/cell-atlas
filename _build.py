@@ -412,6 +412,17 @@ metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) 
 metadata["displayPercent"] = round(metadata["progPercent"])
 metadata["sliderImgName"] = "molstar-demo"
 writePage(SITEDIR, "molstar-demo.md", "page", "molstar-demo", metadata)
+
+metadata = getMarkdownMetadata("pv-demo.md")
+metadata["typeSection"] = True
+metadata["thumbnail"] = "0_0_thumbnail"
+metadata["totalPages"] = totalPages
+metadata["currentPageNum"] = -1
+metadata["chapterPageNums"] = chapterPageValues
+metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
+metadata["displayPercent"] = round(metadata["progPercent"])
+metadata["sliderImgName"] = "pv-demo"
+writePage(SITEDIR, "pv-demo.md", "page", "pv-demo", metadata)
 ##################################
 
 # Render introduction page

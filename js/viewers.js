@@ -1,29 +1,18 @@
-let molstarApps = document.getElementsByClassName("molstar-app");
-for(let molstarApp of molstarApps) {
-    molstarApp.parentElement.classList.add("viewer-demo");
-    initializeMolstarApp(molstarApp);
+let viewerApps = document.getElementsByClassName("viewer-app");
+for(let viewerApp of viewerApps) {
+    initializeViewer(viewerApp);
 }
 
-function initializeMolstarApp(viewerEl) {
+function initializeViewer(viewerEl) {
     let id = viewerEl.getAttribute("id");
+    let type = viewerEl.getAttribute("data-viewer");
     let pdb = viewerEl.getAttribute("data-pdb");
     let link = document.querySelector(`.video-citation-value[data-pdb='${pdb}']`);
-    let viewer = new molstar.Viewer(id, {
-        layoutIsExpanded: false,
-        layoutShowControls: false,
-        layoutShowRemoteState: false,
-        layoutShowSequence: true,
-        layoutShowLog: false,
-        layoutShowLeftPanel: true,
-
-        viewportShowExpand: true,
-        viewportShowSelectionMode: false,
-        viewportShowAnimation: false,
-
-        pdbProvider: 'rcsb',
-        emdbProvider: 'rcsb',
-    });
-    viewer.loadPdb(pdb);
+    if(type == "molstar") {
+        initializeMolstarApp(id, pdb);
+    } else if (type == "pv"){
+        console.log("PV viewer");
+    }
 
     window.addEventListener("resize", positionViewer);
     link.addEventListener("click", showViewer);
@@ -49,6 +38,24 @@ function initializeMolstarApp(viewerEl) {
             viewerEl.style.height = `${availWidth * aspectRatio}px`;
         }
         viewerEl.style.top = `${posTop}px`;
-        viewer.handleResize();
     }
+}
+
+function initializeMolstarApp(id, pdb) {
+    let viewer = new molstar.Viewer(id, {
+        layoutIsExpanded: false,
+        layoutShowControls: false,
+        layoutShowRemoteState: false,
+        layoutShowSequence: true,
+        layoutShowLog: false,
+        layoutShowLeftPanel: true,
+
+        viewportShowExpand: true,
+        viewportShowSelectionMode: false,
+        viewportShowAnimation: false,
+
+        pdbProvider: 'rcsb',
+        emdbProvider: 'rcsb',
+    });
+    viewer.loadPdb(pdb);
 }
