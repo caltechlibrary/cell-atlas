@@ -1611,4 +1611,58 @@
     .video-quality-changer-mobile {
         display: none;
     }
+
+    /* || Viewer Demo styles */
+    .viewer-app {
+        display: none;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        border: 7px #ccc solid;
+        border-radius: 10px !important;
+        box-shadow: 0px 0px 0 1px #444 !important;
+        box-sizing: border-box;
+    }
+
+    .viewer-link {
+        text-decoration: underline;
+    }
+
+    .viewer-link:hover {
+        color: #4a3269;
+    }
+
+    .pv-menu {
+        display: none;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        box-shadow: 2px 2px 5px #888888;
+        border-radius: 8px;
+        padding: 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #ccc;
+        background: #fff;
+        max-height: 91%;
+        overflow: auto;
+    }
+
+    .pv-menu li {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        list-style: none;
+        cursor: pointer;
+        color: #393;
+    }
+
+    .pv-menu li:hover {
+        color: #994444;
+    }
+
+    .pv-menu h2 {
+        font-weight: 300;
+    }
 }
