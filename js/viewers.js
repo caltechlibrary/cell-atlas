@@ -20,6 +20,7 @@ function initializeViewer(viewerEl) {
 
     function showViewer() {
         viewerEl.style.display = "block";
+        viewerEl.parentElement.style.height = "1px";
         positionViewer();
         app.resize();
     }
