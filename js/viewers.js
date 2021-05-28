@@ -105,6 +105,12 @@ function initializePVApp(viewerEl, id, pdb) {
     document.getElementById('occupancy').addEventListener("click", () => colorAtomProp("occupancy"));
     document.getElementById('tempFactor').addEventListener("click", () => colorAtomProp("tempFactor"));
 
+    document.getElementById('r-index').addEventListener("click", () => colorResidueProp("index"));
+    document.getElementById('isAminoacid').addEventListener("click", () => colorResidueProp("isAminoacid"));
+    document.getElementById('isNucleotide').addEventListener("click", () => colorResidueProp("isNucleotide"));
+    document.getElementById('isWater').addEventListener("click", () => colorResidueProp("isWater"));
+    document.getElementById('num').addEventListener("click", () => colorResidueProp("num"));
+
     function renderModel(name, options) {
         viewer.clear();
         renderType = name;
@@ -128,6 +134,9 @@ function initializePVApp(viewerEl, id, pdb) {
     }
     function colorAtomProp(prop) {
         renderModel(renderType, { color: pv.color.byAtomProp(prop) });
+    }
+    function colorResidueProp(prop) {
+        renderModel(renderType, { color: pv.color.byResidueProp(prop) });
     }
 
     window.addEventListener("resize", () => viewer.resize(viewerEl.clientWidth, viewerEl.clientHeight));
