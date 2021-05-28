@@ -1625,6 +1625,14 @@
         box-sizing: border-box;
     }
 
+    .viewer-link {
+        text-decoration: underline;
+    }
+
+    .viewer-link:hover {
+        color: #4a3269;
+    }
+
     .pv-menu {
         display: none;
         position: absolute;
