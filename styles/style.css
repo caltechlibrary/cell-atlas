@@ -92,7 +92,7 @@
     }
 
     .book-text-content, .csl-entry {
-        line-height: 1.3em;
+        line-height: 1.34em;
     }
 
     .mouse-focus {
@@ -1530,7 +1530,7 @@
     .csl-entry {
         display: flex;
         flex-direction: row;
-        margin-bottom: 1em;
+        margin-bottom: .9375em;
     }
 
     .csl-left-margin {
