@@ -69,7 +69,8 @@ function initializeMolstarApp(viewerEl, id, pdb) {
 function initializePVApp(viewerEl, id, pdb) {
     let options = {
         antialias: true,
-        quality : 'medium'
+        quality : 'medium',
+        fog: false
     };
     let viewerMenu = viewerEl.querySelector(".pv-menu");
     let viewer = pv.Viewer(document.getElementById(id), options);

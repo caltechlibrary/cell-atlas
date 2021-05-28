@@ -1645,6 +1645,8 @@
         border-width: 1px;
         border-color: #ccc;
         background: #fff;
+        max-height: 91%;
+        overflow: auto;
     }
 
     .pv-menu li {
@@ -1658,5 +1660,9 @@
 
     .pv-menu li:hover {
         color: #994444;
+    }
+
+    .pv-menu h2 {
+        font-weight: 300;
     }
 }
