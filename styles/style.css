@@ -1123,7 +1123,7 @@
     #customBookProgress {
         position: relative;
         width: 100%;
-        display: none;
+        visibility: hidden;
         transform: translate(0px, 300%);
         transition: transform 0.25s;
     }
@@ -1133,7 +1133,7 @@
     }
     
     #customBookProgress.showing {
-        display: block;
+        visibility: visible;
     }
 
     .progress-popup {
