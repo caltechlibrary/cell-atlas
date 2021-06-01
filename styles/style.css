@@ -1121,19 +1121,19 @@
 
     /* || PROGRESS styles */
     #customBookProgress {
-        position: absolute;
+        position: relative;
         width: 100%;
-        visibility: hidden;
-        transform: translate(0px, 200%);
+        display: none;
+        transform: translate(0px, 300%);
         transition: transform 0.25s;
     }
 
     #customBookProgress.unshelfed {
-        transform: translate(0, -100%);
+        transform: none;
     }
     
     #customBookProgress.showing {
-        visibility: visible;
+        display: block;
     }
 
     .progress-popup {
