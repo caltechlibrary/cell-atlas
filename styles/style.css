@@ -1234,6 +1234,8 @@
     footer > * {
         flex: 1;
         text-align: center;
+        padding: 0 1em;
+        white-space: nowrap;
     }
 
     .progress-toggle-container {
@@ -1251,7 +1253,7 @@
     .progress-switch-slider {
         display: inline-block;
         position: relative;
-        margin: 0 10px;
+        margin-left: 10px;
         box-sizing: border-box;
         width: 42px;
         height: 15px;
