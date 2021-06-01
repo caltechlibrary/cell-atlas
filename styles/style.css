@@ -1105,9 +1105,47 @@
     }
 
     .subsection-modal-img {
+        display: flex;
+        position: relative;
         width: 100%;
         max-height: 50vh;
         object-fit: contain;
+        box-sizing: border-box;
+        border: 7px #cccccc solid;
+        border-radius: 10px;
+        box-shadow: 0px 0px 0 1px #444;
+    }
+
+    .subsection-modal-img-enlarged {
+        display: flex;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        box-shadow: 0px 0px 0 1px #444 !important;
+    }
+
+    .subsection-modal-img img {
+        width: 100%;
+        background: #fff;
+    }
+
+    .subsection-modal-img-btn {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #ffffff87;
+        border: none;
+        margin: 0;
+        padding: 2%;
+        border-radius: 10px 0 0 0;
+    }
+
+    .subsection-modal-img-btn svg {
+        width: 1.25em;
+        fill: #15404e;
     }
 
     .subsection-modal-container video {

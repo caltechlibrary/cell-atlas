@@ -9,7 +9,10 @@
 
         ${it:player.tmpl()}
     ${elseif(it.graphic)}
-        <img class="subsection-modal-img" src="img/schematics/${it.graphic}">
+        <div class="subsection-modal-img js-modal-img" data-player="${it.playerId}">
+            <img src="img/schematics/${it.graphic}">
+            <button id="imgEnlarge-${it.playerId}" class="subsection-modal-img-btn" data-player="${it.playerId}">${svg/noun_Fullscreen.svg()}</button>
+        </div>
     ${endif}
 
     ${if(it.species)}

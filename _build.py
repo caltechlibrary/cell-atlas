@@ -169,6 +169,8 @@ def processSubsection(subsectionFile, pageName, parentData):
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
+    elif "graphic" in metadata:
+        metadata["playerId"] = "{}-img".format(metadata["graphic"].split(".")[0])
     
     sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata

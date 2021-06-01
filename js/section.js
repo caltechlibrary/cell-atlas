@@ -184,6 +184,35 @@ if(progressBar) {
     });
 }
 
+let sectionImgs = document.getElementsByClassName("js-modal-img");
+for(let sectionImg of sectionImgs) {
+    let img = sectionImg.querySelector("img");
+    let imgBtn = sectionImg.querySelector(".subsection-modal-img-btn");
+    imgBtn.addEventListener("click", function() {
+        sectionImg.classList.add("subsection-modal-img-enlarged");
+        positionEnlargedImg();
+        window.addEventListener("resize", positionEnlargedImg);
+    });
+
+    function positionEnlargedImg() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
+        let aspectRatio = (img.offsetWidth / img.offsetHeight);
+        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
+        let availWidth = window.innerWidth - 100;
+        let imageWidth = availHeight * aspectRatio;
+        if(imageWidth < availWidth) {
+            sectionImg.style.width = `${imageWidth}px`;
+            img.style.height = `${imageWidth / aspectRatio}px`;
+        } else {
+            sectionImg.style.width = `${availWidth}px`;
+            img.style.height = `${availWidth / aspectRatio}px`;
+        }
+        sectionImg.style.top = `${posTop}px`;
+    }
+}
+
 function shelfOnFirstPlay(event) {
     shelfText();
     event.target.removeEventListener("play", shelfOnFirstPlay);
