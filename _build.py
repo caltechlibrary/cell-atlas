@@ -39,6 +39,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add ID for the video player if there is one
     if "doi" in metadata or "video" in metadata: 
         metadata["vidMetadata"] = {}
+        metadata["vidMetadata"]["isSection"] = True
         metadata["vidMetadata"]["video"] = metadata["video"]
         metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
         if "sliderImgName" in metadata:  metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
@@ -146,6 +147,7 @@ def processSubsection(subsectionFile, pageName, parentData):
     metadata = getMarkdownMetadata(subsectionFile)
     metadata["id"] = subsectionFile.split("/")[-1][:-3]
     metadata["collectorProfile"] = False
+    metadata["isSubsection"] = True
     if "video" in metadata:
         currVideoName = metadata["video"].split(".")[0]
         subsectionName = currVideoName.split("_")[-1]
@@ -165,7 +167,6 @@ def processSubsection(subsectionFile, pageName, parentData):
     # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
     if("source" in metadata): 
         metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
-        metadata["collector"] = metadata["source"]
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]

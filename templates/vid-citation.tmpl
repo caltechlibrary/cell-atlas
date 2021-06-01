@@ -1,23 +1,40 @@
-<div class="video-citation">
+<div class="vid-metadata ${if(it.isSection)}vid-metadata--in-section${elseif(it.isSubsection)}vid-metadata--in-modal${endif}">
     ${if(it.species)}
-        <a href="C-phylogenetic-tree.html"><i>${it.species}</i></a>
+        <div class="vid-metadata__item">
+            <a class="vid-metadata__value vid-metadata__link" href="C-phylogenetic-tree.html">${it.species}</a>
+        </div>
     ${endif}
 
-    <span>
-        ${if(it.source)}Source:${elseif(it.collector)}Collected by:${endif} 
-        ${if(it.collectorProfile)}
-            <a href="B-scientist-profiles.html#${it.collectorId}">${it.collector}</a>
-        ${else}
-            <span class="video-citation-value">${it.collector}</span>
-        ${endif}
-    </span>
+    ${if(it.collector)}
+        <div class="vid-metadata__item">
+            <span class="vid-metadata__key">Collected by:</span>
+            ${if(it.collectorProfile)}
+                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#${it.collectorId}">${it.collector}</a>
+            ${else}
+                <span class="vid-metadata__value">${it.collector}</span>
+            ${endif}
+        </div>
+    ${endif}
+
+    ${if(it.source)}
+        <div class="vid-metadata__item">
+            <span class="vid-metadata__key">Source:</span>
+            <span class="vid-metadata__value">${it.source}</span>
+        </div>
+    ${endif}
 
     ${if(it.doi)}
-        <span>DOI: <a href="https://doi.org/${it.doi}" target="_blank">${it.doi}</a></span>
-    ${elseif(it.structure)}
-        <span>Structure:
-            <span class="video-citation-value">${it.structure}</span> 
-            ${if(it.viewerDemo)}<span class="video-citation-value viewer-link" data-pdb="${it.pdb}">[Open In Viewer]</span>${endif}
-        </span>
+        <div class="vid-metadata__item">
+            <span class="vid-metadata__key">DOI:</span>
+            <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/${it.doi}" target="_blank">${it.doi}</a>
+        </div>
+    ${endif}
+
+    ${if(it.structure)}
+        <div class="vid-metadata__item">
+            <span class="vid-metadata__key">Structure:</span>
+            <span class="vid-metadata__value">${it.structure}</span>
+            ${if(it.viewerDemo)}<span data-pdb="${it.pdb}">[Open In Viewer]</span>${endif}
+        </div>
     ${endif}
 </div>
