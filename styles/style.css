@@ -1121,15 +1121,15 @@
 
     /* || PROGRESS styles */
     #customBookProgress {
-        position: absolute;
+        position: relative;
         width: 100%;
         visibility: hidden;
-        transform: translate(0px, 200%);
+        transform: translate(0px, 300%);
         transition: transform 0.25s;
     }
 
     #customBookProgress.unshelfed {
-        transform: translate(0, -100%);
+        transform: none;
     }
     
     #customBookProgress.showing {
@@ -1197,6 +1197,7 @@
         border-right: 5px solid transparent;
         border-top: 7px solid #ccc;
         transform: translateX(-50%);
+        filter: drop-shadow(0px 0px 3px #000);
     }
 
     .progress-bar-chapter-mark {
