@@ -9,10 +9,10 @@
 
         ${it:player.tmpl()}
     ${elseif(it.graphic)}
-        <div class="subsection-modal-img js-modal-img" data-player="${it.playerId}">
-            <img src="img/schematics/${it.graphic}">
-            <button id="imgEnlarge-${it.playerId}" class="subsection-modal-img-btn subsection-modal-img-btn-enlarge" data-player="${it.playerId}">${svg/noun_Fullscreen.svg()}</button>
-            <button id="imgMinimize-${it.playerId}" class="subsection-modal-img-btn subsection-modal-img-btn-minimize" data-player="${it.playerId}">${svg/noun_X.svg()}</button>
+        <div class="content-img ${if(it.species)}content-img--open-bottom${elseif(it.source)}content-img--open-bottom${endif}">
+            <img class="content-img__img" src="img/schematics/${it.graphic}">
+            <button id="imgEnlarge-${it.playerId}" class="content-img__btn content-img__enlarge-btn">${svg/noun_Fullscreen.svg()}</button>
+            <button id="imgMinimize-${it.playerId}" class="content-img__btn content-img__minimize-btn content-img__btn--hidden">${svg/noun_X.svg()}</button>
         </div>
     ${endif}
 

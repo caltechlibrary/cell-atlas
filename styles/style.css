@@ -1104,54 +1104,6 @@
         font-size: 1.75em;
     }
 
-    .subsection-modal-img {
-        display: flex;
-        position: relative;
-        width: 100%;
-        max-height: 50vh;
-        object-fit: contain;
-        box-sizing: border-box;
-        border: 7px #cccccc solid;
-        border-radius: 10px;
-        box-shadow: 0px 0px 0 1px #444;
-    }
-
-    .subsection-modal-img-enlarged {
-        display: flex;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        box-shadow: 0px 0px 0 1px #444 !important;
-    }
-
-    .subsection-modal-img img {
-        width: 100%;
-        background: #fff;
-    }
-
-    .subsection-modal-img-btn {
-        display: flex;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: #ffffff87;
-        border: none;
-        margin: 0;
-        padding: 2%;
-        border-radius: 10px 0 0 0;
-    }
-
-    .subsection-modal-img-btn-minimize {
-        display: none;
-    }
-
-    .subsection-modal-img-btn svg {
-        width: 1.25em;
-        fill: #15404e;
-    }
-
     .subsection-modal-container video {
         width: 100%;
         background-color: rgb(255 255 255);
@@ -1710,4 +1662,57 @@
     .pv-menu h2 {
         font-weight: 300;
     }
+}
+
+.content-img {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    box-sizing: border-box;
+    border: 7px #cccccc solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 1px #444;
+}
+
+.content-img--open-bottom {
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
+}
+
+.content-img--enlarged {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0px 0px 0 1px #444 !important;
+}
+
+.content-img__img {
+    width: 100%;
+    background: #fff;
+}
+
+.content-img__btn {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ffffff87;
+    border: none;
+    margin: 0;
+    padding: 2%;
+    border-radius: 10px 0 0 0;
+}
+
+.content-img__btn--hidden {
+    display: none;
+}
+
+.content-img__btn svg {
+    width: 1.25em;
+    fill: #15404e;
 }
