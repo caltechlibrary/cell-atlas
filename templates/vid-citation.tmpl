@@ -1,7 +1,7 @@
 <div class="vid-metadata ${if(it.isSection)}vid-metadata--in-section${elseif(it.isSubsection)}vid-metadata--in-modal${endif}">
     ${if(it.species)}
         <div class="vid-metadata__item">
-            <a class="vid-metadata__value vid-metadata__link" href="C-phylogenetic-tree.html">${it.species}</a>
+            <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html">${it.species}</a>
         </div>
     ${endif}
 
@@ -21,7 +21,7 @@
             <span class="vid-metadata__key">Source:</span>
             ${for(it.sources)}
                 <a class="vid-metadata__value vid-metadata__link" href="${it.link}">${it.text}</a>
-                ${if(it.last)}${else}<span>,</span>${endif}
+                ${if(it.last)}${else}<span  class="vid-metadata__text">,</span>${endif}
             ${endfor}
         </div>
     ${endif}

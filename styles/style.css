@@ -1678,7 +1678,7 @@ BEM blocks that are defined in this file.
     text-align: center;
 }
 
-.vid-metadata__key {
+.vid-metadata__key, .vid-metadata__text {
     color: #545454;
 }
 
@@ -1688,4 +1688,8 @@ BEM blocks that are defined in this file.
 
 .vid-metadata__link {
     text-decoration: underline;
+}
+
+.vid-metadata__link--italicize {
+    font-style: italic;
 }
