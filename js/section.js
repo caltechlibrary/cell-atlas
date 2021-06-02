@@ -186,6 +186,7 @@ if(progressBar) {
 
 let sectionImgs = document.getElementsByClassName("content-img");
 for(let sectionImg of sectionImgs) {
+    let imgContainer = sectionImg.querySelector(".content-img__img-container")
     let img = sectionImg.querySelector(".content-img__img");
     let enlargeBtn = sectionImg.querySelector(".content-img__enlarge-btn");
     let minBtn = sectionImg.querySelector(".content-img__minimize-btn");
@@ -194,8 +195,8 @@ for(let sectionImg of sectionImgs) {
     enlargeBtn.addEventListener("click", function() {
         enlargeBtn.classList.add("content-img__btn--hidden");
         minBtn.classList.remove("content-img__btn--hidden");
-        sectionImg.classList.add("content-img--enlarged");
-        if(openBottom) sectionImg.classList.remove("content-img--open-bottom");
+        imgContainer.classList.add("content-img__img-container--enlarged");
+        if(openBottom) imgContainer.classList.remove("content-img__img-container--open-bottom");
         if(window.innerWidth >= 900) {
             positionEnlargedImg();
             window.addEventListener("resize", positionEnlargedImg);
@@ -204,15 +205,15 @@ for(let sectionImg of sectionImgs) {
     minBtn.addEventListener("click", function() {
         minBtn.classList.add("content-img__btn--hidden");
         enlargeBtn.classList.remove("content-img__btn--hidden");
-        sectionImg.classList.remove("content-img--enlarged");
-        if(openBottom) sectionImg.classList.add("content-img--open-bottom");
-        sectionImg.style.width = "initial";
-        sectionImg.style.top = "initial";
-        sectionImg.style.height = "initial";
+        imgContainer.classList.remove("content-img__img-container--enlarged");
+        if(openBottom) imgContainer.classList.add("content-img__img-container--open-bottom");
+        imgContainer.style.width = "initial";
+        imgContainer.style.top = "initial";
+        imgContainer.style.height = "initial";
         window.removeEventListener("resize", positionEnlargedImg);
     });
 
-    function positionEnlargedImg() {
+    let positionEnlargedImg = function() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
         let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
@@ -220,11 +221,11 @@ for(let sectionImg of sectionImgs) {
         let availWidth = window.innerWidth - 100;
         let imageWidth = availHeight * aspectRatio;
         if(imageWidth < availWidth) {
-            sectionImg.style.width = `${imageWidth}px`;
+            imgContainer.style.width = `${imageWidth}px`;
         } else {
-            sectionImg.style.width = `${availWidth}px`;
+            imgContainer.style.width = `${availWidth}px`;
         }
-        sectionImg.style.top = `${posTop}px`;
+        imgContainer.style.top = `${posTop}px`;
     }
 }
 
