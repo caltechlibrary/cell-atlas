@@ -190,6 +190,7 @@ for(let sectionImg of sectionImgs) {
     let enlargeBtn = sectionImg.querySelector(".content-img__enlarge-btn");
     let minBtn = sectionImg.querySelector(".content-img__minimize-btn");
     let openBottom = sectionImg.classList.contains("content-img--open-bottom");
+    let aspectRatio = img.width / img.height;
     enlargeBtn.addEventListener("click", function() {
         enlargeBtn.classList.add("content-img__btn--hidden");
         minBtn.classList.remove("content-img__btn--hidden");
@@ -213,7 +214,6 @@ for(let sectionImg of sectionImgs) {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
         let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
-        let aspectRatio = (img.offsetWidth / img.offsetHeight);
         let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
         let availWidth = window.innerWidth - 100;
         let imageWidth = availHeight * aspectRatio;
