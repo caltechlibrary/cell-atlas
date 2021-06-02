@@ -196,8 +196,10 @@ for(let sectionImg of sectionImgs) {
         minBtn.classList.remove("content-img__btn--hidden");
         sectionImg.classList.add("content-img--enlarged");
         if(openBottom) sectionImg.classList.remove("content-img--open-bottom");
-        positionEnlargedImg();
-        window.addEventListener("resize", positionEnlargedImg);
+        if(window.innerWidth >= 900) {
+            positionEnlargedImg();
+            window.addEventListener("resize", positionEnlargedImg);
+        }
     });
     minBtn.addEventListener("click", function() {
         minBtn.classList.add("content-img__btn--hidden");

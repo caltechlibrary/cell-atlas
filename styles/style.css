@@ -1680,17 +1680,6 @@
     box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
 }
 
-.content-img--enlarged {
-    display: flex;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    box-shadow: 0px 0px 0 1px #444 !important;
-    max-height: none;
-}
-
 .content-img__img {
     width: 100%;
     object-fit: contain;
@@ -1716,4 +1705,16 @@
 .content-img__btn svg {
     width: 1.25em;
     fill: #15404e;
+}
+
+@media (min-width:900px) {
+    .content-img--enlarged {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        box-shadow: 0px 0px 0 1px #444;
+        max-height: none;
+    }
 }
