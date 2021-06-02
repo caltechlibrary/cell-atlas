@@ -16,10 +16,13 @@
         </div>
     ${endif}
 
-    ${if(it.source)}
+    ${if(it.sources)}
         <div class="vid-metadata__item">
             <span class="vid-metadata__key">Source:</span>
-            <span class="vid-metadata__value">${it.source}</span>
+            ${for(it.sources)}
+                <a class="vid-metadata__value vid-metadata__link" href="${it.link}">${it.text}</a>
+                ${if(it.last)}${else}<span>,</span>${endif}
+            ${endfor}
         </div>
     ${endif}
 

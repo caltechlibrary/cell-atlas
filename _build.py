@@ -166,7 +166,22 @@ def processSubsection(subsectionFile, pageName, parentData):
     addCollectorData(metadata, "source")
     # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
     if("source" in metadata): 
-        metadata["source"] = insertRefLinks(metadata["source"], isSchematic=True)
+        sourceFormatted = insertRefLinks(metadata["source"], isSchematic=True)
+        metadata["sources"] = []
+        
+        if "viewerDemo" not in metadata:
+            pare = re.compile(r"\(([^\)]+)\)")
+            bracket = re.compile(r"\[(.*?)\]")
+            for match in re.finditer(pare, sourceFormatted):
+                matchString = match.group()
+                if "D-references" in matchString:
+                    metadata["sources"].append({ "link": matchString[1:len(matchString)-1] })
+            i = 0
+            for match in re.finditer(bracket, sourceFormatted):
+                matchString = match.group()
+                metadata["sources"][i]["text"] = matchString[1:len(matchString)-1]
+                i = i + 1
+        if(len(metadata["sources"]) >= 1): metadata["sources"][-1]["last"] = True
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
