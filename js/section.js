@@ -186,12 +186,14 @@ if(progressBar) {
 
 let sectionImgs = document.getElementsByClassName("content-img");
 for(let sectionImg of sectionImgs) {
-    let imgContainer = sectionImg.querySelector(".content-img__img-container")
+    let fsContainer = sectionImg.querySelector(".content-img__fullscreen-container");
+    let imgContainer = sectionImg.querySelector(".content-img__img-container");
     let img = sectionImg.querySelector(".content-img__img");
     let enlargeBtn = sectionImg.querySelector(".content-img__enlarge-btn");
     let minBtn = sectionImg.querySelector(".content-img__minimize-btn");
     let openBottom = sectionImg.classList.contains("content-img--open-bottom");
     let aspectRatio = img.width / img.height;
+
     enlargeBtn.addEventListener("click", function() {
         enlargeBtn.classList.add("content-img__btn--hidden");
         minBtn.classList.remove("content-img__btn--hidden");
@@ -200,6 +202,10 @@ for(let sectionImg of sectionImgs) {
         if(window.innerWidth >= 900) {
             positionEnlargedImg();
             window.addEventListener("resize", positionEnlargedImg);
+        } else {
+            if(fsContainer.requestFullscreen) {
+                fsContainer.requestFullscreen();
+            }
         }
     });
     minBtn.addEventListener("click", function() {
