@@ -187,11 +187,23 @@ if(progressBar) {
 let sectionImgs = document.getElementsByClassName("js-modal-img");
 for(let sectionImg of sectionImgs) {
     let img = sectionImg.querySelector("img");
-    let imgBtn = sectionImg.querySelector(".subsection-modal-img-btn");
-    imgBtn.addEventListener("click", function() {
+    let enlargeBtn = sectionImg.querySelector(".subsection-modal-img-btn-enlarge");
+    let minBtn = sectionImg.querySelector(".subsection-modal-img-btn-minimize");
+    enlargeBtn.addEventListener("click", function() {
+        enlargeBtn.style.display = "none";
+        minBtn.style.display = "flex";
         sectionImg.classList.add("subsection-modal-img-enlarged");
         positionEnlargedImg();
         window.addEventListener("resize", positionEnlargedImg);
+    });
+    minBtn.addEventListener("click", function() {
+        minBtn.style.display = "none";
+        enlargeBtn.style.display = "flex";
+        sectionImg.classList.remove("subsection-modal-img-enlarged");
+        sectionImg.style.width = "initial";
+        sectionImg.style.top = "initial";
+        sectionImg.style.height = "initial";
+        window.removeEventListener("resize", positionEnlargedImg);
     });
 
     function positionEnlargedImg() {
@@ -204,10 +216,8 @@ for(let sectionImg of sectionImgs) {
         let imageWidth = availHeight * aspectRatio;
         if(imageWidth < availWidth) {
             sectionImg.style.width = `${imageWidth}px`;
-            img.style.height = `${imageWidth / aspectRatio}px`;
         } else {
             sectionImg.style.width = `${availWidth}px`;
-            img.style.height = `${availWidth / aspectRatio}px`;
         }
         sectionImg.style.top = `${posTop}px`;
     }

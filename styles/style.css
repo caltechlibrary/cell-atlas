@@ -1143,6 +1143,10 @@
         border-radius: 10px 0 0 0;
     }
 
+    .subsection-modal-img-btn-minimize {
+        display: none;
+    }
+
     .subsection-modal-img-btn svg {
         width: 1.25em;
         fill: #15404e;
