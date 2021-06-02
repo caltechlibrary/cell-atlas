@@ -949,11 +949,18 @@ BEM blocks that are defined in this file.
         flex-direction: column;
         margin: auto;
         height: fit-content;
-        max-height: 90%;
+        max-height: 92%;
         width: 38%;
         overflow: hidden;
         font-size: 1rem;
         transition: transform 1s;
+    }
+
+    .book-section-text-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        overflow: auto;
     }
 
     .book-section-text-margins {
@@ -982,6 +989,7 @@ BEM blocks that are defined in this file.
     }
 
     .book-section-text-header {
+        flex: 1 0 auto;
         font-size: 1.35em;
     }
 
