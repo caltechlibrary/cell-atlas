@@ -796,10 +796,13 @@ blockquote {
 
     .subsection-modal-container {
         display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: absolute;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: min-content;
         width: 82.5%;
         max-height: 90%;
         flex-direction: column;
@@ -847,6 +850,16 @@ blockquote {
         border-radius: 10px 10px 0 0;
         box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
         flex: 1 0 auto;
+        height: auto;
+    }
+
+    .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
+        height: auto;
+    }
+
+    .subsection-modal-container .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] {
+        height: 100%;
+        width: 100%;
     }
 
     .subsection-modal-container .book-section-comparison-slider-container {
