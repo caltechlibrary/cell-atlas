@@ -216,10 +216,19 @@ for(let sectionImg of sectionImgs) {
         enlargeBtn.classList.remove("content-img__btn--hidden");
         imgContainer.classList.remove("content-img__img-container--enlarged");
         if(openBottom) imgContainer.classList.add("content-img__img-container--open-bottom");
-        imgContainer.style.width = "initial";
-        imgContainer.style.top = "initial";
-        imgContainer.style.height = "initial";
-        window.removeEventListener("resize", positionEnlargedImg);
+        if(window.innerWidth >= 900) {
+            imgContainer.style.width = "initial";
+            imgContainer.style.top = "initial";
+            imgContainer.style.height = "initial";
+            window.removeEventListener("resize", positionEnlargedImg);
+        } else {
+            if(fsContainer.requestFullscreen) {
+                document.exitFullscreen()
+            } else {
+                fsContainer.classList.remove("content-img__fullscreen-container--fs-polyfill");
+                imgContainer.classList.remove("content-img__img-container--fs-polyfill");
+            }
+        }
     });
 
     let positionEnlargedImg = function() {
