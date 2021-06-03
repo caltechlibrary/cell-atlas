@@ -62,7 +62,6 @@ function toggleListDropdown(el) {
     if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
         if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
-            console.log("Page is not loaded, not using scroll height");
             list.style.height = "auto";
             window.addEventListener('load', (event) => {
                 if(list.offsetHeight > 0) list.style.height = list.scrollHeight + "px";
