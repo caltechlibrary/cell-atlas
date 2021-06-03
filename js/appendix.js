@@ -58,7 +58,7 @@ function addNavRightMargin() {
 }
 
 function toggleListDropdown(el) {
-    let list = document.getElementById(el.value).querySelector(".book-appendix-li-dropdown");
+    let list = document.querySelector(`.profile-container[data-profile='${el.value}']`).querySelector(".book-appendix-li-dropdown");
     if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
         list.style.height = list.scrollHeight + "px";
