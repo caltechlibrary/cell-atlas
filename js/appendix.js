@@ -61,7 +61,15 @@ function toggleListDropdown(el) {
     let list = document.querySelector(`.profile-container[data-profile='${el.value}']`).querySelector(".book-appendix-li-dropdown");
     if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
-        list.style.height = list.scrollHeight + "px";
+        if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
+            console.log("Page is not loaded, not using scroll height");
+            list.style.height = "auto";
+            window.addEventListener('load', (event) => {
+                if(list.offsetHeight > 0) list.style.height = list.scrollHeight + "px";
+            }, { once: true });
+        } else {
+            list.style.height = list.scrollHeight + "px";
+        }
         list.setAttribute("showing", true);
     } else {
         el.style.transform = "rotate(0deg)";
