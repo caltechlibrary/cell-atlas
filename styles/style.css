@@ -1707,6 +1707,7 @@
 
 .content-img__img-container--fs-polyfill {
     max-height: 100vh;
+    margin: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
 }
 
 .content-img__img {
