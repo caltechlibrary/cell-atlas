@@ -191,7 +191,7 @@ for(let sectionImg of sectionImgs) {
     let img = sectionImg.querySelector(".content-img__img");
     let enlargeBtn = sectionImg.querySelector(".content-img__enlarge-btn");
     let minBtn = sectionImg.querySelector(".content-img__minimize-btn");
-    let openBottom = sectionImg.classList.contains("content-img--open-bottom");
+    let openBottom = imgContainer.classList.contains("content-img__img-container--open-bottom");
     let aspectRatio = img.width / img.height;
 
     enlargeBtn.addEventListener("click", function() {
