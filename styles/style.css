@@ -1670,6 +1670,19 @@
     align-items: center;
 }
 
+.content-img__fullscreen-container--fs-polyfill {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .content-img__img-container {
     display: flex;
     flex-direction: column;
@@ -1689,6 +1702,10 @@
 }
 
 .content-img__img-container--enlarged {
+    max-height: 100vh;
+}
+
+.content-img__img-container--fs-polyfill {
     max-height: 100vh;
 }
 

@@ -205,6 +205,9 @@ for(let sectionImg of sectionImgs) {
         } else {
             if(fsContainer.requestFullscreen) {
                 fsContainer.requestFullscreen();
+            } else {
+                fsContainer.classList.add("content-img__fullscreen-container--fs-polyfill");
+                imgContainer.classList.add("content-img__img-container--fs-polyfill");
             }
         }
     });
