@@ -14,14 +14,16 @@ if(navRight) {
 }
 
 // Account for scroll bar width in profile bios
-let profileBlurbs = document.getElementsByClassName("book-profile-blurb");
-for(blurb of profileBlurbs) {
-    // Check if blurb is taller than pictures (267px)
-    if(blurb.scrollHeight > 267) {
-        let scrollBarWidth = blurb.offsetWidth - blurb.clientWidth;
-        blurb.style["padding-right"] = `${scrollBarWidth}px`;
+window.addEventListener('load', (event) => {
+    let profileBlurbs = document.getElementsByClassName("book-profile-blurb");
+    for(blurb of profileBlurbs) {
+        // Check if blurb is taller than pictures (267px)
+        if(blurb.scrollHeight > 267) {
+            let scrollBarWidth = blurb.offsetWidth - blurb.clientWidth;
+            blurb.style["padding-right"] = `${scrollBarWidth}px`;
+        }
     }
-}
+});
 
 // Check for anchor in url and open applicable modal window
 let apenUrl = window.location.href;
