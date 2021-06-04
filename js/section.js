@@ -192,7 +192,17 @@ for(let sectionImg of sectionImgs) {
     let enlargeBtn = sectionImg.querySelector(".content-img__enlarge-btn");
     let minBtn = sectionImg.querySelector(".content-img__minimize-btn");
     let openBottom = imgContainer.classList.contains("content-img__img-container--open-bottom");
-    let aspectRatio = img.width / img.height;
+    let aspectRatio;
+    let onImgLoad = function() {
+        aspectRatio = img.width / img.height;
+        enlargeBtn.disabled = false;
+        minBtn.disabled = false;
+    }
+    if(img.complete) {
+        onImgLoad();
+    } else {
+        img.addEventListener("load", onImgLoad);
+    }
 
     enlargeBtn.addEventListener("click", function() {
         enlargeBtn.classList.add("content-img__btn--hidden");
