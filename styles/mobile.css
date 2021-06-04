@@ -1014,6 +1014,11 @@ blockquote {
         margin-bottom: 14px;
     }
 
+    .book-profile-anchor {
+        position: absolute;
+        margin-top: -72px;
+    }
+
     .book-profiles-bio {
         text-align: center;
     }
