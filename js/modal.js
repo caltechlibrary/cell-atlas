@@ -7,6 +7,7 @@ function openModal(modalId) {
     let lastFocused = document.activeElement;
     let modalText = modal.querySelector(".subsection-modal-text");
     let qualityChangerDesktop = modal.querySelector(".video-quality-player-control");
+    let imgBlock = modal.querySelector(".content-img");
     let fullBackground = modal.querySelector(".book-section-comparison-slider-fullscreen-container");
 
     modalOverlay.style.display = "block";
@@ -60,6 +61,13 @@ function openModal(modalId) {
         if(fullBackground && window.innerWidth > 900 && fullBackground.getAttribute("data-state") != "failed") {
             let minimizeButton = fullBackground.querySelector(".book-section-comparison-exit-fullscreen-desktop");
             minimizeButton.click();
+        }
+        if(imgBlock && window.innerWidth > 900) {
+            let imgContainer = imgBlock.querySelector(".content-img__img-container");
+            if(imgContainer.classList.contains("content-img__img-container--enlarged")) {
+                let minBtn = imgBlock.querySelector(".content-img__minimize-btn");
+                minBtn.click();
+            }
         }
         lastFocused.focus();
     }
