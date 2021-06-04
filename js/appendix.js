@@ -68,15 +68,16 @@ function addNavRightMargin() {
 
 function toggleListDropdown(el) {
     let list = document.querySelector(`.profile-container[data-profile='${el.value}']`).querySelector(".book-appendix-li-dropdown");
+    let listImg = list.querySelector("img");
     if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
-        if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
-            list.style.height = "auto";
-            window.addEventListener('load', (event) => {
-                if(list.offsetHeight > 0) list.style.height = list.scrollHeight + "px";
-            }, { once: true });
-        } else {
+        if(!listImg || (listImg && listImg.complete)) {
             list.style.height = list.scrollHeight + "px";
+        } else {
+            list.style.height = "auto";
+            listImg.addEventListener("load", function() {
+                if(list.offsetHeight > 0) list.style.height = list.scrollHeight + "px";
+            });
         }
         list.setAttribute("showing", true);
     } else {
