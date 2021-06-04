@@ -21,7 +21,7 @@
             <span class="vid-metadata__key">Source:</span>
             ${for(it.sources)}
                 <a class="vid-metadata__value vid-metadata__link" href="${it.link}">${it.text}</a>
-                ${if(it.last)}${else}<span  class="vid-metadata__text">,</span>${endif}
+                ${if(it.last)}${else}<span  class="vid-metadata__text">, </span>${endif}
             ${endfor}
         </div>
     ${endif}

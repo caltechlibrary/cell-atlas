@@ -1666,6 +1666,7 @@ BEM blocks that are defined in this file.
 
 .vid-metadata--in-section {
     flex: 1 0 auto;
+    order: 1;
 }
 
 .vid-metadata--in-modal {
@@ -1692,4 +1693,10 @@ BEM blocks that are defined in this file.
 
 .vid-metadata__link--italicize {
     font-style: italic;
+}
+
+@media (min-width:900px) {
+    .vid-metadata--in-section {
+        order: initial;
+    }
 }
