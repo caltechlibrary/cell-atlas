@@ -1689,7 +1689,7 @@
     justify-content: center;
     position: relative;
     width: 100%;
-    max-height: 50vh;
+    max-height: 60vh;
     box-sizing: border-box;
     border: 7px #cccccc solid;
     border-radius: 10px;
@@ -1739,6 +1739,10 @@
 }
 
 @media (min-width:900px) {
+    .content-img__img-container {
+        max-height: 50vh;
+    }
+
     .content-img__img-container--enlarged {
         position: fixed;
         top: 50%;
