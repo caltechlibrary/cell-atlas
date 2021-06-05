@@ -14,12 +14,21 @@ if(navRight) {
 }
 
 // Account for scroll bar width in profile bios
-let profileBlurbs = document.getElementsByClassName("book-profile-blurb");
-for(blurb of profileBlurbs) {
-    // Check if blurb is taller than pictures (267px)
-    if(blurb.scrollHeight > 267) {
-        let scrollBarWidth = blurb.offsetWidth - blurb.clientWidth;
-        blurb.style["padding-right"] = `${scrollBarWidth}px`;
+let profileContainers = document.querySelectorAll(".profile-container");
+for(profileContainer of profileContainers) {
+    let profileImg = profileContainer.querySelector("img");
+    let profileBlurb = profileContainer.querySelector(".book-profile-blurb");
+    let checkForScrollBar = function() {
+        // Check if blurb is taller than pictures (267px)
+        if(profileBlurb.scrollHeight > 267) {
+            let scrollBarWidth = profileBlurb.offsetWidth - profileBlurb.clientWidth;
+            profileBlurb.style["padding-right"] = `${scrollBarWidth}px`;
+        }
+    }
+    if(!profileImg || (profileImg && profileImg.complete)) {
+        checkForScrollBar();
+    } else {
+        profileImg.addEventListener("load", checkForScrollBar);
     }
 }
 
@@ -58,10 +67,18 @@ function addNavRightMargin() {
 }
 
 function toggleListDropdown(el) {
-    let list = document.getElementById(el.value).querySelector(".book-appendix-li-dropdown");
+    let list = document.querySelector(`.profile-container[data-profile='${el.value}']`).querySelector(".book-appendix-li-dropdown");
+    let listImg = list.querySelector("img");
     if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
-        list.style.height = list.scrollHeight + "px";
+        if(!listImg || (listImg && listImg.complete)) {
+            list.style.height = list.scrollHeight + "px";
+        } else {
+            list.style.height = "auto";
+            listImg.addEventListener("load", function() {
+                if(list.offsetHeight > 0) list.style.height = list.scrollHeight + "px";
+            });
+        }
         list.setAttribute("showing", true);
     } else {
         el.style.transform = "rotate(0deg)";

@@ -1,7 +1,8 @@
 <ul class="book-appendix-dropdown-list">
     ${for(profiles)}
         <li>
-            <div id="${profiles.id}">
+            <div id="${profiles.id}" class="book-profile-anchor"></div>
+            <div class="profile-container" data-profile="${profiles.id}">
                 <div class="book-appendix-li-header">
                     <h2>${profiles.name}</h2>
                     <button class="dark-background-text" value="${profiles.id}" onclick="toggleListDropdown(this)">&#43;</button>
