@@ -19,7 +19,8 @@
 /* || MOBILE - Styles that apply to mobile components */
 
 /* In the process of converting to BEM. The following is a list of inprogress/complete 
-BEM blocks that are defined in this file.
+BEM blocks that are defined in this file. These blocks can be found at the end of the 
+file. These definitions will be defined mobile first.
 - vid-metadata: Video citation information displayed in sections/modals 
 */
 
@@ -1695,6 +1696,7 @@ BEM blocks that are defined in this file.
     }
 }
 
+/* content-img */
 .content-img__fullscreen-container:fullscreen {
     display: flex;
     justify-content: center;
