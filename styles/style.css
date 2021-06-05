@@ -22,6 +22,7 @@
 BEM blocks that are defined in this file. These blocks can be found at the end of the 
 file. These definitions will be defined mobile first.
 - vid-metadata: Video citation information displayed in sections/modals 
+- content-img: Image vieweing elements that can be enlarged/minimized
 */
 
 @media (min-width:900px) {
