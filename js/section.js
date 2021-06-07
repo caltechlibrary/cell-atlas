@@ -4,7 +4,7 @@
 // Check if there is "Learn More" content. If not, add margin on bottom of text seciton on desktop only
 let sectionText = document.querySelector(".book-section-text");
 if(sectionText) {
-    let learnMore = sectionText.querySelector(".book-section-learn-more");
+    let learnMore = sectionText.querySelector(".learn-more");
     if(!learnMore && window.innerWidth > 900) {
         sectionText.style["padding-bottom"] = "1em";
     }
@@ -99,7 +99,7 @@ let secSplit = secUrl.split("#");
 if(secSplit.length > 1) {
     let buttons = [];
     let anchor = secSplit[1];
-    let learnMore = document.querySelector(".book-section-learn-more");
+    let learnMore = document.querySelector(".learn-more");
     if(learnMore) buttons = learnMore.getElementsByTagName("button");
     for(let button of buttons){
         if (button.value == anchor) {

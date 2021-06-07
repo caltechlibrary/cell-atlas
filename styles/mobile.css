@@ -461,32 +461,6 @@ blockquote {
         margin-bottom: 16px;
     }
 
-    .book-section-learn-more {
-        padding: 16px 15px;
-        background-color: #858585;
-        margin-bottom: 16px;
-    }
-
-    @supports(padding: max(0px)) {
-        .book-section-learn-more {
-            padding: 16px max(15px, env(safe-area-inset-right)) 16px max(15px, env(safe-area-inset-left));
-        }
-    }
-
-    .book-section-learn-more h1 {
-        color: #fff;
-    }
-
-    .book-section-learn-more-buttons button {
-        color: #f5f5f5;
-        border: none;
-        border-radius: 10px;
-        font-size: 15px;
-        font-weight: 600;
-        padding: 9.5px 30px;
-        margin: 4.5px 10px 4.5px 0px;
-    }
-
     .book-section-non-text-content {
         background: #717171;
         position: fixed;
