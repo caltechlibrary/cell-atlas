@@ -170,18 +170,21 @@ def processSubsection(subsectionFile, pageName, parentData):
         metadata["sources"] = []
         
         if "viewerDemo" not in metadata:
-            pare = re.compile(r"\(([^\)]+)\)")
-            bracket = re.compile(r"\[(.*?)\]")
-            for match in re.finditer(pare, sourceFormatted):
-                matchString = match.group()
-                if "D-references" in matchString:
-                    metadata["sources"].append({ "link": matchString[1:len(matchString)-1] })
-            i = 0
-            for match in re.finditer(bracket, sourceFormatted):
-                matchString = match.group()
-                metadata["sources"][i]["text"] = matchString[1:len(matchString)-1]
-                i = i + 1
-        if(len(metadata["sources"]) >= 1): metadata["sources"][-1]["last"] = True
+            if "[" not in sourceFormatted or "]" not in sourceFormatted:
+                metadata["sources"].append({ "text": sourceFormatted, "link": "B-scientist-profiles.html#{}".format(sourceFormatted.replace(" ", "")) })
+            else:
+                pare = re.compile(r"\(([^\)]+)\)")
+                bracket = re.compile(r"\[(.*?)\]")
+                for match in re.finditer(pare, sourceFormatted):
+                    matchString = match.group()
+                    if "D-references" in matchString:
+                        metadata["sources"].append({ "link": matchString[1:len(matchString)-1] })
+                i = 0
+                for match in re.finditer(bracket, sourceFormatted):
+                    matchString = match.group()
+                    metadata["sources"][i]["text"] = matchString[1:len(matchString)-1]
+                    i = i + 1
+            if(len(metadata["sources"]) >= 1): metadata["sources"][-1]["last"] = True
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
