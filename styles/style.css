@@ -18,6 +18,13 @@
 /* || ABOUT - About this project page */
 /* || MOBILE - Styles that apply to mobile components */
 
+/* In the process of converting to BEM. The following is a list of inprogress/complete 
+BEM blocks that are defined in this file. These blocks can be found at the end of the 
+file. These definitions will be defined mobile first.
+- vid-metadata: Video citation information displayed in sections/modals 
+- content-img: Image vieweing elements that can be enlarged/minimized
+*/
+
 @media (min-width:900px) {
     /* || GENERAL styles */
     body {
@@ -943,13 +950,20 @@
         display: flex;
         flex-direction: column;
         margin: auto;
-        padding-top: 1em;
         height: fit-content;
-        max-height: 90%;
+        max-height: 94%;
         width: 38%;
         overflow: hidden;
         font-size: 1rem;
+        background: #363636;
         transition: transform 1s;
+    }
+
+    .book-section-text-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        overflow: auto;
     }
 
     .book-section-text-margins {
@@ -961,6 +975,7 @@
         flex-direction: row;
         align-items: center;
         flex: 1 0 auto;
+        padding-top: 16px;
     }
 
     .book-section-text-close-button {
@@ -977,40 +992,13 @@
     }
 
     .book-section-text-header {
+        flex: 1 0 auto;
         font-size: 1.35em;
     }
 
     .book-section-text-material {
         flex: 1 1 auto;
         overflow: auto;
-    }
-
-    .video-citation {
-        flex: 1 0 auto;
-        background: #cccccc;
-        color: #545454;
-        padding: 0.5em;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        font-weight: 600;
-        font-size: 0.85em;
-        line-height: 1.2em;
-    }
-
-    .video-citation a {
-        text-decoration: underline;
-        color: rgb(50 92 105);
-    }
-
-    .video-citation-value {
-        color: rgb(50 92 105);
-    }
-
-    .video-citation span {
-        margin: 0 3px;
-        text-align: center;
     }
 
     .book-section-learn-more {
@@ -1024,6 +1012,7 @@
 
     .book-section-learn-more h1 {
         flex: 0 0 auto;
+        color: #fff;
     }
 
     .book-section-learn-more-buttons {
@@ -1078,11 +1067,6 @@
         flex: 0 0 auto;
         border-radius: 10px 10px 0 0;
         box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-    }
-
-    .subsection-modal-container .video-citation {
-        flex: 0 0 auto;
-        box-shadow: 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
     }
 
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
@@ -1664,6 +1648,57 @@
     }
 }
 
+/* vid-metadata */
+.vid-metadata {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background: #cccccc;
+    padding: 0.5em;
+    font-weight: 600;
+    font-size: 0.85em;
+    line-height: 1.2em;
+}
+
+.vid-metadata--in-section {
+    flex: 1 0 auto;
+    order: 1;
+}
+
+.vid-metadata--in-modal {
+    flex: 0 0 auto;
+    box-shadow: 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
+}
+
+.vid-metadata__item {
+    margin: 0 3px;
+    text-align: center;
+}
+
+.vid-metadata__key, .vid-metadata__text {
+    color: #545454;
+}
+
+.vid-metadata__value {
+    color: #325c69;
+}
+
+.vid-metadata__link {
+    text-decoration: underline;
+}
+
+.vid-metadata__link--italicize {
+    font-style: italic;
+}
+
+@media (min-width:900px) {
+    .vid-metadata--in-section {
+        order: initial;
+    }
+}
+
+/* content-img */
 .content-img__fullscreen-container:fullscreen {
     display: flex;
     justify-content: center;
