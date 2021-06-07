@@ -7,7 +7,7 @@ function initializeViewer(viewerEl) {
     let id = viewerEl.getAttribute("id");
     let type = viewerEl.getAttribute("data-viewer");
     let pdb = viewerEl.getAttribute("data-pdb");
-    let link = document.querySelector(`.video-citation-value[data-pdb='${pdb}']`);
+    let link = document.querySelector(`.vid-metadata span[data-pdb='${pdb}']`);
     let app;
     if(type == "molstar") {
         app = initializeMolstarApp(viewerEl, id, pdb);

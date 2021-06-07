@@ -2,7 +2,7 @@
 title: PV Demo Subsection
 video: video.mp4
 source: "[@dummy]"
-structure: "PDB 6UEW"
+structure: "[PDB 6UEW](http://rcsb.org/structure/6UEW)"
 pdb: 6UEW
 viewerDemo: true
 viewerType: pv
