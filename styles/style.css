@@ -951,10 +951,11 @@ file. These definitions will be defined mobile first.
         flex-direction: column;
         margin: auto;
         height: fit-content;
-        max-height: 92%;
+        max-height: 94%;
         width: 38%;
         overflow: hidden;
         font-size: 1rem;
+        background: #363636;
         transition: transform 1s;
     }
 
