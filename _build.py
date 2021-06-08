@@ -204,7 +204,6 @@ def processSubsection(subsectionFile, pageName, parentData):
                     metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
                     i = i + 1
         if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
-        print(metadata["structures"])
 
     sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata
@@ -438,17 +437,6 @@ metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
 
 ## Viewer Demos
-metadata = getMarkdownMetadata("molstar-demo.md")
-metadata["typeSection"] = True
-metadata["thumbnail"] = "0_0_thumbnail"
-metadata["totalPages"] = totalPages
-metadata["currentPageNum"] = -1
-metadata["chapterPageNums"] = chapterPageValues
-metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
-metadata["displayPercent"] = round(metadata["progPercent"])
-metadata["sliderImgName"] = "molstar-demo"
-writePage(SITEDIR, "molstar-demo.md", "page", "molstar-demo", metadata)
-
 metadata = getMarkdownMetadata("pv-demo.md")
 metadata["typeSection"] = True
 metadata["thumbnail"] = "0_0_thumbnail"
