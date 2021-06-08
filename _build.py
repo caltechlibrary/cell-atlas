@@ -188,7 +188,24 @@ def processSubsection(subsectionFile, pageName, parentData):
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
-    
+    # Deconstruct preformatted structure data
+    if "structure" in metadata: 
+        metadata["structures"] = []
+        if "viewerDemo" not in metadata:
+            textR = re.compile(r"\>(.*?)\<")
+            link = re.compile(r"\"(.*?)\"")
+            for match in re.finditer(link, metadata["structure"]):
+                matchString = match.group()
+                metadata["structures"].append({ "link": matchString[1:len(matchString)-1] })
+            i = 0
+            for match in re.finditer(textR, metadata["structure"]):
+                matchString = match.group()
+                if matchString != ">, <": 
+                    metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
+                    i = i + 1
+        if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
+        print(metadata["structures"])
+
     sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata
     metadata["html"] = markdownToHTML(sourceFormatted.name)

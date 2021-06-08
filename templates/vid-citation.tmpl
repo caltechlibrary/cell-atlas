@@ -33,11 +33,13 @@
         </div>
     ${endif}
 
-    ${if(it.structure)}
+    ${if(it.structures)}
         <div class="vid-metadata__item">
             <span class="vid-metadata__key">Structure:</span>
-            <span class="vid-metadata__value">${it.structure}</span>
-            ${if(it.viewerDemo)}<span data-pdb="${it.pdb}">[Open In Viewer]</span>${endif}
+            ${for(it.structures)}
+                <a class="vid-metadata__value vid-metadata__link" href="${it.link}">${it.text}</a>
+                ${if(it.last)}${else}<span  class="vid-metadata__text">, </span>${endif}
+            ${endfor}
         </div>
     ${endif}
 </div>
