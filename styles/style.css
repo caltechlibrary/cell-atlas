@@ -24,6 +24,7 @@ file. These definitions will be defined mobile first.
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
 - content-img: Image vieweing elements that can be enlarged/minimized
+- protein-viewer: Interactive PDB viewer
 */
 
 @media (min-width:900px) {
@@ -1815,4 +1816,8 @@ file. These definitions will be defined mobile first.
         box-shadow: 0px 0px 0 1px #444;
         max-height: none;
     }
+}
+
+.protein-viewer {
+    display: none;
 }

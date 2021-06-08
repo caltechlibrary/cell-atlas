@@ -202,6 +202,11 @@ def processSubsection(subsectionFile, pageName, parentData):
                 matchString = match.group()
                 if matchString != ">, <": 
                     metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
+                    if "-" not in metadata["structures"][i]["text"]:
+                        metadata["structures"][i]["viewerId"] = metadata["structures"][i]["text"].split(" ")[1]
+                        metadata["viewer"] = {
+                            "pdb": metadata["structures"][i]["viewerId"]
+                        }
                     i = i + 1
         if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
 
