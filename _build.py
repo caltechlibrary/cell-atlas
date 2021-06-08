@@ -204,7 +204,6 @@ def processSubsection(subsectionFile, pageName, parentData):
                     metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
                     i = i + 1
         if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
-        print(metadata["structures"])
 
     sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata
