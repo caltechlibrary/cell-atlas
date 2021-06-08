@@ -8,12 +8,7 @@ function initializeViewer(viewerEl) {
     let type = viewerEl.getAttribute("data-viewer");
     let pdb = viewerEl.getAttribute("data-pdb");
     let link = document.querySelector(`.vid-metadata span[data-pdb='${pdb}']`);
-    let app;
-    if(type == "molstar") {
-        app = initializeMolstarApp(viewerEl, id, pdb);
-    } else if (type == "pv"){
-        app = initializePVApp(viewerEl, id, pdb);
-    }
+    let app = initializePVApp(viewerEl, id, pdb);
 
     window.addEventListener("resize", positionViewer);
     link.addEventListener("click", showViewer);
@@ -41,29 +36,6 @@ function initializeViewer(viewerEl) {
             viewerEl.style.height = `${availWidth * aspectRatio}px`;
         }
         viewerEl.style.top = `${posTop}px`;
-    }
-}
-
-function initializeMolstarApp(viewerEl, id, pdb) {
-    let viewer = new molstar.Viewer(id, {
-        layoutIsExpanded: false,
-        layoutShowControls: false,
-        layoutShowRemoteState: false,
-        layoutShowSequence: true,
-        layoutShowLog: false,
-        layoutShowLeftPanel: true,
-
-        viewportShowExpand: true,
-        viewportShowSelectionMode: false,
-        viewportShowAnimation: false,
-
-        pdbProvider: 'rcsb',
-        emdbProvider: 'rcsb',
-    });
-    viewer.loadPdb(pdb);
-
-    return {
-        resize: () => viewer.handleResize()
     }
 }
 
