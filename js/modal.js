@@ -92,6 +92,8 @@ for(let viewerEl of viewerEls) {
         if(window.innerWidth >= 900) {
             viewerEl.classList.add("protein-viewer--enlarged");
             viewerEl.classList.remove("protein-viewer--hidden");
+            positionViewerPopUp();
+            window.addEventListener("resize", positionViewerPopUp);
         }
     }
 
@@ -102,13 +104,43 @@ for(let viewerEl of viewerEls) {
         }
     }
 
+    let positionViewerPopUp = function() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let distHeaderFooter = footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom
+        let posTop = header.offsetHeight + (distHeaderFooter / 2);
+        let aspectRatio = 0.5625;
+        let availHeight = distHeaderFooter - 50;
+        let availWidth = window.innerWidth - 100;
+        let desiredWidth = availHeight / aspectRatio;
+        if(desiredWidth <= availWidth) {
+            viewerEl.style.width = `${desiredWidth}px`;
+            viewerEl.style.height = `${desiredWidth * aspectRatio}px`;
+        } else {
+            viewerEl.style.width = `${availWidth}px`;
+            viewerEl.style.height = `${availWidth * aspectRatio}px`;
+        }
+        viewerEl.style.top = `${posTop}px`;
+        resizeViewer();
+    }
+
+    let resizeViewer = function() {
+        let viewerElCompStyle = window.getComputedStyle(viewerEl);
+        let width = parseFloat(viewerElCompStyle.width);
+        let height = parseFloat(viewerElCompStyle.height);
+        let borderWidth = parseFloat(viewerElCompStyle.borderWidth);
+        viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
+    }
+
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
     let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
     let viewerOptions = {
         antialias: true,
         quality : 'medium',
-        fog: false
+        fog: false,
+        width: "auto",
+        height: "auto",
     };
     let viewerObj = pv.Viewer(viewerEl, viewerOptions);
     
@@ -116,6 +148,7 @@ for(let viewerEl of viewerEls) {
     minBtn.addEventListener("click", closeViewer);
     pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb`, function(structure) {
         viewerObj.cartoon('structure', structure);
+        viewerObj.centerOn(structure);
         viewerObj.autoZoom();
     });
 }
