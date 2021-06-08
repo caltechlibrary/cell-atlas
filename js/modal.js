@@ -85,3 +85,37 @@ function openModal(modalId) {
         }
     }
 }
+
+let viewerEls = document.getElementsByClassName("protein-viewer");
+for(let viewerEl of viewerEls) {
+    let openViewer = function() {
+        if(window.innerWidth >= 900) {
+            viewerEl.classList.add("protein-viewer--enlarged");
+            viewerEl.classList.remove("protein-viewer--hidden");
+        }
+    }
+
+    let closeViewer = function() {
+        if(window.innerWidth >= 900) {
+            viewerEl.classList.add("protein-viewer--hidden");
+            viewerEl.classList.remove("protein-viewer--enlarged");
+        }
+    }
+
+    let pdb = viewerEl.getAttribute("data-pdb");
+    let openBtn = document.querySelector(`button[value='${pdb}']`);
+    let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
+    let viewerOptions = {
+        antialias: true,
+        quality : 'medium',
+        fog: false
+    };
+    let viewerObj = pv.Viewer(viewerEl, viewerOptions);
+    
+    openBtn.addEventListener("click", openViewer);
+    minBtn.addEventListener("click", closeViewer);
+    pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb`, function(structure) {
+        viewerObj.cartoon('structure', structure);
+        viewerObj.autoZoom();
+    });
+}

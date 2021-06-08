@@ -1818,6 +1818,54 @@ file. These definitions will be defined mobile first.
     }
 }
 
+/* protein-viewer */
 .protein-viewer {
+    box-sizing: border-box;
+    border: 7px #ccc solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 1px #444;
+}
+
+.protein-viewer--hidden {
     display: none;
+}
+
+.protein-viewer__menu {
+    position: absolute;
+    padding: 0.75em;
+    background: #ffffffe6;
+    border-radius: 0px 0px 10px 0px;
+    font-size: 1rem;
+}
+
+.protein-viewer__menu-label {
+    color: #15404e;
+    font-weight: 600;
+}
+
+.protein-viewer__min-btn {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ffffff87;
+    border: none;
+    margin: 0;
+    padding: 2%;
+    border-radius: 10px 0 0 0;
+}
+
+.protein-viewer__min-btn svg {
+    width: 1.25em;
+    fill: #15404e;
+}
+
+@media (min-width:900px) {
+    .protein-viewer--enlarged {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+    }   
 }

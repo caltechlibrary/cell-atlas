@@ -1,6 +1,6 @@
-<div class="protein-viewer" id="viewer${it.viewer.pdb}">
+<div class="protein-viewer protein-viewer--hidden" id="viewer${it.viewer.pdb}" data-pdb="${it.viewer.pdb}">
     <div class="protein-viewer__menu">
-        <label class="protein-viewer__label">
+        <label class="protein-viewer__menu-label">
             Model:
             <select>
                 <option value="cartoon" selected>Secondary Structure</option>
@@ -9,7 +9,7 @@
                 <option value="ballsAndSticks">Ball and Stick</option>
             </select>
         <label>
-        <label class="protein-viewer__label">
+        <label class="protein-viewer__menu-label">
             Color:
             <select>
                 <option value="chain" selected>Individual Proteins</option>
@@ -18,4 +18,5 @@
             </select>
         <label>
     </div>
+    <button class="protein-viewer__min-btn">${svg/noun_X.svg()}</button>
 </div>
