@@ -1,22 +1,26 @@
 <div class="protein-viewer protein-viewer--hidden" id="viewer${it.viewer.pdb}" data-pdb="${it.viewer.pdb}">
-    <div class="protein-viewer__menu">
-        <label class="protein-viewer__menu-label">
-            Model:
-            <select class="protein-viewer__model-select">
-                <option value="cartoon" selected>Secondary Structure</option>
-                <option value="spheres">Volume Filling</option>
-                <option value="tube">Backbone</option>
-                <option value="ballsAndSticks">Ball and Stick</option>
-            </select>
-        <label>
-        <label class="protein-viewer__menu-label">
-            Color:
-            <select class="protein-viewer__color-select">
-                <option value="chain" selected>Individual Proteins</option>
-                <option value="ss">Seconday Structure</option>
-                <option value="tempFactor">Depth</option>
-            </select>
-        <label>
+    <div class="protein-viewer__fullscreen-container">
+        <div class="protein-viewer__viewer-container">
+            <div class="protein-viewer__menu">
+                <label class="protein-viewer__menu-label">
+                    Model:
+                    <select class="protein-viewer__model-select">
+                        <option value="cartoon" selected>Secondary Structure</option>
+                        <option value="spheres">Volume Filling</option>
+                        <option value="tube">Backbone</option>
+                        <option value="ballsAndSticks">Ball and Stick</option>
+                    </select>
+                <label>
+                <label class="protein-viewer__menu-label">
+                    Color:
+                    <select class="protein-viewer__color-select">
+                        <option value="chain" selected>Individual Proteins</option>
+                        <option value="ss">Seconday Structure</option>
+                        <option value="tempFactor">Depth</option>
+                    </select>
+                <label>
+            </div>
+            <button class="protein-viewer__min-btn">${svg/noun_X.svg()}</button>
+        </div>
     </div>
-    <button class="protein-viewer__min-btn">${svg/noun_X.svg()}</button>
 </div>

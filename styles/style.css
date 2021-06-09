@@ -1819,7 +1819,7 @@ file. These definitions will be defined mobile first.
 }
 
 /* protein-viewer */
-.protein-viewer {
+.protein-viewer__viewer-container {
     box-sizing: border-box;
     border: 7px #ccc solid;
     border-radius: 10px;
@@ -1861,7 +1861,7 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
-    .protein-viewer--enlarged {
+    .protein-viewer__viewer-container--enlarged {
         position: fixed;
         top: 50%;
         left: 50%;

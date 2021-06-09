@@ -90,18 +90,18 @@ let viewerEls = document.getElementsByClassName("protein-viewer");
 for(let viewerEl of viewerEls) {
     let openViewer = function() {
         if(window.innerWidth >= 900) {
-            viewerEl.classList.add("protein-viewer--enlarged");
+            viewerContainer.classList.add("protein-viewer__viewer-container--enlarged");
             viewerEl.classList.remove("protein-viewer--hidden");
             positionViewerPopUp();
             window.addEventListener("resize", positionViewerPopUp);
         } else {
-            if(viewerEl.requestFullscreen) {
+            if(viewerContainer.requestFullscreen) {
                 document.addEventListener("fullscreenchange", function() {
                     viewerEl.classList.remove("protein-viewer--hidden");
                     resizeViewer();
                 }, { once: true });
                 window.addEventListener("resize", resizeViewer);
-                viewerEl.requestFullscreen();
+                viewerContainer.requestFullscreen();
             }
         }
     }
@@ -109,9 +109,9 @@ for(let viewerEl of viewerEls) {
     let closeViewer = function() {
         viewerEl.classList.add("protein-viewer--hidden");
         if(window.innerWidth >= 900) {
-            viewerEl.classList.remove("protein-viewer--enlarged");
+            viewerContainer.classList.remove("protein-viewer__viewer-container--enlarged");
         } else {
-            if(viewerEl.requestFullscreen) {
+            if(viewerContainer.requestFullscreen) {
                 window.removeEventListener("resize", resizeViewer);
                 document.exitFullscreen();
             }
@@ -128,21 +128,21 @@ for(let viewerEl of viewerEls) {
         let availWidth = window.innerWidth - 100;
         let desiredWidth = availHeight / aspectRatio;
         if(desiredWidth <= availWidth) {
-            viewerEl.style.width = `${desiredWidth}px`;
-            viewerEl.style.height = `${desiredWidth * aspectRatio}px`;
+            viewerContainer.style.width = `${desiredWidth}px`;
+            viewerContainer.style.height = `${desiredWidth * aspectRatio}px`;
         } else {
-            viewerEl.style.width = `${availWidth}px`;
-            viewerEl.style.height = `${availWidth * aspectRatio}px`;
+            viewerContainer.style.width = `${availWidth}px`;
+            viewerContainer.style.height = `${availWidth * aspectRatio}px`;
         }
-        viewerEl.style.top = `${posTop}px`;
+        viewerContainer.style.top = `${posTop}px`;
         resizeViewer();
     }
 
     let resizeViewer = function() {
-        let viewerElCompStyle = window.getComputedStyle(viewerEl);
-        let width = viewerEl.offsetWidth;
-        let height = viewerEl.offsetHeight;
-        let borderWidth = parseFloat(viewerElCompStyle.borderWidth);
+        let viewerContainerCompStyle = window.getComputedStyle(viewerContainer);
+        let width = viewerContainer.offsetWidth;
+        let height = viewerContainer.offsetHeight;
+        let borderWidth = parseFloat(viewerContainerCompStyle.borderWidth);
         viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
     }
 
@@ -180,6 +180,7 @@ for(let viewerEl of viewerEls) {
 
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
+    let viewerContainer = viewerEl.querySelector(".protein-viewer__viewer-container");
     let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
     let modelSelect = viewerEl.querySelector(".protein-viewer__model-select");
     let colorSelect = viewerEl.querySelector(".protein-viewer__color-select");
@@ -188,7 +189,7 @@ for(let viewerEl of viewerEls) {
         quality : 'medium',
         fog: false
     };
-    let viewerObj = pv.Viewer(viewerEl, viewerOptions);
+    let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
     let viewerStructs;
     
     openBtn.addEventListener("click", openViewer);
