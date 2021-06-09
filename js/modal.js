@@ -132,22 +132,60 @@ for(let viewerEl of viewerEls) {
         viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
     }
 
+    let changeModel = function() {
+        let modelType = modelSelect.value;
+        let color = colorSelect.value;
+        let options = {};
+        if(color == "chain") {
+            options.color = pv.color.byChain();
+        } else if(color == "ss") {
+            options.color = pv.color.bySS();
+        } else if(color == "tempFactor") {
+            options.color = pv.color.byAtomProp(color);
+        }
+
+        viewerObj.clear();
+        viewerStructs.forEach(function(viewerStruct, index) {
+            viewerObj.renderAs(`structure_${index}`, viewerStruct, modelType, options);
+        });
+    }
+
+    let changeColor = function() {
+        let color = colorSelect.value;
+        viewerObj.forEach(function(geomObj) {
+            if(color == "chain") {
+                geomObj.colorBy(pv.color.byChain());
+            } else if(color == "ss") {
+                geomObj.colorBy(pv.color.bySS());
+            } else if(color == "tempFactor") {
+                geomObj.colorBy(pv.color.byAtomProp(color));
+            }
+        });
+        viewerObj.requestRedraw();
+    }
+
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
     let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
+    let modelSelect = viewerEl.querySelector(".protein-viewer__model-select");
+    let colorSelect = viewerEl.querySelector(".protein-viewer__color-select");
     let viewerOptions = {
         antialias: true,
         quality : 'medium',
         fog: false
     };
     let viewerObj = pv.Viewer(viewerEl, viewerOptions);
+    let viewerStructs;
     
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
+    modelSelect.addEventListener("change", changeModel);
+    colorSelect.addEventListener("change", changeColor);
     pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb1`, function(structures) {
         viewerObj.on('viewerReady', function() {
-            structures.forEach(function(structure, index) {
-                viewerObj.cartoon('structure_' + (index), structure, { color: pv.color.byChain() });
+            viewerStructs = structures
+            viewerStructs.forEach(function(viewerStruct, index) {
+                viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
             });
             viewerObj.autoZoom();
         });
