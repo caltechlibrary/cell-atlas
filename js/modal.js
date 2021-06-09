@@ -138,9 +138,7 @@ for(let viewerEl of viewerEls) {
     let viewerOptions = {
         antialias: true,
         quality : 'medium',
-        fog: false,
-        width: "auto",
-        height: "auto",
+        fog: false
     };
     let viewerObj = pv.Viewer(viewerEl, viewerOptions);
     
