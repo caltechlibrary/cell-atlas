@@ -94,13 +94,27 @@ for(let viewerEl of viewerEls) {
             viewerEl.classList.remove("protein-viewer--hidden");
             positionViewerPopUp();
             window.addEventListener("resize", positionViewerPopUp);
+        } else {
+            if(viewerEl.requestFullscreen) {
+                document.addEventListener("fullscreenchange", function() {
+                    viewerEl.classList.remove("protein-viewer--hidden");
+                    resizeViewer();
+                }, { once: true });
+                window.addEventListener("resize", resizeViewer);
+                viewerEl.requestFullscreen();
+            }
         }
     }
 
     let closeViewer = function() {
+        viewerEl.classList.add("protein-viewer--hidden");
         if(window.innerWidth >= 900) {
-            viewerEl.classList.add("protein-viewer--hidden");
             viewerEl.classList.remove("protein-viewer--enlarged");
+        } else {
+            if(viewerEl.requestFullscreen) {
+                window.removeEventListener("resize", resizeViewer);
+                document.exitFullscreen();
+            }
         }
     }
 
@@ -126,8 +140,8 @@ for(let viewerEl of viewerEls) {
 
     let resizeViewer = function() {
         let viewerElCompStyle = window.getComputedStyle(viewerEl);
-        let width = parseFloat(viewerElCompStyle.width);
-        let height = parseFloat(viewerElCompStyle.height);
+        let width = viewerEl.offsetWidth;
+        let height = viewerEl.offsetHeight;
         let borderWidth = parseFloat(viewerElCompStyle.borderWidth);
         viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
     }
