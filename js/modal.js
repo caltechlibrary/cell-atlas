@@ -146,11 +146,12 @@ for(let viewerEl of viewerEls) {
     
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
-    pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb`, function(structure) {
+    pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb1`, function(structures) {
         viewerObj.on('viewerReady', function() {
-            viewerObj.cartoon('structure', structure);
-            viewerObj.centerOn(structure);
+            structures.forEach(function(structure, index) {
+                viewerObj.cartoon('structure_' + (index), structure);
+            });
             viewerObj.autoZoom();
         });
-    });
+    }, { loadAllModels: true });
 }
