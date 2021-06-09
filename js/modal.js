@@ -147,7 +147,7 @@ for(let viewerEl of viewerEls) {
     pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb1`, function(structures) {
         viewerObj.on('viewerReady', function() {
             structures.forEach(function(structure, index) {
-                viewerObj.cartoon('structure_' + (index), structure);
+                viewerObj.cartoon('structure_' + (index), structure, { color: pv.color.byChain() });
             });
             viewerObj.autoZoom();
         });
