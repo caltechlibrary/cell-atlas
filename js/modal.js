@@ -147,8 +147,10 @@ for(let viewerEl of viewerEls) {
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
     pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb`, function(structure) {
-        viewerObj.cartoon('structure', structure);
-        viewerObj.centerOn(structure);
-        viewerObj.autoZoom();
+        viewerObj.on('viewerReady', function() {
+            viewerObj.cartoon('structure', structure);
+            viewerObj.centerOn(structure);
+            viewerObj.autoZoom();
+        });
     });
 }
