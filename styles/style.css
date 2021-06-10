@@ -1819,11 +1819,27 @@ file. These definitions will be defined mobile first.
 }
 
 /* protein-viewer */
+.protein-viewer__fullscreen-container--fs-polyfill {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 100;
+}
+
 .protein-viewer__viewer-container {
+    position: relative;
     box-sizing: border-box;
     border: 7px #ccc solid;
     border-radius: 10px;
     box-shadow: 0px 0px 0 1px #444;
+}
+
+.protein-viewer__viewer-container--fs-polyfill {
+    height: 100%;
+    margin: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
 }
 
 .protein-viewer--hidden {

@@ -102,6 +102,12 @@ for(let viewerEl of viewerEls) {
                 }, { once: true });
                 window.addEventListener("resize", resizeViewer);
                 viewerContainer.requestFullscreen();
+            } else {
+                fsContainer.classList.add("protein-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.add("protein-viewer__viewer-container--fs-polyfill");
+                viewerEl.classList.remove("protein-viewer--hidden");
+                resizeViewer();
+                window.addEventListener("resize", resizeViewer);
             }
         }
     }
@@ -111,9 +117,12 @@ for(let viewerEl of viewerEls) {
         if(window.innerWidth >= 900) {
             viewerContainer.classList.remove("protein-viewer__viewer-container--enlarged");
         } else {
+            window.removeEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
-                window.removeEventListener("resize", resizeViewer);
                 document.exitFullscreen();
+            } else {
+                fsContainer.classList.remove("protein-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.remove("protein-viewer__viewer-container--fs-polyfill");
             }
         }
     }
@@ -181,6 +190,7 @@ for(let viewerEl of viewerEls) {
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
     let viewerContainer = viewerEl.querySelector(".protein-viewer__viewer-container");
+    let fsContainer = viewerEl.querySelector(".protein-viewer__fullscreen-container");
     let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
     let modelSelect = viewerEl.querySelector(".protein-viewer__model-select");
     let colorSelect = viewerEl.querySelector(".protein-viewer__color-select");
