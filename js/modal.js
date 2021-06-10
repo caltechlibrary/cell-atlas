@@ -107,7 +107,7 @@ for(let viewerEl of viewerEls) {
                 viewerContainer.classList.add("protein-viewer__viewer-container--fs-polyfill");
                 viewerEl.classList.remove("protein-viewer--hidden");
                 resizeViewer();
-                window.addEventListener("resize", resizeViewer);
+                window.addEventListener("resize", resizePolyFullscreenViewer);
             }
         }
     }
@@ -117,10 +117,11 @@ for(let viewerEl of viewerEls) {
         if(window.innerWidth >= 900) {
             viewerContainer.classList.remove("protein-viewer__viewer-container--enlarged");
         } else {
-            window.removeEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
+                window.removeEventListener("resize", resizeViewer);
                 document.exitFullscreen();
             } else {
+                window.removeEventListener("resize", resizePolyFullscreenViewer);
                 fsContainer.classList.remove("protein-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.remove("protein-viewer__viewer-container--fs-polyfill");
             }
@@ -153,6 +154,11 @@ for(let viewerEl of viewerEls) {
         let height = viewerContainer.offsetHeight;
         let borderWidth = parseFloat(viewerContainerCompStyle.borderWidth);
         viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
+    }
+
+    let resizePolyFullscreenViewer = function() {
+        viewerContainer.style.height = `${window.innerHeight}px`;
+        resizeViewer();
     }
 
     let changeModel = function() {
