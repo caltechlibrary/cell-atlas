@@ -8,6 +8,7 @@ function openModal(modalId) {
     let modalText = modal.querySelector(".subsection-modal-text");
     let qualityChangerDesktop = modal.querySelector(".video-quality-player-control");
     let imgBlock = modal.querySelector(".content-img");
+    let viewerBlock = modal.querySelector(".protein-viewer");
     let fullBackground = modal.querySelector(".book-section-comparison-slider-fullscreen-container");
 
     modalOverlay.style.display = "block";
@@ -66,6 +67,13 @@ function openModal(modalId) {
             let imgContainer = imgBlock.querySelector(".content-img__img-container");
             if(imgContainer.classList.contains("content-img__img-container--enlarged")) {
                 let minBtn = imgBlock.querySelector(".content-img__minimize-btn");
+                minBtn.click();
+            }
+        }
+        if(viewerBlock && window.innerWidth > 900) {
+            let viewerContainer = viewerBlock.querySelector(".protein-viewer__viewer-container");
+            if(viewerContainer.classList.contains("protein-viewer__viewer-container--enlarged")) {
+                let minBtn = viewerBlock.querySelector(".protein-viewer__min-btn");
                 minBtn.click();
             }
         }
