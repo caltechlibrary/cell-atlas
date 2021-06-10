@@ -1862,6 +1862,10 @@ file. These definitions will be defined mobile first.
     margin: 0.5em 0;
 }
 
+.protein-viewer__menu-select {
+    font-size: 1em;
+}
+
 .protein-viewer__min-btn {
     display: flex;
     position: absolute;
