@@ -124,6 +124,7 @@ for(let viewerEl of viewerEls) {
         viewerEl.classList.add("protein-viewer--hidden");
         if(window.innerWidth >= 900) {
             viewerContainer.classList.remove("protein-viewer__viewer-container--enlarged");
+            window.removeEventListener("resize", positionViewerPopUp);
         } else {
             if(viewerContainer.requestFullscreen) {
                 window.removeEventListener("resize", resizeViewer);
