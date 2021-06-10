@@ -1848,6 +1848,8 @@ file. These definitions will be defined mobile first.
 
 .protein-viewer__menu {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     padding: 0.75em;
     background: #ffffffe6;
     border-radius: 0px 0px 10px 0px;
@@ -1857,6 +1859,7 @@ file. These definitions will be defined mobile first.
 .protein-viewer__menu-label {
     color: #15404e;
     font-weight: 600;
+    margin: 0.5em 0;
 }
 
 .protein-viewer__min-btn {
@@ -1874,6 +1877,16 @@ file. These definitions will be defined mobile first.
 .protein-viewer__min-btn svg {
     width: 1.25em;
     fill: #15404e;
+}
+
+@media (min-width:480px) {
+    .protein-viewer__menu {
+        flex-direction: row;
+    }
+
+    .protein-viewer__menu-label {
+        margin: 0 0.5em;
+    }
 }
 
 @media (min-width:900px) {
