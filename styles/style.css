@@ -1033,6 +1033,14 @@ file. These definitions will be defined mobile first.
         overflow-x: hidden;
     }
 
+    .subsection-modal--min {
+        left:-10000px;
+        top:auto;
+        width:1px;
+        height:1px;
+        overflow:hidden;
+    }
+
     .subsection-modal-container .book-section-video-player {
         flex: 0 0 auto;
         border-radius: 10px 10px 0 0;

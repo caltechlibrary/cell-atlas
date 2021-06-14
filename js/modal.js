@@ -101,6 +101,7 @@ for(let viewerEl of viewerEls) {
             viewerContainer.classList.add("protein-viewer__viewer-container--enlarged");
             viewerEl.classList.remove("protein-viewer--hidden");
             positionViewerPopUp();
+            parentModal.classList.add("subsection-modal--min");
             window.addEventListener("resize", positionViewerPopUp);
             viewerObj.requestRedraw();
         } else {
@@ -125,6 +126,7 @@ for(let viewerEl of viewerEls) {
         viewerEl.classList.add("protein-viewer--hidden");
         if(window.innerWidth >= 900) {
             viewerContainer.classList.remove("protein-viewer__viewer-container--enlarged");
+            parentModal.classList.remove("subsection-modal--min");
             window.removeEventListener("resize", positionViewerPopUp);
         } else {
             if(viewerContainer.requestFullscreen) {
@@ -205,6 +207,7 @@ for(let viewerEl of viewerEls) {
 
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
+    let parentModal = viewerEl.parentElement;
     let viewerContainer = viewerEl.querySelector(".protein-viewer__viewer-container");
     let fsContainer = viewerEl.querySelector(".protein-viewer__fullscreen-container");
     let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
