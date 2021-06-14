@@ -225,7 +225,7 @@ for(let viewerEl of viewerEls) {
     minBtn.addEventListener("click", closeViewer);
     modelSelect.addEventListener("change", changeModel);
     colorSelect.addEventListener("change", changeColor);
-    pv.io.fetchPdb(`https://files.rcsb.org/view/${pdb}.pdb1`, function(structures) {
+    pv.io.fetchPdb(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`, function(structures) {
         viewerObj.on('viewerReady', function() {
             viewerStructs = structures
             viewerStructs.forEach(function(viewerStruct, index) {
