@@ -36,7 +36,9 @@ python _build.py
 Offline versions of the cell atlas are automatically generated in the
 `cell_atlas_offline` and `cell_atlas_offline_lite` directories. In order to
 package these for release, you need to copy in the full resolution or 480p
-videos into a directory called `videos`. Then zip up the cell atlas using the
+videos into a directory called `videos`. You will also need to copy the 
+'stillimages' folder of preview images for the
+movies to the 'img' folder. Then zip up the cell atlas using the 
 command `zip -rX cell_atlas_offline_lite.zip *`
 
 Getting help
