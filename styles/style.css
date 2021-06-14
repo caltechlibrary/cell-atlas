@@ -24,6 +24,7 @@ file. These definitions will be defined mobile first.
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
 - content-img: Image vieweing elements that can be enlarged/minimized
+- protein-viewer: Interactive PDB viewer
 */
 
 @media (min-width:900px) {
@@ -1032,6 +1033,14 @@ file. These definitions will be defined mobile first.
         overflow-x: hidden;
     }
 
+    .subsection-modal--min {
+        left:-10000px;
+        top:auto;
+        width:1px;
+        height:1px;
+        overflow:hidden;
+    }
+
     .subsection-modal-container .book-section-video-player {
         flex: 0 0 auto;
         border-radius: 10px 10px 0 0;
@@ -1815,4 +1824,89 @@ file. These definitions will be defined mobile first.
         box-shadow: 0px 0px 0 1px #444;
         max-height: none;
     }
+}
+
+/* protein-viewer */
+.protein-viewer__fullscreen-container--fs-polyfill {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 100;
+}
+
+.protein-viewer__viewer-container {
+    position: relative;
+    box-sizing: border-box;
+    border: 7px #ccc solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 1px #444;
+}
+
+.protein-viewer__viewer-container--fs-polyfill {
+    height: 100%;
+    margin: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+}
+
+.protein-viewer--hidden {
+    display: none;
+}
+
+.protein-viewer__menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0.75em;
+    background: #ffffffe6;
+    border-radius: 0px 0px 10px 0px;
+    font-size: 1rem;
+}
+
+.protein-viewer__menu-label {
+    color: #15404e;
+    font-weight: 600;
+    margin: 0.5em 0;
+}
+
+.protein-viewer__menu-select {
+    font-size: 1em;
+}
+
+.protein-viewer__min-btn {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ffffff87;
+    border: none;
+    margin: 0;
+    padding: 2%;
+    border-radius: 10px 0 0 0;
+}
+
+.protein-viewer__min-btn svg {
+    width: 1.25em;
+    fill: #15404e;
+}
+
+@media (min-width:480px) {
+    .protein-viewer__menu {
+        flex-direction: row;
+    }
+
+    .protein-viewer__menu-label {
+        margin: 0 0.5em;
+    }
+}
+
+@media (min-width:900px) {
+    .protein-viewer__viewer-container--enlarged {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+    }   
 }

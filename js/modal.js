@@ -8,6 +8,7 @@ function openModal(modalId) {
     let modalText = modal.querySelector(".subsection-modal-text");
     let qualityChangerDesktop = modal.querySelector(".video-quality-player-control");
     let imgBlock = modal.querySelector(".content-img");
+    let viewerBlock = modal.querySelector(".protein-viewer");
     let fullBackground = modal.querySelector(".book-section-comparison-slider-fullscreen-container");
 
     modalOverlay.style.display = "block";
@@ -69,6 +70,13 @@ function openModal(modalId) {
                 minBtn.click();
             }
         }
+        if(viewerBlock && window.innerWidth > 900) {
+            let viewerContainer = viewerBlock.querySelector(".protein-viewer__viewer-container");
+            if(viewerContainer.classList.contains("protein-viewer__viewer-container--enlarged")) {
+                let minBtn = viewerBlock.querySelector(".protein-viewer__min-btn");
+                minBtn.click();
+            }
+        }
         lastFocused.focus();
     }
 
@@ -84,4 +92,146 @@ function openModal(modalId) {
             }
         }
     }
+}
+
+let viewerEls = document.getElementsByClassName("protein-viewer");
+for(let viewerEl of viewerEls) {
+    let openViewer = function() {
+        if(window.innerWidth >= 900) {
+            viewerContainer.classList.add("protein-viewer__viewer-container--enlarged");
+            viewerEl.classList.remove("protein-viewer--hidden");
+            positionViewerPopUp();
+            parentModal.classList.add("subsection-modal--min");
+            window.addEventListener("resize", positionViewerPopUp);
+            viewerObj.requestRedraw();
+        } else {
+            if(viewerContainer.requestFullscreen) {
+                document.addEventListener("fullscreenchange", function() {
+                    viewerEl.classList.remove("protein-viewer--hidden");
+                    resizeViewer();
+                }, { once: true });
+                window.addEventListener("resize", resizeViewer);
+                viewerContainer.requestFullscreen();
+            } else {
+                fsContainer.classList.add("protein-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.add("protein-viewer__viewer-container--fs-polyfill");
+                viewerEl.classList.remove("protein-viewer--hidden");
+                resizeViewer();
+                window.addEventListener("resize", resizePolyFullscreenViewer);
+            }
+        }
+    }
+
+    let closeViewer = function() {
+        viewerEl.classList.add("protein-viewer--hidden");
+        if(window.innerWidth >= 900) {
+            viewerContainer.classList.remove("protein-viewer__viewer-container--enlarged");
+            parentModal.classList.remove("subsection-modal--min");
+            window.removeEventListener("resize", positionViewerPopUp);
+        } else {
+            if(viewerContainer.requestFullscreen) {
+                window.removeEventListener("resize", resizeViewer);
+                document.exitFullscreen();
+            } else {
+                window.removeEventListener("resize", resizePolyFullscreenViewer);
+                fsContainer.classList.remove("protein-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.remove("protein-viewer__viewer-container--fs-polyfill");
+            }
+        }
+    }
+
+    let positionViewerPopUp = function() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let distHeaderFooter = footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom
+        let posTop = header.offsetHeight + (distHeaderFooter / 2);
+        let aspectRatio = 0.5625;
+        let availHeight = distHeaderFooter - 50;
+        let availWidth = window.innerWidth - 100;
+        let desiredWidth = availHeight / aspectRatio;
+        if(desiredWidth <= availWidth) {
+            viewerContainer.style.width = `${desiredWidth}px`;
+            viewerContainer.style.height = `${desiredWidth * aspectRatio}px`;
+        } else {
+            viewerContainer.style.width = `${availWidth}px`;
+            viewerContainer.style.height = `${availWidth * aspectRatio}px`;
+        }
+        viewerContainer.style.top = `${posTop}px`;
+        resizeViewer();
+    }
+
+    let resizeViewer = function() {
+        let viewerContainerCompStyle = window.getComputedStyle(viewerContainer);
+        let width = viewerContainer.offsetWidth;
+        let height = viewerContainer.offsetHeight;
+        let borderWidth = parseFloat(viewerContainerCompStyle.borderWidth);
+        viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
+    }
+
+    let resizePolyFullscreenViewer = function() {
+        viewerContainer.style.height = `${window.innerHeight}px`;
+        resizeViewer();
+    }
+
+    let changeModel = function() {
+        let modelType = modelSelect.value;
+        let color = colorSelect.value;
+        let options = {};
+        if(color == "chain") {
+            options.color = pv.color.byChain();
+        } else if(color == "ss") {
+            options.color = pv.color.bySS();
+        } else if(color == "tempFactor") {
+            options.color = pv.color.byAtomProp(color);
+        }
+
+        viewerObj.clear();
+        viewerStructs.forEach(function(viewerStruct, index) {
+            viewerObj.renderAs(`structure_${index}`, viewerStruct, modelType, options);
+        });
+    }
+
+    let changeColor = function() {
+        let color = colorSelect.value;
+        viewerObj.forEach(function(geomObj) {
+            if(color == "chain") {
+                geomObj.colorBy(pv.color.byChain());
+            } else if(color == "ss") {
+                geomObj.colorBy(pv.color.bySS());
+            } else if(color == "tempFactor") {
+                geomObj.colorBy(pv.color.byAtomProp(color));
+            }
+        });
+        viewerObj.requestRedraw();
+    }
+
+    let pdb = viewerEl.getAttribute("data-pdb");
+    let openBtn = document.querySelector(`button[value='${pdb}']`);
+    let parentModal = viewerEl.parentElement;
+    let viewerContainer = viewerEl.querySelector(".protein-viewer__viewer-container");
+    let fsContainer = viewerEl.querySelector(".protein-viewer__fullscreen-container");
+    let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
+    let modelSelect = viewerEl.querySelector(".protein-viewer__model-select");
+    let colorSelect = viewerEl.querySelector(".protein-viewer__color-select");
+    let viewerOptions = {
+        antialias: true,
+        quality : 'medium',
+        fog: false
+    };
+    let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
+    let viewerStructs;
+    
+    openBtn.addEventListener("click", openViewer);
+    minBtn.addEventListener("click", closeViewer);
+    modelSelect.addEventListener("change", changeModel);
+    colorSelect.addEventListener("change", changeColor);
+    pv.io.fetchPdb(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`, function(structures) {
+        viewerObj.on('viewerReady', function() {
+            viewerStructs = structures
+            viewerStructs.forEach(function(viewerStruct, index) {
+                viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
+            });
+            viewerObj.autoZoom();
+        });
+    }, { loadAllModels: true });
 }
