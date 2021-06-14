@@ -102,6 +102,7 @@ for(let viewerEl of viewerEls) {
             viewerEl.classList.remove("protein-viewer--hidden");
             positionViewerPopUp();
             window.addEventListener("resize", positionViewerPopUp);
+            viewerObj.requestRedraw();
         } else {
             if(viewerContainer.requestFullscreen) {
                 document.addEventListener("fullscreenchange", function() {
