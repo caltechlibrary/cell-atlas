@@ -442,8 +442,8 @@ if(treeViewer) {
             speciesEntry.style["text-decoration"] = "underline";
             popUp.style.display = "block";
 
-            popUp.style.left = `${speciesEntry.getBoundingClientRect().x}px`;
-            popUp.style.top = `${speciesEntry.getBoundingClientRect().y}px`;
+            popUp.style.left = `${speciesEntry.getBoundingClientRect().x + (speciesEntry.getBoundingClientRect().width / 2)}px`;
+            popUp.style.top = `${speciesEntry.getBoundingClientRect().y + (speciesEntry.getBoundingClientRect().height / 2)}px`;
 
             popUp.addEventListener("mouseenter", popUpHandleHover);
             popUp.addEventListener("mouseleave", popUpHandleLeave);
