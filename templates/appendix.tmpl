@@ -17,6 +17,7 @@ ${endif}
         ${elseif(appendixTypeProfiles)}
             ${profiles.tmpl()}
         ${elseif(appendixTypeTree)}
+            ${fsTreeConfirm.tmpl()}
             <div class="book-text-content">
                 ${body}
             </div>

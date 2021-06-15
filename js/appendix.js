@@ -103,6 +103,10 @@ let touchX;
 let touchY;
 let touchDist;
 if(treeViewer) {
+    let url = window.location.href;
+    let anchor = url.split("#");
+    let urlMenuId = anchor[1];
+
     treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
     zoomInButton = treeViewer.querySelector("#treeZoomIn");
     zoomOutButton = treeViewer.querySelector("#treeZoomOut");
@@ -339,6 +343,15 @@ if(treeViewer) {
         ty = newTy;
     }
 
+    let fsTreeConfirm = document.querySelector(".fs-tree-confirm");
+    if(fsTreeConfirm) {
+        let cancelBtn = fsTreeConfirm.querySelector(".fs-tree-confirm__cancel-btn");
+
+        cancelBtn.addEventListener("click", function() {
+            fsTreeConfirm.classList.remove("fs-tree-confirm--visible");
+        });
+    }
+
     let speciesEntries = document.querySelectorAll(".book-appendix-tree-species-entry");
     let currPopUp = undefined;
     for(let speciesEntry of speciesEntries) {
@@ -432,23 +445,61 @@ if(treeViewer) {
             return timeoutNum;
         }
 
-        let url = window.location.href;
-        let anchor = url.split("#");
-        let urlMenuId = anchor[1];
-        if(urlMenuId == speciesId && window.innerWidth >= 900) {
+        let autoOpenPopUp = function() {
             fullscreenButtonMobile.click();
             currPopUp = popUp;
             currSpeciesEntry = speciesEntry;
             speciesEntry.style["text-decoration"] = "underline";
             popUp.style.display = "block";
 
-            popUp.style.left = `${speciesEntry.getBoundingClientRect().x + (speciesEntry.getBoundingClientRect().width / 2)}px`;
-            popUp.style.top = `${speciesEntry.getBoundingClientRect().y + (speciesEntry.getBoundingClientRect().height / 2)}px`;
+            let posX = speciesEntry.getBoundingClientRect().x + (speciesEntry.getBoundingClientRect().width / 2);
+            let posY = speciesEntry.getBoundingClientRect().y + (speciesEntry.getBoundingClientRect().height / 2);
+            popUp.style.left = `${posX}px`;
+            popUp.style.top = `${posY}px`;
+
+            if(window.innerWidth < 900) {
+                let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
+                let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
+                let cordX = (posX - treeViewer.getBoundingClientRect().x) - centerX;
+                let cordY = (posY - treeViewer.getBoundingClientRect().y) - centerY;
+                let exampleList = popUp.querySelector(".book-appendix-tree-section-content");
+                let translateX = 0;
+                let translateY = 0;
+                let maxHeight = 0;
+                let maxWidth = 0;
+                if(cordX > 0) {
+                    translateX = -100;
+                    maxWidth = posX - 16;
+                } else {
+                    maxWidth = window.innerWidth - posX - 16;
+                }
+                if (cordY > 0) {
+                    translateY = -100;
+                    maxHeight = posY - (popUp.offsetHeight - exampleList.offsetHeight) - 32;
+                } else {
+                    maxHeight = window.innerHeight - posY - (popUp.offsetHeight - exampleList.offsetHeight) - 32;
+                }
+                popUp.style.transform = `translate(${translateX}%, ${translateY}%)`;
+                popUp.style["max-width"] = `${maxWidth}px`;
+                exampleList.style["max-height"] = `${maxHeight}px`;
+            }
 
             popUp.addEventListener("mouseenter", popUpHandleHover);
             popUp.addEventListener("mouseleave", popUpHandleLeave);
             window.addEventListener("touchstart", touchHandleLeave);
+        }
 
+        if(urlMenuId == speciesId) {
+            if(window.innerWidth < 900) {
+                fsTreeConfirm.classList.add("fs-tree-confirm--visible");
+                let confirmBtn = fsTreeConfirm.querySelector(".fs-tree-confirm__confirm-btn");
+                confirmBtn.addEventListener("click", function() {
+                    autoOpenPopUp();
+                    fsTreeConfirm.classList.remove("fs-tree-confirm--visible");
+                });
+            } else {
+                autoOpenPopUp();
+            }
         }
     }
 }
