@@ -45,6 +45,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         if "sliderImgName" in metadata:  metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
         if "doi" in metadata:
             metadata["vidMetadata"]["species"] = metadata["videoTitle"]
+            metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].replace(" ", "-")
             metadata["vidMetadata"]["doi"] = metadata["doi"]
             metadata["vidMetadata"]["collector"] = metadata["collector"]
 
@@ -159,7 +160,9 @@ def processSubsection(subsectionFile, pageName, parentData):
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
         addSliderData(metadata, metadata["video"])
-    if("species" in metadata): addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
+    if("species" in metadata): 
+        addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
+        metadata["speciesId"] = metadata["species"].replace(" ", "-")
 
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")

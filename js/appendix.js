@@ -226,7 +226,6 @@ if(treeViewer) {
     });
 
     fullscreenButtonMobile.addEventListener("click", function(event) {
-        window.removeEventListener("touchstart", detectSwipe);
         fullscreenButtonMobile.style.display = "none"; 
         minimizeButtonMobile.style.display = "flex";
         fullscreenBackground.setAttribute("data-state", "fullscreen");
@@ -246,7 +245,6 @@ if(treeViewer) {
     });
 
     minimizeButtonMobile.addEventListener("click", function(event) {
-        window.removeEventListener("touchstart", detectSwipe);
         minimizeButtonMobile.style.display = "none"; 
         fullscreenButtonMobile.style.display = "flex";
         fullscreenBackground.setAttribute("data-state", "initial");
@@ -433,5 +431,24 @@ if(treeViewer) {
             }, 1000);
             return timeoutNum;
         }
-    }                  
+
+        let url = window.location.href;
+        let anchor = url.split("#");
+        let urlMenuId = anchor[1];
+        if(urlMenuId == speciesId && window.innerWidth >= 900) {
+            fullscreenButtonMobile.click();
+            currPopUp = popUp;
+            currSpeciesEntry = speciesEntry;
+            speciesEntry.style["text-decoration"] = "underline";
+            popUp.style.display = "block";
+
+            popUp.style.left = `${speciesEntry.getBoundingClientRect().x}px`;
+            popUp.style.top = `${speciesEntry.getBoundingClientRect().y}px`;
+
+            popUp.addEventListener("mouseenter", popUpHandleHover);
+            popUp.addEventListener("mouseleave", popUpHandleLeave);
+            window.addEventListener("touchstart", touchHandleLeave);
+
+        }
+    }
 }
