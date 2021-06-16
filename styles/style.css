@@ -1976,7 +1976,7 @@ file. These definitions will be defined mobile first.
     transform: matrix(1,0,0,1,0,0);
 }
 
-.tree-viewer__tree-svg a {
+.tree-viewer__tree-svg a, .tree-viewer__tree-svg-link {
     text-decoration: none;
     color: initial;
 }
