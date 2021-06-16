@@ -1024,88 +1024,6 @@ blockquote {
         display: none;
     }
 
-    .book-appendix-tree-viewer {
-        position: relative;
-        overflow: hidden;
-        border: 5px solid #cccccc;
-        border-radius: 10px;
-        background-color: #363636;
-        box-shadow: 0px 0px 0 1px #444;
-    }
-
-    .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
-        box-sizing: border-box;
-        flex: 1;
-    }
-
-    .book-appendix-tree-viewer-fullbackground-polyfill {
-        position: fixed;
-        top: 0;
-        left: 0;
-        box-sizing: border-box;
-        height: 100%;
-        width: 100%;
-        background: #000;
-        z-index: 100;
-    }
-
-    .book-appendix-tree-viewer svg {
-        transform: matrix(1,0,0,1,0,0);
-    }
-
-    .book-appendix-tree-viewer svg a {
-        color: initial;
-        text-decoration: none;
-    }
-
-    .book-appendix-tree-viewer-controls {
-        position: absolute;
-        top: 45px;
-        right: 3px;
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-    }
-
-    .book-appendix-tree-viewer-controls button {
-        background: #4B889B;
-        border: 3px solid #363636;
-        padding: 2px 0;
-        margin: 0;
-    }
-
-    .book-appendix-tree-viewer-controls .book-appendix-tree-viewer-zoom-in {
-        border-bottom: none;
-        border-radius: 10px 10px 0px 0px;
-        box-shadow: 0 -1px 0 1px rgb(0 0 0 / 20%), 0 -1px 2px 0px rgb(0 0 0 / 60%), inset 0px 0px 3px 0px rgb(255 255 255 / 30%);
-    }
-
-    .book-appendix-tree-viewer-controls .book-appendix-tree-viewer-zoom-out {
-        border-top: none;
-        border-radius: 0px 0px 10px 10px;
-        box-shadow: 0 1px 0 1px rgb(0 0 0 / 20%), 0 1px 2px 0px rgb(0 0 0 / 60%), inset 0px 0px 3px 0px rgb(255 255 255 / 30%);
-    }
-
-    .book-appendix-tree-viewer-controls-divider {
-        position: absolute;
-        background: #fff;
-        height: 1px;
-        width: 70%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .book-appendix-tree-viewer-controls button svg {
-        width: 1.5em;
-    }
-
     .book-appendix-tree-section-list {
         display: none;
         position: fixed;
@@ -1151,28 +1069,6 @@ blockquote {
     .book-appendix-tree-section-example-list a {
         color: #325c69;
         text-decoration: underline;
-    }
-
-    .book-appendix-tree-viewer-fullscreen-button {
-        display: flex;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: #0000006e;
-        background: #ffffff87;
-        border: none;
-        border-right: none;
-        margin: 0;
-        padding: 8px;
-        border-top: none;
-        border-radius: 0 0 0 10px;
-        z-index: 1;
-    }
-
-    .book-appendix-tree-viewer-fullscreen-button svg {
-        width: 1.25em;
-        fill: #fff;
-        fill: #15404e;
     }
 
     #treeMinimize {
@@ -1332,22 +1228,6 @@ blockquote {
 
     .book-profile-blurb p {
         margin-block-start: 0;
-    }
-
-    .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
-        box-sizing: border-box;
-        height: 100%;
-    }
-
-    @supports(padding: max(0px)) {
-        .book-appendix-tree-viewer-fullbackground[data-state="fullscreen"] .book-appendix-tree-viewer {
-            margin: 0px max(15px, env(safe-area-inset-right)) 0 max(15px, env(safe-area-inset-left));
-        }
-    }
-
-    .book-appendix-tree-viewer-fullbackground-polyfill[data-state="fullscreen"] .book-appendix-tree-viewer {
-        height: 100vh;
-        max-width: 85vw;
     }
 }
 
