@@ -155,17 +155,17 @@ if(treeViewer) {
                 gridPos.posY = newGridPos.posY;
             } else {
                 untrackTouch();
-                treeViewer.removeEventListener("touchend", untrackTouch);
+                svgContainer.removeEventListener("touchend", untrackTouch);
             }
         }
 
         let untrackTouch = function() {
-            treeViewer.removeEventListener("touchmove", panViewer);
+            svgContainer.removeEventListener("touchmove", panViewer);
         }
 
         let gridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-        treeViewer.addEventListener("touchmove", panViewer);
-        treeViewer.addEventListener("touchend", untrackTouch, { once: true });
+        svgContainer.addEventListener("touchmove", panViewer);
+        svgContainer.addEventListener("touchend", untrackTouch, { once: true });
     }
 
     let initTouchZoom = function(event) {
@@ -190,19 +190,19 @@ if(treeViewer) {
                 dist-= deltaDist;
             } else {
                 untrackTouchZoom();
-                treeViewer.removeEventListener("touchend", untrackTouchZoom);
+                svgContainer.removeEventListener("touchend", untrackTouchZoom);
             }
         }
 
         let untrackTouchZoom = function(event) {
-            treeViewer.removeEventListener("touchmove", touchZoom);
+            svgContainer.removeEventListener("touchmove", touchZoom);
         }
 
         let gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
         let gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
         let dist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
-        treeViewer.addEventListener("touchmove", touchZoom);
-        treeViewer.addEventListener("touchend", untrackTouchZoom, { once: true });
+        svgContainer.addEventListener("touchmove", touchZoom);
+        svgContainer.addEventListener("touchend", untrackTouchZoom, { once: true });
     }
 
     let handleTouchMove = function(event) {
@@ -291,6 +291,10 @@ if(treeViewer) {
     let currTranslateX = 0;
     let currTranslateY = 0;
 
+    // Not sure why, but adding the below event listener prevents pinch zoom on iOS.
+    // The touchmove event in initTouchZoom already preventsDefault, but adding it here
+    // is what actually prevents the pinch zoom 
+    treeViewer.addEventListener("touchmove", (event) => event.preventDefault());
     treeViewer.addEventListener("wheel", handleWheel);
     svgContainer.addEventListener("mousedown", handleMouseDown);
     svgContainer.addEventListener("touchstart", handleTouch);
