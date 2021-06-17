@@ -1023,57 +1023,6 @@ blockquote {
     .book-appendix-dropdown-list #DownloadthisBook {
         display: none;
     }
-
-    .book-appendix-tree-section-list {
-        display: none;
-        position: fixed;
-        width: fit-content;
-        background: #fff;
-        border: 3px solid #000;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: #363636bf 5px 8px 7px 1px;
-        transform: translateY(-100%);
-        color: #000;
-        z-index: 1000;
-    }
-
-    .book-appendix-tree-section-title {
-        width: 100%;
-        text-align: center;
-        background: #dcdcdc;
-        font-size: 1.15em;
-        padding: 0.25em 1em;
-        box-sizing: border-box;
-    }
-
-    .book-appendix-tree-section-content {
-        padding: 0.5em 1em;
-        overflow: auto;
-    }
-
-    .book-appendix-tree-section-subheader {
-        font-weight: 300;
-        font-size: 1.05em;
-    }
-
-    .book-appendix-tree-section-example-list {
-        list-style-type: disc;
-        list-style-position: inside;
-    }
-
-    .book-appendix-tree-section-example-list li {
-        margin: 0.5em 0;
-    }
-
-    .book-appendix-tree-section-example-list a {
-        color: #325c69;
-        text-decoration: underline;
-    }
-
-    #treeMinimize {
-        display: none;
-    }
 }
 
 @media(min-width:480px) {

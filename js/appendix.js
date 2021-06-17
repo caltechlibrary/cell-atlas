@@ -275,6 +275,7 @@ if(treeViewer) {
         }
     }
 
+    let speciesLinks = treeViewer.querySelectorAll(".tree-viewer__tree-svg-link");
     let fsContainer = treeViewer.querySelector(".tree-viewer__fullscreen-container");
     let viewerContainer = treeViewer.querySelector(".tree-viewer__viewer-container");
     let treeSvg = treeViewer.querySelector(".tree-viewer__tree-svg");
@@ -296,4 +297,46 @@ if(treeViewer) {
     zoomOutBtn.addEventListener("click", () => zoomTree(0, 0, 1/zoomWeight));
     enlargeBtn.addEventListener("click", enlargeTree);
     minBtn.addEventListener("click", minimizeTree);
+
+    let openedPopUp;
+    let highlightedLink;
+    let hidePopUpTimeout;
+    for(let speciesLink of speciesLinks) {
+        let speciesId = speciesLink.getAttribute("id");
+        let speciesExampleList = document.getElementById(`${speciesId}-exampleList`);
+        if(!speciesExampleList) continue;
+
+        let hidePopUp = function() {
+            speciesExampleList.classList.add("species-example-list--hidden");
+            speciesLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+        }
+
+        let initHidePopUp = function() {
+            hidePopUpTimeout = setTimeout(hidePopUp, 1000);
+        }
+
+        let openPopUp = function(event) {
+            clearTimeout(hidePopUpTimeout);
+            if(openedPopUp) openedPopUp.classList.add("species-example-list--hidden");
+            if(highlightedLink) highlightedLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+            speciesExampleList.classList.remove("species-example-list--hidden");
+            speciesLink.classList.add("tree-viewer__tree-svg-link--highlighted");
+            openedPopUp = speciesExampleList;
+            highlightedLink = speciesLink;
+
+            if(window.innerWidth >= 900) {
+                speciesExampleList.style.left = `${event.clientX}px`;
+                speciesExampleList.style.top = `${event.clientY}px`;
+            }
+        }
+
+        let handlePopUpHover = function() {
+            clearTimeout(hidePopUpTimeout);
+        }
+
+        speciesLink.addEventListener("mouseenter", openPopUp);
+        speciesLink.addEventListener("mouseleave", initHidePopUp);
+        speciesExampleList.addEventListener("mouseenter", handlePopUpHover);
+        speciesExampleList.addEventListener("mouseleave", initHidePopUp);
+    }
 }
