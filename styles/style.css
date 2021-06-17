@@ -1829,6 +1829,8 @@ file. These definitions will be defined mobile first.
 
 /* species-example-list */
 .species-example-list {
+    display: flex;
+    flex-direction: column;
     border: 3px solid #000;
     border-radius: 10px;
     box-shadow: #363636bf 5px 8px 7px 1px;
@@ -1841,7 +1843,7 @@ file. These definitions will be defined mobile first.
 
 .species-example-list--pop-up {
     position: fixed;
-    transform: translateY(-100%);
+    width: fit-content;
 }
 
 .species-example-list--hidden {
@@ -1860,6 +1862,7 @@ file. These definitions will be defined mobile first.
 
 .species-example-list__examples-container {
     padding: 0.5em 1em;
+    overflow: auto;
 }
 
 .species-example-list__examples-header {
@@ -1881,6 +1884,12 @@ file. These definitions will be defined mobile first.
 .species-example-list__link, .species-example-list__examples-list-item a {
     color: #325c69;
     text-decoration: underline;
+}
+
+@media (min-width:900px) {
+    .species-example-list--pop-up {
+        transform: translateY(-100%);
+    }
 }
 
 
@@ -1981,6 +1990,11 @@ file. These definitions will be defined mobile first.
     box-shadow: 0 1px 0 1px #00000033, 0 1px 2px 0px #00000099, inset 0px 0px 3px 0px #ffffff4d;
 }
 
+.tree-viewer__svg-container {
+    width: 100%;
+    height: 100%;
+}
+
 .tree-viewer__tree-svg {
     width: 100%;
     height: 100%;
@@ -1999,9 +2013,9 @@ file. These definitions will be defined mobile first.
 @media (min-width:900px) {
     .tree-viewer__viewer-container--enlarged {
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        left: 0;
+        right: 0;
+        margin: auto;
         z-index: 100;
     }   
 }

@@ -8,23 +8,25 @@
                 <div class="tree-viewer__zoom-controls-divider"></div>
                 <button class="tree-viewer__zoom-controls-btn tree-viewer__zoom-out-btn">${svg/noun_Minus.svg()}</button>
             </div>
-            ${svg/modifiedTree.svg()}
+            <div class="tree-viewer__svg-container">
+                ${svg/modifiedTree.svg()}
+            </div>
+
+            ${for(speciesList)}
+                <div class="species-example-list species-example-list--pop-up species-example-list--hidden" id="${speciesList.id}-exampleList">
+                    <h2 class="species-example-list__species-title">${speciesList.species}</h2>
+                    <div class="species-example-list__examples-container">
+                        <h3 class="species-example-list__examples-header">Examples:</h3>
+                        <ol class="species-example-list__examples-list">
+                            ${for(speciesList.speciesObjs)}
+                                <li class="species-example-list__examples-list-item">
+                                    <a class="species-example-list__link" href="${speciesList.speciesObjs.page}">${if(speciesList.speciesObjs.chapter)}${speciesList.speciesObjs.chapter}.${endif}${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a>
+                                </li>
+                            ${endfor}
+                        </ol>
+                    </div>
+                </div>
+            ${endfor}
         </div>
     </div>
 </div>
-
-${for(speciesList)}
-    <div class="species-example-list species-example-list--pop-up species-example-list--hidden" id="${speciesList.id}-exampleList">
-        <h2 class="species-example-list__species-title">${speciesList.species}</h2>
-        <div class="species-example-list__examples-container">
-            <h3 class="species-example-list__examples-header">Examples:</h3>
-            <ol class="species-example-list__examples-list">
-                ${for(speciesList.speciesObjs)}
-                    <li class="species-example-list__examples-list-item">
-                        <a class="species-example-list__link" href="${speciesList.speciesObjs.page}">${if(speciesList.speciesObjs.chapter)}${speciesList.speciesObjs.chapter}.${endif}${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a>
-                    </li>
-                ${endfor}
-            </ol>
-        </div>
-    </div>
-${endfor}

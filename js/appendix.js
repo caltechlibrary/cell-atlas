@@ -205,10 +205,7 @@ if(treeViewer) {
         treeViewer.addEventListener("touchend", untrackTouchZoom, { once: true });
     }
 
-    let handleTouch = function(event) {
-        if(enlargeBtn.contains(event.target) || minBtn.contains(event.target) || zoomControls.contains(event.target)) {
-            return;
-        }
+    let handleTouchMove = function(event) {
         event.preventDefault();
         if(event.touches.length == 1) {
             initTouchPan(event);
@@ -217,11 +214,14 @@ if(treeViewer) {
         }
     }
 
+    let handleTouch = function(event) {
+        svgContainer.addEventListener("touchmove", handleTouchMove, { once: true });
+    }
+
     let posEnlargedTree = function() {
         let header = document.querySelector("header");
         let footer = document.querySelector("footer");
         let distHeaderFooter = footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom;
-        let posTop = (header.offsetHeight + (distHeaderFooter / 2));
         let availHeight = distHeaderFooter - 50;
         let availWidth = window.innerWidth - 100;
         let desiredWidth = availHeight * aspectRatio;
@@ -230,6 +230,7 @@ if(treeViewer) {
         } else {
             viewerContainer.style.width = `${availWidth}px`;
         }
+        let posTop = (header.offsetHeight + (distHeaderFooter / 2)) - (viewerContainer.offsetHeight / 2);
         viewerContainer.style.top = `${posTop}px`;
     }
 
@@ -278,8 +279,8 @@ if(treeViewer) {
     let speciesLinks = treeViewer.querySelectorAll(".tree-viewer__tree-svg-link");
     let fsContainer = treeViewer.querySelector(".tree-viewer__fullscreen-container");
     let viewerContainer = treeViewer.querySelector(".tree-viewer__viewer-container");
+    let svgContainer = treeViewer.querySelector(".tree-viewer__svg-container");
     let treeSvg = treeViewer.querySelector(".tree-viewer__tree-svg");
-    let zoomControls = treeViewer.querySelector(".tree-viewer__zoom-controls");
     let zoomInBtn = treeViewer.querySelector(".tree-viewer__zoom-in-btn");
     let zoomOutBtn = treeViewer.querySelector(".tree-viewer__zoom-out-btn");
     let enlargeBtn = treeViewer.querySelector(".tree-viewer__enlarge-btn");
@@ -291,8 +292,8 @@ if(treeViewer) {
     let currTranslateY = 0;
 
     treeViewer.addEventListener("wheel", handleWheel);
-    treeViewer.addEventListener("mousedown", handleMouseDown);
-    treeViewer.addEventListener("touchstart", handleTouch);
+    svgContainer.addEventListener("mousedown", handleMouseDown);
+    svgContainer.addEventListener("touchstart", handleTouch);
     zoomInBtn.addEventListener("click", () => zoomTree(0, 0, zoomWeight));
     zoomOutBtn.addEventListener("click", () => zoomTree(0, 0, 1/zoomWeight));
     enlargeBtn.addEventListener("click", enlargeTree);
@@ -315,6 +316,13 @@ if(treeViewer) {
             hidePopUpTimeout = setTimeout(hidePopUp, 1000);
         }
 
+        let detectTouchLeave = function(event) {
+            if(!speciesLink.contains(event.target) && !speciesExampleList.contains(event.target)) {
+                hidePopUp();
+                viewerContainer.removeEventListener("touchstart", detectTouchLeave);
+            }
+        }
+
         let openPopUp = function(event) {
             clearTimeout(hidePopUpTimeout);
             if(openedPopUp) openedPopUp.classList.add("species-example-list--hidden");
@@ -323,11 +331,31 @@ if(treeViewer) {
             speciesLink.classList.add("tree-viewer__tree-svg-link--highlighted");
             openedPopUp = speciesExampleList;
             highlightedLink = speciesLink;
-
-            if(window.innerWidth >= 900) {
-                speciesExampleList.style.left = `${event.clientX}px`;
-                speciesExampleList.style.top = `${event.clientY}px`;
+            speciesExampleList.style.left = `${event.clientX}px`;
+            speciesExampleList.style.top = `${event.clientY}px`;
+            if(window.innerWidth < 900) {
+                let gridPos = calcGridPos(event.clientX, event.clientY);
+                let translateX = 0;
+                let translateY = 0;
+                let maxWidth;
+                let maxHeight;
+                if(gridPos.posX > 0) {
+                    translateX = -100;
+                    maxWidth = event.clientX - 16;
+                } else {
+                    maxWidth = event.clientX - window.innerWidth - 16;
+                }
+                if(gridPos.posY > 0) {
+                    translateY = -100;
+                    maxHeight = event.clientY - 16;
+                } else {
+                    maxHeight = window.innerHeight - event.clientY - 16;
+                }
+                speciesExampleList.style.transform = `translate(${translateX}%, ${translateY}%)`;
+                speciesExampleList.style.maxWidth = `${maxWidth}px`;
+                speciesExampleList.style.maxHeight = `${maxHeight}px`;
             }
+            viewerContainer.addEventListener("touchstart", detectTouchLeave);
         }
 
         let handlePopUpHover = function() {
