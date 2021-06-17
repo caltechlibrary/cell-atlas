@@ -1881,7 +1881,7 @@ file. These definitions will be defined mobile first.
     margin: 0.5em 0;
 }
 
-.species-example-list__link, .species-example-list__examples-list-item a {
+.species-example-list__link, .dark-background-text .species-example-list__link {
     color: #325c69;
     text-decoration: underline;
 }
@@ -2001,12 +2001,12 @@ file. These definitions will be defined mobile first.
     transform: matrix(1,0,0,1,0,0);
 }
 
-.tree-viewer__tree-svg a, .tree-viewer__tree-svg-link {
+.tree-viewer__tree-svg-link, .dark-background-text .tree-viewer__tree-svg-link {
     text-decoration: none;
     color: initial;
 }
 
-.tree-viewer__tree-svg-link--highlighted {
+.tree-viewer__tree-svg-link--highlighted, .dark-background-text .tree-viewer__tree-svg-link--highlighted {
     text-decoration: underline;
 }
 
