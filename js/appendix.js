@@ -347,7 +347,7 @@ if(treeViewer) {
                     translateX = -100;
                     maxWidth = event.clientX - 16;
                 } else {
-                    maxWidth = event.clientX - window.innerWidth - 16;
+                    maxWidth = window.innerWidth - event.clientX - 16;
                 }
                 if(gridPos.posY > 0) {
                     translateY = -100;
