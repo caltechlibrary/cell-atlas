@@ -291,11 +291,11 @@ if(treeViewer) {
     let currTranslateX = 0;
     let currTranslateY = 0;
 
+    treeViewer.addEventListener("wheel", handleWheel);
     // Not sure why, but adding the below event listener prevents pinch zoom on iOS.
     // The touchmove event in initTouchZoom already preventsDefault, but adding it here
     // is what actually prevents the pinch zoom 
-    treeViewer.addEventListener("touchmove", (event) => event.preventDefault());
-    treeViewer.addEventListener("wheel", handleWheel);
+    svgContainer.addEventListener("touchmove", (event) => event.preventDefault());
     svgContainer.addEventListener("mousedown", handleMouseDown);
     svgContainer.addEventListener("touchstart", handleTouch);
     zoomInBtn.addEventListener("click", () => zoomTree(0, 0, zoomWeight));
