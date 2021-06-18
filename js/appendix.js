@@ -310,8 +310,8 @@ if(treeViewer) {
     svgContainer.addEventListener("touchmove", (event) => event.preventDefault());
     svgContainer.addEventListener("mousedown", handleMouseDown);
     svgContainer.addEventListener("touchstart", handleTouch);
-    zoomInBtn.addEventListener("click", () => zoomTree(0, 0, zoomWeight));
-    zoomOutBtn.addEventListener("click", () => zoomTree(0, 0, 1/zoomWeight));
+    zoomInBtn.addEventListener("click", () => zoomTree(0, 0, zoomWeight*1.25));
+    zoomOutBtn.addEventListener("click", () => zoomTree(0, 0, 1/(zoomWeight*1.25)));
     enlargeBtn.addEventListener("click", enlargeTree);
     minBtn.addEventListener("click", minimizeTree);
 

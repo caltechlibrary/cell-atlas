@@ -154,8 +154,8 @@ function detectSwipe(event) {
     }
     if(
         document.fullscreenElement || 
-        document.querySelector(".protein-viewer__fullscreen-container--fs-polyfill") || 
-        document.querySelector(".book-appendix-tree-viewer-fullbackground-polyfill")
+        document.querySelector(".protein-viewer__fullscreen-container--fs-polyfill") ||
+        (document.querySelector(".tree-viewer") && document.querySelector(".tree-viewer").contains(event.target))
     ) {
         validSwipe = false;
         return;
