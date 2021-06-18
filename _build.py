@@ -45,7 +45,10 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         if "sliderImgName" in metadata:  metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
         if "doi" in metadata:
             metadata["vidMetadata"]["species"] = metadata["videoTitle"]
-            metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].replace(" ", "-")
+            if "/" in metadata["videoTitle"]:
+                metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].split("/")[0].strip().replace(" ", "-")
+            else:
+                metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].replace(" ", "-")
             metadata["vidMetadata"]["doi"] = metadata["doi"]
             metadata["vidMetadata"]["collector"] = metadata["collector"]
 
@@ -524,7 +527,11 @@ for i in range(len(sectionFiles)):
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
 
-    if("videoTitle" in metadata): addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
+    if("videoTitle" in metadata): 
+        if "/" in metadata["videoTitle"]:
+            addSpeciesToDict(metadata["videoTitle"].split("/")[0].strip(), "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
+        else:
+            addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
 
     if metadata["section"] != "0":
         metadata["typeSection"] = True
