@@ -261,6 +261,7 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.add("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.add("tree-viewer__viewer-container--fs-polyfill");
+                resizePolyFullscreenViewer();
                 window.addEventListener("resize", resizePolyFullscreenViewer);
             }
         }
