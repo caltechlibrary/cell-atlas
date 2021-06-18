@@ -1773,10 +1773,6 @@ file. These definitions will be defined mobile first.
     }   
 }
 
-.fs-tree-confirm {
-    display: none;
-}
-
 .fs-tree-confirm--fs-overlay {
     position: fixed;
     left: 0;
@@ -1788,8 +1784,8 @@ file. These definitions will be defined mobile first.
     z-index: 100;
 }
 
-.fs-tree-confirm--visible {
-    display: block;
+.fs-tree-confirm--hidden {
+    display: none;
 }
 
 .fs-tree-confirm__modal {

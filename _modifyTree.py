@@ -14,7 +14,7 @@ with open(fileName, "r") as file:
         if re.search(r"<text" , line):
             speciesName = re.sub("</text>" , "", line.split(">", 1)[1].strip()).strip()
             speciesId = speciesName.replace(" ", "-")
-            newLine = '\t\t\t<a class="tree-viewer__tree-svg-link" id="{}">{}</a>\n'.format(speciesId, line.strip())
+            newLine = '\t\t\t<a class="tree-viewer__tree-svg-link" data-species="{}">{}</a>\n'.format(speciesId, line.strip())
             newFileLines.append(newLine)
         else:
             newFileLines.append(line)

@@ -87,6 +87,16 @@ function toggleListDropdown(el) {
     }
 }
 
+if(document.querySelector(".fs-tree-confirm")) {
+    let handleCancel = function() {
+        fsTreeConfirm.classList.add("fs-tree-confirm--hidden");
+    }
+
+    let fsTreeConfirm = document.querySelector(".fs-tree-confirm");
+    let cancelBtn = fsTreeConfirm.querySelector(".fs-tree-confirm__cancel-btn");
+    cancelBtn.addEventListener("click", handleCancel);
+}
+
 let treeViewer = document.querySelector(".tree-viewer");
 if(treeViewer) {
     let calcGridPos = function(pageX, pageY) {
@@ -290,6 +300,7 @@ if(treeViewer) {
     let currScale = 1;
     let currTranslateX = 0;
     let currTranslateY = 0;
+    let urlAnchor = new URL(window.location.href).hash.substring(1); 
 
     treeViewer.addEventListener("wheel", handleWheel);
     // Not sure why, but adding the below event listener prevents pinch zoom on iOS.
@@ -307,7 +318,7 @@ if(treeViewer) {
     let highlightedLink;
     let hidePopUpTimeout;
     for(let speciesLink of speciesLinks) {
-        let speciesId = speciesLink.getAttribute("id");
+        let speciesId = speciesLink.getAttribute("data-species");
         let speciesExampleList = document.getElementById(`${speciesId}-exampleList`);
         if(!speciesExampleList) continue;
 
@@ -327,48 +338,87 @@ if(treeViewer) {
             }
         }
 
-        let openPopUp = function(event) {
-            clearTimeout(hidePopUpTimeout);
-            if(openedPopUp) openedPopUp.classList.add("species-example-list--hidden");
-            if(highlightedLink) highlightedLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+        let openPopUp = function(posX, posY) {
             speciesExampleList.classList.remove("species-example-list--hidden");
-            speciesLink.classList.add("tree-viewer__tree-svg-link--highlighted");
             openedPopUp = speciesExampleList;
-            highlightedLink = speciesLink;
-            speciesExampleList.style.left = `${event.clientX}px`;
-            speciesExampleList.style.top = `${event.clientY}px`;
+            speciesExampleList.style.left = `${posX}px`;
+            speciesExampleList.style.top = `${posY}px`;
             if(window.innerWidth < 900) {
-                let gridPos = calcGridPos(event.clientX, event.clientY);
+                let gridPos = calcGridPos(posX, posY);
                 let translateX = 0;
                 let translateY = 0;
                 let maxWidth;
                 let maxHeight;
                 if(gridPos.posX > 0) {
                     translateX = -100;
-                    maxWidth = event.clientX - 16;
+                    maxWidth = posX - 16;
                 } else {
-                    maxWidth = window.innerWidth - event.clientX - 16;
+                    maxWidth = window.innerWidth - posX - 16;
                 }
                 if(gridPos.posY > 0) {
                     translateY = -100;
-                    maxHeight = event.clientY - 16;
+                    maxHeight = posY - 16;
                 } else {
-                    maxHeight = window.innerHeight - event.clientY - 16;
+                    maxHeight = window.innerHeight - posY - 16;
                 }
                 speciesExampleList.style.transform = `translate(${translateX}%, ${translateY}%)`;
                 speciesExampleList.style.maxWidth = `${maxWidth}px`;
                 speciesExampleList.style.maxHeight = `${maxHeight}px`;
             }
+        }
+
+        let handleLinkMouseOver = function(event) {
+            clearTimeout(hidePopUpTimeout);
+            if(openedPopUp) openedPopUp.classList.add("species-example-list--hidden");
+            if(highlightedLink) highlightedLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+            speciesLink.classList.add("tree-viewer__tree-svg-link--highlighted");
+            highlightedLink = speciesLink;
+            openPopUp(event.clientX, event.clientY);
             viewerContainer.addEventListener("touchstart", detectTouchLeave);
+        }
+
+        let simulateOpenPopUp = function() {
+            let initialLinkPos = { posX: speciesLink.getBoundingClientRect().x, posY: speciesLink.getBoundingClientRect().y };
+            let gridPos = calcGridPos(initialLinkPos.posX, initialLinkPos.posY);
+            let zoomAmount = (window.innerWidth >= 900) ? 2.5 : 4.5;
+            panTree(gridPos.posX, gridPos.posY);
+            zoomTree(0, 0, zoomWeight*zoomAmount);
+            let fakeMouseX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+            let fakeMouseY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+            let fakeEvent = { clientX: fakeMouseX, clientY: fakeMouseY };
+            handleLinkMouseOver(fakeEvent);
         }
 
         let handlePopUpHover = function() {
             clearTimeout(hidePopUpTimeout);
         }
 
-        speciesLink.addEventListener("mouseenter", openPopUp);
+        speciesLink.addEventListener("mouseenter", handleLinkMouseOver);
         speciesLink.addEventListener("mouseleave", initHidePopUp);
         speciesExampleList.addEventListener("mouseenter", handlePopUpHover);
         speciesExampleList.addEventListener("mouseleave", initHidePopUp);
+
+        if(speciesId == urlAnchor) {
+            if(window.innerWidth >= 900) {
+                enlargeTree();
+                simulateOpenPopUp();
+            } else {
+                let handleConfirm = function() {
+                    if(viewerContainer.requestFullscreen) {
+                        document.addEventListener("fullscreenchange", simulateOpenPopUp, { once: true });
+                        enlargeTree();
+                    } else {
+                        enlargeTree();
+                        simulateOpenPopUp();
+                    }
+                    fsTreeConfirm.classList.add("fs-tree-confirm--hidden");
+                }
+
+                let fsTreeConfirm = document.querySelector(".fs-tree-confirm");
+                let confirmBtn = fsTreeConfirm.querySelector(".fs-tree-confirm__confirm-btn");
+                confirmBtn.addEventListener("click", handleConfirm);
+                fsTreeConfirm.classList.remove("fs-tree-confirm--hidden");
+            }
+        }
     }
 }
