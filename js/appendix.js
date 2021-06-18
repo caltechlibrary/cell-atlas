@@ -255,6 +255,7 @@ if(treeViewer) {
             viewerContainer.classList.add("tree-viewer__viewer-container--enlarged");
             posEnlargedTree();
             window.addEventListener("resize", posEnlargedTree);
+            window.addEventListener("click", autoCloseOnOutsideClick);
         } else {
             if(viewerContainer.requestFullscreen) {
                 viewerContainer.requestFullscreen();
@@ -275,6 +276,7 @@ if(treeViewer) {
             viewerContainer.style.width = "initial";
             viewerContainer.style.top = "initial";
             window.removeEventListener("resize", posEnlargedTree);
+            window.removeEventListener("click", autoCloseOnOutsideClick);
         } else {
             if(viewerContainer.requestFullscreen) {
                 document.exitFullscreen();
@@ -285,6 +287,10 @@ if(treeViewer) {
                 viewerContainer.style.height = "initial";
             }
         }
+    }
+
+    let autoCloseOnOutsideClick = function(event) {
+        if(!treeViewer.contains(event.target)) minimizeTree();
     }
 
     let speciesLinks = treeViewer.querySelectorAll(".tree-viewer__tree-svg-link");
