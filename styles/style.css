@@ -1571,12 +1571,24 @@ file. These definitions will be defined mobile first.
 }
 
 .vid-metadata__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     margin: 0 3px;
     text-align: center;
 }
 
 .vid-metadata__key, .vid-metadata__text {
     color: #545454;
+}
+
+.vid-metadata__key {
+    margin-right: 0.25em;
+}
+
+.vid-metadata__text {
+    margin: 0 0.25em;
 }
 
 .vid-metadata__value {
@@ -1589,6 +1601,19 @@ file. These definitions will be defined mobile first.
 
 .vid-metadata__link--italicize {
     font-style: italic;
+}
+
+.vid-metadata__viewer-btn {
+    box-sizing: border-box;
+    height: 1.75em;
+    width: 2.75em;
+    margin: 0 0 0 0.8em;
+    padding: 0;
+    border: none;
+    background-image: url(../img/viewerIcon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #fff0;
 }
 
 @media (min-width:900px) {
