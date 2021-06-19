@@ -1607,7 +1607,7 @@ file. These definitions will be defined mobile first.
     box-sizing: border-box;
     height: 1.75em;
     width: 2.75em;
-    margin: 0 0 0 0.8em;
+    margin: 1.5px 0 01.5px 0.8em;
     padding: 0;
     border: none;
     background-image: url(../img/viewerIcon.png);
@@ -1619,6 +1619,10 @@ file. These definitions will be defined mobile first.
 @media (min-width:900px) {
     .vid-metadata--in-section {
         order: initial;
+    }
+
+    .vid-metadata__viewer-btn {
+        margin: 0 0 0 0.8em;
     }
 }
 
