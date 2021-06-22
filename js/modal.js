@@ -205,11 +205,57 @@ for(let viewerEl of viewerEls) {
         viewerObj.requestRedraw();
     }
 
+    let setColorForAtom = function(geomObj, atom, color) {
+        let view = geomObj.structure().createEmptyView();
+        view.addAtom(atom);
+        geomObj.colorBy(pv.color.uniform(color), view);
+    }
+
+    let handleMouseMove = function(event) {
+        let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+        let picked = viewerObj.pick(pos);
+        if((!prevPicked && !picked) || prevPicked && picked && picked.target() == prevPicked.atom) return;
+        if(prevPicked) {
+            setColorForAtom(prevPicked.node, prevPicked.atom, prevPicked.color);
+            prevPicked = null;
+        }
+        if(picked) {
+            let color = [0, 0, 0, 0];
+            let atom = picked.target();
+            let atomNameComponents = atom.qualifiedName().split(".");
+            let proteinNum = atomNameComponents[0].charCodeAt("0") - 64;
+            let residueNum = atomNameComponents[1].substring(3);
+            let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
+            let atomColor = picked.node().getColorForAtom(atom, color);
+            setColorForAtom(picked.node(), atom, "red");
+            atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            atomLabel.classList.remove("protein-viewer__atom-label--hidden");
+            prevPicked = { atom: atom, color: atomColor, node: picked.node() }
+        } else {
+            atomLabel.classList.add("protein-viewer__atom-label--hidden");
+        }
+        viewerObj.requestRedraw();
+    }
+
+    let disableAtomHighlight = function(event) {
+        if(prevPicked) {
+            setColorForAtom(prevPicked.node, prevPicked.atom, prevPicked.color);
+            prevPicked = null;
+        }
+        atomLabel.classList.add("protein-viewer__atom-label--hidden");
+        viewerContainer.removeEventListener("mousemove", handleMouseMove);
+    }
+
+    let enableAtomHighlight = function(event) {
+        viewerContainer.addEventListener("mousemove", handleMouseMove);
+    }
+
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
     let parentModal = viewerEl.parentElement;
     let viewerContainer = viewerEl.querySelector(".protein-viewer__viewer-container");
     let fsContainer = viewerEl.querySelector(".protein-viewer__fullscreen-container");
+    let atomLabel = viewerEl.querySelector(".protein-viewer__atom-label");
     let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
     let modelSelect = viewerEl.querySelector(".protein-viewer__model-select");
     let colorSelect = viewerEl.querySelector(".protein-viewer__color-select");
@@ -220,11 +266,39 @@ for(let viewerEl of viewerEls) {
     };
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
     let viewerStructs;
+    let prevPicked;
+    let proteinDict = {
+        "ALA": "alanine",
+        "ARG": "arginine",
+        "ASN": "asparagine",
+        "ASP": "aspartate",
+        "CYS": "cysteine",
+        "GLU": "glutamate",
+        "GLN": "glutamine",
+        "GLY": "glycine",
+        "HIS": "histidine",
+        "ILE": "isoleucine",
+        "LEU": "leucine",
+        "LYS": "lysine",
+        "MET": "methionine",
+        "PHE": "phenylalanine",
+        "PRO": "proline",
+        "SEC": "selenocysteine",
+        "SER": "serine",
+        "THR": "threonine",
+        "TRP": "tryptophan",
+        "TYR": "tyrosine",
+        "VAL": "valine",
+        "XAA": "other"
+    }
     
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
     modelSelect.addEventListener("change", changeModel);
     colorSelect.addEventListener("change", changeColor);
+    viewerContainer.addEventListener("mousemove", handleMouseMove);
+    viewerContainer.addEventListener("mousedown", disableAtomHighlight);
+    viewerContainer.addEventListener("mouseup", enableAtomHighlight);
     pv.io.fetchPdb(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`, function(structures) {
         viewerObj.on('viewerReady', function() {
             viewerStructs = structures
