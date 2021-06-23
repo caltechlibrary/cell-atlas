@@ -440,7 +440,14 @@ if(treeViewer) {
             } else {
                 let handleConfirm = function() {
                     if(viewerContainer.requestFullscreen) {
+                        let adjustPopUpAfterFullscreen = function() {
+                            let linkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+                            let linkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+                            openPopUp(linkPosX, linkPosY);
+                        }
+
                         document.addEventListener("fullscreenchange", simulateOpenPopUp, { once: true });
+                        setTimeout(adjustPopUpAfterFullscreen, 200);
                         enlargeTree();
                     } else {
                         enlargeTree();
