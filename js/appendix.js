@@ -332,6 +332,8 @@ if(treeViewer) {
         let hidePopUp = function() {
             speciesExampleList.classList.add("species-example-list--hidden");
             speciesLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+            window.removeEventListener("resize", hidePopUp);
+            viewerContainer.removeEventListener("touchstart", detectTouchLeave);
         }
 
         let initHidePopUp = function() {
@@ -372,16 +374,43 @@ if(treeViewer) {
                 speciesExampleList.style.maxWidth = `${maxWidth}px`;
                 speciesExampleList.style.maxHeight = `${maxHeight}px`;
             }
+            window.addEventListener("resize", hidePopUp, { once: true });
         }
 
-        let handleLinkMouseOver = function(event) {
-            clearTimeout(hidePopUpTimeout);
+        let focusLink = function() {
             if(openedPopUp) openedPopUp.classList.add("species-example-list--hidden");
             if(highlightedLink) highlightedLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
             speciesLink.classList.add("tree-viewer__tree-svg-link--highlighted");
             highlightedLink = speciesLink;
+        }
+
+        let handleLinkMouseOver = function(event) {
+            clearTimeout(hidePopUpTimeout);
+            focusLink();
             openPopUp(event.clientX, event.clientY);
-            viewerContainer.addEventListener("touchstart", detectTouchLeave);
+        }
+
+        let handleLinkTouch = function(event) {
+            event.preventDefault();
+
+            let flagTouchmove = function () {
+                validTap = false;
+                hidePopUp();
+                window.removeEventListener("touchmove", flagTouchmove);
+            }
+
+            let handleTouchend = function(event) {
+                if(validTap) {
+                    focusLink();
+                    openPopUp(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+                    viewerContainer.addEventListener("touchstart", detectTouchLeave);
+                }
+                window.removeEventListener("touchmove", flagTouchmove);
+            }
+
+            let validTap = true;
+            window.addEventListener("touchmove", flagTouchmove);
+            window.addEventListener("touchend", handleTouchend, { once: true });
         }
 
         let simulateOpenPopUp = function() {
@@ -390,10 +419,11 @@ if(treeViewer) {
             let zoomAmount = (window.innerWidth >= 900) ? 2.5 : 4.5;
             panTree(gridPos.posX, gridPos.posY);
             zoomTree(0, 0, zoomWeight*zoomAmount);
-            let fakeMouseX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
-            let fakeMouseY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
-            let fakeEvent = { clientX: fakeMouseX, clientY: fakeMouseY };
-            handleLinkMouseOver(fakeEvent);
+            let newLinkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+            let newLinkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+            focusLink();
+            openPopUp(newLinkPosX, newLinkPosY);
+            viewerContainer.addEventListener("touchstart", detectTouchLeave);
         }
 
         let handlePopUpHover = function() {
@@ -401,6 +431,7 @@ if(treeViewer) {
         }
 
         speciesLink.addEventListener("mouseenter", handleLinkMouseOver);
+        speciesLink.addEventListener("touchstart", handleLinkTouch);
         speciesLink.addEventListener("mouseleave", initHidePopUp);
         speciesExampleList.addEventListener("mouseenter", handlePopUpHover);
         speciesExampleList.addEventListener("mouseleave", initHidePopUp);
@@ -412,7 +443,14 @@ if(treeViewer) {
             } else {
                 let handleConfirm = function() {
                     if(viewerContainer.requestFullscreen) {
+                        let adjustPopUpAfterFullscreen = function() {
+                            let linkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+                            let linkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+                            openPopUp(linkPosX, linkPosY);
+                        }
+
                         document.addEventListener("fullscreenchange", simulateOpenPopUp, { once: true });
+                        setTimeout(adjustPopUpAfterFullscreen, 200);
                         enlargeTree();
                     } else {
                         enlargeTree();
