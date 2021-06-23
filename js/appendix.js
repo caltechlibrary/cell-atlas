@@ -332,6 +332,8 @@ if(treeViewer) {
         let hidePopUp = function() {
             speciesExampleList.classList.add("species-example-list--hidden");
             speciesLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+            window.removeEventListener("resize", hidePopUp);
+            viewerContainer.removeEventListener("touchstart", detectTouchLeave);
         }
 
         let initHidePopUp = function() {
@@ -372,6 +374,7 @@ if(treeViewer) {
                 speciesExampleList.style.maxWidth = `${maxWidth}px`;
                 speciesExampleList.style.maxHeight = `${maxHeight}px`;
             }
+            window.addEventListener("resize", hidePopUp, { once: true });
         }
 
         let focusLink = function() {
