@@ -416,10 +416,11 @@ if(treeViewer) {
             let zoomAmount = (window.innerWidth >= 900) ? 2.5 : 4.5;
             panTree(gridPos.posX, gridPos.posY);
             zoomTree(0, 0, zoomWeight*zoomAmount);
-            let fakeMouseX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
-            let fakeMouseY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
-            let fakeEvent = { clientX: fakeMouseX, clientY: fakeMouseY };
-            handleLinkMouseOver(fakeEvent);
+            let newLinkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+            let newLinkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+            focusLink();
+            openPopUp(newLinkPosX, newLinkPosY);
+            viewerContainer.addEventListener("touchstart", detectTouchLeave);
         }
 
         let handlePopUpHover = function() {
