@@ -259,24 +259,22 @@ for(let viewerEl of viewerEls) {
         viewerContainer.addEventListener("touchmove", handleTouchmove, { once: true });
     }
 
-    let handleMouseMove = function(event) {
-        let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
-        handleInput(pos);
-    }
-
-    let disableAtomHighlight = function(event) {
-        if(prevPicked) {
-            unHighlightAtom(prevPicked.node);
-            prevPicked = null;
+    let handleMouseDown = function(event) {
+        let handleMouseup = function() {
+            if(validPress) {
+                let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+                handleInput(pos);
+            }
+            viewerContainer.removeEventListener("mousemove", handleMousemove);
         }
-        atomLabel.classList.add("protein-viewer__atom-label--hidden");
-        viewerContainer.removeEventListener("touchstart", handleTouch);
-        viewerContainer.removeEventListener("mousemove", handleMouseMove);
-    }
 
-    let enableAtomHighlight = function(event) {
-        viewerContainer.addEventListener("touchstart", handleTouch);
-        viewerContainer.addEventListener("mousemove", handleMouseMove);
+        let handleMousemove = function() {
+            validPress = false;
+        }
+
+        let validPress = true;
+        viewerContainer.addEventListener("mouseup", handleMouseup, { once: true });
+        viewerContainer.addEventListener("mousemove", handleMousemove, { once: true });
     }
 
     let pdb = viewerEl.getAttribute("data-pdb");
@@ -327,9 +325,7 @@ for(let viewerEl of viewerEls) {
     modelSelect.addEventListener("change", changeModel);
     colorSelect.addEventListener("change", changeColor);
     viewerContainer.addEventListener("touchstart", handleTouch);
-    viewerContainer.addEventListener("mousemove", handleMouseMove);
-    viewerContainer.addEventListener("mousedown", disableAtomHighlight);
-    viewerContainer.addEventListener("mouseup", enableAtomHighlight);
+    viewerContainer.addEventListener("mousedown", handleMouseDown);
     pv.io.fetchPdb(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`, function(structures) {
         viewerObj.on('viewerReady', function() {
             viewerStructs = structures
