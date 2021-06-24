@@ -205,17 +205,22 @@ for(let viewerEl of viewerEls) {
         viewerObj.requestRedraw();
     }
 
-    let setColorForAtom = function(geomObj, atom, color) {
+    let highlightAtom = function(geomObj, atom) {
         let view = geomObj.structure().createEmptyView();
         view.addAtom(atom);
-        geomObj.colorBy(pv.color.uniform(color), view);
+        geomObj.setSelection(view);
+    }
+
+    let unHighlightAtom = function(geomObj) {
+        let view = geomObj.structure().createEmptyView();
+        geomObj.setSelection(view);
     }
 
     let handleInput = function(pos) {
         let picked = viewerObj.pick(pos);
         if((!prevPicked && !picked) || prevPicked && picked && picked.target() == prevPicked.atom) return;
         if(prevPicked) {
-            setColorForAtom(prevPicked.node, prevPicked.atom, prevPicked.color);
+            unHighlightAtom(prevPicked.node);
             prevPicked = null;
         }
         if(picked) {
@@ -226,10 +231,10 @@ for(let viewerEl of viewerEls) {
             let residueNum = atomNameComponents[1].substring(3);
             let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
             let atomColor = picked.node().getColorForAtom(atom, color);
-            setColorForAtom(picked.node(), atom, "red");
+            highlightAtom(picked.node(), atom);
             atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
             atomLabel.classList.remove("protein-viewer__atom-label--hidden");
-            prevPicked = { atom: atom, color: atomColor, node: picked.node() }
+            prevPicked = { node: picked.node() }
         } else {
             atomLabel.classList.add("protein-viewer__atom-label--hidden");
         }
@@ -261,7 +266,7 @@ for(let viewerEl of viewerEls) {
 
     let disableAtomHighlight = function(event) {
         if(prevPicked) {
-            setColorForAtom(prevPicked.node, prevPicked.atom, prevPicked.color);
+            unHighlightAtom(prevPicked.node);
             prevPicked = null;
         }
         atomLabel.classList.add("protein-viewer__atom-label--hidden");
@@ -286,7 +291,8 @@ for(let viewerEl of viewerEls) {
     let viewerOptions = {
         antialias: true,
         quality : 'medium',
-        fog: false
+        fog: false,
+        selectionColor : "#000"
     };
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
     let viewerStructs;
