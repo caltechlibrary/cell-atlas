@@ -1711,6 +1711,24 @@ file. These definitions will be defined mobile first.
     font-size: 1em;
 }
 
+.protein-viewer__atom-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 1em;
+    width: fit-content;
+    background: #ffffff87;
+    border-radius: 10px 10px 0 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.protein-viewer__atom-label--hidden {
+    display: none;
+}
+
 .protein-viewer__min-btn {
     display: flex;
     position: absolute;

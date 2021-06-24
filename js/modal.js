@@ -205,26 +205,131 @@ for(let viewerEl of viewerEls) {
         viewerObj.requestRedraw();
     }
 
+    let highlightAtom = function(geomObj, atom) {
+        let view = geomObj.structure().createEmptyView();
+        view.addAtom(atom);
+        geomObj.setSelection(view);
+    }
+
+    let unHighlightAtom = function(geomObj) {
+        let view = geomObj.structure().createEmptyView();
+        geomObj.setSelection(view);
+    }
+
+    let handleInput = function(pos) {
+        let picked = viewerObj.pick(pos);
+        if((!prevPicked && !picked) || prevPicked && picked && picked.target() == prevPicked.atom) return;
+        if(prevPicked) {
+            unHighlightAtom(prevPicked.node);
+            prevPicked = null;
+        }
+        if(picked) {
+            let color = [0, 0, 0, 0];
+            let atom = picked.target();
+            let atomNameComponents = atom.qualifiedName().split(".");
+            let proteinNum = atomNameComponents[0].charCodeAt("0") - 64;
+            let residueNum = atomNameComponents[1].substring(3);
+            let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
+            let atomColor = picked.node().getColorForAtom(atom, color);
+            highlightAtom(picked.node(), atom);
+            atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            atomLabel.classList.remove("protein-viewer__atom-label--hidden");
+            prevPicked = { node: picked.node() }
+        } else {
+            atomLabel.classList.add("protein-viewer__atom-label--hidden");
+        }
+        viewerObj.requestRedraw();
+    }
+
+    let handleTouch = function(event) {
+        let handleTouchend = function() {
+            if(validTap) {
+                let pos = { x: event.touches[0].clientX - viewerContainer.getBoundingClientRect().x, y: event.touches[0].clientY - viewerContainer.getBoundingClientRect().y };
+                handleInput(pos);
+            }
+            viewerContainer.removeEventListener("touchmove", handleTouchmove);
+        }
+
+        let handleTouchmove = function() {
+            validTap = false;
+        }
+
+        let validTap = true;
+        viewerContainer.addEventListener("touchend", handleTouchend, { once: true });
+        viewerContainer.addEventListener("touchmove", handleTouchmove, { once: true });
+    }
+
+    let handleMouseMove = function(event) {
+        let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+        handleInput(pos);
+    }
+
+    let disableAtomHighlight = function(event) {
+        if(prevPicked) {
+            unHighlightAtom(prevPicked.node);
+            prevPicked = null;
+        }
+        atomLabel.classList.add("protein-viewer__atom-label--hidden");
+        viewerContainer.removeEventListener("touchstart", handleTouch);
+        viewerContainer.removeEventListener("mousemove", handleMouseMove);
+    }
+
+    let enableAtomHighlight = function(event) {
+        viewerContainer.addEventListener("touchstart", handleTouch);
+        viewerContainer.addEventListener("mousemove", handleMouseMove);
+    }
+
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
     let parentModal = viewerEl.parentElement;
     let viewerContainer = viewerEl.querySelector(".protein-viewer__viewer-container");
     let fsContainer = viewerEl.querySelector(".protein-viewer__fullscreen-container");
+    let atomLabel = viewerEl.querySelector(".protein-viewer__atom-label");
     let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
     let modelSelect = viewerEl.querySelector(".protein-viewer__model-select");
     let colorSelect = viewerEl.querySelector(".protein-viewer__color-select");
     let viewerOptions = {
         antialias: true,
         quality : 'medium',
-        fog: false
+        fog: false,
+        selectionColor : "#000"
     };
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
     let viewerStructs;
+    let prevPicked;
+    let proteinDict = {
+        "ALA": "alanine",
+        "ARG": "arginine",
+        "ASN": "asparagine",
+        "ASP": "aspartate",
+        "CYS": "cysteine",
+        "GLU": "glutamate",
+        "GLN": "glutamine",
+        "GLY": "glycine",
+        "HIS": "histidine",
+        "ILE": "isoleucine",
+        "LEU": "leucine",
+        "LYS": "lysine",
+        "MET": "methionine",
+        "PHE": "phenylalanine",
+        "PRO": "proline",
+        "SEC": "selenocysteine",
+        "SER": "serine",
+        "THR": "threonine",
+        "TRP": "tryptophan",
+        "TYR": "tyrosine",
+        "VAL": "valine",
+        "XAA": "other"
+    }
     
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
     modelSelect.addEventListener("change", changeModel);
     colorSelect.addEventListener("change", changeColor);
+    viewerContainer.addEventListener("touchstart", handleTouch);
+    viewerContainer.addEventListener("mousemove", handleMouseMove);
+    viewerContainer.addEventListener("mousedown", disableAtomHighlight);
+    viewerContainer.addEventListener("mouseup", enableAtomHighlight);
     pv.io.fetchPdb(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`, function(structures) {
         viewerObj.on('viewerReady', function() {
             viewerStructs = structures
