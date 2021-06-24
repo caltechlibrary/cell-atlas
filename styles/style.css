@@ -1699,6 +1699,7 @@ file. These definitions will be defined mobile first.
     background: #ffffffe6;
     border-radius: 0px 0px 10px 0px;
     font-size: 1rem;
+    z-index: 2;
 }
 
 .protein-viewer__menu-label {
@@ -1723,6 +1724,7 @@ file. These definitions will be defined mobile first.
     border-radius: 10px 10px 0 0;
     font-size: 1em;
     font-weight: 600;
+    z-index: 2;
 }
 
 .protein-viewer__atom-label--hidden {
@@ -1739,6 +1741,7 @@ file. These definitions will be defined mobile first.
     margin: 0;
     padding: 2%;
     border-radius: 10px 0 0 0;
+    z-index: 2;
 }
 
 .protein-viewer__min-btn svg {
