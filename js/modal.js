@@ -211,8 +211,7 @@ for(let viewerEl of viewerEls) {
         geomObj.colorBy(pv.color.uniform(color), view);
     }
 
-    let handleMouseMove = function(event) {
-        let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+    let handleInput = function(pos) {
         let picked = viewerObj.pick(pos);
         if((!prevPicked && !picked) || prevPicked && picked && picked.target() == prevPicked.atom) return;
         if(prevPicked) {
@@ -237,16 +236,41 @@ for(let viewerEl of viewerEls) {
         viewerObj.requestRedraw();
     }
 
+    let handleTouch = function(event) {
+        let handleTouchend = function() {
+            if(validTap) {
+                let pos = { x: event.touches[0].clientX - viewerContainer.getBoundingClientRect().x, y: event.touches[0].clientY - viewerContainer.getBoundingClientRect().y };
+                handleInput(pos);
+            }
+            viewerContainer.removeEventListener("touchmove", handleTouchmove);
+        }
+
+        let handleTouchmove = function() {
+            validTap = false;
+        }
+
+        let validTap = true;
+        viewerContainer.addEventListener("touchend", handleTouchend, { once: true });
+        viewerContainer.addEventListener("touchmove", handleTouchmove, { once: true });
+    }
+
+    let handleMouseMove = function(event) {
+        let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+        handleInput(pos);
+    }
+
     let disableAtomHighlight = function(event) {
         if(prevPicked) {
             setColorForAtom(prevPicked.node, prevPicked.atom, prevPicked.color);
             prevPicked = null;
         }
         atomLabel.classList.add("protein-viewer__atom-label--hidden");
+        viewerContainer.removeEventListener("touchstart", handleTouch);
         viewerContainer.removeEventListener("mousemove", handleMouseMove);
     }
 
     let enableAtomHighlight = function(event) {
+        viewerContainer.addEventListener("touchstart", handleTouch);
         viewerContainer.addEventListener("mousemove", handleMouseMove);
     }
 
@@ -296,6 +320,7 @@ for(let viewerEl of viewerEls) {
     minBtn.addEventListener("click", closeViewer);
     modelSelect.addEventListener("change", changeModel);
     colorSelect.addEventListener("change", changeColor);
+    viewerContainer.addEventListener("touchstart", handleTouch);
     viewerContainer.addEventListener("mousemove", handleMouseMove);
     viewerContainer.addEventListener("mousedown", disableAtomHighlight);
     viewerContainer.addEventListener("mouseup", enableAtomHighlight);
