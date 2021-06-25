@@ -317,6 +317,7 @@ for(let viewerEl of viewerEls) {
         "TRP": "tryptophan",
         "TYR": "tyrosine",
         "VAL": "valine",
+        "HOH": "water",
         "XAA": "other"
     }
     
