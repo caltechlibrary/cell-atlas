@@ -277,6 +277,24 @@ for(let viewerEl of viewerEls) {
         viewerContainer.addEventListener("mousemove", handleMousemove, { once: true });
     }
 
+    let processFetchRes = function(res) {
+        let contentLength = res.headers.get("content-length");
+        if(contentLength > largeFileSize) {
+            for(let option of modelSelect.options) {
+                if(option.value == "ballsAndSticks" || (option.value == "spheres" && window.innerWidth < 900)) modelSelect.removeChild(option);
+            }
+        }
+        return res.text();
+    }
+
+    let loadPdb = function(data) {
+        viewerStructs = pv.io.pdb(data, { loadAllModels: true });
+        viewerStructs.forEach(function(viewerStruct, index) {
+            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
+        });
+        viewerObj.autoZoom();
+    }
+
     let pdb = viewerEl.getAttribute("data-pdb");
     let openBtn = document.querySelector(`button[value='${pdb}']`);
     let parentModal = viewerEl.parentElement;
@@ -320,6 +338,8 @@ for(let viewerEl of viewerEls) {
         "HOH": "water",
         "XAA": "other"
     }
+    // File size in bytes of PDB files that may cause rendering issues
+    let largeFileSize = 5000000;
     
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
@@ -327,13 +347,7 @@ for(let viewerEl of viewerEls) {
     colorSelect.addEventListener("change", changeColor);
     viewerContainer.addEventListener("touchstart", handleTouch);
     viewerContainer.addEventListener("mousedown", handleMouseDown);
-    pv.io.fetchPdb(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`, function(structures) {
-        viewerObj.on('viewerReady', function() {
-            viewerStructs = structures
-            viewerStructs.forEach(function(viewerStruct, index) {
-                viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
-            });
-            viewerObj.autoZoom();
-        });
-    }, { loadAllModels: true });
+    fetch(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`)
+        .then(processFetchRes)
+        .then(loadPdb);
 }
