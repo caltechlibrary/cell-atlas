@@ -281,7 +281,7 @@ for(let viewerEl of viewerEls) {
         let contentLength = res.headers.get("content-length");
         if(contentLength > largeFileSize) {
             for(let option of modelSelect.options) {
-                if(option.value == "ballsAndSticks") modelSelect.removeChild(option);
+                if(option.value == "ballsAndSticks" || (option.value == "spheres" && window.innerWidth < 900)) modelSelect.removeChild(option);
             }
         }
         return res.text();
@@ -338,7 +338,7 @@ for(let viewerEl of viewerEls) {
         "XAA": "other"
     }
     // File size in bytes of PDB files that may cause rendering issues
-    let largeFileSize = (window.innerWidth >= 900) ? 5000000: 5000000;
+    let largeFileSize = 5000000;
     
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
