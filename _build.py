@@ -164,8 +164,12 @@ def processSubsection(subsectionFile, pageName, parentData):
         metadata["video"] = movieDict[metadata["doi"]]
         addSliderData(metadata, metadata["video"])
     if("species" in metadata): 
-        addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
-        metadata["speciesId"] = metadata["species"].replace(" ", "-")
+        if "+" in metadata["species"]:
+            addSpeciesToDict(metadata["species"].split("+")[0].strip(), "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
+            metadata["speciesId"] = metadata["species"].split("+")[0].strip().replace(" ", "-")
+        else:
+            addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
+            metadata["speciesId"] = metadata["species"].replace(" ", "-")
 
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")
