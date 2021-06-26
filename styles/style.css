@@ -1507,7 +1507,7 @@ file. These definitions will be defined mobile first.
 }
 
 .vid-metadata--in-section {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     order: 1;
 }
 
