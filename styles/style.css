@@ -1699,7 +1699,7 @@ file. These definitions will be defined mobile first.
     }
 
     .learn-more--in-section {
-        margin: 0;
+        margin: -1em 0 0 0;
     }
 
     .learn-more__title {
@@ -1766,6 +1766,7 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .vid-metadata--in-section {
+        margin-bottom: 1em;
         order: initial;
     }
 }
