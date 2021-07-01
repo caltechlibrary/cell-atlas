@@ -246,7 +246,11 @@ for(let sectionImg of sectionImgs) {
 }
 
 function shelfOnFirstPlay(event) {
-    shelfText();
+    let shelveBtn = document.querySelector(".section-text .section-text__shelve-btn");
+    let nonTextContent = document.getElementById("nonTextContent");
+    if(!nonTextContent.classList.contains("non-text--enlarged")) {
+        shelveBtn.click();
+    }
     event.target.removeEventListener("play", shelfOnFirstPlay);
 }
 
@@ -787,8 +791,8 @@ function initializeCompSlider(compSliderContainer) {
     minimizeBtnDesk.addEventListener("click", minimizeSlider);
 
     if(!inModal && window.innerWidth >= 900) {
-        let shelfButton = document.getElementById("shelfButton");
-        let unshelfButton = document.getElementById("unshelfButton");
+        let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
+        let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
         let vidPlayBtn = document.querySelector(`#${playerId}-playPauseButton`);
 
         updateMainCompMaxHeight();
@@ -874,12 +878,13 @@ function initializeCompSlider(compSliderContainer) {
             positionEnlargedModalSlider();
             window.addEventListener("resize", positionEnlargedModalSlider);
         } else {
-            let unshelfBtn = document.querySelector("#unshelfButton");
+            let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
+            let unshelfBtn = document.querySelector(".section-text .section-text__unshelve-btn");
             minimizeBtnDesk.disabled = true;
             unshelfBtn.addEventListener("transitionend", function() {
                 minimizeBtnDesk.disabled = false;
             }, { once: true });
-            shelfText();
+            shelfButton.click();
         }
     }
 
@@ -896,7 +901,7 @@ function initializeCompSlider(compSliderContainer) {
             window.addEventListener("resize", resizePolyFullscreen);
             if(inModal) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                let textContent = document.querySelector("#textContent");
+                let textContent = document.querySelector(".section-text");
                 modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
                 textContent.style.display = "none";
             }
@@ -924,12 +929,13 @@ function initializeCompSlider(compSliderContainer) {
             beforeImage.style.height = "initial";
             window.removeEventListener("resize", positionEnlargedModalSlider);
         } else {
+            let unshelfBtn = document.querySelector(".section-text .section-text__unshelve-btn");
             enlargeBtn.disabled = true;
-            let textSection = document.getElementById("textContent");
+            let textSection = document.querySelector(".section-text");
             textSection.addEventListener("transitionend", function() {
                 enlargeBtn.disabled = false;
             }, { once: true });
-            openText();
+            unshelfBtn.click();
         }
     }
 
@@ -946,6 +952,7 @@ function initializeCompSlider(compSliderContainer) {
             compSliderContainer.style.removeProperty("height");
             if(inModal) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                let textContent = document.querySelector(".section-text");
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
                 textContent.style.display = "flex";
             }
@@ -971,7 +978,8 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function respondToTextShelving(event) {
-        if(event.currentTarget.id == "shelfButton" || event.currentTarget.id == `${playerId}-playPauseButton`) {
+        if(event.currentTarget.classList.contains("section-text__shelve-btn") || event.currentTarget.id == `${playerId}-playPauseButton`) {
+            let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
             window.removeEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "fullscreen");
             enlargeBtn.style.display = "none"; 
@@ -980,14 +988,14 @@ function initializeCompSlider(compSliderContainer) {
             unshelfButton.addEventListener("transitionend", function() {
                 minimizeBtnDesk.disabled = false;
             }, { once: true });
-        } else if(event.currentTarget.id == "unshelfButton"){
+        } else if(event.currentTarget.classList.contains("section-text__unshelve-btn")){
             window.addEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "initial");
             minimizeBtnMobile.style.display = "none"; 
             minimizeBtnDesk.style.display = "none";
             enlargeBtn.style.display = "flex";
             enlargeBtn.disabled = true;
-            let textSection = document.getElementById("textContent");
+            let textSection = document.querySelector(".section-text");
             textSection.addEventListener("transitionend", function() {
                 enlargeBtn.disabled = false;
             }, { once: true });
@@ -1024,8 +1032,8 @@ function initializeCompSlider(compSliderContainer) {
         minimizeBtnDesk.style.setProperty("display", "none", "important");
         loadFailedImg.style.display = "block";
         if(loadFailedImg === document.querySelector("#nonTextContent .book-section-comparison-load-failed")) {
-            let shelfButton = document.getElementById("shelfButton");
-            let unshelfButton = document.getElementById("unshelfButton");
+            let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
+            let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
             let nonTextContent = document.querySelector("#nonTextContent");
             let videoContainer = nonTextContent.querySelector(".book-section-video-container");
             let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
