@@ -8,12 +8,16 @@
     <a href="${prevSection}.html" class="book-page-nav" data-nav="prev">&#8249;</a>
     <div class="book-section-video-container">
 
-        ${if(vidMetadata.sliderImgName)}
-            ${vidMetadata:toggleImgVid.tmpl()}
-            ${vidMetadata:slider.tmpl()}
-        ${endif}
+        ${if(summaryData)}
+            ${summaryData:summary.tmpl()}
+        ${else}
+            ${if(vidMetadata.sliderImgName)}
+                ${vidMetadata:toggleImgVid.tmpl()}
+                ${vidMetadata:slider.tmpl()}
+            ${endif}
 
-        ${vidMetadata:player.tmpl()}
+            ${vidMetadata:player.tmpl()}
+        ${endif}
 
         ${if(offline)}
         ${else}

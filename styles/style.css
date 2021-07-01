@@ -2025,3 +2025,106 @@ file. These definitions will be defined mobile first.
         right: 10px;
     }
 }
+
+/* summary-menu */
+.summary-menu {
+    position: relative;
+    box-sizing: border-box;
+    border: 7px #cccccc solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 1px #444;
+    background: #fff;
+    overflow: hidden;
+}
+
+.summary-menu--nontext-section {
+    width: 100%;
+    height: 90%;
+}
+
+.summary-menu__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.summary-menu__items-list {
+    list-style: none;
+}
+
+.summary-menu__li {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.summary-menu__item-graphic {
+    width: 100%;
+    transform: translate(0, 0);
+    transition: width 0.75s, transform 0.75s;
+}
+
+.summary-menu__li-text {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+    font-size: 2.2em;
+    text-align: center;
+    white-space: break-spaces;
+    transition: visibility 0.25s, opacity 0.25s;
+}
+
+.summary-menu__li-text--hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.summary-menu__li--ch2-item1 {
+    width: 29%;
+    top: 6%;
+    left: 17%;
+}
+
+.summary-menu__li--ch2-item2 {
+    width: 30.5%;
+    top: 3.75%;
+    left: 49.25%;
+}
+
+.summary-menu__li--ch2-item3 {
+    width: 13.5%;
+    top: 18.75%;
+    left: 80.25%;
+}
+
+.summary-menu__li--ch2-item4 {
+    width: 20%;
+    top: 50.75%;
+    left: 80%;
+}
+
+.summary-menu__li--ch2-item5 {
+    width: 32%;
+    top: 80%;
+    left: 49%;
+}
+
+.summary-menu__li--ch2-item6 {
+    width: 28%;
+    top: 81.5%;
+    left: 18.5%;
+}
+
+.summary-menu__li--ch2-item7 {
+    width: 15.5%;
+    top: 50.5%;
+    left: 1.75%;
+}
+
+.summary-menu__li--ch2-item8 {
+    width: 15.25%;
+    top: 18%;
+    left: 0%;
+}

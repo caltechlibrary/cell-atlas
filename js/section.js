@@ -1069,3 +1069,64 @@ function initializeCompSlider(compSliderContainer) {
     }
 
 }
+
+if(document.querySelector(".summary-menu")) {
+    let resizeMenu = function(event) {
+        let sideLength = Math.min(summaryMenu.clientWidth, summaryMenu.clientHeight);
+        menuContainer.style.width = `${sideLength - 32}px`;
+        menuContainer.style.height = `${sideLength - 32}px`;
+    };
+
+    let activateMenuPart = function(event) {
+        let menuItem = event.target;
+        let currentOpened = summaryMenu.querySelector(".summary-menu__li--active");
+        let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
+        let partText = menuItem.querySelector(".summary-menu__li-text");
+        let menuCenterX = summaryMenu.getBoundingClientRect().right - ((summaryMenu.getBoundingClientRect().right -summaryMenu.getBoundingClientRect().left) / 2);
+        let menuCenterY = summaryMenu.getBoundingClientRect().bottom - ((summaryMenu.getBoundingClientRect().bottom - summaryMenu.getBoundingClientRect().top) / 2);
+        let itemCordX = menuItem.getBoundingClientRect().right - ((menuItem.getBoundingClientRect().right - menuItem.getBoundingClientRect().left) / 2);
+        let itemCordY = menuItem.getBoundingClientRect().bottom - ((menuItem.getBoundingClientRect().bottom - menuItem.getBoundingClientRect().top) / 2);
+        let tx = (itemCordX > menuCenterX) ? 15 : -15;
+        let ty = (itemCordY > menuCenterY) ? 15 : -15;
+        if(currentOpened) deactivateMenuPart({ target: currentOpened });
+        partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
+        partText.style.left = `${menuCenterX}px`;
+        partText.style.top = `${menuCenterY}px`;
+        partText.style.width = `${summaryMenu.offsetWidth * 0.5}px`;
+        partText.classList.remove("summary-menu__li-text--hidden");
+        menuItem.classList.add("summary-menu__li--active");
+    };
+
+    let deactivateMenuPart = function(event) {
+        let menuItem = event.target;
+        let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
+        let partText = menuItem.querySelector(".summary-menu__li-text");
+        partGraphic.style.transform = `translate(0, 0)`;
+        partText.classList.add("summary-menu__li-text--hidden");
+        menuItem.classList.remove("summary-menu__li--active");
+    }; 
+
+    let handleItemKeydown = function(event) {
+        if(event.keyCode == 13 || event.keyCode == 32) {
+            if(event.target.classList.contains("summary-menu__li--active")) {
+                deactivateMenuPart(event);
+            } else {
+                activateMenuPart(event);
+            }
+        } else if(event.keyCode == 9 && event.target.classList.contains("summary-menu__li--active")){
+            deactivateMenuPart(event);
+        }
+    };
+
+    let summaryMenu = document.querySelector(".summary-menu");
+    let menuContainer = summaryMenu.querySelector(".summary-menu__container");
+    let menuItems = summaryMenu.querySelectorAll(".summary-menu__li");
+    resizeMenu();
+    window.addEventListener("resize", resizeMenu);
+
+    for(let menuItem of menuItems) {
+        menuItem.addEventListener("mouseenter", activateMenuPart);
+        menuItem.addEventListener("mouseleave", deactivateMenuPart);
+        menuItem.addEventListener("keydown", handleItemKeydown);
+    }
+}
