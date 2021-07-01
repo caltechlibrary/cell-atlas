@@ -2028,6 +2028,7 @@ file. These definitions will be defined mobile first.
 
 /* summary-menu */
 .summary-menu {
+    display: none;
     position: relative;
     box-sizing: border-box;
     border: 7px #cccccc solid;
@@ -2127,4 +2128,16 @@ file. These definitions will be defined mobile first.
     width: 15.25%;
     top: 18%;
     left: 0%;
+}
+
+@media (min-width:900px) {
+    .summary-menu {
+        display: block;
+    }
+
+    .book-section-comparison-button-container--summary,
+    .book-section-comparison-slider-fullscreen-container--summary,
+    .book-section-video-player--summary {
+        display: none;
+    }
 }

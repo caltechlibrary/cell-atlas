@@ -10,14 +10,14 @@
 
         ${if(summaryData)}
             ${summaryData:summary.tmpl()}
-        ${else}
-            ${if(vidMetadata.sliderImgName)}
+        ${endif}
+
+        ${if(vidMetadata.sliderImgName)}
                 ${vidMetadata:toggleImgVid.tmpl()}
                 ${vidMetadata:slider.tmpl()}
-            ${endif}
-
-            ${vidMetadata:player.tmpl()}
         ${endif}
+
+        ${vidMetadata:player.tmpl()}
 
         ${if(offline)}
         ${else}
