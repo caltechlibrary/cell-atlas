@@ -1,15 +1,3 @@
-// Script still a WIP. Script was written to just to get the job done for the static site prototype. 
-// Will be improving this script where needed as time goes on.
-
-// Check if there is "Learn More" content. If not, add margin on bottom of text seciton on desktop only
-let sectionText = document.querySelector(".book-section-text");
-if(sectionText) {
-    let learnMore = sectionText.querySelector(".learn-more");
-    if(!learnMore && window.innerWidth > 900) {
-        sectionText.style["padding-bottom"] = "1em";
-    }
-}
-
 let sectionTextMaterial = document.querySelector(".book-section-text-material");
 if(sectionTextMaterial) addTypeFocusToggle(sectionTextMaterial);
 
@@ -284,68 +272,51 @@ function showModal(el) {
     
 }
 
-function shelfText(el) {
-    let nonTextSection = document.getElementById("nonTextContent");
-    let textSection = document.getElementById("textContent");
-    let unshelfButton = document.getElementById("unshelfButton");
-
-    // Make content of text section untabable
-    let textSectionChildren = textSection.getElementsByTagName("*");
-    for(child of textSectionChildren) {
-        if(child.tabIndex >= 0) child.setAttribute("tabindex", "-99");
-    }
-    
-    // Push text section offscreen
-    document.activeElement.blur();
-    textSection.style.transform = "translate(100%, -50%)";
-
-    // Bring non text section center screen and enlarge
-    nonTextSection.style.right = "0";
-    nonTextSection.style.width = "100%";
-
-    // Bring unshelf button on screen once text is transitioned off screen
-    setTimeout(function(){
-        // Calculate top margin value for unshelf button
-        let pageContainer = document.querySelector(".book-page-content");
-        let heightFromTop = (pageContainer.offsetHeight - textSection.offsetHeight) / 2;
-        unshelfButton.style.top = `${heightFromTop}px`;
-        unshelfButton.style.transform =  "translate(-100%, 0px)";
-        unshelfButton.setAttribute("tabindex", "0");
-    }, 1000);
-}
-
-function openText(el) {
-    let nonTextSection = document.getElementById("nonTextContent");
-    let textSection = document.getElementById("textContent");
-    let unshelfButton = document.getElementById("unshelfButton");
-
-    // Make unshelf button untabable
-    unshelfButton.setAttribute("tabindex", "-1");
-
-    // Push open text button offscreen
-    document.activeElement.blur();
-    unshelfButton.style.transform =  "translate(0px, 0px)";
-
-    // Bring non text section back to the left and make smaller
-    nonTextSection.style.right = "62%";
-    nonTextSection.style.width = "62%";
-
-    // Bring unshelf button on screen once text is transitioned off screen
-    setTimeout(function(){
-        textSection.style.transform = "translate(0, -50%)";
-        let textSectionChildren = textSection.getElementsByTagName("*");
-        if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
-            for(child of textSectionChildren) {
-                if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
-            }
-        } else {
-            textSection.addEventListener("transitionend", function() {
-                for(child of textSectionChildren) {
-                    if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
-                }
-            }, { once: true });
+if(document.querySelector(".section-text")) {
+    let toggleTextTabIndex = function(index) {
+        let focusableEls = sectionText.querySelectorAll(`a, button, input, textarea, select, details, [tabindex]:not([tabindex='${index}'])`);
+        for(let focusableEl of focusableEls) {
+            if(focusableEl != unshelveBtn) focusableEl.setAttribute("tabindex", index);
         }
-    }, 1000);
+    }
+
+    let shelveText = function() {
+        sectionText.addEventListener("transitionend", function() {
+            unshelveBtn.classList.add("section-text__unshelve-btn--on-screen");
+        }, { once: true });
+
+        unshelveBtn.addEventListener("transitionend", function() {
+            unshelveBtn.setAttribute("tabindex", "0");
+        }, { once: true });
+
+        toggleTextTabIndex(-1);
+        document.activeElement.blur();
+        sectionText.classList.add("section-text--shelved");
+        sectionNonText.classList.add("non-text--enlarged");
+    }
+
+    let unshelveText = function() {
+        unshelveBtn.addEventListener("transitionend", function(event) {
+            sectionText.classList.remove("section-text--shelved");
+            event.stopPropagation();
+        }, { once: true });
+
+        sectionText.addEventListener("transitionend", function() {
+            toggleTextTabIndex(0);
+        }, { once: true });
+
+        unshelveBtn.setAttribute("tabindex", "-1");
+        document.activeElement.blur();
+        unshelveBtn.classList.remove("section-text__unshelve-btn--on-screen");
+        sectionNonText.classList.remove("non-text--enlarged");
+    }
+
+    let sectionText = document.querySelector(".section-text");
+    let sectionNonText = document.querySelector("#nonTextContent");
+    let shelveBtn = sectionText.querySelector(".section-text__shelve-btn");
+    let unshelveBtn = document.querySelector(".section-text__unshelve-btn");
+    shelveBtn.addEventListener("click", shelveText);
+    unshelveBtn.addEventListener("click", unshelveText);
 }
 
 function createVideoPlayer(videoEl) {
