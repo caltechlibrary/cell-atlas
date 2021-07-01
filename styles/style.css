@@ -936,19 +936,6 @@ file. These definitions will be defined mobile first.
         width: 100%;
     }
 
-    .book-section-text-open-button {
-        position: absolute;
-        border: none;
-        font-size: 1.35em;
-        font-weight: 600;
-        padding: 10px;
-        left: 100%;
-        padding-right: 25px;
-        transition: transform 1s;
-        white-space: nowrap;
-        z-index: 1;
-    }
-
     /* || MODAL styles */
     .subsection-modal-overlay {
         display: none;

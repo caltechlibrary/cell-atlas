@@ -1,4 +1,4 @@
-let sectionTextMaterial = document.querySelector(".book-section-text-material");
+let sectionTextMaterial = document.querySelector(".section-text__content");
 if(sectionTextMaterial) addTypeFocusToggle(sectionTextMaterial);
 
 let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
@@ -32,7 +32,7 @@ document.addEventListener("keydown", function(event) {
         if(link) link.click();
     } else if(event.key == "ArrowUp" || event.key == "ArrowDown") {
         if(focusedElement.tagName == "INPUT") return;
-        let textMaterial = document.querySelector(".book-section-text-material");
+        let textMaterial = document.querySelector(".section-text__content");
         let modalOverlay = document.getElementById("modalOverlay");
         if(modalOverlay && modalOverlay.style.display == "block") {
             let modalContainers = document.getElementsByClassName("subsection-modal-container");
@@ -43,7 +43,6 @@ document.addEventListener("keydown", function(event) {
                 }
             }
         } else if(textMaterial && textMaterial.getAttribute("tabindex") == "0") {
-            let textMaterial = document.querySelector(".book-section-text-material");
             textMaterial.focus();
         }
     } else if(event.key == " ") {
@@ -61,7 +60,7 @@ document.addEventListener("keydown", function(event) {
                 }
             }
         } else if(nonTextContent) {
-            let textMaterial = document.querySelector(".book-section-text-material");
+            let textMaterial = document.querySelector(".section-text__content");
             if(textMaterial.contains(focusedElement)) return;
             videoPlayer = nonTextContent.querySelector(".book-section-video-player");
         }

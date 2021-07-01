@@ -24,7 +24,7 @@ window.addEventListener("resize", function() {
 window.addEventListener("touchstart", detectSwipe);
 
 function initializeMobileView() {
-    let textContent = document.querySelector("#textContent");
+    let textContent = document.querySelector(".section-text");
     let nonTextContent = document.querySelector("#nonTextContent");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
@@ -49,7 +49,7 @@ function initializeMobileView() {
 
 function terminateMobileView() {
     window.currVideoPlaying = undefined;
-    let textContent = document.querySelector("#textContent");
+    let textContent = document.querySelector(".section-text");
     let nonTextContent = document.querySelector("#nonTextContent");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
