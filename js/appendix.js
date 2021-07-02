@@ -67,7 +67,7 @@ function addNavRightMargin() {
 }
 
 function toggleListDropdown(el) {
-    let list = document.querySelector(`.profile-container[data-profile='${el.value}']`).querySelector(".book-appendix-li-dropdown");
+    let list = document.querySelector(`div[data-dropdown='${el.value}']`).querySelector(".book-appendix-li-dropdown");
     let listImg = list.querySelector("img");
     if(list.offsetHeight == 0) {
         el.style.transform = "rotate(180deg)";
