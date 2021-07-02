@@ -152,6 +152,14 @@ function detectSwipe(event) {
         validSwipe = false;
         return;
     }
+    if(
+        document.fullscreenElement || 
+        document.querySelector(".protein-viewer__fullscreen-container--fs-polyfill") ||
+        (document.querySelector(".tree-viewer") && document.querySelector(".tree-viewer").contains(event.target))
+    ) {
+        validSwipe = false;
+        return;
+    }
     let imageSliders = document.querySelectorAll(".book-section-comparison-button");
     for(let imageSlider of imageSliders) {
         if(imageSlider.contains(event.target)) {

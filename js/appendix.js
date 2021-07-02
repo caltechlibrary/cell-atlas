@@ -87,351 +87,383 @@ function toggleListDropdown(el) {
     }
 }
 
-let treeViewer = document.querySelector(".book-appendix-tree-viewer");
-let treeGraphic;
-let zoomInButton;
-let currScale;
-let zoomFactor;
-let tx;
-let ty;
-let hidePopUpCalls;
-let currSpeciesEntry;
-let fullscreenBackground;
-let fullscreenButtonMobile;
-let minimizeButtonMobile;
-let touchX;
-let touchY;
-let touchDist;
+if(document.querySelector(".fs-tree-confirm")) {
+    let handleCancel = function() {
+        fsTreeConfirm.classList.add("fs-tree-confirm--hidden");
+    }
+
+    let fsTreeConfirm = document.querySelector(".fs-tree-confirm");
+    let cancelBtn = fsTreeConfirm.querySelector(".fs-tree-confirm__cancel-btn");
+    cancelBtn.addEventListener("click", handleCancel);
+}
+
+let treeViewer = document.querySelector(".tree-viewer");
 if(treeViewer) {
-    treeGraphic = treeViewer.querySelector("svg[data-id='treeSvg']");
-    zoomInButton = treeViewer.querySelector("#treeZoomIn");
-    zoomOutButton = treeViewer.querySelector("#treeZoomOut");
-    fullscreenBackground = treeViewer.parentElement;
-    fullscreenButtonMobile = treeViewer.querySelector("#treeFullScreen");
-    minimizeButtonMobile = treeViewer.querySelector("#treeMinimize");
-    currScale = 1;
-    zoomFactor = 1.05;
-    tx = 0;
-    ty = 0;
+    let calcGridPos = function(pageX, pageY) {
+        let centerX = (viewerContainer.getBoundingClientRect().right - viewerContainer.getBoundingClientRect().x) / 2;
+        let centerY = (viewerContainer.getBoundingClientRect().bottom - viewerContainer.getBoundingClientRect().y) / 2;
+        let posX = (pageX - viewerContainer.getBoundingClientRect().x) - centerX;
+        let posY = (pageY - viewerContainer.getBoundingClientRect().y) - centerY;
+        return { posX, posY };
+    }
 
-    treeViewer.addEventListener("wheel", function(event) {
+    let panTree = function(cordX, cordY) {
+        currTranslateX-= cordX;
+        currTranslateY-= cordY;
+        treeSvg.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
+    }
+
+    let zoomTree = function(cordX, cordY, zoomFactor) {
+        let dx = (cordX - currTranslateX) * (zoomFactor - 1);
+        let dy = (cordY - currTranslateY) * (zoomFactor - 1);
+        currTranslateX-= dx;
+        currTranslateY-= dy;
+        currScale*= zoomFactor;
+        treeSvg.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
+    }
+
+    let handleWheel = function(event) {
+        event.preventDefault();
+        let gridPos = calcGridPos(event.pageX, event.pageY);
+        if(event.deltaY >= 0) {
+            zoomTree(gridPos.posX, gridPos.posY, 1/zoomWeight);
+        } else {
+            zoomTree(gridPos.posX, gridPos.posY, zoomWeight);
+        }
+    }
+
+    let handleMouseDown = function(event) {
         event.preventDefault();
 
-        let currZoomFactor = zoomFactor;
-        if(event.deltaY >= 0) currZoomFactor = 1/zoomFactor;  
-        currScale *= currZoomFactor;
-
-        // Calculate displacement of zooming position
-        let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
-        let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
-        let posX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
-        let posY = (event.pageY - treeViewer.getBoundingClientRect().y) - centerY;
-        calcTransform(posX, posY, currZoomFactor);
-    });
-
-    treeViewer.addEventListener("mousedown", function(event) {
-        event.preventDefault();
-        treeViewer.style.cursor = "grabbing";
-        let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
-        let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
-        let posX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
-        let posY = (event.pageY - treeViewer.getBoundingClientRect().y) - centerY;
-
-        treeViewer.addEventListener("mousemove", trackMouse);
-
-        treeViewer.addEventListener("mouseup", removeTracking, { once: true });
-
-        treeViewer.addEventListener("mouseleave", removeTracking, { once: true });
-
-        function trackMouse(event) {
+        let panViewer = function(event) {
             event.preventDefault();
-            let currX = (event.pageX - treeViewer.getBoundingClientRect().x) - centerX;
-            let currY = (event.pageY - treeViewer.getBoundingClientRect().y) - centerY;
-            let dx = posX - currX;
-            let dy = posY - currY;
-            let newTx = tx - dx;
-            let newTy = ty - dy;
-
-            treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
-            tx = newTx;
-            ty = newTy; 
-            posX = currX;
-            posY = currY;
+            let newGridPos = calcGridPos(event.pageX, event.pageY);
+            panTree(gridPos.posX - newGridPos.posX, gridPos.posY -newGridPos.posY);
+            gridPos.posX = newGridPos.posX;
+            gridPos.posY = newGridPos.posY;
         }
 
-        function removeTracking() {
-            treeViewer.style.cursor = "grab";
-            treeViewer.removeEventListener("mousemove", trackMouse);
+        let untrackMouseMove = function() {
+            viewerContainer.classList.remove("tree-viewer__viewer-container--panning");
+            treeViewer.removeEventListener("mousemove", panViewer);
         }
-    });
 
-    treeViewer.addEventListener("touchmove", function(event) {
+        let gridPos = calcGridPos(event.pageX, event.pageY);
+        viewerContainer.classList.add("tree-viewer__viewer-container--panning");
+        treeViewer.addEventListener("mousemove", panViewer);
+        treeViewer.addEventListener("mouseup", untrackMouseMove, { once: true });
+        treeViewer.addEventListener("mouseleave", untrackMouseMove, { once: true });
+    }
+
+    let initTouchPan = function(event) {
+        let panViewer = function(event) {
+            event.preventDefault();
+            if(event.touches.length == 1) {
+                let newGridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+                panTree(gridPos.posX - newGridPos.posX, gridPos.posY -newGridPos.posY);
+                gridPos.posX = newGridPos.posX;
+                gridPos.posY = newGridPos.posY;
+            } else {
+                untrackTouch();
+                svgContainer.removeEventListener("touchend", untrackTouch);
+            }
+        }
+
+        let untrackTouch = function() {
+            svgContainer.removeEventListener("touchmove", panViewer);
+        }
+
+        let gridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+        svgContainer.addEventListener("touchmove", panViewer);
+        svgContainer.addEventListener("touchend", untrackTouch, { once: true });
+    }
+
+    let initTouchZoom = function(event) {
+        let touchZoom = function(event) {
+            event.preventDefault();
+            if(event.touches.length == 2) {
+                gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
+                gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
+                let newDist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
+                let deltaDist = dist - newDist;
+                let midPoint = { 
+                    posX: (gridPos1.posX + gridPos2.posX) / 2,
+                    posY: (gridPos1.posY + gridPos2.posY) / 2
+                };
+
+                if(deltaDist >= 0) {
+                    zoomTree(midPoint.posX, midPoint.posY, 1/zoomWeight);
+                } else {
+                    zoomTree(midPoint.posX, midPoint.posY, zoomWeight);
+                }
+
+                dist-= deltaDist;
+            } else {
+                untrackTouchZoom();
+                svgContainer.removeEventListener("touchend", untrackTouchZoom);
+            }
+        }
+
+        let untrackTouchZoom = function(event) {
+            svgContainer.removeEventListener("touchmove", touchZoom);
+        }
+
+        let gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
+        let gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
+        let dist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
+        svgContainer.addEventListener("touchmove", touchZoom);
+        svgContainer.addEventListener("touchend", untrackTouchZoom, { once: true });
+    }
+
+    let handleTouchMove = function(event) {
         event.preventDefault();
         if(event.touches.length == 1) {
-            let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
-            let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
-            let currX = (event.changedTouches[0].clientX - treeViewer.getBoundingClientRect().x) - centerX;
-            let currY = (event.changedTouches[0].clientY - treeViewer.getBoundingClientRect().y) - centerY;
-            if(!touchX || !touchY) {
-                touchX = (event.changedTouches[0].clientX - treeViewer.getBoundingClientRect().x) - centerX;
-                touchY = (event.changedTouches[0].clientY - treeViewer.getBoundingClientRect().y) - centerY;
-            }
-            let dx = touchX - currX;
-            let dy = touchY - currY;
-            let newTx = tx - dx;
-            let newTy = ty - dy;
-
-            treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
-            tx = newTx;
-            ty = newTy; 
-            touchX = currX;
-            touchY = currY;
+            initTouchPan(event);
         } else if(event.touches.length == 2) {
-            let currDist = Math.hypot(event.touches[0].clientX - event.touches[1].clientX, event.touches[0].clientY - event.touches[1].clientY);
-            if(!touchDist) {
-                touchDist = currDist;
-                return;
-            }
-            let deltaDist = touchDist - currDist;
-
-            let currZoomFactor = zoomFactor;
-            if(deltaDist >= 0) currZoomFactor = 1/zoomFactor;  
-            currScale *= currZoomFactor;
-
-            // Calculate displacement of zooming position
-            let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
-            let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
-            let posX = (((event.touches[0].clientX - treeViewer.getBoundingClientRect().x) - centerX) + ((event.touches[1].clientX - treeViewer.getBoundingClientRect().x) - centerX)) / 2;
-            let posY = (((event.touches[0].clientY - treeViewer.getBoundingClientRect().y) - centerY) + ((event.touches[1].clientY - treeViewer.getBoundingClientRect().y) - centerY)) / 2;
-            calcTransform(posX, posY, currZoomFactor);
-            touchDist = currDist;
+            initTouchZoom(event);
         }
-    });
+    }
 
-    treeViewer.addEventListener("touchend", function(event) {
-        if(event.touches.length == 0) {
-            touchX = undefined;
-            touchY = undefined;
-        }
-    });
+    let handleTouch = function(event) {
+        svgContainer.addEventListener("touchmove", handleTouchMove, { once: true });
+    }
 
-    zoomInButton.addEventListener("click", function(event) {
-        currScale *= (zoomFactor * 1.25);
-        calcTransform(0, 0, zoomFactor);
-    });
-
-    zoomOutButton.addEventListener("click", function(event) {
-        currScale *= 1/(zoomFactor * 1.25);
-        calcTransform(0, 0, 1/zoomFactor);
-    });
-
-    fullscreenButtonMobile.addEventListener("click", function(event) {
-        window.removeEventListener("touchstart", detectSwipe);
-        fullscreenButtonMobile.style.display = "none"; 
-        minimizeButtonMobile.style.display = "flex";
-        fullscreenBackground.setAttribute("data-state", "fullscreen");
-        if(window.innerWidth > 900) {
-            enlargeTreeViewer();
+    let posEnlargedTree = function() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let distHeaderFooter = footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom;
+        let availHeight = distHeaderFooter - 50;
+        let availWidth = window.innerWidth - 100;
+        let desiredWidth = availHeight * aspectRatio;
+        if(desiredWidth < availWidth) {
+            viewerContainer.style.width = `${desiredWidth}px`;
         } else {
-            if(fullscreenBackground.requestFullscreen) {
-                fullscreenBackground.requestFullscreen();
+            viewerContainer.style.width = `${availWidth}px`;
+        }
+        let posTop = (header.offsetHeight + (distHeaderFooter / 2)) - (viewerContainer.offsetHeight / 2);
+        viewerContainer.style.top = `${posTop}px`;
+    }
+
+    let resizePolyFullscreenViewer = function() {
+        viewerContainer.style.height = `${window.innerHeight}px`;
+    }
+
+    let enlargeTree = function() {
+        enlargeBtn.classList.remove("tree-viewer__btn--visible"); 
+        minBtn.classList.add("tree-viewer__btn--visible"); 
+        if(window.innerWidth > 900) {
+            viewerContainer.classList.add("tree-viewer__viewer-container--enlarged");
+            posEnlargedTree();
+            window.addEventListener("resize", posEnlargedTree);
+            window.addEventListener("click", autoCloseOnOutsideClick);
+        } else {
+            if(viewerContainer.requestFullscreen) {
+                viewerContainer.requestFullscreen();
             } else {
-                resizePolyFullscreen();
-                window.addEventListener("resize", resizePolyFullscreen);
-                fullscreenBackground.classList.add("book-appendix-tree-viewer-fullbackground-polyfill");
-                let appendixPageEl = document.querySelector(".book-appendix-page");
-                appendixPageEl.classList.add("book-appendix-page-fullscreen-polyfill");
+                fsContainer.classList.add("tree-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.add("tree-viewer__viewer-container--fs-polyfill");
+                resizePolyFullscreenViewer();
+                window.addEventListener("resize", resizePolyFullscreenViewer);
             }
         }
-    });
+    }
 
-    minimizeButtonMobile.addEventListener("click", function(event) {
-        window.removeEventListener("touchstart", detectSwipe);
-        minimizeButtonMobile.style.display = "none"; 
-        fullscreenButtonMobile.style.display = "flex";
-        fullscreenBackground.setAttribute("data-state", "initial");
+    let minimizeTree = function() {
+        enlargeBtn.classList.add("tree-viewer__btn--visible"); 
+        minBtn.classList.remove("tree-viewer__btn--visible"); 
         if(window.innerWidth > 900) {
-            minimizeTreeViewer();
+            viewerContainer.classList.remove("tree-viewer__viewer-container--enlarged");
+            viewerContainer.style.width = "initial";
+            viewerContainer.style.top = "initial";
+            window.removeEventListener("resize", posEnlargedTree);
+            window.removeEventListener("click", autoCloseOnOutsideClick);
         } else {
-            if(fullscreenBackground.requestFullscreen) {
+            if(viewerContainer.requestFullscreen) {
                 document.exitFullscreen();
             } else {
-                window.removeEventListener("resize", resizePolyFullscreen);
-                treeViewer.style.removeProperty("height");
-                fullscreenBackground.classList.remove("book-appendix-tree-viewer-fullbackground-polyfill");
-                let appendixPageEl = document.querySelector(".book-appendix-page");
-                appendixPageEl.classList.remove("book-appendix-page-fullscreen-polyfill");
+                fsContainer.classList.remove("tree-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.remove("tree-viewer__viewer-container--fs-polyfill");
+                window.removeEventListener("resize", resizePolyFullscreenViewer);
+                viewerContainer.style.height = "initial";
             }
         }
-    });
+    }
 
-    function resizePolyFullscreen(event) {        
-        setTimeout(function() {
-            if(window.innerWidth > window.innerHeight) {
-                treeViewer.style.height = `${window.innerHeight}px`;
-            } else {
-                treeViewer.style.removeProperty("height");
+    let autoCloseOnOutsideClick = function(event) {
+        if(!treeViewer.contains(event.target)) minimizeTree();
+    }
+
+    let speciesLinks = treeViewer.querySelectorAll(".tree-viewer__tree-svg-link");
+    let fsContainer = treeViewer.querySelector(".tree-viewer__fullscreen-container");
+    let viewerContainer = treeViewer.querySelector(".tree-viewer__viewer-container");
+    let svgContainer = treeViewer.querySelector(".tree-viewer__svg-container");
+    let treeSvg = treeViewer.querySelector(".tree-viewer__tree-svg");
+    let zoomInBtn = treeViewer.querySelector(".tree-viewer__zoom-in-btn");
+    let zoomOutBtn = treeViewer.querySelector(".tree-viewer__zoom-out-btn");
+    let enlargeBtn = treeViewer.querySelector(".tree-viewer__enlarge-btn");
+    let minBtn = treeViewer.querySelector(".tree-viewer__min-btn");
+    let aspectRatio = (viewerContainer.offsetWidth / viewerContainer.offsetHeight);
+    let zoomWeight = 1.05;
+    let currScale = 1;
+    let currTranslateX = 0;
+    let currTranslateY = 0;
+    let urlAnchor = new URL(window.location.href).hash.substring(1); 
+
+    svgContainer.addEventListener("wheel", handleWheel);
+    // Not sure why, but adding the below event listener prevents pinch zoom on iOS.
+    // The touchmove event in initTouchZoom already preventsDefault, but adding it here
+    // is what actually prevents the pinch zoom 
+    svgContainer.addEventListener("touchmove", (event) => event.preventDefault());
+    svgContainer.addEventListener("mousedown", handleMouseDown);
+    svgContainer.addEventListener("touchstart", handleTouch);
+    zoomInBtn.addEventListener("click", () => zoomTree(0, 0, zoomWeight*1.25));
+    zoomOutBtn.addEventListener("click", () => zoomTree(0, 0, 1/(zoomWeight*1.25)));
+    enlargeBtn.addEventListener("click", enlargeTree);
+    minBtn.addEventListener("click", minimizeTree);
+
+    let openedPopUp;
+    let highlightedLink;
+    let hidePopUpTimeout;
+    for(let speciesLink of speciesLinks) {
+        let speciesId = speciesLink.getAttribute("data-species");
+        let speciesExampleList = document.getElementById(`${speciesId}-exampleList`);
+        if(!speciesExampleList) continue;
+
+        let hidePopUp = function() {
+            speciesExampleList.classList.add("species-example-list--hidden");
+            speciesLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+            window.removeEventListener("resize", hidePopUp);
+            viewerContainer.removeEventListener("touchstart", detectTouchLeave);
+        }
+
+        let initHidePopUp = function() {
+            hidePopUpTimeout = setTimeout(hidePopUp, 1000);
+        }
+
+        let detectTouchLeave = function(event) {
+            if(!speciesLink.contains(event.target) && !speciesExampleList.contains(event.target)) {
+                hidePopUp();
+                viewerContainer.removeEventListener("touchstart", detectTouchLeave);
             }
-        }, 200);
-    }
-
-    function enlargeTreeViewer() {
-        let header = document.querySelector("header");
-        let footer = document.querySelector("footer");
-        let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
-        let availWidth = window.innerWidth - 100;
-        let imageWidth = availHeight * aspectRatio;
-        if(imageWidth < availWidth) {
-            fullscreenBackground.style.width = `${imageWidth}px`;
-        } else {
-            fullscreenBackground.style.width = `${availWidth}px`;
         }
-        let posTop = (header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2)) - (fullscreenBackground.offsetHeight / 2);
-        let posLeft = (window.innerWidth / 2) - (fullscreenBackground.offsetWidth / 2);
-        fullscreenBackground.classList.add("book-appendix-tree-viewer-enlarged");
-        fullscreenBackground.style.top = `${posTop}px`;
-        fullscreenBackground.style.left = `${posLeft}px`;
-        window.addEventListener("resize", resizeEnlargedTree);
-        window.addEventListener("click", minimizeTreeClick);
-        navRight.style["margin-right"] = "1rem";
-    }
 
-    function minimizeTreeViewer() {
-        fullscreenBackground.style.width = "initial";
-        fullscreenBackground.style.top = "initial";
-        fullscreenBackground.style.left = "initial";
-        fullscreenBackground.classList.remove("book-appendix-tree-viewer-enlarged");
-        window.removeEventListener("resize", resizeEnlargedTree);
-        window.removeEventListener("click", minimizeTreeClick);
-        addNavRightMargin();
-    }
-
-    function resizeEnlargedTree() {
-        let header = document.querySelector("header");
-        let footer = document.querySelector("footer");
-        let aspectRatio = (treeViewer.offsetWidth / treeViewer.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
-        let availWidth = window.innerWidth - 100;
-        let imageWidth = availHeight * aspectRatio;
-        if(imageWidth < availWidth) {
-            fullscreenBackground.style.width = `${imageWidth}px`;
-        } else {
-            fullscreenBackground.style.width = `${availWidth}px`;
-        }
-        let posTop = (header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2)) - (fullscreenBackground.offsetHeight / 2);
-        let posLeft = (window.innerWidth / 2) - (fullscreenBackground.offsetWidth / 2);
-        fullscreenBackground.classList.add("book-appendix-tree-viewer-enlarged");
-        fullscreenBackground.style.top = `${posTop}px`;
-        fullscreenBackground.style.left = `${posLeft}px`;
-    }
-
-    function minimizeTreeClick(event) {
-        if(!fullscreenBackground.contains(event.target)) minimizeButtonMobile.click();
-    }
-
-    function calcTransform(posX, posY, zoomF) {
-        let dx = (posX - tx) * (zoomF - 1);
-        let dy = (posY - ty) * (zoomF - 1);
-        let newTx = tx - dx;
-        let newTy = ty - dy;
-
-        treeGraphic.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${newTx}, ${newTy})`;
-        tx = newTx;
-        ty = newTy;
-    }
-
-    let speciesEntries = document.querySelectorAll(".book-appendix-tree-species-entry");
-    let currPopUp = undefined;
-    for(let speciesEntry of speciesEntries) {
-        let speciesId = speciesEntry.getAttribute("id");
-        let popUp = document.querySelector(`.book-appendix-tree-section-list[data-species='${speciesId}']`);
-        if(!popUp) continue;
-        hidePopUpCalls = [];
-        speciesEntry.addEventListener("mouseenter", function(event) {
-            if(currPopUp) currPopUp.style.display = "none";
-            if(currSpeciesEntry) currSpeciesEntry.style["text-decoration"] = "none";
-            currPopUp = popUp;
-            currSpeciesEntry = speciesEntry;
-            speciesEntry.style["text-decoration"] = "underline";
-            clearHideCalls();
-            popUp.removeEventListener("mouseenter", popUpHandleHover);
-            popUp.removeEventListener("mouseleave", popUpHandleLeave);
-            popUp.style.display = "block";
-
-            popUp.style.left = `${event.clientX}px`;
-            popUp.style.top = `${event.clientY}px`;
-
+        let openPopUp = function(posX, posY) {
+            speciesExampleList.classList.remove("species-example-list--hidden");
+            openedPopUp = speciesExampleList;
+            speciesExampleList.style.left = `${posX}px`;
+            speciesExampleList.style.top = `${posY}px`;
             if(window.innerWidth < 900) {
-                let centerX = (treeViewer.getBoundingClientRect().right - treeViewer.getBoundingClientRect().x) / 2;
-                let centerY = (treeViewer.getBoundingClientRect().bottom - treeViewer.getBoundingClientRect().y) / 2;
-                let posX = (event.clientX - treeViewer.getBoundingClientRect().x) - centerX;
-                let posY = (event.clientY - treeViewer.getBoundingClientRect().y) - centerY;
-                let exampleList = popUp.querySelector(".book-appendix-tree-section-content");
+                let gridPos = calcGridPos(posX, posY);
                 let translateX = 0;
                 let translateY = 0;
-                let maxHeight = 0;
-                let maxWidth = 0;
-                if(posX > 0) {
+                let maxWidth;
+                let maxHeight;
+                if(gridPos.posX > 0) {
                     translateX = -100;
-                    maxWidth = event.clientX - 16;
+                    maxWidth = posX - 16;
                 } else {
-                    maxWidth = window.innerWidth - event.clientX - 16;
+                    maxWidth = window.innerWidth - posX - 16;
                 }
-                if (posY > 0) {
+                if(gridPos.posY > 0) {
                     translateY = -100;
-                    maxHeight = event.clientY - (popUp.offsetHeight - exampleList.offsetHeight) - 32;
+                    maxHeight = posY - 16;
                 } else {
-                    maxHeight = window.innerHeight - event.clientY - (popUp.offsetHeight - exampleList.offsetHeight) - 32;
+                    maxHeight = window.innerHeight - posY - 16;
                 }
-                popUp.style.transform = `translate(${translateX}%, ${translateY}%)`;
-                popUp.style["max-width"] = `${maxWidth}px`;
-                exampleList.style["max-height"] = `${maxHeight}px`;
+                speciesExampleList.style.transform = `translate(${translateX}%, ${translateY}%)`;
+                speciesExampleList.style.maxWidth = `${maxWidth}px`;
+                speciesExampleList.style.maxHeight = `${maxHeight}px`;
+            }
+            window.addEventListener("resize", hidePopUp, { once: true });
+        }
+
+        let focusLink = function() {
+            if(openedPopUp) openedPopUp.classList.add("species-example-list--hidden");
+            if(highlightedLink) highlightedLink.classList.remove("tree-viewer__tree-svg-link--highlighted");
+            speciesLink.classList.add("tree-viewer__tree-svg-link--highlighted");
+            highlightedLink = speciesLink;
+        }
+
+        let handleLinkMouseOver = function(event) {
+            clearTimeout(hidePopUpTimeout);
+            focusLink();
+            openPopUp(event.clientX, event.clientY);
+        }
+
+        let handleLinkTouch = function(event) {
+            event.preventDefault();
+
+            let flagTouchmove = function () {
+                validTap = false;
+                hidePopUp();
+                window.removeEventListener("touchmove", flagTouchmove);
             }
 
-            speciesEntry.addEventListener("mouseleave", function(event) {
-                hidePopUpCalls.push(hidePopUp(popUp));
-            }, {once: true});
-
-            popUp.addEventListener("mouseenter", popUpHandleHover);
-            popUp.addEventListener("mouseleave", popUpHandleLeave);
-            window.addEventListener("touchstart", touchHandleLeave);
-
-        });
-
-        function clearHideCalls() {
-            for(let hidePopUpCall of hidePopUpCalls) {
-                window.clearTimeout(hidePopUpCall);
-            }
-        }
-
-        let popUpHandleHover = function() {
-            clearHideCalls();
-            popUp.setAttribute("data-hover", "true");
-        }
-
-        let popUpHandleLeave = function() {
-            popUp.setAttribute("data-hover", "false");
-            hidePopUpCalls.push(hidePopUp(popUp));
-        }
-
-        let touchHandleLeave = function(event) {
-            if(!popUp.contains(event.target) && !speciesEntry.contains(event.target)) {
-                popUp.setAttribute("data-hover", "false");
-                popUp.style.display = "none";
-                currSpeciesEntry.style["text-decoration"] = "none";
-                window.removeEventListener("touchstart", touchHandleLeave);
-            }
-        }
-
-        function hidePopUp(popUp) {
-            let timeoutNum = setTimeout(function() {
-                if(popUp.getAttribute("data-hover") != "true") {
-                    popUp.style.display = "none";
-                    currSpeciesEntry.style["text-decoration"] = "none";
+            let handleTouchend = function(event) {
+                if(validTap) {
+                    focusLink();
+                    openPopUp(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+                    viewerContainer.addEventListener("touchstart", detectTouchLeave);
                 }
-            }, 1000);
-            return timeoutNum;
+                window.removeEventListener("touchmove", flagTouchmove);
+            }
+
+            let validTap = true;
+            window.addEventListener("touchmove", flagTouchmove);
+            window.addEventListener("touchend", handleTouchend, { once: true });
         }
-    }                  
+
+        let simulateOpenPopUp = function() {
+            let initialLinkPos = { posX: speciesLink.getBoundingClientRect().x, posY: speciesLink.getBoundingClientRect().y };
+            let gridPos = calcGridPos(initialLinkPos.posX, initialLinkPos.posY);
+            let zoomAmount = (window.innerWidth >= 900) ? 2.5 : 4.5;
+            panTree(gridPos.posX, gridPos.posY);
+            zoomTree(0, 0, zoomWeight*zoomAmount);
+            let newLinkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+            let newLinkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+            focusLink();
+            openPopUp(newLinkPosX, newLinkPosY);
+            viewerContainer.addEventListener("touchstart", detectTouchLeave);
+        }
+
+        let handlePopUpHover = function() {
+            clearTimeout(hidePopUpTimeout);
+        }
+
+        speciesLink.addEventListener("mouseenter", handleLinkMouseOver);
+        speciesLink.addEventListener("touchstart", handleLinkTouch);
+        speciesLink.addEventListener("mouseleave", initHidePopUp);
+        speciesExampleList.addEventListener("mouseenter", handlePopUpHover);
+        speciesExampleList.addEventListener("mouseleave", initHidePopUp);
+
+        if(speciesId == urlAnchor) {
+            if(window.innerWidth >= 900) {
+                enlargeTree();
+                simulateOpenPopUp();
+            } else {
+                let handleConfirm = function() {
+                    if(viewerContainer.requestFullscreen) {
+                        let adjustPopUpAfterFullscreen = function() {
+                            let linkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+                            let linkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+                            openPopUp(linkPosX, linkPosY);
+                        }
+
+                        document.addEventListener("fullscreenchange", simulateOpenPopUp, { once: true });
+                        setTimeout(adjustPopUpAfterFullscreen, 200);
+                        enlargeTree();
+                    } else {
+                        enlargeTree();
+                        simulateOpenPopUp();
+                    }
+                    fsTreeConfirm.classList.add("fs-tree-confirm--hidden");
+                }
+
+                let fsTreeConfirm = document.querySelector(".fs-tree-confirm");
+                let confirmBtn = fsTreeConfirm.querySelector(".fs-tree-confirm__confirm-btn");
+                confirmBtn.addEventListener("click", handleConfirm);
+                fsTreeConfirm.classList.remove("fs-tree-confirm--hidden");
+            }
+        }
+    }
 }

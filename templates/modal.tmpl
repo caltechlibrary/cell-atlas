@@ -24,8 +24,10 @@
         ${it:vid-citation.tmpl()}
     ${elseif(it.sources)}
         ${it:vid-citation.tmpl()}
-    ${elseif(it.viewerDemo)}
-        ${it:vid-citation.tmpl()}
+    ${endif}
+
+    ${if(it.viewer)}
+        ${it:viewer.tmpl()}
     ${endif}
     
     ${if(it.video)}
@@ -35,10 +37,6 @@
         ${endif}
     ${endif}
 
-    ${if(it.viewerDemo)}
-        ${it:viewer.tmpl()}
-    ${endif}
-    
     <div class="subsection-modal-text" tabindex="-1">
         <h1>${it.title}</h1>
         <div class="book-text-content">

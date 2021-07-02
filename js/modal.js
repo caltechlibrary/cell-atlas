@@ -8,6 +8,7 @@ function openModal(modalId) {
     let modalText = modal.querySelector(".subsection-modal-text");
     let qualityChangerDesktop = modal.querySelector(".video-quality-player-control");
     let imgBlock = modal.querySelector(".content-img");
+    let viewerBlock = modal.querySelector(".protein-viewer");
     let fullBackground = modal.querySelector(".book-section-comparison-slider-fullscreen-container");
 
     modalOverlay.style.display = "block";
@@ -69,6 +70,13 @@ function openModal(modalId) {
                 minBtn.click();
             }
         }
+        if(viewerBlock && window.innerWidth > 900) {
+            let viewerContainer = viewerBlock.querySelector(".protein-viewer__viewer-container");
+            if(viewerContainer.classList.contains("protein-viewer__viewer-container--enlarged")) {
+                let minBtn = viewerBlock.querySelector(".protein-viewer__min-btn");
+                minBtn.click();
+            }
+        }
         lastFocused.focus();
     }
 
@@ -84,4 +92,262 @@ function openModal(modalId) {
             }
         }
     }
+}
+
+let viewerEls = document.getElementsByClassName("protein-viewer");
+for(let viewerEl of viewerEls) {
+    let openViewer = function() {
+        if(window.innerWidth >= 900) {
+            viewerContainer.classList.add("protein-viewer__viewer-container--enlarged");
+            viewerEl.classList.remove("protein-viewer--hidden");
+            positionViewerPopUp();
+            parentModal.classList.add("subsection-modal--min");
+            window.addEventListener("resize", positionViewerPopUp);
+            viewerObj.requestRedraw();
+        } else {
+            if(viewerContainer.requestFullscreen) {
+                document.addEventListener("fullscreenchange", function() {
+                    viewerEl.classList.remove("protein-viewer--hidden");
+                    resizeViewer();
+                }, { once: true });
+                window.addEventListener("resize", resizeViewer);
+                viewerContainer.requestFullscreen();
+            } else {
+                fsContainer.classList.add("protein-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.add("protein-viewer__viewer-container--fs-polyfill");
+                viewerEl.classList.remove("protein-viewer--hidden");
+                resizeViewer();
+                window.addEventListener("resize", resizePolyFullscreenViewer);
+            }
+        }
+    }
+
+    let closeViewer = function() {
+        viewerEl.classList.add("protein-viewer--hidden");
+        if(window.innerWidth >= 900) {
+            viewerContainer.classList.remove("protein-viewer__viewer-container--enlarged");
+            parentModal.classList.remove("subsection-modal--min");
+            window.removeEventListener("resize", positionViewerPopUp);
+        } else {
+            if(viewerContainer.requestFullscreen) {
+                window.removeEventListener("resize", resizeViewer);
+                document.exitFullscreen();
+            } else {
+                window.removeEventListener("resize", resizePolyFullscreenViewer);
+                fsContainer.classList.remove("protein-viewer__fullscreen-container--fs-polyfill");
+                viewerContainer.classList.remove("protein-viewer__viewer-container--fs-polyfill");
+            }
+        }
+    }
+
+    let positionViewerPopUp = function() {
+        let header = document.querySelector("header");
+        let footer = document.querySelector("footer");
+        let distHeaderFooter = footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom
+        let posTop = header.offsetHeight + (distHeaderFooter / 2);
+        let aspectRatio = 0.5625;
+        let availHeight = distHeaderFooter - 50;
+        let availWidth = window.innerWidth - 100;
+        let desiredWidth = availHeight / aspectRatio;
+        if(desiredWidth <= availWidth) {
+            viewerContainer.style.width = `${desiredWidth}px`;
+            viewerContainer.style.height = `${desiredWidth * aspectRatio}px`;
+        } else {
+            viewerContainer.style.width = `${availWidth}px`;
+            viewerContainer.style.height = `${availWidth * aspectRatio}px`;
+        }
+        viewerContainer.style.top = `${posTop}px`;
+        resizeViewer();
+    }
+
+    let resizeViewer = function() {
+        let viewerContainerCompStyle = window.getComputedStyle(viewerContainer);
+        let width = viewerContainer.offsetWidth;
+        let height = viewerContainer.offsetHeight;
+        let borderWidth = parseFloat(viewerContainerCompStyle.borderWidth);
+        viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
+    }
+
+    let resizePolyFullscreenViewer = function() {
+        viewerContainer.style.height = `${window.innerHeight}px`;
+        resizeViewer();
+    }
+
+    let changeModel = function() {
+        let modelType = modelSelect.value;
+        let color = colorSelect.value;
+        let options = {};
+        if(color == "chain") {
+            options.color = pv.color.byChain();
+        } else if(color == "ss") {
+            options.color = pv.color.bySS();
+        } else if(color == "tempFactor") {
+            options.color = pv.color.byAtomProp(color);
+        }
+
+        viewerObj.clear();
+        viewerStructs.forEach(function(viewerStruct, index) {
+            viewerObj.renderAs(`structure_${index}`, viewerStruct, modelType, options);
+        });
+    }
+
+    let changeColor = function() {
+        let color = colorSelect.value;
+        viewerObj.forEach(function(geomObj) {
+            if(color == "chain") {
+                geomObj.colorBy(pv.color.byChain());
+            } else if(color == "ss") {
+                geomObj.colorBy(pv.color.bySS());
+            } else if(color == "tempFactor") {
+                geomObj.colorBy(pv.color.byAtomProp(color));
+            }
+        });
+        viewerObj.requestRedraw();
+    }
+
+    let highlightAtom = function(geomObj, atom) {
+        let view = geomObj.structure().createEmptyView();
+        view.addAtom(atom);
+        geomObj.setSelection(view);
+    }
+
+    let unHighlightAtom = function(geomObj) {
+        let view = geomObj.structure().createEmptyView();
+        geomObj.setSelection(view);
+    }
+
+    let handleInput = function(pos) {
+        let picked = viewerObj.pick(pos);
+        if((!prevPicked && !picked) || prevPicked && picked && picked.target() == prevPicked.atom) return;
+        if(prevPicked) {
+            unHighlightAtom(prevPicked.node);
+            prevPicked = null;
+        }
+        if(picked) {
+            let color = [0, 0, 0, 0];
+            let atom = picked.target();
+            let atomNameComponents = atom.qualifiedName().split(".");
+            let proteinNum = atomNameComponents[0].charCodeAt("0") - 64;
+            let residueNum = atomNameComponents[1].substring(3);
+            let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
+            let atomColor = picked.node().getColorForAtom(atom, color);
+            highlightAtom(picked.node(), atom);
+            atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            atomLabel.classList.remove("protein-viewer__atom-label--hidden");
+            prevPicked = { node: picked.node() }
+        } else {
+            atomLabel.classList.add("protein-viewer__atom-label--hidden");
+        }
+        viewerObj.requestRedraw();
+    }
+
+    let handleTouch = function(event) {
+        let handleTouchend = function() {
+            if(validTap) {
+                let pos = { x: event.touches[0].clientX - viewerContainer.getBoundingClientRect().x, y: event.touches[0].clientY - viewerContainer.getBoundingClientRect().y };
+                handleInput(pos);
+            }
+            viewerContainer.removeEventListener("touchmove", handleTouchmove);
+        }
+
+        let handleTouchmove = function() {
+            validTap = false;
+        }
+
+        let validTap = true;
+        viewerContainer.addEventListener("touchend", handleTouchend, { once: true });
+        viewerContainer.addEventListener("touchmove", handleTouchmove, { once: true });
+    }
+
+    let handleMouseDown = function(event) {
+        let handleMouseup = function() {
+            if(validPress) {
+                let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+                handleInput(pos);
+            }
+            viewerContainer.removeEventListener("mousemove", handleMousemove);
+        }
+
+        let handleMousemove = function() {
+            validPress = false;
+        }
+
+        let validPress = true;
+        viewerContainer.addEventListener("mouseup", handleMouseup, { once: true });
+        viewerContainer.addEventListener("mousemove", handleMousemove, { once: true });
+    }
+
+    let processFetchRes = function(res) {
+        let contentLength = res.headers.get("content-length");
+        if(contentLength > largeFileSize) {
+            for(let option of modelSelect.options) {
+                if(option.value == "ballsAndSticks" || (option.value == "spheres" && window.innerWidth < 900)) modelSelect.removeChild(option);
+            }
+        }
+        return res.text();
+    }
+
+    let loadPdb = function(data) {
+        viewerStructs = pv.io.pdb(data, { loadAllModels: true });
+        viewerStructs.forEach(function(viewerStruct, index) {
+            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
+        });
+        viewerObj.autoZoom();
+    }
+
+    let pdb = viewerEl.getAttribute("data-pdb");
+    let openBtn = document.querySelector(`button[value='${pdb}']`);
+    let parentModal = viewerEl.parentElement;
+    let viewerContainer = viewerEl.querySelector(".protein-viewer__viewer-container");
+    let fsContainer = viewerEl.querySelector(".protein-viewer__fullscreen-container");
+    let atomLabel = viewerEl.querySelector(".protein-viewer__atom-label");
+    let minBtn = viewerEl.querySelector(".protein-viewer__min-btn");
+    let modelSelect = viewerEl.querySelector(".protein-viewer__model-select");
+    let colorSelect = viewerEl.querySelector(".protein-viewer__color-select");
+    let viewerOptions = {
+        antialias: true,
+        quality : 'medium',
+        fog: false,
+        selectionColor : "#000"
+    };
+    let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
+    let viewerStructs;
+    let prevPicked;
+    let proteinDict = {
+        "ALA": "alanine",
+        "ARG": "arginine",
+        "ASN": "asparagine",
+        "ASP": "aspartate",
+        "CYS": "cysteine",
+        "GLU": "glutamate",
+        "GLN": "glutamine",
+        "GLY": "glycine",
+        "HIS": "histidine",
+        "ILE": "isoleucine",
+        "LEU": "leucine",
+        "LYS": "lysine",
+        "MET": "methionine",
+        "PHE": "phenylalanine",
+        "PRO": "proline",
+        "SEC": "selenocysteine",
+        "SER": "serine",
+        "THR": "threonine",
+        "TRP": "tryptophan",
+        "TYR": "tyrosine",
+        "VAL": "valine",
+        "HOH": "water",
+        "XAA": "other"
+    }
+    // File size in bytes of PDB files that may cause rendering issues
+    let largeFileSize = 5000000;
+    
+    openBtn.addEventListener("click", openViewer);
+    minBtn.addEventListener("click", closeViewer);
+    modelSelect.addEventListener("change", changeModel);
+    colorSelect.addEventListener("change", changeColor);
+    viewerContainer.addEventListener("touchstart", handleTouch);
+    viewerContainer.addEventListener("mousedown", handleMouseDown);
+    fetch(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`)
+        .then(processFetchRes)
+        .then(loadPdb);
 }

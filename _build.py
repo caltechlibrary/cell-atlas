@@ -45,6 +45,10 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         if "sliderImgName" in metadata:  metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
         if "doi" in metadata:
             metadata["vidMetadata"]["species"] = metadata["videoTitle"]
+            if "/" in metadata["videoTitle"]:
+                metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].split("/")[0].strip().replace(" ", "-")
+            else:
+                metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].replace(" ", "-")
             metadata["vidMetadata"]["doi"] = metadata["doi"]
             metadata["vidMetadata"]["collector"] = metadata["collector"]
 
@@ -159,7 +163,13 @@ def processSubsection(subsectionFile, pageName, parentData):
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
         addSliderData(metadata, metadata["video"])
-    if("species" in metadata): addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
+    if("species" in metadata): 
+        if "+" in metadata["species"]:
+            addSpeciesToDict(metadata["species"].split("+")[0].strip(), "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
+            metadata["speciesId"] = metadata["species"].split("+")[0].strip().replace(" ", "-")
+        else:
+            addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
+            metadata["speciesId"] = metadata["species"].replace(" ", "-")
 
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")
@@ -169,39 +179,42 @@ def processSubsection(subsectionFile, pageName, parentData):
         sourceFormatted = insertRefLinks(metadata["source"], isSchematic=True)
         metadata["sources"] = []
         
-        if "viewerDemo" not in metadata:
-            if "[" not in sourceFormatted or "]" not in sourceFormatted:
-                metadata["sources"].append({ "text": sourceFormatted, "link": "B-scientist-profiles.html#{}".format(sourceFormatted.replace(" ", "")) })
-            else:
-                pare = re.compile(r"\(([^\)]+)\)")
-                bracket = re.compile(r"\[(.*?)\]")
-                for match in re.finditer(pare, sourceFormatted):
-                    matchString = match.group()
-                    if "D-references" in matchString:
-                        metadata["sources"].append({ "link": matchString[1:len(matchString)-1] })
-                i = 0
-                for match in re.finditer(bracket, sourceFormatted):
-                    matchString = match.group()
-                    metadata["sources"][i]["text"] = matchString[1:len(matchString)-1]
-                    i = i + 1
-            if(len(metadata["sources"]) >= 1): metadata["sources"][-1]["last"] = True
+        if "[" not in sourceFormatted or "]" not in sourceFormatted:
+            metadata["sources"].append({ "text": sourceFormatted, "link": "B-scientist-profiles.html#{}".format(sourceFormatted.replace(" ", "")) })
+        else:
+            pare = re.compile(r"\(([^\)]+)\)")
+            bracket = re.compile(r"\[(.*?)\]")
+            for match in re.finditer(pare, sourceFormatted):
+                matchString = match.group()
+                if "D-references" in matchString:
+                    metadata["sources"].append({ "link": matchString[1:len(matchString)-1] })
+            i = 0
+            for match in re.finditer(bracket, sourceFormatted):
+                matchString = match.group()
+                metadata["sources"][i]["text"] = matchString[1:len(matchString)-1]
+                i = i + 1
+        if(len(metadata["sources"]) >= 1): metadata["sources"][-1]["last"] = True
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
     # Deconstruct preformatted structure data
     if "structure" in metadata: 
         metadata["structures"] = []
-        if "viewerDemo" not in metadata:
-            textR = re.compile(r"\>(.*?)\<")
-            link = re.compile(r"\"(.*?)\"")
-            for match in re.finditer(link, metadata["structure"]):
-                matchString = match.group()
-                metadata["structures"].append({ "link": matchString[1:len(matchString)-1] })
-            i = 0
-            for match in re.finditer(textR, metadata["structure"]):
+        textR = re.compile(r"\>(.*?)\<")
+        link = re.compile(r"\"(.*?)\"")
+        for match in re.finditer(link, metadata["structure"]):
+            matchString = match.group()
+            metadata["structures"].append({ "link": matchString[1:len(matchString)-1] })
+        i = 0
+        for match in re.finditer(textR, metadata["structure"]):
                 matchString = match.group()
                 if matchString != ">, <": 
                     metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
+                    if "-" not in metadata["structures"][i]["text"]:
+                        metadata["structures"][i]["viewerId"] = metadata["structures"][i]["text"].split(" ")[1].lower()
+                        metadata["viewer"] = {
+                            "pdb": metadata["structures"][i]["viewerId"]
+                        }
                     i = i + 1
         if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
 
@@ -436,19 +449,6 @@ metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
 
-## Viewer Demos
-metadata = getMarkdownMetadata("pv-demo.md")
-metadata["typeSection"] = True
-metadata["thumbnail"] = "0_0_thumbnail"
-metadata["totalPages"] = totalPages
-metadata["currentPageNum"] = -1
-metadata["chapterPageNums"] = chapterPageValues
-metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
-metadata["displayPercent"] = round(metadata["progPercent"])
-metadata["sliderImgName"] = "pv-demo"
-writePage(SITEDIR, "pv-demo.md", "page", "pv-demo", metadata)
-##################################
-
 # Render introduction page
 introFileMetaData = getMarkdownMetadata("introduction.md")
 introFileMetaData["typeSection"] = True
@@ -516,7 +516,11 @@ for i in range(len(sectionFiles)):
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
 
-    if("videoTitle" in metadata): addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
+    if("videoTitle" in metadata): 
+        if "/" in metadata["videoTitle"]:
+            addSpeciesToDict(metadata["videoTitle"].split("/")[0].strip(), "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
+        else:
+            addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
 
     if metadata["section"] != "0":
         metadata["typeSection"] = True

@@ -1,25 +1,32 @@
-<div class="book-appendix-tree-viewer-fullbackground" data-state="initial">
-    ${for(speciesList)}
-        <div class="book-appendix-tree-section-list" data-species="${speciesList.id}">
-            <h2 class="book-appendix-tree-section-title">${speciesList.species}</h2>
-            <div class="book-appendix-tree-section-content">
-                <h3 class="book-appendix-tree-section-subheader">Examples:</h3>
-                <ol class="book-appendix-tree-section-example-list">
-                    ${for(speciesList.speciesObjs)}
-                        <li><a href="${speciesList.speciesObjs.page}">${if(speciesList.speciesObjs.chapter)}${speciesList.speciesObjs.chapter}.${endif}${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a></li>
-                    ${endfor}
-                </ol>
+<div class="tree-viewer">
+    <div class="tree-viewer__fullscreen-container">
+        <div class="tree-viewer__viewer-container">
+            <button class="tree-viewer__btn tree-viewer__btn--visible tree-viewer__enlarge-btn">${svg/noun_Fullscreen.svg()}</button>
+            <button class="tree-viewer__btn tree-viewer__min-btn">${svg/noun_X.svg()}</button>
+            <div class="tree-viewer__zoom-controls">
+                <button class="tree-viewer__zoom-controls-btn tree-viewer__zoom-in-btn">${svg/noun_Plus.svg()}</button>
+                <div class="tree-viewer__zoom-controls-divider"></div>
+                <button class="tree-viewer__zoom-controls-btn tree-viewer__zoom-out-btn">${svg/noun_Minus.svg()}</button>
             </div>
+            <div class="tree-viewer__svg-container">
+                ${svg/modifiedTree.svg()}
+            </div>
+
+            ${for(speciesList)}
+                <div class="species-example-list species-example-list--pop-up species-example-list--hidden" id="${speciesList.id}-exampleList">
+                    <h2 class="species-example-list__species-title">${speciesList.species}</h2>
+                    <div class="species-example-list__examples-container">
+                        <h3 class="species-example-list__examples-header">Examples:</h3>
+                        <ol class="species-example-list__examples-list">
+                            ${for(speciesList.speciesObjs)}
+                                <li class="species-example-list__examples-list-item">
+                                    <a class="species-example-list__link" href="${speciesList.speciesObjs.page}">${if(speciesList.speciesObjs.chapter)}${speciesList.speciesObjs.chapter}.${endif}${speciesList.speciesObjs.section} ${speciesList.speciesObjs.title}</a>
+                                </li>
+                            ${endfor}
+                        </ol>
+                    </div>
+                </div>
+            ${endfor}
         </div>
-    ${endfor}
-    <div class="book-appendix-tree-viewer">
-        <button id="treeFullScreen" class="book-appendix-tree-viewer-fullscreen-button">${svg/noun_Fullscreen.svg()}</button>
-        <button id="treeMinimize" class="book-appendix-tree-viewer-fullscreen-button">${svg/noun_X.svg()}</button>
-        <div class="book-appendix-tree-viewer-controls">
-            <button class="book-appendix-tree-viewer-zoom-in" id="treeZoomIn">${svg/noun_Plus.svg()}</button>
-            <div class="book-appendix-tree-viewer-controls-divider"></div>
-            <button class="book-appendix-tree-viewer-zoom-out" id="treeZoomOut">${svg/noun_Minus.svg()}</button>
-        </div>
-        ${svg/modifiedTree.svg()}
     </div>
 </div>
