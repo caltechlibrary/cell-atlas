@@ -1121,8 +1121,10 @@ if(document.querySelector(".summary-menu")) {
     let summaryMenu = document.querySelector(".summary-menu");
     let menuContainer = summaryMenu.querySelector(".summary-menu__container");
     let menuItems = summaryMenu.querySelectorAll(".summary-menu__li");
+    let mobileSummaryBtn = document.querySelector(".page-controls-mobile button[value='summary']");
     resizeMenu();
     window.addEventListener("resize", resizeMenu);
+    if(mobileSummaryBtn) mobileSummaryBtn.addEventListener("click", resizeMenu);
 
     for(let menuItem of menuItems) {
         menuItem.addEventListener("mouseenter", activateMenuPart);

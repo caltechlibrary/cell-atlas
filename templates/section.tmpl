@@ -10,18 +10,18 @@
 
         ${if(summaryData)}
             ${summaryData:summary.tmpl()}
-        ${endif}
-
-        ${if(vidMetadata.sliderImgName)}
-                ${vidMetadata:toggleImgVid.tmpl()}
-                ${vidMetadata:slider.tmpl()}
-        ${endif}
-
-        ${vidMetadata:player.tmpl()}
-
-        ${if(offline)}
         ${else}
-            ${vidMetadata:quality-changer-mobile.tmpl()}
+            ${if(vidMetadata.sliderImgName)}
+                    ${vidMetadata:toggleImgVid.tmpl()}
+                    ${vidMetadata:slider.tmpl()}
+            ${endif}
+
+            ${vidMetadata:player.tmpl()}
+
+            ${if(offline)}
+            ${else}
+                ${vidMetadata:quality-changer-mobile.tmpl()}
+            ${endif}
         ${endif}
     </div>
     <a href="${nextSection}.html" class="book-page-nav" data-nav="next">&#8250;</a>

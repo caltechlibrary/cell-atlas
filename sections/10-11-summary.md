@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 10_Viruses.mp4
 ---
 
 ## Concept Check Questions 

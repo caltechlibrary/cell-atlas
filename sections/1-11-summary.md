@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 01_Methods.mp4 
 ---
 
 ## Concept Check Questions 

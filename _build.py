@@ -486,7 +486,6 @@ for i in range(len(sectionFiles)):
         else:
             print("{} section file does not have DOI field".format(fileName)) 
     if(title[0] == "summary.md"):
-        metadata["thumbnail"] = "{}_thumbnail".format(metadata["video"].split(".")[0])
         metadata["summaryData"] = {
             "chapter{}".format(metadata["chapter"]): True 
         }

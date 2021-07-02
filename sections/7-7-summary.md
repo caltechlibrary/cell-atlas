@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 07_Navigation.mp4
 ---
 
 ## Concept Check Questions 

@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 02_Envelope.mp4
 ---
 
 ## Concept Check Questions 
