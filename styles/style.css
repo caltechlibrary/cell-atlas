@@ -117,7 +117,8 @@ file. These definitions will be defined mobile first.
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        height: 5rem;
+        flex: 1 0 auto;
+        height: 80px;
     }
 
     header a {
@@ -129,7 +130,7 @@ file. These definitions will be defined mobile first.
     }
 
     .header-logo {
-        height: 70%;
+        height: 56px;
         transform: translate(0, 12%);
     }
 
