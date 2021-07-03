@@ -1073,8 +1073,8 @@ function initializeCompSlider(compSliderContainer) {
 if(document.querySelector(".summary-menu")) {
     let resizeMenu = function(event) {
         let sideLength = Math.min(summaryMenu.clientWidth, summaryMenu.clientHeight);
-        menuContainer.style.width = `${sideLength - 32}px`;
-        menuContainer.style.height = `${sideLength - 32}px`;
+        menuContainer.style.width = `${sideLength}px`;
+        menuContainer.style.height = `${sideLength}px`;
     };
 
     let activateMenuPart = function(event) {
