@@ -2034,7 +2034,6 @@ file. These definitions will be defined mobile first.
     border-radius: 10px;
     box-shadow: 0px 0px 0 1px #444;
     background: #fff;
-    overflow: hidden;
 }
 
 .summary-menu--nontext-section {
@@ -2074,10 +2073,6 @@ file. These definitions will be defined mobile first.
 .summary-menu__li-text {
     position: fixed;
     transform: translate(-50%, -50%);
-    font-family: sans-serif;
-    font-size: 2.2em;
-    text-align: center;
-    white-space: break-spaces;
     transition: visibility 0.25s, opacity 0.25s;
 }
 
@@ -2087,51 +2082,51 @@ file. These definitions will be defined mobile first.
 }
 
 .summary-menu__li--ch2-item1 {
-    width: 29%;
-    top: 6%;
-    left: 17%;
+    width: 25.5%;
+    top: 5.75%;
+    left: 21%;
 }
 
 .summary-menu__li--ch2-item2 {
-    width: 30.5%;
-    top: 3.75%;
-    left: 49.25%;
+    width: 28.5%;
+    top: 9%;
+    left: 49.5%;
 }
 
 .summary-menu__li--ch2-item3 {
-    width: 13.5%;
-    top: 18.75%;
-    left: 80.25%;
+    width: 14.75%;
+    top: 22.25%;
+    left: 76.75%;
 }
 
 .summary-menu__li--ch2-item4 {
-    width: 20%;
-    top: 50.75%;
-    left: 80%;
+    width: 17.75%;
+    top: 50.5%;
+    left: 76.5%;
 }
 
 .summary-menu__li--ch2-item5 {
-    width: 32%;
-    top: 80%;
-    left: 49%;
+    width: 27.5%;
+    top: 76.75%;
+    left: 49.5%;
 }
 
 .summary-menu__li--ch2-item6 {
-    width: 28%;
-    top: 81.5%;
-    left: 18.5%;
+    width: 26.5%;
+    top: 77.75%;
+    left: 20.25%;
 }
 
 .summary-menu__li--ch2-item7 {
-    width: 15.5%;
-    top: 50.5%;
-    left: 1.75%;
+    width: 17.5%;
+    top: 50.25%;
+    left: 3.5%;
 }
 
 .summary-menu__li--ch2-item8 {
-    width: 15.25%;
-    top: 18%;
-    left: 0%;
+    width: 13%;
+    top: 20%;
+    left: 6%;
 }
 
 @media (min-width:900px) {

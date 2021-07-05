@@ -1073,8 +1073,8 @@ function initializeCompSlider(compSliderContainer) {
 if(document.querySelector(".summary-menu")) {
     let resizeMenu = function(event) {
         let sideLength = Math.min(summaryMenu.clientWidth, summaryMenu.clientHeight);
-        menuContainer.style.width = `${sideLength - 32}px`;
-        menuContainer.style.height = `${sideLength - 32}px`;
+        menuContainer.style.width = `${sideLength}px`;
+        menuContainer.style.height = `${sideLength}px`;
     };
 
     let activateMenuPart = function(event) {
@@ -1086,13 +1086,14 @@ if(document.querySelector(".summary-menu")) {
         let menuCenterY = summaryMenu.getBoundingClientRect().bottom - ((summaryMenu.getBoundingClientRect().bottom - summaryMenu.getBoundingClientRect().top) / 2);
         let itemCordX = menuItem.getBoundingClientRect().right - ((menuItem.getBoundingClientRect().right - menuItem.getBoundingClientRect().left) / 2);
         let itemCordY = menuItem.getBoundingClientRect().bottom - ((menuItem.getBoundingClientRect().bottom - menuItem.getBoundingClientRect().top) / 2);
-        let tx = (itemCordX > menuCenterX) ? 15 : -15;
-        let ty = (itemCordY > menuCenterY) ? 15 : -15;
+        let translateDist = focusTranslateRatio * menuContainer.clientWidth;
+        let tx = (itemCordX > menuCenterX) ? translateDist : -translateDist;
+        let ty = (itemCordY > menuCenterY) ? translateDist : -translateDist;
         if(currentOpened) deactivateMenuPart({ target: currentOpened });
         partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
         partText.style.left = `${menuCenterX}px`;
         partText.style.top = `${menuCenterY}px`;
-        partText.style.width = `${summaryMenu.offsetWidth * 0.5}px`;
+        partText.style.width = `${menuContainer.offsetWidth * 0.7}px`;
         partText.classList.remove("summary-menu__li-text--hidden");
         menuItem.classList.add("summary-menu__li--active");
     };
@@ -1122,6 +1123,7 @@ if(document.querySelector(".summary-menu")) {
     let menuContainer = summaryMenu.querySelector(".summary-menu__container");
     let menuItems = summaryMenu.querySelectorAll(".summary-menu__li");
     let mobileSummaryBtn = document.querySelector(".page-controls-mobile button[value='summary']");
+    let focusTranslateRatio = 0.0215;
     resizeMenu();
     window.addEventListener("resize", resizeMenu);
     if(mobileSummaryBtn) mobileSummaryBtn.addEventListener("click", resizeMenu);
