@@ -1072,7 +1072,7 @@ function initializeCompSlider(compSliderContainer) {
 
 if(document.querySelector(".summary-menu")) {
     let resizeMenu = function(event) {
-        let sideLength = Math.min(summaryMenu.clientWidth, summaryMenu.clientHeight);
+        let sideLength = Math.min(menuWidget.clientWidth, menuWidget.clientHeight);
         menuContainer.style.width = `${sideLength}px`;
         menuContainer.style.height = `${sideLength}px`;
     };
@@ -1082,8 +1082,8 @@ if(document.querySelector(".summary-menu")) {
         let currentOpened = summaryMenu.querySelector(".summary-menu__li--active");
         let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
         let partText = menuItem.querySelector(".summary-menu__li-text");
-        let menuCenterX = summaryMenu.getBoundingClientRect().right - ((summaryMenu.getBoundingClientRect().right -summaryMenu.getBoundingClientRect().left) / 2);
-        let menuCenterY = summaryMenu.getBoundingClientRect().bottom - ((summaryMenu.getBoundingClientRect().bottom - summaryMenu.getBoundingClientRect().top) / 2);
+        let menuCenterX = menuContainer.getBoundingClientRect().right - ((menuContainer.getBoundingClientRect().right - menuContainer.getBoundingClientRect().left) / 2);
+        let menuCenterY = menuContainer.getBoundingClientRect().bottom - ((menuContainer.getBoundingClientRect().bottom - menuContainer.getBoundingClientRect().top) / 2);
         let itemCordX = menuItem.getBoundingClientRect().right - ((menuItem.getBoundingClientRect().right - menuItem.getBoundingClientRect().left) / 2);
         let itemCordY = menuItem.getBoundingClientRect().bottom - ((menuItem.getBoundingClientRect().bottom - menuItem.getBoundingClientRect().top) / 2);
         let translateDist = focusTranslateRatio * menuContainer.clientWidth;
@@ -1119,14 +1119,62 @@ if(document.querySelector(".summary-menu")) {
         }
     };
 
+    let resizePolyFullscreen = function() {
+        menuWidget.style.height = `${window.innerHeight}px`;
+        resizeMenu();
+    }
+
+    let enlargeMenu = function() {
+        enlargeBtn.classList.add("summary-menu__btn--hidden"); 
+        minBtn.classList.remove("summary-menu__btn--hidden");
+        if(window.innerWidth > 900) {
+        } else {
+            if(menuWidget.requestFullscreen) {
+                document.addEventListener("fullscreenchange", resizeMenu, { once: true });
+                menuWidget.requestFullscreen();
+            } else {
+                summaryMenu.classList.remove("summary-menu--nontext-section");
+                summaryMenu.classList.add("summary-menu--fs-polyfill");
+                nonTextSection.classList.add("book-section-non-text-content--fs-polyfill");
+                resizePolyFullscreen();
+                window.addEventListener("resize", resizePolyFullscreen);
+            }
+        }
+    };
+
+    let minimizeMenu = function() {
+        enlargeBtn.classList.remove("summary-menu__btn--hidden"); 
+        minBtn.classList.add("summary-menu__btn--hidden");
+        if(window.innerWidth > 900) {
+        } else {
+            if(menuWidget.requestFullscreen) {
+                document.addEventListener("fullscreenchange", resizeMenu, { once: true });
+                document.exitFullscreen();
+            } else {
+                summaryMenu.classList.add("summary-menu--nontext-section");
+                summaryMenu.classList.remove("summary-menu--fs-polyfill");
+                nonTextSection.classList.remove("book-section-non-text-content--fs-polyfill");
+                window.removeEventListener("resize", resizePolyFullscreen);
+                menuWidget.removeAttribute("style");
+                resizeMenu();
+            }
+        }
+    };
+
+    let nonTextSection = document.getElementById("nonTextContent");
     let summaryMenu = document.querySelector(".summary-menu");
+    let menuWidget = summaryMenu.querySelector(".summary-menu__widget");
     let menuContainer = summaryMenu.querySelector(".summary-menu__container");
     let menuItems = summaryMenu.querySelectorAll(".summary-menu__li");
     let mobileSummaryBtn = document.querySelector(".page-controls-mobile button[value='summary']");
+    let enlargeBtn = summaryMenu.querySelector(".summary-menu__enlarge-btn");
+    let minBtn = summaryMenu.querySelector(".summary-menu__min-btn");
     let focusTranslateRatio = 0.0215;
     resizeMenu();
     window.addEventListener("resize", resizeMenu);
-    if(mobileSummaryBtn) mobileSummaryBtn.addEventListener("click", resizeMenu);
+    mobileSummaryBtn.addEventListener("click", resizeMenu);
+    enlargeBtn.addEventListener("click", enlargeMenu);
+    minBtn.addEventListener("click", minimizeMenu);
 
     for(let menuItem of menuItems) {
         menuItem.addEventListener("mouseenter", activateMenuPart);

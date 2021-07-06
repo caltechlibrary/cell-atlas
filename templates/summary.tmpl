@@ -1,40 +1,44 @@
 <div class="summary-menu summary-menu--nontext-section">
-    <div class="summary-menu__container">
-        <ol class="summary-menu__items-list">
-            ${if(it.chapter2)}
-                <li class="summary-menu__li summary-menu__li--ch2-item1" tabindex="0">
-                    ${svg/summary/2_1.svg()}
-                    ${svg/summary/2_1_text.svg()}
-                </li>
-                <li class="summary-menu__li summary-menu__li--ch2-item2" tabindex="0">
-                    ${svg/summary/2_2.svg()}
-                    ${svg/summary/2_2_text.svg()}
-                </li>
-                <li class="summary-menu__li summary-menu__li--ch2-item3" tabindex="0">
-                    ${svg/summary/2_3.svg()}
-                    ${svg/summary/2_3_text.svg()}
-                </li>
-                <li class="summary-menu__li summary-menu__li--ch2-item4" tabindex="0">
-                    ${svg/summary/2_4.svg()}
-                    ${svg/summary/2_4_text.svg()}
-                </li>
-                <li class="summary-menu__li summary-menu__li--ch2-item5" tabindex="0">
-                    ${svg/summary/2_5.svg()}
-                    ${svg/summary/2_5_text.svg()}
-                </li>
-                <li class="summary-menu__li summary-menu__li--ch2-item6" tabindex="0">
-                    ${svg/summary/2_6.svg()}
-                    ${svg/summary/2_6_text.svg()}
-                </li>
-                <li class="summary-menu__li summary-menu__li--ch2-item7" tabindex="0">
-                    ${svg/summary/2_7.svg()}
-                    ${svg/summary/2_7_text.svg()}
-                </li>
-                <li class="summary-menu__li summary-menu__li--ch2-item8" tabindex="0">
-                    ${svg/summary/2_8.svg()}
-                    ${svg/summary/2_8_text.svg()}
-                </li>
-            ${endif}
-        </ol>
+    <div class="summary-menu__widget">
+        <div class="summary-menu__container">
+            <ol class="summary-menu__items-list">
+                ${if(it.chapter2)}
+                    <li class="summary-menu__li summary-menu__li--ch2-item1" tabindex="0">
+                        ${svg/summary/2_1.svg()}
+                        ${svg/summary/2_1_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch2-item2" tabindex="0">
+                        ${svg/summary/2_2.svg()}
+                        ${svg/summary/2_2_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch2-item3" tabindex="0">
+                        ${svg/summary/2_3.svg()}
+                        ${svg/summary/2_3_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch2-item4" tabindex="0">
+                        ${svg/summary/2_4.svg()}
+                        ${svg/summary/2_4_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch2-item5" tabindex="0">
+                        ${svg/summary/2_5.svg()}
+                        ${svg/summary/2_5_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch2-item6" tabindex="0">
+                        ${svg/summary/2_6.svg()}
+                        ${svg/summary/2_6_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch2-item7" tabindex="0">
+                        ${svg/summary/2_7.svg()}
+                        ${svg/summary/2_7_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch2-item8" tabindex="0">
+                        ${svg/summary/2_8.svg()}
+                        ${svg/summary/2_8_text.svg()}
+                    </li>
+                ${endif}
+            </ol>
+        </div>
+        <button class="summary-menu__btn summary-menu__enlarge-btn">${svg/noun_Fullscreen.svg()}</button>
+        <button class="summary-menu__btn summary-menu__min-btn summary-menu__btn--hidden">${svg/noun_X.svg()}</button>
     </div>
 </div>
