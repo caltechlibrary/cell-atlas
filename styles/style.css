@@ -118,7 +118,8 @@ file. These definitions will be defined mobile first.
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        height: 5rem;
+        flex: 1 0 auto;
+        height: 80px;
     }
 
     header a {
@@ -130,7 +131,7 @@ file. These definitions will be defined mobile first.
     }
 
     .header-logo {
-        height: 70%;
+        height: 55px;
         transform: translate(0, 12%);
     }
 
@@ -174,7 +175,7 @@ file. These definitions will be defined mobile first.
     }
 
     .landing-page-logo img {
-        height: 65%;
+        height: 64%;
         object-fit: contain;
         transform: translate(0, 10%);
     }
