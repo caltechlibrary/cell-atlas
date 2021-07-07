@@ -1071,10 +1071,21 @@ function initializeCompSlider(compSliderContainer) {
 }
 
 if(document.querySelector(".summary-menu")) {
-    let resizeMenu = function(event) {
+    let resizeMenuContainer = function(event) {
         let sideLength = Math.min(menuWidget.clientWidth, menuWidget.clientHeight);
         menuContainer.style.width = `${sideLength}px`;
         menuContainer.style.height = `${sideLength}px`;
+    };
+
+    let resizeWidgetMobile = function() {
+        let header = document.querySelector("header");
+        let mobileControls = document.querySelector(".page-controls-mobile");
+        let distHeaderFooter = mobileControls.getBoundingClientRect().top - header.getBoundingClientRect().bottom;
+        let availHeight = distHeaderFooter * 0.85;
+        let availWidth = window.innerWidth * 0.9;
+        summaryMenu.style.width = `${availWidth}px`;
+        summaryMenu.style.height = `${availHeight}px`;
+        resizeMenuContainer();
     };
 
     let activateMenuPart = function(event) {
@@ -1121,7 +1132,7 @@ if(document.querySelector(".summary-menu")) {
 
     let resizePolyFullscreen = function() {
         menuWidget.style.height = `${window.innerHeight}px`;
-        resizeMenu();
+        resizeMenuContainer();
     }
 
     let enlargeMenu = function() {
@@ -1129,8 +1140,11 @@ if(document.querySelector(".summary-menu")) {
         minBtn.classList.remove("summary-menu__btn--hidden");
         if(window.innerWidth > 900) {
         } else {
+            window.removeEventListener("resize", resizeWidgetMobile);
+            summaryMenu.removeAttribute("style");
             if(menuWidget.requestFullscreen) {
-                document.addEventListener("fullscreenchange", resizeMenu, { once: true });
+                window.addEventListener("resize", resizeMenuContainer);
+                document.addEventListener("fullscreenchange", resizeMenuContainer, { once: true });
                 menuWidget.requestFullscreen();
             } else {
                 summaryMenu.classList.remove("summary-menu--nontext-section");
@@ -1147,8 +1161,10 @@ if(document.querySelector(".summary-menu")) {
         minBtn.classList.add("summary-menu__btn--hidden");
         if(window.innerWidth > 900) {
         } else {
+            window.addEventListener("resize", resizeWidgetMobile);
             if(menuWidget.requestFullscreen) {
-                document.addEventListener("fullscreenchange", resizeMenu, { once: true });
+                window.removeEventListener("resize", resizeMenuContainer);
+                document.addEventListener("fullscreenchange", resizeWidgetMobile, { once: true });
                 document.exitFullscreen();
             } else {
                 summaryMenu.classList.add("summary-menu--nontext-section");
@@ -1156,7 +1172,7 @@ if(document.querySelector(".summary-menu")) {
                 nonTextSection.classList.remove("book-section-non-text-content--fs-polyfill");
                 window.removeEventListener("resize", resizePolyFullscreen);
                 menuWidget.removeAttribute("style");
-                resizeMenu();
+                resizeWidgetMobile();
             }
         }
     };
@@ -1170,9 +1186,13 @@ if(document.querySelector(".summary-menu")) {
     let enlargeBtn = summaryMenu.querySelector(".summary-menu__enlarge-btn");
     let minBtn = summaryMenu.querySelector(".summary-menu__min-btn");
     let focusTranslateRatio = 0.0215;
-    resizeMenu();
-    window.addEventListener("resize", resizeMenu);
-    mobileSummaryBtn.addEventListener("click", resizeMenu);
+    if(window.innerWidth > 900) {
+        resizeMenuContainer();
+        window.addEventListener("resize", resizeMenuContainer);
+    } else {
+        mobileSummaryBtn.addEventListener("click", resizeWidgetMobile);
+        window.addEventListener("resize", resizeWidgetMobile);
+    }
     enlargeBtn.addEventListener("click", enlargeMenu);
     minBtn.addEventListener("click", minimizeMenu);
 
