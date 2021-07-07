@@ -1102,8 +1102,6 @@ if(document.querySelector(".summary-menu")) {
         let ty = (itemCordY > menuCenterY) ? translateDist : -translateDist;
         if(currentOpened) deactivateMenuPart({ target: currentOpened });
         partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
-        partText.style.left = `${menuCenterX}px`;
-        partText.style.top = `${menuCenterY}px`;
         partText.style.width = `${menuContainer.offsetWidth * 0.7}px`;
         partText.classList.remove("summary-menu__li-text--hidden");
         menuItem.classList.add("summary-menu__li--active");
@@ -1197,6 +1195,56 @@ if(document.querySelector(".summary-menu")) {
         textContent.addEventListener("transitionend", () => enlargeBtn.disabled = false, { once: true });
     };
 
+    let calcGridPos = function(pageX, pageY) {
+        let centerX = (menuWidget.getBoundingClientRect().right - menuWidget.getBoundingClientRect().x) / 2;
+        let centerY = (menuWidget.getBoundingClientRect().bottom - menuWidget.getBoundingClientRect().y) / 2;
+        let posX = (pageX - menuWidget.getBoundingClientRect().x) - centerX;
+        let posY = (pageY - menuWidget.getBoundingClientRect().y) - centerY;
+        return { posX, posY };
+    };
+
+    let panMenu = function(cordX, cordY) {
+        currTranslateX-= cordX;
+        currTranslateY-= cordY;
+        menuContainer.style.transform = `matrix(1, 0, 0, 1, ${currTranslateX}, ${currTranslateY})`;
+    }
+
+    let initTouchPan = function(event) {
+        let trackTouchmove = function(event) {
+            event.preventDefault();
+            if(event.touches.length == 1) {
+                let newGridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+                panMenu(gridPos.posX - newGridPos.posX, gridPos.posY - newGridPos.posY);
+                gridPos.posX = newGridPos.posX;
+                gridPos.posY = newGridPos.posY;
+            } else {
+                untrackTouch();
+                menuWidget.removeEventListener("touchend", untrackTouch);
+            }
+        }
+
+        let untrackTouch = function() {
+            menuWidget.removeEventListener("touchmove", trackTouchmove);
+        }
+
+        let gridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+        menuWidget.addEventListener("touchmove", trackTouchmove);
+        menuWidget.addEventListener("touchend", untrackTouch, { once: true });
+    };
+
+    let handleTouchMove = function(event) {
+        event.preventDefault();
+        if(event.touches.length == 1) {
+            initTouchPan(event);
+        } else if(event.touches.length == 2) {
+            initTouchZoom(event);
+        }
+    };
+
+    let handleTouch = function(event) {
+        menuWidget.addEventListener("touchmove", handleTouchMove, { once: true });
+    }
+
     let nonTextSection = document.getElementById("nonTextContent");
     let summaryMenu = document.querySelector(".summary-menu");
     let menuWidget = summaryMenu.querySelector(".summary-menu__widget");
@@ -1209,6 +1257,8 @@ if(document.querySelector(".summary-menu")) {
     let textShelveBtn = document.getElementById("shelfButton");
     let textUnshelveBtn = document.getElementById("unshelfButton");
     let focusTranslateRatio = 0.0215;
+    let currTranslateX = 0;
+    let currTranslateY = 0;
     if(window.innerWidth > 900) {
         resizeMenuContainer();
         window.addEventListener("resize", resizeMenuContainer);
@@ -1220,6 +1270,7 @@ if(document.querySelector(".summary-menu")) {
     minBtn.addEventListener("click", minimizeMenu);
     textShelveBtn.addEventListener("click", respondToTextShelving);
     textUnshelveBtn.addEventListener("click", respondToTextUnshelving);
+    menuWidget.addEventListener("touchstart", handleTouch);
 
     for(let menuItem of menuItems) {
         menuItem.addEventListener("mouseenter", activateMenuPart);

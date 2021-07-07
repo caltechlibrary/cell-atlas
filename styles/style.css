@@ -2069,6 +2069,7 @@ file. These definitions will be defined mobile first.
     border-radius: 10px;
     box-shadow: 0px 0px 0 1px #444;
     background: #fff;
+    overflow: hidden;
 }
 
 .summary-menu__container {
@@ -2078,6 +2079,7 @@ file. These definitions will be defined mobile first.
     bottom: 0;
     left: 0;
     margin: auto;
+    transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
 .summary-menu__items-list {
@@ -2098,6 +2100,8 @@ file. These definitions will be defined mobile first.
 
 .summary-menu__li-text {
     position: fixed;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     transition: visibility 0.25s, opacity 0.25s;
 }
