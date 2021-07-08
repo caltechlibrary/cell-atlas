@@ -1206,7 +1206,16 @@ if(document.querySelector(".summary-menu")) {
     let panMenu = function(cordX, cordY) {
         currTranslateX-= cordX;
         currTranslateY-= cordY;
-        menuContainer.style.transform = `matrix(1, 0, 0, 1, ${currTranslateX}, ${currTranslateY})`;
+        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
+    }
+
+    let zoomMenu = function(cordX, cordY, zoomFactor) {
+        let dx = (cordX - currTranslateX) * (zoomFactor - 1);
+        let dy = (cordY - currTranslateY) * (zoomFactor - 1);
+        currTranslateX-= dx;
+        currTranslateY-= dy;
+        currScale*= zoomFactor;
+        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
     }
 
     let initTouchPan = function(event) {
@@ -1231,6 +1240,43 @@ if(document.querySelector(".summary-menu")) {
         menuWidget.addEventListener("touchmove", trackTouchmove);
         menuWidget.addEventListener("touchend", untrackTouch, { once: true });
     };
+
+    let initTouchZoom = function(event) {
+        let trackZoom = function(event) {
+            event.preventDefault();
+            if(event.touches.length == 2) {
+                gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
+                gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
+                let newDist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
+                let deltaDist = dist - newDist;
+                let midPoint = { 
+                    posX: (gridPos1.posX + gridPos2.posX) / 2,
+                    posY: (gridPos1.posY + gridPos2.posY) / 2
+                };
+
+                if(deltaDist >= 0) {
+                    zoomMenu(midPoint.posX, midPoint.posY, 1/zoomWeight);
+                } else {
+                    zoomMenu(midPoint.posX, midPoint.posY, zoomWeight);
+                }
+
+                dist-= deltaDist;
+            } else {
+                untrackTouchZoom();
+                menuWidget.removeEventListener("touchend", untrackTouchZoom);
+            }
+        }
+
+        let untrackTouchZoom = function(event) {
+            menuWidget.removeEventListener("touchmove", trackZoom);
+        }
+
+        let gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
+        let gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
+        let dist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
+        menuWidget.addEventListener("touchmove", trackZoom);
+        menuWidget.addEventListener("touchend", untrackTouchZoom, { once: true });
+    }
 
     let handleTouchMove = function(event) {
         event.preventDefault();
@@ -1259,6 +1305,8 @@ if(document.querySelector(".summary-menu")) {
     let focusTranslateRatio = 0.0215;
     let currTranslateX = 0;
     let currTranslateY = 0;
+    let currScale = 1;
+    let zoomWeight = 1.05;
     if(window.innerWidth > 900) {
         resizeMenuContainer();
         window.addEventListener("resize", resizeMenuContainer);
