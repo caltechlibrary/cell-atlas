@@ -1077,17 +1077,6 @@ if(document.querySelector(".summary-menu")) {
         menuContainer.style.height = `${sideLength}px`;
     };
 
-    let resizeWidgetMobile = function() {
-        let header = document.querySelector("header");
-        let mobileControls = document.querySelector(".page-controls-mobile");
-        let distHeaderFooter = mobileControls.getBoundingClientRect().top - header.getBoundingClientRect().bottom;
-        let availHeight = distHeaderFooter * 0.85;
-        let availWidth = window.innerWidth * 0.9;
-        summaryMenu.style.width = `${availWidth}px`;
-        summaryMenu.style.height = `${availHeight}px`;
-        resizeMenuContainer();
-    };
-
     let activateMenuPart = function(event) {
         let menuItem = event.target;
         let currentOpened = summaryMenu.querySelector(".summary-menu__li--active");
@@ -1143,10 +1132,7 @@ if(document.querySelector(".summary-menu")) {
             textUnshelveBtn.addEventListener("transitionend", () => minBtn.disabled = false, { once: true });
             textShelveBtn.click();
         } else {
-            window.removeEventListener("resize", resizeWidgetMobile);
-            summaryMenu.removeAttribute("style");
             if(menuWidget.requestFullscreen) {
-                window.addEventListener("resize", resizeMenuContainer);
                 document.addEventListener("fullscreenchange", resizeMenuContainer, { once: true });
                 menuWidget.requestFullscreen();
             } else {
@@ -1167,10 +1153,8 @@ if(document.querySelector(".summary-menu")) {
             textContent.addEventListener("transitionend", () => enlargeBtn.disabled = false, { once: true });
             textUnshelveBtn.click();
         } else {
-            window.addEventListener("resize", resizeWidgetMobile);
             if(menuWidget.requestFullscreen) {
-                window.removeEventListener("resize", resizeMenuContainer);
-                document.addEventListener("fullscreenchange", resizeWidgetMobile, { once: true });
+                document.addEventListener("fullscreenchange", resizeMenuContainer, { once: true });
                 document.exitFullscreen();
             } else {
                 summaryMenu.classList.add("summary-menu--nontext-section");
@@ -1178,7 +1162,7 @@ if(document.querySelector(".summary-menu")) {
                 nonTextSection.classList.remove("book-section-non-text-content--fs-polyfill");
                 window.removeEventListener("resize", resizePolyFullscreen);
                 menuWidget.removeAttribute("style");
-                resizeWidgetMobile();
+                resizeMenuContainer();
             }
         }
     };
@@ -1209,13 +1193,9 @@ if(document.querySelector(".summary-menu")) {
     let textShelveBtn = document.getElementById("shelfButton");
     let textUnshelveBtn = document.getElementById("unshelfButton");
     let focusTranslateRatio = 0.0215;
-    if(window.innerWidth > 900) {
-        resizeMenuContainer();
-        window.addEventListener("resize", resizeMenuContainer);
-    } else {
-        mobileSummaryBtn.addEventListener("click", resizeWidgetMobile);
-        window.addEventListener("resize", resizeWidgetMobile);
-    }
+    resizeMenuContainer();
+    window.addEventListener("resize", resizeMenuContainer);
+    mobileSummaryBtn.addEventListener("click", resizeMenuContainer);
     enlargeBtn.addEventListener("click", enlargeMenu);
     minBtn.addEventListener("click", minimizeMenu);
     textShelveBtn.addEventListener("click", respondToTextShelving);
