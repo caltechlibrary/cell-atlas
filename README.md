@@ -101,3 +101,5 @@ Library and the Jensen Lab.
 "[up and down](https://thenounproject.com/search/?q=up+and+down&i=3861732)" by Mas Dhimas from [the Noun Project](https://thenounproject.com/).
 
 "[broken image](https://thenounproject.com/search/?q=broken+image&i=3157423)" by Pelin Kahraman from [the Noun Project](https://thenounproject.com/).
+
+"[cycle](https://thenounproject.com/term/cycle/406578/)" by ImageCatalog from [the Noun Project](https://thenounproject.com/).
