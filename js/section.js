@@ -80,7 +80,8 @@ document.addEventListener("keydown", function(event) {
         if(videoPlayer) {
             let playerId = videoPlayer.getAttribute("data-player");
             let selectedTab = document.querySelector(`.book-section-comparison-button-container button[data-player='${playerId}'][data-state='selected']`);
-            if(selectedTab && selectedTab.value == "video") {
+            let videoTab = document.querySelector(`.book-section-comparison-button-container button[data-player='${playerId}'][value='video']`);
+            if(!videoTab || (selectedTab && selectedTab.value == "video")) {
                 let playPauseButton = document.getElementById(`${playerId}-playPauseButton`);
                 playPauseButton.click();
             }
