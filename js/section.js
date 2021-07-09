@@ -1119,11 +1119,6 @@ if(document.querySelector(".summary-menu")) {
         }
     };
 
-    let resizePolyFullscreen = function() {
-        menuWidget.style.height = `${window.innerHeight}px`;
-        resizeMenuContainer();
-    }
-
     let enlargeMenu = function() {
         enlargeBtn.classList.add("summary-menu__btn--hidden"); 
         minBtn.classList.remove("summary-menu__btn--hidden");
@@ -1139,8 +1134,6 @@ if(document.querySelector(".summary-menu")) {
                 summaryMenu.classList.remove("summary-menu--nontext-section");
                 summaryMenu.classList.add("summary-menu--fs-polyfill");
                 nonTextSection.classList.add("book-section-non-text-content--fs-polyfill");
-                resizePolyFullscreen();
-                window.addEventListener("resize", resizePolyFullscreen);
             }
         }
     };
@@ -1160,8 +1153,6 @@ if(document.querySelector(".summary-menu")) {
                 summaryMenu.classList.add("summary-menu--nontext-section");
                 summaryMenu.classList.remove("summary-menu--fs-polyfill");
                 nonTextSection.classList.remove("book-section-non-text-content--fs-polyfill");
-                window.removeEventListener("resize", resizePolyFullscreen);
-                menuWidget.removeAttribute("style");
                 resizeMenuContainer();
             }
         }
