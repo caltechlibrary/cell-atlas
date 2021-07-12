@@ -1077,16 +1077,6 @@ if(document.querySelector(".summary-menu")) {
         menuContainer.style.height = `${sideLength}px`;
     };
 
-    let positionPartText = function() {
-        let currentOpened = summaryMenu.querySelector(".summary-menu__li--active");
-        let partText = currentOpened.querySelector(".summary-menu__li-text");
-        let menuCenterX = menuContainer.getBoundingClientRect().right - ((menuContainer.getBoundingClientRect().right - menuContainer.getBoundingClientRect().left) / 2);
-        let menuCenterY = menuContainer.getBoundingClientRect().bottom - ((menuContainer.getBoundingClientRect().bottom - menuContainer.getBoundingClientRect().top) / 2);
-        partText.style.left = `${menuCenterX}px`;
-        partText.style.top = `${menuCenterY}px`;
-        partText.style.width = `${menuContainer.offsetWidth * 0.7}px`;
-    };
-
     let activateMenuPart = function(event) {
         let menuItem = event.target;
         let currentOpened = summaryMenu.querySelector(".summary-menu__li--active");
@@ -1102,7 +1092,6 @@ if(document.querySelector(".summary-menu")) {
         if(currentOpened) deactivateMenuPart({ target: currentOpened });
         partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
         partText.style.width = `${menuContainer.offsetWidth * 0.7}px`;
-        window.addEventListener("resize", positionPartText);
         partText.classList.remove("summary-menu__li-text--hidden");
         menuItem.classList.add("summary-menu__li--active");
     };
@@ -1112,7 +1101,6 @@ if(document.querySelector(".summary-menu")) {
         let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
         let partText = menuItem.querySelector(".summary-menu__li-text");
         partGraphic.style.transform = `translate(0, 0)`;
-        window.removeEventListener("resize", positionPartText);
         partText.classList.add("summary-menu__li-text--hidden");
         menuItem.classList.remove("summary-menu__li--active");
     }; 
