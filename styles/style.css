@@ -2031,13 +2031,21 @@ file. These definitions will be defined mobile first.
 }
 
 /* summary-menu */
+.book-section-video-container--summary {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .summary-menu--nontext-section {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     margin: auto;
+    width: 95%;
+    height: 90%;
 }
 
 .summary-menu--fs-polyfill {
@@ -2045,8 +2053,8 @@ file. These definitions will be defined mobile first.
     top: 0;
     left: 0;
     box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
 }
 
