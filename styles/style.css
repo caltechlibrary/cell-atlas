@@ -2188,12 +2188,6 @@ file. These definitions will be defined mobile first.
     left: 6%;
 }
 
-.book-section-comparison-button-container--summary,
-.book-section-comparison-slider-fullscreen-container--summary,
-.book-section-video-player--summary {
-    display: none;
-}
-
 @media (min-width:900px) {
     .summary-menu--nontext-section {
         position: relative;
