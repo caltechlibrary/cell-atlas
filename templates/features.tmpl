@@ -1,7 +1,7 @@
 <ul class="book-appendix-dropdown-list">
     ${for(featureIndex)}
         <li>
-            <div id="${featureIndex.name}">
+            <div id="${featureIndex.name}" data-dropdown="${featureIndex.name}">
                 <div class="book-appendix-li-header">
                     <h2>${featureIndex.name}</h2>
                     <button class="dark-background-text" value="${featureIndex.name}" onclick="toggleListDropdown(this)">&#43;</button>
