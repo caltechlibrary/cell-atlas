@@ -1091,7 +1091,6 @@ if(document.querySelector(".summary-menu")) {
         let ty = (itemCordY > menuCenterY) ? translateDist : -translateDist;
         if(currentOpened) deactivateMenuPart({ target: currentOpened });
         partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
-        partText.style.width = `${menuContainer.offsetWidth * 0.7}px`;
         partText.classList.remove("summary-menu__li-text--hidden");
         menuItem.classList.add("summary-menu__li--active");
     };
