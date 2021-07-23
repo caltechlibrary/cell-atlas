@@ -101,6 +101,7 @@
 
     /* || HEADER styles */
     header {
+        flex: 0 1 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -273,6 +274,7 @@
     }
 
     .book-page-content {
+        flex: 1 1 auto;
         position: relative;
         width: 100%;
         height: 100%;
