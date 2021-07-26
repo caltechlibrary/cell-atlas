@@ -113,6 +113,7 @@ file. These definitions will be defined mobile first.
 
     /* || HEADER styles */
     header {
+        flex: 0 1 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -1179,6 +1180,7 @@ file. These definitions will be defined mobile first.
         position: relative;
         bottom: 0;
         width: 100%;
+        flex: 0 0 auto;
         display: flex;
         flex-direction: row;
         align-items: center;
