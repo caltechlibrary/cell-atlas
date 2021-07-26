@@ -185,10 +185,15 @@ for(let viewerEl of viewerEls) {
             options.color = pv.color.byAtomProp(color);
         }
 
+        atomLabel.classList.add("protein-viewer__atom-label--hidden");
         viewerObj.clear();
         viewerStructs.forEach(function(viewerStruct, index) {
             viewerObj.renderAs(`structure_${index}`, viewerStruct, modelType, options);
         });
+        if(prevPicked) {
+            unHighlightAtom(prevPicked.node);
+            prevPicked = null;
+        }
     }
 
     let changeColor = function() {
@@ -224,13 +229,11 @@ for(let viewerEl of viewerEls) {
             prevPicked = null;
         }
         if(picked) {
-            let color = [0, 0, 0, 0];
             let atom = picked.target();
             let atomNameComponents = atom.qualifiedName().split(".");
             let proteinNum = atomNameComponents[0].charCodeAt("0") - 64;
             let residueNum = atomNameComponents[1].substring(3);
             let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
-            let atomColor = picked.node().getColorForAtom(atom, color);
             highlightAtom(picked.node(), atom);
             atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
             atomLabel.classList.remove("protein-viewer__atom-label--hidden");
