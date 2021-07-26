@@ -359,8 +359,12 @@ function createVideoPlayer(videoEl) {
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
     let videoTimeStatus = videoControls.querySelector(`#${playerId}-videoTimeStatus`);
     let qualityChangerDesktop = videoControls.querySelector(`#${playerId}-qualityChanger`);
-    let qualityChangerOpenBtn = qualityChangerDesktop.querySelector("button");
-    let qualityText = qualityChangerDesktop.querySelector("button span");
+    let qualityChangerOpenBtn;
+    let qualityText;
+    if(qualityChangerDesktop) {
+        qualityChangerOpenBtn = qualityChangerDesktop.querySelector("button");
+        qualityText = qualityChangerDesktop.querySelector("button span");
+    }
     let playerQualityInputs = document.querySelectorAll(`.video-quality-changer-entry input[data-player='${playerId}']`);
     let allPageQualityInputs = document.querySelectorAll(".video-quality-changer-entry input");
     let fullScreenButton = videoControls.querySelector(`#${playerId}-fullScreenButton`);
@@ -400,7 +404,7 @@ function createVideoPlayer(videoEl) {
         if(showVidBtn) showVidBtn.addEventListener("click", resizeCanvases);
     }
     playPauseButton.addEventListener('click', togglePlayPause);
-    qualityChangerOpenBtn.addEventListener("click", toggleQualityChanger);
+    if(qualityChangerOpenBtn) qualityChangerOpenBtn.addEventListener("click", toggleQualityChanger);
     for(let qualityInput of allPageQualityInputs) {
         qualityInput.addEventListener("change", loadQuality);
     }

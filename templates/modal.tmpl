@@ -26,8 +26,11 @@
         ${it:vid-citation.tmpl()}
     ${endif}
 
-    ${if(it.viewer)}
-        ${it:viewer.tmpl()}
+    ${if(offline)}
+    ${else}
+        ${if(it.viewer)}
+            ${it:viewer.tmpl()}
+        ${endif}
     ${endif}
     
     ${if(it.video)}
