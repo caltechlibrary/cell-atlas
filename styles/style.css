@@ -1098,10 +1098,11 @@
 
     /* || FOOTER styles */
     footer {
+        flex: 0 0 auto;
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 2.5rem;
+        height: 35px;
         background: #757575;
         font-weight: 600;
         font-size: 0.85rem;
