@@ -1097,7 +1097,13 @@ if(document.querySelector(".summary-menu")) {
         if(currentOpened) deactivateMenuPart({ target: currentOpened });
         partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
         partText.classList.remove("summary-menu__li-text--hidden");
+        partText.classList.remove("summary-menu__li-text--transparent");
         menuItem.classList.add("summary-menu__li--active");
+    };
+
+    let hidePartText = function(event) {
+        let partText = event.target;
+        if(partText.classList.contains("summary-menu__li-text--transparent")) partText.classList.add("summary-menu__li-text--hidden");
     };
 
     let deactivateMenuPart = function(event) {
@@ -1105,7 +1111,8 @@ if(document.querySelector(".summary-menu")) {
         let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
         let partText = menuItem.querySelector(".summary-menu__li-text");
         partGraphic.style.transform = `translate(0, 0)`;
-        partText.classList.add("summary-menu__li-text--hidden");
+        partText.addEventListener("transitionend", hidePartText ,{ once: true });
+        partText.classList.add("summary-menu__li-text--transparent");
         menuItem.classList.remove("summary-menu__li--active");
     }; 
 
