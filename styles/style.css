@@ -592,6 +592,7 @@ file. These definitions will be defined mobile first.
         left: 0;
         right: 0;
         top: 0;
+        bottom: 0;
         margin: auto;
     }
     
