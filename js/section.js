@@ -517,9 +517,7 @@ function createVideoPlayer(videoEl) {
         playPauseButton.removeAttribute("disabled");
         fullScreenButton.removeAttribute("disabled");
         seekBar.removeAttribute("disabled");
-        videoEl.addEventListener('click', function() {
-            playPauseButton.click();
-        });
+        if(window.innerWidth > 900) videoEl.addEventListener("click", () => playPauseButton.click());
     }
 
     function onVidPlay() {
