@@ -1,5 +1,5 @@
 <div class="book-section-video-player" data-player="${it.playerId}">
-    <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}" poster="img/thumbnails/${it.thumbnail}.jpg" ${if(offline)}${else}crossorigin${endif}>
+    <video id=${it.playerId} ${if(it.doi)}doi="${it.doi}"${endif} data-file="${it.video}" poster="img/thumbnails/${it.thumbnail}.jpg" muted ${if(offline)}${else}crossorigin${endif}>
         ${if(offline)}
             <source src="videos/${it.video}">
         ${endif}
