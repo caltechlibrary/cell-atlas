@@ -105,12 +105,12 @@ for(let viewerEl of viewerEls) {
             window.addEventListener("resize", positionViewerPopUp);
             viewerObj.requestRedraw();
         } else {
+            window.addEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
                 document.addEventListener("fullscreenchange", function() {
                     viewerEl.classList.remove("protein-viewer--hidden");
                     resizeViewer();
                 }, { once: true });
-                window.addEventListener("resize", resizeViewer);
                 viewerContainer.requestFullscreen();
             } else {
                 fsContainer.classList.add("protein-viewer__fullscreen-container--fs-polyfill");
@@ -128,6 +128,7 @@ for(let viewerEl of viewerEls) {
             parentModal.classList.remove("subsection-modal--min");
             window.removeEventListener("resize", positionViewerPopUp);
         } else {
+            window.removeEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
                 window.removeEventListener("resize", resizeViewer);
                 document.exitFullscreen();
