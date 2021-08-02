@@ -379,6 +379,17 @@ function createVideoPlayer(videoEl) {
     let frameImages;
     let frameInterval;
 
+    window.addEventListener("pagehide", function(event) {
+        if(event.persisted === true) {
+            if(!videoEl.paused){
+                seekBar.setAttribute("autocomplete", "on");
+                videoEl.pause();
+            }
+        } else {
+            seekBar.setAttribute("autocomplete", "off");
+        }
+    });
+
     addTypeFocusToggle(playPauseButton);
     addTypeFocusToggle(fullScreenButton);
     addTypeFocusToggle(seekBar);
@@ -412,6 +423,7 @@ function createVideoPlayer(videoEl) {
     document.addEventListener("fullscreenchange", handleFullscreenChange);
     document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
     document.addEventListener("msfullscreenchange", handleFullscreenChange);
+    seekBar.addEventListener("input", handleSeekInput);
     seekBar.addEventListener("mousedown", pauseOnSeekControl);
     seekBar.addEventListener("keydown", pauseOnSeekControl);
     seekBar.addEventListener("mouseup", hideScrubCanvas);
@@ -499,8 +511,6 @@ function createVideoPlayer(videoEl) {
             let secondsFormatted = (seconds < 10) ? `0${seconds}` : seconds;
             videoTimeStatus.innerHTML = `0:00 / ${totalMinutes}:${secondsFormatted}`;
         }
-        seekBar.value = 0;
-        seekBar.addEventListener("input", handleSeekInput);
     }
 
     function enablePlayer() {
