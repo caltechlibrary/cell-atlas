@@ -379,6 +379,17 @@ function createVideoPlayer(videoEl) {
     let frameImages;
     let frameInterval;
 
+    window.addEventListener("pagehide", function(event) {
+        if(event.persisted === true) {
+            if(!videoEl.paused){
+                seekBar.setAttribute("autocomplete", "on");
+                videoEl.pause();
+            }
+        } else {
+            seekBar.setAttribute("autocomplete", "off");
+        }
+    });
+
     addTypeFocusToggle(playPauseButton);
     addTypeFocusToggle(fullScreenButton);
     addTypeFocusToggle(seekBar);
