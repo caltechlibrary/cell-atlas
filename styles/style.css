@@ -1449,7 +1449,7 @@ file. These definitions will be defined mobile first.
 }
 
 .learn-more--in-section {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     margin-bottom: 1em;
 }
 
