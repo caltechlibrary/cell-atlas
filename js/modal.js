@@ -308,7 +308,7 @@ for(let viewerEl of viewerEls) {
         selectionColor : "#000"
     };
     let chainGradient = pv.color.gradient(["#FF6C0C", "#5A2328", "#70A0AF", "#A8C686", "#003B4C"]);
-    let ssGradient = pv.color.gradient(["#CCCCCC", "#FF6C0C", "#003B4C"]);
+    let ssGradient = pv.color.gradient(["#CCCCCC", "#003B4C", "#FF6C0C"]);
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
     let viewerStructs;
     let prevPicked;
