@@ -1074,7 +1074,6 @@ file. These definitions will be defined mobile first.
     }
 
     .subsection-modal-container video {
-        width: 100%;
         background-color: rgb(255 255 255);
     }
 
