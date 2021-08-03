@@ -1219,7 +1219,7 @@ file. These definitions will be defined mobile first.
         position: relative;
         margin-left: 10px;
         box-sizing: border-box;
-        width: 28px;
+        width: 30px;
         height: 15px;
         cursor: pointer;
         top: 0;
@@ -1255,9 +1255,9 @@ file. These definitions will be defined mobile first.
     }
 
     .progress-switch-input:checked + .progress-switch-slider:before {
-        -webkit-transform: translateX(120%);
-        -ms-transform: translateX(120%);
-        transform: translateX(120%);
+        -webkit-transform: translateX(150%);
+        -ms-transform: translateX(150%);
+        transform: translateX(150%);
     }
 
     .progress-switch-input:focus + .progress-switch-slider {
