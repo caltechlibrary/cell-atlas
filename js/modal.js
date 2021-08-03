@@ -172,9 +172,9 @@ for(let viewerEl of viewerEls) {
         let color = colorSelect.value;
         let options = {};
         if(color == "chain") {
-            options.color = pv.color.byChain();
+            options.color = pv.color.byChain(chainGradient);
         } else if(color == "ss") {
-            options.color = pv.color.bySS();
+            options.color = pv.color.bySS(ssGradient);
         } else if(color == "tempFactor") {
             options.color = pv.color.byAtomProp(color);
         }
@@ -194,9 +194,9 @@ for(let viewerEl of viewerEls) {
         let color = colorSelect.value;
         viewerObj.forEach(function(geomObj) {
             if(color == "chain") {
-                geomObj.colorBy(pv.color.byChain());
+                geomObj.colorBy(pv.color.byChain(chainGradient));
             } else if(color == "ss") {
-                geomObj.colorBy(pv.color.bySS());
+                geomObj.colorBy(pv.color.bySS(ssGradient));
             } else if(color == "tempFactor") {
                 geomObj.colorBy(pv.color.byAtomProp(color));
             }
@@ -287,7 +287,7 @@ for(let viewerEl of viewerEls) {
     let loadPdb = function(data) {
         viewerStructs = pv.io.pdb(data, { loadAllModels: true });
         viewerStructs.forEach(function(viewerStruct, index) {
-            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
+            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain(chainGradient) })
         });
         viewerObj.autoZoom();
     }
@@ -307,6 +307,8 @@ for(let viewerEl of viewerEls) {
         fog: false,
         selectionColor : "#000"
     };
+    let chainGradient = pv.color.gradient(["#FF6C0C", "#5A2328", "#70A0AF", "#A8C686", "#003B4C"]);
+    let ssGradient = pv.color.gradient(["#CCCCCC", "#003B4C", "#FF6C0C"]);
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
     let viewerStructs;
     let prevPicked;
