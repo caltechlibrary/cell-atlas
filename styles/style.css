@@ -25,6 +25,8 @@ file. These definitions will be defined mobile first.
 - learn-more: Block hold learn more buttons that open subsection modals
 - content-img: Image vieweing elements that can be enlarged/minimized
 - protein-viewer: Interactive PDB viewer
+- appendix-accordion-group: Accordion dropdown menus found in appendix pages
+- feature-index-section-list: List of species for a given feature
 - fs-tree-confirm: Confirm pop up to be displayed when fullscreen for tree is requested on page load
 - tree-viewer: Interactive phylogenetic tree viewer found in appendix page
 - species-example-list: List of example sections for a given species
@@ -1772,6 +1774,79 @@ file. These definitions will be defined mobile first.
         transform: translate(-50%, -50%);
         z-index: 100;
     }   
+}
+
+/* appendix-accordion-group */
+.appendix-accordion-group {
+
+}
+
+.appendix-accordion-group__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 0 24px 0;
+    width: 100%;
+    padding: 0.5em 0;
+    border: none;
+    border-bottom: 1px solid white;
+    background: none;
+}
+
+.appendix-accordion-group__title {
+    flex: 0 1 auto;
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.appendix-accordion-group__expand-icon {
+    flex: 0 0 auto;
+    height: 20px;
+    width: 20px;
+    transition: transform 1s;
+}
+
+.appendix-accordion-group__expand-icon--active {
+    transform: rotate(180deg);
+}
+
+.appendix-accordion-group__panel {
+    overflow: hidden;
+    transition: height 1s;
+}
+
+.appendix-accordion-group__panel--hidden {
+    visibility: hidden;
+}
+
+@media (min-width:900px) {
+    .appendix-accordion-group__title {
+        font-size: 1.5em;
+    }
+}
+
+/* feature-index-section-list */
+
+.feature-index-section-list {
+    padding-left: 1.5em;
+}
+
+.feature-index-section-list__li {
+    margin: 1em 0;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.feature-index-section-list__species-name {
+    color: #fff;
+}
+
+.feature-index-section-list__link {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 /* fs-tree-confirm */
