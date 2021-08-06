@@ -13,25 +13,6 @@ if(navRight) {
     addNavRightMargin();
 }
 
-// Account for scroll bar width in profile bios
-let profileContainers = document.querySelectorAll(".profile-container");
-for(profileContainer of profileContainers) {
-    let profileImg = profileContainer.querySelector("img");
-    let profileBlurb = profileContainer.querySelector(".book-profile-blurb");
-    let checkForScrollBar = function() {
-        // Check if blurb is taller than pictures (267px)
-        if(profileBlurb.scrollHeight > 267) {
-            let scrollBarWidth = profileBlurb.offsetWidth - profileBlurb.clientWidth;
-            profileBlurb.style["padding-right"] = `${scrollBarWidth}px`;
-        }
-    }
-    if(!profileImg || (profileImg && profileImg.complete)) {
-        checkForScrollBar();
-    } else {
-        profileImg.addEventListener("load", checkForScrollBar);
-    }
-}
-
 // Check for anchor in url and open applicable modal window
 let apenUrl = window.location.href;
 let apenSplit = apenUrl.split("#");
@@ -84,6 +65,23 @@ function toggleListDropdown(el) {
         el.style.transform = "rotate(0deg)";
         list.style.height = "0";
         list.removeAttribute("showing");
+    }
+}
+
+for(profileBio of document.getElementsByClassName("profile-bio")) {
+    let profileImg = profileBio.querySelector(".profile-bio__profile-img");
+    let profileDescription = profileBio.querySelector(".profile-bio__description");
+    
+    let checkForScrollBar = function() {
+        if(profileDescription.scrollHeight > parseInt(window.getComputedStyle(profileBio)["max-height"])) {
+            profileDescription.classList.add("profile-bio__description--has-scrollbar");
+        }
+    };
+
+    if(!profileImg || (profileImg && profileImg.complete)) {
+        checkForScrollBar();
+    } else {
+        profileImg.addEventListener("load", checkForScrollBar);
     }
 }
 

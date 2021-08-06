@@ -1,19 +1,24 @@
-<ul class="book-appendix-dropdown-list">
+<div class="appendix-accordion-group">
     ${for(profiles)}
-        <li>
-            <div id="${profiles.id}" class="book-profile-anchor"></div>
-            <div class="profile-container" data-dropdown="${profiles.id}">
-                <div class="book-appendix-li-header">
-                    <h2>${profiles.name}</h2>
-                    <button class="dark-background-text" value="${profiles.id}" onclick="toggleListDropdown(this)">&#43;</button>
-                </div>
-                <div class="book-appendix-li-dropdown book-profiles-bio">
-                    ${if(profiles.img)}<img src="img/bios/${profiles.img}" alt="Profile image of ${profiles.name}">${endif}
-                    <div class="book-text-content book-profile-blurb">
-                        ${profiles.html}
-                    </div>
+        <h2>
+            <button id="${profiles.name}-button" class="appendix-accordion-group__button" aria-controls="${profiles.name}-panel" aria-expanded="false">
+                <span class="appendix-accordion-group__title">${profiles.name}</span>
+                <span class="appendix-accordion-group__expand-icon">${svg/plus.svg()}</span>
+            </button>
+        </h2>
+        <div id="${profiles.name}-panel" 
+            class="appendix-accordion-group__panel appendix-accordion-group__panel--hidden" 
+            aria-labelledby="${profiles.name}-button"
+            style="height:0px"
+        >
+            <div class="profile-bio profile-bio--appendix">
+                ${if(profiles.img)}
+                    <img class="profile-bio__profile-img" src="img/bios/${profiles.img}" alt="Profile image of ${profiles.name}">
+                ${endif}
+                <div class="profile-bio__description">
+                    ${profiles.html}
                 </div>
             </div>
-        </li>
+        </div>
     ${endfor}
-</ul>
+</div>
