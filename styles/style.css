@@ -1297,35 +1297,6 @@ file. These definitions will be defined mobile first.
         width: 100%;
     }
 
-    .book-appendix-li-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-        padding-bottom: 0.5em;
-        margin-bottom: 1.5em;
-        border-bottom: 1px solid rgb(245 245 245);
-    }
-
-    .book-appendix-li-header h2 {
-        font-size: 1.5em;
-    }
-
-    .book-appendix-li-header button{
-        color: #4B889B;
-        border: none;
-        padding: 0;
-        font-size: 2em;
-        font-weight: 600;
-        transition: transform 1s;
-    }
-
-    .book-appendix-li-dropdown {
-        overflow: hidden;
-        height: 0;
-        transition: height 1s;
-    }
-
     .book-appendix-nav {
         position: absolute;
         top: 0;
@@ -1364,33 +1335,6 @@ file. These definitions will be defined mobile first.
 
     .csl-left-margin {
         margin-right: 0.5em;
-    }
-
-    /* || PROFILES styles */
-    .book-profiles-bio {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .book-profiles-bio img {
-        margin-right: 2em;
-    }
-
-    .book-profile-blurb {
-        width: 100%;
-        text-align: right;
-        max-height: 267px;
-        overflow: auto;
-    }
-
-    /* || FEATURES styles */
-    .book-features-ref-list {
-        padding-left: 1.5em;
-    }
-
-    .book-features-ref-list li {
-        margin: 1em 0;
     }
 
     /* || ABOUT page styles */

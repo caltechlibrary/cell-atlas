@@ -30,27 +30,6 @@ function addNavRightMargin() {
     navRight.style["margin-right"] = `${marginRight + scrollbarWidth}px`;
 }
 
-function toggleListDropdown(el) {
-    let list = document.querySelector(`div[data-dropdown='${el.value}']`).querySelector(".book-appendix-li-dropdown");
-    let listImg = list.querySelector("img");
-    if(list.offsetHeight == 0) {
-        el.style.transform = "rotate(180deg)";
-        if(!listImg || (listImg && listImg.complete)) {
-            list.style.height = list.scrollHeight + "px";
-        } else {
-            list.style.height = "auto";
-            listImg.addEventListener("load", function() {
-                if(list.offsetHeight > 0) list.style.height = list.scrollHeight + "px";
-            });
-        }
-        list.setAttribute("showing", true);
-    } else {
-        el.style.transform = "rotate(0deg)";
-        list.style.height = "0";
-        list.removeAttribute("showing");
-    }
-}
-
 for(profileBio of document.getElementsByClassName("profile-bio")) {
     let profileImg = profileBio.querySelector(".profile-bio__profile-img");
     let profileDescription = profileBio.querySelector(".profile-bio__description");
