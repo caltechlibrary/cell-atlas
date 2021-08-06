@@ -13,16 +13,6 @@ if(navRight) {
     addNavRightMargin();
 }
 
-// Add event listener to open "what's new" section
-let whatsNewLinks = document.querySelectorAll("a[href='#new']");
-for(let link of whatsNewLinks){
-    let whatsNewButton = document.querySelector(`button[value="WhatsNew"]`);
-    let whatsNewSection = document.querySelector("#WhatsNew .book-appendix-li-dropdown");
-    link.addEventListener("click", function(){
-        if (whatsNewSection.offsetHeight == 0) whatsNewButton.click();
-    });
-}
-
 function addNavRightMargin() {
     let appendixContainer = document.querySelector(".book-appendix-page");
     let scrollbarWidth = appendixContainer.offsetWidth - appendixContainer.clientWidth;
@@ -95,13 +85,18 @@ for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion
             }
         };
 
-        let desiredAnchor = window.location.href.split("#")[1]
+        let simulateAccordionOpen = function(desiredAnchor) {
+            if(document.getElementById(`${desiredAnchor}-button`)) {
+                let fakeEvent = { currentTarget: document.getElementById(`${desiredAnchor}-button`) };
+                setTimeout(() => toggleAccordionDropDown(fakeEvent), 100);
+            }
+        };
+
+        let desiredAnchor = window.location.hash.substring(1);
         let accordionButtons = appendixAccordionGroup.getElementsByClassName("appendix-accordion-group__button");
         for(let accordionButton of accordionButtons) accordionButton.addEventListener("click", toggleAccordionDropDown);
-        if(document.getElementById(`${desiredAnchor}-button`)) {
-            let fakeEvent = { currentTarget: document.getElementById(`${desiredAnchor}-button`) };
-            setTimeout(() => toggleAccordionDropDown(fakeEvent), 100);
-        }
+        window.addEventListener("hashchange", () => simulateAccordionOpen(window.location.hash.substring(1)));
+        if(desiredAnchor) simulateAccordionOpen(desiredAnchor);
     }
 
     AppendixAccordionGroup(appendixAccordionGroup);
