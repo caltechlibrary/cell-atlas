@@ -28,6 +28,7 @@ file. These definitions will be defined mobile first.
 - appendix-accordion-group: Accordion dropdown menus found in appendix pages
 - feature-index-section-list: List of species for a given feature
 - profile-bio: Profile for a given scientist
+- about-page-blurb: About page blurb block
 - fs-tree-confirm: Confirm pop up to be displayed when fullscreen for tree is requested on page load
 - tree-viewer: Interactive phylogenetic tree viewer found in appendix page
 - species-example-list: List of example sections for a given species
@@ -1917,6 +1918,11 @@ file. These definitions will be defined mobile first.
     .profile-bio__description {
         text-align: right;
     }
+}
+
+/* about-page-blurb */
+.about-page-blurb {
+    line-height: 1.34em;
 }
 
 /* fs-tree-confirm */
