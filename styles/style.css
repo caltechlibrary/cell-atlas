@@ -1858,29 +1858,65 @@ file. These definitions will be defined mobile first.
 /* profile-bio */
 .profile-bio {
     display: flex;
-    align-items: flex-start;
-}
-
-.profile-bio--appendix {
-    max-height: 267px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-bio__profile-img {
     flex: 1 1 auto;
-    margin-right: 32px;
+    height: 200px;
     object-fit: contain;
 }
 
 .profile-bio__description {
     flex: 1 1 auto;
+    margin: 1em 0;
     max-height: inherit;
     overflow: auto;
-    text-align: right;
     line-height: 1.34em;
+}
+
+.profile-bio__description p {
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 .profile-bio__description--has-scrollbar {
     padding-right: 1em;
+}
+
+@media (min-width:480px) {
+    .profile-bio {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .profile-bio__profile-img {
+        margin-right: 16px;
+    }
+
+    .profile-bio__description {
+        margin: 0;
+    }
+
+    .profile-bio--appendix {
+        max-height: 200px;
+    }
+}
+
+@media (min-width:900px) {
+    .profile-bio__profile-img {
+        margin-right: 32px;
+        height: auto;
+    }
+
+    .profile-bio--appendix {
+        max-height: 267px;
+    }
+
+    .profile-bio__description {
+        text-align: right;
+    }
 }
 
 /* fs-tree-confirm */
