@@ -13,23 +13,6 @@ if(navRight) {
     addNavRightMargin();
 }
 
-// Check for anchor in url and open applicable modal window
-let apenUrl = window.location.href;
-let apenSplit = apenUrl.split("#");
-if(apenSplit.length > 1) {
-    let buttons = [];
-    let anchor = apenSplit[1];
-    let appendixInner = document.querySelector(".book-appendix-inner");
-    if(appendixInner) buttons = appendixInner.getElementsByTagName("button");
-    for(let button of buttons){
-        if (button.value == anchor) {
-            setTimeout(function(){
-                button.click();
-            }, 100);
-        }
-    }
-}
-
 // Add event listener to open "what's new" section
 let whatsNewLinks = document.querySelectorAll("a[href='#new']");
 for(let link of whatsNewLinks){
@@ -133,8 +116,13 @@ for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion
             }
         };
 
+        let desiredAnchor = window.location.href.split("#")[1]
         let accordionButtons = appendixAccordionGroup.getElementsByClassName("appendix-accordion-group__button");
         for(let accordionButton of accordionButtons) accordionButton.addEventListener("click", toggleAccordionDropDown);
+        if(document.getElementById(`${desiredAnchor}-button`)) {
+            let fakeEvent = { currentTarget: document.getElementById(`${desiredAnchor}-button`) };
+            setTimeout(() => toggleAccordionDropDown(fakeEvent), 100);
+        }
     }
 
     AppendixAccordionGroup(appendixAccordionGroup);

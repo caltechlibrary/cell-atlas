@@ -1,5 +1,6 @@
 <div class="appendix-accordion-group">
     ${for(featureIndex)}
+        <div id="${featureIndex.name}" class="appendix-accordion-group__dropdown-anchor"></div>
         <h2>
             <button id="${featureIndex.name}-button" class="appendix-accordion-group__button" aria-controls="${featureIndex.name}-panel" aria-expanded="false">
                 <span class="appendix-accordion-group__title">${featureIndex.name}</span>

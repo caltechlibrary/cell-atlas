@@ -1,14 +1,15 @@
 <div class="appendix-accordion-group">
     ${for(profiles)}
+        <div id="${profiles.id}" class="appendix-accordion-group__dropdown-anchor"></div>
         <h2>
-            <button id="${profiles.name}-button" class="appendix-accordion-group__button" aria-controls="${profiles.name}-panel" aria-expanded="false">
+            <button id="${profiles.id}-button" class="appendix-accordion-group__button" aria-controls="${profiles.id}-panel" aria-expanded="false">
                 <span class="appendix-accordion-group__title">${profiles.name}</span>
                 <span class="appendix-accordion-group__expand-icon">${svg/plus.svg()}</span>
             </button>
         </h2>
-        <div id="${profiles.name}-panel" 
+        <div id="${profiles.id}-panel" 
             class="appendix-accordion-group__panel appendix-accordion-group__panel--hidden" 
-            aria-labelledby="${profiles.name}-button"
+            aria-labelledby="${profiles.id}-button"
             style="height:0px"
         >
             <div class="profile-bio profile-bio--appendix">

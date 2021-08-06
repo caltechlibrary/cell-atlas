@@ -1778,6 +1778,11 @@ file. These definitions will be defined mobile first.
 }
 
 /* appendix-accordion-group */
+.appendix-accordion-group__dropdown-anchor {
+    position: absolute;
+    margin-top: -72px;
+}
+
 .appendix-accordion-group__button {
     display: flex;
     justify-content: space-between;
@@ -1820,6 +1825,11 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
+    .appendix-accordion-group__dropdown-anchor {
+        position: static;
+        margin: 0;
+    }
+
     .appendix-accordion-group__title {
         font-size: 1.5em;
     }
