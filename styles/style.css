@@ -1735,7 +1735,7 @@ file. These definitions will be defined mobile first.
     box-sizing: border-box;
     margin: 0 0 24px 0;
     width: 100%;
-    padding: 0.5em 0;
+    padding: 0.535em 0;
     border: none;
     border-bottom: 1px solid white;
     background: none;
