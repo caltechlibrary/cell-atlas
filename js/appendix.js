@@ -86,8 +86,9 @@ for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion
         };
 
         let simulateAccordionOpen = function(desiredAnchor) {
-            if(document.getElementById(`${desiredAnchor}-button`)) {
-                let fakeEvent = { currentTarget: document.getElementById(`${desiredAnchor}-button`) };
+            let accordionButton = document.getElementById(`${desiredAnchor}-button`) 
+            if(accordionButton && accordionButton.getAttribute("aria-expanded") == "false") {
+                let fakeEvent = { currentTarget: accordionButton };
                 setTimeout(() => toggleAccordionDropDown(fakeEvent), 100);
             }
         };
