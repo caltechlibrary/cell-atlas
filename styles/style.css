@@ -1564,6 +1564,7 @@ file. These definitions will be defined mobile first.
     background-size: contain;
     background-repeat: no-repeat;
     background-color: #fff0;
+    cursor: pointer;
 }
 
 @media (min-width:900px) {
