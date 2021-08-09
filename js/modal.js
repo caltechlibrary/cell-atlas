@@ -225,7 +225,11 @@ for(let viewerEl of viewerEls) {
             let residueNum = atomNameComponents[1].substring(3);
             let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
             highlightAtom(picked.node(), atom);
-            atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            if(proteinName == "water") {
+                atomLabel.innerHTML = `${proteinName}`;
+            } else {
+                atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            }
             atomLabel.classList.remove("protein-viewer__atom-label--hidden");
             prevPicked = { node: picked.node() }
         } else {
