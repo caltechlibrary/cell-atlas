@@ -1733,7 +1733,7 @@ file. These definitions will be defined mobile first.
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    margin: 0 0 24px 0;
+    margin: 0 0 20px 0;
     width: 100%;
     padding: 0.535em 0;
     border: none;
@@ -1775,6 +1775,10 @@ file. These definitions will be defined mobile first.
         margin: 0;
     }
 
+    .appendix-accordion-group__button {
+        margin: 0 0 24px 0;
+    }
+
     .appendix-accordion-group__title {
         font-size: 1.5em;
     }
@@ -1782,11 +1786,11 @@ file. These definitions will be defined mobile first.
 
 /* feature-index-section-list */
 .feature-index-section-list {
-    padding-left: 1.5em;
+    padding-left: 1em;
 }
 
 .feature-index-section-list__li {
-    margin: 1em 0;
+    margin: 0 0 1em 0;
     font-size: 1em;
     font-weight: 300;
 }
@@ -1798,6 +1802,12 @@ file. These definitions will be defined mobile first.
 .feature-index-section-list__link {
     color: #5caac5;
     text-decoration: underline;
+}
+
+@media (min-width:900px) {
+    .feature-index-section-list {
+        padding-left: 1.5em;
+    }
 }
 
 /* profile-bio */
