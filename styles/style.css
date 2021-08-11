@@ -302,7 +302,7 @@ file. These definitions will be defined mobile first.
 
     .book-page-nonheader-container {
         position: relative;
-        height: 0;
+        min-height: 0;
         flex: 1;
         width: 100%;
         box-sizing: border-box;
@@ -569,21 +569,22 @@ file. These definitions will be defined mobile first.
         border-radius: 0;
     }
 
-    .book-section-video-player-fullscreen video {
-        max-height: initial;
-        border-radius: 0;
-    }
-
     .book-section-video-player-fullscreen .book-section-video-player-controls {
         border-radius: 0;
     }
 
     .book-section-video-player video {
-        flex: 1;
-        width: 100%;
+        flex: 0 1 auto;
         min-height: 0;
         max-width: 100%;
         max-height: 100%;
+    }
+
+    .book-section-video-player-fullscreen video {
+        flex: 1;
+        width: 100%;
+        max-height: initial;
+        border-radius: 0;
     }
 
     .book-section-video-player-paint-canvas, .book-section-video-player-scrub-canvas {
@@ -592,6 +593,7 @@ file. These definitions will be defined mobile first.
         left: 0;
         right: 0;
         top: 0;
+        bottom: 0;
         margin: auto;
     }
     
@@ -1072,7 +1074,6 @@ file. These definitions will be defined mobile first.
     }
 
     .subsection-modal-container video {
-        width: 100%;
         background-color: rgb(255 255 255);
     }
 
@@ -1218,7 +1219,7 @@ file. These definitions will be defined mobile first.
         position: relative;
         margin-left: 10px;
         box-sizing: border-box;
-        width: 42px;
+        width: 30px;
         height: 15px;
         cursor: pointer;
         top: 0;
@@ -1254,9 +1255,9 @@ file. These definitions will be defined mobile first.
     }
 
     .progress-switch-input:checked + .progress-switch-slider:before {
-        -webkit-transform: translateX(25px);
-        -ms-transform: translateX(25px);
-        transform: translateX(25px);
+        -webkit-transform: translateX(150%);
+        -ms-transform: translateX(150%);
+        transform: translateX(150%);
     }
 
     .progress-switch-input:focus + .progress-switch-slider {
@@ -1451,7 +1452,7 @@ file. These definitions will be defined mobile first.
 }
 
 .learn-more--in-section {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     margin-bottom: 1em;
 }
 
@@ -1567,6 +1568,7 @@ file. These definitions will be defined mobile first.
     background-size: contain;
     background-repeat: no-repeat;
     background-color: #fff0;
+    cursor: pointer;
 }
 
 @media (min-width:900px) {

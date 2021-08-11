@@ -105,12 +105,12 @@ for(let viewerEl of viewerEls) {
             window.addEventListener("resize", positionViewerPopUp);
             viewerObj.requestRedraw();
         } else {
+            window.addEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
                 document.addEventListener("fullscreenchange", function() {
                     viewerEl.classList.remove("protein-viewer--hidden");
                     resizeViewer();
                 }, { once: true });
-                window.addEventListener("resize", resizeViewer);
                 viewerContainer.requestFullscreen();
             } else {
                 fsContainer.classList.add("protein-viewer__fullscreen-container--fs-polyfill");
@@ -128,6 +128,7 @@ for(let viewerEl of viewerEls) {
             parentModal.classList.remove("subsection-modal--min");
             window.removeEventListener("resize", positionViewerPopUp);
         } else {
+            window.removeEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
                 window.removeEventListener("resize", resizeViewer);
                 document.exitFullscreen();
@@ -171,11 +172,9 @@ for(let viewerEl of viewerEls) {
         let color = colorSelect.value;
         let options = {};
         if(color == "chain") {
-            options.color = pv.color.byChain();
+            options.color = pv.color.byChain(chainGradient);
         } else if(color == "ss") {
-            options.color = pv.color.bySS();
-        } else if(color == "tempFactor") {
-            options.color = pv.color.byAtomProp(color);
+            options.color = pv.color.bySS(ssGradient);
         }
 
         atomLabel.classList.add("protein-viewer__atom-label--hidden");
@@ -193,11 +192,9 @@ for(let viewerEl of viewerEls) {
         let color = colorSelect.value;
         viewerObj.forEach(function(geomObj) {
             if(color == "chain") {
-                geomObj.colorBy(pv.color.byChain());
+                geomObj.colorBy(pv.color.byChain(chainGradient));
             } else if(color == "ss") {
-                geomObj.colorBy(pv.color.bySS());
-            } else if(color == "tempFactor") {
-                geomObj.colorBy(pv.color.byAtomProp(color));
+                geomObj.colorBy(pv.color.bySS(ssGradient));
             }
         });
         viewerObj.requestRedraw();
@@ -228,7 +225,11 @@ for(let viewerEl of viewerEls) {
             let residueNum = atomNameComponents[1].substring(3);
             let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
             highlightAtom(picked.node(), atom);
-            atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            if(proteinName == "water") {
+                atomLabel.innerHTML = `${proteinName}`;
+            } else {
+                atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            }
             atomLabel.classList.remove("protein-viewer__atom-label--hidden");
             prevPicked = { node: picked.node() }
         } else {
@@ -286,7 +287,7 @@ for(let viewerEl of viewerEls) {
     let loadPdb = function(data) {
         viewerStructs = pv.io.pdb(data, { loadAllModels: true });
         viewerStructs.forEach(function(viewerStruct, index) {
-            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
+            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain(chainGradient) })
         });
         viewerObj.autoZoom();
     }
@@ -306,6 +307,8 @@ for(let viewerEl of viewerEls) {
         fog: false,
         selectionColor : "#000"
     };
+    let chainGradient = pv.color.gradient(["#FF6C0C", "#5A2328", "#70A0AF", "#A8C686", "#003B4C"]);
+    let ssGradient = pv.color.gradient(["#CCCCCC", "#003B4C", "#FF6C0C"]);
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
     let viewerStructs;
     let prevPicked;

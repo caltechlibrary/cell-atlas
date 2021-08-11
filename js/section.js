@@ -379,6 +379,17 @@ function createVideoPlayer(videoEl) {
     let frameImages;
     let frameInterval;
 
+    window.addEventListener("pagehide", function(event) {
+        if(event.persisted === true) {
+            if(!videoEl.paused){
+                seekBar.setAttribute("autocomplete", "on");
+                videoEl.pause();
+            }
+        } else {
+            seekBar.setAttribute("autocomplete", "off");
+        }
+    });
+
     addTypeFocusToggle(playPauseButton);
     addTypeFocusToggle(fullScreenButton);
     addTypeFocusToggle(seekBar);
@@ -409,6 +420,9 @@ function createVideoPlayer(videoEl) {
         qualityInput.addEventListener("change", loadQuality);
     }
     fullScreenButton.addEventListener("click", toggleFullscreen);
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+    document.addEventListener("msfullscreenchange", handleFullscreenChange);
     seekBar.addEventListener("input", handleSeekInput);
     seekBar.addEventListener("mousedown", pauseOnSeekControl);
     seekBar.addEventListener("keydown", pauseOnSeekControl);
@@ -464,10 +478,24 @@ function createVideoPlayer(videoEl) {
     }
 
     function resizeCanvases() {
-        videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-        videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+        if(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+            if(window.innerHeight > (window.innerWidth * (videoEl.videoHeight/videoEl.videoWidth))) {
+                videoPaintCanvas.setAttribute("width", `${Math.round(videoEl.offsetWidth)}px`);
+                videoPaintCanvas.setAttribute("height", `${Math.round(videoEl.offsetWidth * (9/16))}px`);
+                videoScrubCanvas.setAttribute("width", `${Math.round(videoEl.offsetWidth)}px`);
+                videoScrubCanvas.setAttribute("height", `${Math.round(videoEl.offsetWidth * (9/16))}px`);
+            } else {
+                videoPaintCanvas.setAttribute("width", `${Math.round(videoEl.offsetHeight * (16/9))}px`);
+                videoPaintCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
+                videoScrubCanvas.setAttribute("width", `${Math.round(videoEl.offsetHeight * (16/9))}px`);
+                videoScrubCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
+            }
+        } else {
+            videoPaintCanvas.setAttribute("width", `${Math.round(videoEl.offsetHeight * (16/9))}px`);
+            videoPaintCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
+            videoScrubCanvas.setAttribute("width", `${Math.round(videoEl.offsetHeight * (16/9))}px`);
+            videoScrubCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
+        }
     }
 
     function initializePlayer() {
@@ -489,9 +517,7 @@ function createVideoPlayer(videoEl) {
         playPauseButton.removeAttribute("disabled");
         fullScreenButton.removeAttribute("disabled");
         seekBar.removeAttribute("disabled");
-        videoEl.addEventListener('click', function() {
-            playPauseButton.click();
-        });
+        if(window.innerWidth > 900) videoEl.addEventListener("click", () => playPauseButton.click());
     }
 
     function onVidPlay() {
@@ -671,24 +697,18 @@ function createVideoPlayer(videoEl) {
             videoPlayer.classList.remove("book-section-video-player-fullscreen");
             if (document.exitFullscreen) {
                 document.exitFullscreen();
-                document.removeEventListener("fullscreenchange", handleFullscreenChange);
             } else if (document.webkitExitFullscreen) { /* Safari */
                 document.webkitExitFullscreen();
-                document.removeEventListener("webkitfullscreenchange", handleFullscreenChange);
             } else if (document.msExitFullscreen) { /* IE11 */
                 document.msExitFullscreen();
-                document.removeEventListener("msfullscreenchange", handleFullscreenChange);
             }
         } else {
             if (videoPlayer.requestFullscreen) {
                 videoPlayer.requestFullscreen();
-                document.addEventListener("fullscreenchange", handleFullscreenChange);
             } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
                 videoPlayer.webkitRequestFullscreen();
-                document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
             } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
                 videoPlayer.msRequestFullscreen();
-                document.addEventListener("msfullscreenchange", handleFullscreenChange);
             }
         }
         document.activeElement.blur();
@@ -702,6 +722,7 @@ function createVideoPlayer(videoEl) {
             window.addEventListener("touchstart", detectSwipe);
             videoPlayer.classList.remove("book-section-video-player-fullscreen");
         }
+        resizeCanvases();
     }
 
     function handleSeekInput() {
