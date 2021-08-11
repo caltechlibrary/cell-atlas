@@ -2150,6 +2150,10 @@ file. These definitions will be defined mobile first.
     width: 50%;
 }
 
+.summary-menu__li-text--ch9 {
+    width: 60%;
+}
+
 .summary-menu__li-text--transparent {
     opacity: 0;
 }
@@ -2460,6 +2464,24 @@ file. These definitions will be defined mobile first.
     width: 27.8%;
     top: 16.5%;
     left: 22.5%;
+}
+
+.summary-menu__li--ch9-item1 {
+    width: 28%;
+    top: 13.75%;
+    left: 51.85%;
+}
+
+.summary-menu__li--ch9-item2 {
+    width: 33.9%;
+    top: 33.5%;
+    left: 51.75%;
+}
+
+.summary-menu__li--ch9-item3 {
+    width: 41.7%;
+    top: 13.25%;
+    left: 6.25%;
 }
 
 @media (min-width:900px) {
