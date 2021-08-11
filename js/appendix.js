@@ -39,13 +39,6 @@ for(profileBio of document.getElementsByClassName("profile-bio")) {
 
 for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion-group")) {
     let AppendixAccordionGroup = function(appendixAccordionGroup) {
-        let setPanelHeightAuto = function(event) {
-            let accordionPanel = event.currentTarget;
-            accordionPanel.removeEventListener("transitionend", setPanelHeightAuto);
-            if(accordionPanel.offsetHeight > 0) {
-                accordionPanel.style.height = "auto";
-            }
-        };
 
         let hideCollapsedAccordion = function(event) {
             let accordionPanel = event.currentTarget;
@@ -63,12 +56,7 @@ for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion
                 accordionButton.setAttribute("aria-expanded", "true");
                 expandIcon.classList.add("appendix-accordion-group__expand-icon--active");
                 accordionPanel.classList.remove("appendix-accordion-group__panel--hidden");
-                if(document.querySelector("body").classList.contains("preload")) {
-                    accordionPanel.style.height = "auto";
-                } else {
-                    accordionPanel.addEventListener("transitionend", setPanelHeightAuto);
-                    accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
-                }
+                accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
             } else {
                 accordionButton.setAttribute("aria-expanded", "false");
                 expandIcon.classList.remove("appendix-accordion-group__expand-icon--active");
@@ -76,11 +64,8 @@ for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion
                     accordionPanel.style.height = 0;
                     accordionPanel.classList.add("appendix-accordion-group__panel--hidden");
                 } else {
-                    accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
-                    requestAnimationFrame(function() {
-                        accordionPanel.addEventListener("transitionend", hideCollapsedAccordion);
-                        accordionPanel.style.height = 0;
-                    });
+                    accordionPanel.addEventListener("transitionend", hideCollapsedAccordion);
+                    accordionPanel.style.height = 0;
                 }
             }
         };
@@ -93,10 +78,20 @@ for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion
             }
         };
 
+        let onOrientationChange = function() {
+            let expandedPanelBtns = document.querySelectorAll(".appendix-accordion-group__button[aria-expanded='true']");
+            expandedPanelBtns.forEach((expandedPanelBtn) => {
+                let expandedPanel = document.getElementById(expandedPanelBtn.getAttribute("aria-controls"));
+                expandedPanel.style.height = "auto";
+                window.addEventListener("resize", () => expandedPanel.style.height = `${expandedPanel.scrollHeight}px`, { once: true });
+            });
+        };
+
         let desiredAnchor = window.location.hash.substring(1);
         let accordionButtons = appendixAccordionGroup.getElementsByClassName("appendix-accordion-group__button");
         for(let accordionButton of accordionButtons) accordionButton.addEventListener("click", toggleAccordionDropDown);
         window.addEventListener("hashchange", () => simulateAccordionOpen(window.location.hash.substring(1)));
+        window.addEventListener("orientationchange", onOrientationChange);
         if(desiredAnchor) simulateAccordionOpen(desiredAnchor);
     }
 
