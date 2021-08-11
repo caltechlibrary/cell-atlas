@@ -2118,6 +2118,10 @@ file. These definitions will be defined mobile first.
     transition: visibility 0.25s, opacity 0.25s;
 }
 
+.summary-menu__li-text--ch1 {
+    width: 50%;
+}
+
 .summary-menu__li-text--ch2 {
     width: 70%;
 }
@@ -2150,6 +2154,30 @@ file. These definitions will be defined mobile first.
 
 .summary-menu__btn--hidden {
     display: none;
+}
+
+.summary-menu__li--ch1-item1 {
+    width: 23.5%;
+    top: 20.25%;
+    left: 60.95%;
+}
+
+.summary-menu__li--ch1-item2 {
+    width: 50.1%;
+    top: 61.3%;
+    left: 35.8%;
+}
+
+.summary-menu__li--ch1-item3 {
+    width: 41.45%;
+    top: 34.4%;
+    left: -2.9%;
+}
+
+.summary-menu__li--ch1-item4 {
+    width: 51.5%;
+    top: 3.6%;
+    left: 10.1%;
 }
 
 .summary-menu__li--ch2-item1 {

@@ -2,7 +2,24 @@
     <div class="summary-menu__widget">
         <div class="summary-menu__container">
             <ol class="summary-menu__items-list">
-                ${if(it.chapter2)}
+                ${if(it.chapter1)}
+                    <li class="summary-menu__li summary-menu__li--ch1-item1" tabindex="0">
+                            ${svg/summary/chapter1/1_1.svg()}
+                            ${svg/summary/chapter1/1_1_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch1-item2" tabindex="0">
+                        ${svg/summary/chapter1/1_2.svg()}
+                        ${svg/summary/chapter1/1_2_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch1-item3" tabindex="0">
+                        ${svg/summary/chapter1/1_3.svg()}
+                        ${svg/summary/chapter1/1_3_text.svg()}
+                    </li>
+                    <li class="summary-menu__li summary-menu__li--ch1-item4" tabindex="0">
+                        ${svg/summary/chapter1/1_4.svg()}
+                        ${svg/summary/chapter1/1_4_text.svg()}
+                    </li>
+                ${elseif(it.chapter2)}
                     <li class="summary-menu__li summary-menu__li--ch2-item1" tabindex="0">
                         ${svg/summary/chapter2/2_1.svg()}
                         ${svg/summary/chapter2/2_1_text.svg()}
