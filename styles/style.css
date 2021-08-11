@@ -2146,6 +2146,10 @@ file. These definitions will be defined mobile first.
     width: 50%;
 }
 
+.summary-menu__li-text--ch8 {
+    width: 50%;
+}
+
 .summary-menu__li-text--transparent {
     opacity: 0;
 }
@@ -2420,6 +2424,42 @@ file. These definitions will be defined mobile first.
     width: 44.2%;
     top: 8%;
     left: 4.5%;
+}
+
+.summary-menu__li--ch8-item1 {
+    width: 44.75%;
+    top: 17%;
+    left: 50%;
+}
+
+.summary-menu__li--ch8-item2 {
+    width: 7.35%;
+    top: 33.75%;
+    left: 77%;
+}
+
+.summary-menu__li--ch8-item3 {
+    width: 44.5%;
+    top: 65.9%;
+    left: 50.07%;
+}
+
+.summary-menu__li--ch8-item4 {
+    width: 27.6%;
+    top: 65.75%;
+    left: 22.5%;
+}
+
+.summary-menu__li--ch8-item5 {
+    width: 9.6%;
+    top: 34.1%;
+    left: 13.5%;
+}
+
+.summary-menu__li--ch8-item6 {
+    width: 27.8%;
+    top: 16.5%;
+    left: 22.5%;
 }
 
 @media (min-width:900px) {
