@@ -93,9 +93,14 @@ function toggleView(el) {
     let nonTextContent = document.querySelector("#nonTextContent");
     let pageControls = document.querySelector(".page-controls-mobile");
     let videoPlayer = nonTextContent.querySelector(".book-section-video-player");
-    let videoPlayerId = videoPlayer.getAttribute("data-player");
-    let comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
-    let qualityChanger = nonTextContent.querySelector(".video-quality-changer-mobile");
+    let videoPlayerId;
+    let comparissonFullBackground;
+    let qualityChanger;
+    if(videoPlayer) {
+        videoPlayerId = videoPlayer.getAttribute("data-player");
+        comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
+        qualityChanger = nonTextContent.querySelector(".video-quality-changer-mobile");
+    }
     if(el.value == "text") {
         textContent.style.display = "flex";
         nonTextContent.style.display = "none";
@@ -116,6 +121,12 @@ function toggleView(el) {
         comparissonFullBackground.style.display = "block";
         videoPlayer.style.display = "none";
         qualityChanger.style.display = "none";
+        closeModalMobile();
+        // Video portions of section pages will always have fixed page controls
+        pageControls.style.position = "fixed";
+    } else if(el.value == "summary") {
+        textContent.style.display = "none";
+        nonTextContent.style.display = "flex";
         closeModalMobile();
         // Video portions of section pages will always have fixed page controls
         pageControls.style.position = "fixed";
@@ -155,7 +166,8 @@ function detectSwipe(event) {
     if(
         document.fullscreenElement || 
         document.querySelector(".protein-viewer__fullscreen-container--fs-polyfill") ||
-        (document.querySelector(".tree-viewer") && document.querySelector(".tree-viewer").contains(event.target))
+        (document.querySelector(".tree-viewer") && document.querySelector(".tree-viewer").contains(event.target)) ||
+        (document.querySelector(".summary-menu") && document.querySelector(".summary-menu").contains(event.target))
     ) {
         validSwipe = false;
         return;
