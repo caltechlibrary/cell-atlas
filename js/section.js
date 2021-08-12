@@ -1189,6 +1189,8 @@ if(document.querySelector(".summary-menu")) {
     };
 
     let respondToTextShelving = function() {
+        let resizeInterval = setInterval(resizeMenuContainer, 1000/60);
+        textContent.addEventListener("transitionend", () => clearInterval(resizeInterval), { once: true });
         enlargeBtn.classList.add("summary-menu__btn--hidden"); 
         minBtn.classList.remove("summary-menu__btn--hidden");
         minBtn.disabled = true;
@@ -1196,6 +1198,8 @@ if(document.querySelector(".summary-menu")) {
     };
 
     let respondToTextUnshelving = function() {
+        let resizeInterval = setInterval(resizeMenuContainer, 1000/60);
+        textUnshelveBtn.addEventListener("transitionend", () => clearInterval(resizeInterval), { once: true });
         enlargeBtn.classList.remove("summary-menu__btn--hidden"); 
         minBtn.classList.add("summary-menu__btn--hidden");
         enlargeBtn.disabled = true;
