@@ -1386,6 +1386,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.book-section-non-text-content--fs-polyfill {
+    z-index: 100;
+}
+
 /* learn-more */
 .learn-more {
     padding: 1em;
@@ -1512,6 +1516,7 @@ file. These definitions will be defined mobile first.
     background-size: contain;
     background-repeat: no-repeat;
     background-color: #fff0;
+    cursor: pointer;
 }
 
 @media (min-width:900px) {
@@ -2133,5 +2138,509 @@ file. These definitions will be defined mobile first.
     .tree-viewer__zoom-controls {
         top: 10px;
         right: 10px;
+    }
+}
+
+/* summary-menu */
+.book-section-video-container--summary {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.summary-menu--nontext-section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 95%;
+    height: 90%;
+}
+
+.summary-menu--fs-polyfill {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+}
+
+.summary-menu--fs-polyfill::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.summary-menu__widget {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 7px #cccccc solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 1px #444;
+    background: #fff;
+    overflow: hidden;
+}
+
+.summary-menu__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.summary-menu__items-list {
+    list-style: none;
+}
+
+.summary-menu__li {
+    position: absolute;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.summary-menu__item-graphic {
+    width: 100%;
+    transform: translate(0, 0);
+    transition: width 0.75s, transform 0.75s;
+}
+
+.summary-menu__li-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: visibility 0.25s, opacity 0.25s;
+}
+
+.summary-menu__li-text--ch1 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch2 {
+    width: 70%;
+}
+
+.summary-menu__li-text--ch3 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch4 {
+    width: 40%;
+}
+
+.summary-menu__li-text--ch5 {
+    width: 40%;
+}
+
+.summary-menu__li-text--ch6 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch7 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch8 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch9 {
+    width: 60%;
+}
+
+.summary-menu__li-text--ch10 {
+    width: 45%;
+}
+
+.summary-menu__li-text--transparent {
+    opacity: 0;
+}
+
+.summary-menu__li-text--hidden {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+
+.summary-menu__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0 0 0 10px;
+    background: #ffffff87;
+}
+
+.summary-menu__btn svg {
+    width: 1.25em;
+    fill: #15404e;
+}
+
+.summary-menu__btn--hidden {
+    display: none;
+}
+
+.summary-menu__li--ch1-item1 {
+    width: 23.5%;
+    top: 20.25%;
+    left: 60.95%;
+}
+
+.summary-menu__li--ch1-item2 {
+    width: 50.1%;
+    top: 61.3%;
+    left: 35.8%;
+}
+
+.summary-menu__li--ch1-item3 {
+    width: 41.45%;
+    top: 34.4%;
+    left: -2.9%;
+}
+
+.summary-menu__li--ch1-item4 {
+    width: 51.5%;
+    top: 3.6%;
+    left: 10.1%;
+}
+
+.summary-menu__li--ch2-item1 {
+    width: 25.5%;
+    top: 5.75%;
+    left: 21%;
+}
+
+.summary-menu__li--ch2-item2 {
+    width: 28.5%;
+    top: 9%;
+    left: 49.5%;
+}
+
+.summary-menu__li--ch2-item3 {
+    width: 14.75%;
+    top: 22.25%;
+    left: 76.75%;
+}
+
+.summary-menu__li--ch2-item4 {
+    width: 17.75%;
+    top: 50.5%;
+    left: 76.5%;
+}
+
+.summary-menu__li--ch2-item5 {
+    width: 27.5%;
+    top: 76.75%;
+    left: 49.5%;
+}
+
+.summary-menu__li--ch2-item6 {
+    width: 26.5%;
+    top: 77.75%;
+    left: 20.25%;
+}
+
+.summary-menu__li--ch2-item7 {
+    width: 17.5%;
+    top: 50.25%;
+    left: 3.5%;
+}
+
+.summary-menu__li--ch2-item8 {
+    width: 13%;
+    top: 20%;
+    left: 6%;
+}
+
+.summary-menu__li--ch3-item1 {
+    width: 31.1%;
+    top: 8.5%;
+    left: 49.95%;
+}
+
+.summary-menu__li--ch3-item2 {
+    width: 10.7%;
+    top: 32.2%;
+    left: 78.5%;
+}
+
+.summary-menu__li--ch3-item3 {
+    width: 31.2%;
+    top: 66.8%;
+    left: 49.8%;
+}
+
+.summary-menu__li--ch3-item4 {
+    width: 31%;
+    top: 67.8%;
+    left: 18.6%;
+}
+
+.summary-menu__li--ch3-item5 {
+    width: 25.2%;
+    top: 32.2%;
+    left: 3%;
+}
+
+.summary-menu__li--ch3-item6 {
+    width: 31.2%;
+    top: 6.99%;
+    left: 18.75%;
+}
+
+.summary-menu__li--ch4-item1 {
+    width: 20.5%;
+    top: 7.5%;
+    left: 52%;
+}
+
+.summary-menu__li--ch4-item2 {
+    width: 22.75%;
+    top: 28.5%;
+    left: 73.5%;
+}
+
+.summary-menu__li--ch4-item3 {
+    width: 9.75%;
+    top: 51.25%;
+    left: 73.25%;
+}
+
+.summary-menu__li--ch4-item4 {
+    width: 20.75%;
+    top: 72%;
+    left: 51%;
+}
+
+.summary-menu__li--ch4-item5 {
+    width: 19.75%;
+    top: 72.25%;
+    left: 29.5%;
+}
+
+.summary-menu__li--ch4-item6 {
+    width: 9.6%;
+    top: 51%;
+    left: 18.5%;
+}
+
+.summary-menu__li--ch4-item7 {
+    width: 10.5%;
+    top: 29.25%;
+    left: 18%;
+}
+
+.summary-menu__li--ch4-item8 {
+    width: 21.25%;
+    top: 18.25%;
+    left: 28%;
+}
+
+.summary-menu__li--ch5-item1 {
+    width: 56.25%;
+    top: 15.75%;
+    left: 37.5%;
+}
+
+.summary-menu__li--ch5-item2 {
+    width: 45.75%;
+    top: 51.5%;
+    left: 36%;
+}
+
+.summary-menu__li--ch5-item3 {
+    width: 26.75%;
+    top: 23.25%;
+    left: 7.5%;
+}
+
+.summary-menu__li--ch6-item1 {
+    width: 36.25%;
+    top: 17.25%;
+    left: 51.65%;
+}
+
+.summary-menu__li--ch6-item2 {
+    width: 23.5%;
+    top: 35.5%;
+    left: 72.5%;
+}
+
+.summary-menu__li--ch6-item3 {
+    width: 24%;
+    top: 64.5%;
+    left: 50.6%;
+}
+
+.summary-menu__li--ch6-item4 {
+    width: 33%;
+    top: 64.3%;
+    left: 15.3%;
+}
+
+.summary-menu__li--ch6-item5 {
+    width: 14.35%;
+    top: 35.25%;
+    left: 11.6%;
+}
+
+.summary-menu__li--ch6-item6 {
+    width: 24%;
+    top: 17.9%;
+    left: 24.3%;
+}
+
+.summary-menu__li--ch7-item1 {
+    width: 27.25%;
+    top: 15.25%;
+    left: 52.5%;
+}
+
+.summary-menu__li--ch7-item2 {
+    width: 7.4%;
+    top: 34.75%;
+    left: 80.25%;
+}
+
+.summary-menu__li--ch7-item3 {
+    width: 29.1%;
+    top: 68.75%;
+    left: 50.85%;
+}
+
+.summary-menu__li--ch7-item4 {
+    width: 27.8%;
+    top: 68.75%;
+    left: 20.3%;
+}
+
+.summary-menu__li--ch7-item5 {
+    width: 13.7%;
+    top: 34.75%;
+    left: 12.2%;
+}
+
+.summary-menu__li--ch7-item6 {
+    width: 44.2%;
+    top: 8%;
+    left: 4.5%;
+}
+
+.summary-menu__li--ch8-item1 {
+    width: 44.75%;
+    top: 17%;
+    left: 50%;
+}
+
+.summary-menu__li--ch8-item2 {
+    width: 7.35%;
+    top: 33.75%;
+    left: 77%;
+}
+
+.summary-menu__li--ch8-item3 {
+    width: 44.5%;
+    top: 65.9%;
+    left: 50.07%;
+}
+
+.summary-menu__li--ch8-item4 {
+    width: 27.6%;
+    top: 65.75%;
+    left: 22.5%;
+}
+
+.summary-menu__li--ch8-item5 {
+    width: 9.6%;
+    top: 34.1%;
+    left: 13.5%;
+}
+
+.summary-menu__li--ch8-item6 {
+    width: 27.8%;
+    top: 16.5%;
+    left: 22.5%;
+}
+
+.summary-menu__li--ch9-item1 {
+    width: 28%;
+    top: 13.75%;
+    left: 51.85%;
+}
+
+.summary-menu__li--ch9-item2 {
+    width: 33.9%;
+    top: 33.5%;
+    left: 51.75%;
+}
+
+.summary-menu__li--ch9-item3 {
+    width: 41.7%;
+    top: 13.25%;
+    left: 6.25%;
+}
+
+.summary-menu__li--ch10-item1 {
+    width: 40.5%;
+    top: 9.5%;
+    left: 51.95%;
+}
+
+.summary-menu__li--ch10-item2 {
+    width: 19.45%;
+    top: 36.1%;
+    left: 76.8%;
+}
+
+.summary-menu__li--ch10-item3 {
+    width: 24.65%;
+    top: 66%;
+    left: 51.45%;
+}
+
+.summary-menu__li--ch10-item4 {
+    width: 24.25%;
+    top: 64.75%;
+    left: 24.1%;
+}
+
+.summary-menu__li--ch10-item5 {
+    width: 14.6%;
+    top: 36.25%;
+    left: 11.7%;
+}
+
+.summary-menu__li--ch10-item6 {
+    width: 24%;
+    top: 16.35%;
+    left: 24.5%;
+}
+
+@media (min-width:900px) {
+    .summary-menu--nontext-section {
+        position: relative;
+        width: 100%;
+        height: 90%;
+    }
+
+    .summary-menu__li {
+        position: absolute;
+        box-sizing: border-box;
+        outline: revert;
     }
 }

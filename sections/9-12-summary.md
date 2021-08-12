@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 09_Interaction.mp4
 ---
 
 ## Concept Check Questions 

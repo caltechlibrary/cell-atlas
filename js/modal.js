@@ -175,8 +175,6 @@ for(let viewerEl of viewerEls) {
             options.color = pv.color.byChain(chainGradient);
         } else if(color == "ss") {
             options.color = pv.color.bySS(ssGradient);
-        } else if(color == "tempFactor") {
-            options.color = pv.color.byAtomProp(color);
         }
 
         atomLabel.classList.add("protein-viewer__atom-label--hidden");
@@ -197,8 +195,6 @@ for(let viewerEl of viewerEls) {
                 geomObj.colorBy(pv.color.byChain(chainGradient));
             } else if(color == "ss") {
                 geomObj.colorBy(pv.color.bySS(ssGradient));
-            } else if(color == "tempFactor") {
-                geomObj.colorBy(pv.color.byAtomProp(color));
             }
         });
         viewerObj.requestRedraw();
@@ -229,7 +225,11 @@ for(let viewerEl of viewerEls) {
             let residueNum = atomNameComponents[1].substring(3);
             let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
             highlightAtom(picked.node(), atom);
-            atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            if(proteinName == "water") {
+                atomLabel.innerHTML = `${proteinName}`;
+            } else {
+                atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            }
             atomLabel.classList.remove("protein-viewer__atom-label--hidden");
             prevPicked = { node: picked.node() }
         } else {
