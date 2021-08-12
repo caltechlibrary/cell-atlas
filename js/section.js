@@ -1164,6 +1164,7 @@ if(document.querySelector(".summary-menu")) {
                 summaryMenu.classList.remove("summary-menu--nontext-section");
                 summaryMenu.classList.add("summary-menu--fs-polyfill");
                 nonTextSection.classList.add("book-section-non-text-content--fs-polyfill");
+                resizeMenuContainer();
             }
         }
     };
