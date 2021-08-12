@@ -26,7 +26,7 @@ for(profileBio of document.getElementsByClassName("profile-bio")) {
     
     let checkForScrollBar = function() {
         if(profileDescription.scrollHeight > parseInt(window.getComputedStyle(profileBio)["max-height"])) {
-            profileDescription.classList.add("profile-bio__description--has-scrollbar");
+            profileDescription.style["padding-right"] = `${profileDescription.offsetWidth - profileDescription.clientWidth}px`;
         }
     };
 
