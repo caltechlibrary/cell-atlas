@@ -1012,6 +1012,8 @@ file. These definitions will be defined mobile first.
     .book-section-text-material {
         flex: 1 1 auto;
         overflow: auto;
+        margin: 0;
+        padding: 0px 15px;
     }
 
     /* || MODAL styles */
