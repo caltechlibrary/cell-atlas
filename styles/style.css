@@ -1510,6 +1510,8 @@ file. These definitions will be defined mobile first.
     height: 1.75em;
     width: 2.75em;
     margin: 1.5px 0 01.5px 0.8em;
+    margin: 3px 0 01.5px 0.8em;
+    transform: translateY(-0.1em);
     padding: 0;
     border: none;
     background-image: url(../img/viewerIcon.png);
