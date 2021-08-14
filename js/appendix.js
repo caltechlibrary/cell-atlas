@@ -52,11 +52,19 @@ for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion
             let accordionButton = event.currentTarget;
             let expandIcon = accordionButton.querySelector(".appendix-accordion-group__expand-icon");
             let accordionPanel = document.getElementById(accordionButton.getAttribute("aria-controls"));
+            let panelImg = accordionPanel.querySelector("img");
             if(accordionButton.getAttribute("aria-expanded") == "false") {
                 accordionButton.setAttribute("aria-expanded", "true");
                 expandIcon.classList.add("appendix-accordion-group__expand-icon--active");
                 accordionPanel.classList.remove("appendix-accordion-group__panel--hidden");
-                accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
+                if(panelImg && !panelImg.complete) {
+                    accordionPanel.style.height = "auto";
+                    panelImg.addEventListener("load", () => {
+                        if(accordionButton.getAttribute("aria-expanded") == "true") accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
+                    });
+                } else {
+                    accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
+                }
             } else {
                 accordionButton.setAttribute("aria-expanded", "false");
                 expandIcon.classList.remove("appendix-accordion-group__expand-icon--active");
