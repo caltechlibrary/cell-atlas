@@ -354,6 +354,7 @@ function createVideoPlayer(videoEl) {
     let doi = videoEl.getAttribute("doi");
     let highSrc;
     let medSrc;
+    let videoTabBtn = document.querySelector(`button[data-player='${playerId}'][value='video']`);
     let videoPlayer = document.querySelector(`.book-section-video-player[data-player='${playerId}']`);
     let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
@@ -407,12 +408,10 @@ function createVideoPlayer(videoEl) {
         videoEl.addEventListener("ended", clearFrameInterval);
         videoEl.addEventListener("waiting", clearFrameInterval);
     }
+    if(videoTabBtn) videoTabBtn.addEventListener("click", resizeCanvases);
     if(videoEl === document.querySelector("#nonTextContent video")) {
-        let showVidBtn = document.querySelector(`#nonTextContent button[data-player='${playerId}']`);
         let nonTextSection = document.querySelector("#nonTextContent");
-        
         nonTextSection.addEventListener("transitionend", resizeCanvases);
-        if(showVidBtn) showVidBtn.addEventListener("click", resizeCanvases);
     }
     playPauseButton.addEventListener('click', togglePlayPause);
     if(qualityChangerOpenBtn) qualityChangerOpenBtn.addEventListener("click", toggleQualityChanger);
