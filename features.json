@@ -1645,14 +1645,6 @@
           }
        },
        {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-lifecycle",
-             "label":"5.3 Budding: Hyphomonas lifecycle"
-          }
-       },
-       {
           "species":"Listeria monocytogenes",
           "ref":{
              "section":"2-2-cell-wall",
