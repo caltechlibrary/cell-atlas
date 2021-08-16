@@ -2166,8 +2166,7 @@
           "species":"Acetonema longum",
           "ref":{
              "section":"4-5-microcompartments",
-             "subsection":"microcompartment-shells",
-             "label":"4.5 Microcompartments: Microcompartment shells"
+             "label":"4.5 Microcompartments"
           }
        },
        {
@@ -2366,16 +2365,14 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"2-6-surface-layer",
-             "subsection":"surface-layer-architecture",
-             "label":"2.6 Surface Layer: Surface layer architecture"
+             "label":"2.6 Surface Layer"
           }
        },
        {
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"3-4-vibrioid",
-             "subsection":"ctp-synthase",
-             "label":"3.4 Vibrioid: CTP synthase"
+             "label":"3.4 Vibrioid"
           }
        },
        {
@@ -2610,8 +2607,7 @@
           "species":"Legionella pneumophila",
           "ref":{
              "section":"9-3-type-ii-and-type-iv-secretion",
-             "subsection":"legionella-t4ss-structure",
-             "label":"9.3 Type II and Type IV Secretion: Legionella T4SS structure"
+             "label":"9.3 Type II and Type IV Secretion"
           }
        },
        {
@@ -2626,8 +2622,7 @@
           "species":"Magnetospirillum magneticum",
           "ref":{
              "section":"7-6-magnetotaxis",
-             "subsection":"mamk-structure",
-             "label":"7.6 Magnetotaxis: MamK structure"
+             "label":"7.6 Magnetotaxis"
           }
        },
        {
@@ -2672,16 +2667,14 @@
           "species":"Myxococcus xanthus",
           "ref":{
              "section":"6-10-type-iv-pilus",
-             "subsection":"type-iv-pilus-structure",
-             "label":"6.10 Type IV Pilus: Type IV pilus structure"
+             "label":"6.10 Type IV Pilus"
           }
        },
        {
           "species":"Myxococcus xanthus",
           "ref":{
              "section":"9-6-type-vi-secretion",
-             "subsection":"primed-t6ss-structure",
-             "label":"9.6 Type VI Secretion: Primed T6SS structure"
+             "label":"9.6 Type VI Secretion"
           }
        },
        {
@@ -2703,8 +2696,7 @@
           "species":"Prosthecobacter vanneervenii",
           "ref":{
              "section":"3-6-prosthecate",
-             "subsection":"bacterial-microtubules",
-             "label":"3.6 Prosthecate: Bacterial microtubules"
+             "label":"3.6 Prosthecate"
           }
        },
        {
@@ -2735,8 +2727,7 @@
           "species":"Pseudomonas aeruginosa",
           "ref":{
              "section":"9-4-type-iii-secretion",
-             "subsection":"secretin-channel-structure",
-             "label":"9.4 Type III Secretion: Secretin channel structure"
+             "label":"9.4 Type III Secretion"
           }
        },
        {
@@ -2750,16 +2741,14 @@
           "species":"Rhodopseudomonas palustris",
           "ref":{
              "section":"4-3-intracytoplasmic-membrane",
-             "subsection":"photocomplexes",
-             "label":"4.3 Intracytoplasmic Membrane: Photocomplexes"
+             "label":"4.3 Intracytoplasmic Membrane"
           }
        },
        {
           "species":"Salmonella typhimurium",
           "ref":{
              "section":"7-2-chemosensory-arrays",
-             "subsection":"chemosensory-array-architecture",
-             "label":"7.2 Chemosensory Arrays: Chemosensory array architecture"
+             "label":"7.2 Chemosensory Arrays"
           }
        },
        {
@@ -2787,8 +2776,7 @@
           "species":"Shewanella oneidensis",
           "ref":{
              "section":"7-1-chemotaxis",
-             "subsection":"chemoreceptor-structure",
-             "label":"7.1 Chemotaxis: Chemoreceptor structure"
+             "label":"7.1 Chemotaxis"
           }
        },
        {
@@ -2833,8 +2821,7 @@
           "species":"Verrucomicrobium spinosum",
           "ref":{
              "section":"3-6-prosthecate",
-             "subsection":"bactofilin",
-             "label":"3.6 Prosthecate: Bactofilin"
+             "label":"3.6 Prosthecate"
           }
        },
        {
@@ -2870,8 +2857,7 @@
           "species":"Vibrio cholerae",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"fired-t6ss-structure",
-             "label":"9.7 Contractile Weapons: Fired T6SS structure"
+             "label":"9.7 Contractile Weapons"
           }
        }
     ],
