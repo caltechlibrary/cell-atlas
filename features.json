@@ -341,14 +341,6 @@
        {
           "species":"Bdellovibrio bacteriovorus",
           "ref":{
-             "section":"6-2-flagellar-motor",
-             "subsection":"flagellar-motor-diversity",
-             "label":"6.2 Flagellar Motor: Flagellar motor diversity"
-          }
-       },
-       {
-          "species":"Bdellovibrio bacteriovorus",
-          "ref":{
              "section":"9-10-predator-entry",
              "label":"9.10 Predator Entry"
           }
@@ -2266,14 +2258,6 @@
        {
           "species":"Bdellovibrio bacteriovorus",
           "ref":{
-             "section":"6-2-flagellar-motor",
-             "subsection":"flagellar-motor-diversity",
-             "label":"6.2 Flagellar Motor: Flagellar motor diversity"
-          }
-       },
-       {
-          "species":"Bdellovibrio bacteriovorus",
-          "ref":{
              "section":"9-10-predator-entry",
              "label":"9.10 Predator Entry"
           }
@@ -3229,14 +3213,6 @@
           "ref":{
              "section":"6-2-flagellar-motor",
              "label":"6.2 Flagellar Motor"
-          }
-       },
-       {
-          "species":"Bdellovibrio bacteriovorus",
-          "ref":{
-             "section":"6-2-flagellar-motor",
-             "subsection":"flagellar-motor-diversity",
-             "label":"6.2 Flagellar Motor: Flagellar motor diversity"
           }
        },
        {
