@@ -1050,8 +1050,7 @@
           "species":"Acetonema longum",
           "ref":{
              "section":"4-5-microcompartments",
-             "subsection":"microcompartment-shells",
-             "label":"4.5 Microcompartments: Microcompartment shells"
+             "label":"4.5 Microcompartments"
           }
        },
        {
@@ -1129,8 +1128,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"2-6-surface-layer",
-             "subsection":"surface-layer-architecture",
-             "label":"2.6 Surface Layer: Surface layer architecture"
+             "label":"2.6 Surface Layer"
           }
        },
        {
@@ -1211,8 +1209,7 @@
           "species":"Magnetospirillum magneticum",
           "ref":{
              "section":"7-6-magnetotaxis",
-             "subsection":"mamk-structure",
-             "label":"7.6 Magnetotaxis: MamK structure"
+             "label":"7.6 Magnetotaxis"
           }
        },
        {
@@ -1257,8 +1254,7 @@
           "species":"Salmonella typhimurium",
           "ref":{
              "section":"7-2-chemosensory-arrays",
-             "subsection":"chemosensory-array-architecture",
-             "label":"7.2 Chemosensory Arrays: Chemosensory array architecture"
+             "label":"7.2 Chemosensory Arrays"
           }
        },
        {
@@ -1279,8 +1275,7 @@
           "species":"Shewanella oneidensis",
           "ref":{
              "section":"7-1-chemotaxis",
-             "subsection":"chemoreceptor-structure",
-             "label":"7.1 Chemotaxis: Chemoreceptor structure"
+             "label":"7.1 Chemotaxis"
           }
        },
        {
@@ -1340,8 +1335,7 @@
           "species":"Vibrio cholerae",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"fired-t6ss-structure",
-             "label":"9.7 Contractile Weapons: Fired T6SS structure"
+             "label":"9.7 Contractile Weapons"
           }
        }
     ],
