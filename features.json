@@ -1947,8 +1947,7 @@
           "species":"Campylobacter jejuni",
           "ref":{
              "section":"6-1-flagellum",
-             "subsection":"flagellum-structure",
-             "label":"6.1 Flagellum: Flagellum structure"
+             "label":"6.1 Flagellum"
           }
        },
        {
@@ -2014,8 +2013,7 @@
           "species":"Shewanella oneidensis",
           "ref":{
              "section":"7-1-chemotaxis",
-             "subsection":"chemoreceptor-structure",
-             "label":"7.1 Chemotaxis: Chemoreceptor structure"
+             "label":"7.1 Chemotaxis"
           }
        },
        {
@@ -2045,8 +2043,7 @@
           "species":"Vibrio cholerae",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"fired-t6ss-structure",
-             "label":"9.7 Contractile Weapons: Fired T6SS structure"
+             "label":"9.7 Contractile Weapons"
           }
        }
     ],
