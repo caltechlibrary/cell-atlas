@@ -666,14 +666,6 @@
           "species":"Hyphomonas neptunium",
           "ref":{
              "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
              "subsection":"hyphomonas-lifecycle",
              "label":"5.3 Budding: Hyphomonas lifecycle"
           }
@@ -2569,14 +2561,6 @@
           "ref":{
              "section":"5-3-budding",
              "label":"5.3 Budding"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
           }
        },
        {
@@ -4898,14 +4882,6 @@
           "species":"Hyphomonas neptunium",
           "ref":{
              "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
              "subsection":"hyphomonas-lifecycle",
              "label":"5.3 Budding: Hyphomonas lifecycle"
           }
@@ -5851,14 +5827,6 @@
              "section":"4-8-storage-granule-variety",
              "subsection":"granule-containing-carboxysomes",
              "label":"4.8 Storage Granule Variety: Granule-containing carboxysomes"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
           }
        },
        {
