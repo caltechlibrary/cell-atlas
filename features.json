@@ -2121,8 +2121,8 @@
           "species":"Pseudoalteromonas luteoviolacea",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"mac-array-structure",
-             "label":"9.7 Contractile Weapons: MAC array structure"
+             "subsection":"macs",
+             "label":"9.7 Contractile Weapons: MACs"
           }
        }
     ],
@@ -6714,8 +6714,8 @@
           "species":"Pseudoalteromonas luteoviolacea",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"mac-array-structure",
-             "label":"9.7 Contractile Weapons: MAC array structure"
+             "subsection":"macs",
+             "label":"9.7 Contractile Weapons: MACs"
           }
        },
        {
