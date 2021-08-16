@@ -6950,8 +6950,7 @@
           "species":"Legionella pneumophila",
           "ref":{
              "section":"9-3-type-ii-and-type-iv-secretion",
-             "subsection":"legionella-t4ss-structure",
-             "label":"9.3 Type II and Type IV Secretion: Legionella T4SS structure"
+             "label":"9.3 Type II and Type IV Secretion"
           }
        },
        {
@@ -6995,8 +6994,7 @@
           "species":"Prosthecobacter vanneervenii",
           "ref":{
              "section":"3-6-prosthecate",
-             "subsection":"bacterial-microtubules",
-             "label":"3.6 Prosthecate: Bacterial microtubules"
+             "label":"3.6 Prosthecate"
           }
        },
        {
@@ -7070,8 +7068,7 @@
           "species":"Vibrio cholerae",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"fired-t6ss-structure",
-             "label":"9.7 Contractile Weapons: Fired T6SS structure"
+             "label":"9.7 Contractile Weapons"
           }
        }
     ],
