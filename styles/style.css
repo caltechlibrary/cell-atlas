@@ -1807,6 +1807,7 @@ file. These definitions will be defined mobile first.
 
 .feature-index-section-list__species-name {
     color: #fff;
+    font-style: italic;
 }
 
 .feature-index-section-list__link {
