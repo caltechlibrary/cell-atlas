@@ -517,8 +517,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
@@ -2441,8 +2441,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
@@ -3408,8 +3408,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
@@ -5730,8 +5730,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
