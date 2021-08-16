@@ -1526,8 +1526,7 @@
           "species":"Acetonema longum",
           "ref":{
              "section":"4-5-microcompartments",
-             "subsection":"microcompartment-shells",
-             "label":"4.5 Microcompartments: Microcompartment shells"
+             "label":"4.5 Microcompartments"
           }
        },
        {
@@ -1579,8 +1578,7 @@
           "species":"Campylobacter jejuni",
           "ref":{
              "section":"6-1-flagellum",
-             "subsection":"flagellum-structure",
-             "label":"6.1 Flagellum: Flagellum structure"
+             "label":"6.1 Flagellum"
           }
        },
        {
@@ -1697,8 +1695,7 @@
           "species":"Salmonella typhimurium",
           "ref":{
              "section":"7-2-chemosensory-arrays",
-             "subsection":"chemosensory-array-architecture",
-             "label":"7.2 Chemosensory Arrays: Chemosensory array architecture"
+             "label":"7.2 Chemosensory Arrays"
           }
        },
        {
@@ -1726,8 +1723,7 @@
           "species":"Shewanella oneidensis",
           "ref":{
              "section":"7-1-chemotaxis",
-             "subsection":"chemoreceptor-structure",
-             "label":"7.1 Chemotaxis: Chemoreceptor structure"
+             "label":"7.1 Chemotaxis"
           }
        },
        {
