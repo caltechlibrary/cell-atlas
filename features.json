@@ -6518,8 +6518,7 @@
           "species":"Acetonema longum",
           "ref":{
              "section":"4-5-microcompartments",
-             "subsection":"microcompartment-shells",
-             "label":"4.5 Microcompartments: Microcompartment shells"
+             "label":"4.5 Microcompartments"
           }
        },
        {
@@ -6713,8 +6712,7 @@
           "species":"Methanoregula formicica",
           "ref":{
              "section":"6-8-archaellum",
-             "subsection":"archaellum-structure",
-             "label":"6.8 Archaellum: Archaellum structure"
+             "label":"6.8 Archaellum"
           }
        },
        {
@@ -6750,8 +6748,7 @@
           "species":"Myxococcus xanthus",
           "ref":{
              "section":"9-6-type-vi-secretion",
-             "subsection":"primed-t6ss-structure",
-             "label":"9.6 Type VI Secretion: Primed T6SS structure"
+             "label":"9.6 Type VI Secretion"
           }
        },
        {
@@ -6842,8 +6839,7 @@
           "species":"Vibrio cholerae",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"fired-t6ss-structure",
-             "label":"9.7 Contractile Weapons: Fired T6SS structure"
+             "label":"9.7 Contractile Weapons"
           }
        }
     ],
