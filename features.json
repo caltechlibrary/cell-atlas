@@ -4412,16 +4412,14 @@
           "species":"Myxococcus xanthus",
           "ref":{
              "section":"6-10-type-iv-pilus",
-             "subsection":"type-iv-pilus-structure",
-             "label":"6.10 Type IV Pilus: Type IV pilus structure"
+             "label":"6.10 Type IV Pilus"
           }
        },
        {
           "species":"Myxococcus xanthus",
           "ref":{
              "section":"9-6-type-vi-secretion",
-             "subsection":"primed-t6ss-structure",
-             "label":"9.6 Type VI Secretion: Primed T6SS structure"
+             "label":"9.6 Type VI Secretion"
           }
        }
     ],
