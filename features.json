@@ -1491,6 +1491,13 @@
     ],
     "Division septum":[
        {
+          "species":"Staphylococcus aureus",
+          "ref":{
+             "section":"5-4-monoderm-septum",
+             "label":"5.4 Monoderm Septum"
+         }
+       },
+       {
           "species":"Tetrasphaera remsis",
           "ref":{
              "section":"5-5-monoderm-cytokinesis",
