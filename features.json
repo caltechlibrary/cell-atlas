@@ -1431,14 +1431,6 @@
           }
        },
        {
-          "species":"Cupriavidus necator",
-          "ref":{
-             "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
-          }
-       },
-       {
           "species":"Halohasta litchfieldiae",
           "ref":{
              "section":"4-9-archaeal-storage-granules",
