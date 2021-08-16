@@ -4193,8 +4193,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"2-6-surface-layer",
-             "subsection":"surface-layer-architecture",
-             "label":"2.6 Surface Layer: Surface layer architecture"
+             "label":"2.6 Surface Layer"
           }
        },
        {
@@ -4260,8 +4259,7 @@
           "species":"Methanoregula formicica",
           "ref":{
              "section":"6-8-archaellum",
-             "subsection":"archaellum-structure",
-             "label":"6.8 Archaellum: Archaellum structure"
+             "label":"6.8 Archaellum"
           }
        },
        {
@@ -4363,8 +4361,7 @@
           "species":"Verrucomicrobium spinosum",
           "ref":{
              "section":"3-6-prosthecate",
-             "subsection":"bactofilin",
-             "label":"3.6 Prosthecate: Bactofilin"
+             "label":"3.6 Prosthecate"
           }
        },
        {
@@ -4378,8 +4375,7 @@
           "species":"Vibrio cholerae",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"fired-t6ss-structure",
-             "label":"9.7 Contractile Weapons: Fired T6SS structure"
+             "label":"9.7 Contractile Weapons"
           }
        }
     ],
