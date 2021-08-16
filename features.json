@@ -7137,8 +7137,7 @@
           "species":"Acetonema longum",
           "ref":{
              "section":"4-5-microcompartments",
-             "subsection":"microcompartment-shells",
-             "label":"4.5 Microcompartments: Microcompartment shells"
+             "label":"4.5 Microcompartments"
           }
        },
        {
@@ -7264,8 +7263,7 @@
           "species":"Pseudomonas aeruginosa",
           "ref":{
              "section":"9-4-type-iii-secretion",
-             "subsection":"secretin-channel-structure",
-             "label":"9.4 Type III Secretion: Secretin channel structure"
+             "label":"9.4 Type III Secretion"
           }
        },
        {
@@ -7286,8 +7284,7 @@
           "species":"Shewanella oneidensis",
           "ref":{
              "section":"7-1-chemotaxis",
-             "subsection":"chemoreceptor-structure",
-             "label":"7.1 Chemotaxis: Chemoreceptor structure"
+             "label":"7.1 Chemotaxis"
           }
        },
        {
@@ -7340,8 +7337,7 @@
           "species":"Prosthecobacter vanneervenii",
           "ref":{
              "section":"3-6-prosthecate",
-             "subsection":"bacterial-microtubules",
-             "label":"3.6 Prosthecate: Bacterial microtubules"
+             "label":"3.6 Prosthecate"
           }
        }
     ]
