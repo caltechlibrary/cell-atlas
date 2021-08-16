@@ -72,7 +72,7 @@
           }
        },
        {
-          "species":"Methanobacterium formicicum",
+          "species":"Methanoregula formica",
           "ref":{
              "section":"2-7-surface-layer-variety",
              "subsection":"methanoregula-formicica",
@@ -341,14 +341,6 @@
        {
           "species":"Bdellovibrio bacteriovorus",
           "ref":{
-             "section":"6-2-flagellar-motor",
-             "subsection":"flagellar-motor-diversity",
-             "label":"6.2 Flagellar Motor: Flagellar motor diversity"
-          }
-       },
-       {
-          "species":"Bdellovibrio bacteriovorus",
-          "ref":{
              "section":"9-10-predator-entry",
              "label":"9.10 Predator Entry"
           }
@@ -489,7 +481,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -525,8 +517,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
@@ -548,8 +540,8 @@
           "species":"Escherichia coli",
           "ref":{
              "section":"2-3-outer-membrane",
-             "subsection":"cell-wall-remodeling",
-             "label":"2.3 Outer Membrane: Cell wall remodeling"
+             "subsection":"diderm-peptidoglycan-architecture",
+             "label":"2.3 Outer Membrane: Diderm wall architecture"
           }
        },
        {
@@ -668,14 +660,6 @@
           "ref":{
              "section":"5-3-budding",
              "label":"5.3 Budding"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
           }
        },
        {
@@ -1491,6 +1475,13 @@
     ],
     "Division septum":[
        {
+          "species":"Staphylococcus aureus",
+          "ref":{
+             "section":"5-4-monoderm-septum",
+             "label":"5.4 Monoderm Septum"
+         }
+       },
+       {
           "species":"Tetrasphaera remsis",
           "ref":{
              "section":"5-5-monoderm-cytokinesis",
@@ -1651,14 +1642,6 @@
           "ref":{
              "section":"6-3-flagellar-assembly",
              "label":"6.3 Flagellar Assembly"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-lifecycle",
-             "label":"5.3 Budding: Hyphomonas lifecycle"
           }
        },
        {
@@ -2138,8 +2121,8 @@
           "species":"Pseudoalteromonas luteoviolacea",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"mac-array-structure",
-             "label":"9.7 Contractile Weapons: MAC array structure"
+             "subsection":"macs",
+             "label":"9.7 Contractile Weapons: MACs"
           }
        }
     ],
@@ -2259,14 +2242,6 @@
        {
           "species":"Bdellovibrio bacteriovorus",
           "ref":{
-             "section":"6-2-flagellar-motor",
-             "subsection":"flagellar-motor-diversity",
-             "label":"6.2 Flagellar Motor: Flagellar motor diversity"
-          }
-       },
-       {
-          "species":"Bdellovibrio bacteriovorus",
-          "ref":{
              "section":"9-10-predator-entry",
              "label":"9.10 Predator Entry"
           }
@@ -2357,7 +2332,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -2450,8 +2425,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
@@ -2578,14 +2553,6 @@
           "ref":{
              "section":"5-3-budding",
              "label":"5.3 Budding"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
           }
        },
        {
@@ -3227,14 +3194,6 @@
        {
           "species":"Bdellovibrio bacteriovorus",
           "ref":{
-             "section":"6-2-flagellar-motor",
-             "subsection":"flagellar-motor-diversity",
-             "label":"6.2 Flagellar Motor: Flagellar motor diversity"
-          }
-       },
-       {
-          "species":"Bdellovibrio bacteriovorus",
-          "ref":{
              "section":"9-10-predator-entry",
              "label":"9.10 Predator Entry"
           }
@@ -3332,7 +3291,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -3425,8 +3384,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
@@ -3999,7 +3958,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -4125,7 +4084,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -4185,7 +4144,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -4635,7 +4594,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -4909,14 +4868,6 @@
           "ref":{
              "section":"5-3-budding",
              "label":"5.3 Budding"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
           }
        },
        {
@@ -5747,8 +5698,8 @@
           "species":"Cupriavidus necator",
           "ref":{
              "section":"5-9-asynchronous-constriction",
-             "subsection":"ftsz-structure",
-             "label":"5.9 Asynchronous Constriction: FtsZ structure"
+             "subsection":"asymmetric-constriction",
+             "label":"5.9 Asynchronous Constriction: Asymmetric constriction"
           }
        },
        {
@@ -5868,14 +5819,6 @@
              "section":"4-8-storage-granule-variety",
              "subsection":"granule-containing-carboxysomes",
              "label":"4.8 Storage Granule Variety: Granule-containing carboxysomes"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
           }
        },
        {
@@ -6103,7 +6046,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -6771,8 +6714,8 @@
           "species":"Pseudoalteromonas luteoviolacea",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"mac-array-structure",
-             "label":"9.7 Contractile Weapons: MAC array structure"
+             "subsection":"macs",
+             "label":"9.7 Contractile Weapons: MACs"
           }
        },
        {
@@ -6917,7 +6860,7 @@
           "species":"Caulobacter crescentus",
           "ref":{
              "section":"10-6-head-fibers",
-             "subsection":"\u03c6cb13-infection",
+             "subsection":"phicb13-infection",
              "label":"10.6 Head Fibers: \u03c6Cb13 infection"
           }
        },
@@ -7007,8 +6950,7 @@
           "species":"Legionella pneumophila",
           "ref":{
              "section":"9-3-type-ii-and-type-iv-secretion",
-             "subsection":"legionella-t4ss-structure",
-             "label":"9.3 Type II and Type IV Secretion: Legionella T4SS structure"
+             "label":"9.3 Type II and Type IV Secretion"
           }
        },
        {
@@ -7052,8 +6994,7 @@
           "species":"Prosthecobacter vanneervenii",
           "ref":{
              "section":"3-6-prosthecate",
-             "subsection":"bacterial-microtubules",
-             "label":"3.6 Prosthecate: Bacterial microtubules"
+             "label":"3.6 Prosthecate"
           }
        },
        {
@@ -7127,8 +7068,7 @@
           "species":"Vibrio cholerae",
           "ref":{
              "section":"9-7-contractile-weapons",
-             "subsection":"fired-t6ss-structure",
-             "label":"9.7 Contractile Weapons: Fired T6SS structure"
+             "label":"9.7 Contractile Weapons"
           }
        }
     ],
