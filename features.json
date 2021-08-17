@@ -1896,14 +1896,6 @@
           }
        },
        {
-          "species":"Bdellovibrio bacteriovorus",
-          "ref":{
-             "section":"6-2-flagellar-motor",
-             "subsection":"flagellar-motor-diversity",
-             "label":"6.2 Flagellar Motor: Flagellar motor diversity"
-          }
-       },
-       {
           "species":"Borrelia burgdorferi",
           "ref":{
              "section":"2-4-vesicles",
@@ -3512,14 +3504,6 @@
           "ref":{
              "section":"5-3-budding",
              "label":"5.3 Budding"
-          }
-       },
-       {
-          "species":"Hyphomonas neptunium",
-          "ref":{
-             "section":"5-3-budding",
-             "subsection":"hyphomonas-stalk",
-             "label":"5.3 Budding: Hyphomonas stalk"
           }
        },
        {
