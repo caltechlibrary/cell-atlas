@@ -241,7 +241,7 @@ for(let viewerEl of viewerEls) {
     let handleTouch = function(event) {
         let handleTouchend = function() {
             if(validTap) {
-                let pos = { x: event.touches[0].clientX - viewerContainer.getBoundingClientRect().x, y: event.touches[0].clientY - viewerContainer.getBoundingClientRect().y };
+                let pos = { x: event.touches[0].clientX - pvCanvas.getBoundingClientRect().x, y: event.touches[0].clientY - pvCanvas.getBoundingClientRect().y };
                 handleInput(pos);
             }
             viewerContainer.removeEventListener("touchmove", handleTouchmove);
@@ -259,7 +259,7 @@ for(let viewerEl of viewerEls) {
     let handleMouseDown = function(event) {
         let handleMouseup = function() {
             if(validPress) {
-                let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+                let pos = { x: event.clientX - pvCanvas.getBoundingClientRect().x, y: event.clientY - pvCanvas.getBoundingClientRect().y };
                 handleInput(pos);
             }
             viewerContainer.removeEventListener("mousemove", handleMousemove);
@@ -310,6 +310,7 @@ for(let viewerEl of viewerEls) {
     let chainGradient = pv.color.gradient(["#FF6C0C", "#5A2328", "#70A0AF", "#A8C686", "#003B4C"]);
     let ssGradient = pv.color.gradient(["#CCCCCC", "#003B4C", "#FF6C0C"]);
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
+    let pvCanvas = viewerContainer.querySelector("canvas");
     let viewerStructs;
     let prevPicked;
     let proteinDict = {
