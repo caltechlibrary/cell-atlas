@@ -766,6 +766,7 @@ blockquote {
         background: #ffffff;
         overflow-y: auto;
         overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
     }
 
     .subsection-modal-container-slider-fullscreen {
