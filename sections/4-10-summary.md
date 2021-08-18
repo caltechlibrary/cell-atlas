@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 04_Growth.mp4
 ---
 
 ## Concept Check Questions 

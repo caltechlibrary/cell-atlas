@@ -25,6 +25,10 @@ file. These definitions will be defined mobile first.
 - learn-more: Block hold learn more buttons that open subsection modals
 - content-img: Image vieweing elements that can be enlarged/minimized
 - protein-viewer: Interactive PDB viewer
+- appendix-accordion-group: Accordion dropdown menus found in appendix pages
+- feature-index-section-list: List of species for a given feature
+- profile-bio: Profile for a given scientist
+- about-page-blurb: About page blurb block
 - fs-tree-confirm: Confirm pop up to be displayed when fullscreen for tree is requested on page load
 - tree-viewer: Interactive phylogenetic tree viewer found in appendix page
 - species-example-list: List of example sections for a given species
@@ -82,7 +86,7 @@ file. These definitions will be defined mobile first.
     }
 
     .main-color-background {
-        background-color: rgb(21 64 78);
+        background-color: #15404e;
     }
 
     .hidden {
@@ -94,8 +98,8 @@ file. These definitions will be defined mobile first.
     }
 
     .dark-background-text {
-        background-color: rgb(54 54 54);
-        color: rgb(245 245 245)
+        background-color: #363636;
+        color: #f5f5f5;
     }
 
     .dark-background-text a {
@@ -113,11 +117,11 @@ file. These definitions will be defined mobile first.
 
     /* || HEADER styles */
     header {
+        flex: 0 0 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        flex: 1 0 auto;
         height: 80px;
     }
 
@@ -147,14 +151,14 @@ file. These definitions will be defined mobile first.
         font-size: 2em;
         margin-left: 0.75em;
         padding: 0;
-        color: rgb(245 245 245);
+        color: #f5f5f5;
     }
 
     /* LANDING page styles */
     .landing-page-container {
         position: relative;
         height: 100%;
-        background-color: rgb(0 0 0 / 0.6);
+        background-color: rgba(0, 0, 0, 0.6);
         background-image: url(../img/backgroundImage.jpg);
         background-blend-mode: color;
         background-repeat: no-repeat;
@@ -189,7 +193,7 @@ file. These definitions will be defined mobile first.
         flex-direction: column;
         justify-content: center;
         padding-left: 10%;
-        color: rgb(245 245 245);
+        color: #f5f5f5;
         font-family: system-ui;
     }
 
@@ -241,7 +245,7 @@ file. These definitions will be defined mobile first.
     }
 
     .landing-page-start-button {
-        color: rgb(245 245 245);
+        color: #f5f5f5;
         width: -moz-fit-content;
         width: fit-content;
         border: none;
@@ -290,18 +294,19 @@ file. These definitions will be defined mobile first.
     }
 
     .book-page-content {
+        flex: 1 1 auto;
         display: flex;
         flex-direction: column;
         position: relative;
         width: 100%;
         height: 100%;
-        background: rgb(113 113 113);
+        background: #717171;
         overflow: hidden;
     }
 
     .book-page-nonheader-container {
         position: relative;
-        height: 0;
+        min-height: 0;
         flex: 1;
         width: 100%;
         box-sizing: border-box;
@@ -309,7 +314,7 @@ file. These definitions will be defined mobile first.
 
     .book-page-nav {
         font-size: 5em;
-        color: rgb(245 245 245);
+        color: #f5f5f5;
         margin: 0 1rem;
         text-decoration: none;
         transition: color 0.25s;
@@ -328,13 +333,13 @@ file. These definitions will be defined mobile first.
         width: 21.75em;
         padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
-        background-color: rgb(245 245 245);
+        background-color: #f5f5f5;
         overflow-y: scroll;
         overflow-x: hidden;
         z-index: 99;
         opacity: 0;
         transition: max-height 0.5s, opacity 0.2s;
-        color: rgb(54 54 54);
+        color: #363636;
     }
 
     .nav-menu-opened {
@@ -398,43 +403,43 @@ file. These definitions will be defined mobile first.
     }
 
     .nav-menu-ch1-on, .nav-menu-ch1-background:hover {
-        background-color: rgb(167, 169, 172);
+        background-color: #a7a9ac;
     }
 
     .nav-menu-ch2-on, .nav-menu-ch2-background:hover {
-        background-color: rgb(188 211 237);
+        background-color: #bcd3ed;
     }
 
     .nav-menu-ch3-on, .nav-menu-ch3-background:hover {
-        background-color: rgb(154 195 199);
+        background-color: #9ac3c7;
     }
 
     .nav-menu-ch4-on,  .nav-menu-ch4-background:hover {
-        background-color: rgb(153 189 153);
+        background-color: #99bd99;
     }
 
     .nav-menu-ch5-on, .nav-menu-ch5-background:hover {
-        background-color: rgb(255 239 153);
+        background-color: #ffef99;
     }
 
     .nav-menu-ch6-on,  .nav-menu-ch6-background:hover {
-        background-color: rgb(255 199 153);
+        background-color: #ffc799;
     }
 
     .nav-menu-ch7-on,  .nav-menu-ch7-background:hover {
-        background-color: rgb(250 177 156);
+        background-color: #fab19c;
     }
 
     .nav-menu-ch8-on, .nav-menu-ch8-background:hover {
-        background-color: rgb(224 161 164);
+        background-color: #e0a1a4;
     }
 
     .nav-menu-ch9-on, .nav-menu-ch9-background:hover {
-        background-color: rgb(194 157 178);
+        background-color: #c29db2;
     }
 
     .nav-menu-ch10-on, .nav-menu-ch10-background:hover {
-        background-color: rgb(186 175 204);
+        background-color: #baafcc;
     }
 
     #nav {
@@ -465,7 +470,7 @@ file. These definitions will be defined mobile first.
 
     .book-chapter-text-section {
         flex: 0 0 75%;
-        color: rgb(255 255 255);
+        color: #ffffff;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -568,21 +573,23 @@ file. These definitions will be defined mobile first.
         border-radius: 0;
     }
 
-    .book-section-video-player-fullscreen video {
-        max-height: initial;
-        border-radius: 0;
-    }
-
     .book-section-video-player-fullscreen .book-section-video-player-controls {
         border-radius: 0;
     }
 
     .book-section-video-player video {
-        flex: 1;
-        width: 100%;
+        flex: 0 1 auto;
         min-height: 0;
+        min-width: 100%;
         max-width: 100%;
         max-height: 100%;
+    }
+
+    .book-section-video-player-fullscreen video {
+        flex: 1;
+        width: 100%;
+        max-height: initial;
+        border-radius: 0;
     }
 
     .book-section-video-player-paint-canvas, .book-section-video-player-scrub-canvas {
@@ -591,6 +598,7 @@ file. These definitions will be defined mobile first.
         left: 0;
         right: 0;
         top: 0;
+        bottom: 0;
         margin: auto;
     }
     
@@ -1005,6 +1013,8 @@ file. These definitions will be defined mobile first.
     .book-section-text-material {
         flex: 1 1 auto;
         overflow: auto;
+        margin: 0;
+        padding: 0px 15px;
     }
 
     /* || MODAL styles */
@@ -1032,7 +1042,7 @@ file. These definitions will be defined mobile first.
         max-height: 97%;
         padding: 1em;
         border: 4px solid rgb(0 0 0);
-        background: rgb(255 255 255);
+        background: #ffffff;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -1063,7 +1073,7 @@ file. These definitions will be defined mobile first.
 
     .subsection-modal-text a {
         text-decoration: underline;
-        color: rgb(50 92 105);
+        color: #325c69;
     }
 
     .subsection-modal-text h1 {
@@ -1071,7 +1081,6 @@ file. These definitions will be defined mobile first.
     }
 
     .subsection-modal-container video {
-        width: 100%;
         background-color: rgb(255 255 255);
     }
 
@@ -1178,6 +1187,7 @@ file. These definitions will be defined mobile first.
         position: relative;
         bottom: 0;
         width: 100%;
+        flex: 0 0 auto;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -1185,7 +1195,7 @@ file. These definitions will be defined mobile first.
         background: #757575;
         font-weight: 600;
         font-size: 0.85rem;
-        color: rgb(255 255 255);
+        color: #ffffff;
     }
 
     footer a {
@@ -1216,7 +1226,7 @@ file. These definitions will be defined mobile first.
         position: relative;
         margin-left: 10px;
         box-sizing: border-box;
-        width: 42px;
+        width: 30px;
         height: 15px;
         cursor: pointer;
         top: 0;
@@ -1252,9 +1262,9 @@ file. These definitions will be defined mobile first.
     }
 
     .progress-switch-input:checked + .progress-switch-slider:before {
-        -webkit-transform: translateX(25px);
-        -ms-transform: translateX(25px);
-        transform: translateX(25px);
+        -webkit-transform: translateX(150%);
+        -ms-transform: translateX(150%);
+        transform: translateX(150%);
     }
 
     .progress-switch-input:focus + .progress-switch-slider {
@@ -1288,35 +1298,6 @@ file. These definitions will be defined mobile first.
     .book-appendix-dropdown-list {
         height: 100%;
         width: 100%;
-    }
-
-    .book-appendix-li-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-        padding-bottom: 0.5em;
-        margin-bottom: 1.5em;
-        border-bottom: 1px solid rgb(245 245 245);
-    }
-
-    .book-appendix-li-header h2 {
-        font-size: 1.5em;
-    }
-
-    .book-appendix-li-header button{
-        color: #4B889B;
-        border: none;
-        padding: 0;
-        font-size: 2em;
-        font-weight: 600;
-        transition: transform 1s;
-    }
-
-    .book-appendix-li-dropdown {
-        overflow: hidden;
-        height: 0;
-        transition: height 1s;
     }
 
     .book-appendix-nav {
@@ -1357,33 +1338,6 @@ file. These definitions will be defined mobile first.
 
     .csl-left-margin {
         margin-right: 0.5em;
-    }
-
-    /* || PROFILES styles */
-    .book-profiles-bio {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .book-profiles-bio img {
-        margin-right: 2em;
-    }
-
-    .book-profile-blurb {
-        width: 100%;
-        text-align: right;
-        max-height: 267px;
-        overflow: auto;
-    }
-
-    /* || FEATURES styles */
-    .book-features-ref-list {
-        padding-left: 1.5em;
-    }
-
-    .book-features-ref-list li {
-        margin: 1em 0;
     }
 
     /* || ABOUT page styles */
@@ -1435,6 +1389,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.book-section-non-text-content--fs-polyfill {
+    z-index: 100;
+}
+
 /* learn-more */
 .learn-more {
     padding: 1em;
@@ -1445,7 +1403,7 @@ file. These definitions will be defined mobile first.
 }
 
 .learn-more--in-section {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
     margin-bottom: 1em;
 }
 
@@ -1555,12 +1513,15 @@ file. These definitions will be defined mobile first.
     height: 1.75em;
     width: 2.75em;
     margin: 1.5px 0 01.5px 0.8em;
+    margin: 3px 0 01.5px 0.8em;
+    transform: translateY(-0.1em);
     padding: 0;
     border: none;
     background-image: url(../img/viewerIcon.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-color: #fff0;
+    cursor: pointer;
 }
 
 @media (min-width:900px) {
@@ -1681,6 +1642,7 @@ file. These definitions will be defined mobile first.
     border: 7px #ccc solid;
     border-radius: 10px;
     box-shadow: 0px 0px 0 1px #444;
+    overflow: hidden;
 }
 
 .protein-viewer__viewer-container--fs-polyfill {
@@ -1768,6 +1730,161 @@ file. These definitions will be defined mobile first.
         transform: translate(-50%, -50%);
         z-index: 100;
     }   
+}
+
+/* appendix-accordion-group */
+.appendix-accordion-group__dropdown-anchor {
+    position: absolute;
+    margin-top: -72px;
+}
+
+.appendix-accordion-group__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 0 20px 0;
+    width: 100%;
+    padding: 0.535em 0;
+    border: none;
+    border-bottom: 1px solid white;
+    background: none;
+}
+
+.appendix-accordion-group__title {
+    flex: 0 1 auto;
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: left;
+}
+
+.appendix-accordion-group__expand-icon {
+    flex: 0 0 auto;
+    height: 20px;
+    width: 20px;
+    transition: transform 1s;
+}
+
+.appendix-accordion-group__expand-icon--active {
+    transform: rotate(180deg);
+}
+
+.appendix-accordion-group__panel {
+    overflow: hidden;
+    transition: height 1s;
+}
+
+.appendix-accordion-group__panel--hidden {
+    visibility: hidden;
+}
+
+@media (min-width:900px) {
+    .appendix-accordion-group__dropdown-anchor {
+        position: static;
+        margin: 0;
+    }
+
+    .appendix-accordion-group__button {
+        margin: 0 0 24px 0;
+    }
+
+    .appendix-accordion-group__title {
+        font-size: 1.5em;
+    }
+}
+
+/* feature-index-section-list */
+.feature-index-section-list {
+    padding-left: 1em;
+}
+
+.feature-index-section-list__li {
+    margin: 0 0 1em 0;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+.feature-index-section-list__species-name {
+    color: #fff;
+    font-style: italic;
+}
+
+.feature-index-section-list__link {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+@media (min-width:900px) {
+    .feature-index-section-list {
+        padding-left: 1.5em;
+    }
+}
+
+/* profile-bio */
+.profile-bio {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-bio__profile-img {
+    flex: 1 1 auto;
+    height: 200px;
+    object-fit: contain;
+}
+
+.profile-bio__description {
+    flex: 1 1 auto;
+    margin-top: 1em;
+    max-height: inherit;
+    overflow: auto;
+    line-height: 1.34em;
+}
+
+.profile-bio__description p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+@media (min-width:480px) {
+    .profile-bio {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .profile-bio__profile-img {
+        margin-right: 16px;
+    }
+
+    .profile-bio__description {
+        margin: 0;
+    }
+
+    .profile-bio--appendix {
+        max-height: 200px;
+    }
+}
+
+@media (min-width:900px) {
+    .profile-bio__profile-img {
+        margin-right: 32px;
+        height: auto;
+    }
+
+    .profile-bio--appendix {
+        max-height: 267px;
+    }
+
+    .profile-bio__description {
+        text-align: right;
+    }
+}
+
+/* about-page-blurb */
+.about-page-blurb {
+    line-height: 1.34em;
 }
 
 /* fs-tree-confirm */
@@ -2024,5 +2141,509 @@ file. These definitions will be defined mobile first.
     .tree-viewer__zoom-controls {
         top: 10px;
         right: 10px;
+    }
+}
+
+/* summary-menu */
+.book-section-video-container--summary {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.summary-menu--nontext-section {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 95%;
+    height: 90%;
+}
+
+.summary-menu--fs-polyfill {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+}
+
+.summary-menu--fs-polyfill::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.summary-menu__widget {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 7px #cccccc solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 1px #444;
+    background: #fff;
+    overflow: hidden;
+}
+
+.summary-menu__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.summary-menu__items-list {
+    list-style: none;
+}
+
+.summary-menu__li {
+    position: absolute;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.summary-menu__item-graphic {
+    width: 100%;
+    transform: translate(0, 0);
+    transition: width 0.75s, transform 0.75s;
+}
+
+.summary-menu__li-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: visibility 0.25s, opacity 0.25s;
+}
+
+.summary-menu__li-text--ch1 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch2 {
+    width: 70%;
+}
+
+.summary-menu__li-text--ch3 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch4 {
+    width: 40%;
+}
+
+.summary-menu__li-text--ch5 {
+    width: 40%;
+}
+
+.summary-menu__li-text--ch6 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch7 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch8 {
+    width: 50%;
+}
+
+.summary-menu__li-text--ch9 {
+    width: 60%;
+}
+
+.summary-menu__li-text--ch10 {
+    width: 45%;
+}
+
+.summary-menu__li-text--transparent {
+    opacity: 0;
+}
+
+.summary-menu__li-text--hidden {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+
+.summary-menu__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0 0 0 10px;
+    background: #ffffff87;
+}
+
+.summary-menu__btn svg {
+    width: 1.25em;
+    fill: #15404e;
+}
+
+.summary-menu__btn--hidden {
+    display: none;
+}
+
+.summary-menu__li--ch1-item1 {
+    width: 23.5%;
+    top: 20.25%;
+    left: 60.95%;
+}
+
+.summary-menu__li--ch1-item2 {
+    width: 50.1%;
+    top: 61.3%;
+    left: 35.8%;
+}
+
+.summary-menu__li--ch1-item3 {
+    width: 41.45%;
+    top: 34.4%;
+    left: -2.9%;
+}
+
+.summary-menu__li--ch1-item4 {
+    width: 51.5%;
+    top: 3.6%;
+    left: 10.1%;
+}
+
+.summary-menu__li--ch2-item1 {
+    width: 25.5%;
+    top: 5.75%;
+    left: 21%;
+}
+
+.summary-menu__li--ch2-item2 {
+    width: 28.5%;
+    top: 9%;
+    left: 49.5%;
+}
+
+.summary-menu__li--ch2-item3 {
+    width: 14.75%;
+    top: 22.25%;
+    left: 76.75%;
+}
+
+.summary-menu__li--ch2-item4 {
+    width: 17.75%;
+    top: 50.5%;
+    left: 76.5%;
+}
+
+.summary-menu__li--ch2-item5 {
+    width: 27.5%;
+    top: 76.75%;
+    left: 49.5%;
+}
+
+.summary-menu__li--ch2-item6 {
+    width: 26.5%;
+    top: 77.75%;
+    left: 20.25%;
+}
+
+.summary-menu__li--ch2-item7 {
+    width: 17.5%;
+    top: 50.25%;
+    left: 3.5%;
+}
+
+.summary-menu__li--ch2-item8 {
+    width: 13%;
+    top: 20%;
+    left: 6%;
+}
+
+.summary-menu__li--ch3-item1 {
+    width: 31.1%;
+    top: 8.5%;
+    left: 49.95%;
+}
+
+.summary-menu__li--ch3-item2 {
+    width: 10.7%;
+    top: 32.2%;
+    left: 78.5%;
+}
+
+.summary-menu__li--ch3-item3 {
+    width: 31.2%;
+    top: 66.8%;
+    left: 49.8%;
+}
+
+.summary-menu__li--ch3-item4 {
+    width: 31%;
+    top: 67.8%;
+    left: 18.6%;
+}
+
+.summary-menu__li--ch3-item5 {
+    width: 25.2%;
+    top: 32.2%;
+    left: 3%;
+}
+
+.summary-menu__li--ch3-item6 {
+    width: 31.2%;
+    top: 6.99%;
+    left: 18.75%;
+}
+
+.summary-menu__li--ch4-item1 {
+    width: 20.5%;
+    top: 7.5%;
+    left: 52%;
+}
+
+.summary-menu__li--ch4-item2 {
+    width: 22.75%;
+    top: 28.5%;
+    left: 73.5%;
+}
+
+.summary-menu__li--ch4-item3 {
+    width: 9.75%;
+    top: 51.25%;
+    left: 73.25%;
+}
+
+.summary-menu__li--ch4-item4 {
+    width: 20.75%;
+    top: 72%;
+    left: 51%;
+}
+
+.summary-menu__li--ch4-item5 {
+    width: 19.75%;
+    top: 72.25%;
+    left: 29.5%;
+}
+
+.summary-menu__li--ch4-item6 {
+    width: 9.6%;
+    top: 51%;
+    left: 18.5%;
+}
+
+.summary-menu__li--ch4-item7 {
+    width: 10.5%;
+    top: 29.25%;
+    left: 18%;
+}
+
+.summary-menu__li--ch4-item8 {
+    width: 21.25%;
+    top: 18.25%;
+    left: 28%;
+}
+
+.summary-menu__li--ch5-item1 {
+    width: 56.25%;
+    top: 15.75%;
+    left: 37.5%;
+}
+
+.summary-menu__li--ch5-item2 {
+    width: 45.75%;
+    top: 51.5%;
+    left: 36%;
+}
+
+.summary-menu__li--ch5-item3 {
+    width: 26.75%;
+    top: 23.25%;
+    left: 7.5%;
+}
+
+.summary-menu__li--ch6-item1 {
+    width: 36.25%;
+    top: 17.25%;
+    left: 51.65%;
+}
+
+.summary-menu__li--ch6-item2 {
+    width: 23.5%;
+    top: 35.5%;
+    left: 72.5%;
+}
+
+.summary-menu__li--ch6-item3 {
+    width: 24%;
+    top: 64.5%;
+    left: 50.6%;
+}
+
+.summary-menu__li--ch6-item4 {
+    width: 33%;
+    top: 64.3%;
+    left: 15.3%;
+}
+
+.summary-menu__li--ch6-item5 {
+    width: 14.35%;
+    top: 35.25%;
+    left: 11.6%;
+}
+
+.summary-menu__li--ch6-item6 {
+    width: 24%;
+    top: 17.9%;
+    left: 24.3%;
+}
+
+.summary-menu__li--ch7-item1 {
+    width: 27.25%;
+    top: 15.25%;
+    left: 52.5%;
+}
+
+.summary-menu__li--ch7-item2 {
+    width: 7.4%;
+    top: 34.75%;
+    left: 80.25%;
+}
+
+.summary-menu__li--ch7-item3 {
+    width: 29.1%;
+    top: 68.75%;
+    left: 50.85%;
+}
+
+.summary-menu__li--ch7-item4 {
+    width: 27.8%;
+    top: 68.75%;
+    left: 20.3%;
+}
+
+.summary-menu__li--ch7-item5 {
+    width: 13.7%;
+    top: 34.75%;
+    left: 12.2%;
+}
+
+.summary-menu__li--ch7-item6 {
+    width: 44.2%;
+    top: 8%;
+    left: 4.5%;
+}
+
+.summary-menu__li--ch8-item1 {
+    width: 44.75%;
+    top: 17%;
+    left: 50%;
+}
+
+.summary-menu__li--ch8-item2 {
+    width: 7.35%;
+    top: 33.75%;
+    left: 77%;
+}
+
+.summary-menu__li--ch8-item3 {
+    width: 44.5%;
+    top: 65.9%;
+    left: 50.07%;
+}
+
+.summary-menu__li--ch8-item4 {
+    width: 27.6%;
+    top: 65.75%;
+    left: 22.5%;
+}
+
+.summary-menu__li--ch8-item5 {
+    width: 9.6%;
+    top: 34.1%;
+    left: 13.5%;
+}
+
+.summary-menu__li--ch8-item6 {
+    width: 27.8%;
+    top: 16.5%;
+    left: 22.5%;
+}
+
+.summary-menu__li--ch9-item1 {
+    width: 28%;
+    top: 13.75%;
+    left: 51.85%;
+}
+
+.summary-menu__li--ch9-item2 {
+    width: 34.75%;
+    top: 33.5%;
+    left: 51.75%;
+}
+
+.summary-menu__li--ch9-item3 {
+    width: 41.7%;
+    top: 13.25%;
+    left: 6.25%;
+}
+
+.summary-menu__li--ch10-item1 {
+    width: 40.5%;
+    top: 9.5%;
+    left: 51.95%;
+}
+
+.summary-menu__li--ch10-item2 {
+    width: 19.45%;
+    top: 36.1%;
+    left: 76.8%;
+}
+
+.summary-menu__li--ch10-item3 {
+    width: 24.65%;
+    top: 66%;
+    left: 51.45%;
+}
+
+.summary-menu__li--ch10-item4 {
+    width: 24.25%;
+    top: 64.75%;
+    left: 24.1%;
+}
+
+.summary-menu__li--ch10-item5 {
+    width: 14.6%;
+    top: 36.25%;
+    left: 11.7%;
+}
+
+.summary-menu__li--ch10-item6 {
+    width: 24%;
+    top: 16.35%;
+    left: 24.5%;
+}
+
+@media (min-width:900px) {
+    .summary-menu--nontext-section {
+        position: relative;
+        width: 100%;
+        height: 90%;
+    }
+
+    .summary-menu__li {
+        position: absolute;
+        box-sizing: border-box;
+        outline: revert;
     }
 }

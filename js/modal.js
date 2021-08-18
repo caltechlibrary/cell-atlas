@@ -105,19 +105,18 @@ for(let viewerEl of viewerEls) {
             window.addEventListener("resize", positionViewerPopUp);
             viewerObj.requestRedraw();
         } else {
+            window.addEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
                 document.addEventListener("fullscreenchange", function() {
                     viewerEl.classList.remove("protein-viewer--hidden");
                     resizeViewer();
                 }, { once: true });
-                window.addEventListener("resize", resizeViewer);
                 viewerContainer.requestFullscreen();
             } else {
                 fsContainer.classList.add("protein-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.add("protein-viewer__viewer-container--fs-polyfill");
                 viewerEl.classList.remove("protein-viewer--hidden");
                 resizeViewer();
-                window.addEventListener("resize", resizePolyFullscreenViewer);
             }
         }
     }
@@ -129,11 +128,11 @@ for(let viewerEl of viewerEls) {
             parentModal.classList.remove("subsection-modal--min");
             window.removeEventListener("resize", positionViewerPopUp);
         } else {
+            window.removeEventListener("resize", resizeViewer);
             if(viewerContainer.requestFullscreen) {
                 window.removeEventListener("resize", resizeViewer);
                 document.exitFullscreen();
             } else {
-                window.removeEventListener("resize", resizePolyFullscreenViewer);
                 fsContainer.classList.remove("protein-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.remove("protein-viewer__viewer-container--fs-polyfill");
             }
@@ -168,38 +167,34 @@ for(let viewerEl of viewerEls) {
         viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
     }
 
-    let resizePolyFullscreenViewer = function() {
-        viewerContainer.style.height = `${window.innerHeight}px`;
-        resizeViewer();
-    }
-
     let changeModel = function() {
         let modelType = modelSelect.value;
         let color = colorSelect.value;
         let options = {};
         if(color == "chain") {
-            options.color = pv.color.byChain();
+            options.color = pv.color.byChain(chainGradient);
         } else if(color == "ss") {
-            options.color = pv.color.bySS();
-        } else if(color == "tempFactor") {
-            options.color = pv.color.byAtomProp(color);
+            options.color = pv.color.bySS(ssGradient);
         }
 
+        atomLabel.classList.add("protein-viewer__atom-label--hidden");
         viewerObj.clear();
         viewerStructs.forEach(function(viewerStruct, index) {
             viewerObj.renderAs(`structure_${index}`, viewerStruct, modelType, options);
         });
+        if(prevPicked) {
+            unHighlightAtom(prevPicked.node);
+            prevPicked = null;
+        }
     }
 
     let changeColor = function() {
         let color = colorSelect.value;
         viewerObj.forEach(function(geomObj) {
             if(color == "chain") {
-                geomObj.colorBy(pv.color.byChain());
+                geomObj.colorBy(pv.color.byChain(chainGradient));
             } else if(color == "ss") {
-                geomObj.colorBy(pv.color.bySS());
-            } else if(color == "tempFactor") {
-                geomObj.colorBy(pv.color.byAtomProp(color));
+                geomObj.colorBy(pv.color.bySS(ssGradient));
             }
         });
         viewerObj.requestRedraw();
@@ -224,15 +219,17 @@ for(let viewerEl of viewerEls) {
             prevPicked = null;
         }
         if(picked) {
-            let color = [0, 0, 0, 0];
             let atom = picked.target();
             let atomNameComponents = atom.qualifiedName().split(".");
             let proteinNum = atomNameComponents[0].charCodeAt("0") - 64;
             let residueNum = atomNameComponents[1].substring(3);
             let proteinName = proteinDict[atomNameComponents[1].substring(0, 3)];
-            let atomColor = picked.node().getColorForAtom(atom, color);
             highlightAtom(picked.node(), atom);
-            atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            if(proteinName == "water") {
+                atomLabel.innerHTML = `${proteinName}`;
+            } else {
+                atomLabel.innerHTML = `Protein ${proteinNum} | Residue #${residueNum} | ${proteinName}`;
+            }
             atomLabel.classList.remove("protein-viewer__atom-label--hidden");
             prevPicked = { node: picked.node() }
         } else {
@@ -244,7 +241,7 @@ for(let viewerEl of viewerEls) {
     let handleTouch = function(event) {
         let handleTouchend = function() {
             if(validTap) {
-                let pos = { x: event.touches[0].clientX - viewerContainer.getBoundingClientRect().x, y: event.touches[0].clientY - viewerContainer.getBoundingClientRect().y };
+                let pos = { x: event.touches[0].clientX - pvCanvas.getBoundingClientRect().x, y: event.touches[0].clientY - pvCanvas.getBoundingClientRect().y };
                 handleInput(pos);
             }
             viewerContainer.removeEventListener("touchmove", handleTouchmove);
@@ -262,7 +259,7 @@ for(let viewerEl of viewerEls) {
     let handleMouseDown = function(event) {
         let handleMouseup = function() {
             if(validPress) {
-                let pos = { x: event.clientX - viewerContainer.getBoundingClientRect().x, y: event.clientY - viewerContainer.getBoundingClientRect().y };
+                let pos = { x: event.clientX - pvCanvas.getBoundingClientRect().x, y: event.clientY - pvCanvas.getBoundingClientRect().y };
                 handleInput(pos);
             }
             viewerContainer.removeEventListener("mousemove", handleMousemove);
@@ -290,7 +287,7 @@ for(let viewerEl of viewerEls) {
     let loadPdb = function(data) {
         viewerStructs = pv.io.pdb(data, { loadAllModels: true });
         viewerStructs.forEach(function(viewerStruct, index) {
-            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain() })
+            viewerObj.cartoon(`structure_${index}`, viewerStruct, { color: pv.color.byChain(chainGradient) })
         });
         viewerObj.autoZoom();
     }
@@ -310,7 +307,10 @@ for(let viewerEl of viewerEls) {
         fog: false,
         selectionColor : "#000"
     };
+    let chainGradient = pv.color.gradient(["#FF6C0C", "#5A2328", "#70A0AF", "#A8C686", "#003B4C"]);
+    let ssGradient = pv.color.gradient(["#CCCCCC", "#003B4C", "#FF6C0C"]);
     let viewerObj = pv.Viewer(viewerContainer, viewerOptions);
+    let pvCanvas = viewerContainer.querySelector("canvas");
     let viewerStructs;
     let prevPicked;
     let proteinDict = {

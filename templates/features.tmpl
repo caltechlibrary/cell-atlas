@@ -1,19 +1,31 @@
-<ul class="book-appendix-dropdown-list">
+<div class="appendix-accordion-group">
     ${for(featureIndex)}
-        <li>
-            <div id="${featureIndex.name}" data-dropdown="${featureIndex.name}">
-                <div class="book-appendix-li-header">
-                    <h2>${featureIndex.name}</h2>
-                    <button class="dark-background-text" value="${featureIndex.name}" onclick="toggleListDropdown(this)">&#43;</button>
-                </div>
-                <div class="book-appendix-li-dropdown book-features-ref-list">
-                    <ul>
-                        ${for(featureIndex.refs)}
-                            <li>${featureIndex.refs.species} - <a href="${featureIndex.refs.ref.section}.html${if(featureIndex.refs.ref.subsection)}#${featureIndex.refs.ref.subsection}${endif}">${featureIndex.refs.ref.label}</a></li>
-                        ${endfor}
-                    </ul>
-                </div>
+        <div id="${featureIndex.name}" class="appendix-accordion-group__dropdown-anchor"></div>
+        <h2>
+            <button id="${featureIndex.name}-button" class="appendix-accordion-group__button" aria-controls="${featureIndex.name}-panel" aria-expanded="false">
+                <span class="appendix-accordion-group__title">${featureIndex.name}</span>
+                <span class="appendix-accordion-group__expand-icon">${svg/plus.svg()}</span>
+            </button>
+        </h2>
+        <div id="${featureIndex.name}-panel" 
+            class="appendix-accordion-group__panel appendix-accordion-group__panel--hidden" 
+            aria-labelledby="${featureIndex.name}-button"
+            style="height:0px"
+        >
+            <div class="feature-index-section-list">
+                <ul>
+                    ${for(featureIndex.refs)}
+                        <li class="feature-index-section-list__li">
+                            <span class="feature-index-section-list__species-name">${featureIndex.refs.species} - </span> 
+                            <a class="feature-index-section-list__link"
+                                href="${featureIndex.refs.ref.section}.html${if(featureIndex.refs.ref.subsection)}#${featureIndex.refs.ref.subsection}${endif}"
+                            >
+                                ${featureIndex.refs.ref.label}
+                            </a>
+                        </li>
+                    ${endfor}
+                </ul>
             </div>
-        </li>
+        </div>
     ${endfor}
-</ul>
+</div>

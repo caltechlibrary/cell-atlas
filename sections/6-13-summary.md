@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 06_Motility.mp4
 ---
 
 ## Concept Check Questions 
