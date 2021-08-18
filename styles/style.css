@@ -86,7 +86,7 @@ file. These definitions will be defined mobile first.
     }
 
     .main-color-background {
-        background-color: rgb(21 64 78);
+        background-color: #15404e;
     }
 
     .hidden {
@@ -98,8 +98,8 @@ file. These definitions will be defined mobile first.
     }
 
     .dark-background-text {
-        background-color: rgb(54 54 54);
-        color: rgb(245 245 245)
+        background-color: #363636;
+        color: #f5f5f5;
     }
 
     .dark-background-text a {
@@ -151,14 +151,14 @@ file. These definitions will be defined mobile first.
         font-size: 2em;
         margin-left: 0.75em;
         padding: 0;
-        color: rgb(245 245 245);
+        color: #f5f5f5;
     }
 
     /* LANDING page styles */
     .landing-page-container {
         position: relative;
         height: 100%;
-        background-color: rgb(0 0 0 / 0.6);
+        background-color: rgba(0, 0, 0, 0.6);
         background-image: url(../img/backgroundImage.jpg);
         background-blend-mode: color;
         background-repeat: no-repeat;
@@ -193,7 +193,7 @@ file. These definitions will be defined mobile first.
         flex-direction: column;
         justify-content: center;
         padding-left: 10%;
-        color: rgb(245 245 245);
+        color: #f5f5f5;
         font-family: system-ui;
     }
 
@@ -245,7 +245,7 @@ file. These definitions will be defined mobile first.
     }
 
     .landing-page-start-button {
-        color: rgb(245 245 245);
+        color: #f5f5f5;
         width: -moz-fit-content;
         width: fit-content;
         border: none;
@@ -300,7 +300,7 @@ file. These definitions will be defined mobile first.
         position: relative;
         width: 100%;
         height: 100%;
-        background: rgb(113 113 113);
+        background: #717171;
         overflow: hidden;
     }
 
@@ -314,7 +314,7 @@ file. These definitions will be defined mobile first.
 
     .book-page-nav {
         font-size: 5em;
-        color: rgb(245 245 245);
+        color: #f5f5f5;
         margin: 0 1rem;
         text-decoration: none;
         transition: color 0.25s;
@@ -333,13 +333,13 @@ file. These definitions will be defined mobile first.
         width: 21.75em;
         padding: 0em 0em 0em 0.75em;
         box-sizing: border-box;
-        background-color: rgb(245 245 245);
+        background-color: #f5f5f5;
         overflow-y: scroll;
         overflow-x: hidden;
         z-index: 99;
         opacity: 0;
         transition: max-height 0.5s, opacity 0.2s;
-        color: rgb(54 54 54);
+        color: #363636;
     }
 
     .nav-menu-opened {
@@ -403,43 +403,43 @@ file. These definitions will be defined mobile first.
     }
 
     .nav-menu-ch1-on, .nav-menu-ch1-background:hover {
-        background-color: rgb(167, 169, 172);
+        background-color: #a7a9ac;
     }
 
     .nav-menu-ch2-on, .nav-menu-ch2-background:hover {
-        background-color: rgb(188 211 237);
+        background-color: #bcd3ed;
     }
 
     .nav-menu-ch3-on, .nav-menu-ch3-background:hover {
-        background-color: rgb(154 195 199);
+        background-color: #9ac3c7;
     }
 
     .nav-menu-ch4-on,  .nav-menu-ch4-background:hover {
-        background-color: rgb(153 189 153);
+        background-color: #99bd99;
     }
 
     .nav-menu-ch5-on, .nav-menu-ch5-background:hover {
-        background-color: rgb(255 239 153);
+        background-color: #ffef99;
     }
 
     .nav-menu-ch6-on,  .nav-menu-ch6-background:hover {
-        background-color: rgb(255 199 153);
+        background-color: #ffc799;
     }
 
     .nav-menu-ch7-on,  .nav-menu-ch7-background:hover {
-        background-color: rgb(250 177 156);
+        background-color: #fab19c;
     }
 
     .nav-menu-ch8-on, .nav-menu-ch8-background:hover {
-        background-color: rgb(224 161 164);
+        background-color: #e0a1a4;
     }
 
     .nav-menu-ch9-on, .nav-menu-ch9-background:hover {
-        background-color: rgb(194 157 178);
+        background-color: #c29db2;
     }
 
     .nav-menu-ch10-on, .nav-menu-ch10-background:hover {
-        background-color: rgb(186 175 204);
+        background-color: #baafcc;
     }
 
     #nav {
@@ -470,7 +470,7 @@ file. These definitions will be defined mobile first.
 
     .book-chapter-text-section {
         flex: 0 0 75%;
-        color: rgb(255 255 255);
+        color: #ffffff;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -1042,7 +1042,7 @@ file. These definitions will be defined mobile first.
         max-height: 97%;
         padding: 1em;
         border: 4px solid rgb(0 0 0);
-        background: rgb(255 255 255);
+        background: #ffffff;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -1073,7 +1073,7 @@ file. These definitions will be defined mobile first.
 
     .subsection-modal-text a {
         text-decoration: underline;
-        color: rgb(50 92 105);
+        color: #325c69;
     }
 
     .subsection-modal-text h1 {
@@ -1195,7 +1195,7 @@ file. These definitions will be defined mobile first.
         background: #757575;
         font-weight: 600;
         font-size: 0.85rem;
-        color: rgb(255 255 255);
+        color: #ffffff;
     }
 
     footer a {
