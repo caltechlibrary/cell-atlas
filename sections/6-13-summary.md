@@ -17,6 +17,8 @@ video: 06_Motility.mp4
 
 • Albers and Jarrell (2018). *The archaellum: An update on the unique archaeal motility structure* [@albers2018].
 
+• Armbruster and Mobley (2012). *Merging mythology and morphology: The multifaceted lifestyle of Proteus mirabilis* [@armbruster2012].
+
 • Berg (2003). *The rotary motor of bacterial flagella* [@berg2003].
 
 • Jarrell and McBride (2008). *The surprisingly diverse ways that prokaryotes move* [@jarrell2008].

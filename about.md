@@ -3,7 +3,7 @@ title: About this Book
 ---
 ## About the Project
 
-This open-access educational resource is provided by the [Caltech Library](https://www.library.caltech.edu/). It is an experiment in multimedia digital publishing. As such, it will keep evolving to take advantage of new tools to share information, and to reflect current scientific knowledge. Initially released in December 2020, the textbook will be updated frequently, so check [What’s New](#new) for additions to future editions.
+This open-access educational resource is provided by the [Caltech Library](https://www.library.caltech.edu/). It is an experiment in multimedia digital publishing. As such, it will keep evolving to take advantage of new tools to share information, and to reflect current scientific knowledge. Initially released in December 2020, the textbook is updated frequently, so check [What’s New](#new) to see what's changed.
 
 You can find more information about how the book was built, content and navigation, and acknowledgments in the [Introduction](introduction.html).
 
@@ -27,7 +27,18 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 ## What’s New
 
-This is Edition 1.0, but check back here for future versions…
+Edition 2.0 introduces several new interface features, along with minor improvements in clarity and consistency throughout the text and videos. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos, we encourage you to check for a new version.
+
+Major new features since Edition 1.0 include:
+- 480p video option for slower connections
+- mobile-optimized interface
+- downloadable packages for offline viewing
+- key images with interactive label slider
+- interactive protein structure viewer
+- interactive phylogenetic tree
+- interactive chapter summaries
+- progress bar
+
 
 ## Download this Book
 
