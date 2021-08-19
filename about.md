@@ -29,15 +29,15 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 Edition 2.0 introduces several new interface features, along with minor improvements in clarity and consistency throughout the text and videos. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos, we encourage you to check for a new version.
 
-Major new features since Edition 1.0 include:
-- 480p video option for slower connections
-- mobile-optimized interface
-- downloadable packages for offline viewing
-- key images with interactive label slider
-- interactive protein structure viewer
-- interactive phylogenetic tree
-- interactive chapter summaries
-- progress bar
+Major new features since Edition 1.0 include:  
+- 480p video option for slower connections  
+- mobile-optimized interface  
+- downloadable packages for offline viewing  
+- key images with interactive label slider  
+- interactive protein structure viewer  
+- interactive phylogenetic tree  
+- interactive chapter summaries  
+- progress bar  
 
 
 ## Download this Book
