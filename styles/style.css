@@ -1707,13 +1707,13 @@ file. These definitions will be defined mobile first.
 .protein-viewer__min-btn {
     display: flex;
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     background: #ffffff87;
     border: none;
     margin: 0;
     padding: 2%;
-    border-radius: 10px 0 0 0;
+    border-radius: 0 0 0 10px;
     z-index: 2;
 }
 
@@ -1733,6 +1733,12 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
+    .protein-viewer__min-btn {
+        top: initial;
+        bottom: 0;
+        border-radius: 10px 0 0 0;
+    }
+
     .protein-viewer__viewer-container--enlarged {
         position: fixed;
         top: 50%;
