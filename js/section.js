@@ -187,6 +187,7 @@ if(progressBar) {
 
 let sectionImgs = document.getElementsByClassName("content-img");
 for(let sectionImg of sectionImgs) {
+    let parentModal = sectionImg.parentElement;
     let fsContainer = sectionImg.querySelector(".content-img__fullscreen-container");
     let imgContainer = sectionImg.querySelector(".content-img__img-container");
     let img = sectionImg.querySelector(".content-img__img");
@@ -217,6 +218,7 @@ for(let sectionImg of sectionImgs) {
             if(fsContainer.requestFullscreen) {
                 fsContainer.requestFullscreen();
             } else {
+                parentModal.classList.add("subsection-modal-container--content-img-fs-polyfill");
                 fsContainer.classList.add("content-img__fullscreen-container--fs-polyfill");
                 imgContainer.classList.add("content-img__img-container--fs-polyfill");
             }
@@ -236,6 +238,7 @@ for(let sectionImg of sectionImgs) {
             if(fsContainer.requestFullscreen) {
                 document.exitFullscreen()
             } else {
+                parentModal.classList.remove("subsection-modal-container--content-img-fs-polyfill");
                 fsContainer.classList.remove("content-img__fullscreen-container--fs-polyfill");
                 imgContainer.classList.remove("content-img__img-container--fs-polyfill");
             }
