@@ -769,6 +769,10 @@ blockquote {
         -webkit-overflow-scrolling: touch;
     }
 
+    .subsection-modal-container--viewer-fs-polyfill {
+        -webkit-overflow-scrolling: initial;
+    }
+
     .subsection-modal-container-slider-fullscreen {
         top: initial !important;
         left: initial !important;
