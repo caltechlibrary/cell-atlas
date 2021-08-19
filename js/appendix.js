@@ -457,7 +457,7 @@ if(treeViewer) {
             setTimeout(() => {
                 openPopUp(newLinkPosX, newLinkPosY);
                 viewerContainer.addEventListener("touchstart", detectTouchLeave);
-            }, 500);
+            }, 1000);
         };
 
         let handlePopUpHover = function() {
