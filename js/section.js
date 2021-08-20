@@ -949,8 +949,6 @@ function initializeCompSlider(compSliderContainer) {
             nonTextContent.style["z-index"] = 100;
             beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
             compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
-            resizePolyFullscreen();
-            window.addEventListener("resize", resizePolyFullscreen);
             if(inModal) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 let textContent = document.querySelector("#textContent");
@@ -998,7 +996,6 @@ function initializeCompSlider(compSliderContainer) {
             nonTextContent.style["z-index"] = "initial";
             beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
             compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
-            window.removeEventListener("resize", resizePolyFullscreen);
             beforeImage.style.removeProperty("height");
             compSliderContainer.style.removeProperty("height");
             if(inModal) {
@@ -1056,18 +1053,6 @@ function initializeCompSlider(compSliderContainer) {
         let videoContainer = nonTextContent.querySelector(".book-section-video-container");
         let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
         beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-    }
-
-    function resizePolyFullscreen(event) {
-        setTimeout(function() {
-            if(window.innerWidth > window.innerHeight) {
-                beforeImage.style.height = `${window.innerHeight}px`;
-                compSliderContainer.style.height = `${window.innerHeight}px`;
-            } else {
-                beforeImage.style.removeProperty("height");
-                compSliderContainer.style.removeProperty("height");
-            }
-        }, 200);
     }
 
     function handleCompLoadError() {

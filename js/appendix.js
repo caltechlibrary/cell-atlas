@@ -263,10 +263,6 @@ if(treeViewer) {
         viewerContainer.style.top = `${posTop}px`;
     }
 
-    let resizePolyFullscreenViewer = function() {
-        viewerContainer.style.height = `${window.innerHeight}px`;
-    }
-
     let enlargeTree = function() {
         enlargeBtn.classList.remove("tree-viewer__btn--visible"); 
         minBtn.classList.add("tree-viewer__btn--visible"); 
@@ -281,8 +277,6 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.add("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.add("tree-viewer__viewer-container--fs-polyfill");
-                resizePolyFullscreenViewer();
-                window.addEventListener("resize", resizePolyFullscreenViewer);
             }
         }
     }
@@ -302,7 +296,6 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.remove("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.remove("tree-viewer__viewer-container--fs-polyfill");
-                window.removeEventListener("resize", resizePolyFullscreenViewer);
                 viewerContainer.style.height = "initial";
             }
         }
