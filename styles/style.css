@@ -249,6 +249,7 @@ file. These definitions will be defined mobile first.
     .landing-page-options-container {
         display: flex;
         flex-direction: column;
+        width: -moz-fit-content;
         width: fit-content;
         align-items: center;
     }
