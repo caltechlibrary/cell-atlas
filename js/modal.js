@@ -165,7 +165,7 @@ for(let viewerEl of viewerEls) {
         let viewerContainerCompStyle = window.getComputedStyle(viewerContainer);
         let width = viewerContainer.offsetWidth;
         let height = viewerContainer.offsetHeight;
-        let borderWidth = parseFloat(viewerContainerCompStyle.borderWidth);
+        let borderWidth = parseFloat(viewerContainerCompStyle.borderLeftWidth);
         viewerObj.resize(width - (borderWidth * 2), height - (borderWidth * 2));
     }
 
