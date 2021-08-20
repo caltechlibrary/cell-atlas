@@ -21,6 +21,7 @@
 /* In the process of converting to BEM. The following is a list of inprogress/complete 
 BEM blocks that are defined in this file. These blocks can be found at the end of the 
 file. These definitions will be defined mobile first.
+- landing-update-banner: Banner on the landing page to advertise upcoming update
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
 - content-img: Image vieweing elements that can be enlarged/minimized
@@ -249,6 +250,7 @@ file. These definitions will be defined mobile first.
     .landing-page-options-container {
         display: flex;
         flex-direction: column;
+        width: -moz-fit-content;
         width: fit-content;
         align-items: center;
     }
@@ -1401,6 +1403,28 @@ file. These definitions will be defined mobile first.
 
 .book-section-non-text-content--fs-polyfill {
     z-index: 100;
+}
+
+/* landing-update-banner */
+.landing-update-banner {
+    position: relative;
+    top: 0;
+    margin-bottom: 20px;
+    padding: 1em;
+    background: #757575;
+    color: #fff;
+    text-align: center;
+}
+
+.landing-update-banner__link {
+    color: inherit;
+    text-decoration: underline;
+}
+
+@media (min-width:900px) {
+    .landing-update-banner {
+        margin-bottom: 0;
+    }
 }
 
 /* learn-more */
