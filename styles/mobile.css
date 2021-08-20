@@ -121,6 +121,12 @@ blockquote {
         background-size: cover;
     }
 
+    .landing-page-container--preview-banner {
+        position: relative;
+        height: 100vh;
+        padding: 0;
+    }
+
     .landing-page-background-overlay {
         height: 100%;
         background-color: rgba(0,0,0,0.6);
@@ -1041,6 +1047,11 @@ blockquote {
     .landing-page-container {
         position: relative;
         height: 100vh;
+    }
+
+    .landing-page-container--preview-banner {
+        height: auto;
+        padding-bottom: 20px;
     }
 
     .landing-page-text {
