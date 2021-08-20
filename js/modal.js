@@ -282,7 +282,7 @@ for(let viewerEl of viewerEls) {
         let contentLength = res.headers.get("content-length");
         if(contentLength > largeFileSize) {
             for(let option of modelSelect.options) {
-                if(option.value == "ballsAndSticks" || (option.value == "spheres" && window.innerWidth < 900)) modelSelect.removeChild(option);
+                if(option.value == "ballsAndSticks") modelSelect.removeChild(option);
             }
         }
         return res.text();
@@ -355,6 +355,13 @@ for(let viewerEl of viewerEls) {
     }
     // File size in bytes of PDB files that may cause rendering issues
     let largeFileSize = 5000000;
+
+    // Remove "spheres" and "ballsAndSticks" modeling from mobile versions
+    if(window.innerWidth < 900) {
+        for(let option of modelSelect.options) {
+            if(option.value == "spheres" || option.value == "ballsAndSticks") modelSelect.removeChild(option);
+        }
+    }
     
     openBtn.addEventListener("click", openViewer);
     minBtn.addEventListener("click", closeViewer);
