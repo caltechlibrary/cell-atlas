@@ -504,6 +504,12 @@ function createVideoPlayer(videoEl) {
             videoPaintCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
             videoScrubCanvas.setAttribute("width", `${Math.round(videoEl.offsetHeight * (16/9))}px`);
             videoScrubCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
+            setTimeout(function() {
+                videoPaintCanvas.setAttribute("width", `${Math.round(videoEl.offsetHeight * (16/9))}px`);
+                videoPaintCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
+                videoScrubCanvas.setAttribute("width", `${Math.round(videoEl.offsetHeight * (16/9))}px`);
+                videoScrubCanvas.setAttribute("height", `${Math.round(videoEl.offsetHeight)}px`);
+            }, 200);
         }
     }
 
