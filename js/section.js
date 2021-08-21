@@ -285,6 +285,13 @@ function showModal(el) {
     videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
     videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
     videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+
+    setTimeout(function() {
+        videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+        videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
+        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
+    }, 500)
     
 }
 
