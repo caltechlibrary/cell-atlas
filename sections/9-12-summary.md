@@ -8,7 +8,7 @@ title: Summary
 
 • Which two motility machineries are related to the type II secretion system?
 
-• Which motility machinery is related to the type III secretion system injectisome?
+• Which bacterial weapon is related to the flagellar motor?
 
 • What does *Bdellovibrio bacteriovorus* use to latch onto its prey?
 
