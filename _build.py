@@ -217,6 +217,8 @@ def processSubsection(subsectionFile, pageName, parentData):
                             metadata["viewer"] = {
                                 "pdb": pdbNumber
                             }
+                            if(pdbNumber == "3jc8" or pdbNumber == "3dkt" or pdbNumber == "3j31" or pdbNumber == "5tcr" or pdbNumber == "5u3c" or pdbNumber == "6kgx" or pdbNumber == "6o9j"):
+                                metadata["viewer"]["modified"] = True
                     i = i + 1
         if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
 
