@@ -774,7 +774,13 @@ function createVideoPlayer(videoEl) {
     }
 
     function hideScrubCanvas() {
-        videoScrubCanvas.style.display = "none";
+        if(videoEl.seeking) {
+            video.addEventListener("seeked", function() {
+                videoScrubCanvas.style.display = "none";
+            }, { once: true });
+        } else {
+            videoScrubCanvas.style.display = "none";
+        }
     }
     
     function updateSeekBar() {
