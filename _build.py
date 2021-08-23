@@ -441,14 +441,14 @@ with open("dois.csv", "r", encoding='utf-8') as csvfile:
 speciesDict = {}
 
 # Render landing page
-metadata = { "previewBanner": True }
+metadata = {}
 metadata["firstPage"] = "begin"
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
-# Render landing page without preview banner for preview version
-metadata = {}
+# Render landing page with preview banner
+metadata = { "previewBanner": True }
 metadata["firstPage"] = "begin"
-writePage(SITEDIR, "index.md", "index","index-preview", metadata)
+writePage(SITEDIR, "index.md", "index","index-temp", metadata)
 
 # Render opening quote page for introduction
 metadata = {}
