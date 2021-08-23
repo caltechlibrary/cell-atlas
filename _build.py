@@ -447,11 +447,6 @@ metadata = {}
 metadata["firstPage"] = "begin"
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
-# Render landing page with preview banner
-metadata = { "previewBanner": True }
-metadata["firstPage"] = "begin"
-writePage(SITEDIR, "index.md", "index","index-temp", metadata)
-
 # Render opening quote page for introduction
 metadata = {}
 metadata["nextSection"] = "introduction"
