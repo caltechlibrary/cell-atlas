@@ -11,6 +11,10 @@ for file in files:
     lines.append('\t<url>\n')
     lines.append('\t\t<loc>{}/{}</loc>\n'.format(host, file))
     lines.append('\t</url>\n')
+for file in files:
+    lines.append('\t<url>\n')
+    lines.append('\t\t<loc>{}/preview/{}</loc>\n'.format(host, file))
+    lines.append('\t</url>\n')
 lines.append('</urlset>')
 
 with open('sitemap.xml', 'w', encoding='utf-8') as f:
