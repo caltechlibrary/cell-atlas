@@ -6,17 +6,22 @@
                     Model:
                     <select class="protein-viewer__menu-select protein-viewer__model-select">
                         <option value="cartoon" selected>Secondary Structure</option>
-                        <option value="spheres">Volume Filling</option>
+                        ${if(it.viewer.modified)}
+                        ${else}
+                            <option value="spheres">Volume Filling</option>
+                        ${endif}
                         <option value="tube">Backbone</option>
-                        <option value="ballsAndSticks">Ball and Stick</option>
+                        ${if(it.viewer.modified)}
+                        ${else}
+                            <option value="ballsAndSticks">Ball and Stick</option>
+                        ${endif}
                     </select>
                 </label>
                 <label class="protein-viewer__menu-label">
                     Color:
                     <select class="protein-viewer__menu-select protein-viewer__color-select">
                         <option value="chain" selected>Individual Proteins</option>
-                        <option value="ss">Seconday Structure</option>
-                        <option value="tempFactor">Depth</option>
+                        <option value="ss">Secondary Structure</option>
                     </select>
                 </label>
             </div>

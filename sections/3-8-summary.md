@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 03_Shape.mp4
 ---
 
 ## Concept Check Questions 

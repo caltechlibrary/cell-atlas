@@ -211,10 +211,14 @@ def processSubsection(subsectionFile, pageName, parentData):
                 if matchString != ">, <": 
                     metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
                     if "-" not in metadata["structures"][i]["text"]:
-                        metadata["structures"][i]["viewerId"] = metadata["structures"][i]["text"].split(" ")[1].lower()
-                        metadata["viewer"] = {
-                            "pdb": metadata["structures"][i]["viewerId"]
-                        }
+                        pdbNumber = metadata["structures"][i]["text"].split(" ")[1].lower()
+                        if(pdbNumber != "6s8h"):
+                            metadata["structures"][i]["viewerId"] = pdbNumber
+                            metadata["viewer"] = {
+                                "pdb": pdbNumber
+                            }
+                            if(pdbNumber == "3jc8" or pdbNumber == "3dkt" or pdbNumber == "3j31" or pdbNumber == "5tcr" or pdbNumber == "5u3c" or pdbNumber == "6kgx" or pdbNumber == "6o9j"):
+                                metadata["viewer"]["modified"] = True
                     i = i + 1
         if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
 
@@ -486,7 +490,9 @@ for i in range(len(sectionFiles)):
         else:
             print("{} section file does not have DOI field".format(fileName)) 
     if(title[0] == "summary.md"):
-        metadata["thumbnail"] = "{}_thumbnail".format(metadata["video"].split(".")[0])
+        metadata["summaryData"] = {
+            "chapter{}".format(metadata["chapter"]): True 
+        }
     elif("video" in metadata):
         metadata["thumbnail"] = "{}_thumbnail".format("_".join(metadata["video"].split("_")[:2]))
     

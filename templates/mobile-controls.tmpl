@@ -4,22 +4,28 @@
     ${else}
         <a href="${prevSection}.html" class="page-controls-nav hidden">&#10094;</a>
     ${endif}
-    ${if(video)}
+
+    ${if(typeSection)}
         <button onclick="toggleView(this)" value="text" class="page-controls-button page-controls-selected">
             ${svg/noun_File.svg()}
         </button>
+    ${endif}
+    ${if(video)}
         <button onclick="toggleView(this)" value="video" class="page-controls-button">
             ${svg/noun_Video.svg()}
         </button>
-        ${if(vidMetadata.sliderImgName)}
-            <button onclick="toggleView(this)" value="image" class="page-controls-button">
-                ${svg/noun_Image.svg()}
-            </button>
-        ${endif}
-    ${else}
-        <button onclick="toggleView(this)" value="text" class="page-controls-button hidden">Text</button>
-        <button onclick="toggleView(this)" value="video" class="page-controls-button hidden">Video</button>
     ${endif}
+    ${if(vidMetadata.sliderImgName)}
+        <button onclick="toggleView(this)" value="image" class="page-controls-button">
+            ${svg/noun_Image.svg()}
+        </button>
+    ${endif}
+    ${if(summaryData)}
+        <button onclick="toggleView(this)" value="summary" class="page-controls-button">
+            ${svg/noun_Cycle.svg()}
+        </button>
+    ${endif}
+
     ${if(nextSection)}
         <a href="${nextSection}.html" class="page-controls-nav">&#10095;</a>
     ${else}

@@ -1,5 +1,5 @@
 ---
-title: Cytoplasmic vesicles
+title: Cytoplasmic
 species: Myxococcus xanthus 
 doi: 10.22002/D1.1364
 video: 2_4c_Mxanthus.mp4

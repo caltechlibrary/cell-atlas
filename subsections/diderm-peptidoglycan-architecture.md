@@ -1,5 +1,5 @@
 ---
-title: Diderm wall architecture
+title: Architecture
 species: Escherichia coli 
 doi: 10.22002/D1.1362
 video: 2_3a_Ecoli.mp4

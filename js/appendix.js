@@ -13,52 +13,6 @@ if(navRight) {
     addNavRightMargin();
 }
 
-// Account for scroll bar width in profile bios
-let profileContainers = document.querySelectorAll(".profile-container");
-for(profileContainer of profileContainers) {
-    let profileImg = profileContainer.querySelector("img");
-    let profileBlurb = profileContainer.querySelector(".book-profile-blurb");
-    let checkForScrollBar = function() {
-        // Check if blurb is taller than pictures (267px)
-        if(profileBlurb.scrollHeight > 267) {
-            let scrollBarWidth = profileBlurb.offsetWidth - profileBlurb.clientWidth;
-            profileBlurb.style["padding-right"] = `${scrollBarWidth}px`;
-        }
-    }
-    if(!profileImg || (profileImg && profileImg.complete)) {
-        checkForScrollBar();
-    } else {
-        profileImg.addEventListener("load", checkForScrollBar);
-    }
-}
-
-// Check for anchor in url and open applicable modal window
-let apenUrl = window.location.href;
-let apenSplit = apenUrl.split("#");
-if(apenSplit.length > 1) {
-    let buttons = [];
-    let anchor = apenSplit[1];
-    let appendixInner = document.querySelector(".book-appendix-inner");
-    if(appendixInner) buttons = appendixInner.getElementsByTagName("button");
-    for(let button of buttons){
-        if (button.value == anchor) {
-            setTimeout(function(){
-                button.click();
-            }, 100);
-        }
-    }
-}
-
-// Add event listener to open "what's new" section
-let whatsNewLinks = document.querySelectorAll("a[href='#new']");
-for(let link of whatsNewLinks){
-    let whatsNewButton = document.querySelector(`button[value="WhatsNew"]`);
-    let whatsNewSection = document.querySelector("#WhatsNew .book-appendix-li-dropdown");
-    link.addEventListener("click", function(){
-        if (whatsNewSection.offsetHeight == 0) whatsNewButton.click();
-    });
-}
-
 function addNavRightMargin() {
     let appendixContainer = document.querySelector(".book-appendix-page");
     let scrollbarWidth = appendixContainer.offsetWidth - appendixContainer.clientWidth;
@@ -66,25 +20,90 @@ function addNavRightMargin() {
     navRight.style["margin-right"] = `${marginRight + scrollbarWidth}px`;
 }
 
-function toggleListDropdown(el) {
-    let list = document.querySelector(`div[data-dropdown='${el.value}']`).querySelector(".book-appendix-li-dropdown");
-    let listImg = list.querySelector("img");
-    if(list.offsetHeight == 0) {
-        el.style.transform = "rotate(180deg)";
-        if(!listImg || (listImg && listImg.complete)) {
-            list.style.height = list.scrollHeight + "px";
-        } else {
-            list.style.height = "auto";
-            listImg.addEventListener("load", function() {
-                if(list.offsetHeight > 0) list.style.height = list.scrollHeight + "px";
-            });
+for(profileBio of document.getElementsByClassName("profile-bio")) {
+    let profileImg = profileBio.querySelector(".profile-bio__profile-img");
+    let profileDescription = profileBio.querySelector(".profile-bio__description");
+    
+    let checkForScrollBar = function() {
+        if(profileDescription.scrollHeight > parseInt(window.getComputedStyle(profileBio)["max-height"])) {
+            profileDescription.style["padding-right"] = `${profileDescription.offsetWidth - profileDescription.clientWidth}px`;
         }
-        list.setAttribute("showing", true);
+    };
+
+    if(!profileImg || (profileImg && profileImg.complete)) {
+        checkForScrollBar();
     } else {
-        el.style.transform = "rotate(0deg)";
-        list.style.height = "0";
-        list.removeAttribute("showing");
+        profileImg.addEventListener("load", checkForScrollBar);
     }
+}
+
+for(let appendixAccordionGroup of document.querySelectorAll(".appendix-accordion-group")) {
+    let AppendixAccordionGroup = function(appendixAccordionGroup) {
+
+        let hideCollapsedAccordion = function(event) {
+            let accordionPanel = event.currentTarget;
+            accordionPanel.removeEventListener("transitionend", hideCollapsedAccordion);
+            if(accordionPanel.offsetHeight == 0) {
+                accordionPanel.classList.add("appendix-accordion-group__panel--hidden");
+            }
+        };
+
+        let toggleAccordionDropDown = function(event) {
+            let accordionButton = event.currentTarget;
+            let expandIcon = accordionButton.querySelector(".appendix-accordion-group__expand-icon");
+            let accordionPanel = document.getElementById(accordionButton.getAttribute("aria-controls"));
+            let panelImg = accordionPanel.querySelector("img");
+            if(accordionButton.getAttribute("aria-expanded") == "false") {
+                accordionButton.setAttribute("aria-expanded", "true");
+                expandIcon.classList.add("appendix-accordion-group__expand-icon--active");
+                accordionPanel.classList.remove("appendix-accordion-group__panel--hidden");
+                if(panelImg && !panelImg.complete) {
+                    accordionPanel.style.height = "auto";
+                    panelImg.addEventListener("load", () => {
+                        if(accordionButton.getAttribute("aria-expanded") == "true") accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
+                    });
+                } else {
+                    accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
+                }
+            } else {
+                accordionButton.setAttribute("aria-expanded", "false");
+                expandIcon.classList.remove("appendix-accordion-group__expand-icon--active");
+                if(document.querySelector("body").classList.contains("preload")) {
+                    accordionPanel.style.height = 0;
+                    accordionPanel.classList.add("appendix-accordion-group__panel--hidden");
+                } else {
+                    accordionPanel.addEventListener("transitionend", hideCollapsedAccordion);
+                    accordionPanel.style.height = 0;
+                }
+            }
+        };
+
+        let simulateAccordionOpen = function(desiredAnchor) {
+            let accordionButton = document.getElementById(`${desiredAnchor}-button`) 
+            if(accordionButton && accordionButton.getAttribute("aria-expanded") == "false") {
+                let fakeEvent = { currentTarget: accordionButton };
+                setTimeout(() => toggleAccordionDropDown(fakeEvent), 100);
+            }
+        };
+
+        let onOrientationChange = function() {
+            let expandedPanelBtns = document.querySelectorAll(".appendix-accordion-group__button[aria-expanded='true']");
+            expandedPanelBtns.forEach((expandedPanelBtn) => {
+                let expandedPanel = document.getElementById(expandedPanelBtn.getAttribute("aria-controls"));
+                expandedPanel.style.height = "auto";
+                window.addEventListener("resize", () => expandedPanel.style.height = `${expandedPanel.scrollHeight}px`, { once: true });
+            });
+        };
+
+        let desiredAnchor = window.location.hash.substring(1);
+        let accordionButtons = appendixAccordionGroup.getElementsByClassName("appendix-accordion-group__button");
+        for(let accordionButton of accordionButtons) accordionButton.addEventListener("click", toggleAccordionDropDown);
+        window.addEventListener("hashchange", () => simulateAccordionOpen(window.location.hash.substring(1)));
+        window.addEventListener("orientationchange", onOrientationChange);
+        if(desiredAnchor) simulateAccordionOpen(desiredAnchor);
+    }
+
+    AppendixAccordionGroup(appendixAccordionGroup);
 }
 
 if(document.querySelector(".fs-tree-confirm")) {
@@ -244,10 +263,6 @@ if(treeViewer) {
         viewerContainer.style.top = `${posTop}px`;
     }
 
-    let resizePolyFullscreenViewer = function() {
-        viewerContainer.style.height = `${window.innerHeight}px`;
-    }
-
     let enlargeTree = function() {
         enlargeBtn.classList.remove("tree-viewer__btn--visible"); 
         minBtn.classList.add("tree-viewer__btn--visible"); 
@@ -262,8 +277,6 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.add("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.add("tree-viewer__viewer-container--fs-polyfill");
-                resizePolyFullscreenViewer();
-                window.addEventListener("resize", resizePolyFullscreenViewer);
             }
         }
     }
@@ -283,7 +296,6 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.remove("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.remove("tree-viewer__viewer-container--fs-polyfill");
-                window.removeEventListener("resize", resizePolyFullscreenViewer);
                 viewerContainer.style.height = "initial";
             }
         }
@@ -426,6 +438,21 @@ if(treeViewer) {
             viewerContainer.addEventListener("touchstart", detectTouchLeave);
         }
 
+        let simulateOpenPopUpAndroid = function() {
+            let initialLinkPos = { posX: speciesLink.getBoundingClientRect().x, posY: speciesLink.getBoundingClientRect().y };
+            let gridPos = calcGridPos(initialLinkPos.posX, initialLinkPos.posY);
+            let zoomAmount = (window.innerWidth >= 900) ? 2.5 : 4.5;
+            panTree(gridPos.posX, gridPos.posY);
+            zoomTree(0, 0, zoomWeight*zoomAmount);
+            let newLinkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+            let newLinkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+            focusLink();
+            setTimeout(() => {
+                openPopUp(newLinkPosX, newLinkPosY);
+                viewerContainer.addEventListener("touchstart", detectTouchLeave);
+            }, 1000);
+        };
+
         let handlePopUpHover = function() {
             clearTimeout(hidePopUpTimeout);
         }
@@ -443,14 +470,7 @@ if(treeViewer) {
             } else {
                 let handleConfirm = function() {
                     if(viewerContainer.requestFullscreen) {
-                        let adjustPopUpAfterFullscreen = function() {
-                            let linkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
-                            let linkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
-                            openPopUp(linkPosX, linkPosY);
-                        }
-
-                        document.addEventListener("fullscreenchange", simulateOpenPopUp, { once: true });
-                        setTimeout(adjustPopUpAfterFullscreen, 200);
+                        document.addEventListener("fullscreenchange", simulateOpenPopUpAndroid, { once: true });
                         enlargeTree();
                     } else {
                         enlargeTree();
