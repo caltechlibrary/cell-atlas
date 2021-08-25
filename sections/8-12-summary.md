@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 08_Lifecycle.mp4
 ---
 
 ## Concept Check Questions 

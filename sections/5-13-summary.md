@@ -1,6 +1,5 @@
 ---
 title: Summary
-video: 05_Division.mp4
 ---
 
 ## Concept Check Questions 

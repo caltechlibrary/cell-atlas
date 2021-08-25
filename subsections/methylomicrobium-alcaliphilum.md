@@ -1,5 +1,5 @@
 ---
-title: Bacterial 2
+title: Diderm 2
 species: Methylomicrobium alcaliphilum 
 doi: 10.22002/D1.1367
 video: 2_7a_Malcaliphilum.mp4
