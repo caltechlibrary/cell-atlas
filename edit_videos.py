@@ -20,16 +20,21 @@ with open(filename, encoding="utf-8-sig") as csvfile:
         idv = doi.split('D1.')[1]
         fname = row['movie']
         fpath = ('cellatlas-videos/'+fname)
-        metadata = get_metadata(idv)
+        metadata = get_metadata(idv,validate=False)
         for date in metadata['dates']:
             if date['dateType'] == 'Updated':
                 date['date'] = today
-        metadata['relatedIdentifiers'] =\
-        [{'relationType':'IsSupplementTo','relatedIdentifier':'https://cellstructureatlas.org','relatedIdentifierType':'URL'}]
-        if 'ETDB' in row:
-            etdb = row['ETDB']
-            metadata['relatedIdentifiers'].append({'relationType':'IsDerivedFrom','relatedIdentifier':etdb,'relatedIdentifierType':'URL'})
-        cont = row['collector']
-        metadata['contributors'] = [{'contributorName': cont,'contributorType': 'DataCollector'}]
+        new_descr = []
+        for description in metadata['descriptions']:
+            if description['descriptionType'] == 'SeriesInformation':
+                description['description'] = 'Atlas of Bacterial and Archaeal Cell Structure'
+            if not description['description'].startswith("<br>Cite this record as:"):
+                new_descr.append(description)
+        metadata['descriptions'] = new_descr
+        new_id = []
+        for identifier in metadata['relatedIdentifiers']:
+            if identifier['relatedIdentifier'] != None:
+                new_id.append(identifier)
+        metadata['relatedIdentifiers'] = new_id
         response = caltechdata_edit(token, idv, metadata, {fpath}, {'mp4'}, production)
         print(response)

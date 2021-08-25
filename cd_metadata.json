@@ -2,12 +2,13 @@
   "descriptions": [
     {
       "descriptionType": "Abstract",
-      "description": "The offline version 1.1 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
+      "description": "The offline version 1.2 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
     }
   ],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "https://github.com/caltechlibrary/cell-atlas/releases/tag/v1.1",
+      "relatedIdentifier":
+      "https://github.com/caltechlibrary/cell-atlas/releases/tag/v1.2",
       "relationType": "IsDerived From",
       "relatedIdentifierType": "URL"
     }
@@ -32,15 +33,15 @@
       "subject": "Jensen Lab"
     }
   ],
-  "version": "v1.1",
+  "version": "v1.2",
   "titles": [
     {
-      "title": "Atlas of Bacterial and Archaeal Cell Structure - Offline Version 1.1"
+      "title": "Atlas of Bacterial and Archaeal Cell Structure - Offline Version 1.2"
     }
   ],
   "dates": [
     {
-      "date": "2021-02-11",
+      "date": "2021-05-03",
       "dateType": "Issued"
     }
   ],
@@ -89,12 +90,6 @@
     {
       "contributorName": "Badie, Kian",
       "contributorType": "Project Member"
-    }
-  ],
-  "alternateIdentifiers": [
-    {
-      "alternateIdentifier": "1791",
-      "alternateIdentifierType": "CaltechDATA_Identifier"
     }
   ]
 }
