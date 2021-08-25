@@ -1463,6 +1463,10 @@ file. These definitions will be defined mobile first.
         transform: translate(100%, -50%);
     }
 
+    .section-text--no-learn-more {
+        padding-bottom: 1em;
+    }
+
     .section-text__unshelve-btn, .section-text__shelve-btn, .section-text__header-divider {
         display: block;
     }
@@ -1510,7 +1514,7 @@ file. These definitions will be defined mobile first.
     }
 
     .learn-more--in-section {
-        margin: -1em 0 0 0;
+        margin: 0;
     }
 
     .learn-more__title {
@@ -1606,7 +1610,6 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .vid-metadata--in-section {
-        margin-bottom: 1em;
         order: initial;
     }
 
