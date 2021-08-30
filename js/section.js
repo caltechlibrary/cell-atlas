@@ -446,10 +446,7 @@ function createVideoPlayer(videoEl) {
         let source = document.createElement("source");
 
         videoEl.appendChild(source);
-        medSrc = `videos/${dataFileMed}`;
-        if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000" || window.location.origin == "http://bs-local.com:8000") {
-            medSrc = "https://www.cellstructureatlas.org/" + medSrc;
-        }
+        medSrc = `https://www.cellstructureatlas.org/videos/${dataFileMed}`;
 
         if(currQuality == "Med") {
             source.setAttribute("src", medSrc);
@@ -473,10 +470,7 @@ function createVideoPlayer(videoEl) {
                     }
                 });
         } else {
-            highSrc = `videos/${dataFile}`;
-            if(window.location.origin == "https://caltechlibrary.github.io" || window.location.origin == "http://localhost:8000" || window.location.origin == "http://bs-local.com:8000") {
-                highSrc = "https://www.cellstructureatlas.org/" + highSrc;
-            }
+            highSrc = `https://www.cellstructureatlas.org/videos/${dataFile}`;
             if(currQuality == "High" || !currQuality) {
                 source.setAttribute("src", highSrc);
                 videoEl.load();
