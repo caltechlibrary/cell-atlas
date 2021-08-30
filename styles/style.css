@@ -1434,6 +1434,10 @@ file. These definitions will be defined mobile first.
         padding: 0;
     }
 
+    .section-text__main-container--hidden {
+        visibility: hidden;
+    }
+
     .section-text--shelveable {
         position: absolute;
         right: 0;
@@ -1468,6 +1472,10 @@ file. These definitions will be defined mobile first.
         background: #363636;
         transition: transform 1s;
         z-index: 0;
+    }
+
+    .section-text__unshelve-btn--hidden {
+        visibility: hidden;
     }
 
     .section-text__unshelve-btn--shelved {
