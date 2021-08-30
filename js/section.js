@@ -286,53 +286,6 @@ function showModal(el) {
     
 }
 
-if(document.querySelector(".section-text")) {
-    let toggleTextTabIndex = function(index) {
-        let focusableEls = sectionText.querySelectorAll(`a, button, input, textarea, select, details, [tabindex]:not([tabindex='${index}'])`);
-        for(let focusableEl of focusableEls) {
-            if(focusableEl != unshelveBtn) focusableEl.setAttribute("tabindex", index);
-        }
-    }
-
-    let shelveText = function() {
-        sectionText.addEventListener("transitionend", function() {
-            unshelveBtn.classList.add("section-text__unshelve-btn--on-screen");
-        }, { once: true });
-
-        unshelveBtn.addEventListener("transitionend", function() {
-            unshelveBtn.setAttribute("tabindex", "0");
-        }, { once: true });
-
-        toggleTextTabIndex(-1);
-        document.activeElement.blur();
-        sectionText.classList.add("section-text--shelved");
-        sectionNonText.classList.add("non-text--enlarged");
-    }
-
-    let unshelveText = function() {
-        unshelveBtn.addEventListener("transitionend", function(event) {
-            sectionText.classList.remove("section-text--shelved");
-            event.stopPropagation();
-        }, { once: true });
-
-        sectionText.addEventListener("transitionend", function() {
-            toggleTextTabIndex(0);
-        }, { once: true });
-
-        unshelveBtn.setAttribute("tabindex", "-1");
-        document.activeElement.blur();
-        unshelveBtn.classList.remove("section-text__unshelve-btn--on-screen");
-        sectionNonText.classList.remove("non-text--enlarged");
-    }
-
-    let sectionText = document.querySelector(".section-text");
-    let sectionNonText = document.querySelector("#nonTextContent");
-    let shelveBtn = sectionText.querySelector(".section-text__shelve-btn");
-    let unshelveBtn = document.querySelector(".section-text__unshelve-btn");
-    shelveBtn.addEventListener("click", shelveText);
-    unshelveBtn.addEventListener("click", unshelveText);
-}
-
 function createVideoPlayer(videoEl) {
     let playerId = videoEl.getAttribute("id");
     let doi = videoEl.getAttribute("doi");
@@ -1318,3 +1271,7 @@ if(document.querySelector(".summary-menu")) {
         menuItem.addEventListener("keydown", handleItemKeydown);
     }
 }
+
+(function() {
+    SectionText.init();
+})();
