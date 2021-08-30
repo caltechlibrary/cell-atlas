@@ -1363,7 +1363,7 @@ file. These definitions will be defined mobile first.
 }
 
 /* section-text */
-.section-text {
+.section-text__main-container {
     display: flex;
     padding: 4.5em 0;
     flex-direction: column;
@@ -1378,22 +1378,6 @@ file. These definitions will be defined mobile first.
 
 .section-text__unshelve-btn {
     display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.45em 1.15em 0.45em 0.45em;
-    border: none;
-    font-size: 1.35em;
-    font-weight: 600;
-    white-space: nowrap;
-    color: #fff;
-    background: inherit;
-    transition: transform 1s;
-    z-index: 0;
-}
-
-.section-text__unshelve-btn--on-screen {
-    transform: translate(-100%, 0px);
 }
 
 .section-text__text-container {
@@ -1440,17 +1424,17 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:480px) {
-    .section-text {
+    .section-text__main-container {
         padding: 4.5em 0 1em 0;
     }
 }
 
 @media (min-width:900px) {
-    .section-text {
+    .section-text__main-container {
         padding: 0;
     }
 
-    .section-text--with-video {
+    .section-text--shelveable {
         position: absolute;
         right: 0;
         top: 50%;
@@ -1459,16 +1443,35 @@ file. These definitions will be defined mobile first.
         max-height: 94%;
     }
 
-    .section-text--shelved {
-        transform: translate(100%, -50%);
+    .section-text__main-container--shelved {
+        transform: translateX(100%);
     }
 
-    .section-text--no-learn-more {
+    .section-text__main-container--no-learn-more {
         padding-bottom: 1em;
     }
 
     .section-text__unshelve-btn, .section-text__shelve-btn, .section-text__header-divider {
         display: block;
+    }
+
+    .section-text__unshelve-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0.45em 1.15em 0.45em 0.45em;
+        border: none;
+        font-size: 1.35em;
+        font-weight: 600;
+        white-space: nowrap;
+        color: #fff;
+        background: #363636;
+        transition: transform 1s;
+        z-index: 0;
+    }
+
+    .section-text__unshelve-btn--shelved {
+        transform: translateX(100%);
     }
 
     .section-text__text-container {

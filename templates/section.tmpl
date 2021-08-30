@@ -27,29 +27,4 @@
     <a href="${nextSection}.html" class="book-page-nav" data-nav="next">&#8250;</a>
 </div>
 
-<div class="section-text section-text--with-video ${if(subsectionsData)}${else}section-text--no-learn-more${endif}">
-    <button class="section-text__unshelve-btn" tabindex="-1">&#8249;&#8249; Text</button>
-    <div class="section-text__text-container">
-        <div class="section-text__header-container">
-            <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
-            <div class="section-text__header-divider"></div>
-            <h1 class="section-text__title">${title}</h1>
-        </div>
-        <div class="section-text__content" tabindex="0">
-            ${body}
-        </div>
-    </div>
-    ${if(videoTitle)}
-        ${vidMetadata:vid-citation.tmpl()}
-    ${endif}
-    ${if(subsectionsData)}
-        <div class="learn-more learn-more--in-section">
-            <h1 class="learn-more__title">Learn More:</h1>
-            <div class="learn-more__btn-container">
-                ${for(subsectionsData)}
-                    <button class="learn-more__btn" value="${it.id}" onclick="showModal(this)">${it.title}</button>
-                ${endfor}
-            </div>
-        </div>
-    ${endif}
-</div>
+${section-text.tmpl()}
