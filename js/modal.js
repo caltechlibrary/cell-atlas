@@ -369,7 +369,18 @@ for(let viewerEl of viewerEls) {
     colorSelect.addEventListener("change", changeColor);
     viewerContainer.addEventListener("touchstart", handleTouch);
     viewerContainer.addEventListener("mousedown", handleMouseDown);
-    fetch(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`)
-        .then(processFetchRes)
-        .then(loadPdb);
+    
+    if(window.innerWidth < 900) {
+        let modalBtnId = parentModal.getAttribute("id");
+        let learnMoreBtn = document.querySelector(`button[value='${modalBtnId}']`);
+        learnMoreBtn.addEventListener("click", () => {
+            fetch(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`)
+                .then(processFetchRes)
+                .then(loadPdb);
+        }, { once: true });
+    } else {
+        fetch(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`)
+            .then(processFetchRes)
+            .then(loadPdb);
+    }
 }
