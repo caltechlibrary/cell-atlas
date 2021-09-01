@@ -113,7 +113,6 @@ for(let viewerEl of viewerEls) {
                 }, { once: true });
                 viewerContainer.requestFullscreen();
             } else {
-                window.addEventListener("orientationchange", resizeViewer);
                 parentModal.classList.add("subsection-modal-container--viewer-fs-polyfill");
                 fsContainer.classList.add("protein-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.add("protein-viewer__viewer-container--fs-polyfill");
@@ -135,7 +134,6 @@ for(let viewerEl of viewerEls) {
                 window.removeEventListener("resize", resizeViewer);
                 document.exitFullscreen();
             } else {
-                window.removeEventListener("orientationchange", resizeViewer);
                 parentModal.classList.remove("subsection-modal-container--viewer-fs-polyfill");
                 fsContainer.classList.remove("protein-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.remove("protein-viewer__viewer-container--fs-polyfill");
