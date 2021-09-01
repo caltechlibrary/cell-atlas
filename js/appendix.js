@@ -296,7 +296,6 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.remove("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.remove("tree-viewer__viewer-container--fs-polyfill");
-                viewerContainer.style.height = "initial";
             }
         }
     }
