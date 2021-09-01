@@ -18,7 +18,7 @@ let SectionText = {
 
     shelveText: function() {
         // Remove all main container elements from tab index
-        SectionText._toggleMainTabIndex();
+        SectionText.setMainTabIndex(-1);
         // Check if transitions are enabled
         if(document.querySelector("body").classList.contains("preload")) {
             SectionText.settings.mainContainer.classList.add("section-text__main-container--shelved");
@@ -28,13 +28,17 @@ let SectionText = {
             SectionText.settings.unshelveBtn.setAttribute("tabindex", 0);
         } else {
             SectionText.settings.mainContainer.addEventListener("transitionend", function() {
-                SectionText.settings.mainContainer.classList.add("section-text__main-container--hidden");
-                SectionText.settings.unshelveBtn.classList.remove("section-text__unshelve-btn--hidden");
-                SectionText.settings.unshelveBtn.classList.remove("section-text__unshelve-btn--shelved");
+                if(SectionText.settings.mainContainer.classList.contains("section-text__main-container--shelved")) {
+                    SectionText.settings.mainContainer.classList.add("section-text__main-container--hidden");
+                    SectionText.settings.unshelveBtn.classList.remove("section-text__unshelve-btn--hidden");
+                    SectionText.settings.unshelveBtn.classList.remove("section-text__unshelve-btn--shelved");
+                }
             }, { once: true });
             SectionText.settings.unshelveBtn.addEventListener("transitionend", function() {
-                SectionText.settings.unshelveBtn.setAttribute("tabindex", 0);
-            });
+                if(!SectionText.settings.unshelveBtn.classList.contains("section-text__unshelve-btn--shelved")) {
+                    SectionText.settings.unshelveBtn.setAttribute("tabindex", 0);
+                }
+            }, { once: true });
             SectionText.settings.mainContainer.classList.add("section-text__main-container--shelved");
         }
     },
@@ -48,26 +52,29 @@ let SectionText = {
             SectionText.settings.mainContainer.classList.remove("section-text__main-container--hidden");
             SectionText.settings.mainContainer.classList.remove("section-text__main-container--shelved");
             // Add all main container elements back to tab index
-            SectionText._toggleMainTabIndex();
+            SectionText.setMainTabIndex(0);
         } else {
             SectionText.settings.unshelveBtn.addEventListener("transitionend", function() {
-                SectionText.settings.unshelveBtn.classList.add("section-text__unshelve-btn--hidden");
-                SectionText.settings.mainContainer.classList.remove("section-text__main-container--hidden");
-                SectionText.settings.mainContainer.classList.remove("section-text__main-container--shelved");
+                if(SectionText.settings.unshelveBtn.classList.contains("section-text__unshelve-btn--shelved")) {
+                    SectionText.settings.unshelveBtn.classList.add("section-text__unshelve-btn--hidden");
+                    SectionText.settings.mainContainer.classList.remove("section-text__main-container--hidden");
+                    SectionText.settings.mainContainer.classList.remove("section-text__main-container--shelved");
+                }
             }, { once: true });
             SectionText.settings.mainContainer.addEventListener("transitionend", function() {
-                // Add all main container elements back to tab index
-                SectionText._toggleMainTabIndex();
-            });
+                if(!SectionText.settings.mainContainer.classList.contains("section-text__main-container--shelved")) {
+                    // Add all main container elements back to tab index
+                    SectionText.setMainTabIndex(0);   
+                }
+            }, { once: true });
             SectionText.settings.unshelveBtn.classList.add("section-text__unshelve-btn--shelved");
         }
     },
 
-    _toggleMainTabIndex: function() {
+    setMainTabIndex: function(tabIndex) {
         let tabbableEls = SectionText.settings.mainContainer.querySelectorAll("a, button, .section-text__content");
         for(let tabbableEl of tabbableEls) {
-            let tabindex = (tabbableEl.getAttribute("tabindex") == -1) ? 0 : -1; 
-            tabbableEl.setAttribute("tabindex", tabindex);
+            tabbableEl.setAttribute("tabindex", tabIndex);
         }
     }
 
