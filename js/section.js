@@ -769,7 +769,7 @@ function createVideoPlayer(videoEl) {
 
     function hideScrubCanvas() {
         if(videoEl.seeking) {
-            video.addEventListener("seeked", function() {
+            videoEl.addEventListener("seeked", function() {
                 videoScrubCanvas.style.display = "none";
             }, { once: true });
         } else {
