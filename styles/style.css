@@ -1731,6 +1731,7 @@ file. These definitions will be defined mobile first.
     margin: auto;
     padding: 1em;
     width: fit-content;
+    width: -moz-fit-content;
     background: #ffffff87;
     border-radius: 10px 10px 0 0;
     font-size: 1em;
