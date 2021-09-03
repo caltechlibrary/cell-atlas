@@ -31,7 +31,13 @@ python3 _build.py
 python _build.py
 ```
 
-<u>This will delete the `site/` directory in the this script's working directory</u>. Videos are will not be included in the site build by default and will only be included in the generated site if there exists a `videos` directory in this script's working directory.
+<u>This will delete the `site/` directory in the this script's working directory</u>. 
+Videos are will not be included in the site build by default and will only be included 
+in the generated site if there exists a `videos` directory in this script's working directory.
+Supplemental files (video preview images and pdb files) are required for the
+site to function completely and are available to
+[download from CaltechDATA](https://doi.org/10.22002/D1.2100)
+
 
 Offline versions of the cell atlas are automatically generated in the
 `cell_atlas_offline` and `cell_atlas_offline_lite` directories. In order to
