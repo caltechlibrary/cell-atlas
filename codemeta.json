@@ -6,7 +6,7 @@
   "codeRepository": "https://github.com/caltechlibrary/cell-atlas",
   "issueTracker": "https://github.com/caltechlibrary/cell-atlas/issues",
   "license": "https://data.caltech.edu/license",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": [
     {
       "@type": "Person",
@@ -37,7 +37,7 @@
     }
   ],
   "developmentStatus": "active",
-  "downloadUrl": "https://github.com/caltechlibrary/cellatlas/archive/v1.0.0.zip",
+  "downloadUrl": "https://github.com/caltechlibrary/cellatlas/archive/v2.0.0.zip",
   "keywords": [
     "GitHub",
     "Atlas of Bacterial and Archaeal Cell Structure",
