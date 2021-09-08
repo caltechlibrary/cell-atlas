@@ -7,15 +7,6 @@ let SectionText = {
         unshelveBtn: document.querySelector(".section-text .section-text__unshelve-btn")
     },
 
-    init: function() {
-        SectionText.bindUI();
-    },
-
-    bindUI: function() {
-        SectionText.settings.shelveBtn.addEventListener("click", SectionText.shelveText);
-        SectionText.settings.unshelveBtn.addEventListener("click", SectionText.unshelveText);
-    },
-
     shelveText: function() {
         // Remove all main container elements from tab index
         SectionText.setMainTabIndex(-1);

@@ -9,7 +9,6 @@ for(let comparisonVideoButton of comparisonVideoButtons) {
 // Add event listener to video player to shelf text on first play
 let video = document.querySelector("#nonTextContent video");
 if(video) {
-    video.addEventListener("play", shelfOnFirstPlay);
     // Source the video using the DOI only if a local path is not being used
     createVideoPlayer(video);
 }
@@ -246,15 +245,6 @@ for(let sectionImg of sectionImgs) {
         }
         imgContainer.style.top = `${posTop}px`;
     }
-}
-
-function shelfOnFirstPlay(event) {
-    let shelveBtn = document.querySelector(".section-text .section-text__shelve-btn");
-    let nonTextContent = document.getElementById("nonTextContent");
-    if(!nonTextContent.classList.contains("non-text--enlarged")) {
-        shelveBtn.click();
-    }
-    event.target.removeEventListener("play", shelfOnFirstPlay);
 }
 
 function showModal(el) {
@@ -1267,5 +1257,25 @@ if(document.querySelector(".summary-menu")) {
 }
 
 (function() {
-    SectionText.init();
+    let SectionController = {
+
+        shelveText: function() {
+            let nonTextSection = document.getElementById("nonTextContent");
+            nonTextSection.style.right = "0";
+            nonTextSection.style.width = "100%";
+            SectionText.shelveText();
+        },
+
+        unshelveText: function() {
+            let nonTextSection = document.getElementById("nonTextContent");
+            nonTextSection.style.right = "62%";
+            nonTextSection.style.width = "62%";
+            SectionText.unshelveText();
+        }
+
+    };
+
+    SectionText.settings.shelveBtn.addEventListener("click", SectionController.shelveText);
+    SectionText.settings.unshelveBtn.addEventListener("click", SectionController.unshelveText);
+    video.addEventListener("play", SectionController.shelveText, { once: true });
 })();
