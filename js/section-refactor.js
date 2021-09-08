@@ -19,5 +19,5 @@
 
     SectionText.settings.shelveBtn.addEventListener("click", SectionController.shelveText);
     SectionText.settings.unshelveBtn.addEventListener("click", SectionController.unshelveText);
-    if(video) video.addEventListener("play", SectionController.shelveText, { once: true });
+    if(video && window.innerWidth > 900) video.addEventListener("play", SectionController.shelveText, { once: true });
 })();

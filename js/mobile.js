@@ -31,7 +31,6 @@ function initializeMobileView() {
     window.currVideoPlaying = undefined;
     // Video is decalred in section.js and represents the main section video
     if(video) {
-        video.removeEventListener("play", shelfOnFirstPlay);
         document.addEventListener("fullscreenchange", pauseOnMinimize);
     }
 
@@ -54,7 +53,6 @@ function terminateMobileView() {
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
     if(video) {
-        video.addEventListener("play", shelfOnFirstPlay);
         document.removeEventListener("fullscreenchange", pauseOnMinimize);
     }
 
