@@ -859,6 +859,7 @@ file. These definitions will be defined mobile first.
         display: flex;
         align-items: center;
         width: fit-content;
+        width: -moz-fit-content;
         max-width: 100%;
         margin: auto;
     }
@@ -985,6 +986,7 @@ file. These definitions will be defined mobile first.
         margin: auto;
         flex-direction: column;
         height: fit-content;
+        height: -moz-fit-content;
         max-width: 52%;
         max-height: 97%;
         padding: 1em;
@@ -1784,6 +1786,7 @@ file. These definitions will be defined mobile first.
     margin: auto;
     padding: 1em;
     width: fit-content;
+    width: -moz-fit-content;
     background: #ffffff87;
     border-radius: 10px 10px 0 0;
     font-size: 1em;
