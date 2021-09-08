@@ -1232,9 +1232,9 @@ if(document.querySelector(".summary-menu")) {
     let mobileSummaryBtn = document.querySelector(".page-controls-mobile button[value='summary']");
     let enlargeBtn = summaryMenu.querySelector(".summary-menu__enlarge-btn");
     let minBtn = summaryMenu.querySelector(".summary-menu__min-btn");
-    let textContent = document.getElementById("textContent");
-    let textShelveBtn = document.getElementById("shelfButton");
-    let textUnshelveBtn = document.getElementById("unshelfButton");
+    let textContent = document.querySelector(".section-text");
+    let textShelveBtn = document.querySelector(".section-text__shelve-btn");
+    let textUnshelveBtn = document.querySelector(".section-text__unshelve-btn");
     let focusTranslateRatio = 0.0215;
     let currTranslateX = 0;
     let currTranslateY = 0;
@@ -1255,27 +1255,3 @@ if(document.querySelector(".summary-menu")) {
         menuItem.addEventListener("keydown", handleItemKeydown);
     }
 }
-
-(function() {
-    let SectionController = {
-
-        shelveText: function() {
-            let nonTextSection = document.getElementById("nonTextContent");
-            nonTextSection.style.right = "0";
-            nonTextSection.style.width = "100%";
-            SectionText.shelveText();
-        },
-
-        unshelveText: function() {
-            let nonTextSection = document.getElementById("nonTextContent");
-            nonTextSection.style.right = "62%";
-            nonTextSection.style.width = "62%";
-            SectionText.unshelveText();
-        }
-
-    };
-
-    SectionText.settings.shelveBtn.addEventListener("click", SectionController.shelveText);
-    SectionText.settings.unshelveBtn.addEventListener("click", SectionController.unshelveText);
-    video.addEventListener("play", SectionController.shelveText, { once: true });
-})();
