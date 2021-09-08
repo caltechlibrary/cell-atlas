@@ -1490,7 +1490,15 @@ file. These definitions will be defined mobile first.
     }
 
     .section-text__text-container {
-        padding: 1em 1em 0 1em;
+        padding: 0;
+    }
+
+    .section-text__header-container {
+        padding: 1rem 1rem 0 1rem;
+    }
+
+    .section-text__content {
+        padding: 0 1em;
     }
 }
 
