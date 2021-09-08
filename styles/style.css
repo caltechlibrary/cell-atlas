@@ -1433,21 +1433,25 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
-    .section-text__main-container {
-        padding: 0;
-    }
-
-    .section-text__main-container--hidden {
-        visibility: hidden;
-    }
-
     .section-text--shelveable {
         position: absolute;
         right: 0;
         top: 50%;
         transform: translate(0, -50%);
         width: 38%;
-        max-height: 94%;
+        max-height: 96%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-text__main-container {
+        min-height: 0;
+        flex: 1;
+        padding: 0;
+    }
+
+    .section-text__main-container--hidden {
+        visibility: hidden;
     }
 
     .section-text__main-container--shelved {
