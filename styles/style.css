@@ -1394,6 +1394,7 @@ file. These definitions will be defined mobile first.
 
 .section-text__header-container {
     display: flex;
+    align-items: center;
     flex: 1 0 auto;
     font-size: 1.35em;
 }
