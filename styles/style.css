@@ -1371,7 +1371,6 @@ file. These definitions will be defined mobile first.
     flex-direction: column;
     font-size: 1rem;
     background: #363636;
-    transition: transform 1s;
 }
 
 .section-text--hidden {
@@ -1443,6 +1442,11 @@ file. These definitions will be defined mobile first.
         max-height: 94%;
         display: flex;
         flex-direction: column;
+        transition: transform 1s;
+    }
+
+    .section-text-shelved {
+        transform: translate(100%, -50%);
     }
 
     .section-text__main-container {
@@ -1455,10 +1459,6 @@ file. These definitions will be defined mobile first.
         visibility: hidden;
     }
 
-    .section-text__main-container--shelved {
-        transform: translateX(100%);
-    }
-
     .section-text__main-container--no-learn-more {
         padding-bottom: 1em;
     }
@@ -1469,8 +1469,9 @@ file. These definitions will be defined mobile first.
 
     .section-text__unshelve-btn {
         position: absolute;
-        right: 0;
+        left: 0;
         top: 0;
+        transform: translateX(-100%);
         padding: 0.45em 1.15em 0.45em 0.45em;
         border: none;
         font-size: 1.35em;
@@ -1487,7 +1488,7 @@ file. These definitions will be defined mobile first.
     }
 
     .section-text__unshelve-btn--shelved {
-        transform: translateX(100%);
+        transform: translateX(0%);
     }
 
     .section-text__text-container {
