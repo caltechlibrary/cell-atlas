@@ -9,7 +9,7 @@ let SectionText = {
 
     shelveText: function() {
         // Remove all main container elements from tab index
-        SectionText.setMainTabIndex(-1);
+        SectionText._setMainTabIndex(-1);
         // Check if transitions are enabled
         if(document.querySelector("body").classList.contains("preload")) {
             // No transitions, add all necessary classes and toggle tabindex at once
@@ -37,7 +37,7 @@ let SectionText = {
             SectionText.settings.unshelveBtn.classList.add("section-text__unshelve-btn--hidden");
             SectionText.settings.mainContainer.classList.remove("section-text__main-container--hidden");
             SectionText.settings.mainContainer.classList.remove("section-text__main-container--shelved");
-            SectionText.setMainTabIndex(0);
+            SectionText._setMainTabIndex(0);
         } else {
             // Event listener to remove unshelve button visibility and bring out main container once unshelve button has transitioned off screen
             SectionText.settings.unshelveBtn.addEventListener("transitionend", SectionText._onUnshelveBtnTransitionHide, { once: true });
@@ -72,11 +72,11 @@ let SectionText = {
 
     _onMainContainerTransitionShow: function() {
         if(!SectionText.settings.mainContainer.classList.contains("section-text__main-container--shelved")) {
-            SectionText.setMainTabIndex(0);   
+            SectionText._setMainTabIndex(0);   
         }
     },
 
-    setMainTabIndex: function(tabIndex) {
+    _setMainTabIndex: function(tabIndex) {
         let tabbableEls = SectionText.settings.mainContainer.querySelectorAll("a, button, .section-text__content");
         for(let tabbableEl of tabbableEls) {
             tabbableEl.setAttribute("tabindex", tabIndex);
