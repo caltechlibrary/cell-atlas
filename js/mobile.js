@@ -123,7 +123,7 @@ function toggleView(el) {
         // Video portions of section pages will always have fixed page controls
         pageControls.style.position = "fixed";
     } else if(el.value == "summary") {
-        textContent.style.display = "none";
+        textContent.classList.add("section-text--hidden");
         nonTextContent.style.display = "flex";
         closeModalMobile();
         // Video portions of section pages will always have fixed page controls
