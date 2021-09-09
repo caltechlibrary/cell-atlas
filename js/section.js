@@ -884,7 +884,7 @@ function initializeCompSlider(compSliderContainer) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 let textContent = document.querySelector(".section-text");
                 modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
-                textContent.style.display = "none";
+                textContent.classList.add("section-text--hidden");
             }
         }
     }
@@ -934,7 +934,7 @@ function initializeCompSlider(compSliderContainer) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
                 let textContent = document.querySelector(".section-text");
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
-                textContent.style.display = "flex";
+                textContent.classList.remove("section-text--hidden");
             }
         }
     }
