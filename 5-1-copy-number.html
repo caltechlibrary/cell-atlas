@@ -1274,38 +1274,40 @@
                             <a href="5-2-fission.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Copy Number</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container section-text__main-container--no-learn-more">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Copy Number</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>Growth only gets you so far. For a coccoid cell, growth increases volume more rapidly than surface area, which is a problem if the cell relies on nutrients imported from the environment. Even if a cell is rod-shaped (so its surface area to volume ratio remains relatively constant with growth), increased volume increases diffusion times, making metabolism less efficient. So what can you do to keep your cell thriving?</p>
+                                        <p>It may be time to divide. In essence, division simply splits a cell, the “mother,” into two “daughters.” Each daughter will be roughly half the size of the mother. A fair split, though, particularly of critical components like the genome, requires careful coordination. Think about the things in your cell. Some of them are present in many copies, like the lipids in the membrane(s) and most of the proteins. Others are present in very few copies, like the chromosome(s). Conceptually, we can sort components into two broad categories: high copy-number and low copy-number items. How would you split the high copy-number items? Easy, right? Just split the cell in the middle and each half will have plenty. This is true, for instance, for the ribosomes you see in this <em>Thiomonas intermedia</em> cell.</p>
+                                        <p>What about low copy-number components? Look at the poly-phosphate storage granules in the same cell. To ensure each daughter cell gets the same number, they are evenly spaced along the length of the cell, ready for division in the middle.</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>Growth only gets you so far. For a coccoid cell, growth increases volume more rapidly than surface area, which is a problem if the cell relies on nutrients imported from the environment. Even if a cell is rod-shaped (so its surface area to volume ratio remains relatively constant with growth), increased volume increases diffusion times, making metabolism less efficient. So what can you do to keep your cell thriving?</p>
-                                    <p>It may be time to divide. In essence, division simply splits a cell, the “mother,” into two “daughters.” Each daughter will be roughly half the size of the mother. A fair split, though, particularly of critical components like the genome, requires careful coordination. Think about the things in your cell. Some of them are present in many copies, like the lipids in the membrane(s) and most of the proteins. Others are present in very few copies, like the chromosome(s). Conceptually, we can sort components into two broad categories: high copy-number and low copy-number items. How would you split the high copy-number items? Easy, right? Just split the cell in the middle and each half will have plenty. This is true, for instance, for the ribosomes you see in this <em>Thiomonas intermedia</em> cell.</p>
-                                    <p>What about low copy-number components? Look at the poly-phosphate storage granules in the same cell. To ensure each daughter cell gets the same number, they are evenly spaced along the length of the cell, ready for division in the middle.</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Thiomonas-intermedia">Thiomonas intermedia</a>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Thiomonas-intermedia">Thiomonas intermedia</a>
+                                                    </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#CristinaIancu">Cristina Iancu</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1507" target="_blank">10.22002/D1.1507</a>
+                                                    </div>
+                                                
+                                                </div>
                                             </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#CristinaIancu">Cristina Iancu</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1507" target="_blank">10.22002/D1.1507</a>
-                                            </div>
-                                        
-                                        </div>
-                                </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1374,7 +1376,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

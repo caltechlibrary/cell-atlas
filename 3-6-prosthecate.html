@@ -1603,44 +1603,46 @@
                             <a href="3-7-square.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Prosthecate</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container ">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Prosthecate</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>Motility is not everything. Another major force that shapes cells is metabolism. Nutrients are often scarce, and increasing your cell’s ability to absorb them can give it a boost in the competitive game of life. So how can you do that? Remember that a sphere maximizes volume relative to surface area. To maximize surface area (for nutrient uptake) relative to volume, you would instead want something spikier. Some bacteria extend <strong>prosthecae</strong> (“add-ons” or appendages) for this purpose. Some, like <em>Caulobacter crescentus</em>, use a single prostheca, which is also called a <strong>stalk</strong>. Stalks are commonly located at the pole of the cell, where, as you’ll see in Chapter 8.4, they can help cells attach to a surface and hang on even in turbulent flow. Other species have a stalk on either end. Still others, like this <em>Verrucomicrobium spinosum</em>, form astral shapes with prosthecae jutting out in all directions.</p>
+                                        <p>Prosthecae offer an architectural challenge: thin extensions are delicate. Prosthecate cells use cytoskeletal proteins to form and stabilize their stalks, although exactly how this works remains unclear. One of these cytoskeletal proteins is Bactofilin (⇩), which is similar to the proteins that make intermediate filaments in eukaryotes. <em>C. crescentus</em> use Bactofilin polymers to help make their stalks. <em>Prosthecobacter</em> contain a different cytoskeletal element–microtubules–in their stalks, the function of which remains unclear (⇩).</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>Motility is not everything. Another major force that shapes cells is metabolism. Nutrients are often scarce, and increasing your cell’s ability to absorb them can give it a boost in the competitive game of life. So how can you do that? Remember that a sphere maximizes volume relative to surface area. To maximize surface area (for nutrient uptake) relative to volume, you would instead want something spikier. Some bacteria extend <strong>prosthecae</strong> (“add-ons” or appendages) for this purpose. Some, like <em>Caulobacter crescentus</em>, use a single prostheca, which is also called a <strong>stalk</strong>. Stalks are commonly located at the pole of the cell, where, as you’ll see in Chapter 8.4, they can help cells attach to a surface and hang on even in turbulent flow. Other species have a stalk on either end. Still others, like this <em>Verrucomicrobium spinosum</em>, form astral shapes with prosthecae jutting out in all directions.</p>
-                                    <p>Prosthecae offer an architectural challenge: thin extensions are delicate. Prosthecate cells use cytoskeletal proteins to form and stabilize their stalks, although exactly how this works remains unclear. One of these cytoskeletal proteins is Bactofilin (⇩), which is similar to the proteins that make intermediate filaments in eukaryotes. <em>C. crescentus</em> use Bactofilin polymers to help make their stalks. <em>Prosthecobacter</em> contain a different cytoskeletal element–microtubules–in their stalks, the function of which remains unclear (⇩).</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Verrucomicrobium-spinosum">Verrucomicrobium spinosum</a>
-                                            </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#MartinPilhofer">Martin Pilhofer</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1482" target="_blank">10.22002/D1.1482</a>
-                                            </div>
-                                        
-                                        </div>
-                                        <div class="learn-more learn-more--in-section">
-                                    <h1 class="learn-more__title">Learn More:</h1>
-                                    <div class="learn-more__btn-container">
-                                                            <button class="learn-more__btn" value="bactofilin" onclick="showModal(this)">Bactofilin</button>
-                                                            <button class="learn-more__btn" value="bacterial-microtubules" onclick="showModal(this)">Microtubules</button>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Verrucomicrobium-spinosum">Verrucomicrobium spinosum</a>
                                                     </div>
-                                </div>
-                            </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#MartinPilhofer">Martin Pilhofer</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1482" target="_blank">10.22002/D1.1482</a>
+                                                    </div>
+                                                
+                                                </div>
+                                                    <div class="learn-more learn-more--in-section">
+                                        <h1 class="learn-more__title">Learn More:</h1>
+                                        <div class="learn-more__btn-container">
+                                                                    <button class="learn-more__btn" value="bactofilin" onclick="showModal(this)">Bactofilin</button>
+                                                                    <button class="learn-more__btn" value="bacterial-microtubules" onclick="showModal(this)">Microtubules</button>
+                                                            </div>
+                                    </div>
+                                    </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1709,7 +1711,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

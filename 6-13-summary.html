@@ -1191,30 +1191,32 @@
                             <a href="7-navigation.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Summary</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container section-text__main-container--no-learn-more">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Summary</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <h2 id="concept-check-questions">Concept Check Questions</h2>
+                                        <p>• Which works better in high viscosity: an oar or a propeller?</p>
+                                        <p>• What other motility machinery is genetically related to the archaellum?</p>
+                                        <p>• What motility machinery works like a grappling hook?</p>
+                                        <p>• How can <em>Mycoplasma</em> divide if they lose FtsZ?</p>
+                                        <h2 id="further-reading">Further Reading</h2>
+                                        <p>• Albers and Jarrell (2018). <em>The archaellum: An update on the unique archaeal motility structure</em> [<a href="D-references.html#ref-albers2018">62</a>].</p>
+                                        <p>• Armbruster and Mobley (2012). <em>Merging mythology and morphology: The multifaceted lifestyle of Proteus mirabilis</em> [<a href="D-references.html#ref-armbruster2012">63</a>].</p>
+                                        <p>• Berg (2003). <em>The rotary motor of bacterial flagella</em> [<a href="D-references.html#ref-berg2003">64</a>].</p>
+                                        <p>• Jarrell and McBride (2008). <em>The surprisingly diverse ways that prokaryotes move</em> [<a href="D-references.html#ref-jarrell2008">65</a>].</p>
+                                        <p>• Muñoz-Dorado et al. (2016). <em>Myxobacteria: Moving, killing, feeding, and surviving together</em> [<a href="D-references.html#ref-munoz-dorado2016">66</a>].</p>
+                                        <p>• Shrivastava and Berg (2015). <em>Towards a model for Flavobacterium gliding</em> [<a href="D-references.html#ref-shrivastava2015">67</a>].</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <h2 id="concept-check-questions">Concept Check Questions</h2>
-                                    <p>• Which works better in high viscosity: an oar or a propeller?</p>
-                                    <p>• What other motility machinery is genetically related to the archaellum?</p>
-                                    <p>• What motility machinery works like a grappling hook?</p>
-                                    <p>• How can <em>Mycoplasma</em> divide if they lose FtsZ?</p>
-                                    <h2 id="further-reading">Further Reading</h2>
-                                    <p>• Albers and Jarrell (2018). <em>The archaellum: An update on the unique archaeal motility structure</em> [<a href="D-references.html#ref-albers2018">62</a>].</p>
-                                    <p>• Armbruster and Mobley (2012). <em>Merging mythology and morphology: The multifaceted lifestyle of Proteus mirabilis</em> [<a href="D-references.html#ref-armbruster2012">63</a>].</p>
-                                    <p>• Berg (2003). <em>The rotary motor of bacterial flagella</em> [<a href="D-references.html#ref-berg2003">64</a>].</p>
-                                    <p>• Jarrell and McBride (2008). <em>The surprisingly diverse ways that prokaryotes move</em> [<a href="D-references.html#ref-jarrell2008">65</a>].</p>
-                                    <p>• Muñoz-Dorado et al. (2016). <em>Myxobacteria: Moving, killing, feeding, and surviving together</em> [<a href="D-references.html#ref-munoz-dorado2016">66</a>].</p>
-                                    <p>• Shrivastava and Berg (2015). <em>Towards a model for Flavobacterium gliding</em> [<a href="D-references.html#ref-shrivastava2015">67</a>].</p>
-                                </div>
-                            </div>
-                                </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                                            </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1276,7 +1278,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

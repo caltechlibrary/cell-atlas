@@ -1564,43 +1564,45 @@
                             <a href="1-11-summary.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Putting It All Together</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container ">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Putting It All Together</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>Science benefits from collaboration, and structural biology is no exception. This extends to our tools. To understand cells across their full length scale, we need to combine what we learn from different techniques. Consider this <em>Bdellovibrio bacteriovorus</em> cell. To visualize its overall structure, we can use cryo-ET. To identify a particular structure in the cell, we can alter its abundance (by genetically deleting it or overexpressing it) or use a fluorescent tag (⇩). Once we have identified a structure, we can get a higher-resolution view of it by sub-tomogram averaging. Then we can again use genetics to locate the positions of individual pieces in the structure (⇩). Combining this information with clues from other biochemistry methods, we can place high-resolution structures of components solved by X-ray crystallography and single particle reconstruction into their correct context. In this way, we can begin to build up a full picture, from individual atoms to entire cells. We still have a long way to go, but someday we hope to be able to map the location and interactions of every protein in a bacterium or archaeon, creating a true, molecular atlas of the cell.</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>Science benefits from collaboration, and structural biology is no exception. This extends to our tools. To understand cells across their full length scale, we need to combine what we learn from different techniques. Consider this <em>Bdellovibrio bacteriovorus</em> cell. To visualize its overall structure, we can use cryo-ET. To identify a particular structure in the cell, we can alter its abundance (by genetically deleting it or overexpressing it) or use a fluorescent tag (⇩). Once we have identified a structure, we can get a higher-resolution view of it by sub-tomogram averaging. Then we can again use genetics to locate the positions of individual pieces in the structure (⇩). Combining this information with clues from other biochemistry methods, we can place high-resolution structures of components solved by X-ray crystallography and single particle reconstruction into their correct context. In this way, we can begin to build up a full picture, from individual atoms to entire cells. We still have a long way to go, but someday we hope to be able to map the location and interactions of every protein in a bacterium or archaeon, creating a true, molecular atlas of the cell.</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Bdellovibrio-bacteriovorus">Bdellovibrio bacteriovorus</a>
-                                            </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#Yi-WeiChang">Yi-Wei Chang</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1472" target="_blank">10.22002/D1.1472</a>
-                                            </div>
-                                        
-                                        </div>
-                                        <div class="learn-more learn-more--in-section">
-                                    <h1 class="learn-more__title">Learn More:</h1>
-                                    <div class="learn-more__btn-container">
-                                                            <button class="learn-more__btn" value="clem" onclick="showModal(this)">CLEM</button>
-                                                            <button class="learn-more__btn" value="difference-mapping" onclick="showModal(this)">Mapping</button>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Bdellovibrio-bacteriovorus">Bdellovibrio bacteriovorus</a>
                                                     </div>
-                                </div>
-                            </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#Yi-WeiChang">Yi-Wei Chang</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1472" target="_blank">10.22002/D1.1472</a>
+                                                    </div>
+                                                
+                                                </div>
+                                                    <div class="learn-more learn-more--in-section">
+                                        <h1 class="learn-more__title">Learn More:</h1>
+                                        <div class="learn-more__btn-container">
+                                                                    <button class="learn-more__btn" value="clem" onclick="showModal(this)">CLEM</button>
+                                                                    <button class="learn-more__btn" value="difference-mapping" onclick="showModal(this)">Mapping</button>
+                                                            </div>
+                                    </div>
+                                    </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1669,7 +1671,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

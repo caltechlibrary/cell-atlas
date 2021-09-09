@@ -1,16 +1,4 @@
-// Script still a WIP. Script was written to just to get the job done for the static site prototype. 
-// Will be improving this script where needed as time goes on.
-
-// Check if there is "Learn More" content. If not, add margin on bottom of text seciton on desktop only
-let sectionText = document.querySelector(".book-section-text");
-if(sectionText) {
-    let learnMore = sectionText.querySelector(".learn-more");
-    if(!learnMore && window.innerWidth > 900) {
-        sectionText.style["padding-bottom"] = "1em";
-    }
-}
-
-let sectionTextMaterial = document.querySelector(".book-section-text-material");
+let sectionTextMaterial = document.querySelector(".section-text__content");
 if(sectionTextMaterial) addTypeFocusToggle(sectionTextMaterial);
 
 let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
@@ -21,7 +9,6 @@ for(let comparisonVideoButton of comparisonVideoButtons) {
 // Add event listener to video player to shelf text on first play
 let video = document.querySelector("#nonTextContent video");
 if(video) {
-    video.addEventListener("play", shelfOnFirstPlay);
     // Source the video using the DOI only if a local path is not being used
     createVideoPlayer(video);
 }
@@ -44,7 +31,7 @@ document.addEventListener("keydown", function(event) {
         if(link) link.click();
     } else if(event.key == "ArrowUp" || event.key == "ArrowDown") {
         if(focusedElement.tagName == "INPUT") return;
-        let textMaterial = document.querySelector(".book-section-text-material");
+        let textMaterial = document.querySelector(".section-text__content");
         let modalOverlay = document.getElementById("modalOverlay");
         if(modalOverlay && modalOverlay.style.display == "block") {
             let modalContainers = document.getElementsByClassName("subsection-modal-container");
@@ -55,7 +42,6 @@ document.addEventListener("keydown", function(event) {
                 }
             }
         } else if(textMaterial && textMaterial.getAttribute("tabindex") == "0") {
-            let textMaterial = document.querySelector(".book-section-text-material");
             textMaterial.focus();
         }
     } else if(event.key == " ") {
@@ -73,7 +59,7 @@ document.addEventListener("keydown", function(event) {
                 }
             }
         } else if(nonTextContent) {
-            let textMaterial = document.querySelector(".book-section-text-material");
+            let textMaterial = document.querySelector(".section-text__content");
             if(textMaterial.contains(focusedElement)) return;
             videoPlayer = nonTextContent.querySelector(".book-section-video-player");
         }
@@ -261,11 +247,6 @@ for(let sectionImg of sectionImgs) {
     }
 }
 
-function shelfOnFirstPlay(event) {
-    shelfText();
-    event.target.removeEventListener("play", shelfOnFirstPlay);
-}
-
 function showModal(el) {
     if(video && !video.paused) video.pause();
     let modalId = el.getAttribute("value");
@@ -293,70 +274,6 @@ function showModal(el) {
         videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
     }, 500)
     
-}
-
-function shelfText(el) {
-    let nonTextSection = document.getElementById("nonTextContent");
-    let textSection = document.getElementById("textContent");
-    let unshelfButton = document.getElementById("unshelfButton");
-
-    // Make content of text section untabable
-    let textSectionChildren = textSection.getElementsByTagName("*");
-    for(child of textSectionChildren) {
-        if(child.tabIndex >= 0) child.setAttribute("tabindex", "-99");
-    }
-    
-    // Push text section offscreen
-    document.activeElement.blur();
-    textSection.style.transform = "translate(100%, -50%)";
-
-    // Bring non text section center screen and enlarge
-    nonTextSection.style.right = "0";
-    nonTextSection.style.width = "100%";
-
-    // Bring unshelf button on screen once text is transitioned off screen
-    setTimeout(function(){
-        // Calculate top margin value for unshelf button
-        let pageContainer = document.querySelector(".book-page-content");
-        let heightFromTop = (pageContainer.offsetHeight - textSection.offsetHeight) / 2;
-        unshelfButton.style.top = `${heightFromTop}px`;
-        unshelfButton.style.transform =  "translate(-100%, 0px)";
-        unshelfButton.setAttribute("tabindex", "0");
-    }, 1000);
-}
-
-function openText(el) {
-    let nonTextSection = document.getElementById("nonTextContent");
-    let textSection = document.getElementById("textContent");
-    let unshelfButton = document.getElementById("unshelfButton");
-
-    // Make unshelf button untabable
-    unshelfButton.setAttribute("tabindex", "-1");
-
-    // Push open text button offscreen
-    document.activeElement.blur();
-    unshelfButton.style.transform =  "translate(0px, 0px)";
-
-    // Bring non text section back to the left and make smaller
-    nonTextSection.style.right = "62%";
-    nonTextSection.style.width = "62%";
-
-    // Bring unshelf button on screen once text is transitioned off screen
-    setTimeout(function(){
-        textSection.style.transform = "translate(0, -50%)";
-        let textSectionChildren = textSection.getElementsByTagName("*");
-        if(document.getElementsByTagName("body")[0].classList.contains("preload")) {
-            for(child of textSectionChildren) {
-                if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
-            }
-        } else {
-            textSection.addEventListener("transitionend", function() {
-                for(child of textSectionChildren) {
-                    if(child.tabIndex == -99) child.setAttribute("tabindex", "0");
-                }
-            }, { once: true });
-        }
-    }, 1000);
 }
 
 function createVideoPlayer(videoEl) {
@@ -857,8 +774,8 @@ function initializeCompSlider(compSliderContainer) {
     minimizeBtnDesk.addEventListener("click", minimizeSlider);
 
     if(!inModal && window.innerWidth >= 900) {
-        let shelfButton = document.getElementById("shelfButton");
-        let unshelfButton = document.getElementById("unshelfButton");
+        let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
+        let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
         let vidPlayBtn = document.querySelector(`#${playerId}-playPauseButton`);
 
         updateMainCompMaxHeight();
@@ -944,12 +861,13 @@ function initializeCompSlider(compSliderContainer) {
             positionEnlargedModalSlider();
             window.addEventListener("resize", positionEnlargedModalSlider);
         } else {
-            let unshelfBtn = document.querySelector("#unshelfButton");
+            let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
+            let unshelfBtn = document.querySelector(".section-text .section-text__unshelve-btn");
             minimizeBtnDesk.disabled = true;
             unshelfBtn.addEventListener("transitionend", function() {
                 minimizeBtnDesk.disabled = false;
             }, { once: true });
-            shelfText();
+            shelfButton.click();
         }
     }
 
@@ -964,9 +882,9 @@ function initializeCompSlider(compSliderContainer) {
             compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
             if(inModal) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                let textContent = document.querySelector("#textContent");
+                let textContent = document.querySelector(".section-text");
                 modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
-                textContent.style.display = "none";
+                textContent.classList.add("section-text--hidden");
             }
         }
     }
@@ -992,12 +910,13 @@ function initializeCompSlider(compSliderContainer) {
             beforeImage.style.height = "initial";
             window.removeEventListener("resize", positionEnlargedModalSlider);
         } else {
+            let unshelfBtn = document.querySelector(".section-text .section-text__unshelve-btn");
             enlargeBtn.disabled = true;
-            let textSection = document.getElementById("textContent");
+            let textSection = document.querySelector(".section-text");
             textSection.addEventListener("transitionend", function() {
                 enlargeBtn.disabled = false;
             }, { once: true });
-            openText();
+            unshelfBtn.click();
         }
     }
 
@@ -1013,8 +932,9 @@ function initializeCompSlider(compSliderContainer) {
             compSliderContainer.style.removeProperty("height");
             if(inModal) {
                 let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
+                let textContent = document.querySelector(".section-text");
                 modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
-                textContent.style.display = "flex";
+                textContent.classList.remove("section-text--hidden");
             }
         }
     }
@@ -1038,7 +958,8 @@ function initializeCompSlider(compSliderContainer) {
     }
 
     function respondToTextShelving(event) {
-        if(event.currentTarget.id == "shelfButton" || event.currentTarget.id == `${playerId}-playPauseButton`) {
+        if(event.currentTarget.classList.contains("section-text__shelve-btn") || event.currentTarget.id == `${playerId}-playPauseButton`) {
+            let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
             window.removeEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "fullscreen");
             enlargeBtn.style.display = "none"; 
@@ -1047,14 +968,14 @@ function initializeCompSlider(compSliderContainer) {
             unshelfButton.addEventListener("transitionend", function() {
                 minimizeBtnDesk.disabled = false;
             }, { once: true });
-        } else if(event.currentTarget.id == "unshelfButton"){
+        } else if(event.currentTarget.classList.contains("section-text__unshelve-btn")){
             window.addEventListener("touchstart", detectSwipe);
             fullBackground.setAttribute("data-state", "initial");
             minimizeBtnMobile.style.display = "none"; 
             minimizeBtnDesk.style.display = "none";
             enlargeBtn.style.display = "flex";
             enlargeBtn.disabled = true;
-            let textSection = document.getElementById("textContent");
+            let textSection = document.querySelector(".section-text");
             textSection.addEventListener("transitionend", function() {
                 enlargeBtn.disabled = false;
             }, { once: true });
@@ -1079,8 +1000,8 @@ function initializeCompSlider(compSliderContainer) {
         minimizeBtnDesk.style.setProperty("display", "none", "important");
         loadFailedImg.style.display = "block";
         if(loadFailedImg === document.querySelector("#nonTextContent .book-section-comparison-load-failed")) {
-            let shelfButton = document.getElementById("shelfButton");
-            let unshelfButton = document.getElementById("unshelfButton");
+            let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
+            let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
             let nonTextContent = document.querySelector("#nonTextContent");
             let videoContainer = nonTextContent.querySelector(".book-section-video-container");
             let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
@@ -1311,9 +1232,9 @@ if(document.querySelector(".summary-menu")) {
     let mobileSummaryBtn = document.querySelector(".page-controls-mobile button[value='summary']");
     let enlargeBtn = summaryMenu.querySelector(".summary-menu__enlarge-btn");
     let minBtn = summaryMenu.querySelector(".summary-menu__min-btn");
-    let textContent = document.getElementById("textContent");
-    let textShelveBtn = document.getElementById("shelfButton");
-    let textUnshelveBtn = document.getElementById("unshelfButton");
+    let textContent = document.querySelector(".section-text");
+    let textShelveBtn = document.querySelector(".section-text__shelve-btn");
+    let textUnshelveBtn = document.querySelector(".section-text__unshelve-btn");
     let focusTranslateRatio = 0.0215;
     let currTranslateX = 0;
     let currTranslateY = 0;

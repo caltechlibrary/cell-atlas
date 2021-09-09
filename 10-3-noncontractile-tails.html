@@ -1274,37 +1274,39 @@
                             <a href="10-4-structural-variation.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Noncontractile Tails</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container section-text__main-container--no-learn-more">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Noncontractile Tails</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>Some phage have tails that are not contractile, like this siphophage attacking a <em>Shewanella oneidensis</em> cell. The long, flexible tail still serves the essential function of crossing the barrier of the cell’s envelope, providing a conduit for the genome to enter the cell.</p>
+                                        <p>Note that you already saw a different type of phage attacking <em>S. oneidensis</em>. While most phage are adapted to infect one or a few closely-related species of bacteria or archaea, there are often multiple different types of phage adapted to attack each species. The diversity of phage is staggering, and they have diverged considerably through evolution. One lacks a single gene with detectable homology to any other in any known virus or cell.</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>Some phage have tails that are not contractile, like this siphophage attacking a <em>Shewanella oneidensis</em> cell. The long, flexible tail still serves the essential function of crossing the barrier of the cell’s envelope, providing a conduit for the genome to enter the cell.</p>
-                                    <p>Note that you already saw a different type of phage attacking <em>S. oneidensis</em>. While most phage are adapted to infect one or a few closely-related species of bacteria or archaea, there are often multiple different types of phage adapted to attack each species. The diversity of phage is staggering, and they have diverged considerably through evolution. One lacks a single gene with detectable homology to any other in any known virus or cell.</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Shewanella-oneidensis">Shewanella oneidensis</a>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Shewanella-oneidensis">Shewanella oneidensis</a>
+                                                    </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#PoornaSubramanian">Poorna Subramanian</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1588" target="_blank">10.22002/D1.1588</a>
+                                                    </div>
+                                                
+                                                </div>
                                             </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#PoornaSubramanian">Poorna Subramanian</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1588" target="_blank">10.22002/D1.1588</a>
-                                            </div>
-                                        
-                                        </div>
-                                </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1373,7 +1375,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

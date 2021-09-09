@@ -1191,28 +1191,30 @@
                             <a href="9-interaction.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Summary</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container section-text__main-container--no-learn-more">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Summary</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <h2 id="concept-check-questions">Concept Check Questions</h2>
+                                        <p>• What is the function of RecA and RadA?</p>
+                                        <p>• What is the difference between the two daughters produced by <em>Caulobacter crescentus</em> division?</p>
+                                        <p>• What kind of macromolecule makes up the spore cortex? The spore coat?</p>
+                                        <p>• In diderms, which membrane forms the inner spore membrane? The outer spore membrane?</p>
+                                        <h2 id="further-reading">Further Reading</h2>
+                                        <p>• Fendrihan et al. (2006). <em>Extremely halophilic archaea and the issue of long-term microbial survival</em> [<a href="D-references.html#ref-fendrihan2006">75</a>].</p>
+                                        <p>• Pletnev et al. (2015). <em>Survival guide: Escherichia coli in the stationary phase</em> [<a href="D-references.html#ref-pletnev2015">76</a>].</p>
+                                        <p>• Tocheva et al. (2016). <em>Sporulation, bacterial cell envelopes and the origin of life</em> [<a href="D-references.html#ref-tocheva2016">77</a>].</p>
+                                        <p>• Vreeland et al. (2000). <em>Isolation of a 250 million-year-old halotolerant bacterium from a primary salt crystal</em> [<a href="D-references.html#ref-vreeland2000">78</a>].</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <h2 id="concept-check-questions">Concept Check Questions</h2>
-                                    <p>• What is the function of RecA and RadA?</p>
-                                    <p>• What is the difference between the two daughters produced by <em>Caulobacter crescentus</em> division?</p>
-                                    <p>• What kind of macromolecule makes up the spore cortex? The spore coat?</p>
-                                    <p>• In diderms, which membrane forms the inner spore membrane? The outer spore membrane?</p>
-                                    <h2 id="further-reading">Further Reading</h2>
-                                    <p>• Fendrihan et al. (2006). <em>Extremely halophilic archaea and the issue of long-term microbial survival</em> [<a href="D-references.html#ref-fendrihan2006">75</a>].</p>
-                                    <p>• Pletnev et al. (2015). <em>Survival guide: Escherichia coli in the stationary phase</em> [<a href="D-references.html#ref-pletnev2015">76</a>].</p>
-                                    <p>• Tocheva et al. (2016). <em>Sporulation, bacterial cell envelopes and the origin of life</em> [<a href="D-references.html#ref-tocheva2016">77</a>].</p>
-                                    <p>• Vreeland et al. (2000). <em>Isolation of a 250 million-year-old halotolerant bacterium from a primary salt crystal</em> [<a href="D-references.html#ref-vreeland2000">78</a>].</p>
-                                </div>
-                            </div>
-                                </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                                            </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1274,7 +1276,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

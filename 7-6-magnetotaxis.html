@@ -1452,45 +1452,47 @@
                             <a href="7-7-summary.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Magnetotaxis</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container ">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Magnetotaxis</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>Chemotaxis is not the only mode of navigation available to your cell. For a clue to others, think about how we orient ourselves in the world. In addition to our nose sniffing out food, we also use our eyes to sense light. Similarly, some photosynthetic bacteria have evolved <strong>phototaxis</strong> (ordered movement in response to light).</p>
+                                        <p>We may also use an external tool to navigate unfamiliar surroundings: a compass. Believe it or not, some bacteria have one, too. Magnetotactic species like this <em>Magnetospirillum magneticum</em> have evolved specialized structures called <strong>magnetosomes</strong>. They are pockets of inner membrane filled with crystals of a magnetic iron mineral like magnetite. The cell organizes the magnetosomes into a line using filaments of a cytoskeletal protein called MamK (named for its association with <u>ma</u>gnetosome <u>m</u>embranes) (⇩), which is related to eukaryotic actin. The linear chain of magnetosomes functions like the needle of a compass, aligning the cell in a magnetic field.</p>
+                                        <p>Magnetosomes first form with the creation of a pocket of inner membrane, as you can see in this cell. Multiple short chains of magnetosomes may form, which are then organized into a single chain by MamK filaments. As mineralization begins, the pockets enlarge to accommodate the growing crystals, ultimately reaching ~60 nm in diameter. Magnetosome chains are inherited by daughter cells through division. Segregation is relatively easy: the chain spans the division plane so that the inward-growing cell wall simply splits the chain between magnetosomes, delivering half the chain to each daughter.</p>
+                                        <p>Much remains mysterious about these structures. For instance, what forms the membrane pockets? An even bigger question is how cells use their compasses. One theory is that magnetosomes guide the aquatic bacteria vertically to the optimal height in the water column for e.g. a certain oxygen level. However, these species are also found at the magnetic equator, where the Earth’s field is horizontal. Another hypothesis is that magnetic orientation improves the efficiency of navigation by buffering the cell against Brownian motion that would knock it off course.</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>Chemotaxis is not the only mode of navigation available to your cell. For a clue to others, think about how we orient ourselves in the world. In addition to our nose sniffing out food, we also use our eyes to sense light. Similarly, some photosynthetic bacteria have evolved <strong>phototaxis</strong> (ordered movement in response to light).</p>
-                                    <p>We may also use an external tool to navigate unfamiliar surroundings: a compass. Believe it or not, some bacteria have one, too. Magnetotactic species like this <em>Magnetospirillum magneticum</em> have evolved specialized structures called <strong>magnetosomes</strong>. They are pockets of inner membrane filled with crystals of a magnetic iron mineral like magnetite. The cell organizes the magnetosomes into a line using filaments of a cytoskeletal protein called MamK (named for its association with <u>ma</u>gnetosome <u>m</u>embranes) (⇩), which is related to eukaryotic actin. The linear chain of magnetosomes functions like the needle of a compass, aligning the cell in a magnetic field.</p>
-                                    <p>Magnetosomes first form with the creation of a pocket of inner membrane, as you can see in this cell. Multiple short chains of magnetosomes may form, which are then organized into a single chain by MamK filaments. As mineralization begins, the pockets enlarge to accommodate the growing crystals, ultimately reaching ~60 nm in diameter. Magnetosome chains are inherited by daughter cells through division. Segregation is relatively easy: the chain spans the division plane so that the inward-growing cell wall simply splits the chain between magnetosomes, delivering half the chain to each daughter.</p>
-                                    <p>Much remains mysterious about these structures. For instance, what forms the membrane pockets? An even bigger question is how cells use their compasses. One theory is that magnetosomes guide the aquatic bacteria vertically to the optimal height in the water column for e.g. a certain oxygen level. However, these species are also found at the magnetic equator, where the Earth’s field is horizontal. Another hypothesis is that magnetic orientation improves the efficiency of navigation by buffering the cell against Brownian motion that would knock it off course.</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Magnetospirillum-magneticum">Magnetospirillum magneticum</a>
-                                            </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#ZhuoLi">Zhuo Li</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1550" target="_blank">10.22002/D1.1550</a>
-                                            </div>
-                                        
-                                        </div>
-                                        <div class="learn-more learn-more--in-section">
-                                    <h1 class="learn-more__title">Learn More:</h1>
-                                    <div class="learn-more__btn-container">
-                                                            <button class="learn-more__btn" value="mamk-structure" onclick="showModal(this)">MamK</button>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Magnetospirillum-magneticum">Magnetospirillum magneticum</a>
                                                     </div>
-                                </div>
-                            </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#ZhuoLi">Zhuo Li</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1550" target="_blank">10.22002/D1.1550</a>
+                                                    </div>
+                                                
+                                                </div>
+                                                    <div class="learn-more learn-more--in-section">
+                                        <h1 class="learn-more__title">Learn More:</h1>
+                                        <div class="learn-more__btn-container">
+                                                                    <button class="learn-more__btn" value="mamk-structure" onclick="showModal(this)">MamK</button>
+                                                            </div>
+                                    </div>
+                                    </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1559,7 +1561,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

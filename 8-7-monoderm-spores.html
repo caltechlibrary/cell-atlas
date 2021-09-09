@@ -1274,37 +1274,39 @@
                             <a href="8-8-monoderm-germination.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Monoderm Spores</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container section-text__main-container--no-learn-more">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Monoderm Spores</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>Fully mature <em>Bacillus subtilis</em> spores like this one are ovoid, and swollen with armor, including the thick cortex and multilayered coat. This dense shield protects the cargo within from drying out, or denaturing in heat or acid. (It also makes it hard to make out much internal detail in images.)</p>
+                                        <p>Once released, the spore will remain dormant as long as necessary, protected by its carbohydrate and protein armor, waiting for optimal conditions of water, temperature and pH to germinate. The wait can be long, sometimes very, very, <em>very</em> long. In one case, <em>Bacillus subtilis</em> spores were revived from a salt crystal thought to have formed 250 million years ago, about 20 million years before the first dinosaurs appeared.</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>Fully mature <em>Bacillus subtilis</em> spores like this one are ovoid, and swollen with armor, including the thick cortex and multilayered coat. This dense shield protects the cargo within from drying out, or denaturing in heat or acid. (It also makes it hard to make out much internal detail in images.)</p>
-                                    <p>Once released, the spore will remain dormant as long as necessary, protected by its carbohydrate and protein armor, waiting for optimal conditions of water, temperature and pH to germinate. The wait can be long, sometimes very, very, <em>very</em> long. In one case, <em>Bacillus subtilis</em> spores were revived from a salt crystal thought to have formed 250 million years ago, about 20 million years before the first dinosaurs appeared.</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Bacillus-subtilis">Bacillus subtilis</a>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Bacillus-subtilis">Bacillus subtilis</a>
+                                                    </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#ElitzaTocheva">Elitza Tocheva</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1559" target="_blank">10.22002/D1.1559</a>
+                                                    </div>
+                                                
+                                                </div>
                                             </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#ElitzaTocheva">Elitza Tocheva</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1559" target="_blank">10.22002/D1.1559</a>
-                                            </div>
-                                        
-                                        </div>
-                                </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1373,7 +1375,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

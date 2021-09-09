@@ -1570,46 +1570,48 @@
                             <a href="2-3-outer-membrane.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Cell Wall</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container ">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Cell Wall</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>Being able to selectively move things into your cell enables it to do some powerful things. It also poses a structural problem. Remember that water can pass freely through the membrane, which means that increasing the solute concentration inside relative to the environment outside will cause water to rush in as well, introducing a pressure (known as <strong>turgor pressure</strong>) on the membrane. Lipid bilayers, unfortunately, are unable to withstand much pressure. If your cell lives exclusively in a constant, and fairly high-osmolarity, environment (like our bodies, in the case of the pathogenic <em>Mycoplasma genitalium</em> you just saw), it can balance internal and external osmolarity to minimize turgor pressure on its membrane. But most cells experience more variable, and dilute, environments. How could you keep your cell from bursting in such conditions?</p>
+                                        <p>You might want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this with a material called <strong>peptidoglycan</strong>: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its <strong>cell wall</strong>. In monoderm bacteria like this <em>Listeria monocytogenes</em>, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which are indistinguishable at this resolution, so the cell wall appears as a uniformly textured layer (⇩). It remains a mystery how large molecules can pass through this dense layer on their way to and from the cell.</p>
+                                        <p>Some archaea also have cell walls, made of a molecule similar to peptidoglycan (⇩). Most archaea, though, rely on a different structure for support, which you will see in a few pages.</p>
+                                        <p>A wall can be a boon to your cell, but it can also prove a liability in certain conditions. For instance, many antibiotics target the cell wall. Some bacteria have developed the ability to jettison their walls in such conditions, taking on an amorphous, so-called “L-form” (named for the Lister Institute where it was discovered).</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>Being able to selectively move things into your cell enables it to do some powerful things. It also poses a structural problem. Remember that water can pass freely through the membrane, which means that increasing the solute concentration inside relative to the environment outside will cause water to rush in as well, introducing a pressure (known as <strong>turgor pressure</strong>) on the membrane. Lipid bilayers, unfortunately, are unable to withstand much pressure. If your cell lives exclusively in a constant, and fairly high-osmolarity, environment (like our bodies, in the case of the pathogenic <em>Mycoplasma genitalium</em> you just saw), it can balance internal and external osmolarity to minimize turgor pressure on its membrane. But most cells experience more variable, and dilute, environments. How could you keep your cell from bursting in such conditions?</p>
-                                    <p>You might want to add some rigid scaffolding outside the membrane to buttress it against turgor pressure. Nearly all bacteria do this with a material called <strong>peptidoglycan</strong>: long stiff polymers of glycan sugars crosslinked by short peptides into a chain-mail-like mesh. The full scaffold of this material surrounding the cell is called its <strong>cell wall</strong>. In monoderm bacteria like this <em>Listeria monocytogenes</em>, the cell wall is significantly thicker than the membrane. It comprises several layers of peptidoglycan, which are indistinguishable at this resolution, so the cell wall appears as a uniformly textured layer (⇩). It remains a mystery how large molecules can pass through this dense layer on their way to and from the cell.</p>
-                                    <p>Some archaea also have cell walls, made of a molecule similar to peptidoglycan (⇩). Most archaea, though, rely on a different structure for support, which you will see in a few pages.</p>
-                                    <p>A wall can be a boon to your cell, but it can also prove a liability in certain conditions. For instance, many antibiotics target the cell wall. Some bacteria have developed the ability to jettison their walls in such conditions, taking on an amorphous, so-called “L-form” (named for the Lister Institute where it was discovered).</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Listeria-monocytogenes">Listeria monocytogenes</a>
-                                            </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#ArianeBriegel">Ariane Briegel</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1351" target="_blank">10.22002/D1.1351</a>
-                                            </div>
-                                        
-                                        </div>
-                                        <div class="learn-more learn-more--in-section">
-                                    <h1 class="learn-more__title">Learn More:</h1>
-                                    <div class="learn-more__btn-container">
-                                                            <button class="learn-more__btn" value="peptidoglycan-architecture" onclick="showModal(this)">Wall architecture</button>
-                                                            <button class="learn-more__btn" value="archaeal-cell-walls" onclick="showModal(this)">Archaeal walls</button>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Listeria-monocytogenes">Listeria monocytogenes</a>
                                                     </div>
-                                </div>
-                            </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#ArianeBriegel">Ariane Briegel</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1351" target="_blank">10.22002/D1.1351</a>
+                                                    </div>
+                                                
+                                                </div>
+                                                    <div class="learn-more learn-more--in-section">
+                                        <h1 class="learn-more__title">Learn More:</h1>
+                                        <div class="learn-more__btn-container">
+                                                                    <button class="learn-more__btn" value="peptidoglycan-architecture" onclick="showModal(this)">Wall architecture</button>
+                                                                    <button class="learn-more__btn" value="archaeal-cell-walls" onclick="showModal(this)">Archaeal walls</button>
+                                                            </div>
+                                    </div>
+                                    </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1678,7 +1680,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

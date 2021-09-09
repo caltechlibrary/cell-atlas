@@ -1274,36 +1274,38 @@
                             <a href="6-7-periplasmic-flagella.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Sheathed Flagella</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container section-text__main-container--no-learn-more">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Sheathed Flagella</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <p>You may have noticed that some of the flagella in this chapter were enclosed within the outer membrane of the cell. We call these “sheathed” flagella. It is a common adaptation in pathogenic species, like this <em>Helicobacter hepaticus</em>. Flagella offer pathogens a great advantage in colonizing their hosts; hosts in turn have learned to use them to identify potential invaders. As a result, the innate immune response of many eukaryotes, from plants to insects to humans, has evolved to recognize the telltale and abundant signal of flagellin proteins in the long filament. If your cell aims to take up residence in such a host, it could therefore benefit from cloaking this strongly antigenic feature.</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <p>You may have noticed that some of the flagella in this chapter were enclosed within the outer membrane of the cell. We call these “sheathed” flagella. It is a common adaptation in pathogenic species, like this <em>Helicobacter hepaticus</em>. Flagella offer pathogens a great advantage in colonizing their hosts; hosts in turn have learned to use them to identify potential invaders. As a result, the innate immune response of many eukaryotes, from plants to insects to humans, has evolved to recognize the telltale and abundant signal of flagellin proteins in the long filament. If your cell aims to take up residence in such a host, it could therefore benefit from cloaking this strongly antigenic feature.</p>
-                                </div>
-                            </div>
-                                    <div class="vid-metadata vid-metadata--in-section">
-                                                <div class="vid-metadata__item">
-                                                <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Helicobacter-hepaticus">Helicobacter hepaticus</a>
+                                            <div class="vid-metadata vid-metadata--in-section">
+                                                        <div class="vid-metadata__item">
+                                                        <a class="vid-metadata__value vid-metadata__link vid-metadata__link--italicize" href="C-phylogenetic-tree.html#Helicobacter-hepaticus">Helicobacter hepaticus</a>
+                                                    </div>
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">Collected by:</span>
+                                                                        <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#MeganDobro">Megan Dobro</a>
+                                                                </div>
+                                                
+                                                
+                                                        <div class="vid-metadata__item">
+                                                        <span class="vid-metadata__key">DOI:</span>
+                                                        <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1530" target="_blank">10.22002/D1.1530</a>
+                                                    </div>
+                                                
+                                                </div>
                                             </div>
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">Collected by:</span>
-                                                                <a class="vid-metadata__value vid-metadata__link" href="B-scientist-profiles.html#MeganDobro">Megan Dobro</a>
-                                                        </div>
-                                        
-                                        
-                                                <div class="vid-metadata__item">
-                                                <span class="vid-metadata__key">DOI:</span>
-                                                <a class="vid-metadata__value vid-metadata__link" href="https://doi.org/10.22002/D1.1530" target="_blank">10.22002/D1.1530</a>
-                                            </div>
-                                        
-                                        </div>
-                                </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1372,7 +1374,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

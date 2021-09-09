@@ -1195,28 +1195,30 @@
                             <a href="3-shape.html" class="book-page-nav" data-nav="next">&#8250;</a>
                         </div>
 
-                        <div id="textContent" class="book-section-text">
-                            <div class="book-section-text-content dark-background-text">
-                                <div class="book-section-text-margins book-section-title book-section-text-header">
-                                    <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-                                    <div class="book-section-text-divider"></div>
-                                    <h1>Summary</h1>
+                        <div class="section-text section-text--shelveable">
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <div class="section-text__main-container section-text__main-container--no-learn-more">
+                                <div class="section-text__text-container">
+                                    <div class="section-text__header-container">
+                                        <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                                        <div class="section-text__header-divider"></div>
+                                        <h1 class="section-text__title">Summary</h1>
+                                    </div>
+                                    <div class="section-text__content" tabindex="0">
+                                        <h2 id="concept-check-questions">Concept Check Questions</h2>
+                                        <p>• What kind of macromolecule makes up the membrane? The cell wall? The surface layer?</p>
+                                        <p>• What is the difference between a monoderm and a diderm?</p>
+                                        <p>• What is the main function of the cell wall?</p>
+                                        <p>• What is a nucleoid?</p>
+                                        <h2 id="further-reading">Further Reading</h2>
+                                        <p>• Errington (2013). <em>L-form bacteria, cell walls and the origins of life</em> [<a href="D-references.html#ref-errington2013">26</a>].</p>
+                                        <p>• Ptacin and Shapiro (2013). <em>Chromosome architecture is a key element of bacterial cellular organization</em> [<a href="D-references.html#ref-ptacin2013">27</a>].</p>
+                                        <p>• Sleytr and Beveridge (1999). <em>Bacterial S-layers</em> [<a href="D-references.html#ref-sleytr1999">28</a>].</p>
+                                        <p>• Strahl and Errington (2017). <em>Bacterial membranes: Structure, domains, and function</em> [<a href="D-references.html#ref-strahl2017">29</a>].</p>
+                                    </div>
                                 </div>
-                                <div class= "book-text-content book-section-text-margins book-section-text-material " tabindex="0">
-                                    <h2 id="concept-check-questions">Concept Check Questions</h2>
-                                    <p>• What kind of macromolecule makes up the membrane? The cell wall? The surface layer?</p>
-                                    <p>• What is the difference between a monoderm and a diderm?</p>
-                                    <p>• What is the main function of the cell wall?</p>
-                                    <p>• What is a nucleoid?</p>
-                                    <h2 id="further-reading">Further Reading</h2>
-                                    <p>• Errington (2013). <em>L-form bacteria, cell walls and the origins of life</em> [<a href="D-references.html#ref-errington2013">26</a>].</p>
-                                    <p>• Ptacin and Shapiro (2013). <em>Chromosome architecture is a key element of bacterial cellular organization</em> [<a href="D-references.html#ref-ptacin2013">27</a>].</p>
-                                    <p>• Sleytr and Beveridge (1999). <em>Bacterial S-layers</em> [<a href="D-references.html#ref-sleytr1999">28</a>].</p>
-                                    <p>• Strahl and Errington (2017). <em>Bacterial membranes: Structure, domains, and function</em> [<a href="D-references.html#ref-strahl2017">29</a>].</p>
-                                </div>
-                            </div>
-                                </div>
-                        <button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>                  </div>
+                                            </div>
+                        </div>                  </div>
 
         <div class="footer-container">
               <div id="customBookProgress">
@@ -1278,7 +1280,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/appendix.js"></script>
+        <script src="js/SectionText.js"></script>
+      <script src="js/section-refactor.js"></script>
+    <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>
   
 </body>

@@ -22,6 +22,7 @@
 BEM blocks that are defined in this file. These blocks can be found at the end of the 
 file. These definitions will be defined mobile first.
 - landing-update-banner: Banner on the landing page to advertise upcoming update
+- section-text: Block that contains main readable material for a section
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
 - content-img: Image vieweing elements that can be enlarged/minimized
@@ -959,82 +960,6 @@ file. These definitions will be defined mobile first.
         width: 100%;
     }
 
-    .book-section-text-open-button {
-        position: absolute;
-        border: none;
-        font-family: -apple-system, Arial;
-        font-size: 1.35em;
-        font-weight: 600;
-        padding: 10px;
-        left: 100%;
-        padding-right: 25px;
-        transition: transform 1s;
-        white-space: nowrap;
-        z-index: 1;
-    }
-
-    .book-section-text {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        height: fit-content;
-        max-height: 94%;
-        width: 38%;
-        overflow: hidden;
-        font-size: 1rem;
-        background: #363636;
-        transition: transform 1s;
-    }
-
-    .book-section-text-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        overflow: auto;
-    }
-
-    .book-section-text-margins {
-        margin: 0px 15px;
-    }
-
-    .book-section-title {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex: 1 0 auto;
-        padding-top: 16px;
-    }
-
-    .book-section-text-close-button {
-        border: none;
-        padding: 0;
-        font-family: -apple-system, Arial;
-        font-weight: 600;
-    }
-
-    .book-section-text-divider {
-        margin: 0 1em;
-        width: .1em;
-        height: 1.25em;
-        background-color: rgb(245, 245, 245);
-    }
-
-    .book-section-text-header {
-        flex: 1 0 auto;
-        font-size: 1.35em;
-    }
-
-    .book-section-text-material {
-        flex: 1 1 auto;
-        overflow: auto;
-        margin: 0;
-        padding: 0px 15px;
-    }
-
     /* || MODAL styles */
     .subsection-modal-overlay {
         display: none;
@@ -1431,6 +1356,146 @@ file. These definitions will be defined mobile first.
 @media (min-width:900px) {
     .landing-update-banner {
         margin-bottom: 0;
+    }
+}
+
+/* section-text */
+.section-text__main-container {
+    display: flex;
+    padding: 4.5em 0;
+    flex-direction: column;
+    font-size: 1rem;
+    background: #363636;
+}
+
+.section-text--hidden {
+    display: none;
+}
+
+.section-text__unshelve-btn {
+    display: none;
+}
+
+.section-text__text-container {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 0 1em;
+    padding: 0 max(1em, env(safe-area-inset-right)) 0 max(1em, env(safe-area-inset-left));
+    color: #fff;
+    background: inherit;
+    z-index: 1;
+}
+
+.section-text__header-container {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+    font-size: 1.35em;
+}
+
+.section-text__shelve-btn {
+    display: none;
+    padding: 0;
+    border: none;
+    color: inherit;
+    background: inherit;
+    font-weight: 600;
+}
+
+.section-text__header-divider {
+    display: none;
+    margin: 0 1em;
+    width: .1em;
+    height: 1.25em;
+    background: #fff;
+}
+
+.section-text__content {
+    overflow: auto;
+    line-height: 1.34em;
+}
+
+.section-text__content a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+@media (min-width:480px) {
+    .section-text__main-container {
+        padding: 4.5em 0 1em 0;
+    }
+}
+
+@media (min-width:900px) {
+    .section-text--shelveable {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 38%;
+        max-height: 94%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 1s;
+    }
+
+    .section-text-shelved {
+        transform: translate(100%, -50%);
+    }
+
+    .section-text__main-container {
+        min-height: 0;
+        flex: 1;
+        padding: 0;
+    }
+
+    .section-text__main-container--hidden {
+        visibility: hidden;
+    }
+
+    .section-text__main-container--no-learn-more {
+        padding-bottom: 1em;
+    }
+
+    .section-text__unshelve-btn, .section-text__shelve-btn, .section-text__header-divider {
+        display: block;
+    }
+
+    .section-text__unshelve-btn {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        padding: 0.45em 1.15em 0.45em 0.45em;
+        border: none;
+        font-size: 1.35em;
+        font-weight: 600;
+        white-space: nowrap;
+        color: #fff;
+        background: #363636;
+        transition: transform 1s;
+        z-index: 0;
+    }
+
+    .section-text__unshelve-btn--hidden {
+        visibility: hidden;
+    }
+
+    .section-text__unshelve-btn--shelved {
+        transform: translateX(0%);
+    }
+
+    .section-text__text-container {
+        padding: 0;
+    }
+
+    .section-text__header-container {
+        padding: 1rem 1rem 0 1rem;
+    }
+
+    .section-text__content {
+        padding: 0 1em;
     }
 }
 

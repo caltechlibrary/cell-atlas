@@ -430,43 +430,6 @@ blockquote {
     }
 
     /* || SECTION styles */
-    .book-section-text {
-        padding-bottom: 72px;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        min-height: calc(100vh - 72px);
-        background: #363636;
-    }
-
-    .book-section-text-margins {
-        margin: 0px 15px;
-    }
-
-    @supports(padding: max(0px)) {
-        .book-section-text-margins {
-            margin: 0px max(15px, env(safe-area-inset-right)) 0 max(15px, env(safe-area-inset-left));
-        }
-    }
-
-    .book-section-title {
-        padding-top: 72px;
-    }
-
-    .book-section-text-header {
-        font-size: 22px;
-        margin-bottom: 16px;
-    }
-
-    .book-section-text-material p {
-        margin-block-start: 0;
-    }
-
-    .book-section-text-material h2 {
-        font-size: 19px;
-        margin-bottom: 16px;
-    }
-
     .book-section-non-text-content {
         background: #717171;
         position: fixed;
@@ -1077,9 +1040,6 @@ blockquote {
     }
 
     /* || SECTION styles */
-    .book-section-text {
-        padding-bottom: 16px;
-    }
 
     .book-section-non-text-content video {
         height: 100%;
