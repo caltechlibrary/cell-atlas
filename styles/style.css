@@ -551,11 +551,6 @@ file. These definitions will be defined mobile first.
         transition: width 1s, right 1s;
     }
 
-    .non-text--enlarged {
-        right: 0;
-        width: 100%;
-    }
-
     .book-section-non-text-content-empty {
         justify-content: space-between;
     }
