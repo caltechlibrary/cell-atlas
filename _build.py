@@ -687,3 +687,9 @@ writePage(SITEDIR, "download.md", "page", "download", metadata)
 # Render search index
 with open("{}/searchIndex.json".format(SITEDIR), "w", encoding="utf-8") as f:
     json.dump(searchIndex, f, indent="\t")
+# Render dict for of search index
+searchDict = {}
+for doc in searchIndex:
+    searchDict[doc["id"]] = doc
+with open("{}/searchDict.json".format(SITEDIR), "w", encoding="utf-8") as f:
+    json.dump(searchDict, f, indent="\t")
