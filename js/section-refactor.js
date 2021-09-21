@@ -1,4 +1,5 @@
 (function() {
+    let mediaViewerElements = document.querySelectorAll(".media-viewer");
     let SectionController = {
 
         shelveText: function() {
@@ -19,5 +20,6 @@
 
     SectionText.settings.shelveBtn.addEventListener("click", SectionController.shelveText);
     SectionText.settings.unshelveBtn.addEventListener("click", SectionController.unshelveText);
+    for(let mediaViewerEl of mediaViewerElements) MediaViewer(mediaViewerEl);
     if(video && window.innerWidth > 900) video.addEventListener("play", SectionController.shelveText, { once: true });
 })();

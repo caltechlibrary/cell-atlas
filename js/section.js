@@ -778,8 +778,8 @@ function initializeCompSlider(compSliderContainer) {
         let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
         let vidPlayBtn = document.querySelector(`#${playerId}-playPauseButton`);
 
-        updateMainCompMaxHeight();
-        window.addEventListener("resize", updateMainCompMaxHeight);
+        // updateMainCompMaxHeight();
+        // window.addEventListener("resize", updateMainCompMaxHeight);
         shelfButton.addEventListener("click", respondToTextShelving);
         unshelfButton.addEventListener("click", respondToTextShelving);
         vidPlayBtn.addEventListener("click", respondToTextShelving, { once: true });
@@ -984,8 +984,8 @@ function initializeCompSlider(compSliderContainer) {
 
     function updateMainCompMaxHeight() {
         let nonTextContent = document.querySelector("#nonTextContent");
-        let videoContainer = nonTextContent.querySelector(".book-section-video-container");
-        let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
+        let videoContainer = nonTextContent.querySelector(".media-viewer");
+        let buttonContainer = nonTextContent.querySelector(".media-viewer__tab-container");
         beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
     }
 

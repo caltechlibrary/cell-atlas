@@ -1,0 +1,10 @@
+<div class="media-viewer">
+    <div class="media-viewer__tab-container">
+        <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid">${svg/noun_Video.svg()}</button>
+        <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
+    </div>
+    <div class="media-viewer__media-container">
+        ${vidMetadata:player.tmpl()}
+        ${vidMetadata:slider.tmpl()}
+    </div>
+</div>

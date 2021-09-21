@@ -1,13 +1,7 @@
 <div class="subsection-modal-container" id="${it.id}" data-player="${it.playerId}">
     <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
     ${if(it.video)}
-
-        ${if(it.sliderImgName)}
-            ${it:toggleImgVid.tmpl()}
-            ${it:slider.tmpl()}
-        ${endif}
-
-        ${it:player.tmpl()}
+        ${media-viewer.tmpl()}
     ${elseif(it.graphic)}
         <div class="content-img">
             <div class="content-img__fullscreen-container">
@@ -30,13 +24,6 @@
     ${else}
         ${if(it.viewer)}
             ${it:viewer.tmpl()}
-        ${endif}
-    ${endif}
-    
-    ${if(it.video)}
-        ${if(offline)}
-        ${else}
-            ${it:quality-changer-mobile.tmpl()}
         ${endif}
     ${endif}
 

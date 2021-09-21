@@ -6,24 +6,7 @@
 
 <div id="nonTextContent" class="book-section-non-text-content">
     <a href="${prevSection}.html" class="book-page-nav" data-nav="prev">&#8249;</a>
-    <div class="book-section-video-container ${if(summaryData)}book-section-video-container--summary${endif}">
-
-        ${if(summaryData)}
-            ${summaryData:summary.tmpl()}
-        ${else}
-            ${if(vidMetadata.sliderImgName)}
-                    ${vidMetadata:toggleImgVid.tmpl()}
-                    ${vidMetadata:slider.tmpl()}
-            ${endif}
-
-            ${vidMetadata:player.tmpl()}
-
-            ${if(offline)}
-            ${else}
-                ${vidMetadata:quality-changer-mobile.tmpl()}
-            ${endif}
-        ${endif}
-    </div>
+    ${media-viewer.tmpl()}
     <a href="${nextSection}.html" class="book-page-nav" data-nav="next">&#8250;</a>
 </div>
 
