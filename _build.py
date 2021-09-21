@@ -86,7 +86,9 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     with open("sectionPlain.txt", "r", encoding="utf-8") as f:
         document = {}
         document["id"] = pageName
-        if "title" in metadata: document["title"] = metadata["title"]
+        if "title" in metadata: 
+            document["title"] = metadata["title"]
+            document["formattedName"] = document["id"].replace("-", " ").title()
         document["content"] = f.read()
         if "videoTitle" in metadata: document["species"] = metadata["videoTitle"]
         if "collector" in metadata: document["collector"] = metadata["collector"]
@@ -108,7 +110,9 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
             with open("subsectionPlain.txt", "r", encoding="utf-8") as f:
                 document = {}
                 document["id"] = "{}#{}".format(pageName, subsectionData["id"])
-                if "title" in subsectionData: document["title"] = subsectionData["title"]
+                if "title" in subsectionData: 
+                    document["title"] = subsectionData["title"]
+                    document["formattedName"] = document["id"].replace("-", " ").replace("#", ":").title()
                 document["content"] = f.read()
                 if "species" in subsectionData: document["species"] = subsectionData["species"]
                 if "collector" in subsectionData: document["collector"] = subsectionData["collector"]
