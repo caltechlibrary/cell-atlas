@@ -113,6 +113,10 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
                 if "title" in subsectionData: 
                     document["title"] = subsectionData["title"]
                     document["formattedName"] = document["id"].replace("-", " ").replace("#", ":").title()
+                if "structures" in subsectionData:
+                    document["structure"] = ""
+                    for structure in subsectionData["structures"]:
+                        document["structure"] = document["structure"] + structure["text"]
                 document["content"] = f.read()
                 if "species" in subsectionData: document["species"] = subsectionData["species"]
                 if "collector" in subsectionData: document["collector"] = subsectionData["collector"]
