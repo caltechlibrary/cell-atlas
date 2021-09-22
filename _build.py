@@ -88,7 +88,11 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         document["id"] = pageName
         if "title" in metadata: 
             document["title"] = metadata["title"]
-            document["formattedName"] = document["id"].replace("-", " ").title()
+            if "chapter" in metadata:
+                if "section" in metadata:
+                    document["titlePrefix"] = "{}.{}".format(metadata["chapter"], metadata["section"])
+                else:
+                    document["titlePrefix"] = metadata["chapter"]
         document["content"] = f.read()
         if "videoTitle" in metadata: document["species"] = metadata["videoTitle"]
         if "collector" in metadata: document["collector"] = metadata["collector"]
@@ -112,7 +116,8 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
                 document["id"] = "{}#{}".format(pageName, subsectionData["id"])
                 if "title" in subsectionData: 
                     document["title"] = subsectionData["title"]
-                    document["formattedName"] = document["id"].replace("-", " ").replace("#", ":").title()
+                    if "chapter" in metadata:
+                        document["titlePrefix"] = "{}.{} {}".format(metadata["chapter"], metadata["section"], metadata["title"])
                 if "structures" in subsectionData:
                     document["structure"] = ""
                     for structure in subsectionData["structures"]:
