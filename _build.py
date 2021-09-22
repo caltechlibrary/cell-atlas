@@ -117,7 +117,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
                 if "title" in subsectionData: 
                     document["title"] = subsectionData["title"]
                     if "chapter" in metadata:
-                        document["titlePrefix"] = "{}.{} {}".format(metadata["chapter"], metadata["section"], metadata["title"])
+                        document["titlePrefix"] = "{}.{} {}:".format(metadata["chapter"], metadata["section"], metadata["title"])
                 if "structures" in subsectionData:
                     document["structure"] = ""
                     for structure in subsectionData["structures"]:
