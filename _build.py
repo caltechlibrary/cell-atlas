@@ -706,3 +706,8 @@ for doc in searchIndex:
     searchDict[doc["id"]] = doc
 with open("{}/searchDict.json".format(SITEDIR), "w", encoding="utf-8") as f:
     json.dump(searchDict, f, indent="\t")
+
+# Render search test page
+metadata = {}
+metadata["title"] = "Search Test"
+writePage(SITEDIR, "search-test.md", "search-test", "search-test", metadata)

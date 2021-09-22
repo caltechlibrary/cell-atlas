@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles/search-test.css">
+    </head>
+    <body>
+        <label>
+            Search:
+            <input id="search-input" type="text">
+        </label>
+        <div id="stem-settings-container">
+            <label>
+                <input id="toggle-index-stem" type="checkbox" checked>
+                <span>Index Stemming</span>
+            </label>
+            <label>
+                <input id="toggle-search-stem" type="checkbox" checked>
+                <span>Search Stemming</span>
+            </label>
+        </div>
+        <div id="search-settings-container">
+            <label>
+                <input id="toggle-wildcard" type="checkbox">
+                <span>Trailing Wildcards</span>
+            </label>
+            <label>
+                <input id="toggle-fuzzy" type="number">
+                <span>Fuzzy Distance</span>
+            </label>
+        </div>
+        <div id="lunr" class="lib-container" data-doc="docDict.json">
+            <h1>Results</h1>
+            <p id="init-time-label"></p>
+            <p id="query-time-label"></p>
+            <ol id="results-list"></ol>
+        </div>
+
+        <script src="js/lunr/lunr.min.js"></script>
+        <script src="js/search-test.js"></script>
+    </body>
+</html>
