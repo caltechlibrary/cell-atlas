@@ -1,0 +1,21 @@
+body {
+    box-sizing: border-box;
+    padding: 0 1em;
+    word-break: break-word;
+}
+
+span {
+    margin-right: 1em;
+}
+
+b {
+    background: yellow;
+}
+
+#toggle-fuzzy {
+    width: 50px;
+}
+
+#results-list {
+    padding: 0;
+}
