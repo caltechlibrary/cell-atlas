@@ -1,5 +1,5 @@
 (function() {
-    fetch("searchDict.json")
+    fetch("docDict.json")
         .then(function(res) { return res.json() })
         .then(function(data) { initLunrSearch(data) });
 })();
@@ -84,7 +84,11 @@ function initLunrSearch(data) {
             let contentDiv = document.createElement("p");
             formattedResult = getFormattedResultLunr(resultData, data[resultData.ref]);
             contentDiv.innerHTML = formattedResult.content;
-            titleEl.innerHTML = `Title: ${data[resultData.ref].titlePrefix} ${formattedResult.title}`;
+            if(data[resultData.ref].titlePrefix) {
+                titleEl.innerHTML = `Title: ${data[resultData.ref].titlePrefix} ${formattedResult.title}`;
+            } else {
+                titleEl.innerHTML = `Title: ${formattedResult.title}`;
+            }
             speciesEl.innerHTML = `Species: ${formattedResult.species}`;
             collectorEl.innerHTML = `Collector: ${formattedResult.collector}`;
             structureEl.innerHTML = `Structure: ${formattedResult.structure}`;
