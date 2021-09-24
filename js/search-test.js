@@ -46,31 +46,24 @@ function initLunrSearch(data) {
     };
 
     let queryInput = function(event) {
-        let query = event.target.value;
-        if(query != "") {
-            query = processInput(query);
+        let searchText = event.target.value;
+        if(searchText != "") {
             let startTime, endTime, results;
             startTime = Date.now();
-            results = index.search(query);
+            results = index.query(function(query) {
+                query.term(lunr.tokenizer(searchText));
+                if(settings.wildCards) {
+                    query.term(lunr.tokenizer(searchText), { wildcard: lunr.Query.wildcard.TRAILING });
+                }
+                if(settings.fuzzyDistance > 0) {
+                    query.term(lunr.tokenizer(searchText), { editDistance: settings.fuzzyDistance });
+                }
+            });
             endTime = Date.now();
             queryTimeLabel.innerText = `Query Time: ${(endTime - startTime)}ms`;
             displayResults(results, data);
         }
     };
-
-    let processInput = function(query) {
-        if(settings.wildCards) {
-            let tokens = query.match(/[^ ]+/g);
-            for(let i = 0; i < tokens.length; i++) tokens[i] = `${tokens[i]}*`;
-            query = tokens.join(" ");
-        }
-        if(settings.fuzzyDistance > 0) {
-            let tokens = query.match(/[^ ]+/g);
-            for(let i = 0; i < tokens.length; i++) tokens[i] = `${tokens[i]}~${settings.fuzzyDistance}`;
-            query = tokens.join(" ");
-        }
-        return query;
-    }
 
     let displayResults = function(results, data) {
         resultsContainer.innerHTML = "";
