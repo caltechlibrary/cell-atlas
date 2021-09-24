@@ -26,6 +26,7 @@ file. These definitions will be defined mobile first.
 - section-text: Block that contains main readable material for a section
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
+- comp-slider: Slider widget to compare 2 sets of images
 - content-img: Image vieweing elements that can be enlarged/minimized
 - protein-viewer: Interactive PDB viewer
 - appendix-accordion-group: Accordion dropdown menus found in appendix pages
@@ -801,158 +802,6 @@ file. These definitions will be defined mobile first.
         width: 1.5em;
     }
 
-    /* || SLIDER styles */
-    .book-section-comparison-slider-fullscreen-container {
-        display: flex;
-        position: relative;
-        background: #fff;
-    }
-
-    .book-section-comparison-slider-fullscreen-container--hidden {
-        display: none;
-    }
-
-    .book-section-comparison-button-container {
-        flex: 0;
-        margin-left: 10px;
-        margin-bottom: 1px;
-        z-index: 1;
-    }
-
-    .book-section-comparison-button-container button {
-        margin: 0;
-        background: #cccccc;
-        border: 1px solid hsl(219, 1%, 72%);
-        border-bottom: none;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
-    }
-
-    .book-section-comparison-button-container button[data-state="selected"] {
-        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-    }
-
-    .book-section-comparison-button-container button svg {
-        width: 1.75em;
-        margin: 0.15em 0.75em 0em 0.75em;
-        fill: #ffffff;
-    }
-
-    .book-section-comparison-button-container button[data-state="selected"] svg {
-        fill: #15404e;
-    }
-
-    .book-section-comparison-slider-container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: fit-content;
-        width: -moz-fit-content;
-        max-width: 100%;
-        margin: auto;
-    }
-
-    .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
-        outline: -webkit-focus-ring-color auto 1px;
-    }
-
-    .book-section-comparison-slider {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        cursor: ew-resize;
-        height: 100%;
-        width: 0.3em;
-        left: 50%;
-        background: #cccccc;
-    }
-    
-    .book-section-comparison-button {
-        position: absolute;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: ew-resize;
-        width: 50px;
-        height: 50px;
-        background-color: #15404e;
-        border-radius: 100%;
-        box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
-    }
-
-    .book-section-comparison-button svg {
-        fill: #cccccc;
-        width: 55%;
-        margin: 0 -2px;
-    }
-
-    .book-section-comparison-button svg:nth-child(1) {
-        transform: rotate(270deg);
-    }
-
-    .book-section-comparison-button svg:nth-child(2) {
-        transform: rotate(90deg);
-    }
-
-    .book-section-comparison-before {
-        position: relative;
-        max-height: inherit;
-        max-width: inherit;
-    }
-
-    .book-section-comparison-after {
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        width: 50%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: auto 100%;
-    }
-
-    .book-section-comparison-control-button {
-        display: flex;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: #0000006e;
-        background: #ffffff87;
-        border: none;
-        border-right: none;
-        margin: 0;
-        padding: 2%;
-        border-top: none;
-        border-radius: 10px 0 0 0;
-    }
-
-    .book-section-comparison-slider-enlarged {
-        display: block;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        border-radius: 10px !important;
-        box-shadow: 0px 0px 0 1px #444 !important;
-    }
-
-    .book-section-comparison-control-button svg {
-        width: 1.25em;
-        fill: #15404e;
-    }
-
-    .book-section-comparison-exit-fullscreen-desktop {
-        display: none;
-    }
-
-    .book-section-comparison-load-failed {
-        display: none;
-        width: 100%;
-    }
-
     /* || MODAL styles */
     .subsection-modal-overlay {
         display: none;
@@ -1349,13 +1198,16 @@ file. These definitions will be defined mobile first.
 
 /* media-viewer */
 .media-viewer {
+    width: 100%;
+    z-index: 1;
+}
+
+.media-viewer--main-section {
     flex: 1 1 auto;
     min-width: 0;
+    max-height: 98%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-height: 98%;
-    z-index: 1;
 }
 
 .media-viewer__tab-container {
@@ -1386,27 +1238,33 @@ file. These definitions will be defined mobile first.
 }
 
 .media-viewer__media-container {
-    flex: 0 1 auto;
-    min-height: 0;
     box-sizing: border-box;
     width: 100%;
-    display: flex;
     box-shadow: 0px 0px 0 1px #444;
     border: 7px #cccccc solid;
     border-radius: 10px;
     background: #ffffff;
-    overflow: hidden;
+}
+
+.media-viewer__media-container--main-section {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media (min-width:900px) {
     .media-viewer__tab-container {
-        flex: 0 0 auto;
-        display: inline-block;
         position: relative;
-        padding-left: 10px;
-        box-sizing: border-box;
-        width: fit-content;
+        left: 10px;
+        display: inline-block;
         z-index: 2;
+    }
+
+    .media-viewer__tab-container--main-section {
+        flex: 0 0 auto;
+        align-self: flex-start;
     }
 }
 
@@ -1548,6 +1406,34 @@ file. These definitions will be defined mobile first.
     .section-text__content {
         padding: 0 1em;
     }
+}
+
+/* comp-slider */
+.comp-slider {
+    position: relative;
+}
+
+.comp-slider--main-section {
+    flex: 1;
+    min-height: 0;
+}
+
+.comp-slider--hidden {
+    display: none;
+}
+
+.comp-slider__before-img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.comp-slider__after-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-size: cover;
 }
 
 /* learn-more */
