@@ -12,7 +12,7 @@ b {
     background: yellow;
 }
 
-#toggle-fuzzy {
+input[type="number"] {
     width: 50px;
 }
 

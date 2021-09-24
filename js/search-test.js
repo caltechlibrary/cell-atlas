@@ -5,29 +5,33 @@
 })();
 
 function initLunrSearch(data) {
+
     let documentDict = data;
     let searchInput = document.getElementById("search-input");
     let indexStemToggle = document.getElementById("toggle-index-stem");
     let searchStemToggle = document.getElementById("toggle-search-stem");
     let wildcardToggle = document.getElementById("toggle-wildcard");
     let fuzzyToggle = document.getElementById("toggle-fuzzy");
+    let maxResultsInput = document.getElementById("max-results-input");
     let initTimeLabel =  document.getElementById("init-time-label");
     let queryTimeLabel = document.getElementById("query-time-label");
     let resultsContainer = document.getElementById("results-list");
-    let settings = {
-        indexStemming: true,
-        searchStemming: true,
-        wildCards: false,
-        fuzzyDistance: 0
-    }
-    let index;
+    let resultCountHeader = document.getElementById("result-count-header");
+    let index, searchTimeout;
 
     let init = function() {
         let startTime, endTime;
+        resetSearch();
         startTime = Date.now();
         index = createIndex();
         endTime = Date.now();
-        initTimeLabel.innerText = `Init time: ${(endTime - startTime)}ms`;
+        initTimeLabel.innerText = `${(endTime - startTime)}ms`;
+    };
+
+    let resetSearch = function() {
+        searchInput.value = "";
+        resultsContainer.innerHTML = "";
+        queryTimeLabel.innerText = "";
     };
 
     let createIndex = function() {
@@ -38,36 +42,44 @@ function initLunrSearch(data) {
             this.field("collector");
             this.field("structure");
             this.field("content");
-            if(!settings.indexStemming) this.pipeline.remove(lunr.stemmer);
-            if(!settings.searchStemming) this.searchPipeline.remove(lunr.stemmer);
+            if(!indexStemToggle.checked) this.pipeline.remove(lunr.stemmer);
+            if(!searchStemToggle.checked) this.searchPipeline.remove(lunr.stemmer);
             this.metadataWhitelist = ['position'];
             for(let doc in documentDict) this.add(documentDict[doc]);
         });
     };
 
+    let onSearchInput = function(event) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(queryInput, 250);
+    };
+
     let queryInput = function(event) {
-        let searchText = event.target.value;
+        let searchText = searchInput.value;
         if(searchText != "") {
             let startTime, endTime, results;
             startTime = Date.now();
             results = index.query(function(query) {
                 query.term(lunr.tokenizer(searchText));
-                if(settings.wildCards) {
+                if(wildcardToggle.checked) {
                     query.term(lunr.tokenizer(searchText), { wildcard: lunr.Query.wildcard.TRAILING });
                 }
-                if(settings.fuzzyDistance > 0) {
-                    query.term(lunr.tokenizer(searchText), { editDistance: settings.fuzzyDistance });
+                if(fuzzyToggle.value > 0) {
+                    query.term(lunr.tokenizer(searchText), { editDistance: fuzzyToggle.value });
                 }
             });
             endTime = Date.now();
-            queryTimeLabel.innerText = `Query Time: ${(endTime - startTime)}ms`;
+            queryTimeLabel.innerText = `${(endTime - startTime)}ms`;
             displayResults(results, data);
         }
     };
 
     let displayResults = function(results, data) {
+        let resultsNumber = (results.length < maxResultsInput.value) ? results.length: maxResultsInput.value;
+        resultCountHeader.innerText = `${resultsNumber}`;
         resultsContainer.innerHTML = "";
-        for(let resultData of results) {
+        for(let i = 0; i < resultsNumber; i++) {
+            let resultData = results[i];
             let resultDiv = document.createElement("div");
             let titleEl = document.createElement("h2");
             let metadataDiv = document.createElement("div");
@@ -121,39 +133,12 @@ function initLunrSearch(data) {
         return formattedResult;
     };
 
-    let toggleIndexStemming = function(event) {
-        settings.indexStemming = event.target.checked;
-        init();
-        resetSearch();
-    };
-
-    let toggleSearchStemming = function(event) {
-        settings.searchStemming = event.target.checked;
-        init();
-        resetSearch();
-    };
-
-    let toggleWildCards = function(event) {
-        settings.wildCards = event.target.checked;
-        resetSearch();
-    };
-
-    let toggleFuzzy = function(event) {
-        settings.fuzzyDistance = event.target.value;
-        resetSearch();
-    };
-
-    let resetSearch = function() {
-        searchInput.value = "";
-        resultsContainer.innerHTML = "";
-        queryTimeLabel.innerText = "";
-    };
-
     init();
-    searchInput.addEventListener("input", queryInput);
-    indexStemToggle.addEventListener("input", toggleIndexStemming);
-    searchStemToggle.addEventListener("input", toggleSearchStemming);
-    wildcardToggle.addEventListener("input", toggleWildCards);
-    fuzzyToggle.addEventListener("input", toggleFuzzy);
+    searchInput.addEventListener("input", onSearchInput);
+    indexStemToggle.addEventListener("input", init);
+    searchStemToggle.addEventListener("input", init);
+    wildcardToggle.addEventListener("input", resetSearch);
+    fuzzyToggle.addEventListener("input", resetSearch);
+    maxResultsInput.addEventListener("input", resetSearch);
 
 }
