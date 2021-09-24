@@ -1436,6 +1436,52 @@ file. These definitions will be defined mobile first.
     background-size: cover;
 }
 
+.comp-slider__input--sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.comp-slider__slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 5px;
+    cursor: ew-resize;
+    background: #cccccc;
+}
+
+.comp-slider__slider-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #15404e;
+    border-radius: 100%;
+    box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
+}
+
+.comp-slider__input:focus + .comp-slider__slider .comp-slider__slider-btn {
+    outline: 1px auto Highlight;
+    outline: 1px auto -webkit-focus-ring-color;
+}
+
+.comp-slider__slider-btn-arrow {
+    width: 55%;
+    fill: #ccc;
+    margin: 0px -5px;
+}
+
 /* learn-more */
 .learn-more {
     padding: 1em;

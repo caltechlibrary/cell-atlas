@@ -1,4 +1,11 @@
 <div class="comp-slider comp-slider--hidden ${if(it.isSection)}comp-slider--main-section${endif}" data-offline="${offline}">
     <img class="comp-slider__before-img" data-src="${it.sliderImgName}_before.jpg">
     <div class="comp-slider__after-img" data-src="${it.sliderImgName}_after.jpg"></div>
+    <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+    <div class="comp-slider__slider">
+        <div class="comp-slider__slider-btn">
+            <div class="comp-slider__slider-btn-arrow">${svg/left-arrow.svg()}</div>
+            <div class="comp-slider__slider-btn-arrow">${svg/right-arrow.svg()}</div>
+        </div>
+    </div>
 </div>
