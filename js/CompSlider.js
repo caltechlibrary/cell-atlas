@@ -29,10 +29,11 @@ let CompSlider = function(root) {
     };
 
     let displayFailedMsg = function(event) {
-        failMsgContainer.classList.remove("comp-slider__fail-msg-container--hidden");
         beforeImg.classList.add("comp-slider__before-img--hidden");
         afterImg.classList.add("comp-slider__after-img--hidden");
         slider.classList.add("comp-slider__slider--hidden");
+        if(root.classList.contains("comp-slider--main-section")) root.classList.add("comp-slider--main-section-failed");
+        failMsgContainer.classList.remove("comp-slider__fail-msg-container--hidden");
     };
 
     let updateBeforeImgMaxHeight = function() {

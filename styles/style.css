@@ -1418,6 +1418,10 @@ file. These definitions will be defined mobile first.
     min-height: 0;
 }
 
+.comp-slider--main-section-failed {
+    width: 100%;
+}
+
 .comp-slider--hidden {
     display: none;
 }
