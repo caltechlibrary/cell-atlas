@@ -1413,11 +1413,6 @@ file. These definitions will be defined mobile first.
     position: relative;
 }
 
-.comp-slider--main-section {
-    flex: 1;
-    min-height: 0;
-}
-
 .comp-slider--main-section-failed {
     width: 100%;
 }
