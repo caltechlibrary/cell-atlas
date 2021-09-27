@@ -1246,6 +1246,11 @@ file. These definitions will be defined mobile first.
     background: #ffffff;
 }
 
+.media-viewer__media-container--subsection {
+    box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
+    border-radius: 10px 10px 0px 0px;
+}
+
 .media-viewer__media-container--main-section {
     flex: 1;
     min-height: 0;
