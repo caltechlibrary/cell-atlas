@@ -3,9 +3,11 @@ let CompSlider = function(root) {
     let beforeImg = root.querySelector(".comp-slider__before-img");
     let beforeSrc = beforeImg.getAttribute("data-src");
     let afterImg = root.querySelector(".comp-slider__after-img");
+    let afterImgPreload = document.createElement("img");
     let afterSrc = afterImg.getAttribute("data-src");
     let slider = root.querySelector(".comp-slider__slider");
     let sliderInput = root.querySelector(".comp-slider__input");
+    let failMsgContainer = root.querySelector(".comp-slider__fail-msg-container");
     let offline = root.getAttribute("data-offline");
 
     let init = function() {
@@ -16,9 +18,21 @@ let CompSlider = function(root) {
         } else {
             // Source images through host if online
             beforeImg.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${beforeSrc}`);
-            afterImg.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${afterSrc})`;
+            afterImgPreload.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${afterSrc}`);
         }
         if(root.classList.contains("comp-slider--main-section")) updateBeforeImgMaxHeight();
+    };
+
+    let onAfterImagePreloadSuccess = function() {
+        afterImgPreload.remove();
+        afterImg.style["background-image"] = `url(${afterImgPreload.src})`;
+    };
+
+    let displayFailedMsg = function(event) {
+        failMsgContainer.classList.remove("comp-slider__fail-msg-container--hidden");
+        beforeImg.classList.add("comp-slider__before-img--hidden");
+        afterImg.classList.add("comp-slider__after-img--hidden");
+        slider.classList.add("comp-slider__slider--hidden");
     };
 
     let updateBeforeImgMaxHeight = function() {
@@ -72,6 +86,9 @@ let CompSlider = function(root) {
         window.removeEventListener("touchend", endImgSliding);
     };
 
+    beforeImg.addEventListener("error", displayFailedMsg);
+    afterImgPreload.addEventListener("error", displayFailedMsg);
+    afterImgPreload.addEventListener("load", onAfterImagePreloadSuccess);
     init();
     if(root.classList.contains("comp-slider--main-section")) window.addEventListener("resize", updateBeforeImgMaxHeight);
     slider.addEventListener("mousedown", initImgSliding);

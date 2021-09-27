@@ -1427,6 +1427,10 @@ file. These definitions will be defined mobile first.
     vertical-align: middle;
 }
 
+.comp-slider__before-img--hidden {
+    display: none;
+}
+
 .comp-slider__after-img {
     position: absolute;
     top: 0;
@@ -1434,6 +1438,10 @@ file. These definitions will be defined mobile first.
     height: 100%;
     width: 50%;
     background-size: cover;
+}
+
+.comp-slider__after-img--hidden {
+    display: none;
 }
 
 .comp-slider__input--sr-only {
@@ -1454,6 +1462,10 @@ file. These definitions will be defined mobile first.
     width: 5px;
     cursor: ew-resize;
     background: #cccccc;
+}
+
+.comp-slider__slider--hidden {
+    display: none;
 }
 
 .comp-slider__slider-btn {
@@ -1480,6 +1492,38 @@ file. These definitions will be defined mobile first.
     width: 55%;
     fill: #ccc;
     margin: 0px -5px;
+}
+
+.comp-slider__fail-msg-container {
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+
+.comp-slider__fail-msg-container--hidden {
+    display: none;
+}
+
+.comp-slider__fail-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #575757;
+    fill: #575757;
+    font-size: 1em;
+    text-align: center;
+}
+
+.comp-slider__fail-msg-icon {
+    width: 6em;
+}
+
+.comp-slider__fail-msg-text {
+    margin: 0;
+    font-weight: 600;
 }
 
 /* learn-more */
