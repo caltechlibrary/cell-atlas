@@ -65,7 +65,7 @@ let CompSlider = function(root) {
         if(pageX < boundingRect.left) {
             compSliderPosX = 0;
         } else if(pageX > boundingRect.right) {
-            compSliderPosX = boundingRect.right - boundingRect.left;
+            compSliderPosX = root.offsetWidth;
         } else {
             compSliderPosX = pageX - boundingRect.left;
         }
