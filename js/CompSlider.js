@@ -41,32 +41,28 @@ let CompSlider = function(root) {
     };
 
     let onSliderManualInput = function(event) {
-        setCompSliderPercentage(sliderInput.value);
+        setCompImgPercentage(sliderInput.value);
     };
 
     let onSlide = function(event) {
-        let posPercentX = getPosX(event);
-        setCompSliderPercentage(posPercentX);
-    };
-
-    let getPosX = function(event) {
         let boundingRect = root.getBoundingClientRect();
         let pageX = ("pageX" in event) ? event.pageX : event.changedTouches[0].pageX;
-        let compSliderX;
+        let compSliderPosX, compSliderPercentageX;
         if(pageX < boundingRect.left) {
-            compSliderX = 0;
+            compSliderPosX = 0;
         } else if(pageX > boundingRect.right) {
-            compSliderX = boundingRect.right - boundingRect.left;
+            compSliderPosX = boundingRect.right - boundingRect.left;
         } else {
-            compSliderX = pageX - boundingRect.left;
+            compSliderPosX = pageX - boundingRect.left;
         }
-        return (compSliderX / root.offsetWidth) * 100;
+        compSliderPercentageX = (compSliderPosX / root.offsetWidth) * 100;
+        sliderInput.value = compSliderPercentageX;
+        setCompImgPercentage(compSliderPercentageX);
     };
 
-    let setCompSliderPercentage = function(percentage) {
+    let setCompImgPercentage = function(percentage) {
         slider.style.left = `${percentage}%`;
         afterImg.style.width = `${percentage}%`;
-        sliderInput.value = percentage;
     };
 
     let endImgSliding = function(event) {
