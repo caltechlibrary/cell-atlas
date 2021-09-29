@@ -1212,6 +1212,13 @@ file. These definitions will be defined mobile first.
 }
 
 .media-viewer__tab-container {
+    position: relative;
+    left: 10px;
+    display: inline-block;
+    z-index: 2;
+}
+
+.media-viewer__tab-container--main-section {
     display: none;
 }
 
@@ -1261,16 +1268,8 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
-    .media-viewer__tab-container {
-        position: relative;
-        left: 10px;
-        display: inline-block;
-        z-index: 2;
-    }
-
     .media-viewer__tab-container--main-section {
-        flex: 0 0 auto;
-        align-self: flex-start;
+        display: inline-block;
     }
 }
 

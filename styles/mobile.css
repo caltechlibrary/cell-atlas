@@ -431,6 +431,7 @@ blockquote {
 
     /* || SECTION styles */
     .book-section-non-text-content {
+        display: flex;
         background: #717171;
         position: fixed;
         box-sizing: border-box;
