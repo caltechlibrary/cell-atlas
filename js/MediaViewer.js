@@ -12,6 +12,10 @@ let MediaViewer = function(root) {
 
         currSelectedBtn.classList.remove("media-viewer__tab-btn-vid--selected");
         tabBtn.classList.add("media-viewer__tab-btn-vid--selected");
+        displayMediaType(mediaType);
+    };
+
+    let displayMediaType = function(mediaType) {
         if(mediaType == "vid") {
             compSlider.classList.add("comp-slider--hidden");
             videoPlayer.classList.remove("book-section-video-player--hidden");
@@ -22,4 +26,9 @@ let MediaViewer = function(root) {
     };
 
     tabContainer.addEventListener("click", handleTabContainerClick);
+
+    return {
+        root,
+        displayMediaType
+    }
 };

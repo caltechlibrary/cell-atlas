@@ -1,0 +1,30 @@
+<div class="mobile-controls">
+    ${if(prevSection)}
+        <a class="mobile-controls__nav" href="${prevSection}.html">${svg/left-nav.svg()}</a>
+    ${endif}
+
+    ${if(typeSection)}
+        <button class="mobile-controls__btn mobile-controls__btn--selected" value="text">
+            ${svg/noun_File.svg()}
+        </button>
+    ${endif}
+    ${if(video)}
+        <button class="mobile-controls__btn" value="vid">
+            ${svg/noun_Video.svg()}
+        </button>
+    ${endif}
+    ${if(vidMetadata.sliderImgName)}
+        <button class="mobile-controls__btn" value="img" >
+            ${svg/noun_Image.svg()}
+        </button>
+    ${endif}
+    ${if(summaryData)}
+        <button class="mobile-controls__btn" value="summary">
+            ${svg/noun_Cycle.svg()}
+        </button>
+    ${endif}
+
+    ${if(nextSection)}
+        <a class="mobile-controls__nav" href="${nextSection}.html">${svg/right-nav.svg()}</a>
+    ${endif}
+</div>

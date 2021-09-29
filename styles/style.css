@@ -36,6 +36,7 @@ file. These definitions will be defined mobile first.
 - fs-tree-confirm: Confirm pop up to be displayed when fullscreen for tree is requested on page load
 - tree-viewer: Interactive phylogenetic tree viewer found in appendix page
 - species-example-list: List of example sections for a given species
+- mobile-controls-refactor: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
 @media (min-width:900px) {
@@ -1298,7 +1299,6 @@ file. These definitions will be defined mobile first.
     padding: 0 max(1em, env(safe-area-inset-right)) 0 max(1em, env(safe-area-inset-left));
     color: #fff;
     background: inherit;
-    z-index: 1;
 }
 
 .section-text__header-container {
@@ -2797,5 +2797,52 @@ file. These definitions will be defined mobile first.
         position: absolute;
         box-sizing: border-box;
         outline: revert;
+    }
+}
+
+/* mobile-controls */
+.mobile-controls {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    height: 56px;
+    width: 100%;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #505050;
+}
+
+.mobile-controls__nav {
+    width: 15px;
+    fill: #c2c2c2;
+}
+
+.mobile-controls__nav svg {
+    vertical-align: middle;
+}
+
+.mobile-controls__btn {
+    width: 35px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    fill: #c2c2c2;
+}
+
+.mobile-controls__btn--selected {
+    fill: #fff;
+}
+
+.mobile-controls__btn svg {
+    vertical-align: middle;
+}
+
+@media (min-width:900px) {
+    .mobile-controls {
+        display: none;
     }
 }
