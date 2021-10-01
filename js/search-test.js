@@ -4,141 +4,180 @@
         .then(function(data) { initLunrSearch(data) });
 })();
 
-function initLunrSearch(data) {
+function initLunrSearch(sourceData) {
 
-    let documentDict = data;
     let searchInput = document.getElementById("search-input");
     let indexStemToggle = document.getElementById("toggle-index-stem");
     let searchStemToggle = document.getElementById("toggle-search-stem");
     let wildcardToggle = document.getElementById("toggle-wildcard");
-    let fuzzyToggle = document.getElementById("toggle-fuzzy");
+    let fuzzyInput = document.getElementById("fuzzy-input");
     let maxResultsInput = document.getElementById("max-results-input");
     let initTimeLabel =  document.getElementById("init-time-label");
+    let resultCountLabel = document.getElementById("result-count-label");
     let queryTimeLabel = document.getElementById("query-time-label");
+    let displayTimeLabel = document.getElementById("display-time-label");
     let resultsContainer = document.getElementById("results-list");
-    let resultCountHeader = document.getElementById("result-count-header");
     let index, searchTimeout;
 
     let init = function() {
         let startTime, endTime;
-        resetSearch();
         startTime = Date.now();
-        index = createIndex();
-        endTime = Date.now();
-        initTimeLabel.innerText = `${(endTime - startTime)}ms`;
-    };
-
-    let resetSearch = function() {
-        searchInput.value = "";
-        resultsContainer.innerHTML = "";
-        queryTimeLabel.innerText = "";
-    };
-
-    let createIndex = function() {
-        return lunr(function() {
+        index = lunr(function() {
             this.ref("id");
             this.field("title");
             this.field("species");
             this.field("collector");
             this.field("structure");
             this.field("content");
+            this.metadataWhitelist = ['position'];
             if(!indexStemToggle.checked) this.pipeline.remove(lunr.stemmer);
             if(!searchStemToggle.checked) this.searchPipeline.remove(lunr.stemmer);
-            this.metadataWhitelist = ['position'];
-            for(let doc in documentDict) this.add(documentDict[doc]);
+            for(let doc in sourceData) this.add(sourceData[doc]);
         });
+        endTime = Date.now();
+        initTimeLabel.innerText = `${(endTime - startTime)}ms`;
+    };
+
+    let onStemSettingChange = function() {
+        init();
+        onSettingChange();
+    };
+
+    let onSettingChange = function() {
+        if(searchInput.value != "") queryInput();
     };
 
     let onSearchInput = function(event) {
         clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(queryInput, 250);
+        if(searchInput.value != "") {
+            searchTimeout = setTimeout(queryInput, 250);
+        } else {
+            clearResultsList();
+        }
+    };
+
+    let clearResultsList = function() {
+        while(resultsContainer.firstChild) resultsContainer.removeChild(resultsContainer.firstChild);
     };
 
     let queryInput = function(event) {
-        let searchText = searchInput.value;
-        if(searchText != "") {
-            let startTime, endTime, results;
-            startTime = Date.now();
-            results = index.query(function(query) {
-                query.term(lunr.tokenizer(searchText));
-                if(wildcardToggle.checked) {
-                    query.term(lunr.tokenizer(searchText), { wildcard: lunr.Query.wildcard.TRAILING });
-                }
-                if(fuzzyToggle.value > 0) {
-                    query.term(lunr.tokenizer(searchText), { editDistance: fuzzyToggle.value });
-                }
-            });
-            endTime = Date.now();
-            queryTimeLabel.innerText = `${(endTime - startTime)}ms`;
-            displayResults(results, data);
-        }
+        let queryTokens = lunr.tokenizer(searchInput.value);
+        let startTime, endTime, resultData;
+        startTime = Date.now();
+        resultData = index.query(function(query) {
+            query.term(queryTokens);
+            if(wildcardToggle.checked) query.term(queryTokens, { wildcard: lunr.Query.wildcard.TRAILING });
+            if(fuzzyInput.value > 0) query.term(queryTokens, { editDistance: fuzzyInput.value });
+        });
+        endTime = Date.now();
+        queryTimeLabel.innerText = `${(endTime - startTime)}ms`;
+        displayResults(resultData);
     };
 
-    let displayResults = function(results, data) {
-        let resultsNumber = (results.length < maxResultsInput.value) ? results.length: maxResultsInput.value;
-        resultCountHeader.innerText = `${resultsNumber}`;
-        resultsContainer.innerHTML = "";
+    let displayResults = function(resultData) {
+        let resultsNumber = (resultData.length < maxResultsInput.value) ? resultData.length : maxResultsInput.value;
+        let resultsFragment = document.createDocumentFragment();
+        let startTime, endTime;
+        resultCountLabel.innerText = `${resultsNumber}`;
+        startTime = Date.now();
+        clearResultsList();
         for(let i = 0; i < resultsNumber; i++) {
-            let resultData = results[i];
-            let resultDiv = document.createElement("div");
-            let titleEl = document.createElement("h2");
-            let metadataDiv = document.createElement("div");
-            let speciesEl = document.createElement("span");
-            let collectorEl = document.createElement("span");
-            let structureEl = document.createElement("span")
-            let contentDiv = document.createElement("p");
-            formattedResult = getFormattedResultLunr(resultData, data[resultData.ref]);
-            contentDiv.innerHTML = formattedResult.content;
-            if(data[resultData.ref].titlePrefix) {
-                titleEl.innerHTML = `Title: ${data[resultData.ref].titlePrefix} ${formattedResult.title}`;
-            } else {
-                titleEl.innerHTML = `Title: ${formattedResult.title}`;
-            }
-            speciesEl.innerHTML = `Species: ${formattedResult.species}`;
-            collectorEl.innerHTML = `Collector: ${formattedResult.collector}`;
-            structureEl.innerHTML = `Structure: ${formattedResult.structure}`;
-            metadataDiv.appendChild(speciesEl);
-            metadataDiv.appendChild(collectorEl);
-            metadataDiv.appendChild(structureEl);
-            resultDiv.appendChild(titleEl);
-            resultDiv.appendChild(metadataDiv);
-            resultDiv.appendChild(contentDiv);
-            resultsContainer.appendChild(resultDiv);
+            let formattedResult = getFormattedResult(resultData[i], sourceData[resultData[i].ref]);
+            let resultDiv = createResultElement(formattedResult);
+            resultsFragment.appendChild(resultDiv);
         }
+        resultsContainer.appendChild(resultsFragment);
+        endTime = Date.now();
+        displayTimeLabel.innerText = `${(endTime - startTime)}ms`;
     };
 
-    let getFormattedResultLunr = function(resultMetadata, resultDoc) {
-        let formattedResult = {};
-        let fieldPositionData = {};
-        for(let field in resultDoc) formattedResult[field] = resultDoc[field];
-        for(let token in resultMetadata.matchData.metadata) {
-            let tokenData = resultMetadata.matchData.metadata[token];
-            for(let field in tokenData) {
-                if(field in fieldPositionData) {
-                    fieldPositionData[field] = fieldPositionData[field].concat(tokenData[field].position);
+    let getFormattedResult = function(resultData, sourceDoc) {
+        let highlightData = parseHighlightData(resultData.matchData.metadata);
+        let highlightedSourceHTML = {};
+        for(field in sourceDoc) {
+            if(highlightData[field]) {
+                highlightedSourceHTML[field] = getHighlightedHTML(highlightData[field], sourceDoc[field]);
+            } else {
+                highlightedSourceHTML[field] = createCompositElement("span", [ document.createTextNode(sourceDoc[field]) ]);
+            }
+        }
+        if(highlightedSourceHTML.title && sourceDoc.titlePrefix) highlightedSourceHTML.title.prepend( document.createTextNode(`${sourceDoc.titlePrefix} `) );
+        return highlightedSourceHTML;
+    };
+
+    let parseHighlightData = function(tokenPositionData) {
+        let highlightData = {};
+        for(let token in tokenPositionData) {
+            let positionData = tokenPositionData[token];
+            for(let field in positionData) {
+                if(highlightData[field]) {
+                    highlightData[field] = highlightData[field].concat(positionData[field].position);
                 } else {
-                    fieldPositionData[field] = tokenData[field].position;
+                    highlightData[field] = [].concat(positionData[field].position);
                 }
             }
         }
-        for(let field in fieldPositionData) {
-            fieldPositionData[field].sort(function(a, b) { return b[0] - a[0] });
-            for(position of fieldPositionData[field]) {
-                let resultPreText = formattedResult[field].substring(0, position[0] - 1);
-                let resultMatchedString = formattedResult[field].substring(position[0], position[0] + position[1]);
-                let resultPostText = formattedResult[field].substring(position[0] + position[1]);
-                formattedResult[field] = `${resultPreText} <b>${resultMatchedString}</b> ${resultPostText}`;
+        for(field in highlightData) highlightData[field].sort(function(a, b) { return a[0] - b[0] });
+        return highlightData;
+    };
+
+    let getHighlightedHTML = function(highlightData, sourceContent) {
+        let resultEl = document.createElement("span");
+        for(let i = 0; i < highlightData.length; i++) {
+            let prevData = highlightData[i - 1];
+            let startPos = (prevData) ? prevData[0] + prevData[1] : 0;
+            let highlightStartPos = highlightData[i][0];
+            let highlightEndPos = highlightData[i][0] + highlightData[i][1];
+            let preText = sourceContent.substring(startPos, highlightStartPos);
+            let highlightText =  sourceContent.substring(highlightStartPos, highlightEndPos);
+            let highlightSpan = createCompositElement("span", [ document.createTextNode(highlightText) ]);
+            highlightSpan.classList.add("highlighted-text");
+            resultEl.appendChild(document.createTextNode(preText));
+            resultEl.appendChild(highlightSpan);
+            if(i == highlightData.length - 1) {
+                let trailingText = sourceContent.substring(highlightEndPos);
+                resultEl.appendChild(document.createTextNode(trailingText));
             }
         }
-        return formattedResult;
+        return resultEl;
+    };
+
+    let createResultElement = function(resultHTML) {
+        let resultChildrenEls;
+        if(resultHTML.species || resultHTML.collector || resultHTML.structure) {
+            let metadataDiv = document.createElement("div");
+            if(resultHTML.species) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Species: "), resultHTML.species]) );
+            if(resultHTML.collector) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Collector: "), resultHTML.collector]) );
+            if(resultHTML.structure) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Structure: "), resultHTML.structure]) );
+            for(let child of metadataDiv.children) child.classList.add("metadata-entry");
+            resultChildrenEls = [ 
+                createCompositElement("h2", [resultHTML.title]), 
+                metadataDiv, 
+                createCompositElement("p", [resultHTML.content]) 
+            ];
+        } else {
+            resultChildrenEls = [ 
+                createCompositElement("h2", [resultHTML.title]), 
+                createCompositElement("p", [resultHTML.content]) 
+            ];
+        }
+        return createCompositElement("li", resultChildrenEls);
+    };
+
+    let createCompositElement = function(type, children) {
+        let el = document.createElement(type);
+        for(let child of children) {
+            if(child != undefined) el.appendChild(child);
+        }
+        return el;
     };
 
     init();
     searchInput.addEventListener("input", onSearchInput);
-    indexStemToggle.addEventListener("input", init);
-    searchStemToggle.addEventListener("input", init);
-    wildcardToggle.addEventListener("input", resetSearch);
-    fuzzyToggle.addEventListener("input", resetSearch);
-    maxResultsInput.addEventListener("input", resetSearch);
+    indexStemToggle.addEventListener("input", onStemSettingChange);
+    searchStemToggle.addEventListener("input", onStemSettingChange);
+    wildcardToggle.addEventListener("input", onSettingChange);
+    fuzzyInput.addEventListener("input", onSettingChange);
+    maxResultsInput.addEventListener("input", onSettingChange);
 
 }

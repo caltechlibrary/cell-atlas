@@ -1,21 +1,43 @@
 body {
-    box-sizing: border-box;
-    padding: 0 1em;
-    word-break: break-word;
+    margin: 0;
+    padding: 1.5em;
+    font-size: 1em;
 }
 
-span {
-    margin-right: 1em;
+#search-input {
+    margin: 0.5em 0;
 }
 
-b {
-    background: yellow;
+#settings-container label {
+    margin-right: 1.25em;
 }
 
 input[type="number"] {
-    width: 50px;
+    width: 3.5em;
+}
+
+#result-time-labels span {
+    margin-right: 1.5em;
 }
 
 #results-list {
-    padding: 0;
+    padding-left: 2em;
+}
+
+::marker {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+li {
+    padding-right: 1em;
+}
+
+.metadata-entry {
+    margin-right: 1em;
+}
+
+.highlighted-text {
+    background: yellow;
+    font-weight: bold;
 }

@@ -8,7 +8,7 @@
             Search:
             <input id="search-input" type="text">
         </label>
-        <div>
+        <div id="settings-container">
             <label>
                 <input id="toggle-index-stem" type="checkbox" checked>
                 <span>Index Stemming</span>
@@ -22,7 +22,7 @@
                 <span>Trailing Wildcards</span>
             </label>
             <label>
-                <input id="toggle-fuzzy" type="number">
+                <input id="fuzzy-input" type="number">
                 <span>Fuzzy Distance</span>
             </label>
             <label>
@@ -30,9 +30,12 @@
                 <span>Max Results</span>
             </label>
         </div>
-        <h1>Init time: <span id="init-time-label"></span></h1>
-        <h1>Results: <span id="result-count-header">0</span></h1>
-        <span>Query time: <span id="query-time-label"></span></span>
+        <p>Init time: <span id="init-time-label"></span></p>
+        <h1>Results: <span id="result-count-label">0</span></h1>
+        <div id="result-time-labels">
+            <span>Query time: <span id="query-time-label"></span></span>
+            <span>Display process time: <span id="display-time-label"></span></span>
+        </div>
         <ol id="results-list"></ol>
 
         <script src="js/lunr/lunr.min.js"></script>
