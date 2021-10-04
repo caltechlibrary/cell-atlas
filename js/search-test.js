@@ -9,6 +9,7 @@ function initLunrSearch(sourceData) {
     let searchInput = document.getElementById("search-input");
     let indexStemToggle = document.getElementById("toggle-index-stem");
     let searchStemToggle = document.getElementById("toggle-search-stem");
+    let truncateToggle = document.getElementById("toggle-truncating");
     let wildcardToggle = document.getElementById("toggle-wildcard");
     let fuzzyInput = document.getElementById("fuzzy-input");
     let maxResultsInput = document.getElementById("max-results-input");
@@ -82,8 +83,8 @@ function initLunrSearch(sourceData) {
         startTime = Date.now();
         clearResultsList();
         for(let i = 0; i < resultsNumber; i++) {
-            let formattedResult = getFormattedResult(resultData[i], sourceData[resultData[i].ref]);
-            let resultDiv = createResultElement(formattedResult);
+            let formattedResultEls = getFormattedResultEls(resultData[i], sourceData[resultData[i].ref]);
+            let resultDiv = createResultElement(formattedResultEls);
             resultsFragment.appendChild(resultDiv);
         }
         resultsContainer.appendChild(resultsFragment);
@@ -91,12 +92,17 @@ function initLunrSearch(sourceData) {
         displayTimeLabel.innerText = `${(endTime - startTime)}ms`;
     };
 
-    let getFormattedResult = function(resultData, sourceDoc) {
+    let getFormattedResultEls = function(resultData, sourceDoc) {
         let highlightData = parseHighlightData(resultData.matchData.metadata);
         let highlightedSourceHTML = {};
         for(field in sourceDoc) {
             if(highlightData[field]) {
-                highlightedSourceHTML[field] = getHighlightedHTML(highlightData[field], sourceDoc[field]);
+                if(truncateToggle.checked) {
+                    let truncatedResources = getTruncatedResources(highlightData[field], sourceDoc[field]);
+                    highlightedSourceHTML[field] = getHighlightedHTML(truncatedResources.highlightData, truncatedResources.sourceContent);
+                } else {
+                    highlightedSourceHTML[field] = getHighlightedHTML(highlightData[field], sourceDoc[field]);
+                }
             } else {
                 highlightedSourceHTML[field] = createCompositElement("span", [ document.createTextNode(sourceDoc[field]) ]);
             }
@@ -121,6 +127,42 @@ function initLunrSearch(sourceData) {
         return highlightData;
     };
 
+    let getTruncatedResources = function(highlightData, sourceContent) {
+        let maxChars = 150;
+        if(sourceContent.length <= maxChars) return { highlightData, sourceContent };
+        let highlightStart = highlightData[0][0];
+        let highlightStartLength = highlightData[0][1];
+        let surroundingCharCount = Math.floor((maxChars - highlightStartLength) / 2);
+        let truncatedHighlightData, truncatedString;
+        if(highlightStart < surroundingCharCount) {
+            // highlighted word should not have beggining truncated
+            truncatedString = `${sourceContent.substring(0, maxChars)}...`;
+            truncatedHighlightData = highlightData.filter(function(highlightDatum) { 
+                return (highlightDatum[0] + highlightDatum[1]) < maxChars;
+            });
+        } else if(highlightStart > sourceContent.length - surroundingCharCount) {
+            // highlihgted word should not have end truncated
+            let truncatedStart = sourceContent.length - maxChars;
+            truncatedString = `...${sourceContent.substring(truncatedStart)}`;
+            truncatedHighlightData = highlightData.filter(function(highlightDatum) { 
+                return highlightDatum[0] > truncatedStart;
+            }).map(function(highlightDatum) {
+                return [(highlightDatum[0] - truncatedStart) + 3, highlightDatum[1]];
+            });
+        } else {
+            // highlighted word should be truncated on both sides
+            let truncatedStart = highlightStart - surroundingCharCount;
+            let truncatedEnd = highlightStart + highlightStartLength + surroundingCharCount;
+            truncatedString = `...${sourceContent.substring(truncatedStart, truncatedEnd)}...`;
+            truncatedHighlightData = highlightData.filter(function(highlightDatum) { 
+                return highlightDatum[0] > truncatedStart && (highlightDatum[0] + highlightDatum[1]) < truncatedEnd;
+            }).map(function(highlightDatum) {
+                return [(highlightDatum[0] - truncatedStart) + 3, highlightDatum[1]];
+            });
+        }
+        return { highlightData: truncatedHighlightData, sourceContent: truncatedString };
+    };
+
     let getHighlightedHTML = function(highlightData, sourceContent) {
         let resultEl = document.createElement("span");
         for(let i = 0; i < highlightData.length; i++) {
@@ -142,23 +184,23 @@ function initLunrSearch(sourceData) {
         return resultEl;
     };
 
-    let createResultElement = function(resultHTML) {
+    let createResultElement = function(formattedResultEls) {
         let resultChildrenEls;
-        if(resultHTML.species || resultHTML.collector || resultHTML.structure) {
+        if(formattedResultEls.species || formattedResultEls.collector || formattedResultEls.structure) {
             let metadataDiv = document.createElement("div");
-            if(resultHTML.species) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Species: "), resultHTML.species]) );
-            if(resultHTML.collector) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Collector: "), resultHTML.collector]) );
-            if(resultHTML.structure) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Structure: "), resultHTML.structure]) );
+            if(formattedResultEls.species) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Species: "), formattedResultEls.species]) );
+            if(formattedResultEls.collector) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Collector: "), formattedResultEls.collector]) );
+            if(formattedResultEls.structure) metadataDiv.appendChild( createCompositElement("span", [document.createTextNode("Structure: "), formattedResultEls.structure]) );
             for(let child of metadataDiv.children) child.classList.add("metadata-entry");
             resultChildrenEls = [ 
-                createCompositElement("h2", [resultHTML.title]), 
+                createCompositElement("h2", [formattedResultEls.title]), 
                 metadataDiv, 
-                createCompositElement("p", [resultHTML.content]) 
+                createCompositElement("p", [formattedResultEls.content]) 
             ];
         } else {
             resultChildrenEls = [ 
-                createCompositElement("h2", [resultHTML.title]), 
-                createCompositElement("p", [resultHTML.content]) 
+                createCompositElement("h2", [formattedResultEls.title]), 
+                createCompositElement("p", [formattedResultEls.content]) 
             ];
         }
         return createCompositElement("li", resultChildrenEls);
@@ -176,6 +218,7 @@ function initLunrSearch(sourceData) {
     searchInput.addEventListener("input", onSearchInput);
     indexStemToggle.addEventListener("input", onStemSettingChange);
     searchStemToggle.addEventListener("input", onStemSettingChange);
+    truncateToggle.addEventListener("input", onSettingChange);
     wildcardToggle.addEventListener("input", onSettingChange);
     fuzzyInput.addEventListener("input", onSettingChange);
     maxResultsInput.addEventListener("input", onSettingChange);
