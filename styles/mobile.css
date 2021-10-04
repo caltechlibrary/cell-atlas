@@ -789,6 +789,10 @@ blockquote {
         height: auto;
     }
 
+    .subsection-modal-container .book-section-video-player--hidden {
+        display: none;
+    }
+
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
         height: auto;
     }

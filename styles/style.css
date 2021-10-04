@@ -1198,17 +1198,37 @@ file. These definitions will be defined mobile first.
 }
 
 /* media-viewer */
-.media-viewer {
-    width: 100%;
-    z-index: 1;
+@media (min-width: 900px) {
+    .media-viewer {
+        width: 100%;
+        z-index: 1;
+    }
 }
 
-.media-viewer--main-section {
-    flex: 1 1 auto;
-    min-width: 0;
-    max-height: 98%;
-    display: flex;
-    flex-direction: column;
+@media (orientation: portrait) {
+    .media-viewer--main-section {
+        width: 100%;
+    }
+}
+
+@media (orientation: landscape) {
+    .media-viewer--main-section {
+        height: 95%;
+    }
+}
+
+@media (min-width: 900px) {
+    .media-viewer--main-section {
+        /* Reset inherited styling rules */
+        width: initial;
+        height: initial;
+
+        flex: 1 1 auto;
+        min-width: 0;
+        max-height: 98%;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .media-viewer__tab-container {
@@ -1220,6 +1240,12 @@ file. These definitions will be defined mobile first.
 
 .media-viewer__tab-container--main-section {
     display: none;
+}
+
+@media (min-width:900px) {
+    .media-viewer__tab-container--main-section {
+        display: inline-block;
+    }
 }
 
 .media-viewer__tab-btn {
@@ -1247,11 +1273,16 @@ file. These definitions will be defined mobile first.
 
 .media-viewer__media-container {
     box-sizing: border-box;
-    width: 100%;
     box-shadow: 0px 0px 0 1px #444;
     border: 7px #cccccc solid;
     border-radius: 10px;
     background: #ffffff;
+}
+
+@media (min-width:900px) {
+    .media-viewer__media-container {
+        width: 100%;
+    }
 }
 
 .media-viewer__media-container--subsection {
@@ -1259,17 +1290,29 @@ file. These definitions will be defined mobile first.
     border-radius: 10px 10px 0px 0px;
 }
 
-.media-viewer__media-container--main-section {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@media (orientation: portrait) {
+    .media-viewer__media-container--main-section {
+        width: 100%;
+    }
+}
+
+@media (orientation: landscape) {
+    .media-viewer__media-container--main-section {
+        height: 100%;
+    }
 }
 
 @media (min-width:900px) {
-    .media-viewer__tab-container--main-section {
-        display: inline-block;
+    .media-viewer__media-container--main-section {
+        /* Reset inherited styling rules */
+        width: initial;
+        height: initial;
+
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -1417,6 +1460,39 @@ file. These definitions will be defined mobile first.
     position: relative;
 }
 
+@media (orientation: portrait) {
+    .comp-slider--main-section {
+        width: 100%;
+    }
+}
+
+@media (orientation: landscape) {
+    .comp-slider--main-section {
+        height: 100%;
+    }
+}
+
+@media (min-width: 900px) {
+    .comp-slider--main-section {
+        /* Reset inherited styling rules */
+        width: initial;
+        height: initial;
+    }
+}
+
+.comp-slider--subsection {
+    margin: auto;
+    width: fit-content;
+}
+
+@media (min-width: 900px) {
+    .comp-slider--subsection {
+        /* Reset inherited styling rules */
+        margin: initial;
+        width: initial;
+    }
+}
+
 .comp-slider--main-section-failed {
     width: 100%;
 }
@@ -1426,8 +1502,38 @@ file. These definitions will be defined mobile first.
 }
 
 .comp-slider__before-img {
+    display: block;
     max-width: 100%;
-    vertical-align: middle;
+}
+
+@media (orientation: portrait) {
+    .comp-slider__before-img--main-section {
+        width: 100%;
+    }
+}
+
+@media (orientation: landscape) {
+    .comp-slider__before-img--main-section {
+        height: 100%;
+    }
+}
+
+@media (min-width:900px) {
+    .comp-slider__before-img--main-section {
+        /* Reset inherited styling rules */
+        width: initial;
+        height: initial;
+    }
+}
+
+.comp-slider__before-img--subsection {
+    max-height: 50vh;
+}
+
+@media (min-width:900px) {
+    .comp-slider__before-img--subsection {
+        max-height: initial;
+    }
 }
 
 .comp-slider__before-img--hidden {
