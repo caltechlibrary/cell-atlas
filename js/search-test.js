@@ -9,6 +9,7 @@ function initLunrSearch(sourceData) {
     let searchInput = document.getElementById("search-input");
     let indexStemToggle = document.getElementById("toggle-index-stem");
     let searchStemToggle = document.getElementById("toggle-search-stem");
+    let truncateToggle = document.getElementById("toggle-truncating");
     let wildcardToggle = document.getElementById("toggle-wildcard");
     let fuzzyInput = document.getElementById("fuzzy-input");
     let maxResultsInput = document.getElementById("max-results-input");
@@ -96,8 +97,12 @@ function initLunrSearch(sourceData) {
         let highlightedSourceHTML = {};
         for(field in sourceDoc) {
             if(highlightData[field]) {
-                let truncatedResources = getTruncatedResources(highlightData[field], sourceDoc[field]);
-                highlightedSourceHTML[field] = getHighlightedHTML(truncatedResources.highlightData, truncatedResources.sourceContent);
+                if(truncateToggle.checked) {
+                    let truncatedResources = getTruncatedResources(highlightData[field], sourceDoc[field]);
+                    highlightedSourceHTML[field] = getHighlightedHTML(truncatedResources.highlightData, truncatedResources.sourceContent);
+                } else {
+                    highlightedSourceHTML[field] = getHighlightedHTML(highlightData[field], sourceDoc[field]);
+                }
             } else {
                 highlightedSourceHTML[field] = createCompositElement("span", [ document.createTextNode(sourceDoc[field]) ]);
             }
@@ -213,6 +218,7 @@ function initLunrSearch(sourceData) {
     searchInput.addEventListener("input", onSearchInput);
     indexStemToggle.addEventListener("input", onStemSettingChange);
     searchStemToggle.addEventListener("input", onStemSettingChange);
+    truncateToggle.addEventListener("input", onSettingChange);
     wildcardToggle.addEventListener("input", onSettingChange);
     fuzzyInput.addEventListener("input", onSettingChange);
     maxResultsInput.addEventListener("input", onSettingChange);
