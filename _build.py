@@ -42,7 +42,13 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         metadata["vidMetadata"]["isSection"] = True
         metadata["vidMetadata"]["video"] = metadata["video"]
         metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
-        if "sliderImgName" in metadata:  metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
+        metadata["vidMetadata"]["vid"] = True
+        if "sliderImgName" in metadata:  
+            metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
+            metadata["vidMetadata"]["img"] = True
+            metadata["vidMetadata"]["hasTabMenu"] = True
+        else:
+            metadata["vidMetadata"]["hasTabMenu"] = False
         if "doi" in metadata:
             metadata["vidMetadata"]["species"] = metadata["videoTitle"]
             if "/" in metadata["videoTitle"]:
@@ -197,6 +203,10 @@ def processSubsection(subsectionFile, pageName, parentData):
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
+        metadata["vid"] = True
+        if "sliderImgName" in metadata:
+            metadata["img"] = True
+            metadata["hasTabMenu"] = True
     # Deconstruct preformatted structure data
     if "structure" in metadata: 
         metadata["structures"] = []

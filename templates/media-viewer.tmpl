@@ -1,10 +1,16 @@
 <div class="media-viewer ${if(it.isSection)}media-viewer--main-section${endif}">
-    <div class="media-viewer__tab-container ${if(it.isSection)}media-viewer__tab-container--main-section${endif}">
-        <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid">${svg/noun_Video.svg()}</button>
-        <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
-    </div>
+    ${if(it.hasTabMenu)}
+        <div class="media-viewer__tab-container ${if(it.isSection)}media-viewer__tab-container--main-section${endif}">
+            <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid">${svg/noun_Video.svg()}</button>
+            <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
+        </div>
+    ${endif}
     <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${else}media-viewer__media-container--subsection${endif}">
-        ${it:player.tmpl()}
-        ${it:comp-slider.tmpl()}
+        ${if(it.vid)}
+            ${it:player.tmpl()}
+        ${endif}
+        ${if(it.img)}
+            ${it:comp-slider.tmpl()}
+        ${endif}
     </div>
 </div>

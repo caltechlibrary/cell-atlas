@@ -25,7 +25,7 @@ let MediaViewer = function(root) {
         }
     };
 
-    tabContainer.addEventListener("click", handleTabContainerClick);
+    if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
 
     return {
         root,
