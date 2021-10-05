@@ -104,7 +104,12 @@ function initLunrSearch(sourceData) {
                     highlightedSourceHTML[field] = getHighlightedHTML(highlightData[field], sourceDoc[field]);
                 }
             } else {
-                highlightedSourceHTML[field] = createCompositElement("span", [ document.createTextNode(sourceDoc[field]) ]);
+                if(truncateToggle.checked) {
+                    let truncatedResource = (sourceDoc[field].length > 150) ? `${sourceDoc[field].substring(0, 150)}...` : sourceDoc[field];
+                    highlightedSourceHTML[field] = createCompositElement("span", [ document.createTextNode(truncatedResource) ]);
+                } else {
+                    highlightedSourceHTML[field] = createCompositElement("span", [ document.createTextNode(sourceDoc[field]) ]);
+                }
             }
         }
         if(highlightedSourceHTML.title && sourceDoc.titlePrefix) highlightedSourceHTML.title.prepend( document.createTextNode(`${sourceDoc.titlePrefix} `) );
