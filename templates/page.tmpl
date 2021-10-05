@@ -36,6 +36,9 @@ ${head.tmpl()}
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
   <script src="js/MobileControls.js"></script>
+  ${if(summaryData)}
+      <script src="js/SummaryMenu.js"></script>
+  ${endif}
   ${if(typeSection)}
       <script src="js/MediaViewer.js"></script>
       <script src="js/SectionText.js"></script>

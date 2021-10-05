@@ -31,8 +31,8 @@
                 nonTextSection.classList.remove("book-section-non-text-content--hidden-mobile");
                 if(tabBtn.value == "vid" || tabBtn.value == "img") {
                     mainMediaViewer.displayMediaType(tabBtn.value);
-                } else if(tabBtn.value == "summary") {
-                    console.log("display summary");
+                } else if(tabBtn.value == "sum") {
+                    SummaryMenu.resizeMenuContainer();
                 }
             }
         }
