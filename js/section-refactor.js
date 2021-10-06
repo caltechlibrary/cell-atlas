@@ -1,21 +1,23 @@
 (function() {
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let compSliderEls = document.querySelectorAll(".comp-slider");
+    let sectionTextEl = document.querySelector(".section-text");
     let mediaViewers = [];
+    let sectionText;
     let SectionController = {
 
         shelveText: function() {
             let nonTextSection = document.getElementById("nonTextContent");
             nonTextSection.style.right = "0";
             nonTextSection.style.width = "100%";
-            SectionText.shelveText();
+            sectionText.shelveText();
         },
 
         unshelveText: function() {
             let nonTextSection = document.getElementById("nonTextContent");
             nonTextSection.style.right = "62%";
             nonTextSection.style.width = "62%";
-            SectionText.unshelveText();
+            sectionText.unshelveText();
         },
 
         handleMobileControlTabClick: function(event) {
@@ -39,8 +41,9 @@
 
     };
 
-    SectionText.settings.shelveBtn.addEventListener("click", SectionController.shelveText);
-    SectionText.settings.unshelveBtn.addEventListener("click", SectionController.unshelveText);
+    sectionText = SectionText(sectionTextEl);
+    sectionText.shelveBtn.addEventListener("click", SectionController.shelveText);
+    sectionText.unshelveBtn.addEventListener("click", SectionController.unshelveText);
     for(let tabBtn of MobileControls.tabBtns) tabBtn.addEventListener("click", SectionController.handleMobileControlTabClick);
     for(let mediaViewerEl of mediaViewerEls) mediaViewers.push(MediaViewer(mediaViewerEl));
     for(let compSliderEl of compSliderEls) CompSlider(compSliderEl);
