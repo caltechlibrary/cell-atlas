@@ -96,7 +96,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         document["content"] = f.read()
         if "videoTitle" in metadata: document["species"] = metadata["videoTitle"]
         if "collector" in metadata: document["collector"] = metadata["collector"]
-        searchIndex.append(document)
+        searchData[document["id"]] = document
     os.remove("sectionPlain.txt")
 
     if "subsectionsData" in metadata:
@@ -125,7 +125,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
                 document["content"] = f.read()
                 if "species" in subsectionData: document["species"] = subsectionData["species"]
                 if "collector" in subsectionData: document["collector"] = subsectionData["collector"]
-                searchIndex.append(document)
+                searchData[document["id"]] = document
             os.remove("subsectionPlain.txt")
 
     pandocArgs = [
@@ -493,8 +493,8 @@ with open("dois.csv", "r", encoding='utf-8') as csvfile:
         movieDict[doi] = movie
 # Create a dictionary that maps species to sections
 speciesDict = {}
-# Create search index
-searchIndex = []
+# Create dictionary for search data
+searchData = {}
 
 # Render landing page
 metadata = {}
@@ -697,15 +697,9 @@ metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage(SITEDIR, "download.md", "page", "download", metadata)
 
-# Render search index
-with open("{}/searchIndex.json".format(SITEDIR), "w", encoding="utf-8") as f:
-    json.dump(searchIndex, f, indent="\t")
-# Render dict for of search index
-searchDict = {}
-for doc in searchIndex:
-    searchDict[doc["id"]] = doc
-with open("{}/searchDict.json".format(SITEDIR), "w", encoding="utf-8") as f:
-    json.dump(searchDict, f, indent="\t")
+# Render data dict for search index
+with open("{}/searchData.json".format(SITEDIR), "w", encoding="utf-8") as f:
+    json.dump(searchData, f, indent="\t")
 
 # Render search test page
 metadata = {}
