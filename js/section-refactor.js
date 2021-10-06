@@ -4,6 +4,7 @@
     let sectionTextEl = document.querySelector(".section-text");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let sectionText, mobileControls, mediaViewers = [], compSliders = [];
+    
     let SectionController = {
 
         shelveText: function() {
@@ -20,8 +21,9 @@
             sectionText.unshelveText();
         },
 
-        handleMobileControlTabClick: function(event) {
-            let tabBtn = event.currentTarget;
+        handleMobileControlClick: function(event) {
+            let tabBtn = event.target.closest(".mobile-controls__btn");
+            if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
             let nonTextSection = document.getElementById("nonTextContent");
             let textContent = document.querySelector(".section-text");
             let mainMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root.classList.contains("media-viewer--main-section") });
@@ -48,7 +50,7 @@
 
     sectionText.shelveBtn.addEventListener("click", SectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", SectionController.unshelveText);
-    for(let tabBtn of mobileControls.tabBtns) tabBtn.addEventListener("click", SectionController.handleMobileControlTabClick);
+    mobileControls.root.addEventListener("click", SectionController.handleMobileControlClick);
 
     // Need to find a better way to do this
     if(video && window.innerWidth > 900) video.addEventListener("play", SectionController.shelveText, { once: true });
