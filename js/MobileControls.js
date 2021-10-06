@@ -1,6 +1,5 @@
-let MobileControls = (function() {
+let MobileControls = function(root) {
     
-    let root = document.querySelector(".mobile-controls");
     let tabBtns = root.querySelectorAll(".mobile-controls__btn");
 
     let handleTabSelect = function(event) {
@@ -18,4 +17,4 @@ let MobileControls = (function() {
         tabBtns
     }
 
-})();
+};
