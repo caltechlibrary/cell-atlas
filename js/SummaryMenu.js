@@ -1,6 +1,6 @@
 let SummaryMenu = (function() {
 
-    let nonTextSection = document.getElementById("nonTextContent");
+    let nonTextSection = document.querySelector(".main-non-text-container");
     let summaryMenu = document.querySelector(".summary-menu");
     let menuWidget = summaryMenu.querySelector(".summary-menu__widget");
     let menuContainer = summaryMenu.querySelector(".summary-menu__container");

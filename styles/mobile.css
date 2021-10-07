@@ -446,7 +446,7 @@ blockquote {
         display: none;
     }
 
-    .book-section-non-text-content video {
+    .main-non-text-container video {
         vertical-align: middle;
         background: #ffffff;
         width: 100%;
@@ -1049,7 +1049,7 @@ blockquote {
 
     /* || SECTION styles */
 
-    .book-section-non-text-content video {
+    .main-non-text-container video {
         height: 100%;
         width: auto;
     }

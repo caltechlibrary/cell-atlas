@@ -3,25 +3,22 @@
     let compSliderEls = document.querySelectorAll(".comp-slider");
     let sectionTextEl = document.querySelector(".section-text");
     let mobileControlsEl = document.querySelector(".mobile-controls");
+    let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let sectionController, sectionText, mobileControls, mediaViewers = [], compSliders = [];
     
     let SectionController = function() {
 
-        let handleShelveBtnClick = function() {
-            let nonTextSection = document.getElementById("nonTextContent");
-            nonTextSection.style.right = "0";
-            nonTextSection.style.width = "100%";
-            shelveText();
+        let shelveText = function() {
+            mainNonTextContainer.classList.add("main-non-text-container--expanded");
+            shelveTextWidget();
         };
 
-        let handleUnshelveBtnClick = function() {
-            let nonTextSection = document.getElementById("nonTextContent");
-            nonTextSection.style.right = "62%";
-            nonTextSection.style.width = "62%";
-            unshelveText();
+        let unshelveText = function() {
+            mainNonTextContainer.classList.remove("main-non-text-container--expanded");
+            unShelveTextWidget();
         }
 
-        let shelveText = function() {
+        let shelveTextWidget = function() {
             sectionText.setMainTabIndex(-1);
             if(document.querySelector("body").classList.contains("preload")) {
                 // No transitions, add all necessary classes and toggle tabindex at once
@@ -40,7 +37,7 @@
             };
         };
 
-        let unshelveText = function() {
+        let unShelveTextWidget = function() {
             sectionText.unshelveBtn.setAttribute("tabindex", -1);
             // Check if transitions are enabled
             if(document.querySelector("body").classList.contains("preload")) {
@@ -87,15 +84,14 @@
         let handleMobileControlClick = function(event) {
             let tabBtn = event.target.closest(".mobile-controls__btn");
             if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
-            let nonTextSection = document.getElementById("nonTextContent");
             let textContent = document.querySelector(".section-text");
             let mainMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root.classList.contains("media-viewer--main-section") });
             if(tabBtn.value == "text") {
                 textContent.classList.remove("section-text--hidden");
-                nonTextSection.classList.add("book-section-non-text-content--hidden-mobile");
+                mainNonTextContainer.classList.add("main-non-text-container--hidden-mobile");
             } else {
                 textContent.classList.add("section-text--hidden");
-                nonTextSection.classList.remove("book-section-non-text-content--hidden-mobile");
+                mainNonTextContainer.classList.remove("main-non-text-container--hidden-mobile");
                 if(tabBtn.value == "vid" || tabBtn.value == "img") {
                     mainMediaViewer.displayMediaType(tabBtn.value);
                 } else if(tabBtn.value == "sum") {
@@ -105,8 +101,8 @@
         };
 
         return {
-            handleShelveBtnClick,
-            handleUnshelveBtnClick,
+            shelveText,
+            unshelveText,
             handleMobileControlClick
         };
 
@@ -118,8 +114,8 @@
     sectionText = SectionText(sectionTextEl);
     mobileControls = MobileControls(mobileControlsEl);
 
-    sectionText.shelveBtn.addEventListener("click", sectionController.handleShelveBtnClick);
-    sectionText.unshelveBtn.addEventListener("click", sectionController.handleUnshelveBtnClick);
+    sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
+    sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
 
     // Need to find a better way to do this

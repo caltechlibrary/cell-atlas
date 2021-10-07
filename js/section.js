@@ -7,7 +7,7 @@ for(let comparisonVideoButton of comparisonVideoButtons) {
 }
 
 // Add event listener to video player to shelf text on first play
-let video = document.querySelector("#nonTextContent video");
+let video = document.querySelector(".main-non-text-container video");
 if(video) {
     // Source the video using the DOI only if a local path is not being used
     createVideoPlayer(video);
@@ -47,7 +47,7 @@ document.addEventListener("keydown", function(event) {
     } else if(event.key == " ") {
         if(focusedElement.tagName == "BUTTON" || focusedElement.type == "checkbox") return;
         let modalOverlay = document.getElementById("modalOverlay");
-        let nonTextContent = document.getElementById("nonTextContent");
+        let nonTextContent = document.querySelector(".main-non-text-container");
         let videoPlayer;
         if(modalOverlay && modalOverlay.style.display == "block") {
             let modalContainers = document.getElementsByClassName("subsection-modal-container");
@@ -331,8 +331,8 @@ function createVideoPlayer(videoEl) {
         videoEl.addEventListener("waiting", clearFrameInterval);
     }
     if(videoTabBtn) videoTabBtn.addEventListener("click", resizeCanvases);
-    if(videoEl === document.querySelector("#nonTextContent video")) {
-        let nonTextSection = document.querySelector("#nonTextContent");
+    if(videoEl === document.querySelector(".main-non-text-container video")) {
+        let nonTextSection = document.querySelector(".main-non-text-container");
         nonTextSection.addEventListener("transitionend", resizeCanvases);
     }
     playPauseButton.addEventListener('click', togglePlayPause);
