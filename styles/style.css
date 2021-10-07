@@ -22,6 +22,7 @@
 BEM blocks that are defined in this file. These blocks can be found at the end of the 
 file. These definitions will be defined mobile first.
 - landing-update-banner: Banner on the landing page to advertise upcoming update
+- search-bar: Search bar that will be available on all pages
 - section-text: Block that contains main readable material for a section
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
@@ -130,13 +131,13 @@ file. These definitions will be defined mobile first.
     header {
         flex: 0 0 auto;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         align-items: center;
         height: 80px;
     }
 
     header a {
+        flex: 1;
+        align-items: flex-end;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -158,6 +159,8 @@ file. These definitions will be defined mobile first.
     }
 
     .header-nav-button {
+        flex: 1;
+        text-align: start;
         border: none;
         font-size: 2em;
         margin-left: 0.75em;
@@ -1357,6 +1360,61 @@ file. These definitions will be defined mobile first.
     .landing-update-banner {
         margin-bottom: 0;
     }
+}
+
+/* search-bar */
+.search-bar {
+    display: none;
+
+    flex: 0 1 auto;
+    margin: 0 3em;
+    box-sizing: border-box;
+    width: 45em;
+    height: 2.75em;
+    border: 2px solid #CFCFCF;
+    border-radius: 100px;
+    padding: 0 0.75em;
+    align-items: center;
+}
+
+@media (min-width:900px) {
+    .search-bar {
+        display: flex;
+    }
+}
+
+.search-bar__icon {
+    margin-right: 1em;
+    width: 1.75em;
+    height: 1.75em;
+    stroke: #fff;
+    fill: #fff;
+}
+
+.search-bar__input {
+    -webkit-appearance: textfield;
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: none;
+    font-size: 1.25em;
+    color: #fff;
+}
+
+.search-bar__input:focus {
+    outline: none;
+}
+
+.search-bar__input::placeholder {
+    color: #fff;
+}
+
+.search-bar__input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    margin: 0;
+    width: 1.25em;
+    height: 1.25em;
+    background: url("../img/x.svg");
 }
 
 /* section-text */
