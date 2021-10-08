@@ -1385,17 +1385,22 @@ file. These definitions will be defined mobile first.
     box-sizing: border-box;
     width: 3em;
     height: 3em;
-    border: 2px solid #cfcfcf;
+    border: 2px solid #cfcfcf00;
     border-radius: 100px;
     padding: 0.5em;
     background: none;
     opacity: 1;
-    transition: opacity 0.25s, visibility 0.25s;
+    transition: border 0.25s, opacity 0.25s, visibility 0.25s;
 }
 
 .search-widget__open-btn--hidden {
     opacity: 0;
+    border: 2px solid #cfcfcf00;
     visibility: hidden;
+}
+
+.search-widget__open-btn:hover {
+    border: 2px solid #cfcfcf;
 }
 
 .search-widget__search-icon {
@@ -1411,14 +1416,15 @@ file. These definitions will be defined mobile first.
     width: 45em;
     max-width: 100%;
     height: 3em;
-    border: 2px solid #CFCFCF;
+    border: 2px solid #cfcfcf;
     border-radius: 100px;
     padding: 0.5em;
-    transition: width 0.75s, padding 0.75s, visibility 0.75s;
+    transition: width 0.75s, border 0.75s, padding 0.75s, visibility 0.75s;
 }
 
 .search-widget__search-bar--hidden {
     width: 3em;
+    border: 2px solid #cfcfcf00;
     visibility: hidden;
 }
 
