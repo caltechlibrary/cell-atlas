@@ -1,6 +1,7 @@
 let MediaViewer = function(root) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
+    let mediaContainer = root.querySelector(".media-viewer__media-container");
     let videoPlayer = root.querySelector(".book-section-video-player");
     let compSlider = root.querySelector(".comp-slider");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
@@ -54,13 +55,45 @@ let MediaViewer = function(root) {
         fullscreenBtn.setAttribute("title", labelString);
     };
 
+    let displayFixedEnlarged = function() {
+        mediaContainer.classList.add("media-viewer__media-container--fixed-enlarged");
+        positionFixedEnlargedSlider();
+        window.addEventListener("resize", positionFixedEnlargedSlider);
+    };
+
+    let positionFixedEnlargedSlider= function() {
+        let headerEl = document.querySelector("header");
+        let footerEl = document.querySelector("footer");
+        let headerFooterDistance = footerEl.getBoundingClientRect().top - headerEl.getBoundingClientRect().bottom;
+        let posTop = headerEl.offsetHeight + (headerFooterDistance / 2);
+        let availHeight = headerFooterDistance - 50;
+        let availWidth = window.innerWidth - 100;
+        let aspectRatio = 16 / 9;
+        let desiredWidth = availHeight * aspectRatio;
+        if(desiredWidth < availWidth) {
+            mediaContainer.style.width = `${desiredWidth}px`;
+        } else {
+            mediaContainer.style.width = `${availWidth}px`;
+        }
+        mediaContainer.style.top = `${posTop}px`;
+    };
+
+    let minimizeFixedEnlarged = function() {
+        mediaContainer.classList.remove("media-viewer__media-container--fixed-enlarged");
+        mediaContainer.removeAttribute("style");
+        window.removeEventListener("resize", positionFixedEnlargedSlider);
+    };
+
     if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
     fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
 
     return {
         root,
+        mediaContainer,
         fullscreenBtn,
         displayMediaType,
-        setFullscreenState
+        setFullscreenState,
+        displayFixedEnlarged,
+        minimizeFixedEnlarged
     }
 };

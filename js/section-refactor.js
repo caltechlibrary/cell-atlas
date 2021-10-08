@@ -1,10 +1,11 @@
 (function() {
-    let mediaViewerEls = document.querySelectorAll(".media-viewer");
+    let mainMediaViewerEl = document.querySelector(".media-viewer.media-viewer--main-section");
+    let subMediaViewerEls = document.querySelectorAll(".media-viewer:not(.media-viewer--main-section)");
     let compSliderEls = document.querySelectorAll(".comp-slider");
     let sectionTextEl = document.querySelector(".section-text");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mediaViewers = [], compSliders = [];
+    let sectionController, sectionText, mobileControls, mainMediaViewer, subMediaViewers = [], compSliders = [];
     
     let SectionController = function() {
 
@@ -24,7 +25,18 @@
         let unshelveText = function() {
             minimizeMainNonTextContainer();
             unShelveTextWidget();
-        }
+        };
+
+        let handleSubMediaViewerFsBtnClick = function(event) {
+            let mediaViewerEl = event.currentTarget.closest(".media-viewer");
+            if(!mediaViewerEl || !mediaViewerEl.contains(event.currentTarget)) return;
+            let subMediaViewer = subMediaViewers.find(function(mediaViewer) { return mediaViewer.root == mediaViewerEl });
+            if(!subMediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+                subMediaViewer.displayFixedEnlarged();
+            } else {
+                subMediaViewer.minimizeFixedEnlarged();
+            }
+        };
 
         let expandMainNonTextContainer = function() {
             mainMediaViewer.setFullscreenState("expanded");
@@ -140,22 +152,21 @@
             handleMainMediaViewerFsBtnClick,
             shelveText,
             unshelveText,
+            handleSubMediaViewerFsBtnClick,
             handleMobileControlClick
         };
 
     };
 
     sectionController = SectionController();
-    for(let mediaViewerEl of mediaViewerEls) {
-        let mediaViewer = MediaViewer(mediaViewerEl);
-        if(mediaViewer.root.classList.contains("media-viewer--main-section")) mainMediaViewer = mediaViewer;
-        mediaViewers.push(mediaViewer);
-    }
+    mainMediaViewer = MediaViewer(mainMediaViewerEl);
+    for(let subMediaViewerEl of subMediaViewerEls) subMediaViewers.push(MediaViewer(subMediaViewerEl));
     for(let compSliderEl of compSliderEls) compSliders.push(CompSlider(compSliderEl));
     sectionText = SectionText(sectionTextEl);
     mobileControls = MobileControls(mobileControlsEl);
 
     mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
+    for(let subMediaViewer of subMediaViewers) subMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
