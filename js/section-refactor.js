@@ -1,4 +1,6 @@
 (function() {
+    let searchWidgetEl = document.querySelector(".search-widget");
+    let searchWidget;
     let SectionController = {
 
         shelveText: function() {
@@ -17,6 +19,7 @@
 
     };
 
+    searchWidget = SearchWidget(searchWidgetEl);
     SectionText.settings.shelveBtn.addEventListener("click", SectionController.shelveText);
     SectionText.settings.unshelveBtn.addEventListener("click", SectionController.unshelveText);
     if(video && window.innerWidth > 900) video.addEventListener("play", SectionController.shelveText, { once: true });
