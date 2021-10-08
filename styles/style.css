@@ -1290,6 +1290,21 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.media-viewer--fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-viewer--fullscreen-polyfill {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
 .media-viewer__tab-container {
     position: relative;
     left: 10px;
@@ -1297,14 +1312,14 @@ file. These definitions will be defined mobile first.
     z-index: 2;
 }
 
-.media-viewer__tab-container--main-section {
-    display: none;
+@media (max-width:900px) {
+    .media-viewer__tab-container--main-section {
+        display: none;
+    }
 }
 
-@media (min-width:900px) {
-    .media-viewer__tab-container--main-section {
-        display: inline-block;
-    }
+.media-viewer__tab-container--fullscreen {
+    display: none;
 }
 
 .media-viewer__tab-btn {

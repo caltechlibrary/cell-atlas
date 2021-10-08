@@ -10,10 +10,18 @@
     let SectionController = function() {
 
         let handleMainMediaViewerFsBtnClick = function() {
-            if(!mainNonTextContainer.classList.contains("main-non-text-container--expanded")) {
-                shelveText();
+            if(window.innerWidth < 900) {
+                if(!mainMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
+                    mainMediaViewer.displayFullscreen();
+                } else {
+                    mainMediaViewer.exitFullscreen();
+                }
             } else {
-                unshelveText();
+                if(!mainNonTextContainer.classList.contains("main-non-text-container--expanded")) {
+                    shelveText();
+                } else {
+                    unshelveText();
+                }
             }
         };
 

@@ -84,6 +84,26 @@ let MediaViewer = function(root) {
         window.removeEventListener("resize", positionFixedEnlargedSlider);
     };
 
+    let displayFullscreen = function() {
+        root.classList.add("media-viewer--fullscreen");
+        tabContainer.classList.add("media-viewer__tab-container--fullscreen");
+        if(root.requestFullscreen) {
+            root.requestFullscreen();
+        } else {
+            root.classList.add("media-viewer--fullscreen-polyfill");
+        }
+    };
+
+    let exitFullscreen = function() {
+        root.classList.remove("media-viewer--fullscreen");
+        tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
+        if(root.requestFullscreen) {
+            document.exitFullscreen();
+        } else {
+            root.classList.remove("media-viewer--fullscreen-polyfill");
+        }
+    };
+
     if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
     fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
 
@@ -94,6 +114,8 @@ let MediaViewer = function(root) {
         displayMediaType,
         setFullscreenState,
         displayFixedEnlarged,
-        minimizeFixedEnlarged
+        minimizeFixedEnlarged,
+        displayFullscreen,
+        exitFullscreen
     }
 };
