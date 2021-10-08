@@ -28,16 +28,24 @@ let MediaViewer = function(root) {
         }
     };
 
-    let toggleFullscreenBtnState = function(event) {
+    let handleFullscreenBtnClick = function(event) {
         let ariaLabel = fullscreenBtn.getAttribute("aria-label");
+        if(ariaLabel == "Enter full screen") {
+            setFullscreenState("expanded");
+        } else {
+            setFullscreenState("minimized");
+        }
+    };
+
+    let setFullscreenState = function(state) {
         let enterFsIcon = fullscreenBtn.querySelector(".media-viewer__enter-fs-icon");
         let exitFsIcon = fullscreenBtn.querySelector(".media-viewer__exit-fs-icon");
         let labelString;
-        if(ariaLabel == "Enter full screen") {
+        if(state == "expanded") {
             labelString = "Exit full screen";
             enterFsIcon.classList.add("media-viewer__fullscreen-btn-icon--hidden");
             exitFsIcon.classList.remove("media-viewer__fullscreen-btn-icon--hidden");
-        } else {
+        } else if(state == "minimized") {
             exitFsIcon.classList.add("media-viewer__fullscreen-btn-icon--hidden");
             enterFsIcon.classList.remove("media-viewer__fullscreen-btn-icon--hidden");
             labelString = "Enter full screen";
@@ -47,11 +55,12 @@ let MediaViewer = function(root) {
     };
 
     if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
-    fullscreenBtn.addEventListener("click", toggleFullscreenBtnState)
+    fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
 
     return {
         root,
         fullscreenBtn,
-        displayMediaType
+        displayMediaType,
+        setFullscreenState
     }
 };
