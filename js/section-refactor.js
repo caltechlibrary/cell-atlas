@@ -12,8 +12,14 @@
         let handleMainMediaViewerFsBtnClick = function() {
             if(window.innerWidth < 900) {
                 if(!mainMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
+                    // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
+                    // Will delete when HTML is structured well
+                    mainNonTextContainer.classList.add("main-non-text-container--fullscreen-polyfill-badfix");
                     mainMediaViewer.displayFullscreen();
                 } else {
+                    // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
+                    // Will delete when HTML is structured well
+                    mainNonTextContainer.classList.remove("main-non-text-container--fullscreen-polyfill-badfix");
                     mainMediaViewer.exitFullscreen();
                 }
             } else {

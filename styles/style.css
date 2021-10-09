@@ -1236,6 +1236,12 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.main-non-text-container--fullscreen-polyfill-badfix {
+    /* Need to increase container z index because of poorly constructed HTML */
+    /* Will delete when HTML is structured well */
+    z-index: 100;
+}
+
 .main-non-text-container__nav-arrow {
     display: none;
     flex: 0 0 auto;
