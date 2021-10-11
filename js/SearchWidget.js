@@ -13,14 +13,14 @@ let SearchWidget = function(root) {
 
     let openSearchBar = function() {
         openBtn.classList.add("search-widget__open-btn--hidden");
-        searchBar.classList.remove("search-widget__search-bar--hidden");
+        searchBar.classList.remove("search-widget__search-bar--hidden-desktop");
         openBtn.setAttribute("aria-expanded", "true");
         window.addEventListener("click", autoCloseSearchWidget);
     };
 
     let closeSearchBar = function() {
         openBtn.classList.remove("search-widget__open-btn--hidden");
-        searchBar.classList.add("search-widget__search-bar--hidden");
+        searchBar.classList.add("search-widget__search-bar--hidden-desktop");
         openBtn.setAttribute("aria-expanded", "false");
         window.removeEventListener("click", autoCloseSearchWidget);
     };
