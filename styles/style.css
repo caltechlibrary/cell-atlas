@@ -1367,9 +1367,9 @@ file. These definitions will be defined mobile first.
 .search-widget {
     display: none;
     flex: 0 1 auto;
+    min-width: 0;
     position: relative;
     margin: 0 3em;
-    overflow: auto;
 }
 
 @media (min-width:900px) {
