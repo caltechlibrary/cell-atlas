@@ -1403,6 +1403,18 @@ file. These definitions will be defined mobile first.
     border-radius: 10px;
 }
 
+@media (max-width: 900px) and (orientation: landscape) {
+    .media-viewer__media-container--fullscreen {
+        height: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+    .media-viewer__media-container--fullscreen {
+        width: 100%;
+    }
+}
+
 .media-viewer__fullscreen-btn {
     position: absolute;
     bottom: 0;
@@ -1598,6 +1610,18 @@ file. These definitions will be defined mobile first.
     width: 100%;
 }
 
+@media (max-width: 900px) and (orientation: portrait) {
+    .comp-slider--fullscreen {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .comp-slider--fullscreen {
+        height: 100%;
+    }
+}
+
 .comp-slider--hidden {
     display: none;
 }
@@ -1622,7 +1646,23 @@ file. These definitions will be defined mobile first.
 @media (max-width: 900px) {
     .comp-slider__before-img--subsection {
         max-height: 50vh;
-    }    
+    }
+}
+
+.comp-slider__before-img--fullscreen {
+    max-height: initial;
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+    .comp-slider__before-img--fullscreen {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .comp-slider__before-img--fullscreen {
+        height: 100%;
+    }
 }
 
 .comp-slider__before-img--hidden {

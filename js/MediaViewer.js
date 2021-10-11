@@ -88,6 +88,11 @@ let MediaViewer = function(root) {
         root.classList.add("media-viewer--fullscreen");
         tabContainer.classList.add("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.add("media-viewer__media-container--fullscreen");
+        if(!compSlider.classList.contains("comp-slider--hidden")) {
+            let compSliderBeforeImg = compSlider.querySelector(".comp-slider__before-img");
+            compSlider.classList.add("comp-slider--fullscreen");
+            compSliderBeforeImg.classList.add("comp-slider__before-img--fullscreen");
+        }
         if(root.requestFullscreen) {
             root.requestFullscreen();
         } else {
@@ -99,6 +104,11 @@ let MediaViewer = function(root) {
         root.classList.remove("media-viewer--fullscreen");
         tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.remove("media-viewer__media-container--fullscreen");
+        if(!compSlider.classList.contains("comp-slider--hidden")) {
+            let compSliderBeforeImg = compSlider.querySelector(".comp-slider__before-img");
+            compSlider.classList.remove("comp-slider--fullscreen");
+            compSliderBeforeImg.classList.remove("comp-slider__before-img--fullscreen");
+        }
         if(root.requestFullscreen) {
             document.exitFullscreen();
         } else {
