@@ -1410,6 +1410,11 @@ file. These definitions will be defined mobile first.
     fill: #fff;
 }
 
+.search-widget__search-icon--search-bar {
+    flex: 0 0 auto;
+    margin-right: 1em;
+}
+
 .search-widget__search-bar {
     display: flex;
     box-sizing: border-box;
@@ -1426,11 +1431,6 @@ file. These definitions will be defined mobile first.
     width: 3em;
     border: 2px solid #cfcfcf00;
     visibility: hidden;
-}
-
-.search-widget__search-bar-icon {
-    flex: 0 0 auto;
-    margin-right: 1em;
 }
 
 .search-widget__search-bar-input {
