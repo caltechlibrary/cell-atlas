@@ -1270,13 +1270,13 @@ file. These definitions will be defined mobile first.
     }
 }
 
-@media (orientation: portrait) {
+@media (max-width: 900px) and (orientation: portrait) {
     .media-viewer--main-section {
         width: 100%;
     }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 900px) and (orientation: landscape) {
     .media-viewer--main-section {
         height: 95%;
     }
@@ -1284,10 +1284,6 @@ file. These definitions will be defined mobile first.
 
 @media (min-width: 900px) {
     .media-viewer--main-section {
-        /* Reset inherited styling rules */
-        width: initial;
-        height: initial;
-
         flex: 1 1 auto;
         min-width: 0;
         max-height: 98%;
@@ -1371,13 +1367,13 @@ file. These definitions will be defined mobile first.
     border-radius: 10px 10px 0px 0px;
 }
 
-@media (orientation: portrait) {
+@media (max-width: 900px) and (orientation: portrait) {
     .media-viewer__media-container--main-section {
         width: 100%;
     }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 900px) and (orientation: landscape) {
     .media-viewer__media-container--main-section {
         height: 100%;
     }
@@ -1385,10 +1381,6 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .media-viewer__media-container--main-section {
-        /* Reset inherited styling rules */
-        width: initial;
-        height: initial;
-
         flex: 1;
         min-height: 0;
         display: flex;
@@ -1583,37 +1575,23 @@ file. These definitions will be defined mobile first.
     position: relative;
 }
 
-@media (orientation: portrait) {
+@media (max-width: 900px) and (orientation: portrait) {
     .comp-slider--main-section {
         width: 100%;
     }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 900px) and (orientation: landscape) {
     .comp-slider--main-section {
         height: 100%;
     }
 }
 
-@media (min-width: 900px) {
-    .comp-slider--main-section {
-        /* Reset inherited styling rules */
-        width: initial;
-        height: initial;
-    }
-}
-
-.comp-slider--subsection {
-    margin: auto;
-    width: fit-content;
-}
-
-@media (min-width: 900px) {
+@media (max-width: 900px) {
     .comp-slider--subsection {
-        /* Reset inherited styling rules */
-        margin: initial;
-        width: initial;
-    }
+        margin: auto;
+        width: fit-content;
+    }   
 }
 
 .comp-slider--main-section-failed {
@@ -1629,34 +1607,22 @@ file. These definitions will be defined mobile first.
     max-width: 100%;
 }
 
-@media (orientation: portrait) {
+@media (max-width: 900px) and (orientation: portrait) {
     .comp-slider__before-img--main-section {
         width: 100%;
     }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 900px) and (orientation: landscape) {
     .comp-slider__before-img--main-section {
         height: 100%;
     }
 }
 
-@media (min-width:900px) {
-    .comp-slider__before-img--main-section {
-        /* Reset inherited styling rules */
-        width: initial;
-        height: initial;
-    }
-}
-
-.comp-slider__before-img--subsection {
-    max-height: 50vh;
-}
-
-@media (min-width:900px) {
+@media (max-width: 900px) {
     .comp-slider__before-img--subsection {
-        max-height: initial;
-    }
+        max-height: 50vh;
+    }    
 }
 
 .comp-slider__before-img--hidden {
