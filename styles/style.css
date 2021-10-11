@@ -136,7 +136,8 @@ file. These definitions will be defined mobile first.
     }
 
     header a {
-        flex: 1;
+        flex: 0 0 auto;
+        margin-left: auto;
         align-items: flex-end;
         height: 100%;
         display: flex;
@@ -159,7 +160,7 @@ file. These definitions will be defined mobile first.
     }
 
     .header-nav-button {
-        flex: 1;
+        flex: 0 0 auto;
         text-align: start;
         border: none;
         font-size: 2em;
