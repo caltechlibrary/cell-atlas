@@ -45,10 +45,18 @@
             let mediaViewerEl = event.currentTarget.closest(".media-viewer");
             if(!mediaViewerEl || !mediaViewerEl.contains(event.currentTarget)) return;
             let subMediaViewer = subMediaViewers.find(function(mediaViewer) { return mediaViewer.root == mediaViewerEl });
-            if(!subMediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
-                subMediaViewer.displayFixedEnlarged();
+            if(window.innerWidth < 900) {
+                if(!subMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
+                    subMediaViewer.displayFullscreen();
+                } else {
+                    subMediaViewer.exitFullscreen();
+                }
             } else {
-                subMediaViewer.minimizeFixedEnlarged();
+                if(!subMediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+                    subMediaViewer.displayFixedEnlarged();
+                } else {
+                    subMediaViewer.minimizeFixedEnlarged();
+                }
             }
         };
 

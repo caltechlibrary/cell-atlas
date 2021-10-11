@@ -1406,6 +1406,11 @@ file. These definitions will be defined mobile first.
     z-index: 100;
 }
 
+.media-viewer__media-container--fullscreen {
+    box-shadow: 0px 0px 0 1px #444;
+    border-radius: 10px;
+}
+
 .media-viewer__fullscreen-btn {
     position: absolute;
     bottom: 0;

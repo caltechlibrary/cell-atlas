@@ -87,6 +87,7 @@ let MediaViewer = function(root) {
     let displayFullscreen = function() {
         root.classList.add("media-viewer--fullscreen");
         tabContainer.classList.add("media-viewer__tab-container--fullscreen");
+        mediaContainer.classList.add("media-viewer__media-container--fullscreen");
         if(root.requestFullscreen) {
             root.requestFullscreen();
         } else {
@@ -97,6 +98,7 @@ let MediaViewer = function(root) {
     let exitFullscreen = function() {
         root.classList.remove("media-viewer--fullscreen");
         tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
+        mediaContainer.classList.remove("media-viewer__media-container--fullscreen");
         if(root.requestFullscreen) {
             document.exitFullscreen();
         } else {
