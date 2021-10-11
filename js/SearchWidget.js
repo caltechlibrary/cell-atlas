@@ -15,7 +15,6 @@ let SearchWidget = function(root) {
         openBtn.classList.add("search-widget__open-btn--hidden");
         searchBar.classList.remove("search-widget__search-bar--hidden");
         openBtn.setAttribute("aria-expanded", "true");
-        searchBar.setAttribute("aria-hidden", "false");
         window.addEventListener("click", autoCloseSearchWidget);
     };
 
@@ -23,7 +22,6 @@ let SearchWidget = function(root) {
         openBtn.classList.remove("search-widget__open-btn--hidden");
         searchBar.classList.add("search-widget__search-bar--hidden");
         openBtn.setAttribute("aria-expanded", "false");
-        searchBar.setAttribute("aria-hidden", "true");
         window.removeEventListener("click", autoCloseSearchWidget);
     };
 
