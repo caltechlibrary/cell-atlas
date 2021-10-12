@@ -155,13 +155,14 @@
         let handleMobileControlClick = function(event) {
             let tabBtn = event.target.closest(".mobile-controls__btn");
             if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
-            let textContent = document.querySelector(".section-text");
             if(tabBtn.value == "text") {
-                textContent.classList.remove("section-text--hidden");
+                sectionTextEl.classList.remove("section-text--hidden");
                 mainNonTextContainer.classList.add("main-non-text-container--hidden-mobile");
+                mobileControls.root.classList.add("mobile-controls--section-text");
             } else {
-                textContent.classList.add("section-text--hidden");
+                sectionTextEl.classList.add("section-text--hidden");
                 mainNonTextContainer.classList.remove("main-non-text-container--hidden-mobile");
+                mobileControls.root.classList.remove("mobile-controls--section-text");
                 if(tabBtn.value == "vid" || tabBtn.value == "img") {
                     mainMediaViewer.displayMediaType(tabBtn.value);
                 } else if(tabBtn.value == "sum") {

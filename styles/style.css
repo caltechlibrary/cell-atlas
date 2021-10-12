@@ -3040,6 +3040,12 @@ file. These definitions will be defined mobile first.
     background: #505050;
 }
 
+@media (orientation: landscape) {
+    .mobile-controls--section-text {
+        position: relative;
+    }
+}
+
 .mobile-controls__nav {
     width: 15px;
     fill: #c2c2c2;
