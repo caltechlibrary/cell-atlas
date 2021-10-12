@@ -37,7 +37,7 @@ file. These definitions will be defined mobile first.
 - fs-tree-confirm: Confirm pop up to be displayed when fullscreen for tree is requested on page load
 - tree-viewer: Interactive phylogenetic tree viewer found in appendix page
 - species-example-list: List of example sections for a given species
-- mobile-controls-refactor: Refactored version of mobile controls used to switch between section text/media and navigation.
+- mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
 @media (min-width:900px) {
