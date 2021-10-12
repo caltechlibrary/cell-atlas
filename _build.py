@@ -82,6 +82,58 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_SMALL)
         writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_LARGE)
 
+    subprocess.run([
+        "pandoc", 
+        "--from=markdown", 
+        "--to=plain", 
+        "--output=sectionPlain.txt",
+        sourceFormatted.name
+    ])
+    with open("sectionPlain.txt", "r", encoding="utf-8") as f:
+        document = {}
+        document["id"] = pageName
+        if "title" in metadata: 
+            document["title"] = metadata["title"]
+            if "chapter" in metadata:
+                if "section" in metadata:
+                    document["titlePrefix"] = "{}.{}".format(metadata["chapter"], metadata["section"])
+                else:
+                    document["titlePrefix"] = metadata["chapter"]
+        document["content"] = f.read()
+        if "videoTitle" in metadata: document["species"] = metadata["videoTitle"]
+        if "collector" in metadata: document["collector"] = metadata["collector"]
+        searchIndex.append(document)
+    os.remove("sectionPlain.txt")
+
+    if "subsectionsData" in metadata:
+        for subsectionData in metadata["subsectionsData"]:
+            with open("subsectionHTML.html", "w", encoding="utf-8") as f:
+                f.write(subsectionData["html"])
+            subprocess.run([
+                "pandoc", 
+                "--from=html", 
+                "--to=plain", 
+                "--output=subsectionPlain.txt",
+                "subsectionHTML.html"
+            ])
+            os.remove("subsectionHTML.html")
+            with open("subsectionPlain.txt", "r", encoding="utf-8") as f:
+                document = {}
+                document["id"] = "{}#{}".format(pageName, subsectionData["id"])
+                if "title" in subsectionData: 
+                    document["title"] = subsectionData["title"]
+                    if "chapter" in metadata:
+                        document["titlePrefix"] = "{}.{} {}:".format(metadata["chapter"], metadata["section"], metadata["title"])
+                if "structures" in subsectionData:
+                    document["structure"] = ""
+                    for structure in subsectionData["structures"]:
+                        document["structure"] = document["structure"] + structure["text"]
+                document["content"] = f.read()
+                if "species" in subsectionData: document["species"] = subsectionData["species"]
+                if "collector" in subsectionData: document["collector"] = subsectionData["collector"]
+                searchIndex.append(document)
+            os.remove("subsectionPlain.txt")
+
     pandocArgs = [
         "pandoc", 
         "--from=markdown", 
@@ -451,6 +503,8 @@ with open("dois.csv", "r", encoding='utf-8') as csvfile:
         movieDict[doi] = movie
 # Create a dictionary that maps species to sections
 speciesDict = {}
+# Create search index
+searchIndex = []
 
 # Render landing page
 metadata = {}
@@ -652,3 +706,18 @@ metadata = {}
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage(SITEDIR, "download.md", "page", "download", metadata)
+
+# Render search index
+with open("{}/searchIndex.json".format(SITEDIR), "w", encoding="utf-8") as f:
+    json.dump(searchIndex, f, indent="\t")
+# Render dict for of search index
+searchDict = {}
+for doc in searchIndex:
+    searchDict[doc["id"]] = doc
+with open("{}/searchDict.json".format(SITEDIR), "w", encoding="utf-8") as f:
+    json.dump(searchDict, f, indent="\t")
+
+# Render search test page
+metadata = {}
+metadata["title"] = "Search Test"
+writePage(SITEDIR, "search-test.md", "search-test", "search-test", metadata)

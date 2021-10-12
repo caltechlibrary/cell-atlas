@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles/search-test.css">
+    </head>
+    <body>
+        <label>
+            Search:
+            <input id="search-input" type="text">
+        </label>
+        <div id="settings-container">
+            <label>
+                <input id="toggle-index-stem" type="checkbox" checked>
+                <span>Index Stemming</span>
+            </label>
+            <label>
+                <input id="toggle-search-stem" type="checkbox" checked>
+                <span>Search Stemming</span>
+            </label>
+            <label>
+                <input id="toggle-truncating" type="checkbox" checked>
+                <span>Result Truncating</span>
+            </label>
+            <label>
+                <input id="toggle-wildcard" type="checkbox">
+                <span>Trailing Wildcards</span>
+            </label>
+            <label>
+                <input id="fuzzy-input" type="number">
+                <span>Fuzzy Distance</span>
+            </label>
+            <label>
+                <input id="max-results-input" type="number" value=15>
+                <span>Max Results</span>
+            </label>
+        </div>
+        <p>Init time: <span id="init-time-label"></span></p>
+        <h1>Results: <span id="result-count-label">0</span></h1>
+        <div id="result-time-labels">
+            <span>Query time: <span id="query-time-label"></span></span>
+            <span>Display process time: <span id="display-time-label"></span></span>
+        </div>
+        <ol id="results-list"></ol>
+
+        <script src="js/lunr/lunr.min.js"></script>
+        <script src="js/search-test.js"></script>
+    </body>
+</html>
