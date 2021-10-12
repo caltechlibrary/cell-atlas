@@ -1610,6 +1610,11 @@ file. These definitions will be defined mobile first.
     width: 100%;
 }
 
+.comp-slider--fullscreen {
+    height: auto;
+    width: auto;
+}
+
 @media (max-width: 900px) and (orientation: portrait) {
     .comp-slider--fullscreen {
         width: 100%;

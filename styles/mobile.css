@@ -742,15 +742,6 @@ blockquote {
         background: #ffffff;
         overflow-y: auto;
         overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .subsection-modal-container--content-img-fs-polyfill {
-        -webkit-overflow-scrolling: initial;
-    }
-
-    .subsection-modal-container--viewer-fs-polyfill {
-        -webkit-overflow-scrolling: initial;
     }
 
     .subsection-modal-container-slider-fullscreen {
@@ -772,7 +763,6 @@ blockquote {
         padding: 0;
         margin-left: auto;
         margin-bottom: 8px;
-        z-index: 2;
     }
 
     .subsection-modal-container .book-section-comparison-button-container {
@@ -996,6 +986,7 @@ blockquote {
 
     #feedbackModal {
         height: 90%;
+        -webkit-overflow-scrolling: touch;
     }
 
     .book-appendix-download a {
