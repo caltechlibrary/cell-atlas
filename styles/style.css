@@ -1487,7 +1487,14 @@ file. These definitions will be defined mobile first.
     margin: 0;
     width: 1.25em;
     height: 1.25em;
-    background: url("../img/x.svg");
+}
+
+.search-widget__search-bar-input--nav-menu::-webkit-search-cancel-button {
+    background: url("../img/search-input-cancel--nav-menu.svg");
+}
+
+.search-widget__search-bar-input--header::-webkit-search-cancel-button {
+    background: url("../img/search-input-cancel--header.svg");
 }
 
 /* section-text */
