@@ -30,7 +30,7 @@ let SearchWidget = function(root) {
 
     let onSearchBarInput = function() {
         clearTimeout(searchTimeout);
-        if(searchBarInput.value.length != 0) searchTimeout = setTimeout(querySearchBarInput, 250);
+        if(searchBarInput.value.trim().length != 0) searchTimeout = setTimeout(querySearchBarInput, 250);
     };
 
     let querySearchBarInput = function() {
@@ -40,7 +40,7 @@ let SearchWidget = function(root) {
             query.term(queryTokens, { wildcard: lunr.Query.wildcard.TRAILING });
             query.term(queryTokens, { editDistance: 1 });
         });
-        
+
         console.log(resultData);
     };
 
