@@ -26,12 +26,22 @@
         handleNavSearchBarBlur: function(event) {
             let navMenu = document.querySelector(".nav-menu");
             if(searchWidgetNavMenu.searchBarInput.value.length == 0) navMenu.classList.remove("nav-menu--searching");
+        },
+
+        initSearchWidget: function(event) {
+            if(event.currentTarget.classList.contains("search-widget__open-btn")) {
+                searchWidgetHeader.init();
+            } else {
+                searchWidgetNavMenu.init();
+            }
         }
 
     };
 
     searchWidgetHeader = SearchWidget(searchWidgetHeaderEl);
     searchWidgetNavMenu = SearchWidget(searchWidgetNavMenuEl);
+    searchWidgetHeader.openBtn.addEventListener("click", SectionController.initSearchWidget, { once: true });
+    searchWidgetNavMenu.searchBarInput.addEventListener("focus", SectionController.initSearchWidget, { once: true });
     searchWidgetNavMenu.searchBarInput.addEventListener("focus", SectionController.handleNavSearchBarFocus);
     searchWidgetNavMenu.searchBarInput.addEventListener("blur", SectionController.handleNavSearchBarBlur);
     SectionText.settings.shelveBtn.addEventListener("click", SectionController.shelveText);
