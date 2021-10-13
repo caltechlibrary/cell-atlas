@@ -2,6 +2,7 @@ let SearchWidget = function(root) {
 
     let openBtn = root.querySelector(".search-widget__open-btn");
     let searchBar = root.querySelector(".search-widget__search-bar");
+    let searchBarInput = root.querySelector(".search-widget__search-bar-input");
 
     let handleOpenBtnClick = function(event) {
         openSearchBar();
@@ -25,6 +26,11 @@ let SearchWidget = function(root) {
         window.removeEventListener("click", autoCloseSearchWidget);
     };
 
-    openBtn.addEventListener("click", handleOpenBtnClick);
+    if(openBtn) openBtn.addEventListener("click", handleOpenBtnClick);
+
+    return {
+        root,
+        searchBarInput
+    }
 
 };

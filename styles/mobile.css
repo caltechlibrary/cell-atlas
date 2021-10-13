@@ -261,7 +261,13 @@ blockquote {
         z-index: 2;
         opacity: 0;
         color: #363636;
-        transition: max-height 0.5s;
+        transition: max-height 0.5s, width 0.25s;
+    }
+
+    @media (orientation: portrait) {
+        .nav-menu--searching {
+            width: 85%;
+        }
     }
 
     .nav-menu-opened {
