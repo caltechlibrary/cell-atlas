@@ -36,6 +36,7 @@ def getMarkdownMetadata(file):
 def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add site navigation to metadata
     metadata["nav"] = siteNav
+    metadata["navData"] = { "nav": True }
     # Add ID for the video player if there is one
     if "doi" in metadata or "video" in metadata: 
         metadata["vidMetadata"] = {}
