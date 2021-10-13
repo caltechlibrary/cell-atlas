@@ -15,19 +15,27 @@
                     // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
                     // Will delete when HTML is structured well
                     mainNonTextContainer.classList.add("main-non-text-container--fullscreen-polyfill-badfix");
-                    mainMediaViewer.displayFullscreen();
                 } else {
                     // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
                     // Will delete when HTML is structured well
                     mainNonTextContainer.classList.remove("main-non-text-container--fullscreen-polyfill-badfix");
-                    mainMediaViewer.exitFullscreen();
                 }
+                mainMediaViewer.toggleFullscreen();
             } else {
                 if(!mainNonTextContainer.classList.contains("main-non-text-container--expanded")) {
                     shelveText();
                 } else {
                     unshelveText();
                 }
+            }
+        };
+
+        let handleSubMediaViewerFsBtnClick = function(event) {
+            let subMediaViewer = subMediaViewers.find(function(mediaViewer) { return mediaViewer.fullscreenBtn == event.currentTarget });
+            if(window.innerWidth < 900) {
+                subMediaViewer.toggleFullscreen();
+            } else {
+                subMediaViewer.toggleFixedEnlarged();
             }
         };
 
@@ -41,32 +49,13 @@
             unShelveTextWidget();
         };
 
-        let handleSubMediaViewerFsBtnClick = function(event) {
-            let mediaViewerEl = event.currentTarget.closest(".media-viewer");
-            if(!mediaViewerEl || !mediaViewerEl.contains(event.currentTarget)) return;
-            let subMediaViewer = subMediaViewers.find(function(mediaViewer) { return mediaViewer.root == mediaViewerEl });
-            if(window.innerWidth < 900) {
-                if(!subMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
-                    subMediaViewer.displayFullscreen();
-                } else {
-                    subMediaViewer.exitFullscreen();
-                }
-            } else {
-                if(!subMediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
-                    subMediaViewer.displayFixedEnlarged();
-                } else {
-                    subMediaViewer.minimizeFixedEnlarged();
-                }
-            }
-        };
-
         let expandMainNonTextContainer = function() {
-            mainMediaViewer.setFullscreenState("expanded");
+            mainMediaViewer.setFullscreenBtnState("expanded");
             mainNonTextContainer.classList.add("main-non-text-container--expanded");
         };
 
         let minimizeMainNonTextContainer = function() {
-            mainMediaViewer.setFullscreenState("minimized");
+            mainMediaViewer.setFullscreenBtnState("minimized");
             mainNonTextContainer.classList.remove("main-non-text-container--expanded");
         };
 
