@@ -61,85 +61,37 @@
 
         let shelveTextWidget = function() {
             sectionText.setMainTabIndex(-1);
-            if(document.querySelector("body").classList.contains("preload")) {
-                // No transitions, add all necessary classes and toggle tabindex at once
-                sectionText.root.classList.add("section-text-shelved");
-                sectionText.mainContainer.classList.add("section-text__main-container--hidden");
-                sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--hidden");
-                sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--shelved");
-                sectionText.unshelveBtn.setAttribute("tabindex", 0);
-            } else {
-                // Remove any unshelving event listeners
-                sectionText.root.removeEventListener("transitionend", onMainContainerTransitionShow);
-                sectionText.unshelveBtn.removeEventListener("transitionend", onUnshelveBtnTransitionHide);
 
-                // Event listener to add unshelve button to tab order once it has transitioned on screen
-                sectionText.unshelveBtn.addEventListener("transitionend", onUnshelveBtnTransitionShow, { once: true });
-                if(sectionText.root.classList.contains("section-text-shelved")) {
-                    // Call main container transition end event directly since it is already shelved
-                    onMainContainerTransitionHide();
-                } else {
-                    // Event listener to remove main container visibility and bring out unshelve button once main container has transitioned off screen
-                    sectionText.root.addEventListener("transitionend", onMainContainerTransitionHide, { once: true });
-                    // Shelve main container to start events
-                    sectionText.root.classList.add("section-text-shelved");
-                }
-            };
+            // Add classess to determine visual order that transitions happen
+            sectionText.root.classList.remove("section-text--transition-delay");
+            sectionText.root.classList.add("section-text--transition-instant");
+            sectionText.mainContainer.classList.remove("section-text__main-container-transition-instant");
+            sectionText.mainContainer.classList.add("section-text__unshelve-btn--transition-delay");
+            sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--transition-instant");
+            sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--transition-delay");
+
+            sectionText.root.classList.add("section-text--shelved");
+            sectionText.mainContainer.classList.add("section-text__main-container--hidden");
+            sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--hidden");
+            sectionText.unshelveBtn.setAttribute("tabindex", 0);
         };
 
         let unShelveTextWidget = function() {
             sectionText.unshelveBtn.setAttribute("tabindex", -1);
-            // Check if transitions are enabled
-            if(document.querySelector("body").classList.contains("preload")) {
-                // No transitions, add all necessary classes and toggle tabindex at once
-                sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--shelved");
-                sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--hidden");
-                sectionText.mainContainer.classList.remove("section-text__main-container--hidden");
-                sectionText.root.classList.remove("section-text-shelved");
-                sectionText.setMainTabIndex(0);
-            } else {
-                // Remove any shelving event listeners
-                sectionText.root.removeEventListener("transitionend", onMainContainerTransitionHide);
-                sectionText.unshelveBtn.removeEventListener("transitionend", onUnshelveBtnTransitionShow);
 
-                // Event listener to add main container elements to tab index once it has transitioned on screen
-                sectionText.root.addEventListener("transitionend", onMainContainerTransitionShow, { once: true });
-                // If unshelve button is already shelved, skip that css transition step
-                if(sectionText.unshelveBtn.classList.contains("section-text__unshelve-btn--shelved")) {
-                    // Call unshelve button transition end event directly since it is already shelved
-                    onUnshelveBtnTransitionHide();
-                } else {
-                    // Event listener to remove unshelve button visibility and bring out main container once unshelve button has transitioned off screen
-                    sectionText.unshelveBtn.addEventListener("transitionend", onUnshelveBtnTransitionHide, { once: true });
-                    // Shelve unshelve button to start events
-                    sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--shelved");
-                }
-            }
+            // Add classess to determine visual order that transitions happen
+            sectionText.root.classList.remove("section-text--transition-instant");
+            sectionText.root.classList.add("section-text--transition-delay");
+            sectionText.mainContainer.classList.remove("section-text__main-container-transition-instant");
+            sectionText.mainContainer.classList.add("section-text__unshelve-btn--transition-delay");
+            sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--transition-delay");
+            sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--transition-instant");
+            
+            sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--hidden");
+            sectionText.mainContainer.classList.remove("section-text__main-container--hidden");
+            sectionText.root.classList.remove("section-text--shelved");
+            sectionText.setMainTabIndex(0);
         };
-
-        let onMainContainerTransitionHide = function() {
-            if(sectionText.root.classList.contains("section-text-shelved")) {
-                sectionText.mainContainer.classList.add("section-text__main-container--hidden");
-                sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--hidden");
-                sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--shelved");
-            }
-        };
-
-        let onUnshelveBtnTransitionShow = function() {
-            if(!sectionText.unshelveBtn.classList.contains("section-text__unshelve-btn--shelved")) sectionText.unshelveBtn.setAttribute("tabindex", 0);
-        };
-
-        let onUnshelveBtnTransitionHide = function() {
-            if(sectionText.unshelveBtn.classList.contains("section-text__unshelve-btn--shelved")) {
-                sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--hidden");
-                sectionText.mainContainer.classList.remove("section-text__main-container--hidden");
-                sectionText.root.classList.remove("section-text-shelved");
-            }
-        };
-    
-        let onMainContainerTransitionShow = function() {
-            if(!sectionText.root.classList.contains("section-text-shelved")) sectionText.setMainTabIndex(0);
-        }
 
         let handleMobileControlClick = function(event) {
             let tabBtn = event.target.closest(".mobile-controls__btn");
