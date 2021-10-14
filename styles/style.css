@@ -1442,6 +1442,10 @@ file. These definitions will be defined mobile first.
     padding: 0.25em;
 }
 
+.search-widget__search-bar--results-showing {
+    border-radius: 1em 1em 0 0;
+}
+
 .search-widget__search-bar--header {
     width: 45em;
     max-width: 100%;

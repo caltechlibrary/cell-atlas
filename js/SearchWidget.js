@@ -39,6 +39,7 @@ let SearchWidget = function(root) {
         } else {
             clearResultsList();
             resultList.classList.add("search-widget__result-list--hidden");
+            searchBar.classList.remove("search-widget__search-bar--results-showing");
         }
     };
 
@@ -62,6 +63,7 @@ let SearchWidget = function(root) {
             resultList.appendChild(resultEntryEl);
         }
         resultList.classList.remove("search-widget__result-list--hidden");
+        searchBar.classList.add("search-widget__search-bar--results-showing");
     };
 
     let clearResultsList = function() {
@@ -212,6 +214,7 @@ let SearchWidget = function(root) {
 
     let closeSearchWidget = function() {
         resultList.classList.add("search-widget__result-list--hidden");
+        searchBar.classList.remove("search-widget__search-bar--results-showing");
         openBtn.classList.remove("search-widget__open-btn--hidden");
         searchBar.classList.add("search-widget__search-bar--hidden");
         openBtn.setAttribute("aria-expanded", "false");
@@ -219,7 +222,10 @@ let SearchWidget = function(root) {
     };
 
     let handleSearchBarInputFocus = function() {
-        if(searchBarInput.value.trim().length != 0) resultList.classList.remove("search-widget__result-list--hidden");
+        if(searchBarInput.value.trim().length != 0) {
+            resultList.classList.remove("search-widget__result-list--hidden");
+            searchBar.classList.add("search-widget__search-bar--results-showing");
+        }
     };
 
     if(openBtn) openBtn.addEventListener("click", handleOpenBtnClick);
