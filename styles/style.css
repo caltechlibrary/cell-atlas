@@ -1514,6 +1514,10 @@ file. These definitions will be defined mobile first.
     z-index: 1;
 }
 
+.search-widget__result-list--hidden {
+    display: none;
+}
+
 .search-widget__result-entry {
     margin-bottom: 1em;
 }

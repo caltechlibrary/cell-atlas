@@ -34,7 +34,12 @@ let SearchWidget = function(root) {
 
     let onSearchBarInput = function() {
         clearTimeout(searchTimeout);
-        if(searchBarInput.value.trim().length != 0) searchTimeout = setTimeout(querySearchBarInput, 250);
+        if(searchBarInput.value.trim().length != 0) {
+            searchTimeout = setTimeout(querySearchBarInput, 250);
+        } else {
+            clearResultsList();
+            resultList.classList.add("search-widget__result-list--hidden");
+        }
     };
 
     let querySearchBarInput = function() {
@@ -56,6 +61,7 @@ let SearchWidget = function(root) {
             let resultEntryEl = createResultEntryElement(formattedResultEls);
             resultList.appendChild(resultEntryEl);
         }
+        resultList.classList.remove("search-widget__result-list--hidden");
     };
 
     let clearResultsList = function() {
@@ -194,7 +200,7 @@ let SearchWidget = function(root) {
     };
 
     let autoCloseSearchWidget = function(event) {
-        if(!root.contains(event.target)) closeSearchBar();
+        if(!root.contains(event.target)) closeSearchWidget();
     };
 
     let openSearchBar = function() {
@@ -204,14 +210,20 @@ let SearchWidget = function(root) {
         window.addEventListener("click", autoCloseSearchWidget);
     };
 
-    let closeSearchBar = function() {
+    let closeSearchWidget = function() {
+        resultList.classList.add("search-widget__result-list--hidden");
         openBtn.classList.remove("search-widget__open-btn--hidden");
         searchBar.classList.add("search-widget__search-bar--hidden");
         openBtn.setAttribute("aria-expanded", "false");
         window.removeEventListener("click", autoCloseSearchWidget);
     };
 
+    let handleSearchBarInputFocus = function() {
+        if(searchBarInput.value.trim().length != 0) resultList.classList.remove("search-widget__result-list--hidden");
+    };
+
     if(openBtn) openBtn.addEventListener("click", handleOpenBtnClick);
+    searchBarInput.addEventListener("focus", handleSearchBarInputFocus);
 
     return {
         root,
