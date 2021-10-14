@@ -51,7 +51,8 @@ let SearchWidget = function(root) {
         let resultsNum = (resultData.length < maxResults) ? resultData.length : maxResults;
         for(let i = 0; i < resultsNum; i++) {
             let formattedResultEls = getFormattedResultEls(resultData[i], searchData[resultData[i].ref]);
-            console.log(formattedResultEls);
+            let resultEntryEl = createResultEntryElement(formattedResultEls);
+            console.log(resultEntryEl);
         }
     };
 
@@ -147,6 +148,39 @@ let SearchWidget = function(root) {
             }
         }
         return outerEl;
+    };
+
+    let createResultEntryElement = function(formattedResultEls) {
+        let entryElement = document.createElement("li");
+        let titleEl = document.createElement("span");
+        let contentEl = document.createElement("p");
+        entryElement.classList.add("search-widget__result-entry");
+        titleEl.classList.add("search-widget__result-title");
+        titleEl.appendChild(formattedResultEls.title);
+        entryElement.appendChild(titleEl);
+        contentEl.classList.add("search-widget__result-content");
+        contentEl.appendChild(formattedResultEls.content);
+
+        if(formattedResultEls.species || formattedResultEls.collector || formattedResultEls.structure) {
+            let metadataContainerEl = document.createElement("div");
+            metadataContainerEl.classList.add("search-widget__result-metadata-container");
+            if(formattedResultEls.species) metadataContainerEl.appendChild( createMetadataEntryEl("Species: ", formattedResultEls.species) );
+            if(formattedResultEls.collector) metadataContainerEl.appendChild( createMetadataEntryEl("Collector: ", formattedResultEls.collector) );
+            if(formattedResultEls.structure) metadataContainerEl.appendChild( createMetadataEntryEl("Structure: ", formattedResultEls.structure) );
+            entryElement.appendChild(metadataContainerEl);
+        }
+
+        entryElement.appendChild(contentEl);
+        return entryElement;
+    };
+
+    let createMetadataEntryEl = function(preText, metadataEl) {
+        let metadataEntryEl = document.createElement("span");
+        let preTextNode = document.createTextNode(preText);
+        metadataEntryEl.classList.add("search-widget__metadata-entry");
+        metadataEntryEl.appendChild(preTextNode);
+        metadataEntryEl.appendChild(metadataEl);
+        return metadataEntryEl;
     };
 
     let handleOpenBtnClick = function(event) {
