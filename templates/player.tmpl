@@ -19,4 +19,9 @@
         </div>
         <input type="range" id="${it.playerId}-seekBar" value="0" max="100" autocomplete="off">
     </div>
+
+    ${if(offline)}
+    ${else}
+        ${quality-changer-mobile.tmpl()}
+    ${endif}
 </div>

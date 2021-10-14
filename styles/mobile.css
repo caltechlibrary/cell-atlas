@@ -458,6 +458,10 @@ blockquote {
 
     /* || QUALITY styles */
     .video-quality-changer-mobile {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 1em;
         display: flex;
         float: right;
         color: #ffffff;
@@ -528,6 +532,7 @@ blockquote {
     .subsection-modal-container .video-quality-changer-mobile {
         flex: 1 0 auto;
         position: relative;
+        margin-top: 0;
         margin-left: auto;
         margin-bottom: -22px;
         color: #000000;
@@ -535,6 +540,10 @@ blockquote {
         flex-direction: row;
         left: initial;
         top: initial;
+    }
+
+    .subsection-modal-container .book-section-video-player .video-quality-changer-mobile {
+        display: none;
     }
 
     .subsection-modal-container .video-quality-changer-control {
@@ -1055,12 +1064,12 @@ blockquote {
         max-height: 90%;
     }
 
-
     /* || QUALITY styles */
     .video-quality-changer-mobile {
         flex-direction: column;
-        position: absolute;
         top: 50%;
+        right: initial;
+        margin-top: 0;
         left: 100%;
         transform: translate(0, -50%);
     }

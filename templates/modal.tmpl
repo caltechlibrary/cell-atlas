@@ -27,6 +27,13 @@
         ${endif}
     ${endif}
 
+    ${if(it.video)}
+        ${if(offline)}
+        ${else}
+            ${it:quality-changer-mobile.tmpl()}
+        ${endif}
+    ${endif}
+
     <div class="subsection-modal-text" tabindex="-1">
         <h1>${it.title}</h1>
         <div class="book-text-content">
