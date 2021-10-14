@@ -60,7 +60,10 @@ let SearchWidget = function(root) {
         for(let i = 0; i < resultsNum; i++) {
             let formattedResultEls = getFormattedResultEls(resultData[i], searchData[resultData[i].ref]);
             let resultEntryEl = createResultEntryElement(formattedResultEls);
+            let resultEntrySeparatorEl = document.createElement("div");
+            resultEntrySeparatorEl.classList.add("search-widget__result-separator");
             resultList.appendChild(resultEntryEl);
+            if(i != resultsNum - 1) resultList.appendChild(resultEntrySeparatorEl);
         }
         resultList.classList.remove("search-widget__result-list--hidden");
         searchBar.classList.add("search-widget__search-bar--results-showing");

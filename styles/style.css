@@ -1522,10 +1522,6 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-.search-widget__result-entry {
-    margin-bottom: 1em;
-}
-
 .search-widget__result-title {
     display: block;
     margin-bottom: 0.5em;
@@ -1547,6 +1543,13 @@ file. These definitions will be defined mobile first.
 .search-widget__result-highlight {
     color: #15404E;
     font-weight: bold;
+}
+
+.search-widget__result-separator {
+    margin: 1em 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
 }
 
 /* section-text */
