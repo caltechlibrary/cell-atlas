@@ -19,7 +19,7 @@ let MediaViewer = function(root) {
 
     let displayMediaType = function(mediaType) {
         if(mediaType == "vid") {
-            compSlider.classList.add("comp-slider--hidden");
+            if(compSlider) compSlider.classList.add("comp-slider--hidden");
             videoPlayer.classList.remove("book-section-video-player--hidden");
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
         } else if(mediaType == "img") {
