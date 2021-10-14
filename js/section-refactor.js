@@ -136,5 +136,5 @@
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
 
     // Need to find a better way to do this
-    if(video && window.innerWidth > 900) video.addEventListener("play", SectionController.shelveText, { once: true });
+    if(video && window.innerWidth > 900) video.addEventListener("play", sectionController.shelveText, { once: true });
 })();
