@@ -88,6 +88,7 @@ let SearchWidget = function(root) {
                 formattedResultEls[field] = resultEl;
             }
         }
+        if(formattedResultEls.title && sourceDoc.titlePrefix) formattedResultEls.title.prepend( document.createTextNode(`${sourceDoc.titlePrefix} `) );
         return formattedResultEls;
     };
 
