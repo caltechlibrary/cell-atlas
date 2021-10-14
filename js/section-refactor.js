@@ -50,12 +50,12 @@
         };
 
         let expandMainNonTextContainer = function() {
-            mainMediaViewer.setFullscreenBtnState("expanded");
+            if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
             mainNonTextContainer.classList.add("main-non-text-container--expanded");
         };
 
         let minimizeMainNonTextContainer = function() {
-            mainMediaViewer.setFullscreenBtnState("minimized");
+            if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("minimized");
             mainNonTextContainer.classList.remove("main-non-text-container--expanded");
         };
 
@@ -134,7 +134,7 @@
     if(compSliderEls.length > 0) {
         for(let compSliderEl of compSliderEls) compSliders.push(CompSlider(compSliderEl));
     }
-    
+
     sectionText = SectionText(sectionTextEl);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
