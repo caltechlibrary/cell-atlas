@@ -1497,6 +1497,50 @@ file. These definitions will be defined mobile first.
     background: url("../img/search-input-cancel--header.svg");
 }
 
+.search-widget__result-list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 50vh;
+    border: 3px solid #363636;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 1em;
+    background: #fff;
+    box-shadow: 0 7px 20px 0px #4a4a4a;
+    overflow: auto;
+    z-index: 1;
+}
+
+.search-widget__result-entry {
+    margin-bottom: 1em;
+}
+
+.search-widget__result-title {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.15em;
+}
+
+.search-widget__result-metadata-container {
+    margin-bottom: 0.5em;
+}
+
+.search-widget__metadata-entry {
+    margin-right: 1em;
+}
+
+.search-widget__result-content {
+    margin: 0 0 0.5em 0;
+}
+
+.search-widget__result-highlight {
+    color: #15404E;
+    font-weight: bold;
+}
+
 /* section-text */
 .section-text__main-container {
     display: flex;

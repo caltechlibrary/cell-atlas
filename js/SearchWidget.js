@@ -3,6 +3,7 @@ let SearchWidget = function(root) {
     let openBtn = root.querySelector(".search-widget__open-btn");
     let searchBar = root.querySelector(".search-widget__search-bar");
     let searchBarInput = root.querySelector(".search-widget__search-bar-input");
+    let resultList = root.querySelector(".search-widget__result-list");
     let maxResults = 15;
     let maxResultChars = 150;
     let searchData, index, searchTimeout;
@@ -49,11 +50,16 @@ let SearchWidget = function(root) {
 
     let displayResults = function(resultData) {
         let resultsNum = (resultData.length < maxResults) ? resultData.length : maxResults;
+        clearResultsList();
         for(let i = 0; i < resultsNum; i++) {
             let formattedResultEls = getFormattedResultEls(resultData[i], searchData[resultData[i].ref]);
             let resultEntryEl = createResultEntryElement(formattedResultEls);
-            console.log(resultEntryEl);
+            resultList.appendChild(resultEntryEl);
         }
+    };
+
+    let clearResultsList = function() {
+        while(resultList.firstChild) resultList.removeChild(resultList.firstChild);
     };
 
     let getFormattedResultEls = function(resultData, sourceDoc) {
