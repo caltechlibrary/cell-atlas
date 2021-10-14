@@ -123,18 +123,24 @@
     };
 
     sectionController = SectionController();
-    mainMediaViewer = MediaViewer(mainMediaViewerEl);
-    for(let subMediaViewerEl of subMediaViewerEls) subMediaViewers.push(MediaViewer(subMediaViewerEl));
-    for(let compSliderEl of compSliderEls) compSliders.push(CompSlider(compSliderEl));
+    if(mainMediaViewerEl) {
+        mainMediaViewer = MediaViewer(mainMediaViewerEl);
+        mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
+    }
+    if(subMediaViewerEls.length > 0) {
+        for(let subMediaViewerEl of subMediaViewerEls) subMediaViewers.push(MediaViewer(subMediaViewerEl));
+        for(let subMediaViewer of subMediaViewers) subMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
+    }
+    if(compSliderEls.length > 0) {
+        for(let compSliderEl of compSliderEls) compSliders.push(CompSlider(compSliderEl));
+    }
+    
     sectionText = SectionText(sectionTextEl);
-    mobileControls = MobileControls(mobileControlsEl);
-
-    mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
-    for(let subMediaViewer of subMediaViewers) subMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
+
+    mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
 
-    // Need to find a better way to do this
     if(video && window.innerWidth > 900) video.addEventListener("play", sectionController.shelveText, { once: true });
 })();
