@@ -214,9 +214,11 @@ let SearchWidget = function(root) {
         searchBar.classList.remove("search-widget__search-bar--hidden");
         openBtn.setAttribute("aria-expanded", "true");
         window.addEventListener("click", autoCloseSearchWidget);
+        searchBarInput.disabled = false;
     };
 
     let closeSearchWidget = function() {
+        searchBarInput.disabled = true;
         resultList.classList.add("search-widget__result-list--hidden");
         searchBar.classList.remove("search-widget__search-bar--results-showing");
         openBtn.classList.remove("search-widget__open-btn--hidden");
