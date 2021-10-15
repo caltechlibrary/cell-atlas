@@ -3,6 +3,7 @@ let MediaViewer = function(root) {
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
     let videoPlayer = root.querySelector(".book-section-video-player");
+    let videoEl = root.querySelector("video");
     let compSlider = root.querySelector(".comp-slider");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
 
@@ -24,6 +25,7 @@ let MediaViewer = function(root) {
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
         } else if(mediaType == "img") {
             videoPlayer.classList.add("book-section-video-player--hidden");
+            videoEl.pause();
             compSlider.classList.remove("comp-slider--hidden");
             fullscreenBtn.classList.remove("media-viewer__fullscreen-btn--hidden");
         }

@@ -274,7 +274,8 @@ function createVideoPlayer(videoEl) {
     let doi = videoEl.getAttribute("doi");
     let highSrc;
     let medSrc;
-    let videoTabBtn = document.querySelector(`button[data-player='${playerId}'][value='video']`);
+    let parentMediaViewer = videoEl.closest(".media-viewer");
+    let videoTabBtn = parentMediaViewer.querySelector(".media-viewer__tab-btn[value='vid']");
     let videoPlayer = document.querySelector(`.book-section-video-player[data-player='${playerId}']`);
     let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
