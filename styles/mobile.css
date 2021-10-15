@@ -447,7 +447,7 @@ blockquote {
     }
 
     .main-non-text-container video {
-        vertical-align: middle;
+        display: block;
         background: #ffffff;
         width: 100%;
     }
