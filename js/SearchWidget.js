@@ -51,7 +51,7 @@ let SearchWidget = function(root) {
             query.term(queryTokens, { editDistance: 1 });
         });
 
-        displayResults(resultData);
+        if(resultData.length > 1) displayResults(resultData);
     };
 
     let displayResults = function(resultData) {
