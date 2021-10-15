@@ -2,7 +2,7 @@ let MediaViewer = function(root) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
-    let videoPlayer = root.querySelector(".book-section-video-player");
+    let videoPlayer = root.querySelector(".video-player");
     let videoEl = root.querySelector("video");
     let compSlider = root.querySelector(".comp-slider");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
@@ -21,10 +21,10 @@ let MediaViewer = function(root) {
     let displayMediaType = function(mediaType) {
         if(mediaType == "vid") {
             if(compSlider) compSlider.classList.add("comp-slider--hidden");
-            videoPlayer.classList.remove("book-section-video-player--hidden");
+            videoPlayer.classList.remove("video-player--hidden");
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
         } else if(mediaType == "img") {
-            videoPlayer.classList.add("book-section-video-player--hidden");
+            videoPlayer.classList.add("video-player--hidden");
             videoEl.pause();
             compSlider.classList.remove("comp-slider--hidden");
             fullscreenBtn.classList.remove("media-viewer__fullscreen-btn--hidden");

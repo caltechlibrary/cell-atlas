@@ -1,11 +1,12 @@
 (function() {
     let mainMediaViewerEl = document.querySelector(".media-viewer.media-viewer--main-section");
     let subMediaViewerEls = document.querySelectorAll(".media-viewer:not(.media-viewer--main-section)");
+    let videoPlayerEls = document.querySelectorAll(".video-player");
     let compSliderEls = document.querySelectorAll(".comp-slider");
     let sectionTextEl = document.querySelector(".section-text");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, subMediaViewers = [], compSliders = [];
+    let sectionController, sectionText, mobileControls, mainMediaViewer, subMediaViewers = [], videoPlayers = [], compSliders = [];
     
     let SectionController = function() {
 
@@ -131,6 +132,9 @@
         for(let subMediaViewerEl of subMediaViewerEls) subMediaViewers.push(MediaViewer(subMediaViewerEl));
         for(let subMediaViewer of subMediaViewers) subMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
     }
+    if(videoPlayerEls.length > 0) {
+        for(let videoPlayerEl of videoPlayerEls) videoPlayers.push(VideoPlayer(videoPlayerEl));
+    }
     if(compSliderEls.length > 0) {
         for(let compSliderEl of compSliderEls) compSliders.push(CompSlider(compSliderEl));
     }
@@ -141,6 +145,4 @@
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
-
-    if(video && window.innerWidth > 900) video.addEventListener("play", sectionController.shelveText, { once: true });
 })();

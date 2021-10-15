@@ -1,0 +1,6 @@
+<div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" data-doi="${it.doi}" data-vid-file="${it.video}">
+    <video class="video-player__video ${if(it.isSection)}video-player__video--main-section${else}video-player__video--subsection${endif}" controls muted>
+        <source>
+        Your browser does not support the video tag.
+    </video>
+</div>
