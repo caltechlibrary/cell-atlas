@@ -9,7 +9,7 @@ function openModal(modalId) {
     let qualityChangerDesktop = modal.querySelector(".video-quality-player-control");
     let imgBlock = modal.querySelector(".content-img");
     let viewerBlock = modal.querySelector(".protein-viewer");
-    let fullBackground = modal.querySelector(".book-section-comparison-slider-fullscreen-container");
+    let mediaViewerContainer = modal.querySelector(".media-viewer__media-container");
 
     modalOverlay.style.display = "block";
     modal.style.display = "flex";
@@ -59,8 +59,8 @@ function openModal(modalId) {
             qualityChangerDesktop.setAttribute("data-state", "collapsed");
         }
         if(modalText) modalText.setAttribute("tabindex", "-1");
-        if(fullBackground && window.innerWidth > 900 && fullBackground.getAttribute("data-state") != "failed") {
-            let minimizeButton = fullBackground.querySelector(".book-section-comparison-exit-fullscreen-desktop");
+        if(mediaViewerContainer && window.innerWidth > 900 && mediaViewerContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+            let minimizeButton = mediaViewerContainer.querySelector(".media-viewer__fullscreen-btn");
             minimizeButton.click();
         }
         if(imgBlock && window.innerWidth > 900) {
