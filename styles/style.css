@@ -3058,7 +3058,6 @@ file. These definitions will be defined mobile first.
     width: 100%;
     padding: 8px 16px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background: #505050;
 }
@@ -3074,13 +3073,21 @@ file. These definitions will be defined mobile first.
     fill: #c2c2c2;
 }
 
+.mobile-controls__nav--prev {
+    margin-right: auto;
+}
+
+.mobile-controls__nav--next {
+    margin-left: auto;
+}
+
 .mobile-controls__nav svg {
     vertical-align: middle;
 }
 
 .mobile-controls__btn {
     width: 35px;
-    margin: 0;
+    margin: auto;
     padding: 0;
     border: none;
     background: none;
