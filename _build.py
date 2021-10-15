@@ -501,12 +501,12 @@ speciesDict = {}
 searchData = {}
 
 # Render landing page
-metadata = {}
+metadata = getMarkdownMetadata("index.md")
 metadata["firstPage"] = "begin"
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
 # Render opening quote page for introduction
-metadata = {}
+metadata = getMarkdownMetadata("introQuote.md")
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
@@ -594,7 +594,7 @@ for i in range(len(sectionFiles)):
     writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
 
 # Render opening quote page for "Keep Looking"
-metadata = {}
+metadata = getMarkdownMetadata("outlook.md")
 metadata["prevSection"] = sectionFiles[-1][:-3]
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
@@ -678,7 +678,7 @@ writePage(SITEDIR, "bib.json", "page", "D-references", metadata)
 os.remove("bib.json")
 
 # Render about page
-metadata = {}
+metadata = getMarkdownMetadata("about.md")
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
 aboutEntries = []
@@ -696,7 +696,7 @@ metadata["aboutEntries"] = aboutEntries
 writePage(SITEDIR, "about.md", "page", "about", metadata)
 
 # Render download page
-metadata = {}
+metadata = getMarkdownMetadata("download.md")
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage(SITEDIR, "download.md", "page", "download", metadata)
