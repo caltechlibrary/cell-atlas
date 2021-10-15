@@ -1522,10 +1522,12 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-.search-widget__result-title {
+.search-widget__result-link {
     display: block;
     margin-bottom: 0.5em;
     font-size: 1.15em;
+    color: #000;
+    text-decoration: underline;
 }
 
 .search-widget__result-metadata-container {

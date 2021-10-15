@@ -59,7 +59,7 @@ let SearchWidget = function(root) {
         clearResultsList();
         for(let i = 0; i < resultsNum; i++) {
             let formattedResultEls = getFormattedResultEls(resultData[i], searchData[resultData[i].ref]);
-            let resultEntryEl = createResultEntryElement(formattedResultEls);
+            let resultEntryEl = createResultEntryElement(formattedResultEls, searchData[resultData[i].ref]);
             let resultEntrySeparatorEl = document.createElement("div");
             resultEntrySeparatorEl.classList.add("search-widget__result-separator");
             resultList.appendChild(resultEntryEl);
@@ -168,14 +168,15 @@ let SearchWidget = function(root) {
         return outerEl;
     };
 
-    let createResultEntryElement = function(formattedResultEls) {
+    let createResultEntryElement = function(formattedResultEls, sourceDoc) {
         let entryElement = document.createElement("li");
-        let titleEl = document.createElement("span");
+        let linkEl = document.createElement("a");
         let contentEl = document.createElement("p");
         entryElement.classList.add("search-widget__result-entry");
-        titleEl.classList.add("search-widget__result-title");
-        titleEl.appendChild(formattedResultEls.title);
-        entryElement.appendChild(titleEl);
+        linkEl.classList.add("search-widget__result-link");
+        linkEl.setAttribute("href", sourceDoc.id);
+        linkEl.appendChild(formattedResultEls.title);
+        entryElement.appendChild(linkEl);
         contentEl.classList.add("search-widget__result-content");
         contentEl.appendChild(formattedResultEls.content);
 
