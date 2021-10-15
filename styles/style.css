@@ -1326,6 +1326,9 @@ file. These definitions will be defined mobile first.
 
 .media-viewer__tab-btn {
     margin: 0;
+    box-sizing: border-box;
+    width: 4.25em;
+    height: 2.5em;
     padding: 0.1em 0.425em;
     border: 1px solid #444;
     border-radius: 10px 10px 0 0;
@@ -1340,6 +1343,7 @@ file. These definitions will be defined mobile first.
 .media-viewer__tab-btn svg {
     margin: 0.15em 0.75em 0em 0.75em;
     width: 1.75em;
+    height: 1.75em;
     fill: #ffffff;
 }
 
