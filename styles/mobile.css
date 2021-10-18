@@ -264,7 +264,7 @@ blockquote {
         transition: max-height 0.5s, width 0.25s;
     }
 
-    @media (orientation: portrait) {
+    @media (max-width:480px) {
         .nav-menu--searching {
             width: 85%;
         }
