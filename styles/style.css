@@ -1442,7 +1442,7 @@ file. These definitions will be defined mobile first.
     padding: 0.25em;
 }
 
-.search-widget__search-bar--results-showing {
+.search-widget__search-bar--results-showing-header {
     border-radius: 1em 1em 0 0;
 }
 
@@ -1502,16 +1502,19 @@ file. These definitions will be defined mobile first.
 }
 
 .search-widget__result-list {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+}
+
+.search-widget__result-list--header {
     position: absolute;
     left: 0;
     top: 100%;
-    box-sizing: border-box;
-    width: 100%;
     max-height: 50vh;
     border: 3px solid #363636;
     border-top: none;
     border-radius: 0 0 10px 10px;
-    padding: 1em;
     background: #fff;
     box-shadow: 0 7px 20px 0px #4a4a4a;
     overflow: auto;
@@ -1534,8 +1537,13 @@ file. These definitions will be defined mobile first.
     margin-bottom: 0.5em;
 }
 
-.search-widget__metadata-entry {
+.search-widget__metadata-entry--header {
     margin-right: 1em;
+}
+
+.search-widget__metadata-entry--nav-menu {
+    display: block;
+    margin-bottom: 0.5em;
 }
 
 .search-widget__result-content {

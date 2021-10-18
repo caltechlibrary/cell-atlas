@@ -8,5 +8,5 @@
         <div class="search-widget__search-icon search-widget__search-icon--search-bar ${if(it.nav)}search-widget__search-icon--nav-menu${else}search-widget__search-icon--header${endif}">${svg/search.svg()}</div>
         <input class="search-widget__search-bar-input ${if(it.nav)}search-widget__search-bar-input--nav-menu${else}search-widget__search-bar-input--header${endif}" type="search" placeholder="Search..." aria-label="Search..." ${if(it.nav)}${else}disabled${endif}>
     </div>
-    <ol class="search-widget__result-list search-widget__result-list--hidden"></ol>
+    <ol class="search-widget__result-list ${if(it.nav)}search-widget__result-list--nav-menu${else}search-widget__result-list--header${endif} search-widget__result-list--hidden"></ol>
 </div>

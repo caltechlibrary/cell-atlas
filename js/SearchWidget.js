@@ -39,7 +39,7 @@ let SearchWidget = function(root) {
         } else {
             clearResultsList();
             resultList.classList.add("search-widget__result-list--hidden");
-            searchBar.classList.remove("search-widget__search-bar--results-showing");
+            searchBar.classList.remove("search-widget__search-bar--results-showing-header");
         }
     };
 
@@ -66,7 +66,7 @@ let SearchWidget = function(root) {
             if(i != resultsNum - 1) resultList.appendChild(resultEntrySeparatorEl);
         }
         resultList.classList.remove("search-widget__result-list--hidden");
-        searchBar.classList.add("search-widget__search-bar--results-showing");
+        if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
     };
 
     let clearResultsList = function() {
@@ -196,7 +196,11 @@ let SearchWidget = function(root) {
     let createMetadataEntryEl = function(preText, metadataEl) {
         let metadataEntryEl = document.createElement("span");
         let preTextNode = document.createTextNode(preText);
-        metadataEntryEl.classList.add("search-widget__metadata-entry");
+        if(root.classList.contains("search-widget--header")) {
+            metadataEntryEl.classList.add("search-widget__metadata-entry--header");
+        } else {
+            metadataEntryEl.classList.add("search-widget__metadata-entry--nav-menu");
+        }
         metadataEntryEl.appendChild(preTextNode);
         metadataEntryEl.appendChild(metadataEl);
         return metadataEntryEl;
@@ -221,7 +225,7 @@ let SearchWidget = function(root) {
     let closeSearchWidget = function() {
         searchBarInput.disabled = true;
         resultList.classList.add("search-widget__result-list--hidden");
-        searchBar.classList.remove("search-widget__search-bar--results-showing");
+        searchBar.classList.remove("search-widget__search-bar--results-showing-header");
         openBtn.classList.remove("search-widget__open-btn--hidden");
         searchBar.classList.add("search-widget__search-bar--hidden");
         openBtn.setAttribute("aria-expanded", "false");
@@ -231,7 +235,7 @@ let SearchWidget = function(root) {
     let handleSearchBarInputFocus = function() {
         if(searchBarInput.value.trim().length != 0) {
             resultList.classList.remove("search-widget__result-list--hidden");
-            searchBar.classList.add("search-widget__search-bar--results-showing");
+            if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
         }
     };
 

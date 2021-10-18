@@ -20,12 +20,22 @@
 
         handleNavSearchBarFocus: function(event) {
             let navMenu = document.querySelector(".nav-menu");
+            let sectionList = document.querySelector(".nav-menu__section-list");
+            let mobileNavFooter = document.querySelector(".mobile-footer-data");
             navMenu.classList.add("nav-menu--searching");
+            sectionList.classList.add("nav-menu__section-list--searching");
+            mobileNavFooter.classList.add("mobile-footer-data--searching");
         },
 
         handleNavSearchBarBlur: function(event) {
             let navMenu = document.querySelector(".nav-menu");
-            if(searchWidgetNavMenu.searchBarInput.value.length == 0) navMenu.classList.remove("nav-menu--searching");
+            let sectionList = document.querySelector(".nav-menu__section-list");
+            let mobileNavFooter = document.querySelector(".mobile-footer-data");
+            if(searchWidgetNavMenu.searchBarInput.value.length == 0) {
+                navMenu.classList.remove("nav-menu--searching");
+                sectionList.classList.remove("nav-menu__section-list--searching");
+                mobileNavFooter.classList.remove("mobile-footer-data--searching");
+            }
         },
 
         initSearchWidget: function(event) {

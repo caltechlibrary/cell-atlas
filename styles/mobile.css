@@ -379,11 +379,19 @@ blockquote {
         opacity: 0.3;
     }
 
+    .nav-menu__section-list--searching {
+        display: none;
+    }
+
     .mobile-footer-data {
         border-top: 1px solid #000000;
         margin-left: -12px;
         padding: 12px 0 0 12px;
         font-weight: 300;
+    }
+
+    .mobile-footer-data--searching {
+        display: none;
     }
 
     .mobile-footer-data li {
