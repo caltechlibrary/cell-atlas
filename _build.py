@@ -36,6 +36,7 @@ def getMarkdownMetadata(file):
 def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add site navigation to metadata
     metadata["nav"] = siteNav
+    metadata["navData"] = { "nav": True }
     # Add ID for the video player if there is one
     if "doi" in metadata or "video" in metadata: 
         metadata["vidMetadata"] = {}
@@ -102,7 +103,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         document["content"] = f.read()
         if "videoTitle" in metadata: document["species"] = metadata["videoTitle"]
         if "collector" in metadata: document["collector"] = metadata["collector"]
-        searchIndex.append(document)
+        searchData[document["id"]] = document
     os.remove("sectionPlain.txt")
 
     if "subsectionsData" in metadata:
@@ -131,7 +132,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
                 document["content"] = f.read()
                 if "species" in subsectionData: document["species"] = subsectionData["species"]
                 if "collector" in subsectionData: document["collector"] = subsectionData["collector"]
-                searchIndex.append(document)
+                searchData[document["id"]] = document
             os.remove("subsectionPlain.txt")
 
     pandocArgs = [
@@ -503,16 +504,16 @@ with open("dois.csv", "r", encoding='utf-8') as csvfile:
         movieDict[doi] = movie
 # Create a dictionary that maps species to sections
 speciesDict = {}
-# Create search index
-searchIndex = []
+# Create dictionary for search data
+searchData = {}
 
 # Render landing page
-metadata = {}
+metadata = getMarkdownMetadata("index.md")
 metadata["firstPage"] = "begin"
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
 # Render opening quote page for introduction
-metadata = {}
+metadata = getMarkdownMetadata("introQuote.md")
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
@@ -600,7 +601,7 @@ for i in range(len(sectionFiles)):
     writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
 
 # Render opening quote page for "Keep Looking"
-metadata = {}
+metadata = getMarkdownMetadata("outlook.md")
 metadata["prevSection"] = sectionFiles[-1][:-3]
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
@@ -684,7 +685,7 @@ writePage(SITEDIR, "bib.json", "page", "D-references", metadata)
 os.remove("bib.json")
 
 # Render about page
-metadata = {}
+metadata = getMarkdownMetadata("about.md")
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
 aboutEntries = []
@@ -702,20 +703,14 @@ metadata["aboutEntries"] = aboutEntries
 writePage(SITEDIR, "about.md", "page", "about", metadata)
 
 # Render download page
-metadata = {}
+metadata = getMarkdownMetadata("download.md")
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage(SITEDIR, "download.md", "page", "download", metadata)
 
-# Render search index
-with open("{}/searchIndex.json".format(SITEDIR), "w", encoding="utf-8") as f:
-    json.dump(searchIndex, f, indent="\t")
-# Render dict for of search index
-searchDict = {}
-for doc in searchIndex:
-    searchDict[doc["id"]] = doc
-with open("{}/searchDict.json".format(SITEDIR), "w", encoding="utf-8") as f:
-    json.dump(searchDict, f, indent="\t")
+# Render data dict for search index
+with open("{}/searchData.json".format(SITEDIR), "w", encoding="utf-8") as f:
+    json.dump(searchData, f, indent="\t")
 
 # Render search test page
 metadata = {}

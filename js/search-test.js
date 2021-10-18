@@ -1,5 +1,5 @@
 (function() {
-    fetch("searchDict.json")
+    fetch("searchData.json")
         .then(function(res) { return res.json() })
         .then(function(data) { initLunrSearch(data) });
 })();

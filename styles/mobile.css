@@ -261,7 +261,13 @@ blockquote {
         z-index: 2;
         opacity: 0;
         color: #363636;
-        transition: max-height 0.5s;
+        transition: max-height 0.5s, width 0.25s;
+    }
+
+    @media (max-width:480px) {
+        .nav-menu--searching {
+            width: 85%;
+        }
     }
 
     .nav-menu-opened {
@@ -373,11 +379,19 @@ blockquote {
         opacity: 0.3;
     }
 
+    .nav-menu__section-list--searching {
+        display: none;
+    }
+
     .mobile-footer-data {
         border-top: 1px solid #000000;
         margin-left: -12px;
         padding: 12px 0 0 12px;
         font-weight: 300;
+    }
+
+    .mobile-footer-data--searching {
+        display: none;
     }
 
     .mobile-footer-data li {

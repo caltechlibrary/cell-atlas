@@ -24,6 +24,7 @@ file. These definitions will be defined mobile first.
 - landing-update-banner: Banner on the landing page to advertise upcoming update
 - main-non-text-container: Container to hold media viewer and and section navigation  
 - media-viewer: Widget that contains video/comparison slider and the controls needed to toggle them
+- search-bar: Search bar that will be available on all pages
 - section-text: Block that contains main readable material for a section
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
@@ -134,13 +135,14 @@ file. These definitions will be defined mobile first.
     header {
         flex: 0 0 auto;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         align-items: center;
         height: 80px;
     }
 
     header a {
+        flex: 0 0 auto;
+        margin-left: auto;
+        align-items: flex-end;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -162,6 +164,8 @@ file. These definitions will be defined mobile first.
     }
 
     .header-nav-button {
+        flex: 0 0 auto;
+        text-align: start;
         border: none;
         font-size: 2em;
         margin-left: 0.75em;
@@ -1236,6 +1240,7 @@ file. These definitions will be defined mobile first.
     }
 }
 
+
 .main-non-text-container--fullscreen-polyfill-badfix {
     /* Need to increase container z index because of poorly constructed HTML */
     /* Will delete when HTML is structured well */
@@ -1445,6 +1450,205 @@ file. These definitions will be defined mobile first.
 
 .media-viewer__fullscreen-btn-icon--hidden {
     display: none;
+}
+
+/* search-bar */
+.search-widget--nav-menu {
+    margin: 0.25em 0.25em 0.25em -0.5em;
+}
+
+@media (min-width: 900px) {
+    .search-widget--nav-menu {
+        display: none;
+    }
+}
+
+.search-widget--header {
+    flex: 0 1 auto;
+    min-width: 0;
+    position: relative;
+    margin: 0 3em;
+}
+
+@media (max-width: 900px) {
+    .search-widget--header {
+        display: none;
+    }
+}
+
+.search-widget__open-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 3em;
+    height: 3em;
+    border: 2px solid #cfcfcf00;
+    border-radius: 100px;
+    padding: 0.5em;
+    background: none;
+    opacity: 1;
+    transition: border 0.25s, opacity 0.25s, visibility 0.25s;
+}
+
+.search-widget__open-btn--hidden {
+    opacity: 0;
+    border: 2px solid #cfcfcf00;
+    visibility: hidden;
+}
+
+.search-widget__open-btn:hover {
+    border: 2px solid #cfcfcf;
+}
+
+.search-widget__search-icon--nav-menu {
+    width: 1.25em;
+    height: 1.25em;
+    stroke: #363636;
+    fill: #363636;
+}
+
+.search-widget__search-icon--header {
+    width: 1.75em;
+    height: 1.75em;
+    stroke: #fff;
+    fill: #fff;
+}
+
+.search-widget__search-icon--search-bar {
+    flex: 0 0 auto;
+    margin-right: 1em;
+}
+
+.search-widget__search-bar {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 2.25em;
+    border: 2px solid #cfcfcf;
+    border-radius: 100px;
+    padding: 0.25em;
+}
+
+.search-widget__search-bar--results-showing-header {
+    border-radius: 1em 1em 0 0;
+}
+
+.search-widget__search-bar--header {
+    width: 45em;
+    max-width: 100%;
+    height: 3em;
+    padding: 0.5em;
+    transition: width 0.75s, border 0.75s, padding 0.75s, visibility 0.75s;
+}
+
+.search-widget__search-bar--hidden {
+    width: 3em;
+    border: 2px solid #cfcfcf00;
+    visibility: hidden;
+}
+
+.search-widget__search-bar-input {
+    -webkit-appearance: textfield;
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.search-widget__search-bar-input--nav-menu {
+    font-size: 1em;
+    color: #363636;
+}
+
+.search-widget__search-bar-input--header {
+    font-size: 1.25em;
+    color: #fff;
+}
+
+.search-widget__search-bar-input:focus {
+    outline: none;
+}
+
+.search-widget__search-bar-input::placeholder {
+    color: inherit;
+}
+
+.search-widget__search-bar-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    margin: 0;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.search-widget__search-bar-input--nav-menu::-webkit-search-cancel-button {
+    background: url("../img/search-input-cancel--nav-menu.svg");
+}
+
+.search-widget__search-bar-input--header::-webkit-search-cancel-button {
+    background: url("../img/search-input-cancel--header.svg");
+}
+
+.search-widget__result-list {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+}
+
+.search-widget__result-list--header {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    max-height: 50vh;
+    border: 3px solid #363636;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    background: #fff;
+    box-shadow: 0 7px 20px 0px #4a4a4a;
+    overflow: auto;
+    z-index: 1;
+}
+
+.search-widget__result-list--hidden {
+    display: none;
+}
+
+.search-widget__result-link {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.15em;
+    color: #000;
+    text-decoration: underline;
+}
+
+.search-widget__result-metadata-container {
+    margin-bottom: 0.5em;
+}
+
+.search-widget__metadata-entry--header {
+    margin-right: 1em;
+}
+
+.search-widget__metadata-entry--nav-menu {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.search-widget__result-content {
+    margin: 0 0 0.5em 0;
+}
+
+.search-widget__result-highlight {
+    color: #15404E;
+    font-weight: bold;
+}
+
+.search-widget__result-separator {
+    margin: 1em 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
 }
 
 /* section-text */
