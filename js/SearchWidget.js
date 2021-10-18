@@ -82,7 +82,7 @@ let SearchWidget = function(root) {
                 formattedResultEls[field] = getFormattedHTML(truncatedResources.highlightData, truncatedResources.sourceContent);
             } else {
                 let truncatedSourceContent = (sourceDoc[field].length > maxResultChars) ? `${sourceDoc[field].substring(0, maxResultChars)}...` : sourceDoc[field];
-                let resultEl = document.createElement("span");
+                let resultEl = document.createDocumentFragment();
                 let sourceContentTextNode = document.createTextNode(truncatedSourceContent);
                 resultEl.appendChild(sourceContentTextNode);
                 formattedResultEls[field] = resultEl;
@@ -144,7 +144,7 @@ let SearchWidget = function(root) {
     };
 
     let getFormattedHTML = function(highlightData, sourceContent) {
-        let outerEl = document.createElement("span");
+        let formattedFragment = document.createDocumentFragment();
         for(let i = 0; i < highlightData.length; i++) {
             let prevData = highlightData[i - 1];
             let startPos = (prevData) ? prevData[0] + prevData[1] : 0;
@@ -157,15 +157,15 @@ let SearchWidget = function(root) {
             let highlightedSpan = document.createElement("span");
             highlightedSpan.classList.add("search-widget__result-highlight");
             highlightedSpan.appendChild(highlightTextNode);
-            outerEl.appendChild(preTextNode);
-            outerEl.appendChild(highlightedSpan);
+            formattedFragment.appendChild(preTextNode);
+            formattedFragment.appendChild(highlightedSpan);
             if(i == highlightData.length - 1) {
                 let trailingText = sourceContent.substring(highlightEndPos);
                 let trailingTextNode = document.createTextNode(trailingText)
-                outerEl.appendChild(trailingTextNode);
+                formattedFragment.appendChild(trailingTextNode);
             }
         }
-        return outerEl;
+        return formattedFragment;
     };
 
     let createResultEntryElement = function(formattedResultEls, sourceDoc) {
