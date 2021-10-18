@@ -25,7 +25,32 @@
     <header class="main-color-background">
         <button id="openNavButton" onclick="toggleNav(this)" class="main-color-background header-nav-button header-nav-button-desk">&#9776;</button>
         <button id="openNavButton" onclick="toggleNav(this)" class="main-color-background header-nav-button header-nav-button-mobile">&#8801;</button>
-        <span class="header-title-mobile">1.4 Transmission Electron Microscopy</span>
+        <div class="search-widget search-widget--header">
+            
+                <button class="search-widget__open-btn" aria-controls="search-bar" aria-expanded="false">
+                    <div class="search-widget__search-icon search-widget__search-icon--header"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="rotate(-45.823 18.258 15.188)">
+        			<circle cx="16" cy="11.438" r="10.836" fill="none" stroke-width="1.204"/>
+        			<rect x="15" y="22" width="2" height="10"/>
+        		</g>
+        	</g>
+        </svg></div>
+                </button>
+            
+            <div id="search-bar" class="search-widget__search-bar search-widget__search-bar--header search-widget__search-bar--hidden">
+                <div class="search-widget__search-icon search-widget__search-icon--search-bar search-widget__search-icon--header"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="rotate(-45.823 18.258 15.188)">
+        			<circle cx="16" cy="11.438" r="10.836" fill="none" stroke-width="1.204"/>
+        			<rect x="15" y="22" width="2" height="10"/>
+        		</g>
+        	</g>
+        </svg></div>
+                <input class="search-widget__search-bar-input search-widget__search-bar-input--header" type="search" placeholder="Search..." aria-label="Search..." disabled>
+            </div>
+            <ol class="search-widget__result-list search-widget__result-list--header search-widget__result-list--hidden"></ol>
+        </div>    <span class="header-title-mobile">1.4 Transmission Electron Microscopy</span>
         <a href="index.html">
             <img alt="Atlas of Bacterial and Archaeal Cell Structure Home" src="img/AtlasLogoInvertedLong.svg" class="header-logo">
             <img alt="Atlas of Bacterial and Archaeal Cell Structure Home" src="img/MinimalLogoAInverted.png" class="header-logo-mobile" >
@@ -34,7 +59,22 @@
     <div class="book-page-content">
 
         <nav class="nav-menu" id="navMenu">
-            <ol>
+            <div class="search-widget search-widget--nav-menu">
+                
+                <div id="search-bar" class="search-widget__search-bar ">
+                    <div class="search-widget__search-icon search-widget__search-icon--search-bar search-widget__search-icon--nav-menu"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            	<g>
+            		<g transform="rotate(-45.823 18.258 15.188)">
+            			<circle cx="16" cy="11.438" r="10.836" fill="none" stroke-width="1.204"/>
+            			<rect x="15" y="22" width="2" height="10"/>
+            		</g>
+            	</g>
+            </svg></div>
+                    <input class="search-widget__search-bar-input search-widget__search-bar-input--nav-menu" type="search" placeholder="Search..." aria-label="Search..." >
+                </div>
+                <ol class="search-widget__result-list search-widget__result-list--nav-menu search-widget__result-list--hidden"></ol>
+            </div>
+            <ol class="nav-menu__section-list">
                             <li class="nav-menu-chapter">
                                             <div class="nav-menu-chapter-container">
                                 <a tabindex="-1" href="introduction.html">
@@ -1376,6 +1416,9 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
+  <script src="js/lunr/lunr.min.js"></script>
+  <script src="js/SearchWidget.js"></script>
+  <script src="js/search.js"></script>
         <script src="js/SectionText.js"></script>
       <script src="js/section-refactor.js"></script>
     <script src="js/appendix.js"></script>
