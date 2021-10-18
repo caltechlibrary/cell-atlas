@@ -435,9 +435,6 @@ def createSiteDirectory(siteDir, zipDirSmall, zipDirLarge):
     shutil.copytree("js/", "{}/js/".format(siteDir))
     shutil.copytree("img/", "{}/img/".format(siteDir))
 
-    # For development purposes, copy old search data into site directory immediately 
-    shutil.copy("searchData.json", "{}/searchData.json".format(siteDir))
-
     if os.path.isdir(zipDirSmall):
         shutil.rmtree(zipDirSmall)
     shutil.copytree(siteDir, zipDirSmall)
