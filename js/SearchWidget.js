@@ -206,40 +206,36 @@ let SearchWidget = function(root) {
         return metadataEntryEl;
     };
 
-    let handleOpenBtnClick = function(event) {
-        openSearchBar();
+    let openSearchBar = function() {
+        openBtn.classList.add("search-widget__open-btn--hidden");
+        searchBar.classList.remove("search-widget__search-bar--hidden");
+        openBtn.setAttribute("aria-expanded", "true");
+        searchBarInput.disabled = false;
+        window.addEventListener("click", autoCloseSearchWidget);
     };
 
     let autoCloseSearchWidget = function(event) {
         if(!root.contains(event.target)) closeSearchWidget();
     };
 
-    let openSearchBar = function() {
-        openBtn.classList.add("search-widget__open-btn--hidden");
-        searchBar.classList.remove("search-widget__search-bar--hidden");
-        openBtn.setAttribute("aria-expanded", "true");
-        window.addEventListener("click", autoCloseSearchWidget);
-        searchBarInput.disabled = false;
-    };
-
     let closeSearchWidget = function() {
+        window.removeEventListener("click", autoCloseSearchWidget);
         searchBarInput.disabled = true;
         resultList.classList.add("search-widget__result-list--hidden");
         searchBar.classList.remove("search-widget__search-bar--results-showing-header");
         openBtn.classList.remove("search-widget__open-btn--hidden");
         searchBar.classList.add("search-widget__search-bar--hidden");
         openBtn.setAttribute("aria-expanded", "false");
-        window.removeEventListener("click", autoCloseSearchWidget);
     };
 
     let handleSearchBarInputFocus = function() {
-        if(searchBarInput.value.trim().length != 0) {
+        if(searchBarInput.value.trim().length != 0 && resultList.childElementCount > 0) {
             resultList.classList.remove("search-widget__result-list--hidden");
             if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
         }
     };
 
-    if(openBtn) openBtn.addEventListener("click", handleOpenBtnClick);
+    if(openBtn) openBtn.addEventListener("click", openSearchBar);
     searchBarInput.addEventListener("focus", handleSearchBarInputFocus);
 
     return {
