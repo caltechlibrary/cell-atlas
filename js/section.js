@@ -30,7 +30,7 @@ document.addEventListener("keydown", function(event) {
             textMaterial.focus();
         }
     } else if(event.key == " ") {
-        if(focusedElement.tagName == "BUTTON" || focusedElement.type == "checkbox") return;
+        if(focusedElement.tagName == "BUTTON" || focusedElement.type == "checkbox" || focusedElement.type == "search") return;
         let modalOverlay = document.getElementById("modalOverlay");
         let nonTextContent = document.querySelector(".main-non-text-container");
         let videoPlayer;
