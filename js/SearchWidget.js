@@ -51,7 +51,7 @@ let SearchWidget = function(root) {
             query.term(queryTokens, { editDistance: 1 });
         });
 
-        if(resultData.length > 1) displayResults(resultData);
+        if(resultData.length >= 1) displayResults(resultData);
     };
 
     let displayResults = function(resultData) {
@@ -60,10 +60,12 @@ let SearchWidget = function(root) {
         for(let i = 0; i < resultsNum; i++) {
             let formattedResultEls = getFormattedResultEls(resultData[i], searchData[resultData[i].ref]);
             let resultEntryEl = createResultEntryElement(formattedResultEls, searchData[resultData[i].ref]);
-            let resultEntrySeparatorEl = document.createElement("div");
-            resultEntrySeparatorEl.classList.add("search-widget__result-separator");
             resultList.appendChild(resultEntryEl);
-            if(i != resultsNum - 1) resultList.appendChild(resultEntrySeparatorEl);
+            if(i != resultsNum - 1) {
+                let resultEntrySeparatorEl = document.createElement("div");
+                resultEntrySeparatorEl.classList.add("search-widget__result-separator");
+                resultList.appendChild(resultEntrySeparatorEl);
+            }
         }
         resultList.classList.remove("search-widget__result-list--hidden");
         if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
