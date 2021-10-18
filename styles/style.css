@@ -1607,7 +1607,7 @@ file. These definitions will be defined mobile first.
     background: #fff;
     box-shadow: 0 7px 20px 0px #4a4a4a;
     overflow: auto;
-    z-index: 1;
+    z-index: 2;
 }
 
 .search-widget__result-list--hidden {
