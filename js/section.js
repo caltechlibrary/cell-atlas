@@ -7,7 +7,7 @@ for(let comparisonVideoButton of comparisonVideoButtons) {
 }
 
 // Add event listener to video player to shelf text on first play
-let video = document.querySelector("#nonTextContent video");
+let video = document.querySelector(".main-non-text-container video");
 if(video) {
     // Source the video using the DOI only if a local path is not being used
     createVideoPlayer(video);
@@ -47,7 +47,7 @@ document.addEventListener("keydown", function(event) {
     } else if(event.key == " ") {
         if(focusedElement.tagName == "BUTTON" || focusedElement.type == "checkbox" || focusedElement.type == "search") return;
         let modalOverlay = document.getElementById("modalOverlay");
-        let nonTextContent = document.getElementById("nonTextContent");
+        let nonTextContent = document.querySelector(".main-non-text-container");
         let videoPlayer;
         if(modalOverlay && modalOverlay.style.display == "block") {
             let modalContainers = document.getElementsByClassName("subsection-modal-container");
@@ -74,11 +74,6 @@ document.addEventListener("keydown", function(event) {
         }
     }
 });
-
-let comparissonContainers = document.querySelectorAll(".book-section-comparison-slider-container");
-for(let comparissonContainer of comparissonContainers) {
-    initializeCompSlider(comparissonContainer);
-}
 
 // Check url to see if modal anchor is included. If so, trigger button press
 let secUrl = window.location.href;
@@ -204,7 +199,6 @@ for(let sectionImg of sectionImgs) {
             if(fsContainer.requestFullscreen) {
                 fsContainer.requestFullscreen();
             } else {
-                parentModal.classList.add("subsection-modal-container--content-img-fs-polyfill");
                 fsContainer.classList.add("content-img__fullscreen-container--fs-polyfill");
                 imgContainer.classList.add("content-img__img-container--fs-polyfill");
             }
@@ -224,7 +218,6 @@ for(let sectionImg of sectionImgs) {
             if(fsContainer.requestFullscreen) {
                 document.exitFullscreen()
             } else {
-                parentModal.classList.remove("subsection-modal-container--content-img-fs-polyfill");
                 fsContainer.classList.remove("content-img__fullscreen-container--fs-polyfill");
                 imgContainer.classList.remove("content-img__img-container--fs-polyfill");
             }
@@ -281,7 +274,8 @@ function createVideoPlayer(videoEl) {
     let doi = videoEl.getAttribute("doi");
     let highSrc;
     let medSrc;
-    let videoTabBtn = document.querySelector(`button[data-player='${playerId}'][value='video']`);
+    let parentMediaViewer = videoEl.closest(".media-viewer");
+    let videoTabBtn = parentMediaViewer.querySelector(".media-viewer__tab-btn[value='vid']");
     let videoPlayer = document.querySelector(`.book-section-video-player[data-player='${playerId}']`);
     let videoControls = videoPlayer.querySelector(".book-section-video-player-controls");
     let playPauseButton = videoControls.querySelector(`#${playerId}-playPauseButton`);
@@ -336,8 +330,8 @@ function createVideoPlayer(videoEl) {
         videoEl.addEventListener("waiting", clearFrameInterval);
     }
     if(videoTabBtn) videoTabBtn.addEventListener("click", resizeCanvases);
-    if(videoEl === document.querySelector("#nonTextContent video")) {
-        let nonTextSection = document.querySelector("#nonTextContent");
+    if(videoEl === document.querySelector(".main-non-text-container video")) {
+        let nonTextSection = document.querySelector(".main-non-text-container");
         nonTextSection.addEventListener("transitionend", resizeCanvases);
     }
     playPauseButton.addEventListener('click', togglePlayPause);
@@ -733,525 +727,4 @@ function toggleImageSlider(el) {
     }
     currSelectedButton.setAttribute("data-state", "");
     el.setAttribute("data-state", "selected");
-}
-
-function initializeCompSlider(compSliderContainer) {
-    let playerId = compSliderContainer.getAttribute("data-player");
-    let afterImage = compSliderContainer.querySelector(".book-section-comparison-after");
-    let beforeImage = compSliderContainer.querySelector(".book-section-comparison-before");
-    let loadFailedImg = compSliderContainer.querySelector(".book-section-comparison-load-failed");
-    let comparissonSlider = compSliderContainer.querySelector(".book-section-comparison-slider");
-    let compInputRange = compSliderContainer.querySelector(".book-section-comparison-range");
-    let minimizeBtnMobile = compSliderContainer.querySelector(`#compMinimizeMobile-${playerId}`);
-    let fullBackground = compSliderContainer.parentElement;
-    let enlargeBtn = fullBackground.querySelector(`#compEnlarge-${playerId}`);
-    let minimizeBtnDesk = fullBackground.querySelector(`#compMinimizeDesktop-${playerId}`);
-    let imgFileName = compSliderContainer.getAttribute("data-img-name");
-    let inModal = !document.querySelector("#nonTextContent").contains(fullBackground);
-
-    // Source the images and listen to errors that may arise
-    if(OFFLINE) {
-        beforeImage.setAttribute("src", `img/stillimages/${imgFileName}_before.jpg`);
-        afterImage.style["background-image"] = `url(img/stillimages/${imgFileName}_after.jpg)`;
-    } else {
-        beforeImage.addEventListener("error", handleCompLoadError);
-        beforeImage.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_before.jpg`);
-        
-        let testImgEl = document.createElement("img");
-        testImgEl.addEventListener("load", function() {
-            testImgEl.remove();
-            afterImage.style["background-image"] = `url(https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg)`;
-        });
-        testImgEl.addEventListener("error", handleCompLoadError);
-        testImgEl.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${imgFileName}_after.jpg`);
-    }
-
-    comparissonSlider.addEventListener("mousedown", slideReady);
-    comparissonSlider.addEventListener("touchstart", slideReady);
-    compInputRange.addEventListener("input", inputToSlide);
-    enlargeBtn.addEventListener("click", enlargeSlider);
-    minimizeBtnMobile.addEventListener("click", minimizeSlider);
-    minimizeBtnDesk.addEventListener("click", minimizeSlider);
-
-    if(!inModal && window.innerWidth >= 900) {
-        let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
-        let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
-        let vidPlayBtn = document.querySelector(`#${playerId}-playPauseButton`);
-
-        updateMainCompMaxHeight();
-        window.addEventListener("resize", updateMainCompMaxHeight);
-        shelfButton.addEventListener("click", respondToTextShelving);
-        unshelfButton.addEventListener("click", respondToTextShelving);
-        vidPlayBtn.addEventListener("click", respondToTextShelving, { once: true });
-    }
-
-    // Functions to handle the before/after sliding
-
-    function slideReady(e) {
-        e.preventDefault();
-        window.addEventListener("mousemove", slideMove);
-        window.addEventListener("touchmove", slideMove);
-        window.addEventListener("mouseup", slideFinish);
-        window.addEventListener("touchend", slideFinish);
-    }
-    
-    function slideFinish() {
-        posToPercent();
-        window.removeEventListener("mousemove", slideMove);
-        window.removeEventListener("touchmove", slideMove);
-        window.removeEventListener("mouseup", slideFinish);
-        window.removeEventListener("touchend", slideFinish);
-    }
-
-    function slideMove(event) {
-        let position = getCursorPos(event);
-        if (position < 0) position = 0;
-        if (position > beforeImage.offsetWidth) position = beforeImage.offsetWidth;
-        slide(position);
-    }
-
-    function getCursorPos(event) {
-        event = event || window.event;
-        let boundingRect = compSliderContainer.getBoundingClientRect();
-        pageX = ("pageX" in event) ? event.pageX : event.changedTouches[0].pageX;
-        let positionX = pageX - boundingRect.left;
-        positionX = positionX - window.pageXOffset;
-        return positionX;
-    }
-
-    function slide(position) {
-        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
-        comparissonSlider.style.left = `${position}px`;
-        compInputRange.value = (position / beforeImage.offsetWidth) * 100;
-        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-        afterImage.style.width = `${position - marginLeft}px`;
-    }
-
-    function inputToSlide() {
-        afterImage.style.width = `${compInputRange.value}%`;
-        comparissonSlider.style.left = `${compInputRange.value}%`;
-    }
-
-    function posToPercent() {
-        let percentage = (afterImage.getBoundingClientRect().width / beforeImage.offsetWidth) * 100;
-        comparissonSlider.style.left = `${percentage}%`;
-        compInputRange.value = Math.floor(percentage);
-        let marginLeft = window.getComputedStyle(beforeImage)["margin-left"];
-        marginLeft = parseFloat(marginLeft.substring(0, marginLeft.length - 2));
-        afterImage.style.width = `${percentage - ((marginLeft / beforeImage.offsetWidth) * 100)}%`;
-    }
-
-    // Functions to handle the the enlarging/minimizing
-
-    function enlargeSlider() {
-        window.removeEventListener("touchstart", detectSwipe);
-        enlargeBtn.style.display = "none"; 
-        fullBackground.setAttribute("data-state", "fullscreen");
-        if(window.innerWidth > 900) {
-            enlargeDesktop();
-        } else {
-            enlargeMobile();
-        }
-    }
-
-    function enlargeDesktop() {
-        minimizeBtnDesk.style.display = "flex";
-        if(inModal) {
-            fullBackground.classList.add("book-section-comparison-slider-enlarged");
-            positionEnlargedModalSlider();
-            window.addEventListener("resize", positionEnlargedModalSlider);
-        } else {
-            let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
-            let unshelfBtn = document.querySelector(".section-text .section-text__unshelve-btn");
-            minimizeBtnDesk.disabled = true;
-            unshelfBtn.addEventListener("transitionend", function() {
-                minimizeBtnDesk.disabled = false;
-            }, { once: true });
-            shelfButton.click();
-        }
-    }
-
-    function enlargeMobile() {
-        minimizeBtnMobile.style.display = "flex";
-        if(fullBackground.requestFullscreen) {
-            fullBackground.requestFullscreen();
-        } else {
-            let nonTextContent = document.querySelector("#nonTextContent");
-            nonTextContent.style["z-index"] = 100;
-            beforeImage.classList.add("book-section-comparison-fullscreen-polyfill");
-            compSliderContainer.classList.add("book-section-comparison-fullscreen-polyfill");
-            if(inModal) {
-                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                let textContent = document.querySelector(".section-text");
-                modalContainer.classList.add("subsection-modal-container-slider-fullscreen");
-                textContent.classList.add("section-text--hidden");
-            }
-        }
-    }
-
-    function minimizeSlider() {
-        window.addEventListener("touchstart", detectSwipe);
-        minimizeBtnMobile.style.display = "none"; 
-        minimizeBtnDesk.style.display = "none";
-        enlargeBtn.style.display = "flex";
-        fullBackground.setAttribute("data-state", "initial");
-        if(window.innerWidth > 900) {
-            minimizeDesktop();
-        } else {
-            minimizeMobile();
-        }
-    }
-
-    function minimizeDesktop() {
-        if(inModal) {
-            fullBackground.classList.remove("book-section-comparison-slider-enlarged");
-            fullBackground.style.width = "initial";
-            fullBackground.style.top = "initial";
-            beforeImage.style.height = "initial";
-            window.removeEventListener("resize", positionEnlargedModalSlider);
-        } else {
-            let unshelfBtn = document.querySelector(".section-text .section-text__unshelve-btn");
-            enlargeBtn.disabled = true;
-            let textSection = document.querySelector(".section-text");
-            textSection.addEventListener("transitionend", function() {
-                enlargeBtn.disabled = false;
-            }, { once: true });
-            unshelfBtn.click();
-        }
-    }
-
-    function minimizeMobile() {
-        if(fullBackground.requestFullscreen) {
-            document.exitFullscreen();
-        } else {
-            let nonTextContent = document.querySelector("#nonTextContent");
-            nonTextContent.style["z-index"] = "initial";
-            beforeImage.classList.remove("book-section-comparison-fullscreen-polyfill");
-            compSliderContainer.classList.remove("book-section-comparison-fullscreen-polyfill");
-            beforeImage.style.removeProperty("height");
-            compSliderContainer.style.removeProperty("height");
-            if(inModal) {
-                let modalContainer = document.querySelector(`.subsection-modal-container[data-player='${playerId}']`);
-                let textContent = document.querySelector(".section-text");
-                modalContainer.classList.remove("subsection-modal-container-slider-fullscreen");
-                textContent.classList.remove("section-text--hidden");
-            }
-        }
-    }
-
-    function positionEnlargedModalSlider() {
-        let header = document.querySelector("header");
-        let footer = document.querySelector("footer");
-        let posTop = header.offsetHeight + ((footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) / 2);
-        let aspectRatio = (beforeImage.offsetWidth / beforeImage.offsetHeight);
-        let availHeight = (footer.getBoundingClientRect().top - header.getBoundingClientRect().bottom) - 50;
-        let availWidth = window.innerWidth - 100;
-        let imageWidth = availHeight * aspectRatio;
-        if(imageWidth < availWidth) {
-            fullBackground.style.width = `${imageWidth}px`;
-            beforeImage.style.height = `${imageWidth / aspectRatio}px`;
-        } else {
-            fullBackground.style.width = `${availWidth}px`;
-            beforeImage.style.height = `${availWidth / aspectRatio}px`;
-        }
-        fullBackground.style.top = `${posTop}px`;
-    }
-
-    function respondToTextShelving(event) {
-        if(event.currentTarget.classList.contains("section-text__shelve-btn") || event.currentTarget.id == `${playerId}-playPauseButton`) {
-            let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
-            window.removeEventListener("touchstart", detectSwipe);
-            fullBackground.setAttribute("data-state", "fullscreen");
-            enlargeBtn.style.display = "none"; 
-            minimizeBtnDesk.style.display = "flex";
-            minimizeBtnDesk.disabled = true;
-            unshelfButton.addEventListener("transitionend", function() {
-                minimizeBtnDesk.disabled = false;
-            }, { once: true });
-        } else if(event.currentTarget.classList.contains("section-text__unshelve-btn")){
-            window.addEventListener("touchstart", detectSwipe);
-            fullBackground.setAttribute("data-state", "initial");
-            minimizeBtnMobile.style.display = "none"; 
-            minimizeBtnDesk.style.display = "none";
-            enlargeBtn.style.display = "flex";
-            enlargeBtn.disabled = true;
-            let textSection = document.querySelector(".section-text");
-            textSection.addEventListener("transitionend", function() {
-                enlargeBtn.disabled = false;
-            }, { once: true });
-        }
-    }
-
-    function updateMainCompMaxHeight() {
-        let nonTextContent = document.querySelector("#nonTextContent");
-        let videoContainer = nonTextContent.querySelector(".book-section-video-container");
-        let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
-        beforeImage.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-    }
-
-    function handleCompLoadError() {
-        fullBackground.setAttribute("data-state", "failed");
-        beforeImage.style.setProperty("display", "none", "important");
-        afterImage.style.setProperty("display", "none", "important");
-        compInputRange.style.setProperty("display", "none", "important");
-        comparissonSlider.style.setProperty("display", "none", "important");
-        enlargeBtn.style.setProperty("display", "none", "important");
-        minimizeBtnMobile.style.setProperty("display", "none", "important");
-        minimizeBtnDesk.style.setProperty("display", "none", "important");
-        loadFailedImg.style.display = "block";
-        if(loadFailedImg === document.querySelector("#nonTextContent .book-section-comparison-load-failed")) {
-            let shelfButton = document.querySelector(".section-text .section-text__shelve-btn");
-            let unshelfButton = document.querySelector(".section-text .section-text__unshelve-btn");
-            let nonTextContent = document.querySelector("#nonTextContent");
-            let videoContainer = nonTextContent.querySelector(".book-section-video-container");
-            let buttonContainer = nonTextContent.querySelector(".book-section-comparison-button-container");
-            shelfButton.removeEventListener("click", respondToTextShelving);
-            unshelfButton.removeEventListener("click", respondToTextShelving);
-            if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-            window.addEventListener("resize", function() {
-                if(window.innerWidth >= 900) loadFailedImg.style["max-height"] = `${(videoContainer.offsetHeight - buttonContainer.offsetHeight - 14)}px`;
-            });
-        }
-        
-    }
-
-}
-
-if(document.querySelector(".summary-menu")) {
-    let resizeMenuContainer = function(event) {
-        let sideLength = Math.min(menuWidget.clientWidth, menuWidget.clientHeight);
-        menuContainer.style.width = `${sideLength}px`;
-        menuContainer.style.height = `${sideLength}px`;
-    };
-
-    let activateMenuPart = function(event) {
-        let menuItem = event.target;
-        let currentOpened = summaryMenu.querySelector(".summary-menu__li--active");
-        let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
-        let partText = menuItem.querySelector(".summary-menu__li-text");
-        let menuCenterX = menuContainer.getBoundingClientRect().right - ((menuContainer.getBoundingClientRect().right - menuContainer.getBoundingClientRect().left) / 2);
-        let menuCenterY = menuContainer.getBoundingClientRect().bottom - ((menuContainer.getBoundingClientRect().bottom - menuContainer.getBoundingClientRect().top) / 2);
-        let itemCordX = menuItem.getBoundingClientRect().right - ((menuItem.getBoundingClientRect().right - menuItem.getBoundingClientRect().left) / 2);
-        let itemCordY = menuItem.getBoundingClientRect().bottom - ((menuItem.getBoundingClientRect().bottom - menuItem.getBoundingClientRect().top) / 2);
-        let translateDist = focusTranslateRatio * menuContainer.clientWidth;
-        let tx = (itemCordX > menuCenterX) ? translateDist : -translateDist;
-        let ty = (itemCordY > menuCenterY) ? translateDist : -translateDist;
-        if(currentOpened) deactivateMenuPart({ target: currentOpened });
-        partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
-        partText.classList.remove("summary-menu__li-text--hidden");
-        partText.classList.remove("summary-menu__li-text--transparent");
-        menuItem.classList.add("summary-menu__li--active");
-    };
-
-    let hidePartText = function(event) {
-        let partText = event.target;
-        if(partText.classList.contains("summary-menu__li-text--transparent")) partText.classList.add("summary-menu__li-text--hidden");
-    };
-
-    let deactivateMenuPart = function(event) {
-        let menuItem = event.target;
-        let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
-        let partText = menuItem.querySelector(".summary-menu__li-text");
-        partGraphic.style.transform = `translate(0, 0)`;
-        partText.addEventListener("transitionend", hidePartText ,{ once: true });
-        partText.classList.add("summary-menu__li-text--transparent");
-        menuItem.classList.remove("summary-menu__li--active");
-    }; 
-
-    let handleItemKeydown = function(event) {
-        if(event.keyCode == 13 || event.keyCode == 32) {
-            if(event.target.classList.contains("summary-menu__li--active")) {
-                deactivateMenuPart(event);
-            } else {
-                activateMenuPart(event);
-            }
-        } else if(event.keyCode == 9 && event.target.classList.contains("summary-menu__li--active")){
-            deactivateMenuPart(event);
-        }
-    };
-
-    let enlargeMenu = function() {
-        enlargeBtn.classList.add("summary-menu__btn--hidden"); 
-        minBtn.classList.remove("summary-menu__btn--hidden");
-        if(window.innerWidth > 900) {
-            minBtn.disabled = true;
-            textUnshelveBtn.addEventListener("transitionend", () => minBtn.disabled = false, { once: true });
-            textShelveBtn.click();
-        } else {
-            if(menuWidget.requestFullscreen) {
-                document.addEventListener("fullscreenchange", resizeMenuContainer, { once: true });
-                menuWidget.requestFullscreen();
-            } else {
-                summaryMenu.classList.remove("summary-menu--nontext-section");
-                summaryMenu.classList.add("summary-menu--fs-polyfill");
-                nonTextSection.classList.add("book-section-non-text-content--fs-polyfill");
-                resizeMenuContainer();
-            }
-        }
-    };
-
-    let minimizeMenu = function() {
-        enlargeBtn.classList.remove("summary-menu__btn--hidden"); 
-        minBtn.classList.add("summary-menu__btn--hidden");
-        if(window.innerWidth > 900) {
-            enlargeBtn.disabled = true;
-            textContent.addEventListener("transitionend", () => enlargeBtn.disabled = false, { once: true });
-            textUnshelveBtn.click();
-        } else {
-            if(menuWidget.requestFullscreen) {
-                document.addEventListener("fullscreenchange", resizeMenuContainer, { once: true });
-                document.exitFullscreen();
-            } else {
-                summaryMenu.classList.add("summary-menu--nontext-section");
-                summaryMenu.classList.remove("summary-menu--fs-polyfill");
-                nonTextSection.classList.remove("book-section-non-text-content--fs-polyfill");
-                resizeMenuContainer();
-            }
-        }
-    };
-
-    let respondToTextShelving = function() {
-        let resizeInterval = setInterval(resizeMenuContainer, 1000/60);
-        textContent.addEventListener("transitionend", () => clearInterval(resizeInterval), { once: true });
-        enlargeBtn.classList.add("summary-menu__btn--hidden"); 
-        minBtn.classList.remove("summary-menu__btn--hidden");
-        minBtn.disabled = true;
-        textUnshelveBtn.addEventListener("transitionend", () => minBtn.disabled = false, { once: true });
-    };
-
-    let respondToTextUnshelving = function() {
-        let resizeInterval = setInterval(resizeMenuContainer, 1000/60);
-        textUnshelveBtn.addEventListener("transitionend", () => clearInterval(resizeInterval), { once: true });
-        enlargeBtn.classList.remove("summary-menu__btn--hidden"); 
-        minBtn.classList.add("summary-menu__btn--hidden");
-        enlargeBtn.disabled = true;
-        textContent.addEventListener("transitionend", () => enlargeBtn.disabled = false, { once: true });
-    };
-
-    let calcGridPos = function(pageX, pageY) {
-        let centerX = (menuWidget.getBoundingClientRect().right - menuWidget.getBoundingClientRect().x) / 2;
-        let centerY = (menuWidget.getBoundingClientRect().bottom - menuWidget.getBoundingClientRect().y) / 2;
-        let posX = (pageX - menuWidget.getBoundingClientRect().x) - centerX;
-        let posY = (pageY - menuWidget.getBoundingClientRect().y) - centerY;
-        return { posX, posY };
-    };
-
-    let panMenu = function(cordX, cordY) {
-        currTranslateX-= cordX;
-        currTranslateY-= cordY;
-        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
-    }
-
-    let zoomMenu = function(cordX, cordY, zoomFactor) {
-        let dx = (cordX - currTranslateX) * (zoomFactor - 1);
-        let dy = (cordY - currTranslateY) * (zoomFactor - 1);
-        currTranslateX-= dx;
-        currTranslateY-= dy;
-        currScale*= zoomFactor;
-        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
-    }
-
-    let initTouchPan = function(event) {
-        let trackTouchmove = function(event) {
-            event.preventDefault();
-            if(event.touches.length == 1) {
-                let newGridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-                panMenu(gridPos.posX - newGridPos.posX, gridPos.posY - newGridPos.posY);
-                gridPos.posX = newGridPos.posX;
-                gridPos.posY = newGridPos.posY;
-            } else {
-                untrackTouch();
-                menuWidget.removeEventListener("touchend", untrackTouch);
-            }
-        }
-
-        let untrackTouch = function() {
-            menuWidget.removeEventListener("touchmove", trackTouchmove);
-        }
-
-        let gridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-        menuWidget.addEventListener("touchmove", trackTouchmove);
-        menuWidget.addEventListener("touchend", untrackTouch, { once: true });
-    };
-
-    let initTouchZoom = function(event) {
-        let trackZoom = function(event) {
-            event.preventDefault();
-            if(event.touches.length == 2) {
-                gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
-                gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
-                let newDist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
-                let deltaDist = dist - newDist;
-                let midPoint = { 
-                    posX: (gridPos1.posX + gridPos2.posX) / 2,
-                    posY: (gridPos1.posY + gridPos2.posY) / 2
-                };
-
-                if(deltaDist >= 0) {
-                    zoomMenu(midPoint.posX, midPoint.posY, 1/zoomWeight);
-                } else {
-                    zoomMenu(midPoint.posX, midPoint.posY, zoomWeight);
-                }
-
-                dist-= deltaDist;
-            } else {
-                untrackTouchZoom();
-                menuWidget.removeEventListener("touchend", untrackTouchZoom);
-            }
-        }
-
-        let untrackTouchZoom = function(event) {
-            menuWidget.removeEventListener("touchmove", trackZoom);
-        }
-
-        let gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
-        let gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
-        let dist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
-        menuWidget.addEventListener("touchmove", trackZoom);
-        menuWidget.addEventListener("touchend", untrackTouchZoom, { once: true });
-    }
-
-    let handleTouchMove = function(event) {
-        event.preventDefault();
-        if(event.touches.length == 1) {
-            initTouchPan(event);
-        } else if(event.touches.length == 2) {
-            initTouchZoom(event);
-        }
-    };
-
-    let handleTouch = function(event) {
-        menuWidget.addEventListener("touchmove", handleTouchMove, { once: true });
-    }
-
-    let nonTextSection = document.getElementById("nonTextContent");
-    let summaryMenu = document.querySelector(".summary-menu");
-    let menuWidget = summaryMenu.querySelector(".summary-menu__widget");
-    let menuContainer = summaryMenu.querySelector(".summary-menu__container");
-    let menuItems = summaryMenu.querySelectorAll(".summary-menu__li");
-    let mobileSummaryBtn = document.querySelector(".page-controls-mobile button[value='summary']");
-    let enlargeBtn = summaryMenu.querySelector(".summary-menu__enlarge-btn");
-    let minBtn = summaryMenu.querySelector(".summary-menu__min-btn");
-    let textContent = document.querySelector(".section-text");
-    let textShelveBtn = document.querySelector(".section-text__shelve-btn");
-    let textUnshelveBtn = document.querySelector(".section-text__unshelve-btn");
-    let focusTranslateRatio = 0.0215;
-    let currTranslateX = 0;
-    let currTranslateY = 0;
-    let currScale = 1;
-    let zoomWeight = 1.05;
-    resizeMenuContainer();
-    window.addEventListener("resize", resizeMenuContainer);
-    mobileSummaryBtn.addEventListener("click", resizeMenuContainer);
-    enlargeBtn.addEventListener("click", enlargeMenu);
-    minBtn.addEventListener("click", minimizeMenu);
-    textShelveBtn.addEventListener("click", respondToTextShelving);
-    textUnshelveBtn.addEventListener("click", respondToTextUnshelving);
-    menuWidget.addEventListener("touchstart", handleTouch);
-
-    for(let menuItem of menuItems) {
-        menuItem.addEventListener("mouseenter", activateMenuPart);
-        menuItem.addEventListener("mouseleave", deactivateMenuPart);
-        menuItem.addEventListener("keydown", handleItemKeydown);
-    }
 }

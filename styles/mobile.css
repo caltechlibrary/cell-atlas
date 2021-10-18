@@ -93,7 +93,7 @@ blockquote {
     line-height: 1.34em;
 }
 
-#nonTextContent, .footer-container, .book-page-nav, .header-logo, .book-section-text-close-button, 
+.footer-container, .book-page-nav, .header-logo, .book-section-text-close-button, 
 .book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
 .nav-menu-footer, .landing-page-download-button, .book-section-video-player-scrub-canvas,
 .book-section-video-player-paint-canvas, .book-section-video-player-controls,
@@ -445,6 +445,7 @@ blockquote {
 
     /* || SECTION styles */
     .book-section-non-text-content {
+        display: flex;
         background: #717171;
         position: fixed;
         box-sizing: border-box;
@@ -455,13 +456,26 @@ blockquote {
         justify-content: center;
     }
 
-    .book-section-non-text-content video {
+    .book-section-non-text-content--hidden-mobile {
+        display: none;
+    }
+
+    .main-non-text-container video {
+        display: block;
         background: #ffffff;
         width: 100%;
     }
 
+    .book-section-video-player--hidden {
+        display: none;
+    }
+
     /* || QUALITY styles */
     .video-quality-changer-mobile {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 1em;
         display: flex;
         float: right;
         color: #ffffff;
@@ -532,6 +546,7 @@ blockquote {
     .subsection-modal-container .video-quality-changer-mobile {
         flex: 1 0 auto;
         position: relative;
+        margin-top: 0;
         margin-left: auto;
         margin-bottom: -22px;
         color: #000000;
@@ -539,6 +554,10 @@ blockquote {
         flex-direction: row;
         left: initial;
         top: initial;
+    }
+
+    .subsection-modal-container .book-section-video-player .video-quality-changer-mobile {
+        display: none;
     }
 
     .subsection-modal-container .video-quality-changer-control {
@@ -615,10 +634,7 @@ blockquote {
     .book-section-comparison-slider-container {
         display: flex;
         position: relative;
-        border: 7px #cccccc solid;
-        border-radius: 10px;
         background: #cccccc;
-        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
@@ -739,25 +755,16 @@ blockquote {
         right: 0;
         bottom: 0;
         left: 0;
+        box-sizing: border-box;
         height: min-content;
-        width: 82.5%;
-        max-height: 90%;
+        width: 93%;
+        max-height: 94.5%;
         flex-direction: column;
-        padding: 16px;
-        padding-top: 8px;
+        padding: 1em;
         border: 4px solid #000000;
         background: #ffffff;
         overflow-y: auto;
         overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .subsection-modal-container--content-img-fs-polyfill {
-        -webkit-overflow-scrolling: initial;
-    }
-
-    .subsection-modal-container--viewer-fs-polyfill {
-        -webkit-overflow-scrolling: initial;
     }
 
     .subsection-modal-container-slider-fullscreen {
@@ -771,15 +778,15 @@ blockquote {
     }
 
     .modal-exit-button-mobile {
-        flex: 0 0 auto;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        line-height: 1;
         background: #ffffff;
         border: none;
         font-size: 24px;
         font-weight: 900;
         padding: 0;
-        margin-left: auto;
-        margin-bottom: 8px;
-        z-index: 2;
     }
 
     .subsection-modal-container .book-section-comparison-button-container {
@@ -792,11 +799,12 @@ blockquote {
         background: #ffffff;
         display: flex;
         align-items: center;
-        border: 7px #cccccc solid;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-        flex: 1 0 auto;
+        flex: 0 1 auto;
         height: auto;
+    }
+
+    .subsection-modal-container .book-section-video-player--hidden {
+        display: none;
     }
 
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
@@ -1002,6 +1010,7 @@ blockquote {
 
     #feedbackModal {
         height: 90%;
+        -webkit-overflow-scrolling: touch;
     }
 
     .book-appendix-download a {
@@ -1055,7 +1064,7 @@ blockquote {
 
     /* || SECTION styles */
 
-    .book-section-non-text-content video {
+    .main-non-text-container video {
         height: 100%;
         width: auto;
     }
@@ -1070,12 +1079,12 @@ blockquote {
         max-height: 90%;
     }
 
-
     /* || QUALITY styles */
     .video-quality-changer-mobile {
         flex-direction: column;
-        position: absolute;
         top: 50%;
+        right: initial;
+        margin-top: 0;
         left: 100%;
         transform: translate(0, -50%);
     }
@@ -1138,8 +1147,8 @@ blockquote {
 
     /* || MODAL styles */
     .subsection-modal-container {
-        width: 90%;
-        max-height: 82.5%;
+        width: 96%;
+        max-height: 91%;
     }
 
     .subsection-modal-container video {

@@ -1192,7 +1192,7 @@
                                         <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
                                         
                                         
-                                                        
+                                                    
                                         
                                         <div class="subsection-modal-text" tabindex="-1">
                                             <h1>Acknowledgments</h1>
@@ -1214,12 +1214,15 @@
                                     </div>
                             </div>
 
-                        <div id="nonTextContent" class="book-section-non-text-content">
-                            <a href="begin.html" class="book-page-nav" data-nav="prev">&#8249;</a>
-                            <div class="book-section-video-container ">
-
-                                            
-                                    <div class="book-section-video-player" data-player="player-introduction">
+                        <div class="main-non-text-container main-non-text-container--hidden-mobile">
+                            <a href="begin.html" class="main-non-text-container__nav-arrow" data-nav="prev"><svg version="1.1" viewBox="0 0 16 32" xmlns="http://www.w3.org/2000/svg">
+                        	<g>
+                        		<path d="M 15.25,1.5 H 8 L 0.75,16 8,30.5 h 7.25 L 8,16 15.25,1.5"/>
+                        	</g>
+                        </svg></a>
+                                    <div class="media-viewer media-viewer--main-section">
+                                            <div class="media-viewer__media-container media-viewer__media-container--main-section">
+                                             <div class="book-section-video-player" data-player="player-introduction">
                                         <video id=player-introduction doi="10.22002/D1.1462" data-file="0_1_Cjejuni.mp4" poster="img/thumbnails/0_1_thumbnail.jpg" muted crossorigin>
                                                     There was an error loading the video.
                                         </video>
@@ -1267,30 +1270,57 @@
                                             </div>
                                             <input type="range" id="player-introduction-seekBar" value="0" max="100" autocomplete="off">
                                         </div>
-                                    </div>
 
-                                                    <div class="video-quality-changer-mobile video-quality-changer-selector" data-player="player-introduction">
-                                                        <label class="video-quality-changer-entry">
-                                                            <span class="video-quality-changer-input">
-                                                                <input id="vidMed" type="radio" name="quality-player-introduction-mobile" value="480" data-player="player-introduction">
-                                                                <span class="video-quality-changer-control"></span>
-                                                            </span> 
-                                                            <span class="video-quality-changer-label">480p</span>
-                                                        </label>
-                                                        <label class="video-quality-changer-entry">
-                                                            <span class="video-quality-changer-input">
-                                                                <input id="vidHigh" type="radio" name="quality-player-introduction-mobile" value="1080" data-player="player-introduction">
-                                                                <span class="video-quality-changer-control"></span>
-                                                            </span>
-                                                            <span class="video-quality-changer-label">1080p</span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                            <a href="1-methods.html" class="book-page-nav" data-nav="next">&#8250;</a>
+                                                <div class="video-quality-changer-mobile video-quality-changer-selector" data-player="player-introduction">
+                                                    <label class="video-quality-changer-entry">
+                                                        <span class="video-quality-changer-input">
+                                                            <input id="vidMed" type="radio" name="quality-player-introduction-mobile" value="480" data-player="player-introduction">
+                                                            <span class="video-quality-changer-control"></span>
+                                                        </span> 
+                                                        <span class="video-quality-changer-label">480p</span>
+                                                    </label>
+                                                    <label class="video-quality-changer-entry">
+                                                        <span class="video-quality-changer-input">
+                                                            <input id="vidHigh" type="radio" name="quality-player-introduction-mobile" value="1080" data-player="player-introduction">
+                                                            <span class="video-quality-changer-control"></span>
+                                                        </span>
+                                                        <span class="video-quality-changer-label">1080p</span>
+                                                    </label>
+                                                </div>    </div> 
+                                            
+                                            <button class="media-viewer__fullscreen-btn media-viewer__fullscreen-btn--hidden" aria-label="Enter full screen" title="Enter full screen">
+                                                <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                    	<g>
+                                    		<g stroke-width="1.625">
+                                    			<path d="m.75.75v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
+                                    			<path d="m31.25.75h-13v3.25h9.75v9.75h3.25v-9.75z"/>
+                                    			<path d="m31.25 31.25v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
+                                    			<path d="m.75 31.25h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
+                                    		</g>
+                                    	</g>
+                                    </svg></div>
+                                                <div class="media-viewer__fullscreen-btn-icon media-viewer__exit-fs-icon media-viewer__fullscreen-btn-icon--hidden"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                    	<g>
+                                    		<g stroke-width="1.625">
+                                    			<path d="m13.75 13.75v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
+                                    			<path d="m18.25 13.75h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
+                                    			<path d="m18.25 18.25v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
+                                    			<path d="m13.75 18.25h-13v3.25h9.75v9.75h3.25v-9.75z"/>
+                                    		</g>
+                                    	</g>
+                                    </svg></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                <a href="1-methods.html" class="main-non-text-container__nav-arrow" data-nav="next"><svg version="1.1" viewBox="0 0 16 32" xmlns="http://www.w3.org/2000/svg">
+                        	<g>
+                        		<path d="M 0.75,1.5 H 8 L 15.25,16 8,30.5 H 0.75 L 8,16 0.75,1.5"/>
+                        	</g>
+                        </svg></a>
                         </div>
 
                         <div class="section-text section-text--shelveable">
-                            <button class="section-text__unshelve-btn section-text__unshelve-btn--shelved section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
+                            <button class="section-text__unshelve-btn section-text__unshelve-btn--hidden" tabindex="-1">&#8249;&#8249; Text</button>
                             <div class="section-text__main-container ">
                                 <div class="section-text__text-container">
                                     <div class="section-text__header-container">
@@ -1371,15 +1401,19 @@
 
     </div>
 
-    <div class="page-controls-mobile" >
-                <a href="begin.html" class="page-controls-nav">&#10094;</a>
+    <div class="mobile-controls mobile-controls--section-text">
+                <a class="mobile-controls__nav mobile-controls__nav--prev" href="begin.html"><svg version="1.1" viewBox="0 0 16 32" xmlns="http://www.w3.org/2000/svg">
+    	<g>
+    		<path d="M 15.25,1.5 H 8 L 0.75,16 8,30.5 h 7.25 L 8,16 15.25,1.5"/>
+    	</g>
+    </svg></a>
         
-                <button onclick="toggleView(this)" value="text" class="page-controls-button page-controls-selected">
+                <button class="mobile-controls__btn mobile-controls__btn--selected" value="text">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="6 5 50 50" xml:space="preserve">
                     <polygon points="22,6.59 11.77,17 22,17 "/>
                     <path d="M11,53c0,0.27,0.11,0.52,0.29,0.71C11.48,53.89,11.74,54,12,54h36c0.55,0,1-0.45,1-1V7.01c0-0.55-0.45-1-1-1L24,6v12  c0,0.55-0.45,1-1,1H11V53z M40.5,46H19.67c-0.55,0-1-0.45-1-1s0.45-1,1-1H40.5c0.55,0,1,0.45,1,1S41.05,46,40.5,46z M40.42,39H19.59  c-0.55,0-1-0.45-1-1c0,0,0,0,0,0c0,0,0-0.01,0-0.01c0-0.55,0.45-1,1-1h20.83c0.55,0,1,0.45,1,1c0,0,0,0,0,0c0,0,0,0.01,0,0.01  C41.42,38.55,40.97,39,40.42,39z M19.58,23h20.83c0.55,0,1,0.45,1,1s-0.45,1-1,1H19.58c-0.55,0-1-0.45-1-1S19.03,23,19.58,23z   M19.5,30h20.83c0.55,0,1,0.45,1,1s-0.45,1-1,1H19.5c-0.55,0-1-0.45-1-1S18.95,30,19.5,30z"/>
                 </svg>        </button>
-                    <button onclick="toggleView(this)" value="video" class="page-controls-button">
+                    <button class="mobile-controls__btn" value="vid">
                 <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px">
                     <g>
                         <polygon points="71.82 38.8 71.82 59.34 100 74.37 100 25.63 71.82 38.8"/>
@@ -1387,7 +1421,11 @@
                     </g>
                 </svg>        </button>
                 
-                <a href="1-methods.html" class="page-controls-nav">&#10095;</a>
+                <a class="mobile-controls__nav mobile-controls__nav--next" href="1-methods.html"><svg version="1.1" viewBox="0 0 16 32" xmlns="http://www.w3.org/2000/svg">
+    	<g>
+    		<path d="M 0.75,1.5 H 8 L 15.25,16 8,30.5 H 0.75 L 8,16 0.75,1.5"/>
+    	</g>
+    </svg></a>
         </div>  </div>
 
   <script src="js/script.js"></script>
@@ -1395,10 +1433,13 @@
   <script src="js/modal.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
-  <script src="js/lunr/lunr.min.js"></script>
+  <script src="js/MobileControls.js"></script>
+    <script src="js/lunr/lunr.min.js"></script>
   <script src="js/SearchWidget.js"></script>
   <script src="js/search.js"></script>
-        <script src="js/SectionText.js"></script>
+        <script src="js/MediaViewer.js"></script>
+      <script src="js/SectionText.js"></script>
+      <script src="js/CompSlider.js"></script>
       <script src="js/section-refactor.js"></script>
     <script src="js/appendix.js"></script>
   <script src="js/mobile.js"></script>

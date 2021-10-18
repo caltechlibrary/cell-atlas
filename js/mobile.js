@@ -25,7 +25,7 @@ window.addEventListener("touchstart", detectSwipe);
 
 function initializeMobileView() {
     let textContent = document.querySelector(".section-text");
-    let nonTextContent = document.querySelector("#nonTextContent");
+    let nonTextContent = document.querySelector(".main-non-text-container");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
     window.currVideoPlaying = undefined;
@@ -49,7 +49,7 @@ function initializeMobileView() {
 function terminateMobileView() {
     window.currVideoPlaying = undefined;
     let textContent = document.querySelector(".section-text");
-    let nonTextContent = document.querySelector("#nonTextContent");
+    let nonTextContent = document.querySelector(".main-non-text-container");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
     if(video) {
@@ -79,55 +79,6 @@ function pauseOnMinimize(event) {
     } else if (currVideoPlaying){
         window.currVideoPlaying.pause();
         window.addEventListener("touchstart", detectSwipe);
-    }
-}
-
-function toggleView(el) {
-    // If new state requested, switch states
-    let currSelected = document.querySelector(".page-controls-selected");
-    currSelected.classList.remove("page-controls-selected");
-    el.classList.add("page-controls-selected");
-    let textContent = document.querySelector(".section-text");
-    let nonTextContent = document.querySelector("#nonTextContent");
-    let pageControls = document.querySelector(".page-controls-mobile");
-    let videoPlayer = nonTextContent.querySelector(".book-section-video-player");
-    let videoPlayerId;
-    let comparissonFullBackground;
-    let qualityChanger;
-    if(videoPlayer) {
-        videoPlayerId = videoPlayer.getAttribute("data-player");
-        comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
-        qualityChanger = nonTextContent.querySelector(".video-quality-changer-mobile");
-    }
-    if(el.value == "text") {
-        textContent.classList.remove("section-text--hidden");
-        nonTextContent.style.display = "none";
-        // Remove any inline styles from forcing fixed page controls on for videos
-        pageControls.removeAttribute("style");
-    } else if(el.value == "video") {
-        textContent.classList.add("section-text--hidden");
-        nonTextContent.style.display = "flex";
-        videoPlayer.style.display = "block";
-        if(comparissonFullBackground) comparissonFullBackground.style.display = "none";
-        qualityChanger.style.display = "flex";
-        closeModalMobile();
-        // Video portions of section pages will always have fixed page controls
-        pageControls.style.position = "fixed";
-    } else if(el.value == "image") {
-        textContent.classList.add("section-text--hidden");
-        nonTextContent.style.display = "flex";
-        comparissonFullBackground.style.display = "block";
-        videoPlayer.style.display = "none";
-        qualityChanger.style.display = "none";
-        closeModalMobile();
-        // Video portions of section pages will always have fixed page controls
-        pageControls.style.position = "fixed";
-    } else if(el.value == "summary") {
-        textContent.classList.add("section-text--hidden");
-        nonTextContent.style.display = "flex";
-        closeModalMobile();
-        // Video portions of section pages will always have fixed page controls
-        pageControls.style.position = "fixed";
     }
 }
 
