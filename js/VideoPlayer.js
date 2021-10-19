@@ -41,6 +41,7 @@ let VideoPlayer = function(root) {
         video.addEventListener("timeupdate", updateSeekBar);
         video.addEventListener("progress", updatePercentBuffered);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
+        seekBar.addEventListener("keydown", onSeekBarKeyDown);
         seekBar.addEventListener("input", onSeekBarInput);
         fsBtn.addEventListener("click", toggleFullscreen);
         root.addEventListener("fullscreenchange", onFullscreenChange);
@@ -104,6 +105,13 @@ let VideoPlayer = function(root) {
         if(!video.paused) {
             video.pause();
             seekBar.addEventListener("mouseup", togglePlayBack, { once: true });
+        }
+    };
+
+    let onSeekBarKeyDown = function() {
+        if(!video.paused) {
+            video.pause();
+            seekBar.addEventListener("keyup", togglePlayBack, { once: true });
         }
     };
 
