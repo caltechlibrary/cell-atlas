@@ -3272,6 +3272,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.mobile-controls--hidden {
+    display: none;
+}
+
 .mobile-controls__nav {
     width: 15px;
     fill: #c2c2c2;

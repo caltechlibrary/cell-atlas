@@ -1,6 +1,7 @@
 (function() {
     let searchWidgetHeaderEl = document.querySelector(".search-widget.search-widget--header");
     let searchWidgetNavMenuEl = document.querySelector(".search-widget.search-widget--nav-menu");
+    let mobileControlsEl = document.querySelector(".mobile-controls");
     let searchWidgetHeader, searchWidgetNavMenu;
     let SearchController = (function() {
 
@@ -19,6 +20,7 @@
             navMenu.classList.add("nav-menu--searching");
             sectionList.classList.add("nav-menu__section-list--searching");
             mobileNavFooter.classList.add("mobile-footer-data--searching");
+            mobileControlsEl.classList.add("mobile-controls--hidden");
         };
 
         let handleNavSearchBarBlur = function(event) {
@@ -30,6 +32,7 @@
                 sectionList.classList.remove("nav-menu__section-list--searching");
                 mobileNavFooter.classList.remove("mobile-footer-data--searching");
             }
+            mobileControlsEl.classList.remove("mobile-controls--hidden");
         };
 
         return {
