@@ -33,6 +33,8 @@ let VideoPlayer = function(root) {
     let initControls = function() {
         formattedDuration = getFormattedTime(video.duration);
         updateTimeDisplay();
+        controlsContainer.addEventListener("focusin", onControlsContainerFocusIn);
+        controlsContainer.addEventListener("focusout", onControlsContainerFocusOut);
         playBackBtn.addEventListener("click", togglePlayBack);
         video.addEventListener("click", togglePlayBack);
         video.addEventListener("play", onPlay);
@@ -59,6 +61,14 @@ let VideoPlayer = function(root) {
         let timeTextNode = document.createTextNode(`${getFormattedTime(video.currentTime)} / ${formattedDuration}`);
         timeDisplay.removeChild(timeDisplay.firstChild);
         timeDisplay.appendChild(timeTextNode);
+    };
+
+    let onControlsContainerFocusIn = function() {
+        controlsContainer.classList.add("video-player__controls-container--has-focus");
+    };
+
+    let onControlsContainerFocusOut = function() {
+        controlsContainer.classList.remove("video-player__controls-container--has-focus");
     };
 
     let togglePlayBack = function() {

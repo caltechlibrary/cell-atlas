@@ -1895,6 +1895,10 @@ file. These definitions will be defined mobile first.
     opacity: 1;
 }
 
+.video-player__controls-container--has-focus {
+    opacity: 1;
+}
+
 .video-player__top-controls-container {
     display: flex;
     align-items: center;
