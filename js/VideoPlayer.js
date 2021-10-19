@@ -13,7 +13,9 @@ let VideoPlayer = function(root) {
     let fsIcon = root.querySelector(".video-player__control-icon-fs");
     let exitFsIcon = root.querySelector(".video-player__control-icon-exit-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
-    let formattedDuration, percentBuffered = 0;
+    let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
+    let scrubContext = scrubCanvas.getContext("2d");
+    let paintInterval, formattedDuration, percentBuffered = 0, fps = 10, scrubImages = {};
 
     let init = function() {
         if(doi) {
@@ -156,7 +158,59 @@ let VideoPlayer = function(root) {
         }
     };
 
+    let resizeScrubCanvas = function() {
+        scrubCanvas.setAttribute("width", `${video.getBoundingClientRect().width}px`);
+        scrubCanvas.setAttribute("height", `${video.getBoundingClientRect().height}px`);
+    };
+
+    let startPaintInterval = function() {
+        paintInterval = setInterval(paintCurrentFrame, 1000 / fps);
+    };
+
+    let paintCurrentFrame = async function() {
+        let frameTime = Math.round(video.currentTime  * fps) / fps;
+        if(!scrubImages[frameTime]) {
+            scrubContext.drawImage(video, 0, 0, scrubCanvas.width, scrubCanvas.height);
+            imageData = scrubContext.getImageData(0, 0, scrubCanvas.width, scrubCanvas.height);
+            imageBitmap = await createImageBitmap(imageData);
+            scrubImages[frameTime] = imageBitmap;
+        }
+    };
+
+    let endPaintInterval = function() {
+        clearInterval(paintInterval);
+    };
+
+    let showScrubCanvas = function() {
+        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+    };
+
+    let hideScrubCanvas = function() {
+        if(video.seeking) {
+            video.addEventListener("seeked", hideScrubCanvas, { once: true });
+        } else {
+            scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
+        }
+    };
+
+    let paintSeekedFrame = function() {
+        let seekedTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
+        let frameTime = Math.round(seekedTime  * fps) / fps;
+        if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
+    };
+
     init();
     video.addEventListener("loadedmetadata", initControls, { once: true });
+    if(window.createImageBitmap) {
+        resizeScrubCanvas();
+        window.addEventListener("resize", resizeScrubCanvas);
+        video.addEventListener("playing", startPaintInterval);
+        video.addEventListener("pause", endPaintInterval);
+        seekBar.addEventListener("mousedown", showScrubCanvas);
+        seekBar.addEventListener("keydown", showScrubCanvas);
+        seekBar.addEventListener("mouseup", hideScrubCanvas);
+        seekBar.addEventListener("keyup", hideScrubCanvas);
+        seekBar.addEventListener("input", paintSeekedFrame);
+    }
 
 }

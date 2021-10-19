@@ -1875,6 +1875,19 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.video-player__scrub-canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.video-player__scrub-canvas--hidden {
+    display: none;
+}
+
 .video-player__controls-container {
     position: absolute;
     left: 0;

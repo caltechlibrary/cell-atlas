@@ -1,8 +1,9 @@
 <div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" data-doi="${it.doi}" data-vid-file="${it.video}">
-    <video class="video-player__video ${if(it.isSection)}video-player__video--main-section${else}video-player__video--subsection${endif}" poster="img/thumbnails/${it.thumbnail}.jpg" width="1920px" height="1080px" muted>
+    <video class="video-player__video ${if(it.isSection)}video-player__video--main-section${else}video-player__video--subsection${endif}" poster="img/thumbnails/${it.thumbnail}.jpg" width="1920px" height="1080px" muted crossorigin>
         <source>
         Your browser does not support the video tag.
     </video>
+    <canvas class="video-player__scrub-canvas video-player__scrub-canvas--hidden"></canvas>
     <div class="video-player__controls-container">
         <div class="video-player__top-controls-container">
             <button class="video-player__control-btn video-player__control-btn-playback">
