@@ -1875,6 +1875,87 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.video-player__controls-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 24px 16px 16px;
+    background: linear-gradient(#00000000, #000000);
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+
+.video-player__controls-container--playing {
+    opacity: 0;
+}
+
+.video-player:hover .video-player__controls-container--playing {
+    opacity: 1;
+}
+
+.video-player__top-controls-container {
+    display: flex;
+    align-items: center;
+}
+
+.video-player__control-btn {
+    margin: 0;
+    box-sizing: border-box;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    border: none;
+    background: none;
+}
+
+.video-player__control-btn-playback {
+    margin-right: 0.75em;   
+}
+
+.video-player__control-btn-fs {
+    margin-left: auto;
+}
+
+.video-player__control-icon {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+}
+
+.video-player__control-icon svg {
+    display: block;
+}
+
+.video-player__control-icon--hidden {
+    display: none;
+}
+
+.video-player__time-display {
+    color: #fff;
+    font-size: 0.85em;
+    font-family: sans-serif;
+}
+
+.video-player__seek-bar {
+    -webkit-appearance: none;
+    margin: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 100px;
+    background: #717171;
+    cursor: pointer;
+}
+
+.video-player__seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0.85em;
+    height: 0.85em;
+    border-radius: 100%;
+    background: #fff;
+}
+
 /* comp-slider */
 .comp-slider {
     position: relative;
