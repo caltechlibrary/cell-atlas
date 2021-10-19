@@ -44,9 +44,8 @@ for(let openSectionButton of openSectionButtons) {
 function toggleNav(el) {
     el.disabled = true;
     let navMenu = document.getElementById("navMenu");
-    let pageContainer = document.querySelector(".book-page-content");
     if(window.navOpened){
-        pageContainer.removeEventListener("click", autoShelfNav);
+        window.removeEventListener("click", autoShelfNav);
         navMenu.style["max-height"] = "0%";
         navMenu.classList.remove("nav-menu-opened");
         setTimeout(function(){
@@ -64,7 +63,7 @@ function toggleNav(el) {
         navMenu.style.opacity = "1";
         window.navOpened = true;
         window.sessionStorage.setItem("navOpened", true);
-        pageContainer.addEventListener("click", autoShelfNav);
+        window.addEventListener("click", autoShelfNav);
         el.disabled = false;
 
         // Make all buttons and chapter links, and open section lists tabable
@@ -74,11 +73,9 @@ function toggleNav(el) {
 
 function autoShelfNav(event) {
     let navMenu = document.getElementById("navMenu");
-    if(event.target != navMenu && !navMenu.contains(event.target)){
-        let navToggleButton = document.getElementById("openNavButton");
-        navToggleButton.click();
-        let pageContainer = document.querySelector(".book-page-content");
-        pageContainer.removeEventListener("click", autoShelfNav);
+    if(event.target != navMenu && !navMenu.contains(event.target) && !event.target.classList.contains("header-nav-button")){
+        toggleNav(document.getElementById("openNavButton"));
+        window.removeEventListener("click", autoShelfNav);
     }
 }
 
