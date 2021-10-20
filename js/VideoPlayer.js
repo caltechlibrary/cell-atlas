@@ -59,6 +59,7 @@ let VideoPlayer = function(root) {
             window.addEventListener("resize", resizeScrubCanvas);
             video.addEventListener("playing", startPaintInterval);
             video.addEventListener("pause", endPaintInterval);
+            video.addEventListener("seeked", paintCurrentFrame);
             seekBar.addEventListener("mousedown", showScrubCanvas);
             seekBar.addEventListener("keydown", showScrubCanvas);
             seekBar.addEventListener("mouseup", hideScrubCanvas);
