@@ -1206,7 +1206,7 @@ file. These definitions will be defined mobile first.
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: 56px 1em;
+    padding: 56px 0.6em;
     display: flex;
     align-items: center;
     justify-content: center;
