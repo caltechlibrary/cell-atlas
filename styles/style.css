@@ -1841,6 +1841,8 @@ file. These definitions will be defined mobile first.
 }
 
 .video-player__video {
+    width: auto;
+    height: auto;
     display: block;
 }
 
