@@ -9,6 +9,7 @@ let VideoPlayer = function(root) {
     let playIcon = root.querySelector(".video-player__control-icon-play");
     let pauseIcon = root.querySelector(".video-player__control-icon-pause");
     let timeDisplay = root.querySelector(".video-player__time-display");
+    let qualityChanger = root.querySelector(".video-player__quality-changer");
     let openQualityChangerBtn = root.querySelector(".video-player__quality-changer-open-btn");
     let qualityOptionsMenu = root.querySelector(".video-player__quality-options-menu");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
@@ -157,12 +158,24 @@ let VideoPlayer = function(root) {
             qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-open");
             qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-closed");
             qualityOptionsMenu.classList.remove("video-player__quality-options-menu--hidden");
+            window.addEventListener("click", autoCloseQualityOptionsMenu);
         } else {
-            openQualityChangerBtn.classList.remove("video-player__quality-changer-open-btn--activated");
+            qualityOptionsMenu.addEventListener("transitionend", onQualityMenuClose, { once: true });
             qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-closed");
             qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-open");
             qualityOptionsMenu.classList.add("video-player__quality-options-menu--hidden");
+            window.removeEventListener("click", autoCloseQualityOptionsMenu);
         }
+    };
+
+    let onQualityMenuClose = function() {
+        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
+            openQualityChangerBtn.classList.remove("video-player__quality-changer-open-btn--activated");
+        }
+    };
+
+    let autoCloseQualityOptionsMenu = function(event) {
+        if(!qualityChanger.contains(event.target)) toggleQualityOptionsMenu();
     };
 
     let toggleFullscreen = function() {
