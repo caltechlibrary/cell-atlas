@@ -159,8 +159,17 @@ let VideoPlayer = function(root) {
     };
 
     let resizeScrubCanvas = function() {
-        scrubCanvas.setAttribute("width", `${video.getBoundingClientRect().width}px`);
-        scrubCanvas.setAttribute("height", `${video.getBoundingClientRect().height}px`);
+        let height = video.getBoundingClientRect().height;
+        let width = video.getBoundingClientRect().width;
+        let intrinsicRatio = video.videoWidth / video.videoHeight;
+        let currentRatio = width / height;
+        if(currentRatio > intrinsicRatio) {
+            scrubCanvas.setAttribute("height", `${height}px`);
+            scrubCanvas.setAttribute("width", `${height * intrinsicRatio}px`);
+        } else {
+            scrubCanvas.setAttribute("width", `${width}px`);
+            scrubCanvas.setAttribute("height", `${width / intrinsicRatio}px`);
+        }
     };
 
     let startPaintInterval = function() {
