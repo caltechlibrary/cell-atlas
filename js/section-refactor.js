@@ -40,6 +40,12 @@
             }
         };
 
+        let handleVideoPlayerQualityInput = function(event) {
+            for(let videoPlayer of videoPlayers) {
+                videoPlayer.changeQuality(event.target.value);
+            }
+        };
+
         let shelveText = function() {
             expandMainNonTextContainer();
             shelveTextWidget();
@@ -115,6 +121,7 @@
 
         return {
             handleMainMediaViewerFsBtnClick,
+            handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
             handleSubMediaViewerFsBtnClick,
@@ -134,6 +141,9 @@
     }
     if(videoPlayerEls.length > 0) {
         for(let videoPlayerEl of videoPlayerEls) videoPlayers.push(VideoPlayer(videoPlayerEl));
+        for(let videoPlayer of videoPlayers) {
+            for(let qualityOptionInput of videoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+        }
     }
     if(compSliderEls.length > 0) {
         for(let compSliderEl of compSliderEls) compSliders.push(CompSlider(compSliderEl));

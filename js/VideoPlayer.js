@@ -12,6 +12,7 @@ let VideoPlayer = function(root) {
     let qualityChanger = root.querySelector(".video-player__quality-changer");
     let openQualityChangerBtn = root.querySelector(".video-player__quality-changer-open-btn");
     let qualityOptionsMenu = root.querySelector(".video-player__quality-options-menu");
+    let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let fsIcon = root.querySelector(".video-player__control-icon-fs");
     let exitFsIcon = root.querySelector(".video-player__control-icon-exit-fs");
@@ -193,6 +194,11 @@ let VideoPlayer = function(root) {
         if(currentlyFocused) currentlyFocused.classList.remove("video-player__quality-option--focus");
     };
 
+    let changeQuality = function(quality) {
+        let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
+        qualityInput.checked = true;
+    };
+
     let toggleFullscreen = function() {
         if(document.fullscreenElement == root || document.webkitFullscreenElement == root) {
             if(document.exitFullscreen) {
@@ -271,5 +277,11 @@ let VideoPlayer = function(root) {
 
     video.addEventListener("loadedmetadata", onLoadedMetadata, { once: true });
     init();
+
+    return {
+        root,
+        qualityOptionInputs,
+        changeQuality
+    }
 
 }
