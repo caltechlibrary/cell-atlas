@@ -2013,6 +2013,11 @@ file. These definitions will be defined mobile first.
     font-weight: 600;
 }
 
+.video-player__quality-option--focus {
+    outline: 1px auto Highlight;
+    outline: 1px auto -webkit-focus-ring-color;
+}
+
 .video-player__quality-option-input-container {
     width: 1em;
     height: 1em;
@@ -2032,6 +2037,11 @@ file. These definitions will be defined mobile first.
     width: 1em;
     height: 1em;
     fill: #fff;
+    opacity: 0;
+}
+
+.video-player__quality-option-input:checked + .video-player__quality-option-check-icon {
+    opacity: 1;
 }
 
 .video-player__control-btn-fs {

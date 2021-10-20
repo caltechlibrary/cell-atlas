@@ -56,6 +56,8 @@ let VideoPlayer = function(root) {
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
         seekBar.addEventListener("input", onSeekBarInput);
         openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
+        qualityOptionsMenu.addEventListener("focusin", handleQualityOptionsMenufocusIn);
+        qualityOptionsMenu.addEventListener("focusout", handleQualityOptionsMenufocusOut);
         fsBtn.addEventListener("click", toggleFullscreen);
         root.addEventListener("fullscreenchange", onFullscreenChange);
         root.addEventListener("webkitfullscreenchange", onFullscreenChange);
@@ -176,6 +178,19 @@ let VideoPlayer = function(root) {
 
     let autoCloseQualityOptionsMenu = function(event) {
         if(!qualityChanger.contains(event.target)) toggleQualityOptionsMenu();
+    };
+
+    let handleQualityOptionsMenufocusIn = function(event) {
+        let qualityOptionInput = event.target;
+        let qualityOption = qualityOptionInput.closest(".video-player__quality-option");
+        let currentlyFocused = qualityOptionsMenu.querySelector(".video-player__quality-option--focus");
+        if(currentlyFocused) currentlyFocused.classList.remove("video-player__quality-option--focus");
+        qualityOption.classList.add("video-player__quality-option--focus");
+    };
+
+    let handleQualityOptionsMenufocusOut = function() {
+        let currentlyFocused = qualityOptionsMenu.querySelector(".video-player__quality-option--focus");
+        if(currentlyFocused) currentlyFocused.classList.remove("video-player__quality-option--focus");
     };
 
     let toggleFullscreen = function() {
