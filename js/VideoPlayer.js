@@ -32,9 +32,14 @@ let VideoPlayer = function(root) {
         video.load();
     }
 
-    let initControls = function() {
+    let onLoadedMetadata = function() {
         formattedDuration = getFormattedTime(video.duration);
         updateTimeDisplay();
+        if(window.createImageBitmap) resizeScrubCanvas();
+        attachEventListeners();
+    };
+
+    let attachEventListeners = function() {
         controlsContainer.addEventListener("focusin", onControlsContainerFocusIn);
         controlsContainer.addEventListener("focusout", onControlsContainerFocusOut);
         playBackBtn.addEventListener("click", togglePlayBack);
@@ -50,6 +55,16 @@ let VideoPlayer = function(root) {
         fsBtn.addEventListener("click", toggleFullscreen);
         root.addEventListener("fullscreenchange", onFullscreenChange);
         root.addEventListener("webkitfullscreenchange", onFullscreenChange);
+        if(window.createImageBitmap) {
+            window.addEventListener("resize", resizeScrubCanvas);
+            video.addEventListener("playing", startPaintInterval);
+            video.addEventListener("pause", endPaintInterval);
+            seekBar.addEventListener("mousedown", showScrubCanvas);
+            seekBar.addEventListener("keydown", showScrubCanvas);
+            seekBar.addEventListener("mouseup", hideScrubCanvas);
+            seekBar.addEventListener("keyup", hideScrubCanvas);
+            seekBar.addEventListener("input", paintSeekedFrame);
+        }
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -208,18 +223,7 @@ let VideoPlayer = function(root) {
         if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
     };
 
+    video.addEventListener("loadedmetadata", onLoadedMetadata, { once: true });
     init();
-    video.addEventListener("loadedmetadata", initControls, { once: true });
-    if(window.createImageBitmap) {
-        resizeScrubCanvas();
-        window.addEventListener("resize", resizeScrubCanvas);
-        video.addEventListener("playing", startPaintInterval);
-        video.addEventListener("pause", endPaintInterval);
-        seekBar.addEventListener("mousedown", showScrubCanvas);
-        seekBar.addEventListener("keydown", showScrubCanvas);
-        seekBar.addEventListener("mouseup", hideScrubCanvas);
-        seekBar.addEventListener("keyup", hideScrubCanvas);
-        seekBar.addEventListener("input", paintSeekedFrame);
-    }
 
 }
