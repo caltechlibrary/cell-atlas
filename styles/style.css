@@ -1931,8 +1931,111 @@ file. These definitions will be defined mobile first.
     margin-right: 0.75em;   
 }
 
-.video-player__control-btn-fs {
+.video-player__quality-changer {
+    position: relative;
     margin-left: auto;
+}
+
+.video-player__quality-changer-open-btn {
+    position: relative;
+    box-sizing: border-box;
+    height: 1.5em;
+    width: 5.5em;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 0px 0px 0px #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5em;
+    background: none;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.1s, box-shadow 0.1s;
+    z-index: 2;
+}
+
+.video-player__quality-changer-open-btn:hover {
+    box-shadow: 0px 0px 0px 2px #fff;
+    background: #363636;
+}
+
+.video-player__quality-changer-open-btn--activated {
+    box-shadow: 0px 0px 0px 2px #fff;
+    background: #363636;
+}
+
+.video-player__quality-changer-open-btn-icon {
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    fill: #fff;
+}
+
+.video-player__quality-options-menu {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 4.25em;
+    border-radius: 6px;
+    padding: 0.25em 0.5em 1.25em;
+    background: #363636;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.video-player__quality-options-menu--transition-closed {
+    transition: height 0.5s, padding 0.5s;
+}
+
+.video-player__quality-options-menu--transition-open {
+    transition: height 0.5s, padding 0.5s, visibility 0s ease 0.5s;
+}
+
+
+.video-player__quality-options-menu--hidden {
+    height: 0em;
+    padding: 0em 0.5em 0em;
+    visibility: hidden;
+}
+
+.video-player__quality-option {
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.video-player__quality-option-input-container {
+    width: 1em;
+    height: 1em;
+}
+
+.video-player__quality-option-input {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.video-player__quality-option-check-icon {
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    fill: #fff;
+}
+
+.video-player__control-btn-fs {
+    margin-left: 0.75em;
 }
 
 .video-player__control-icon {

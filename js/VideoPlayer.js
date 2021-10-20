@@ -9,6 +9,8 @@ let VideoPlayer = function(root) {
     let playIcon = root.querySelector(".video-player__control-icon-play");
     let pauseIcon = root.querySelector(".video-player__control-icon-pause");
     let timeDisplay = root.querySelector(".video-player__time-display");
+    let openQualityChangerBtn = root.querySelector(".video-player__quality-changer-open-btn");
+    let qualityOptionsMenu = root.querySelector(".video-player__quality-options-menu");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let fsIcon = root.querySelector(".video-player__control-icon-fs");
     let exitFsIcon = root.querySelector(".video-player__control-icon-exit-fs");
@@ -52,6 +54,7 @@ let VideoPlayer = function(root) {
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
         seekBar.addEventListener("input", onSeekBarInput);
+        openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
         fsBtn.addEventListener("click", toggleFullscreen);
         root.addEventListener("fullscreenchange", onFullscreenChange);
         root.addEventListener("webkitfullscreenchange", onFullscreenChange);
@@ -146,6 +149,20 @@ let VideoPlayer = function(root) {
     let onSeekBarInput = function() {
         video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
         updateSeekBarBackground();
+    };
+
+    let toggleQualityOptionsMenu = function() {
+        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
+            openQualityChangerBtn.classList.add("video-player__quality-changer-open-btn--activated");
+            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-open");
+            qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-closed");
+            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--hidden");
+        } else {
+            openQualityChangerBtn.classList.remove("video-player__quality-changer-open-btn--activated");
+            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-closed");
+            qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-open");
+            qualityOptionsMenu.classList.add("video-player__quality-options-menu--hidden");
+        }
     };
 
     let toggleFullscreen = function() {

@@ -11,6 +11,28 @@
                 <div class="video-player__control-icon video-player__control-icon-pause video-player__control-icon--hidden">${svg/pause.svg()}</div>
             </button>
             <span class="video-player__time-display">0:00</span>
+            <div class="video-player__quality-changer">
+                <button class="video-player__quality-changer-open-btn">
+                    <span class="video-player__quality-changer-open-btn-text">1080p</span>
+                    <div class="video-player__quality-changer-open-btn-icon">${svg/expand.svg()}</div>
+                </button>
+                <div class="video-player__quality-options-menu video-player__quality-options-menu--hidden">
+                    <label class="video-player__quality-option">
+                        <span class="video-player__quality-option-title">1080p</span>
+                        <span class="video-player__quality-option-input-container">
+                            <input class="video-player__quality-option-input" type="radio" name="" value="1080">
+                            <span class="video-player__quality-option-check-icon">${svg/check.svg()}</span>
+                        </span>
+                    </label>
+                    <label class="video-player__quality-option">
+                        <span class="video-player__quality-option-title">480p</span>
+                        <span class="video-player__quality-option-input-container">
+                            <input class="video-player__quality-option-input" type="radio" name="" value="480">
+                            <span class="video-player__quality-option-check-icon">${svg/check.svg()}</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
             <button class="video-player__control-btn video-player__control-btn-fs">
                 <div class="video-player__control-icon video-player__control-icon-fs">${svg/fullscreen.svg()}</div>
                 <div class="video-player__control-icon video-player__control-icon-exit-fs video-player__control-icon--hidden">${svg/exit-fullscreen.svg()}</div>
