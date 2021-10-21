@@ -11,6 +11,7 @@ let VideoPlayer = function(root) {
     let timeDisplay = root.querySelector(".video-player__time-display");
     let qualityChanger = root.querySelector(".video-player__quality-changer");
     let openQualityChangerBtn = root.querySelector(".video-player__quality-changer-open-btn");
+    let openQualityChangerBtnText = root.querySelector(".video-player__quality-changer-open-btn-text");
     let qualityOptionsMenu = root.querySelector(".video-player__quality-options-menu");
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
@@ -189,7 +190,10 @@ let VideoPlayer = function(root) {
 
     let changeQuality = function(quality) {
         let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
+        let qualityTextNode = document.createTextNode(`${quality}p`);
         qualityInput.checked = true;
+        openQualityChangerBtnText.removeChild(openQualityChangerBtnText.firstChild);
+        openQualityChangerBtnText.appendChild(qualityTextNode);
 
         playBackBtn.disabled = true;
         seekBar.disabled = true;
