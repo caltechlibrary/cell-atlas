@@ -162,12 +162,14 @@ let VideoPlayer = function(root) {
             qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-closed");
             qualityOptionsMenu.classList.remove("video-player__quality-options-menu--hidden");
             window.addEventListener("click", autoCloseQualityOptionsMenu);
+            window.addEventListener("keyup", autoCloseQualityOptionsMenu);
         } else {
             qualityOptionsMenu.addEventListener("transitionend", onQualityMenuClose, { once: true });
             qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-closed");
             qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-open");
             qualityOptionsMenu.classList.add("video-player__quality-options-menu--hidden");
             window.removeEventListener("click", autoCloseQualityOptionsMenu);
+            window.removeEventListener("keyup", autoCloseQualityOptionsMenu);
         }
     };
 
