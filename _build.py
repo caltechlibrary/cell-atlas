@@ -42,6 +42,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
         metadata["vidMetadata"] = {}
         metadata["vidMetadata"]["isSection"] = True
         metadata["vidMetadata"]["video"] = metadata["video"]
+        metadata["vidMetadata"]["vidName"] = metadata["video"].split(".")[0]
         metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
         metadata["vidMetadata"]["vid"] = True
         if "sliderImgName" in metadata:  
@@ -212,6 +213,7 @@ def processSubsection(subsectionFile, pageName, parentData):
     metadata["collectorProfile"] = False
     metadata["isSubsection"] = True
     if "video" in metadata:
+        metadata["vidName"] = metadata["video"].split(".")[0]
         currVideoName = metadata["video"].split(".")[0]
         subsectionName = currVideoName.split("_")[-1]
         if subsectionName.isnumeric():
@@ -221,6 +223,7 @@ def processSubsection(subsectionFile, pageName, parentData):
         addSliderData(metadata, currVideoName)
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
+        metadata["vidName"] = metadata["video"].split(".")[0]
         addSliderData(metadata, metadata["video"])
     if("species" in metadata): 
         if "+" in metadata["species"]:

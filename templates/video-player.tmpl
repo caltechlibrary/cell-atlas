@@ -1,4 +1,4 @@
-<div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" data-doi="${it.doi}" data-vid-file="${it.video}">
+<div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" data-doi="${it.doi}" data-vid-name="${it.vidName}">
     <video class="video-player__video ${if(it.isSection)}video-player__video--main-section${else}video-player__video--subsection${endif}" poster="img/thumbnails/${it.thumbnail}.jpg" width="1920px" height="1080px" muted crossorigin>
         <source>
         Your browser does not support the video tag.
@@ -20,14 +20,14 @@
                     <label class="video-player__quality-option">
                         <span class="video-player__quality-option-title">1080p</span>
                         <span class="video-player__quality-option-input-container">
-                            <input class="video-player__quality-option-input" type="radio" name="${it.playerId}" value="1080" checked>
+                            <input class="video-player__quality-option-input" type="radio" name="${it.vidName}" value="1080" checked>
                             <span class="video-player__quality-option-check-icon">${svg/check.svg()}</span>
                         </span>
                     </label>
                     <label class="video-player__quality-option">
                         <span class="video-player__quality-option-title">480p</span>
                         <span class="video-player__quality-option-input-container">
-                            <input class="video-player__quality-option-input" type="radio" name="${it.playerId}" value="480">
+                            <input class="video-player__quality-option-input" type="radio" name="${it.vidName}" value="480">
                             <span class="video-player__quality-option-check-icon">${svg/check.svg()}</span>
                         </span>
                     </label>

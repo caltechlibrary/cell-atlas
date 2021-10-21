@@ -3,7 +3,7 @@ let VideoPlayer = function(root) {
     let video = root.querySelector(".video-player__video");
     let videoSrc = video.querySelector("source");
     let doi = root.getAttribute("data-doi");
-    let vidFile = root.getAttribute("data-vid-file");
+    let vidName = root.getAttribute("data-vid-name");
     let controlsContainer = root.querySelector(".video-player__controls-container");
     let playBackBtn = root.querySelector(".video-player__control-btn-playback");
     let playIcon = root.querySelector(".video-player__control-icon-play");
@@ -19,15 +19,20 @@ let VideoPlayer = function(root) {
     let seekBar = root.querySelector(".video-player__seek-bar");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
     let scrubContext = scrubCanvas.getContext("2d");
-    let paintInterval, formattedDuration, percentBuffered = 0, fps = 10, scrubImages = {};
+    let src1080, src480, paintInterval, formattedDuration, percentBuffered = 0, fps = 10, scrubImages = {};
 
-    let init = function() {
+    let initSrc = function() {
+        src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
         if(doi) {
             fetch(`https://api.datacite.org/dois/${doi}/media`)
                 .then(res => res.json())
-                .then(function(data){ loadSrc(data.data[0].attributes.url) });
+                .then(function(data) {
+                    src1080 = data.data[0].attributes.url;
+                    loadSrc(src1080);
+                });
         } else {
-            loadSrc(`https://www.cellstructureatlas.org/videos/${vidFile}`);
+            src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
+            loadSrc(src1080);
         }
     };
 
@@ -36,7 +41,7 @@ let VideoPlayer = function(root) {
         video.load();
     }
 
-    let onLoadedMetadata = function() {
+    let initPlayer = function() {
         formattedDuration = getFormattedTime(video.duration);
         updateTimeDisplay();
         if(window.createImageBitmap) resizeScrubCanvas();
@@ -65,6 +70,7 @@ let VideoPlayer = function(root) {
             video.addEventListener("playing", startPaintInterval);
             video.addEventListener("pause", endPaintInterval);
             video.addEventListener("seeked", paintCurrentFrame);
+            video.addEventListener("emptied", resetScrub);
             seekBar.addEventListener("mousedown", showScrubCanvas);
             seekBar.addEventListener("keydown", showScrubCanvas);
             seekBar.addEventListener("mouseup", hideScrubCanvas);
@@ -184,6 +190,45 @@ let VideoPlayer = function(root) {
     let changeQuality = function(quality) {
         let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
         qualityInput.checked = true;
+
+        playBackBtn.disabled = true;
+        seekBar.disabled = true;
+        video.removeEventListener("click", togglePlayBack);
+        video.removeEventListener("timeupdate", updateTimeDisplay);
+        video.removeEventListener("timeupdate", updateSeekBar);
+        seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
+        seekBar.removeEventListener("keydown", onSeekBarKeyDown);
+        if(window.createImageBitmap) {
+            video.removeEventListener("seeked", paintCurrentFrame);
+            seekBar.removeEventListener("mousedown", showScrubCanvas);
+            seekBar.removeEventListener("keydown", showScrubCanvas);
+        }
+
+        video.addEventListener("canplay", onSourceSwitchCanPlay, { once: true });
+
+        if(quality == "1080") loadSrc(src1080);
+        if(quality == "480") loadSrc(src480);
+    };
+
+    let onSourceSwitchCanPlay = function() {
+        video.addEventListener("seeked", onSourceSwitchSeeked, { once: true });
+        video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
+    };
+
+    let onSourceSwitchSeeked = function() {
+        video.addEventListener("click", togglePlayBack);
+        video.addEventListener("timeupdate", updateTimeDisplay);
+        video.addEventListener("timeupdate", updateSeekBar);
+        seekBar.addEventListener("mousedown", onSeekBarMouseDown);
+        seekBar.addEventListener("keydown", onSeekBarKeyDown);
+        if(window.createImageBitmap) {
+            video.addEventListener("seeked", paintCurrentFrame);
+            seekBar.addEventListener("mousedown", showScrubCanvas);
+            seekBar.addEventListener("keydown", showScrubCanvas);
+        }
+        if(playIcon.classList.contains("video-player__control-icon--hidden")) togglePlayBack();
+        playBackBtn.disabled = false;
+        seekBar.disabled = false;
     };
 
     let toggleFullscreen = function() {
@@ -230,6 +275,10 @@ let VideoPlayer = function(root) {
         paintInterval = setInterval(paintCurrentFrame, 1000 / fps);
     };
 
+    let endPaintInterval = function() {
+        clearInterval(paintInterval);
+    };
+
     let paintCurrentFrame = async function() {
         let frameTime = Math.round(video.currentTime  * fps) / fps;
         if(!scrubImages[frameTime]) {
@@ -240,8 +289,9 @@ let VideoPlayer = function(root) {
         }
     };
 
-    let endPaintInterval = function() {
-        clearInterval(paintInterval);
+    let resetScrub = function() {
+        endPaintInterval();
+        scrubImages = {};
     };
 
     let showScrubCanvas = function() {
@@ -262,8 +312,8 @@ let VideoPlayer = function(root) {
         if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
     };
 
-    video.addEventListener("loadedmetadata", onLoadedMetadata, { once: true });
-    init();
+    video.addEventListener("loadedmetadata", initPlayer, { once: true });
+    initSrc();
 
     return {
         root,
