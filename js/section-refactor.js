@@ -40,6 +40,15 @@
             }
         };
 
+        let onMainVideoPlayerFirstPlay = function() {
+            if(
+                window.getComputedStyle(sectionText.shelveBtn).display != "none" && 
+                !sectionText.mainContainer.classList.contains("section-text__main-container--hidden")
+            ) {
+                shelveText();
+            }
+        };
+
         let handleVideoPlayerQualityInput = function(event) {
             let quality = event.target.value;
             for(let videoPlayer of videoPlayers) {
@@ -123,6 +132,7 @@
 
         return {
             handleMainMediaViewerFsBtnClick,
+            onMainVideoPlayerFirstPlay,
             handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
@@ -144,6 +154,7 @@
     if(videoPlayerEls.length > 0) {
         for(let videoPlayerEl of videoPlayerEls) videoPlayers.push(VideoPlayer(videoPlayerEl));
         for(let videoPlayer of videoPlayers) {
+            if(videoPlayer.root.classList.contains("video-player--main-section")) videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
             for(let qualityOptionInput of videoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
         }
     }

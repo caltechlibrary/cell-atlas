@@ -335,6 +335,7 @@ let VideoPlayer = function(root) {
 
     return {
         root,
+        video,
         qualityOptionInputs,
         changeQuality
     }
