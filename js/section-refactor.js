@@ -41,9 +41,11 @@
         };
 
         let handleVideoPlayerQualityInput = function(event) {
+            let quality = event.target.value;
             for(let videoPlayer of videoPlayers) {
-                videoPlayer.changeQuality(event.target.value);
+                videoPlayer.changeQuality(quality);
             }
+            window.sessionStorage.setItem("vidQuality", quality);
         };
 
         let shelveText = function() {

@@ -29,12 +29,30 @@ let VideoPlayer = function(root) {
                 .then(res => res.json())
                 .then(function(data) {
                     src1080 = data.data[0].attributes.url;
-                    loadSrc(src1080);
+                    initSrcQuality();
                 });
         } else {
             src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
+            initSrcQuality();
+        }
+    };
+
+    let initSrcQuality = function() {
+        if(window.sessionStorage.getItem("vidQuality") == "480") {
+            updateQualityChanger("480");
+            loadSrc(src480);
+        } else {
+            updateQualityChanger("1080");
             loadSrc(src1080);
         }
+    };
+
+    let updateQualityChanger = function(quality) {
+        let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
+        let qualityTextNode = document.createTextNode(`${quality}p`);
+        qualityInput.checked = true;
+        if(openQualityChangerBtnText.firstChild) openQualityChangerBtnText.removeChild(openQualityChangerBtnText.firstChild);
+        openQualityChangerBtnText.appendChild(qualityTextNode);
     };
 
     let loadSrc = function(source) {
@@ -189,11 +207,7 @@ let VideoPlayer = function(root) {
     };
 
     let changeQuality = function(quality) {
-        let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
-        let qualityTextNode = document.createTextNode(`${quality}p`);
-        qualityInput.checked = true;
-        openQualityChangerBtnText.removeChild(openQualityChangerBtnText.firstChild);
-        openQualityChangerBtnText.appendChild(qualityTextNode);
+        updateQualityChanger(quality);
 
         playBackBtn.disabled = true;
         seekBar.disabled = true;
