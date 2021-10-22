@@ -1878,6 +1878,11 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.video-player__video--fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
 .video-player__scrub-canvas {
     position: absolute;
     top: 0;
@@ -1901,12 +1906,6 @@ file. These definitions will be defined mobile first.
     background: linear-gradient(#00000000, #000000);
     opacity: 1;
     transition: opacity 0.25s;
-}
-
-@media (max-width: 900px) {
-    .video-player__controls-container {
-        display: none;
-    }
 }
 
 .video-player__controls-container--playing {
