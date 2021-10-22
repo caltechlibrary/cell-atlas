@@ -96,6 +96,11 @@ let VideoPlayer = function(root) {
             seekBar.addEventListener("keyup", hideScrubCanvas);
             seekBar.addEventListener("input", paintSeekedFrame);
         }
+        if(window.innerWidth < 900) {
+            video.addEventListener("play", forceFullscreen);
+            root.addEventListener("fullscreenchange", forceVideoPause);
+            root.addEventListener("webkitfullscreenchange", forceVideoPause);
+        }
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -328,6 +333,14 @@ let VideoPlayer = function(root) {
         let seekedTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
         let frameTime = Math.round(seekedTime  * fps) / fps;
         if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
+    };
+
+    let forceFullscreen = function() {
+        if(!document.fullscreenElement || !document.webkitFullscreenElement) toggleFullscreen();
+    };
+
+    let forceVideoPause = function() {
+        if((!document.fullscreenElement || !document.webkitFullscreenElement) && !video.paused) togglePlayBack();
     };
 
     video.addEventListener("loadedmetadata", initPlayer, { once: true });
