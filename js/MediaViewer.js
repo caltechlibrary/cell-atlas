@@ -2,7 +2,6 @@ let MediaViewer = function(root, videoPlayer, compSlider) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
-    let videoEl = root.querySelector("video");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
 
     let handleTabContainerClick = function(event) {
@@ -20,6 +19,7 @@ let MediaViewer = function(root, videoPlayer, compSlider) {
         if(mediaType == "vid") {
             if(compSlider) compSlider.hide();
             videoPlayer.show();
+            if(window.createImageBitmap && window.innerWidth > 900) requestAnimationFrame(videoPlayer.resizeScrubCanvas);
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
         } else if(mediaType == "img") {
             if(!videoPlayer.video.paused) videoPlayer.togglePlayBack();
