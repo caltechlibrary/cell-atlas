@@ -351,6 +351,14 @@ let VideoPlayer = function(root) {
         if((!document.fullscreenElement || !document.webkitFullscreenElement) && !video.paused) togglePlayBack();
     };
 
+    let hide = function() {
+        root.classList.add("video-player--hidden");
+    };
+
+    let show = function() {
+        root.classList.remove("video-player--hidden");
+    };
+
     video.addEventListener("loadedmetadata", initPlayer, { once: true });
     init();
 
@@ -359,7 +367,10 @@ let VideoPlayer = function(root) {
         video,
         qualityOptionInputs,
         changeQuality,
-        resizeScrubCanvas
+        resizeScrubCanvas,
+        togglePlayBack,
+        hide,
+        show
     }
 
 }
