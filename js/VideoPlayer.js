@@ -22,22 +22,23 @@ let VideoPlayer = function(root) {
     let scrubContext = scrubCanvas.getContext("2d");
     let src1080, src480, paintInterval, formattedDuration, percentBuffered = 0, fps = 10, scrubImages = {};
 
-    let initSrc = function() {
+    let init = function() {
+        if(window.innerWidth < 900) video.setAttribute("controls", "");
         src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
         if(doi) {
             fetch(`https://api.datacite.org/dois/${doi}/media`)
                 .then(res => res.json())
                 .then(function(data) {
                     src1080 = data.data[0].attributes.url;
-                    initSrcQuality();
+                    initSrc();
                 });
         } else {
             src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
-            initSrcQuality();
+            initSrc();
         }
     };
 
-    let initSrcQuality = function() {
+    let initSrc = function() {
         if(window.sessionStorage.getItem("vidQuality") == "480") {
             updateQualityChanger("480");
             loadSrc(src480);
@@ -68,38 +69,39 @@ let VideoPlayer = function(root) {
     };
 
     let attachEventListeners = function() {
-        controlsContainer.addEventListener("focusin", onControlsContainerFocusIn);
-        controlsContainer.addEventListener("focusout", onControlsContainerFocusOut);
-        playBackBtn.addEventListener("click", togglePlayBack);
-        video.addEventListener("click", togglePlayBack);
-        video.addEventListener("play", onPlay);
-        video.addEventListener("pause", onPause);
-        video.addEventListener("timeupdate", updateTimeDisplay);
-        video.addEventListener("timeupdate", updateSeekBar);
-        video.addEventListener("progress", updatePercentBuffered);
-        seekBar.addEventListener("mousedown", onSeekBarMouseDown);
-        seekBar.addEventListener("keydown", onSeekBarKeyDown);
-        seekBar.addEventListener("input", onSeekBarInput);
-        openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
-        fsBtn.addEventListener("click", toggleFullscreen);
-        root.addEventListener("fullscreenchange", onFullscreenChange);
-        root.addEventListener("webkitfullscreenchange", onFullscreenChange);
-        if(window.createImageBitmap) {
-            window.addEventListener("resize", resizeScrubCanvas);
-            video.addEventListener("playing", startPaintInterval);
-            video.addEventListener("pause", endPaintInterval);
-            video.addEventListener("seeked", paintCurrentFrame);
-            video.addEventListener("emptied", resetScrub);
-            seekBar.addEventListener("mousedown", showScrubCanvas);
-            seekBar.addEventListener("keydown", showScrubCanvas);
-            seekBar.addEventListener("mouseup", hideScrubCanvas);
-            seekBar.addEventListener("keyup", hideScrubCanvas);
-            seekBar.addEventListener("input", paintSeekedFrame);
-        }
-        if(window.innerWidth < 900) {
-            video.addEventListener("play", forceFullscreen);
-            root.addEventListener("fullscreenchange", forceVideoPause);
-            root.addEventListener("webkitfullscreenchange", forceVideoPause);
+        if(window.innerWidth > 900) {
+            controlsContainer.addEventListener("focusin", onControlsContainerFocusIn);
+            controlsContainer.addEventListener("focusout", onControlsContainerFocusOut);
+            playBackBtn.addEventListener("click", togglePlayBack);
+            video.addEventListener("click", togglePlayBack);
+            video.addEventListener("play", onPlay);
+            video.addEventListener("pause", onPause);
+            video.addEventListener("timeupdate", updateTimeDisplay);
+            video.addEventListener("timeupdate", updateSeekBar);
+            video.addEventListener("progress", updatePercentBuffered);
+            seekBar.addEventListener("mousedown", onSeekBarMouseDown);
+            seekBar.addEventListener("keydown", onSeekBarKeyDown);
+            seekBar.addEventListener("input", onSeekBarInput);
+            openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
+            fsBtn.addEventListener("click", toggleFullscreen);
+            root.addEventListener("fullscreenchange", onFullscreenChange);
+            root.addEventListener("webkitfullscreenchange", onFullscreenChange);
+            if(window.createImageBitmap) {
+                window.addEventListener("resize", resizeScrubCanvas);
+                video.addEventListener("playing", startPaintInterval);
+                video.addEventListener("pause", endPaintInterval);
+                video.addEventListener("seeked", paintCurrentFrame);
+                video.addEventListener("emptied", resetScrub);
+                seekBar.addEventListener("mousedown", showScrubCanvas);
+                seekBar.addEventListener("keydown", showScrubCanvas);
+                seekBar.addEventListener("mouseup", hideScrubCanvas);
+                seekBar.addEventListener("keyup", hideScrubCanvas);
+                seekBar.addEventListener("input", paintSeekedFrame);
+            }
+        } else {
+            video.addEventListener("play", forceFullscreenMobile);
+            video.addEventListener("fullscreenchange", forceVideoPause);
+            video.addEventListener("webkitfullscreenchange", forceVideoPause);
         }
     };
 
@@ -335,8 +337,14 @@ let VideoPlayer = function(root) {
         if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
     };
 
-    let forceFullscreen = function() {
-        if(!document.fullscreenElement || !document.webkitFullscreenElement) toggleFullscreen();
+    let forceFullscreenMobile = function() {
+        if(!document.fullscreenElement || !document.webkitFullscreenElement) {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            }
+        }
     };
 
     let forceVideoPause = function() {
@@ -344,7 +352,7 @@ let VideoPlayer = function(root) {
     };
 
     video.addEventListener("loadedmetadata", initPlayer, { once: true });
-    initSrc();
+    init();
 
     return {
         root,
