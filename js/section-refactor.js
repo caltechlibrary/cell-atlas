@@ -3,6 +3,7 @@
     let sectionTextEl = document.querySelector(".section-text");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
+    let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainVideoPlayer,
         mediaViewers = [], videoPlayers = [];
     
@@ -113,6 +114,17 @@
             sectionText.setMainTabIndex(0);
         };
 
+        let handleLearnMoreBtnContainerClick = function(event) {
+            if(!event.target.classList.contains("learn-more__btn")) return;
+            let learnMoreBtn = event.target;
+            openModal(learnMoreBtn.value);
+            if(window.innerWidth > 900 && window.createImageBitmap) {
+                let videoPlayerEl = document.querySelector(`#${learnMoreBtn.value} .video-player`);
+                let subVideoPlayer = videoPlayers.find(function(videoPlayer) { return videoPlayer.root == videoPlayerEl });
+                if(!videoPlayerEl.classList.contains("video-player--hidden")) setTimeout(subVideoPlayer.resizeScrubCanvas, 200);
+            }
+        };
+
         let handleMobileControlClick = function(event) {
             let tabBtn = event.target.closest(".mobile-controls__btn");
             if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
@@ -140,6 +152,7 @@
             shelveText,
             unshelveText,
             handleSubMediaViewerFsBtnClick,
+            handleLearnMoreBtnContainerClick,
             handleMobileControlClick
         };
 
@@ -175,6 +188,8 @@
     sectionText = SectionText(sectionTextEl);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
+
+    learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);

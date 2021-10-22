@@ -225,34 +225,6 @@ for(let sectionImg of sectionImgs) {
     }
 }
 
-function showModal(el) {
-    let modalId = el.getAttribute("value");
-    // openModal is defined in modal.js
-    openModal(modalId);
-
-    // Fix modal canvas size. Would use custom events, but IE does not support the recommended methods.
-    let modal = document.getElementById(modalId);
-    let videoPlayer = modal.querySelector(".book-section-video-player");
-    if(!videoPlayer) return;
-    let videoEl = videoPlayer.querySelector("video");
-    let playerId = videoEl.getAttribute("id");
-    let videoPaintCanvas = videoPlayer.querySelector(`#${playerId}-videoPaintCanvas`);
-    let videoScrubCanvas = videoPlayer.querySelector(`#${playerId}-videoScrubCanvas`);
-
-    videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-    videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-    videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-    videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-
-    setTimeout(function() {
-        videoPaintCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-        videoPaintCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-        videoScrubCanvas.setAttribute("width", `${videoEl.offsetHeight * (16/9)}px`);
-        videoScrubCanvas.setAttribute("height", `${videoEl.offsetHeight}px`);
-    }, 500)
-    
-}
-
 function toggleImageSlider(el) {
     let selectedValue = el.getAttribute("value");
     let videoPlayerId = el.getAttribute("data-player");
