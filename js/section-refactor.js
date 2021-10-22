@@ -1,12 +1,14 @@
 (function() {
     let mainMediaViewerEl = document.querySelector(".media-viewer.media-viewer--main-section");
     let subMediaViewerEls = document.querySelectorAll(".media-viewer:not(.media-viewer--main-section)");
-    let videoPlayerEls = document.querySelectorAll(".video-player");
+    let mainVideoPlayerEl = document.querySelector(".video-player.video-player--main-section");
+    let subVideoPlayerEls = document.querySelectorAll(".video-player:not(.video-player--main-section)");
     let compSliderEls = document.querySelectorAll(".comp-slider");
     let sectionTextEl = document.querySelector(".section-text");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, subMediaViewers = [], videoPlayers = [], compSliders = [];
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mainVideoPlayer,
+        subMediaViewers = [], subVideoPlayers = [], videoPlayers = [], compSliders = [];
     
     let SectionController = function() {
 
@@ -68,8 +70,12 @@
         };
 
         let expandMainNonTextContainer = function() {
-            if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
             mainNonTextContainer.classList.add("main-non-text-container--expanded");
+            if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
+        };
+
+        let resizeMainPlayerScrubCanvas = function() {
+            if(!mainVideoPlayer.root.classList.contains("video-player--hidden")) mainVideoPlayer.resizeScrubCanvas();
         };
 
         let minimizeMainNonTextContainer = function() {
@@ -133,6 +139,7 @@
         return {
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
+            resizeMainPlayerScrubCanvas,
             handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
@@ -151,11 +158,21 @@
         for(let subMediaViewerEl of subMediaViewerEls) subMediaViewers.push(MediaViewer(subMediaViewerEl));
         for(let subMediaViewer of subMediaViewers) subMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
     }
-    if(videoPlayerEls.length > 0) {
-        for(let videoPlayerEl of videoPlayerEls) videoPlayers.push(VideoPlayer(videoPlayerEl));
-        for(let videoPlayer of videoPlayers) {
-            if(videoPlayer.root.classList.contains("video-player--main-section")) videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
-            for(let qualityOptionInput of videoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+    if(mainVideoPlayerEl) {
+        mainVideoPlayer = VideoPlayer(mainVideoPlayerEl);
+        videoPlayers.push(mainVideoPlayer);
+        if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
+        mainVideoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
+        for(let qualityOptionInput of mainVideoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+    }
+    if(subVideoPlayerEls.length > 0) {
+        for(let subVideoPlayerEl of subVideoPlayerEls) {
+            let subVideoPlayer = VideoPlayer(subVideoPlayerEl);
+            subVideoPlayers.push(subVideoPlayer);
+            videoPlayers.push(subVideoPlayer);
+        }
+        for(let subVideoPlayer of subVideoPlayers) {
+            for(let qualityOptionInput of subVideoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
         }
     }
     if(compSliderEls.length > 0) {

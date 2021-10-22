@@ -358,7 +358,8 @@ let VideoPlayer = function(root) {
         root,
         video,
         qualityOptionInputs,
-        changeQuality
+        changeQuality,
+        resizeScrubCanvas
     }
 
 }
