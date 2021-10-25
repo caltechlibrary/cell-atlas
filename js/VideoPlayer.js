@@ -223,6 +223,7 @@ let VideoPlayer = function(root) {
         updateQualityChanger(quality);
 
         playBackBtn.disabled = true;
+        playBackBtnMobile.disabled = true;
         seekBar.disabled = true;
         video.removeEventListener("click", togglePlayBack);
         video.removeEventListener("timeupdate", updateTimeDisplay);
@@ -259,6 +260,7 @@ let VideoPlayer = function(root) {
         }
         if(playIcon.classList.contains("video-player__control-icon--hidden")) togglePlayBack();
         playBackBtn.disabled = false;
+        playBackBtnMobile.disabled = false;
         seekBar.disabled = false;
     };
 
