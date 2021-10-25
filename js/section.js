@@ -224,27 +224,3 @@ for(let sectionImg of sectionImgs) {
         imgContainer.style.top = `${posTop}px`;
     }
 }
-
-function toggleImageSlider(el) {
-    let selectedValue = el.getAttribute("value");
-    let videoPlayerId = el.getAttribute("data-player");
-    let videoQualitySwitcherMobile = document.querySelector(`.video-quality-changer-mobile[data-player='${videoPlayerId}']`);
-    let videoContainer = document.querySelector(`.book-section-video-player[data-player='${videoPlayerId}']`);
-    let videoElement = videoContainer.querySelector("video");
-    let comparissonFullBackground = document.querySelector(`#fullBackground-${videoPlayerId}`);
-    let currSelectedButton = el.parentElement.querySelector("button[data-state='selected']");
-
-    if(!videoElement.paused) videoElement.pause();
-
-    if(selectedValue == "image") {
-        comparissonFullBackground.style.display = "block";
-        videoContainer.style.display = "none";
-        if(window.innerWidth <= 900 && videoQualitySwitcherMobile) videoQualitySwitcherMobile.style.display = "none";
-    } else {
-        comparissonFullBackground.style.display = "none";
-        videoContainer.style.display = "flex";
-        if(window.innerWidth <= 900 && videoQualitySwitcherMobile) videoQualitySwitcherMobile.style.display = "flex";
-    }
-    currSelectedButton.setAttribute("data-state", "");
-    el.setAttribute("data-state", "selected");
-}
