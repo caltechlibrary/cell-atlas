@@ -6,8 +6,11 @@ let VideoPlayer = function(root) {
     let vidName = root.getAttribute("data-vid-name");
     let controlsContainer = root.querySelector(".video-player__controls-container");
     let playBackBtn = root.querySelector(".video-player__control-btn-playback");
+    let playBackBtnMobile = root.querySelector(".video-player__playback-btn-mobile");
     let playIcon = root.querySelector(".video-player__control-icon-play");
+    let playIconMobile = root.querySelector(".video-player__playback-btn-mobile-play-icon");
     let pauseIcon = root.querySelector(".video-player__control-icon-pause");
+    let pauseIconMobile = root.querySelector(".video-player__playback-btn-mobile-pause-icon");
     let timeDisplay = root.querySelector(".video-player__time-display");
     let qualityChanger = root.querySelector(".video-player__quality-changer");
     let openQualityChangerBtn = root.querySelector(".video-player__quality-changer-open-btn");
@@ -71,6 +74,7 @@ let VideoPlayer = function(root) {
         controlsContainer.addEventListener("focusin", onControlsContainerFocusIn);
         controlsContainer.addEventListener("focusout", onControlsContainerFocusOut);
         playBackBtn.addEventListener("click", togglePlayBack);
+        playBackBtnMobile.addEventListener("click", togglePlayBack);
         video.addEventListener("click", togglePlayBack);
         video.addEventListener("play", onPlay);
         video.addEventListener("pause", onPause);
@@ -132,13 +136,17 @@ let VideoPlayer = function(root) {
 
     let onPlay = function() {
         playIcon.classList.add("video-player__control-icon--hidden");
+        playIconMobile.classList.add("video-player__playback-btn-mobile-icon--hidden");
         pauseIcon.classList.remove("video-player__control-icon--hidden");
+        pauseIconMobile.classList.remove("video-player__playback-btn-mobile-icon--hidden");
         controlsContainer.classList.add("video-player__controls-container--playing");
     };
 
     let onPause = function() {
         playIcon.classList.remove("video-player__control-icon--hidden");
+        playIconMobile.classList.remove("video-player__playback-btn-mobile-icon--hidden");
         pauseIcon.classList.add("video-player__control-icon--hidden");
+        pauseIconMobile.classList.add("video-player__playback-btn-mobile-icon--hidden");
         controlsContainer.classList.remove("video-player__controls-container--playing");
     };
 
