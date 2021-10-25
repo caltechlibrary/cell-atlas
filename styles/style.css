@@ -1881,6 +1881,7 @@ file. These definitions will be defined mobile first.
 .video-player__video--fullscreen {
     width: 100%;
     height: 100%;
+    max-height: none;
 }
 
 .video-player__scrub-canvas {
