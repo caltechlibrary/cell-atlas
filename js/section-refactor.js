@@ -117,6 +117,7 @@
         let handleLearnMoreBtnContainerClick = function(event) {
             if(!event.target.classList.contains("learn-more__btn")) return;
             let learnMoreBtn = event.target;
+            if(!mainVideoPlayer.video.paused) mainVideoPlayer.togglePlayBack();
             openModal(learnMoreBtn.value);
             if(window.innerWidth > 900 && window.createImageBitmap) {
                 let videoPlayerEl = document.querySelector(`#${learnMoreBtn.value} .video-player`);
