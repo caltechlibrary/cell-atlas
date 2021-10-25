@@ -1912,12 +1912,22 @@ file. These definitions will be defined mobile first.
     box-shadow: 0px 0px 10px 0px #aaa;
     background: #fff;
     z-index: 3;
+    opacity: 1;
+    transition: opacity 0.25s;
 }
 
 @media (min-width: 900px) {
     .video-player__playback-btn-mobile {
         display: none;
     }
+}
+
+.video-player__playback-btn-mobile--playing {
+    opacity: 0;
+}
+
+.video-player__playback-btn-mobile--show-mobile {
+    opacity: 1;
 }
 
 .video-player__playback-btn-mobile-icon {
@@ -1946,11 +1956,13 @@ file. These definitions will be defined mobile first.
     opacity: 0;
 }
 
-.video-player:hover .video-player__controls-container--playing {
-    opacity: 1;
+@media (min-width: 900px) {
+    .video-player:hover .video-player__controls-container--playing {
+        opacity: 1;
+    }
 }
 
-.video-player__controls-container--has-focus {
+.video-player__controls-container--show-mobile {
     opacity: 1;
 }
 

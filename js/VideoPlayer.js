@@ -23,7 +23,7 @@ let VideoPlayer = function(root) {
     let seekBar = root.querySelector(".video-player__seek-bar");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
     let scrubContext = scrubCanvas.getContext("2d");
-    let src1080, src480, paintInterval, formattedDuration, percentBuffered = 0, fps = 10, scrubImages = {};
+    let src1080, src480, paintInterval, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, fps = 10, scrubImages = {};
 
     let init = function() {
         src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
@@ -71,11 +71,8 @@ let VideoPlayer = function(root) {
     };
 
     let attachEventListeners = function() {
-        controlsContainer.addEventListener("focusin", onControlsContainerFocusIn);
-        controlsContainer.addEventListener("focusout", onControlsContainerFocusOut);
         playBackBtn.addEventListener("click", togglePlayBack);
         playBackBtnMobile.addEventListener("click", togglePlayBack);
-        video.addEventListener("click", togglePlayBack);
         video.addEventListener("play", onPlay);
         video.addEventListener("pause", onPause);
         video.addEventListener("timeupdate", updateTimeDisplay);
@@ -88,6 +85,13 @@ let VideoPlayer = function(root) {
         fsBtn.addEventListener("click", toggleFullscreen);
         root.addEventListener("fullscreenchange", onFullscreenChange);
         root.addEventListener("webkitfullscreenchange", onFullscreenChange);
+        if(window.innerWidth > 900) {
+            video.addEventListener("click", togglePlayBack);
+        } else {
+            video.addEventListener("click", onVideoClickMobile);
+            video.addEventListener("play", forceFullscreenMobile);
+            root.addEventListener("fullscreenchange", forceVideoPause);
+        }
         if(window.innerWidth > 900 && window.createImageBitmap) {
             window.addEventListener("resize", resizeScrubCanvas);
             video.addEventListener("playing", startPaintInterval);
@@ -99,9 +103,6 @@ let VideoPlayer = function(root) {
             seekBar.addEventListener("mouseup", hideScrubCanvas);
             seekBar.addEventListener("keyup", hideScrubCanvas);
             seekBar.addEventListener("input", paintSeekedFrame);
-        } else {
-            video.addEventListener("play", forceFullscreenMobile);
-            root.addEventListener("fullscreenchange", forceVideoPause);
         }
     };
 
@@ -118,14 +119,6 @@ let VideoPlayer = function(root) {
         timeDisplay.appendChild(timeTextNode);
     };
 
-    let onControlsContainerFocusIn = function() {
-        controlsContainer.classList.add("video-player__controls-container--has-focus");
-    };
-
-    let onControlsContainerFocusOut = function() {
-        controlsContainer.classList.remove("video-player__controls-container--has-focus");
-    };
-
     let togglePlayBack = function() {
         if (video.paused || video.ended) {
             video.play();
@@ -140,6 +133,7 @@ let VideoPlayer = function(root) {
         pauseIcon.classList.remove("video-player__control-icon--hidden");
         pauseIconMobile.classList.remove("video-player__playback-btn-mobile-icon--hidden");
         controlsContainer.classList.add("video-player__controls-container--playing");
+        playBackBtnMobile.classList.add("video-player__playback-btn-mobile--playing");
     };
 
     let onPause = function() {
@@ -148,6 +142,7 @@ let VideoPlayer = function(root) {
         pauseIcon.classList.add("video-player__control-icon--hidden");
         pauseIconMobile.classList.add("video-player__playback-btn-mobile-icon--hidden");
         controlsContainer.classList.remove("video-player__controls-container--playing");
+        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--playing");
     };
 
     let updateSeekBar = function() {
@@ -341,6 +336,19 @@ let VideoPlayer = function(root) {
         let seekedTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
         let frameTime = Math.round(seekedTime  * fps) / fps;
         if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
+    };
+
+    let onVideoClickMobile = function() {
+        if(video.paused) return;
+        clearTimeout(hideMobileControlsTimeout);
+        playBackBtnMobile.classList.add("video-player__playback-btn-mobile--show-mobile");
+        controlsContainer.classList.add("video-player__controls-container--show-mobile");
+        hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
+    };
+
+    let hideMobileControls = function() {
+        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--show-mobile");
+        controlsContainer.classList.remove("video-player__controls-container--show-mobile");
     };
 
     let forceFullscreenMobile = function() {
