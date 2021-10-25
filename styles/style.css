@@ -1931,6 +1931,10 @@ file. These definitions will be defined mobile first.
     opacity: 1;
 }
 
+.video-player__playback-btn-mobile--hidden-mobile {
+    visibility: hidden;
+}
+
 .video-player__playback-btn-mobile-icon {
     width: 100%;
     height: 100%;
@@ -1965,6 +1969,10 @@ file. These definitions will be defined mobile first.
 
 .video-player__controls-container--show-mobile {
     opacity: 1;
+}
+
+.video-player__controls-container--hidden {
+    visibility: hidden;
 }
 
 .video-player__top-controls-container {

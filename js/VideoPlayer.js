@@ -72,7 +72,6 @@ let VideoPlayer = function(root) {
 
     let attachEventListeners = function() {
         playBackBtn.addEventListener("click", togglePlayBack);
-        playBackBtnMobile.addEventListener("click", togglePlayBack);
         video.addEventListener("play", onPlay);
         video.addEventListener("pause", onPause);
         video.addEventListener("timeupdate", updateTimeDisplay);
@@ -90,8 +89,11 @@ let VideoPlayer = function(root) {
         } else {
             video.addEventListener("click", onVideoClickMobile);
             video.addEventListener("play", forceFullscreenMobile);
+            playBackBtnMobile.addEventListener("click", togglePlayBack);
+            playBackBtnMobile.addEventListener("transitionend", onPlayBackBtnMobileTransitionEnd);
             controlsContainer.addEventListener("touchstart", onControlsContainerTouchStartMobile);
             controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
+            controlsContainer.addEventListener("transitionend", onControlsContainerTransitionEndMobile);
             root.addEventListener("fullscreenchange", forceVideoPause);
         }
         if(window.innerWidth > 900 && window.createImageBitmap) {
@@ -144,7 +146,9 @@ let VideoPlayer = function(root) {
         playIconMobile.classList.remove("video-player__playback-btn-mobile-icon--hidden");
         pauseIcon.classList.add("video-player__control-icon--hidden");
         pauseIconMobile.classList.add("video-player__playback-btn-mobile-icon--hidden");
+        controlsContainer.classList.remove("video-player__controls-container--hidden");
         controlsContainer.classList.remove("video-player__controls-container--playing");
+        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--hidden-mobile");
         playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--playing");
     };
 
@@ -346,7 +350,9 @@ let VideoPlayer = function(root) {
     let onVideoClickMobile = function() {
         if(video.paused) return;
         clearTimeout(hideMobileControlsTimeout);
+        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--hidden-mobile");
         playBackBtnMobile.classList.add("video-player__playback-btn-mobile--show-mobile");
+        controlsContainer.classList.remove("video-player__controls-container--hidden");
         controlsContainer.classList.add("video-player__controls-container--show-mobile");
         hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
     };
@@ -367,12 +373,30 @@ let VideoPlayer = function(root) {
         }
     };
 
+    let onPlayBackBtnMobileTransitionEnd = function() {
+        if(
+            playBackBtnMobile.classList.contains("video-player__playback-btn-mobile--playing") &&
+            !playBackBtnMobile.classList.contains("video-player__playback-btn-mobile--show-mobile")
+        ) {
+            playBackBtnMobile.classList.add("video-player__playback-btn-mobile--hidden-mobile");
+        }
+    };
+
     let onControlsContainerTouchStartMobile = function() {
         clearTimeout(hideMobileControlsTimeout);
     };
 
     let onControlsContainerTouchEndMobile = function() {
         hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
+    };
+
+    let onControlsContainerTransitionEndMobile = function() {
+        if(
+            controlsContainer.classList.contains("video-player__controls-container--playing") &&
+            !controlsContainer.classList.contains("video-player__controls-container--show-mobile")
+        ) {
+            controlsContainer.classList.add("video-player__controls-container--hidden");
+        }
     };
 
     let forceVideoPause = function() {
