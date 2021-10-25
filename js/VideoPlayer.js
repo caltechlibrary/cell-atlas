@@ -90,6 +90,8 @@ let VideoPlayer = function(root) {
         } else {
             video.addEventListener("click", onVideoClickMobile);
             video.addEventListener("play", forceFullscreenMobile);
+            controlsContainer.addEventListener("touchstart", onControlsContainerTouchStartMobile);
+            controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
             root.addEventListener("fullscreenchange", forceVideoPause);
         }
         if(window.innerWidth > 900 && window.createImageBitmap) {
@@ -134,6 +136,7 @@ let VideoPlayer = function(root) {
         pauseIconMobile.classList.remove("video-player__playback-btn-mobile-icon--hidden");
         controlsContainer.classList.add("video-player__controls-container--playing");
         playBackBtnMobile.classList.add("video-player__playback-btn-mobile--playing");
+        hideMobileControls();
     };
 
     let onPause = function() {
@@ -349,6 +352,7 @@ let VideoPlayer = function(root) {
     };
 
     let hideMobileControls = function() {
+        if(!qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) return;
         playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--show-mobile");
         controlsContainer.classList.remove("video-player__controls-container--show-mobile");
     };
@@ -361,6 +365,14 @@ let VideoPlayer = function(root) {
                 video.webkitEnterFullscreen();
             }
         }
+    };
+
+    let onControlsContainerTouchStartMobile = function() {
+        clearTimeout(hideMobileControlsTimeout);
+    };
+
+    let onControlsContainerTouchEndMobile = function() {
+        hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
     };
 
     let forceVideoPause = function() {
