@@ -1,11 +1,11 @@
 (function() {
-    let mainMediaViewerEl = document.querySelector(".media-viewer.media-viewer--main-section");
-    let subMediaViewerEls = document.querySelectorAll(".media-viewer:not(.media-viewer--main-section)");
-    let compSliderEls = document.querySelectorAll(".comp-slider");
+    let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let sectionTextEl = document.querySelector(".section-text");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, subMediaViewers = [], compSliders = [];
+    let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mainVideoPlayer,
+        mediaViewers = [], videoPlayers = [];
     
     let SectionController = function() {
 
@@ -31,12 +31,29 @@
         };
 
         let handleSubMediaViewerFsBtnClick = function(event) {
-            let subMediaViewer = subMediaViewers.find(function(mediaViewer) { return mediaViewer.fullscreenBtn == event.currentTarget });
+            let subMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.fullscreenBtn == event.currentTarget });
             if(window.innerWidth < 900) {
                 subMediaViewer.toggleFullscreen();
             } else {
                 subMediaViewer.toggleFixedEnlarged();
             }
+        };
+
+        let onMainVideoPlayerFirstPlay = function() {
+            if(
+                window.getComputedStyle(sectionText.shelveBtn).display != "none" && 
+                !sectionText.mainContainer.classList.contains("section-text__main-container--hidden")
+            ) {
+                shelveText();
+            }
+        };
+
+        let handleVideoPlayerQualityInput = function(event) {
+            let quality = event.target.value;
+            for(let videoPlayer of videoPlayers) {
+                videoPlayer.changeQuality(quality);
+            }
+            window.sessionStorage.setItem("vidQuality", quality);
         };
 
         let shelveText = function() {
@@ -50,8 +67,12 @@
         };
 
         let expandMainNonTextContainer = function() {
-            if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
             mainNonTextContainer.classList.add("main-non-text-container--expanded");
+            if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
+        };
+
+        let resizeMainPlayerScrubCanvas = function() {
+            if(!mainVideoPlayer.root.classList.contains("video-player--hidden")) mainVideoPlayer.resizeScrubCanvas();
         };
 
         let minimizeMainNonTextContainer = function() {
@@ -93,6 +114,19 @@
             sectionText.setMainTabIndex(0);
         };
 
+        let handleLearnMoreBtnContainerClick = function(event) {
+            if(!event.target.classList.contains("learn-more__btn")) return;
+            let learnMoreBtn = event.target;
+            if(!mainVideoPlayer.video.paused) mainVideoPlayer.togglePlayBack();
+            openModal(learnMoreBtn.value);
+            if(window.innerWidth > 900 && window.createImageBitmap) {
+                let videoPlayerEl = document.querySelector(`#${learnMoreBtn.value} .video-player`);
+                if(!videoPlayerEl) return;
+                let subVideoPlayer = videoPlayers.find(function(videoPlayer) { return videoPlayer.root == videoPlayerEl });
+                if(!videoPlayerEl.classList.contains("video-player--hidden")) setTimeout(subVideoPlayer.resizeScrubCanvas, 200);
+            }
+        };
+
         let handleMobileControlClick = function(event) {
             let tabBtn = event.target.closest(".mobile-controls__btn");
             if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
@@ -114,33 +148,51 @@
 
         return {
             handleMainMediaViewerFsBtnClick,
+            onMainVideoPlayerFirstPlay,
+            resizeMainPlayerScrubCanvas,
+            handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
             handleSubMediaViewerFsBtnClick,
+            handleLearnMoreBtnContainerClick,
             handleMobileControlClick
         };
 
     };
 
     sectionController = SectionController();
-    if(mainMediaViewerEl) {
-        mainMediaViewer = MediaViewer(mainMediaViewerEl);
-        mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
-    }
-    if(subMediaViewerEls.length > 0) {
-        for(let subMediaViewerEl of subMediaViewerEls) subMediaViewers.push(MediaViewer(subMediaViewerEl));
-        for(let subMediaViewer of subMediaViewers) subMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
-    }
-    if(compSliderEls.length > 0) {
-        for(let compSliderEl of compSliderEls) compSliders.push(CompSlider(compSliderEl));
+
+    for(let mediaViewerEl of mediaViewerEls) {
+        let videoPlayerEl = mediaViewerEl.querySelector(".video-player");
+        let compSliderEl = mediaViewerEl.querySelector(".comp-slider");
+        let videoPlayer = (videoPlayerEl) ? VideoPlayer(videoPlayerEl) : undefined;
+        let compSlider = (compSliderEl) ? CompSlider(compSliderEl) : undefined;
+        let mediaViewer;
+        if(videoPlayer) {
+            videoPlayers.push(videoPlayer);
+            for(let qualityOptionInput of videoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+            if(videoPlayer.root.classList.contains("video-player--main-section")) {
+                videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
+                if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
+                mainVideoPlayer = videoPlayer;
+            }
+        }
+        mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider);
+        if(mediaViewer.root.classList.contains("media-viewer--main-section")) {
+            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
+            mainMediaViewer = mediaViewer;
+        } else {
+            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
+        }
+        mediaViewers.push(mediaViewer);
     }
 
     sectionText = SectionText(sectionTextEl);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
 
+    if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
+
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
-
-    if(video && window.innerWidth > 900) video.addEventListener("play", sectionController.shelveText, { once: true });
 })();

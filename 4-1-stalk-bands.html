@@ -1209,71 +1209,108 @@
                                     </svg></button>
                                             </div>
                                             <div class="media-viewer__media-container media-viewer__media-container--main-section">
-                                             <div class="book-section-video-player" data-player="player-4-1-stalk-bands">
-                                        <video id=player-4-1-stalk-bands doi="10.22002/D1.1489" data-file="4_1_Ccrescentus.mp4" poster="img/thumbnails/4_1_thumbnail.jpg" muted crossorigin>
-                                                    There was an error loading the video.
+                                             <div class="video-player video-player--main-section" data-doi="10.22002/D1.1489" data-vid-name="4_1_Ccrescentus">
+                                        <video class="video-player__video video-player__video--main-section" poster="img/thumbnails/4_1_thumbnail.jpg" width="1920px" height="1080px" muted crossorigin playsinline>
+                                            <source>
+                                            Your browser does not support the video tag.
                                         </video>
-                                        <canvas id="player-4-1-stalk-bands-videoScrubCanvas" class="book-section-video-player-scrub-canvas"></canvas>
-                                        <canvas id="player-4-1-stalk-bands-videoPaintCanvas" class="book-section-video-player-paint-canvas"></canvas>
-                                        <div id="player-4-1-stalk-bands-videoControls" class="book-section-video-player-controls">
-                                            <div class="book-section-video-player-controls-buttons">
-                                                <button id="player-4-1-stalk-bands-playPauseButton" type="button" data-state="play" disabled></button>
-                                                <span id="player-4-1-stalk-bands-videoTimeStatus" class="book-section-video-player-time">0:00</span>
-                                                                <div id="player-4-1-stalk-bands-qualityChanger" class="video-quality-player-control" data-player="player-4-1-stalk-bands" data-state="collapsed">
-                                                                    <button class="video-quality-changer-button">
-                                                                        <span></span>
-                                                                        <div class="video-quality-changer-button-icon">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 24 30" style="enable-background:new 0 0 24 24;" xml:space="preserve">
-                                                                                <g>
-                                                                                    <polygon points="12,6.4 15.7,10.2 16.8,9.1 12,4.3 7.2,9.1 8.3,10.2  "/>
-                                                                                    <polygon points="12,17.6 8.3,13.8 7.2,14.9 12,19.7 16.8,14.9 15.7,13.8  "/>
-                                                                                </g>
-                                                                            </svg>        </div>
-                                                                    </button>
-                                                                    <div class="video-quality-changer video-quality-changer-selector" data-player="player-4-1-stalk-bands">
-                                                                        <label class="video-quality-changer-entry">
-                                                                            <span class="video-quality-changer-label">1080p</span>
-                                                                            <input id="vidHigh" class="sr-only" type="radio" name="quality-player-4-1-stalk-bands-desktop" value="1080" data-player="player-4-1-stalk-bands" tabindex="-1">
-                                                                            <div class="video-quality-changer-control"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" version="1.1" x="0px" y="0px">
-                                                                    <desc>Created with Sketch.</desc>
-                                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                        <path d="M17.4181182,6.7676431 L18.3984802,7.7427578 C18.5338399,7.87739305 18.5338399,8.09567991 18.3984802,8.23031515 L10.065403,16.5187901 C10.0538988,16.5302328 10.041787,16.540703 10.029171,16.5502006 L10.0131489,16.5656902 C9.87778915,16.7003255 9.65832763,16.7003255 9.52296788,16.5656902 L5.60151981,12.6652314 C5.46616006,12.5305962 5.46616006,12.3123093 5.60151981,12.1776741 L6.58188183,11.2025594 C6.71724158,11.0679241 6.93670309,11.0679241 7.07206284,11.2025594 L9.77051168,13.8866269 L16.9279372,6.7676431 C17.0632969,6.63300786 17.2827584,6.63300786 17.4181182,6.7676431 Z" fill="#ffffff"/>
-                                                                    </g>
-                                                                </svg></div>
-                                                                        </label>
-                                                                        <label class="video-quality-changer-entry">
-                                                                            <span class="video-quality-changer-label">480p</span>
-                                                                            <input id="vidMed" class="sr-only" type="radio" name="quality-player-4-1-stalk-bands-desktop" value="480" data-player="player-4-1-stalk-bands" tabindex="-1">
-                                                                            <div class="video-quality-changer-control"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" version="1.1" x="0px" y="0px">
-                                                                    <desc>Created with Sketch.</desc>
-                                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                        <path d="M17.4181182,6.7676431 L18.3984802,7.7427578 C18.5338399,7.87739305 18.5338399,8.09567991 18.3984802,8.23031515 L10.065403,16.5187901 C10.0538988,16.5302328 10.041787,16.540703 10.029171,16.5502006 L10.0131489,16.5656902 C9.87778915,16.7003255 9.65832763,16.7003255 9.52296788,16.5656902 L5.60151981,12.6652314 C5.46616006,12.5305962 5.46616006,12.3123093 5.60151981,12.1776741 L6.58188183,11.2025594 C6.71724158,11.0679241 6.93670309,11.0679241 7.07206284,11.2025594 L9.77051168,13.8866269 L16.9279372,6.7676431 C17.0632969,6.63300786 17.2827584,6.63300786 17.4181182,6.7676431 Z" fill="#ffffff"/>
-                                                                    </g>
-                                                                </svg></div>
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            <button id="player-4-1-stalk-bands-fullScreenButton" type="button" data-state="go-fullscreen" disabled></button>
+                                        <canvas class="video-player__scrub-canvas video-player__scrub-canvas--hidden"></canvas>
+                                        <button class="video-player__playback-btn-mobile">
+                                            <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                    	<g>
+                                    		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
+                                    	</g>
+                                    </svg></div>
+                                            <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-pause-icon video-player__playback-btn-mobile-icon--hidden"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                    	<g>
+                                    		<g transform="translate(2,1)">
+                                    			<rect x="3" y="2" width="8" height="26"/>
+                                    			<rect x="17" y="2" width="8" height="26"/>
+                                    		</g>
+                                    	</g>
+                                    </svg></div>
+                                        </button>
+                                        <div class="video-player__controls-container">
+                                            <div class="video-player__top-controls-container">
+                                                <button class="video-player__control-btn video-player__control-btn-playback">
+                                                    <div class="video-player__control-icon video-player__control-icon-play"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                    	<g>
+                                    		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
+                                    	</g>
+                                    </svg></div>
+                                                    <div class="video-player__control-icon video-player__control-icon-pause video-player__control-icon--hidden"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                    	<g>
+                                    		<g transform="translate(2,1)">
+                                    			<rect x="3" y="2" width="8" height="26"/>
+                                    			<rect x="17" y="2" width="8" height="26"/>
+                                    		</g>
+                                    	</g>
+                                    </svg></div>
+                                                </button>
+                                                <span class="video-player__time-display">0:00</span>
+                                                <div class="video-player__quality-changer">
+                                                    <button class="video-player__quality-changer-open-btn">
+                                                        <span class="video-player__quality-changer-open-btn-text"></span>
+                                                        <div class="video-player__quality-changer-open-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                    	<g>
+                                    		<g transform="matrix(1.0899 0 0 1.0899 -1.4386 -.89361)" stroke-width="1.1715">
+                                    			<path d="m6.8763 10.787 1.6534 1.6601 7.4704-7.4466 7.4434 7.4445 1.6568-1.6566-9.0984-9.0997-.01294-.012944-1.6568 1.6566.01136.011328z"/>
+                                    			<path d="m25.124 20.213-1.6534-1.6601-7.4704 7.4466-7.4434-7.4445-1.6568 1.6566 9.0984 9.0997.01295.01294 1.6568-1.6566-.01137-.01132z"/>
+                                    		</g>
+                                    	</g>
+                                    </svg></div>
+                                                    </button>
+                                                    <div class="video-player__quality-options-menu video-player__quality-options-menu--hidden">
+                                                        <label class="video-player__quality-option">
+                                                            <span class="video-player__quality-option-title">1080p</span>
+                                                            <span class="video-player__quality-option-input-container">
+                                                                <input class="video-player__quality-option-input" type="radio" name="4_1_Ccrescentus" value="1080">
+                                                                <span class="video-player__quality-option-check-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                    	<g>
+                                    		<path d="m.90927 17.437 10.06 10.06 20.121-20.121-2.8744-2.8744-17.247 17.247-7.1861-7.1861z" stroke-width="2.0325"/>
+                                    	</g>
+                                    </svg></span>
+                                                            </span>
+                                                        </label>
+                                                        <label class="video-player__quality-option">
+                                                            <span class="video-player__quality-option-title">480p</span>
+                                                            <span class="video-player__quality-option-input-container">
+                                                                <input class="video-player__quality-option-input" type="radio" name="4_1_Ccrescentus" value="480">
+                                                                <span class="video-player__quality-option-check-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                    	<g>
+                                    		<path d="m.90927 17.437 10.06 10.06 20.121-20.121-2.8744-2.8744-17.247 17.247-7.1861-7.1861z" stroke-width="2.0325"/>
+                                    	</g>
+                                    </svg></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <button class="video-player__control-btn video-player__control-btn-fs video-player__control-btn-fs video-player__control-btn-fs--hidden-mobile">
+                                                    <div class="video-player__control-icon video-player__control-icon-fs"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                    	<g>
+                                    		<g stroke-width="1.625">
+                                    			<path d="m.75.75v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
+                                    			<path d="m31.25.75h-13v3.25h9.75v9.75h3.25v-9.75z"/>
+                                    			<path d="m31.25 31.25v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
+                                    			<path d="m.75 31.25h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
+                                    		</g>
+                                    	</g>
+                                    </svg></div>
+                                                    <div class="video-player__control-icon video-player__control-icon-exit-fs video-player__control-icon--hidden"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                    	<g>
+                                    		<g stroke-width="1.625">
+                                    			<path d="m13.75 13.75v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
+                                    			<path d="m18.25 13.75h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
+                                    			<path d="m18.25 18.25v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
+                                    			<path d="m13.75 18.25h-13v3.25h9.75v9.75h3.25v-9.75z"/>
+                                    		</g>
+                                    	</g>
+                                    </svg></div>
+                                                </button>
                                             </div>
-                                            <input type="range" id="player-4-1-stalk-bands-seekBar" value="0" max="100" autocomplete="off">
+                                            <input class="video-player__seek-bar" type="range" value="0" max="1000">
                                         </div>
-
-                                                <div class="video-quality-changer-mobile video-quality-changer-selector" data-player="player-4-1-stalk-bands">
-                                                    <label class="video-quality-changer-entry">
-                                                        <span class="video-quality-changer-input">
-                                                            <input id="vidMed" type="radio" name="quality-player-4-1-stalk-bands-mobile" value="480" data-player="player-4-1-stalk-bands">
-                                                            <span class="video-quality-changer-control"></span>
-                                                        </span> 
-                                                        <span class="video-quality-changer-label">480p</span>
-                                                    </label>
-                                                    <label class="video-quality-changer-entry">
-                                                        <span class="video-quality-changer-input">
-                                                            <input id="vidHigh" type="radio" name="quality-player-4-1-stalk-bands-mobile" value="1080" data-player="player-4-1-stalk-bands">
-                                                            <span class="video-quality-changer-control"></span>
-                                                        </span>
-                                                        <span class="video-quality-changer-label">1080p</span>
-                                                    </label>
-                                                </div>    </div> 
+                                    </div> 
                                              <div class="comp-slider comp-slider--hidden comp-slider--main-section" data-offline="">
                                         <img class="comp-slider__before-img comp-slider__before-img--main-section" data-src="4_1_Ccrescentus_before.jpg">
                                         <div class="comp-slider__after-img" data-src="4_1_Ccrescentus_after.jpg"></div>
@@ -1451,6 +1488,7 @@
   <script src="js/search.js"></script>
         <script src="js/MediaViewer.js"></script>
       <script src="js/SectionText.js"></script>
+      <script src="js/VideoPlayer.js"></script>
       <script src="js/CompSlider.js"></script>
       <script src="js/section-refactor.js"></script>
     <script src="js/appendix.js"></script>

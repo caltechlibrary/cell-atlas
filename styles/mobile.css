@@ -460,12 +460,6 @@ blockquote {
         display: none;
     }
 
-    .main-non-text-container video {
-        display: block;
-        background: #ffffff;
-        width: 100%;
-    }
-
     .book-section-video-player--hidden {
         display: none;
     }
@@ -841,12 +835,6 @@ blockquote {
         margin-bottom: 16px;
     }
 
-    .subsection-modal-container video {
-        width: 100%;
-        border: 1px solid #000000;
-        box-sizing: border-box;
-    }
-
     /* || CHAPTER styles */
     .book-chapter-content {
         position: fixed;
@@ -1064,11 +1052,6 @@ blockquote {
 
     /* || SECTION styles */
 
-    .main-non-text-container video {
-        height: 100%;
-        width: auto;
-    }
-
     .book-section-video-player {
         height: 100%;
     }
@@ -1149,10 +1132,6 @@ blockquote {
     .subsection-modal-container {
         width: 96%;
         max-height: 91%;
-    }
-
-    .subsection-modal-container video {
-        max-height: 50vh;
     }
 
     /* || CHAPTER styles */
