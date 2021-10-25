@@ -2107,6 +2107,12 @@ file. These definitions will be defined mobile first.
     margin-left: 0.75em;
 }
 
+@media (max-width:900px) {
+    .video-player__control-btn-fs--hidden-mobile {
+        display: none;
+    }
+}
+
 .video-player__control-icon {
     width: 100%;
     height: 100%;

@@ -273,10 +273,12 @@ let VideoPlayer = function(root) {
 
     let onFullscreenChange = function() {
         if(document.fullscreenElement || document.webkitFullscreenElement) {
+            fsBtn.classList.remove("video-player__control-btn-fs--hidden-mobile");
             fsIcon.classList.add("video-player__control-icon--hidden");
             exitFsIcon.classList.remove("video-player__control-icon--hidden");
             video.classList.add("video-player__video--fullscreen");
         } else {
+            fsBtn.classList.add("video-player__control-btn-fs--hidden-mobile");
             fsIcon.classList.remove("video-player__control-icon--hidden");
             exitFsIcon.classList.add("video-player__control-icon--hidden");
             video.classList.remove("video-player__video--fullscreen");
