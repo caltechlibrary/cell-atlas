@@ -2,6 +2,7 @@ let MediaViewer = function(root, videoPlayer, compSlider) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
+    let graphic = root.querySelector(".media-viewer__graphic");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
 
     let handleTabContainerClick = function(event) {
@@ -65,9 +66,10 @@ let MediaViewer = function(root, videoPlayer, compSlider) {
 
     let displayFullscreen = function() {
         root.classList.add("media-viewer--fullscreen");
-        tabContainer.classList.add("media-viewer__tab-container--fullscreen");
+        if(tabContainer) tabContainer.classList.add("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.add("media-viewer__media-container--fullscreen");
-        if(!compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
+        if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
+        if(graphic) graphic.classList.add("media-viewer__graphic--fullscreen");
         if(root.requestFullscreen) {
             root.requestFullscreen();
         } else {
@@ -77,9 +79,10 @@ let MediaViewer = function(root, videoPlayer, compSlider) {
 
     let exitFullscreen = function() {
         root.classList.remove("media-viewer--fullscreen");
-        tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
+        if(tabContainer) tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.remove("media-viewer__media-container--fullscreen");
-        if(!compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles()
+        if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
+        if(graphic) graphic.classList.remove("media-viewer__graphic--fullscreen");
         if(root.requestFullscreen) {
             document.exitFullscreen();
         } else {

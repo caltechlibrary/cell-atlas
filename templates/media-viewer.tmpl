@@ -5,10 +5,11 @@
             <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
-    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${else}media-viewer__media-container--subsection${endif}">
+    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif}">
         ${if(it.vid)} ${it:video-player.tmpl()} ${endif}
         ${if(it.img)} ${it:comp-slider.tmpl()} ${endif}
-        <button class="media-viewer__fullscreen-btn media-viewer__fullscreen-btn--hidden" aria-label="Enter full screen" title="Enter full screen">
+        ${if(it.graphic)} <img class="media-viewer__graphic" src="img/schematics/${it.graphic}"> ${endif}
+        <button class="media-viewer__fullscreen-btn ${if(it.vid)}media-viewer__fullscreen-btn--hidden${endif}" aria-label="Enter full screen" title="Enter full screen">
             <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon">${svg/fullscreen.svg()}</div>
             <div class="media-viewer__fullscreen-btn-icon media-viewer__exit-fs-icon media-viewer__fullscreen-btn-icon--hidden">${svg/exit-fullscreen.svg()}</div>
         </button>
