@@ -6,7 +6,7 @@
         </div>
     ${endif}
     <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${else}media-viewer__media-container--subsection${endif}">
-        ${if(it.vid)} ${it:player.tmpl()} ${endif}
+        ${if(it.vid)} ${it:video-player.tmpl()} ${endif}
         ${if(it.img)} ${it:comp-slider.tmpl()} ${endif}
         <button class="media-viewer__fullscreen-btn media-viewer__fullscreen-btn--hidden" aria-label="Enter full screen" title="Enter full screen">
             <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon">${svg/fullscreen.svg()}</div>

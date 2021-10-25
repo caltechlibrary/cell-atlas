@@ -87,6 +87,24 @@ let CompSlider = function(root) {
         window.removeEventListener("touchend", endImgSliding);
     };
 
+    let toggleFullscreenStyles = function() {
+        if(root.classList.contains("comp-slider--fullscreen")) {
+            root.classList.remove("comp-slider--fullscreen");
+            beforeImg.classList.remove("comp-slider__before-img--fullscreen");
+        } else {
+            root.classList.add("comp-slider--fullscreen");
+            beforeImg.classList.add("comp-slider__before-img--fullscreen");
+        }
+    };
+
+    let hide = function() {
+        root.classList.add("comp-slider--hidden");
+    };
+
+    let show = function() {
+        root.classList.remove("comp-slider--hidden");
+    };
+
     beforeImg.addEventListener("error", displayFailedMsg);
     afterImgPreload.addEventListener("error", displayFailedMsg);
     afterImgPreload.addEventListener("load", onAfterImagePreloadSuccess);
@@ -95,5 +113,12 @@ let CompSlider = function(root) {
     slider.addEventListener("mousedown", initImgSliding);
     slider.addEventListener("touchstart", initImgSliding);
     sliderInput.addEventListener("input", onSliderManualInput);
+
+    return {
+        root,
+        toggleFullscreenStyles,
+        hide,
+        show
+    }
 
 }

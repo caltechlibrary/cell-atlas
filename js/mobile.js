@@ -28,40 +28,16 @@ function initializeMobileView() {
     let nonTextContent = document.querySelector(".main-non-text-container");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
-    window.currVideoPlaying = undefined;
-    // Video is decalred in section.js and represents the main section video
-    if(video) {
-        document.addEventListener("fullscreenchange", pauseOnMinimize);
-    }
-
-    // All current videos need to be played in fullscreen and use native controls
-    let pageVideos = document.querySelectorAll("video");
-    for(let pageVideo of pageVideos) {
-        pageVideo.addEventListener("play", requestFullscreen);
-        pageVideo.setAttribute("preload", "metadata");
-        pageVideo.setAttribute("controls", "");
-    }
 
     // Fix height of appendix dropdown lists when the screen is rotated
     window.addEventListener("orientationchange", fixDropdownHeight);
 }
 
 function terminateMobileView() {
-    window.currVideoPlaying = undefined;
     let textContent = document.querySelector(".section-text");
     let nonTextContent = document.querySelector(".main-non-text-container");
     if(textContent) textContent.removeAttribute("style");
     if(nonTextContent) nonTextContent.removeAttribute("style");
-    if(video) {
-        document.removeEventListener("fullscreenchange", pauseOnMinimize);
-    }
-
-    let pageVideos = document.querySelectorAll("video");
-    for(let pageVideo of pageVideos) {
-        pageVideo.removeEventListener("play", requestFullscreen);
-        pageVideo.removeAttribute("preload");
-        pageVideo.removeAttribute("controls");
-    }
 
     window.removeEventListener("orientationchange", fixDropdownHeight);
 }
@@ -70,15 +46,6 @@ function requestFullscreen(event) {
     if(event.target.requestFullscreen) {
         window.removeEventListener("touchstart", detectSwipe);
         event.target.requestFullscreen();
-    }
-}
-
-function pauseOnMinimize(event) {
-    if (document.fullscreenElement && document.fullscreenElement.tagName == "VIDEO") {
-        window.currVideoPlaying = document.fullscreenElement;
-    } else if (currVideoPlaying){
-        window.currVideoPlaying.pause();
-        window.addEventListener("touchstart", detectSwipe);
     }
 }
 
