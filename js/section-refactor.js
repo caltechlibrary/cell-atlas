@@ -120,6 +120,7 @@
             openModal(learnMoreBtn.value);
             if(window.innerWidth > 900 && window.createImageBitmap) {
                 let videoPlayerEl = document.querySelector(`#${learnMoreBtn.value} .video-player`);
+                if(!videoPlayerEl) return;
                 let subVideoPlayer = videoPlayers.find(function(videoPlayer) { return videoPlayer.root == videoPlayerEl });
                 if(!videoPlayerEl.classList.contains("video-player--hidden")) setTimeout(subVideoPlayer.resizeScrubCanvas, 200);
             }
@@ -189,7 +190,7 @@
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
 
-    learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
+    if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
