@@ -1,5 +1,8 @@
-<div class="subsection-modal-container" id="${it.id}" data-player="${it.playerId}">
-    <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
+<div id="${it.id}" class="modal modal--hidden">
+    <button class="modal__exit-btn">
+        <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
+    </button>
+
     ${it:media-viewer.tmpl()}
 
     ${if(it.species)}
@@ -15,9 +18,9 @@
         ${endif}
     ${endif}
 
-    <div class="subsection-modal-text" tabindex="-1">
-        <h1>${it.title}</h1>
-        <div class="book-text-content">
+    <div class="modal__text-container" tabindex="-1">
+        <h1 class="modal__header">${it.title}</h1>
+        <div class="modal__text-content">
             ${it.html}
         </div>
     </div>

@@ -1,9 +1,3 @@
-<div id="modalOverlay" class="subsection-modal-overlay">
-    ${for(subsectionsData)}
-        ${it:modal.tmpl()}
-    ${endfor}
-</div>
-
 <div class="main-non-text-container main-non-text-container--hidden-mobile">
     <a href="${prevSection}.html" class="main-non-text-container__nav-arrow" data-nav="prev">${svg/left-nav.svg()}</a>
     ${if(summaryData)}
@@ -15,3 +9,9 @@
 </div>
 
 ${section-text.tmpl()}
+
+<div class="modal-overlay modal-overlay--hidden">
+    ${for(subsectionsData)}
+        ${it:modal.tmpl()}
+    ${endfor}
+</div>

@@ -1,11 +1,13 @@
 (function() {
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let sectionTextEl = document.querySelector(".section-text");
+    let modalEls = document.querySelectorAll(".modal");
+    let modalOverlay = document.querySelector(".modal-overlay");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainVideoPlayer,
-        mediaViewers = [], videoPlayers = [];
+        mediaViewers = [], videoPlayers = [], modals = [];
     
     let SectionController = function() {
 
@@ -119,11 +121,32 @@
             let learnMoreBtn = event.target;
             if(!mainVideoPlayer.video.paused) mainVideoPlayer.togglePlayBack();
             openModal(learnMoreBtn.value);
+        };
+
+        let openModal = function(modalId) {
+            let modal = modals.find(function(modal) { return modal.root.id == modalId });
+            modal.show();
+            modalOverlay.classList.remove("modal-overlay--hidden");
             if(window.innerWidth > 900 && window.createImageBitmap) {
-                let videoPlayerEl = document.querySelector(`#${learnMoreBtn.value} .video-player`);
+                let videoPlayerEl = document.querySelector(`#${modalId} .video-player`);
                 if(!videoPlayerEl) return;
                 let subVideoPlayer = videoPlayers.find(function(videoPlayer) { return videoPlayer.root == videoPlayerEl });
                 if(!videoPlayerEl.classList.contains("video-player--hidden")) setTimeout(subVideoPlayer.resizeScrubCanvas, 200);
+            }
+        };
+
+        let hideModal = function() {
+            let modalEl = modalOverlay.querySelector(".modal:not(.modal--hidden)");
+            let modal = modals.find(function(modal) { return modal.root.id == modalEl.id });
+            modal.hide();
+            modalOverlay.classList.add("modal-overlay--hidden");
+        };
+
+        let onModalOverlayClick = function(event) {
+            let modalEl = modalOverlay.querySelector(".modal:not(.modal--hidden)");
+            if(modalEl) {
+                let modal = modals.find(function(modal) { return modal.root.id == modalEl.id });
+                if(!modal.root.contains(event.target)) hideModal();
             }
         };
 
@@ -155,6 +178,8 @@
             unshelveText,
             handleSubMediaViewerFsBtnClick,
             handleLearnMoreBtnContainerClick,
+            hideModal,
+            onModalOverlayClick,
             handleMobileControlClick
         };
 
@@ -190,6 +215,13 @@
     sectionText = SectionText(sectionTextEl);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
+
+    for(let modalEl of modalEls) {
+        let modal = Modal(modalEl);
+        modal.exitBtn.addEventListener("click", sectionController.hideModal);
+        modals.push(modal);
+    }
+    modalOverlay.addEventListener("click", sectionController.onModalOverlayClick);
 
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
