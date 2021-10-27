@@ -32,15 +32,6 @@
             }
         };
 
-        let handleSubMediaViewerFsBtnClick = function(event) {
-            let subMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.fullscreenBtn == event.currentTarget });
-            if(window.innerWidth < 900) {
-                subMediaViewer.toggleFullscreen();
-            } else {
-                subMediaViewer.toggleFixedEnlarged();
-            }
-        };
-
         let onMainVideoPlayerFirstPlay = function() {
             if(
                 window.getComputedStyle(sectionText.shelveBtn).display != "none" && 
@@ -127,12 +118,6 @@
             let modal = modals.find(function(modal) { return modal.root.id == modalId });
             modal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
-            if(window.innerWidth > 900 && window.createImageBitmap) {
-                let videoPlayerEl = document.querySelector(`#${modalId} .video-player`);
-                if(!videoPlayerEl) return;
-                let subVideoPlayer = videoPlayers.find(function(videoPlayer) { return videoPlayer.root == videoPlayerEl });
-                if(!videoPlayerEl.classList.contains("video-player--hidden")) setTimeout(subVideoPlayer.resizeScrubCanvas, 200);
-            }
         };
 
         let hideModal = function() {
@@ -147,29 +132,6 @@
             if(modalEl) {
                 let modal = modals.find(function(modal) { return modal.root.id == modalEl.id });
                 if(!modal.root.contains(event.target)) hideModal();
-            }
-        };
-
-        let openProteinViewer = function(event) {
-            let parentModal = event.target.closest(".modal");
-            let proteinMediaViewerEl = parentModal.querySelector(".media-viewer--protein-viewer");
-            let proteinMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root == proteinMediaViewerEl });
-            proteinMediaViewer.root.classList.remove("media-viewer--hidden");
-            proteinMediaViewer.setFullscreenBtnState("expanded");
-            if(window.innerWidth < 900) {
-                proteinMediaViewer.toggleFullscreen();
-            } else {
-                proteinMediaViewer.toggleFixedEnlarged();
-            }
-        };
-
-        let closeProteinViewer = function(event) {
-            let proteinMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.fullscreenBtn == event.currentTarget });
-            proteinMediaViewer.root.classList.add("media-viewer--hidden");
-            if(window.innerWidth < 900) {
-                proteinMediaViewer.toggleFullscreen();
-            } else {
-                proteinMediaViewer.toggleFixedEnlarged();
             }
         };
 
@@ -199,12 +161,9 @@
             handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
-            handleSubMediaViewerFsBtnClick,
             handleLearnMoreBtnContainerClick,
             hideModal,
             onModalOverlayClick,
-            openProteinViewer,
-            closeProteinViewer,
             handleMobileControlClick
         };
 
@@ -233,10 +192,6 @@
         if(mediaViewer.root.classList.contains("media-viewer--main-section")) {
             mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
             mainMediaViewer = mediaViewer;
-        } else if(mediaViewer.root.classList.contains("media-viewer--protein-viewer")) {
-            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.closeProteinViewer);
-        } else {
-            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
         }
         mediaViewers.push(mediaViewer);
     }
@@ -246,9 +201,12 @@
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
 
     for(let modalEl of modalEls) {
-        let modal = Modal(modalEl);
+        let mediaViewerEl = modalEl.querySelector(".media-viewer");
+        let proteinMediaViewerEl = modalEl.querySelector(".media-viewer--protein-viewer");
+        let mediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root == mediaViewerEl });
+        let proteinMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root == proteinMediaViewerEl });
+        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer);
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
-        if(modal.openProteinViewerBtn) modal.openProteinViewerBtn.addEventListener("click", sectionController.openProteinViewer);
         modals.push(modal);
     }
     modalOverlay.addEventListener("click", sectionController.onModalOverlayClick);
