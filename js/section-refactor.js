@@ -150,6 +150,29 @@
             }
         };
 
+        let openProteinViewer = function(event) {
+            let parentModal = event.target.closest(".modal");
+            let proteinMediaViewerEl = parentModal.querySelector(".media-viewer--protein-viewer");
+            let proteinMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root == proteinMediaViewerEl });
+            proteinMediaViewer.root.classList.remove("media-viewer--hidden");
+            proteinMediaViewer.setFullscreenBtnState("expanded");
+            if(window.innerWidth < 900) {
+                proteinMediaViewer.toggleFullscreen();
+            } else {
+                proteinMediaViewer.toggleFixedEnlarged();
+            }
+        };
+
+        let closeProteinViewer = function(event) {
+            let proteinMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.fullscreenBtn == event.currentTarget });
+            proteinMediaViewer.root.classList.add("media-viewer--hidden");
+            if(window.innerWidth < 900) {
+                proteinMediaViewer.toggleFullscreen();
+            } else {
+                proteinMediaViewer.toggleFixedEnlarged();
+            }
+        };
+
         let handleMobileControlClick = function(event) {
             let tabBtn = event.target.closest(".mobile-controls__btn");
             if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
@@ -180,6 +203,8 @@
             handleLearnMoreBtnContainerClick,
             hideModal,
             onModalOverlayClick,
+            openProteinViewer,
+            closeProteinViewer,
             handleMobileControlClick
         };
 
@@ -190,8 +215,10 @@
     for(let mediaViewerEl of mediaViewerEls) {
         let videoPlayerEl = mediaViewerEl.querySelector(".video-player");
         let compSliderEl = mediaViewerEl.querySelector(".comp-slider");
+        let proteinViewerEl = mediaViewerEl.querySelector(".protein-viewer");
         let videoPlayer = (videoPlayerEl) ? VideoPlayer(videoPlayerEl) : undefined;
         let compSlider = (compSliderEl) ? CompSlider(compSliderEl) : undefined;
+        let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
         let mediaViewer;
         if(videoPlayer) {
             videoPlayers.push(videoPlayer);
@@ -202,10 +229,12 @@
                 mainVideoPlayer = videoPlayer;
             }
         }
-        mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider);
+        mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer);
         if(mediaViewer.root.classList.contains("media-viewer--main-section")) {
             mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
             mainMediaViewer = mediaViewer;
+        } else if(mediaViewer.root.classList.contains("media-viewer--protein-viewer")) {
+            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.closeProteinViewer);
         } else {
             mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
         }
@@ -219,6 +248,7 @@
     for(let modalEl of modalEls) {
         let modal = Modal(modalEl);
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
+        if(modal.openProteinViewerBtn) modal.openProteinViewerBtn.addEventListener("click", sectionController.openProteinViewer);
         modals.push(modal);
     }
     modalOverlay.addEventListener("click", sectionController.onModalOverlayClick);

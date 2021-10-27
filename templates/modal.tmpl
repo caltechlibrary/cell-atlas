@@ -14,7 +14,7 @@
     ${if(offline)}
     ${else}
         ${if(it.viewer)}
-            ${it:viewer.tmpl()}
+            ${it.viewer:media-viewer.tmpl()}
         ${endif}
     ${endif}
 
