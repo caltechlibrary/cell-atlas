@@ -291,6 +291,9 @@ def processSubsection(subsectionFile, pageName, parentData):
     if("species" in metadata or "sources" in metadata):
         metadata["citationAttached"] = True
 
+    if("vid" in metadata or "img" in metadata or "graphic" in metadata):
+        metadata["hasMainMediaViewer"] = True
+
     sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata
     metadata["html"] = markdownToHTML(sourceFormatted.name)

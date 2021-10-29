@@ -8,7 +8,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer) {
         if(proteinMediaViewer && !proteinMediaViewer.proteinViewer.initialized) proteinMediaViewer.proteinViewer.init();
         root.classList.remove("modal--hidden");
         textContainer.setAttribute("tabindex", 0);
-        if(mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden") && window.innerWidth > 900 && window.createImageBitmap) {
+        if(mainMediaViewer && mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden") && window.innerWidth > 900 && window.createImageBitmap) {
             setTimeout(mainMediaViewer.videoPlayer.resizeScrubCanvas, 200);
         }
     };
@@ -49,7 +49,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer) {
         }
     };
 
-    mainMediaViewer.fullscreenBtn.addEventListener("click", toggleMainMediaViewerFs);
+    if (mainMediaViewer) mainMediaViewer.fullscreenBtn.addEventListener("click", toggleMainMediaViewerFs);
     if(openProteinViewerBtn) openProteinViewerBtn.addEventListener("click", openProteinViewer);
     if(proteinMediaViewer) proteinMediaViewer.fullscreenBtn.addEventListener("click", closeProteinViewer);
 

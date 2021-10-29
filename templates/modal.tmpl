@@ -3,7 +3,9 @@
         <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
     </button>
 
-    ${it:media-viewer.tmpl()}
+    ${if(it.hasMainMediaViewer)}
+        ${it:media-viewer.tmpl()}
+    ${endif}
 
     ${if(it.species)}
         ${it:vid-citation.tmpl()}
