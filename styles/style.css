@@ -1472,6 +1472,7 @@ file. These definitions will be defined mobile first.
     border: none;
     border-radius: 10px 0 0 0;
     background: #ffffff87;
+    z-index: 2;
 }
 
 .media-viewer__fullscreen-btn--hidden {
