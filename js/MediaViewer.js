@@ -144,6 +144,8 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer) {
         root,
         mediaContainer,
         videoPlayer,
+        compSlider,
+        proteinViewer,
         fullscreenBtn,
         displayMediaType,
         setFullscreenBtnState,

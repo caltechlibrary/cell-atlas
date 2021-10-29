@@ -13,6 +13,7 @@ let ProteinViewer = function(root) {
     let pvCanvas = root.querySelector("canvas");
     let chainGradient = pv.color.gradient(["#FF6C0C", "#5A2328", "#70A0AF", "#A8C686", "#003B4C"]);
     let ssGradient = pv.color.gradient(["#CCCCCC", "#003B4C", "#FF6C0C"]);
+    let initialized = false;
     let largeFileSize = 5000000;
     let proteinDict = {
         "ALA": "alanine",
@@ -61,6 +62,7 @@ let ProteinViewer = function(root) {
         fetch(`https://www.cellstructureatlas.org/pdb/${pdb}.pdb1`)
                 .then(processFetchRes)
                 .then(loadPdb);
+        this.initialized = true;
     };
 
     let processFetchRes = function(res) {
@@ -198,13 +200,14 @@ let ProteinViewer = function(root) {
         requestRedraw();
     };
 
-    init();
     root.addEventListener("touchstart", handleTouch);
     root.addEventListener("mousedown", handleMouseDown);
     modelSelect.addEventListener("change", changeModel);
     colorSelect.addEventListener("change", changeColor);
 
     return {
+        initialized,
+        init,
         resizeViewer,
         requestRedraw
     }
