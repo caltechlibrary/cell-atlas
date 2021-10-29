@@ -6,8 +6,7 @@
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mainVideoPlayer,
-        mediaViewers = [], videoPlayers = [], modals = [];
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mediaViewers = {}, modals = {};
     
     let SectionController = function() {
 
@@ -43,9 +42,7 @@
 
         let handleVideoPlayerQualityInput = function(event) {
             let quality = event.target.value;
-            for(let videoPlayer of videoPlayers) {
-                videoPlayer.changeQuality(quality);
-            }
+            for(let mediaViewerId in mediaViewers) mediaViewers[mediaViewerId].videoPlayer.changeQuality(quality);
             window.sessionStorage.setItem("vidQuality", quality);
         };
 
@@ -65,7 +62,7 @@
         };
 
         let resizeMainPlayerScrubCanvas = function() {
-            if(!mainVideoPlayer.root.classList.contains("video-player--hidden")) mainVideoPlayer.resizeScrubCanvas();
+            if(!mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mainMediaViewer.videoPlayer.resizeScrubCanvas();
         };
 
         let minimizeMainNonTextContainer = function() {
@@ -110,19 +107,19 @@
         let handleLearnMoreBtnContainerClick = function(event) {
             if(!event.target.classList.contains("learn-more__btn")) return;
             let learnMoreBtn = event.target;
-            if(!mainVideoPlayer.video.paused) mainVideoPlayer.togglePlayBack();
+            if(!mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
             openModal(learnMoreBtn.value);
         };
 
         let openModal = function(modalId) {
-            let modal = modals.find(function(modal) { return modal.root.id == modalId });
+            let modal = modals[modalId];
             modal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
         };
 
         let hideModal = function() {
             let modalEl = modalOverlay.querySelector(".modal:not(.modal--hidden)");
-            let modal = modals.find(function(modal) { return modal.root.id == modalEl.id });
+            let modal = modals[modalEl.id];
             modal.hide();
             modalOverlay.classList.add("modal-overlay--hidden");
         };
@@ -130,7 +127,7 @@
         let onModalOverlayClick = function(event) {
             let modalEl = modalOverlay.querySelector(".modal:not(.modal--hidden)");
             if(modalEl) {
-                let modal = modals.find(function(modal) { return modal.root.id == modalEl.id });
+                let modal = modals[modalEl.id];
                 if(!modal.root.contains(event.target)) hideModal();
             }
         };
@@ -178,36 +175,28 @@
         let videoPlayer = (videoPlayerEl) ? VideoPlayer(videoPlayerEl) : undefined;
         let compSlider = (compSliderEl) ? CompSlider(compSliderEl) : undefined;
         let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
-        let mediaViewer;
-        if(videoPlayer) {
-            videoPlayers.push(videoPlayer);
-            for(let qualityOptionInput of videoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
-            if(videoPlayer.root.classList.contains("video-player--main-section")) {
-                videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
-                if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
-                mainVideoPlayer = videoPlayer;
-            }
+        let mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer);
+        mediaViewers[mediaViewer.root.id] = mediaViewer;
+        if(mediaViewer.videoPlayer) {
+            for(let qualityOptionInput of mediaViewer.videoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
         }
-        mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer);
-        if(mediaViewer.root.classList.contains("media-viewer--main-section")) {
-            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
-            mainMediaViewer = mediaViewer;
-        }
-        mediaViewers.push(mediaViewer);
     }
+
+    mainMediaViewer = mediaViewers["mediaViewer-main"];
+    mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
+    mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
+    if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
 
     sectionText = SectionText(sectionTextEl);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
 
     for(let modalEl of modalEls) {
-        let mediaViewerEl = modalEl.querySelector(".media-viewer");
-        let proteinMediaViewerEl = modalEl.querySelector(".media-viewer--protein-viewer");
-        let mediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root == mediaViewerEl });
-        let proteinMediaViewer = mediaViewers.find(function(mediaViewer) { return mediaViewer.root == proteinMediaViewerEl });
+        let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
+        let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
         let modal = Modal(modalEl, mediaViewer, proteinMediaViewer);
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
-        modals.push(modal);
+        modals[modal.root.id] = modal;
     }
     modalOverlay.addEventListener("click", sectionController.onModalOverlayClick);
 
