@@ -177,19 +177,27 @@
         let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
         let mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
-        if(mediaViewer.videoPlayer) {
-            for(let qualityOptionInput of mediaViewer.videoPlayer.qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+    }
+
+    for(let mediaViewerId in mediaViewers) {
+        for(let qualityOptionInput of mediaViewers[mediaViewerId].videoPlayer.qualityOptionInputs) {
+            qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
         }
     }
 
     mainMediaViewer = mediaViewers["mediaViewer-main"];
     mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
     mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
+    
     if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
 
     sectionText = SectionText(sectionTextEl);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
+
+    if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
+
+    modalOverlay.addEventListener("click", sectionController.onModalOverlayClick);
 
     for(let modalEl of modalEls) {
         let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
@@ -198,9 +206,6 @@
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
     }
-    modalOverlay.addEventListener("click", sectionController.onModalOverlayClick);
-
-    if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
