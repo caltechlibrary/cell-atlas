@@ -281,6 +281,7 @@ def processSubsection(subsectionFile, pageName, parentData):
                         if(pdbNumber != "6s8h"):
                             metadata["structures"][i]["viewerId"] = pdbNumber
                             metadata["viewer"] = {
+                                "id": metadata["id"],
                                 "pdb": pdbNumber
                             }
                             if(pdbNumber == "3jc8" or pdbNumber == "3dkt" or pdbNumber == "3j31" or pdbNumber == "5tcr" or pdbNumber == "5u3c" or pdbNumber == "6kgx" or pdbNumber == "6o9j"):

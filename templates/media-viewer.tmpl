@@ -1,4 +1,7 @@
-<div class="media-viewer ${if(it.isSection)}media-viewer--main-section${endif} ${if(it.pdb)} media-viewer--protein-viewer media-viewer--hidden ${endif}">
+<div
+    id="${if(it.isSection)}mediaViewer-main${elseif(it.pdb)}mediaViewer-pv-${it.id}${else}mediaViewer-${it.id}${endif}"
+    class="media-viewer ${if(it.isSection)}media-viewer--main-section${endif} ${if(it.pdb)}media-viewer--protein-viewer media-viewer--hidden${endif}"
+>
     ${if(it.hasTabMenu)}
         <div class="media-viewer__tab-container ${if(it.isSection)}media-viewer__tab-container--main-section${endif}">
             <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid">${svg/noun_Video.svg()}</button>
