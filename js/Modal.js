@@ -18,8 +18,10 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer) {
         if(openViewerMediaContainerEl) {
             if(openViewerMediaContainerEl.parentElement.classList.contains("media-viewer--protein-viewer")) {
                 closeProteinViewer();
+                proteinMediaViewer.setFullscreenBtnState("minimized");
             } else {
                 toggleMainMediaViewerFs();
+                mainMediaViewer.setFullscreenBtnState("minimized");
             }
         }
         root.classList.add("modal--hidden");
