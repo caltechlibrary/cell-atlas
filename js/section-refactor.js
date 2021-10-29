@@ -42,7 +42,9 @@
 
         let handleVideoPlayerQualityInput = function(event) {
             let quality = event.target.value;
-            for(let mediaViewerId in mediaViewers) mediaViewers[mediaViewerId].videoPlayer.changeQuality(quality);
+            for(let mediaViewerId in mediaViewers) {
+                if(mediaViewers[mediaViewerId].videoPlayer) mediaViewers[mediaViewerId].videoPlayer.changeQuality(quality);
+            }
             window.sessionStorage.setItem("vidQuality", quality);
         };
 
@@ -180,6 +182,7 @@
     }
 
     for(let mediaViewerId in mediaViewers) {
+        if(!mediaViewers[mediaViewerId].videoPlayer) continue;
         for(let qualityOptionInput of mediaViewers[mediaViewerId].videoPlayer.qualityOptionInputs) {
             qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
         }
