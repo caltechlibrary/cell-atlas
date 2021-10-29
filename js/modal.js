@@ -5,7 +5,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer) {
     let openProteinViewerBtn = root.querySelector(".vid-metadata__viewer-btn");
 
     let show = function() {
-        if(!proteinMediaViewer.proteinViewer.initialized) proteinMediaViewer.proteinViewer.init();
+        if(proteinMediaViewer && !proteinMediaViewer.proteinViewer.initialized) proteinMediaViewer.proteinViewer.init();
         root.classList.remove("modal--hidden");
         textContainer.setAttribute("tabindex", 0);
         if(mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden") && window.innerWidth > 900 && window.createImageBitmap) {
