@@ -2488,7 +2488,7 @@ file. These definitions will be defined mobile first.
 @media (min-width: 900px) {
     .modal {
         width: 52%;
-        max-width: 75vh;
+        max-width: 95vh;
         max-height: 97%;
         display: flex;
         flex-direction: column;
