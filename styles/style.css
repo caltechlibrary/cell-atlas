@@ -2234,6 +2234,12 @@ file. These definitions will be defined mobile first.
     }   
 }
 
+@media (min-width: 900px) {
+    .comp-slider--subsection {
+        width: 100%;
+    }   
+}
+
 .comp-slider--main-section-failed {
     width: 100%;
 }
@@ -2279,6 +2285,12 @@ file. These definitions will be defined mobile first.
 @media (max-width: 900px) {
     .comp-slider__before-img--subsection {
         max-height: 50vh;
+    }
+}
+
+@media (min-width: 900px) {
+    .comp-slider__before-img--subsection {
+        width: 100%;
     }
 }
 
