@@ -24,21 +24,24 @@
         };
 
         let handleNavSearchBarBlur = function(event) {
+            if(searchWidgetNavMenu.searchBarInput.value.length == 0) exitNavSearch();
+            mobileControlsEl.classList.remove("mobile-controls--hidden");
+        };
+
+        let exitNavSearch = function() {
             let navMenu = document.querySelector(".nav-menu");
             let sectionList = document.querySelector(".nav-menu__section-list");
             let mobileNavFooter = document.querySelector(".mobile-footer-data");
-            if(searchWidgetNavMenu.searchBarInput.value.length == 0) {
-                navMenu.classList.remove("nav-menu--searching");
-                sectionList.classList.remove("nav-menu__section-list--searching");
-                mobileNavFooter.classList.remove("mobile-footer-data--searching");
-            }
-            mobileControlsEl.classList.remove("mobile-controls--hidden");
+            navMenu.classList.remove("nav-menu--searching");
+            sectionList.classList.remove("nav-menu__section-list--searching");
+            mobileNavFooter.classList.remove("mobile-footer-data--searching");
         };
 
         return {
             initSearchWidget,
             handleNavSearchBarFocus,
-            handleNavSearchBarBlur
+            handleNavSearchBarBlur,
+            exitNavSearch
         };
 
     })();
@@ -49,4 +52,5 @@
     searchWidgetNavMenu.searchBarInput.addEventListener("focus", SearchController.initSearchWidget, { once: true });
     searchWidgetNavMenu.searchBarInput.addEventListener("focus", SearchController.handleNavSearchBarFocus);
     searchWidgetNavMenu.searchBarInput.addEventListener("blur", SearchController.handleNavSearchBarBlur);
+    searchWidgetNavMenu.searchExitBtn.addEventListener("click", SearchController.exitNavSearch);
 })();

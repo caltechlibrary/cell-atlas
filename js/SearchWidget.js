@@ -3,6 +3,7 @@ let SearchWidget = function(root) {
     let openBtn = root.querySelector(".search-widget__open-btn");
     let searchBar = root.querySelector(".search-widget__search-bar");
     let searchBarInput = root.querySelector(".search-widget__search-bar-input");
+    let searchExitBtn = root.querySelector(".search-widget__exit-btn");
     let resultList = root.querySelector(".search-widget__result-list");
     let maxResults = 15;
     let maxResultChars = 150;
@@ -37,9 +38,7 @@ let SearchWidget = function(root) {
         if(searchBarInput.value.trim().length != 0) {
             searchTimeout = setTimeout(querySearchBarInput, 250);
         } else {
-            clearResultsList();
-            resultList.classList.add("search-widget__result-list--hidden");
-            searchBar.classList.remove("search-widget__search-bar--results-showing-header");
+            resetSearch();
         }
     };
 
@@ -69,6 +68,13 @@ let SearchWidget = function(root) {
         }
         resultList.classList.remove("search-widget__result-list--hidden");
         if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
+    };
+
+    let resetSearch = function() {
+        searchBarInput.value = "";
+        clearResultsList();
+        resultList.classList.add("search-widget__result-list--hidden");
+        searchBar.classList.remove("search-widget__search-bar--results-showing-header");
     };
 
     let clearResultsList = function() {
@@ -237,13 +243,27 @@ let SearchWidget = function(root) {
         }
     };
 
+    let autoShowSearchExitBtn = function() {
+        searchExitBtn.classList.remove("search-widget__exit-btn--hidden");
+    };
+
+    let onSearchExitBtnClick = function() {
+        searchExitBtn.classList.add("search-widget__exit-btn--hidden");
+        resetSearch();
+    };
+
     if(openBtn) openBtn.addEventListener("click", openSearchBar);
     searchBarInput.addEventListener("focus", handleSearchBarInputFocus);
+    if(searchExitBtn) {
+        searchBarInput.addEventListener("focus", autoShowSearchExitBtn);
+        searchExitBtn.addEventListener("click", onSearchExitBtnClick);
+    }
 
     return {
         root,
         openBtn,
         searchBarInput,
+        searchExitBtn,
         init
     }
 
