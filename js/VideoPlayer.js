@@ -94,7 +94,7 @@ let VideoPlayer = function(root) {
             controlsContainer.addEventListener("touchstart", onControlsContainerTouchStartMobile);
             controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
             controlsContainer.addEventListener("transitionend", onControlsContainerTransitionEndMobile);
-            root.addEventListener("fullscreenchange", forceVideoPause);
+            root.addEventListener("fullscreenchange", onMobileFullscreenchange);
         }
         if(window.innerWidth > 900 && window.createImageBitmap) {
             window.addEventListener("resize", resizeScrubCanvas);
@@ -401,8 +401,13 @@ let VideoPlayer = function(root) {
         }
     };
 
-    let forceVideoPause = function() {
-        if(!document.fullscreenElement && !video.paused) togglePlayBack();
+    let onMobileFullscreenchange = function() {
+        if(document.fullscreenElement) {
+            screen.orientation.lock("landscape");
+        } else {
+            if(!video.paused) togglePlayBack();
+            screen.orientation.unlock();
+        }
     };
 
     let hide = function() {
