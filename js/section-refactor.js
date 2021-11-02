@@ -61,15 +61,23 @@
         let expandMainNonTextContainer = function() {
             mainNonTextContainer.classList.add("main-non-text-container--expanded");
             if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
-        };
-
-        let resizeMainPlayerScrubCanvas = function() {
-            if(!mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mainMediaViewer.videoPlayer.resizeScrubCanvas();
+            if(mainMediaViewer.summaryMenu) {
+                let resizeInterval = setInterval(mainMediaViewer.summaryMenu.resizeMenuContainer, 1000/60);
+                mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
+            }
         };
 
         let minimizeMainNonTextContainer = function() {
             if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("minimized");
             mainNonTextContainer.classList.remove("main-non-text-container--expanded");
+            if(mainMediaViewer.summaryMenu) {
+                let resizeInterval = setInterval(mainMediaViewer.summaryMenu.resizeMenuContainer, 1000/60);
+                mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
+            }
+        };
+
+        let resizeMainPlayerScrubCanvas = function() {
+            if(!mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mainMediaViewer.videoPlayer.resizeScrubCanvas();
         };
 
         let shelveTextWidget = function() {
