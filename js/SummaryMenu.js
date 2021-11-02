@@ -1,61 +1,50 @@
-let SummaryMenu = (function() {
+let SummaryMenu = function(root) {
 
-    let nonTextSection = document.querySelector(".main-non-text-container");
-    let summaryMenu = document.querySelector(".summary-menu");
-    let menuWidget = summaryMenu.querySelector(".summary-menu__widget");
-    let menuContainer = summaryMenu.querySelector(".summary-menu__container");
-    let menuItems = summaryMenu.querySelectorAll(".summary-menu__li");
-    let mobileSummaryBtn = document.querySelector(".mobile-controls__btn[value='sum']");
-    let enlargeBtn = summaryMenu.querySelector(".summary-menu__enlarge-btn");
-    let minBtn = summaryMenu.querySelector(".summary-menu__min-btn");
-    let textContent = document.querySelector(".section-text");
-    let textShelveBtn = document.querySelector(".section-text__shelve-btn");
-    let textUnshelveBtn = document.querySelector(".section-text__unshelve-btn");
+    let menuContainer = root.querySelector(".summary-menu__menu-container");
+    let menuItems = root.querySelectorAll(".summary-menu__li");
     let focusTranslateRatio = 0.0215;
     let currTranslateX = 0;
     let currTranslateY = 0;
     let currScale = 1;
     let zoomWeight = 1.05;
 
-    let resizeMenuContainer = function(event) {
-        let sideLength = Math.min(menuWidget.clientWidth, menuWidget.clientHeight);
+    let resizeMenuContainer = function() {
+        let sideLength = Math.min(root.clientWidth, root.clientHeight);
         menuContainer.style.width = `${sideLength}px`;
         menuContainer.style.height = `${sideLength}px`;
     };
 
     let activateMenuPart = function(event) {
         let menuItem = event.target;
-        let currentOpened = summaryMenu.querySelector(".summary-menu__li--active");
+        let currentOpened = root.querySelector(".summary-menu__li--active");
         let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
         let partText = menuItem.querySelector(".summary-menu__li-text");
-        let menuCenterX = menuContainer.getBoundingClientRect().right - ((menuContainer.getBoundingClientRect().right - menuContainer.getBoundingClientRect().left) / 2);
-        let menuCenterY = menuContainer.getBoundingClientRect().bottom - ((menuContainer.getBoundingClientRect().bottom - menuContainer.getBoundingClientRect().top) / 2);
-        let itemCordX = menuItem.getBoundingClientRect().right - ((menuItem.getBoundingClientRect().right - menuItem.getBoundingClientRect().left) / 2);
-        let itemCordY = menuItem.getBoundingClientRect().bottom - ((menuItem.getBoundingClientRect().bottom - menuItem.getBoundingClientRect().top) / 2);
+        let menuCenterCords = getElementPageCords(menuContainer);
+        let menuItemCords = getElementPageCords(menuItem);
         let translateDist = focusTranslateRatio * menuContainer.clientWidth;
-        let tx = (itemCordX > menuCenterX) ? translateDist : -translateDist;
-        let ty = (itemCordY > menuCenterY) ? translateDist : -translateDist;
+        let tx = (menuItemCords.pageX > menuCenterCords.pageX) ? translateDist : -translateDist;
+        let ty = (menuItemCords.pageY >  menuCenterCords.pageY) ? translateDist : -translateDist;
         if(currentOpened) deactivateMenuPart({ target: currentOpened });
+        menuItem.classList.add("summary-menu__li--active");
         partGraphic.style.transform = `scale(1.125) translate(${tx}px, ${ty}px)`;
         partText.classList.remove("summary-menu__li-text--hidden");
-        partText.classList.remove("summary-menu__li-text--transparent");
-        menuItem.classList.add("summary-menu__li--active");
     };
 
-    let hidePartText = function(event) {
-        let partText = event.target;
-        if(partText.classList.contains("summary-menu__li-text--transparent")) partText.classList.add("summary-menu__li-text--hidden");
+    let getElementPageCords = function(el) {
+        let elClientRect = el.getBoundingClientRect();
+        let pageX = elClientRect.right - ((elClientRect.right - elClientRect.left) / 2);
+        let pageY = elClientRect.bottom - ((elClientRect.bottom - elClientRect.top) / 2);
+        return { pageX, pageY };
     };
 
     let deactivateMenuPart = function(event) {
         let menuItem = event.target;
         let partGraphic = menuItem.querySelector(".summary-menu__item-graphic");
         let partText = menuItem.querySelector(".summary-menu__li-text");
-        partGraphic.style.transform = `translate(0, 0)`;
-        partText.addEventListener("transitionend", hidePartText ,{ once: true });
-        partText.classList.add("summary-menu__li-text--transparent");
         menuItem.classList.remove("summary-menu__li--active");
-    }; 
+        partGraphic.style.transform = `translate(0, 0)`;
+        partText.classList.add("summary-menu__li-text--hidden");
+    };
 
     let handleItemKeydown = function(event) {
         if(event.keyCode == 13 || event.keyCode == 32) {
@@ -69,86 +58,18 @@ let SummaryMenu = (function() {
         }
     };
 
-    let enlargeMenu = function() {
-        enlargeBtn.classList.add("summary-menu__btn--hidden"); 
-        minBtn.classList.remove("summary-menu__btn--hidden");
-        if(window.innerWidth > 900) {
-            minBtn.disabled = true;
-            textUnshelveBtn.addEventListener("transitionend", () => minBtn.disabled = false, { once: true });
-            textShelveBtn.click();
-        } else {
-            if(menuWidget.requestFullscreen) {
-                document.addEventListener("fullscreenchange", resizeMenuContainer, { once: true });
-                menuWidget.requestFullscreen();
-            } else {
-                summaryMenu.classList.remove("summary-menu--nontext-section");
-                summaryMenu.classList.add("summary-menu--fs-polyfill");
-                nonTextSection.classList.add("book-section-non-text-content--fs-polyfill");
-                resizeMenuContainer();
-            }
+    let handleTouch = function(event) {
+        root.addEventListener("touchmove", handleTouchMove, { once: true });
+    };
+
+    let handleTouchMove = function(event) {
+        event.preventDefault();
+        if(event.touches.length == 1) {
+            initTouchPan(event);
+        } else if(event.touches.length == 2) {
+            initTouchZoom(event);
         }
     };
-
-    let minimizeMenu = function() {
-        enlargeBtn.classList.remove("summary-menu__btn--hidden"); 
-        minBtn.classList.add("summary-menu__btn--hidden");
-        if(window.innerWidth > 900) {
-            enlargeBtn.disabled = true;
-            textContent.addEventListener("transitionend", () => enlargeBtn.disabled = false, { once: true });
-            textUnshelveBtn.click();
-        } else {
-            if(menuWidget.requestFullscreen) {
-                document.addEventListener("fullscreenchange", resizeMenuContainer, { once: true });
-                document.exitFullscreen();
-            } else {
-                summaryMenu.classList.add("summary-menu--nontext-section");
-                summaryMenu.classList.remove("summary-menu--fs-polyfill");
-                nonTextSection.classList.remove("book-section-non-text-content--fs-polyfill");
-                resizeMenuContainer();
-            }
-        }
-    };
-
-    let respondToTextShelving = function() {
-        let resizeInterval = setInterval(resizeMenuContainer, 1000/60);
-        textContent.addEventListener("transitionend", () => clearInterval(resizeInterval), { once: true });
-        enlargeBtn.classList.add("summary-menu__btn--hidden"); 
-        minBtn.classList.remove("summary-menu__btn--hidden");
-        minBtn.disabled = true;
-        textUnshelveBtn.addEventListener("transitionend", () => minBtn.disabled = false, { once: true });
-    };
-
-    let respondToTextUnshelving = function() {
-        let resizeInterval = setInterval(resizeMenuContainer, 1000/60);
-        textUnshelveBtn.addEventListener("transitionend", () => clearInterval(resizeInterval), { once: true });
-        enlargeBtn.classList.remove("summary-menu__btn--hidden"); 
-        minBtn.classList.add("summary-menu__btn--hidden");
-        enlargeBtn.disabled = true;
-        textContent.addEventListener("transitionend", () => enlargeBtn.disabled = false, { once: true });
-    };
-
-    let calcGridPos = function(pageX, pageY) {
-        let centerX = (menuWidget.getBoundingClientRect().right - menuWidget.getBoundingClientRect().x) / 2;
-        let centerY = (menuWidget.getBoundingClientRect().bottom - menuWidget.getBoundingClientRect().y) / 2;
-        let posX = (pageX - menuWidget.getBoundingClientRect().x) - centerX;
-        let posY = (pageY - menuWidget.getBoundingClientRect().y) - centerY;
-        return { posX, posY };
-    };
-
-    let panMenu = function(cordX, cordY) {
-        currTranslateX-= cordX;
-        currTranslateY-= cordY;
-        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
-    }
-
-    let zoomMenu = function(cordX, cordY, zoomFactor) {
-        let dx = (cordX - currTranslateX) * (zoomFactor - 1);
-        let dy = (cordY - currTranslateY) * (zoomFactor - 1);
-        currTranslateX-= dx;
-        currTranslateY-= dy;
-        currScale*= zoomFactor;
-        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
-    }
 
     let initTouchPan = function(event) {
         let trackTouchmove = function(event) {
@@ -160,17 +81,17 @@ let SummaryMenu = (function() {
                 gridPos.posY = newGridPos.posY;
             } else {
                 untrackTouch();
-                menuWidget.removeEventListener("touchend", untrackTouch);
+                root.removeEventListener("touchend", untrackTouch);
             }
         }
 
         let untrackTouch = function() {
-            menuWidget.removeEventListener("touchmove", trackTouchmove);
+            root.removeEventListener("touchmove", trackTouchmove);
         }
 
         let gridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-        menuWidget.addEventListener("touchmove", trackTouchmove);
-        menuWidget.addEventListener("touchend", untrackTouch, { once: true });
+        root.addEventListener("touchmove", trackTouchmove);
+        root.addEventListener("touchend", untrackTouch, { once: true });
     };
 
     let initTouchZoom = function(event) {
@@ -195,50 +116,56 @@ let SummaryMenu = (function() {
                 dist-= deltaDist;
             } else {
                 untrackTouchZoom();
-                menuWidget.removeEventListener("touchend", untrackTouchZoom);
+                root.removeEventListener("touchend", untrackTouchZoom);
             }
         }
 
         let untrackTouchZoom = function(event) {
-            menuWidget.removeEventListener("touchmove", trackZoom);
+            root.removeEventListener("touchmove", trackZoom);
         }
 
         let gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
         let gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
         let dist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
-        menuWidget.addEventListener("touchmove", trackZoom);
-        menuWidget.addEventListener("touchend", untrackTouchZoom, { once: true });
-    }
-
-    let handleTouchMove = function(event) {
-        event.preventDefault();
-        if(event.touches.length == 1) {
-            initTouchPan(event);
-        } else if(event.touches.length == 2) {
-            initTouchZoom(event);
-        }
+        root.addEventListener("touchmove", trackZoom);
+        root.addEventListener("touchend", untrackTouchZoom, { once: true });
     };
 
-    let handleTouch = function(event) {
-        menuWidget.addEventListener("touchmove", handleTouchMove, { once: true });
-    }
+    let calcGridPos = function(pageX, pageY) {
+        let centerX = (root.getBoundingClientRect().right - root.getBoundingClientRect().x) / 2;
+        let centerY = (root.getBoundingClientRect().bottom - root.getBoundingClientRect().y) / 2;
+        let posX = (pageX - root.getBoundingClientRect().x) - centerX;
+        let posY = (pageY - root.getBoundingClientRect().y) - centerY;
+        return { posX, posY };
+    };
+
+    let panMenu = function(cordX, cordY) {
+        currTranslateX-= cordX;
+        currTranslateY-= cordY;
+        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
+    };
+
+    let zoomMenu = function(cordX, cordY, zoomFactor) {
+        let dx = (cordX - currTranslateX) * (zoomFactor - 1);
+        let dy = (cordY - currTranslateY) * (zoomFactor - 1);
+        currTranslateX-= dx;
+        currTranslateY-= dy;
+        currScale*= zoomFactor;
+        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
+    };
 
     resizeMenuContainer();
     window.addEventListener("resize", resizeMenuContainer);
-    mobileSummaryBtn.addEventListener("click", resizeMenuContainer);
-    enlargeBtn.addEventListener("click", enlargeMenu);
-    minBtn.addEventListener("click", minimizeMenu);
-    textShelveBtn.addEventListener("click", respondToTextShelving);
-    textUnshelveBtn.addEventListener("click", respondToTextUnshelving);
-    menuWidget.addEventListener("touchstart", handleTouch);
-
     for(let menuItem of menuItems) {
         menuItem.addEventListener("mouseenter", activateMenuPart);
         menuItem.addEventListener("mouseleave", deactivateMenuPart);
         menuItem.addEventListener("keydown", handleItemKeydown);
     }
+    root.addEventListener("touchstart", handleTouch);
 
     return {
+        root,
         resizeMenuContainer
     }
-})();
+
+}

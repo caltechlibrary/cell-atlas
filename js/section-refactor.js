@@ -148,7 +148,7 @@
                 if(tabBtn.value == "vid" || tabBtn.value == "img") {
                     mainMediaViewer.displayMediaType(tabBtn.value);
                 } else if(tabBtn.value == "sum") {
-                    SummaryMenu.resizeMenuContainer();
+                    mainMediaViewer.summaryMenu.resizeMenuContainer();
                 }
             }
         };
@@ -174,10 +174,12 @@
         let videoPlayerEl = mediaViewerEl.querySelector(".video-player");
         let compSliderEl = mediaViewerEl.querySelector(".comp-slider");
         let proteinViewerEl = mediaViewerEl.querySelector(".protein-viewer");
+        let summaryMenuEl = mediaViewerEl.querySelector(".summary-menu");
         let videoPlayer = (videoPlayerEl) ? VideoPlayer(videoPlayerEl) : undefined;
         let compSlider = (compSliderEl) ? CompSlider(compSliderEl) : undefined;
         let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
-        let mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer);
+        let summaryMenu = (summaryMenuEl) ? SummaryMenu(summaryMenuEl) : undefined;
+        let mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer, summaryMenu);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
     }
 
@@ -190,9 +192,9 @@
 
     mainMediaViewer = mediaViewers["mediaViewer-main"];
     mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
-    mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
+    if(mainMediaViewer.videoPlayer) mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
     
-    if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
+    if(window.createImageBitmap && mainMediaViewer.videoPlayer) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
 
     sectionText = SectionText(sectionTextEl);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
