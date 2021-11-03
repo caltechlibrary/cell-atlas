@@ -7,6 +7,7 @@ let SummaryMenu = function(root) {
     let currTranslateY = 0;
     let currScale = 1;
     let zoomWeight = 1.05;
+    let prevTouchPos1, prevTouchPos2, prevDist;
 
     let resizeMenuContainer = function() {
         let sideLength = Math.min(root.clientWidth, root.clientHeight);
@@ -58,77 +59,27 @@ let SummaryMenu = function(root) {
         }
     };
 
-    let handleTouch = function(event) {
-        root.addEventListener("touchmove", handleTouchMove, { once: true });
-    };
-
     let handleTouchMove = function(event) {
         event.preventDefault();
-        if(event.touches.length == 1) {
-            initTouchPan(event);
-        } else if(event.touches.length == 2) {
-            initTouchZoom(event);
-        }
-    };
 
-    let initTouchPan = function(event) {
-        let trackTouchmove = function(event) {
-            event.preventDefault();
-            if(event.touches.length == 1) {
-                let newGridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-                panMenu(gridPos.posX - newGridPos.posX, gridPos.posY - newGridPos.posY);
-                gridPos.posX = newGridPos.posX;
-                gridPos.posY = newGridPos.posY;
-            } else {
-                untrackTouch();
-                root.removeEventListener("touchend", untrackTouch);
-            }
-        }
-
-        let untrackTouch = function() {
-            root.removeEventListener("touchmove", trackTouchmove);
-        }
-
-        let gridPos = calcGridPos(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-        root.addEventListener("touchmove", trackTouchmove);
-        root.addEventListener("touchend", untrackTouch, { once: true });
-    };
-
-    let initTouchZoom = function(event) {
-        let trackZoom = function(event) {
-            event.preventDefault();
-            if(event.touches.length == 2) {
-                gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
-                gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
-                let newDist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
-                let deltaDist = dist - newDist;
-                let midPoint = { 
-                    posX: (gridPos1.posX + gridPos2.posX) / 2,
-                    posY: (gridPos1.posY + gridPos2.posY) / 2
-                };
-
-                if(deltaDist >= 0) {
+        let newTouchPos1, newTouchPos2, newDist, midPoint;
+        newTouchPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
+        if(prevTouchPos1) panMenu(prevTouchPos1.posX - newTouchPos1.posX, prevTouchPos1.posY - newTouchPos1.posY);
+        prevTouchPos1 = newTouchPos1;
+        if(event.touches[1]) {
+            newTouchPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
+            newDist = Math.hypot(newTouchPos1.posX - newTouchPos2.posX, newTouchPos1.posY - newTouchPos2.posY);
+            midPoint = { posX: (newTouchPos1.posX + newTouchPos2.posX) / 2, posY: (newTouchPos1.posY + newTouchPos2.posY) / 2 };
+            if(prevTouchPos2) {
+                if(prevDist - newDist >= 0) {
                     zoomMenu(midPoint.posX, midPoint.posY, 1/zoomWeight);
                 } else {
                     zoomMenu(midPoint.posX, midPoint.posY, zoomWeight);
                 }
-
-                dist-= deltaDist;
-            } else {
-                untrackTouchZoom();
-                root.removeEventListener("touchend", untrackTouchZoom);
             }
+            prevTouchPos2 = newTouchPos2;
+            prevDist = newDist;
         }
-
-        let untrackTouchZoom = function(event) {
-            root.removeEventListener("touchmove", trackZoom);
-        }
-
-        let gridPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
-        let gridPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
-        let dist = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
-        root.addEventListener("touchmove", trackZoom);
-        root.addEventListener("touchend", untrackTouchZoom, { once: true });
     };
 
     let calcGridPos = function(pageX, pageY) {
@@ -154,6 +105,14 @@ let SummaryMenu = function(root) {
         menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
     };
 
+    let handleTouchEnd = function(event) {
+        prevTouchPos1 = undefined;
+        if(event.touches.length == 0) {
+            prevTouchPos2 = undefined;
+            prevDist = undefined;
+        }
+    };
+
     resizeMenuContainer();
     window.addEventListener("resize", resizeMenuContainer);
     for(let menuItem of menuItems) {
@@ -161,7 +120,8 @@ let SummaryMenu = function(root) {
         menuItem.addEventListener("mouseleave", deactivateMenuPart);
         menuItem.addEventListener("keydown", handleItemKeydown);
     }
-    root.addEventListener("touchstart", handleTouch);
+    root.addEventListener("touchmove", handleTouchMove);
+    root.addEventListener("touchend", handleTouchEnd);
 
     return {
         root,
