@@ -3673,3 +3673,15 @@ file. These definitions will be defined mobile first.
         display: none;
     }
 }
+
+.narration-player {
+
+}
+
+.narration-player__playback-btn {
+
+}
+
+.narration-player__playback-btn-icon--hidden {
+    display: none;
+}

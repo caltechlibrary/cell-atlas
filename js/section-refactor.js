@@ -3,6 +3,7 @@
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
     let modalOverlay = document.querySelector(".modal-overlay");
+    let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
@@ -209,6 +210,10 @@
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
     }
+
+    for(let narrationPlayerEl of narrationPlayerEls) {
+        NarrationPlayer(narrationPlayerEl);
+    };
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
