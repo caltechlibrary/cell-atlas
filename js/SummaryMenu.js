@@ -61,48 +61,36 @@ let SummaryMenu = function(root) {
 
     let handleTouchMove = function(event) {
         event.preventDefault();
-
-        let newTouchPos1, newTouchPos2, newDist, midPoint;
+        let newTouchPos1, newTouchPos2, newDist, midPointX, midPointY, zoomFactor;
         newTouchPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
-        if(prevTouchPos1) panMenu(prevTouchPos1.posX - newTouchPos1.posX, prevTouchPos1.posY - newTouchPos1.posY);
-        prevTouchPos1 = newTouchPos1;
+        if(prevTouchPos1) {
+            currTranslateX-= prevTouchPos1.posX - newTouchPos1.posX;
+            currTranslateY-= newTouchPos1.posY - prevTouchPos1.posY;
+        }
         if(event.touches[1]) {
             newTouchPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
             newDist = Math.hypot(newTouchPos1.posX - newTouchPos2.posX, newTouchPos1.posY - newTouchPos2.posY);
-            midPoint = { posX: (newTouchPos1.posX + newTouchPos2.posX) / 2, posY: (newTouchPos1.posY + newTouchPos2.posY) / 2 };
-            if(prevTouchPos2) {
-                if(prevDist - newDist >= 0) {
-                    zoomMenu(midPoint.posX, midPoint.posY, 1/zoomWeight);
-                } else {
-                    zoomMenu(midPoint.posX, midPoint.posY, zoomWeight);
-                }
+            midPointX = (newTouchPos1.posX + newTouchPos2.posX) / 2;
+            midPointY = (newTouchPos1.posY + newTouchPos2.posY) / 2;
+            if(prevDist) {
+                zoomFactor = (prevDist - newDist >= 0) ? 1 / zoomWeight : zoomWeight;
+                currTranslateX-= (midPointX - currTranslateX) * (zoomFactor - 1);
+                currTranslateY-= (currTranslateY - midPointY) * (zoomFactor - 1);
+                currScale*= zoomFactor;
             }
-            prevTouchPos2 = newTouchPos2;
-            prevDist = newDist;
         }
+        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
+        prevTouchPos1 = newTouchPos1;
+        prevTouchPos2 = newTouchPos2;
+        prevDist = newDist;
     };
 
     let calcGridPos = function(pageX, pageY) {
         let centerX = (root.getBoundingClientRect().right - root.getBoundingClientRect().x) / 2;
         let centerY = (root.getBoundingClientRect().bottom - root.getBoundingClientRect().y) / 2;
         let posX = (pageX - root.getBoundingClientRect().x) - centerX;
-        let posY = (pageY - root.getBoundingClientRect().y) - centerY;
+        let posY = centerY - (pageY - root.getBoundingClientRect().y);
         return { posX, posY };
-    };
-
-    let panMenu = function(cordX, cordY) {
-        currTranslateX-= cordX;
-        currTranslateY-= cordY;
-        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
-    };
-
-    let zoomMenu = function(cordX, cordY, zoomFactor) {
-        let dx = (cordX - currTranslateX) * (zoomFactor - 1);
-        let dy = (cordY - currTranslateY) * (zoomFactor - 1);
-        currTranslateX-= dx;
-        currTranslateY-= dy;
-        currScale*= zoomFactor;
-        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
     };
 
     let handleTouchEnd = function(event) {
