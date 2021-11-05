@@ -80,6 +80,8 @@ let NarrationPlayer = function(root) {
         audio.addEventListener("loadedmetadata", init);
     }
 
-    return {}
+    return {
+        root
+    }
 
 };

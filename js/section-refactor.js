@@ -7,7 +7,7 @@
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mediaViewers = {}, modals = {};
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, mediaViewers = {}, modals = {};
     
     let SectionController = function() {
 
@@ -195,7 +195,11 @@
     
     if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
 
-    sectionText = SectionText(sectionTextEl);
+    for(let narrationPlayerEl of narrationPlayerEls) {
+        mainNarrationPlayer = NarrationPlayer(narrationPlayerEl);
+    };
+
+    sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
 
@@ -210,10 +214,6 @@
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
     }
-
-    for(let narrationPlayerEl of narrationPlayerEls) {
-        NarrationPlayer(narrationPlayerEl);
-    };
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
