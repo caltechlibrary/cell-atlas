@@ -11,10 +11,18 @@ let SectionText = function(root, narrationPlayer) {
     };
 
     let toggleNarrationPlayer = function() {
+        let showIcon = root.querySelector(".section-text__toggle-narration-btn-show-icon");
+        let hideIcon = root.querySelector(".section-text__toggle-narration-btn-hide-icon");
         if(narrationPlayer.root.classList.contains("narration-player--hidden")) {
             narrationPlayer.root.classList.remove("narration-player--hidden");
+            showIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
+            hideIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
+            narrationToggleBtn.classList.add("section-text__toggle-narration-btn--activated");
         } else {
             narrationPlayer.root.classList.add("narration-player--hidden");
+            showIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
+            hideIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
+            narrationToggleBtn.classList.remove("section-text__toggle-narration-btn--activated");
         }
     };
 
