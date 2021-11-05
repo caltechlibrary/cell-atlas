@@ -1711,8 +1711,27 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-.section-text__unshelve-btn {
+.section-text__unshelve-btn-container {
     display: none;
+}
+
+.section-text__stop-narration-btn {
+    box-sizing: border-box;
+    width: 2.25em;
+    height: 2.25em;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 0px 0px 0 2px #fff;
+    padding: 0.4em;
+    background: none;
+}
+
+.section-text__stop-narration-btn--hidden {
+    display: none;
+}
+
+.section-text__stop-narration-btn-icon {
+    fill: #fff;
 }
 
 .section-text__text-container {
@@ -1854,36 +1873,43 @@ file. These definitions will be defined mobile first.
         padding-bottom: 1em;
     }
 
-    .section-text__unshelve-btn, .section-text__shelve-btn, .section-text__header-divider {
+    .section-text__unshelve-btn-container, .section-text__shelve-btn, .section-text__header-divider {
         display: block;
     }
 
-    .section-text__unshelve-btn {
+    .section-text__unshelve-btn-container {
         position: absolute;
         left: 0;
         top: 0;
         transform: translateX(-100%);
-        padding: 0.45em 1.15em 0.45em 0.45em;
+        display: flex;
+        align-items: center;
+        padding: 0.2em 0.75em 0.2em 0;
+        background: #363636;
+        z-index: 0;
+    }
+
+    .section-text__unshelve-btn-container--transition-instant {
+        transition: transform 1s ease 0s, visibility 1s ease 0s;
+    }
+
+    .section-text__unshelve-btn-container--transition-delay {
+        transition: transform 1s ease 1s, visibility 0s ease 1s;
+    }
+
+    .section-text__unshelve-btn-container--hidden {
+        transform: translateX(0%);
+        visibility: hidden;
+    }
+
+    .section-text__unshelve-btn {
+        padding: 0.45em 1em 0.45em 0.45em;
         border: none;
         font-size: 1.35em;
         font-weight: 600;
         white-space: nowrap;
         color: #fff;
-        background: #363636;
-        z-index: 0;
-    }
-
-    .section-text__unshelve-btn--transition-instant {
-        transition: transform 1s ease 0s, visibility 1s ease 0s;
-    }
-
-    .section-text__unshelve-btn--transition-delay {
-        transition: transform 1s ease 1s, visibility 0s ease 1s;
-    }
-
-    .section-text__unshelve-btn--hidden {
-        transform: translateX(0%);
-        visibility: hidden;
+        background: none;
     }
 
     .section-text__text-container {
