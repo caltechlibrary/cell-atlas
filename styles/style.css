@@ -1891,7 +1891,7 @@ file. These definitions will be defined mobile first.
     }
 
     .section-text__header-container {
-        margin-right: 3.5em;
+        margin-right: 4.5rem;
         padding: 0.4rem 0 0 1rem;
     }
 
@@ -3721,23 +3721,22 @@ file. These definitions will be defined mobile first.
 .narration-player {
     flex: 0 0 auto;
     box-sizing: border-box;
-    margin-right: auto;
+    margin-right: 4.5rem;
     height: 2.5em;
-    width: 25em;
+    max-width: 25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0.5em;
+    padding-left: 0.5em;
     visibility: visible;
-    transition: height 0.75s, padding 0.75s;
+    transition: height 0.75s;
 }
 
 .narration-player--hidden {
     height: 0px;
-    padding: 0 0.5em;
     visibility: hidden;
     overflow: hidden;
-    transition: height 0.75s, padding 0.75s, visibility 0s ease 0.75s;
+    transition: height 0.75s, visibility 0s ease 0.75s;
 }
 
 .narration-player__playback-btn {
@@ -3771,6 +3770,7 @@ file. These definitions will be defined mobile first.
     flex: 1;
     margin: 0 1em;
     -webkit-appearance: none;
+    width: 15.5em;
     height: 2px;
     background: #fff;
     cursor: pointer;
