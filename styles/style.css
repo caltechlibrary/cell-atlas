@@ -1264,6 +1264,34 @@ file. These definitions will be defined mobile first.
     fill: #262626;
 }
 
+.main-non-text-container__stop-narration-btn {
+    position: absolute;
+    left: 1em;
+    bottom: 4.5em;
+    box-sizing: border-box;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 0px 0px 0 2px #fff;
+    padding: 0.4em;
+    background: none;
+}
+
+.main-non-text-container__stop-narration-btn--hidden {
+    display: none;
+}
+
+@media (min-width:900px) {
+    .main-non-text-container__stop-narration-btn--hidden-desktop {
+        display: none;
+    }
+}
+
+.main-non-text-container__stop-narration-btn-icon {
+    fill: #fff;
+}
+
 /* media-viewer */
 @media (min-width: 900px) {
     .media-viewer {

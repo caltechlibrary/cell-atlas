@@ -6,6 +6,7 @@
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
+    let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, mediaViewers = {}, modals = {};
     
@@ -71,6 +72,18 @@
         let minimizeMainNonTextContainer = function() {
             if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("minimized");
             mainNonTextContainer.classList.remove("main-non-text-container--expanded");
+        };
+
+        let stopMainNarration = function() {
+            if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
+        };
+
+        let showStopNarrationBtn = function() {
+            mainStopNarrationButtonMobile.classList.remove("main-non-text-container__stop-narration-btn--hidden");
+        };
+
+        let hideStopNarrationBtn = function() {
+            mainStopNarrationButtonMobile.classList.add("main-non-text-container__stop-narration-btn--hidden");
         };
 
         let shelveTextWidget = function() {
@@ -158,6 +171,9 @@
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
             resizeMainPlayerScrubCanvas,
+            stopMainNarration,
+            showStopNarrationBtn,
+            hideStopNarrationBtn,
             handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
@@ -194,9 +210,12 @@
     mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
     
     if(window.createImageBitmap) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
+    mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
         mainNarrationPlayer = NarrationPlayer(narrationPlayerEl);
+        mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
+        mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
     };
 
     sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
