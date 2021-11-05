@@ -1748,6 +1748,7 @@ file. These definitions will be defined mobile first.
     display: flex;
     align-items: center;
     flex: 1 0 auto;
+    padding-top: 0.4em;
     font-size: 1.35em;
 }
 
@@ -1771,7 +1772,7 @@ file. These definitions will be defined mobile first.
 
 .section-text__toggle-narration-btn {
     position: absolute;
-    top: 1em;
+    top: 4.5em;
     right: 1em;
     box-sizing: border-box;
     width: 2.5em;
@@ -1783,8 +1784,14 @@ file. These definitions will be defined mobile first.
     transition: box-shadow 0.25s;
 }
 
-.section-text__toggle-narration-btn:hover {
-    box-shadow: 0px 0px 0 2px #fff;
+@media (min-width:900px) {
+    .section-text__toggle-narration-btn {
+        top: 1em;
+    }
+
+    .section-text__toggle-narration-btn:hover {
+        box-shadow: 0px 0px 0 2px #fff;
+    }
 }
 
 .section-text__toggle-narration-btn--activated {
@@ -3766,6 +3773,7 @@ file. These definitions will be defined mobile first.
 }
 
 .narration-player__playback-btn {
+    flex: 0 0 auto;
     box-sizing: border-box;
     width: 2.5em;
     height: 2.5em;
@@ -3776,8 +3784,10 @@ file. These definitions will be defined mobile first.
     transition: box-shadow 0.25s;
 }
 
-.narration-player__playback-btn:hover {
-    box-shadow: 0px 0px 0 2px #fff;
+@media (min-width:900px) {
+    .narration-player__playback-btn:hover {
+        box-shadow: 0px 0px 0 2px #fff;
+    }
 }
 
 .narration-player__playback-btn-icon {
@@ -3794,6 +3804,7 @@ file. These definitions will be defined mobile first.
 
 .narration-player__seekbar {
     flex: 1;
+    min-width: 0;
     margin: 0 1em;
     -webkit-appearance: none;
     width: 15.5em;
@@ -3808,4 +3819,8 @@ file. These definitions will be defined mobile first.
     height: 0.85em;
     border-radius: 100px;
     background: #fff;
+}
+
+.narration-player__time-display {
+    flex: 0 0 auto
 }
