@@ -23,6 +23,7 @@ let SectionText = function(root, narrationPlayer) {
             showIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
             hideIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
             narrationToggleBtn.classList.remove("section-text__toggle-narration-btn--activated");
+            if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         }
     };
 

@@ -455,6 +455,8 @@ def createSiteDirectory(siteDir, zipDirSmall, zipDirLarge):
     shutil.copytree("js/", "{}/js/".format(siteDir))
     shutil.copytree("img/", "{}/img/".format(siteDir))
 
+    shutil.copytree("audio/", "{}/audio/".format(siteDir))
+
     if os.path.isdir(zipDirSmall):
         shutil.rmtree(zipDirSmall)
     shutil.copytree(siteDir, zipDirSmall)

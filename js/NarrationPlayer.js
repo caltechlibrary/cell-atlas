@@ -81,7 +81,9 @@ let NarrationPlayer = function(root) {
     }
 
     return {
-        root
+        root,
+        togglePlayback,
+        audio
     }
 
 };
