@@ -1776,6 +1776,7 @@ file. These definitions will be defined mobile first.
     display: flex;
     align-items: center;
     flex: 1 0 auto;
+    margin-right: 4.5rem;
     padding-top: 0.4em;
     font-size: 1.35em;
 }
@@ -1952,7 +1953,6 @@ file. These definitions will be defined mobile first.
     }
 
     .section-text__header-container {
-        margin-right: 4.5rem;
         padding: 0.4rem 0 0 1rem;
     }
 
