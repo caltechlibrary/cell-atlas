@@ -2651,13 +2651,57 @@ file. These definitions will be defined mobile first.
     fill: #000;
 }
 
-.modal__text-container {
+.modal__content-container {
     flex: 1 1 auto;
+    position: relative;
     overflow: auto;
 }
 
 .modal__header {
+    margin-top: 0.2em;
     font-size: 1.75em;
+}
+
+.modal__toggle-narration-btn {
+    position: absolute;
+    top: 4.5em;
+    right: 1em;
+    box-sizing: border-box;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 100px;
+    border: none;
+    padding: 0.4em;
+    background: none;
+    transition: box-shadow 0.25s;
+}
+
+@media (min-width:900px) {
+    .modal__toggle-narration-btn {
+        top: 0em;
+    }
+
+    .modal__toggle-narration-btn:hover {
+        box-shadow: 0px 0px 0 2px #000;
+    }
+}
+
+.modal__toggle-narration-btn--activated {
+    box-shadow: 0px 0px 0 2px #000;
+}
+
+.modal__toggle-narration-btn-icon--hidden {
+    display: none;    
+}
+
+.modal__toggle-narration-btn-show-icon {
+    fill: none;
+    stroke-width: 1;
+    stroke: #000;
+}
+
+.modal__toggle-narration-btn-hide-icon {
+    fill: #000;
 }
 
 .modal__text-content {
@@ -3822,8 +3866,15 @@ file. These definitions will be defined mobile first.
     width: 100%;
     height: 100%;
     stroke-width: 2;
-    stroke: #fff;
     fill: none;
+}
+
+.narration-player__playback-btn-icon--section-text {
+    stroke: #fff;
+}
+
+.narration-player__playback-btn-icon--modal {
+    stroke: #000;
 }
 
 .narration-player__playback-btn-icon--hidden {
@@ -3837,8 +3888,15 @@ file. These definitions will be defined mobile first.
     -webkit-appearance: none;
     width: 15.5em;
     height: 2px;
-    background: #fff;
     cursor: pointer;
+}
+
+.narration-player__seekbar--section-text {
+    background: #fff;
+}
+
+.narration-player__seekbar--modal {
+    background: #000;
 }
 
 .narration-player__seekbar::-webkit-slider-thumb {
@@ -3846,7 +3904,14 @@ file. These definitions will be defined mobile first.
     width: 0.85em;
     height: 0.85em;
     border-radius: 100px;
+}
+
+.narration-player__seekbar--section-text::-webkit-slider-thumb {
     background: #fff;
+}
+
+.narration-player__seekbar--modal::-webkit-slider-thumb {
+    background: #000;
 }
 
 .narration-player__time-display {

@@ -8,7 +8,7 @@
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, mediaViewers = {}, modals = {};
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, mediaViewers = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
 
@@ -213,10 +213,13 @@
     mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
-        mainNarrationPlayer = NarrationPlayer(narrationPlayerEl);
-        mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
-        mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
+        let narrationPlayer = NarrationPlayer(narrationPlayerEl);
+        narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
     };
+
+    mainNarrationPlayer = narrationPlayers["narrationPlayer-main"];
+    mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
+    mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
 
     sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
@@ -229,7 +232,8 @@
     for(let modalEl of modalEls) {
         let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
         let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
-        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer);
+        let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
+        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer);
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
     }

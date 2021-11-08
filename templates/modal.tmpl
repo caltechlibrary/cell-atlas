@@ -20,10 +20,17 @@
         ${endif}
     ${endif}
 
-    <div class="modal__text-container" tabindex="-1">
-        <h1 class="modal__header">${it.title}</h1>
-        <div class="modal__text-content">
-            ${it.html}
+    <div class="modal__content-container">
+        ${it:narration-player.tmpl()}
+        <button class="modal__toggle-narration-btn">
+            <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
+            <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
+        </button>
+        <div class="modal__text-container" tabindex="-1">
+            <h1 class="modal__header">${it.title}</h1>
+            <div class="modal__text-content">
+                ${it.html}
+            </div>
         </div>
     </div>
 </div>
