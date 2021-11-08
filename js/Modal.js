@@ -57,6 +57,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
         let showIcon = root.querySelector(".modal__toggle-narration-btn-show-icon");
         let hideIcon = root.querySelector(".modal__toggle-narration-btn-hide-icon");
         if(narrationPlayer.root.classList.contains("narration-player--hidden")) {
+            if(!narrationPlayer.initialized) narrationPlayer.init();
             narrationPlayer.root.classList.remove("narration-player--hidden");
             showIcon.classList.add("modal__toggle-narration-btn-icon--hidden");
             hideIcon.classList.remove("modal__toggle-narration-btn-icon--hidden");

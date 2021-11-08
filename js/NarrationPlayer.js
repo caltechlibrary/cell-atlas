@@ -4,10 +4,21 @@ let NarrationPlayer = function(root) {
     let seekBar = root.querySelector(".narration-player__seekbar");
     let timeDisplay = root.querySelector(".narration-player__time-display");
     let audio = root.querySelector(".narration-player__audio-el");
+    let initialized = false;
 
     let init = function() {
+        let audioSrcEl = audio.querySelector("source");
+        audio.addEventListener("loadedmetadata", onLoadedmetadata, { once: true });
+        audioSrcEl.setAttribute("src", root.getAttribute("data-src"));
+        audio.load();
+        this.initialized = true;
+    };
+
+    let onLoadedmetadata = function() {
         seekBar.setAttribute("max", Math.round(audio.duration));
         setTimeDisplay();
+        playbackBtn.disabled = false;
+        seekBar.disabled = false;
     };
 
     let setTimeDisplay = function() {
@@ -74,16 +85,12 @@ let NarrationPlayer = function(root) {
     seekBar.addEventListener("keydown", onSeekbarKeydown);
     seekBar.addEventListener("input", onSeekbarInput);
 
-    if(audio.readyState > 0) {
-        init();
-    } else {
-        audio.addEventListener("loadedmetadata", init);
-    }
-
     return {
         root,
+        audio,
+        initialized,
+        init,
         togglePlayback,
-        audio
     }
 
 };

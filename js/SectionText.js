@@ -16,6 +16,7 @@ let SectionText = function(root, narrationPlayer) {
         let showIcon = root.querySelector(".section-text__toggle-narration-btn-show-icon");
         let hideIcon = root.querySelector(".section-text__toggle-narration-btn-hide-icon");
         if(narrationPlayer.root.classList.contains("narration-player--hidden")) {
+            if(!narrationPlayer.initialized) narrationPlayer.init();
             narrationPlayer.root.classList.remove("narration-player--hidden");
             showIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
             hideIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
