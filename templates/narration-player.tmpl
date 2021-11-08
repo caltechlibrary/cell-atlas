@@ -1,7 +1,7 @@
 <div
     id="${if(it.isSection)}narrationPlayer-main${else}narrationPlayer-${it.id}${endif}"
     class="narration-player narration-player--hidden"
-    data-src="audio/1_1.mp3"
+    data-src="https://www.cellstructureatlas.org/audio/1_1.mp3"
 >
     <button class="narration-player__playback-btn" disabled>
         <div class="narration-player__playback-btn-icon ${if(it.isSection)}narration-player__playback-btn-icon--section-text${else}narration-player__playback-btn-icon--modal${endif} narration-player__playback-btn-play-icon">${svg/play.svg()}</div>
