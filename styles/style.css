@@ -2658,15 +2658,16 @@ file. These definitions will be defined mobile first.
 }
 
 .modal__header {
-    margin-top: 0.2em;
+    margin-top: 7.6px;
+    margin-top: calc(0.2em + 2px);
     line-height: 1;
     font-size: 1.75em;
 }
 
 .modal__toggle-narration-btn {
     position: absolute;
-    top: 0em;
-    right: 0em;
+    top: 2px;
+    right: 2px;
     box-sizing: border-box;
     width: 2.5em;
     height: 2.5em;
