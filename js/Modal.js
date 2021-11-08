@@ -25,6 +25,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
                 mainMediaViewer.setFullscreenBtnState("minimized");
             }
         }
+        if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         root.classList.add("modal--hidden");
         textContainer.setAttribute("tabindex", -1);
     };
