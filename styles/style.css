@@ -2659,13 +2659,14 @@ file. These definitions will be defined mobile first.
 
 .modal__header {
     margin-top: 0.2em;
+    line-height: 1;
     font-size: 1.75em;
 }
 
 .modal__toggle-narration-btn {
     position: absolute;
-    top: 4.5em;
-    right: 1em;
+    top: 0em;
+    right: 0em;
     box-sizing: border-box;
     width: 2.5em;
     height: 2.5em;
@@ -2677,9 +2678,6 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
-    .modal__toggle-narration-btn {
-        top: 0em;
-    }
 
     .modal__toggle-narration-btn:hover {
         box-shadow: 0px 0px 0 2px #000;
