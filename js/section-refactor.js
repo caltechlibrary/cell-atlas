@@ -132,6 +132,7 @@
             if(!event.target.classList.contains("learn-more__btn")) return;
             let learnMoreBtn = event.target;
             if(!mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
+            if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
             openModal(learnMoreBtn.value);
         };
 
