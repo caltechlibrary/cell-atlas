@@ -1,14 +1,14 @@
 let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer) {
 
     let exitBtn = root.querySelector(".modal__exit-btn");
-    let textContainer = root.querySelector(".modal__text-container");
+    let contentContainer = root.querySelector(".modal__content-container");
     let openProteinViewerBtn = root.querySelector(".vid-metadata__viewer-btn");
     let narrationToggleBtn = root.querySelector(".modal__toggle-narration-btn");
 
     let show = function() {
         if(proteinMediaViewer && !proteinMediaViewer.proteinViewer.initialized) proteinMediaViewer.proteinViewer.init();
         root.classList.remove("modal--hidden");
-        textContainer.setAttribute("tabindex", 0);
+        contentContainer.setAttribute("tabindex", 0);
         if(mainMediaViewer && mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden") && window.innerWidth > 900 && window.createImageBitmap) {
             setTimeout(mainMediaViewer.videoPlayer.resizeScrubCanvas, 200);
         }
@@ -27,7 +27,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
         }
         if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         root.classList.add("modal--hidden");
-        textContainer.setAttribute("tabindex", -1);
+        contentContainer.setAttribute("tabindex", -1);
     };
 
     let toggleMainMediaViewerFs = function() {
