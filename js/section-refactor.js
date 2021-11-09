@@ -3,10 +3,12 @@
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
     let modalOverlay = document.querySelector(".modal-overlay");
+    let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
+    let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mediaViewers = {}, modals = {};
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, mediaViewers = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
 
@@ -80,6 +82,18 @@
             if(!mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mainMediaViewer.videoPlayer.resizeScrubCanvas();
         };
 
+        let stopMainNarration = function() {
+            if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
+        };
+
+        let showStopNarrationBtn = function() {
+            mainStopNarrationButtonMobile.classList.remove("main-non-text-container__stop-narration-btn--hidden");
+        };
+
+        let hideStopNarrationBtn = function() {
+            mainStopNarrationButtonMobile.classList.add("main-non-text-container__stop-narration-btn--hidden");
+        };
+
         let shelveTextWidget = function() {
             sectionText.setMainTabIndex(-1);
 
@@ -87,28 +101,28 @@
             sectionText.root.classList.remove("section-text--transition-delay");
             sectionText.root.classList.add("section-text--transition-instant");
             sectionText.mainContainer.classList.remove("section-text__main-container-transition-instant");
-            sectionText.mainContainer.classList.add("section-text__unshelve-btn--transition-delay");
-            sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--transition-instant");
-            sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--transition-delay");
+            sectionText.mainContainer.classList.add("section-text__unshelve-btn-container--transition-delay");
+            sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--transition-instant");
+            sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--transition-delay");
 
             sectionText.root.classList.add("section-text--shelved");
             sectionText.mainContainer.classList.add("section-text__main-container--hidden");
-            sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--hidden");
-            sectionText.unshelveBtn.setAttribute("tabindex", 0);
+            sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--hidden");
+            sectionText.unshelveBtnContainer.setAttribute("tabindex", 0);
         };
 
         let unShelveTextWidget = function() {
-            sectionText.unshelveBtn.setAttribute("tabindex", -1);
+            sectionText.unshelveBtnContainer.setAttribute("tabindex", -1);
 
             // Add classess to determine visual order that transitions happen
             sectionText.root.classList.remove("section-text--transition-instant");
             sectionText.root.classList.add("section-text--transition-delay");
             sectionText.mainContainer.classList.remove("section-text__main-container-transition-instant");
-            sectionText.mainContainer.classList.add("section-text__unshelve-btn--transition-delay");
-            sectionText.unshelveBtn.classList.remove("section-text__unshelve-btn--transition-delay");
-            sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--transition-instant");
+            sectionText.mainContainer.classList.add("section-text__unshelve-btn-container--transition-delay");
+            sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--transition-delay");
+            sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--transition-instant");
             
-            sectionText.unshelveBtn.classList.add("section-text__unshelve-btn--hidden");
+            sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--hidden");
             sectionText.mainContainer.classList.remove("section-text__main-container--hidden");
             sectionText.root.classList.remove("section-text--shelved");
             sectionText.setMainTabIndex(0);
@@ -118,6 +132,7 @@
             if(!event.target.classList.contains("learn-more__btn")) return;
             let learnMoreBtn = event.target;
             if(!mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
+            if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
             openModal(learnMoreBtn.value);
         };
 
@@ -165,6 +180,9 @@
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
             resizeMainPlayerScrubCanvas,
+            stopMainNarration,
+            showStopNarrationBtn,
+            hideStopNarrationBtn,
             handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
@@ -203,8 +221,18 @@
     if(mainMediaViewer.videoPlayer) mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
     
     if(window.createImageBitmap && mainMediaViewer.videoPlayer) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
+    mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
-    sectionText = SectionText(sectionTextEl);
+    for(let narrationPlayerEl of narrationPlayerEls) {
+        let narrationPlayer = NarrationPlayer(narrationPlayerEl);
+        narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
+    };
+
+    mainNarrationPlayer = narrationPlayers["narrationPlayer-main"];
+    mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
+    mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
+
+    sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
     sectionText.unshelveBtn.addEventListener("click", sectionController.unshelveText);
 
@@ -215,7 +243,8 @@
     for(let modalEl of modalEls) {
         let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
         let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
-        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer);
+        let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
+        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer);
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
     }
