@@ -3,11 +3,13 @@ let SummaryMenu = function(root) {
     let menuContainer = root.querySelector(".summary-menu__menu-container");
     let menuItems = root.querySelectorAll(".summary-menu__li");
     let focusTranslateRatio = 0.0215;
-    let currTranslateX = 0;
-    let currTranslateY = 0;
-    let currScale = 1;
-    let zoomWeight = 1.05;
-    let prevTouchPos1, prevTouchPos2, prevDist;
+    root.menuContainer = menuContainer;
+    root.eventCache = [];
+    root.prevDiff = -1;
+    root.curScale = 1;
+    root.curTranslateX = 0;
+    root.curTranslateY = 0;
+    root.zoomWeight = 1.025;
 
     let resizeMenuContainer = function() {
         let sideLength = Math.min(root.clientWidth, root.clientHeight);
@@ -59,30 +61,64 @@ let SummaryMenu = function(root) {
         }
     };
 
-    let handleTouchMove = function(event) {
-        event.preventDefault();
-        let newTouchPos1, newTouchPos2, newDist, midPointX, midPointY, zoomFactor;
-        newTouchPos1 = calcGridPos(event.touches[0].clientX, event.touches[0].clientY);
-        if(prevTouchPos1) {
-            currTranslateX-= prevTouchPos1.posX - newTouchPos1.posX;
-            currTranslateY-= newTouchPos1.posY - prevTouchPos1.posY;
-        }
-        if(event.touches[1]) {
-            newTouchPos2 = calcGridPos(event.touches[1].clientX, event.touches[1].clientY);
-            newDist = Math.hypot(newTouchPos1.posX - newTouchPos2.posX, newTouchPos1.posY - newTouchPos2.posY);
-            midPointX = (newTouchPos1.posX + newTouchPos2.posX) / 2;
-            midPointY = (newTouchPos1.posY + newTouchPos2.posY) / 2;
-            if(prevDist) {
-                zoomFactor = (prevDist - newDist >= 0) ? 1 / zoomWeight : zoomWeight;
-                currTranslateX-= (midPointX - currTranslateX) * (zoomFactor - 1);
-                currTranslateY-= (currTranslateY - midPointY) * (zoomFactor - 1);
-                currScale*= zoomFactor;
+    let onPointerdown = function(event) {
+        this.eventCache.push(event);
+    };
+
+    let onPointermove = function(event) {
+        let prevGridPos1 = calcGridPos(this.eventCache[0].clientX, this.eventCache[0].clientY);
+
+        for (let i = 0; i < this.eventCache.length; i++) {
+            if (event.pointerId == this.eventCache[i].pointerId) {
+                this.eventCache[i] = event;
+                break;
             }
         }
-        menuContainer.style.transform = `matrix(${currScale}, 0, 0, ${currScale}, ${currTranslateX}, ${currTranslateY})`;
-        prevTouchPos1 = newTouchPos1;
-        prevTouchPos2 = newTouchPos2;
-        prevDist = newDist;
+        
+        let gridPos1 = calcGridPos(this.eventCache[0].clientX, this.eventCache[0].clientY);
+
+        this.curTranslateX = this.curTranslateX - (prevGridPos1.posX - gridPos1.posX);
+        this.curTranslateY = this.curTranslateY - (gridPos1.posY - prevGridPos1.posY);
+
+        if (this.eventCache.length == 2) {
+            let gridPos2 = calcGridPos(this.eventCache[1].clientX, this.eventCache[1].clientY);
+            let curDiff = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
+            let midPoint = {
+                posX: (gridPos1.posX + gridPos2.posX) / 2,
+                posY: (gridPos1.posY + gridPos2.posY) / 2,
+            };
+            let zoomFactor = 1;
+            
+            if (this.prevDiff > 0) {
+                if (curDiff > this.prevDiff) {
+                    zoomFactor = this.zoomWeight;
+                }
+                if (curDiff < this.prevDiff) {
+                    zoomFactor = (1 / this.zoomWeight);
+                }
+            }
+
+            this.curTranslateX = this.curTranslateX - ( (midPoint.posX - this.curTranslateX) * (zoomFactor - 1) );
+            this.curTranslateY = this.curTranslateY - ( (this.curTranslateY - midPoint.posY) * (zoomFactor - 1) );
+            this.curScale = this.curScale * zoomFactor;
+            
+            this.prevDiff = curDiff;
+        }
+
+        this.menuContainer.style.transform = `matrix(${this.curScale}, 0, 0, ${this.curScale}, ${this.curTranslateX}, ${this.curTranslateY})`;
+    };
+
+    let onPointerup = function(event) {
+        for (let i = 0; i < this.eventCache.length; i++) {
+            if (this.eventCache[i].pointerId == event.pointerId) {
+                this.eventCache.splice(i, 1);
+                break;
+            }
+        }
+
+        if (this.eventCache.length < 2) {
+            this.prevDiff = -1;
+        }
     };
 
     let calcGridPos = function(pageX, pageY) {
@@ -93,14 +129,6 @@ let SummaryMenu = function(root) {
         return { posX, posY };
     };
 
-    let handleTouchEnd = function(event) {
-        prevTouchPos1 = undefined;
-        if(event.touches.length == 0) {
-            prevTouchPos2 = undefined;
-            prevDist = undefined;
-        }
-    };
-
     resizeMenuContainer();
     window.addEventListener("resize", resizeMenuContainer);
     for(let menuItem of menuItems) {
@@ -108,8 +136,12 @@ let SummaryMenu = function(root) {
         menuItem.addEventListener("mouseleave", deactivateMenuPart);
         menuItem.addEventListener("keydown", handleItemKeydown);
     }
-    root.addEventListener("touchmove", handleTouchMove);
-    root.addEventListener("touchend", handleTouchEnd);
+    root.addEventListener("pointerdown", onPointerdown);
+    root.addEventListener("pointermove", onPointermove);
+    root.addEventListener("pointerup", onPointerup);
+    root.addEventListener("pointercancel", onPointerup);
+    root.addEventListener("pointerout", onPointerup);
+    root.addEventListener("pointerleave", onPointerup);
 
     return {
         root,
