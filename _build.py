@@ -570,6 +570,7 @@ for i in range(len(sectionFiles)):
             "isSection": True,
             "chapter{}".format(metadata["chapter"]): True 
         }
+        metadata["vidMetadata"] = { "isSection": True }
     elif("video" in metadata):
         metadata["thumbnail"] = "{}_thumbnail".format("_".join(metadata["video"].split("_")[:2]))
     
