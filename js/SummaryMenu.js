@@ -67,6 +67,8 @@ let SummaryMenu = function(root) {
 
     let onPointermove = function(event) {
         let prevGridPos1 = calcGridPos(this.eventCache[0].clientX, this.eventCache[0].clientY);
+        let zoomFactor = 1;
+        let gridPos1, gridPos2, curDiff, midPoint;
 
         for (let i = 0; i < this.eventCache.length; i++) {
             if (event.pointerId == this.eventCache[i].pointerId) {
@@ -75,19 +77,18 @@ let SummaryMenu = function(root) {
             }
         }
         
-        let gridPos1 = calcGridPos(this.eventCache[0].clientX, this.eventCache[0].clientY);
+        gridPos1 = calcGridPos(this.eventCache[0].clientX, this.eventCache[0].clientY);
 
         this.curTranslateX = this.curTranslateX - (prevGridPos1.posX - gridPos1.posX);
         this.curTranslateY = this.curTranslateY - (gridPos1.posY - prevGridPos1.posY);
 
         if (this.eventCache.length == 2) {
-            let gridPos2 = calcGridPos(this.eventCache[1].clientX, this.eventCache[1].clientY);
-            let curDiff = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
-            let midPoint = {
+            gridPos2 = calcGridPos(this.eventCache[1].clientX, this.eventCache[1].clientY);
+            curDiff = Math.hypot(gridPos1.posX - gridPos2.posX, gridPos1.posY - gridPos2.posY);
+            midPoint = {
                 posX: (gridPos1.posX + gridPos2.posX) / 2,
                 posY: (gridPos1.posY + gridPos2.posY) / 2,
             };
-            let zoomFactor = 1;
             
             if (this.prevDiff > 0) {
                 if (curDiff > this.prevDiff) {
