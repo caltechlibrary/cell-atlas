@@ -66,6 +66,7 @@ let SummaryMenu = function(root) {
     };
 
     let onPointermove = function(event) {
+        if(event.pointerType != "touch") return;
         let prevGridPos1 = calcGridPos(this.eventCache[0].clientX, this.eventCache[0].clientY);
         let zoomFactor = 1;
         let gridPos1, gridPos2, curDiff, midPoint;
