@@ -39,6 +39,7 @@ file. These definitions will be defined mobile first.
 - fs-tree-confirm: Confirm pop up to be displayed when fullscreen for tree is requested on page load
 - tree-viewer: Interactive phylogenetic tree viewer found in appendix page
 - species-example-list: List of example sections for a given species
+- summary-menu: Summary menu widget that displays interactive chapter menu.
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
@@ -1322,6 +1323,17 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.media-viewer--summary-menu {
+    width: 95%;
+    height: 90%;
+}
+
+@media (min-width: 900px) {
+    .media-viewer--summary-menu {
+        width: 100%;
+    }
+}
+
 .media-viewer--fullscreen {
     display: flex;
     justify-content: center;
@@ -1425,6 +1437,11 @@ file. These definitions will be defined mobile first.
         flex-direction: column;
         align-items: center;
     }
+}
+
+.media-viewer__media-container--summary-menu {
+    width: 100%;
+    height: 100%;
 }
 
 .media-viewer__media-container--fixed-enlarged {
@@ -3269,44 +3286,15 @@ file. These definitions will be defined mobile first.
 }
 
 /* summary-menu */
-.summary-menu--nontext-section {
-    width: 95%;
-    height: 90%;
-}
-
-.summary-menu--fs-polyfill {
-    position: fixed;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
-}
-
-.summary-menu--fs-polyfill::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-}
-
-.summary-menu__widget {
+.summary-menu {
     position: relative;
-    box-sizing: border-box;
     width: 100%;
     height: 100%;
-    border: 7px #cccccc solid;
-    border-radius: 10px;
-    box-shadow: 0px 0px 0 1px #444;
-    background: #fff;
     overflow: hidden;
+    touch-action: none;
 }
 
-.summary-menu__container {
+.summary-menu__menu-container {
     position: absolute;
     top: 0;
     right: 0;
@@ -3337,7 +3325,11 @@ file. These definitions will be defined mobile first.
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: visibility 0.25s, opacity 0.25s;
+    transition: visibility 0s ease 0.25s, opacity 0.25s;
+}
+
+.summary-menu__li--active .summary-menu__li-text {
+    transition: visibility 0s ease 0s, opacity 0.25s;
 }
 
 .summary-menu__li-text--ch1 {
@@ -3380,34 +3372,9 @@ file. These definitions will be defined mobile first.
     width: 45%;
 }
 
-.summary-menu__li-text--transparent {
-    opacity: 0;
-}
-
 .summary-menu__li-text--hidden {
+    opacity: 0;
     visibility: hidden;
-    height: 0;
-    width: 0;
-}
-
-.summary-menu__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0.5em;
-    border: none;
-    border-radius: 0 0 0 10px;
-    background: #ffffff87;
-}
-
-.summary-menu__btn svg {
-    width: 1.25em;
-    fill: #15404e;
-}
-
-.summary-menu__btn--hidden {
-    display: none;
 }
 
 .summary-menu__li--ch1-item1 {

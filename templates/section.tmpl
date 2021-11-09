@@ -1,7 +1,7 @@
 <div class="main-non-text-container main-non-text-container--hidden-mobile">
     <a href="${prevSection}.html" class="main-non-text-container__nav-arrow" data-nav="prev">${svg/left-nav.svg()}</a>
     ${if(summaryData)}
-        ${summaryData:summary.tmpl()}
+        ${summaryData:media-viewer.tmpl()}
     ${else}
         ${vidMetadata:media-viewer.tmpl()}
     ${endif}
