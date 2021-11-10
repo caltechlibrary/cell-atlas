@@ -1430,8 +1430,9 @@
                                         id="narrationPlayer-main"
                                         class="narration-player narration-player--hidden"
                                         data-src="https://www.cellstructureatlas.org/audio/1_1.mp3"
+                                        tabindex="0"
                                     >
-                                        <button class="narration-player__playback-btn" disabled>
+                                        <button class="narration-player__playback-btn" aria-label="Play" disabled>
                                             <div class="narration-player__playback-btn-icon narration-player__playback-btn-icon--section-text narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                     	<g>
                                     		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
@@ -1446,8 +1447,16 @@
                                     	</g>
                                     </svg></div>
                                         </button>
-                                        <input class="narration-player__seekbar narration-player__seekbar--section-text" type="range" value="0" min="0" disabled/>
-                                        <span class="narration-player__time-display">0:00</span>
+                                        <input 
+                                            class="narration-player__seekbar narration-player__seekbar--section-text"
+                                            aria-label="audio time scrubber 0:00 / 0:00"
+                                            aria-valuetext="elapsed time: 0:00"
+                                            type="range" value="0" min="0" disabled
+                                        />
+                                        <span class="narration-player__time-display">
+                                            <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
+                                            <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
+                                        </span>
                                         <audio class="narration-player__audio-el">
                                             <source type="audio/mpeg">
                                             Your browser doesn't support HTML5 audio.
@@ -1458,7 +1467,7 @@
                                         <div class="section-text__header-divider"></div>
                                         <h1 class="section-text__title">Periplasmic Flagella</h1>
                                     </div>
-                                    <button class="section-text__toggle-narration-btn">
+                                    <button class="section-text__toggle-narration-btn" aria-label="Open narration player">
                                         <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                         	<g>
                         		<g transform="translate(1.9998 1)">
@@ -1730,8 +1739,9 @@
                                                 id="narrationPlayer-treponema-primitia"
                                                 class="narration-player narration-player--hidden"
                                                 data-src="https://www.cellstructureatlas.org/audio/1_1.mp3"
+                                                tabindex="0"
                                             >
-                                                <button class="narration-player__playback-btn" disabled>
+                                                <button class="narration-player__playback-btn" aria-label="Play" disabled>
                                                     <div class="narration-player__playback-btn-icon narration-player__playback-btn-icon--modal narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                             	<g>
                                             		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
@@ -1746,14 +1756,22 @@
                                             	</g>
                                             </svg></div>
                                                 </button>
-                                                <input class="narration-player__seekbar narration-player__seekbar--modal" type="range" value="0" min="0" disabled/>
-                                                <span class="narration-player__time-display">0:00</span>
+                                                <input 
+                                                    class="narration-player__seekbar narration-player__seekbar--modal"
+                                                    aria-label="audio time scrubber 0:00 / 0:00"
+                                                    aria-valuetext="elapsed time: 0:00"
+                                                    type="range" value="0" min="0" disabled
+                                                />
+                                                <span class="narration-player__time-display">
+                                                    <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
+                                                    <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
+                                                </span>
                                                 <audio class="narration-player__audio-el">
                                                     <source type="audio/mpeg">
                                                     Your browser doesn't support HTML5 audio.
                                                 </audio>
                                             </div>
-                                            <button class="modal__toggle-narration-btn">
+                                            <button class="modal__toggle-narration-btn" aria-label="Open narration player">
                                                 <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                     	<g>
                                     		<g transform="translate(1.9998 1)">

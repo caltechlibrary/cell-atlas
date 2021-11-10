@@ -3794,7 +3794,7 @@ file. These definitions will be defined mobile first.
     justify-content: space-between;
     align-items: center;
     padding-left: 0.5em;
-    visibility: visible;
+    visibility: inherit;
     transition: height 0.75s;
 }
 
@@ -3849,6 +3849,7 @@ file. These definitions will be defined mobile first.
     -webkit-appearance: none;
     width: 15.5em;
     height: 2px;
+    font-size: 0.85em;
     cursor: pointer;
 }
 
