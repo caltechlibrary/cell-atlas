@@ -2,7 +2,8 @@ let NarrationPlayer = function(root) {
 
     let playbackBtn = root.querySelector(".narration-player__playback-btn");
     let seekBar = root.querySelector(".narration-player__seekbar");
-    let timeDisplay = root.querySelector(".narration-player__time-display");
+    let currentTimeDisplay = root.querySelector(".narration-player__current-time-display");
+    let totalTimeDisplay = root.querySelector(".narration-player__total-time-display");
     let audio = root.querySelector(".narration-player__audio-el");
     let initialized = false;
 
@@ -16,6 +17,7 @@ let NarrationPlayer = function(root) {
 
     let onLoadedmetadata = function() {
         seekBar.setAttribute("max", Math.round(audio.duration));
+        setSeekbarValue();
         setTimeDisplay();
         playbackBtn.disabled = false;
         seekBar.disabled = false;
@@ -25,17 +27,32 @@ let NarrationPlayer = function(root) {
     let attachEventListeners = function() {
         audio.addEventListener("play", onPlaybackChange);
         audio.addEventListener("pause", onPlaybackChange);
-        audio.addEventListener("timeupdate", onTimeUpdate);
+        audio.addEventListener("timeupdate", setSeekbarValue);
+        audio.addEventListener("timeupdate", setTimeDisplay);
         playbackBtn.addEventListener("click", togglePlayback);
         seekBar.addEventListener("mousedown", onSeekbarMousedown);
         seekBar.addEventListener("keydown", onSeekbarKeydown);
         seekBar.addEventListener("input", onSeekbarInput);
     };
 
+    let setSeekbarValue = function() {
+        seekBar.value = audio.currentTime;
+        seekBar.setAttribute("aria-label", `audio time scrubber ${getFormattedTime(audio.currentTime)} / ${getFormattedTime(audio.duration)}`);
+        seekBar.setAttribute("aria-valuetext", `elapsed time: ${getFormattedTime(audio.currentTime)}`);
+    };
+
     let setTimeDisplay = function() {
-        let timeTextNode = document.createTextNode(`${getFormattedTime(audio.currentTime)} / ${getFormattedTime(audio.duration)}`);
-        if(timeDisplay.firstChild) timeDisplay.removeChild(timeDisplay.firstChild);
-        timeDisplay.appendChild(timeTextNode);
+        let currentTime = getFormattedTime(audio.currentTime);
+        let currentTimeTextNode = document.createTextNode(`${currentTime} `);
+        if(currentTimeDisplay.firstChild) currentTimeDisplay.removeChild(currentTimeDisplay.firstChild);
+        currentTimeDisplay.appendChild(currentTimeTextNode);
+        currentTimeDisplay.setAttribute("aria-label", `elapsed time: ${currentTime}`);
+
+        let totalTime = getFormattedTime(audio.duration);
+        let totalTimeTextNode = document.createTextNode(`/ ${totalTime}`);
+        if(totalTimeDisplay.firstChild) totalTimeDisplay.removeChild(totalTimeDisplay.firstChild);
+        totalTimeDisplay.appendChild(totalTimeTextNode);
+        totalTimeDisplay.setAttribute("aria-label", `total time: ${totalTime}`);
     };
 
     let getFormattedTime = function(seconds) {
@@ -49,17 +66,14 @@ let NarrationPlayer = function(root) {
         let playIcon = root.querySelector(".narration-player__playback-btn-play-icon");
         let pauseIcon = root.querySelector(".narration-player__playback-btn-pause-icon");
         if(audio.paused) {
+            playbackBtn.setAttribute("aria-label", "Play");
             playIcon.classList.remove("narration-player__playback-btn-icon--hidden");
             pauseIcon.classList.add("narration-player__playback-btn-icon--hidden");
         } else {
+            playbackBtn.setAttribute("aria-label", "Pause");
             playIcon.classList.add("narration-player__playback-btn-icon--hidden");
             pauseIcon.classList.remove("narration-player__playback-btn-icon--hidden");
         }
-    };
-
-    let onTimeUpdate = function() {
-        seekBar.value = audio.currentTime;
-        setTimeDisplay();
     };
 
     let togglePlayback = function() {
