@@ -3849,6 +3849,7 @@ file. These definitions will be defined mobile first.
     -webkit-appearance: none;
     width: 15.5em;
     height: 2px;
+    font-size: 0.85em;
     cursor: pointer;
 }
 
