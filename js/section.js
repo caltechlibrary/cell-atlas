@@ -1,6 +1,9 @@
 let sectionTextMaterial = document.querySelector(".section-text__content");
 if(sectionTextMaterial) addTypeFocusToggle(sectionTextMaterial);
 
+let narrationPlayerElements = document.querySelectorAll(".narration-player");
+for(let narrationPlayerElement of narrationPlayerElements) addTypeFocusToggle(narrationPlayerElement);
+
 let comparisonVideoButtons = document.querySelectorAll(".book-section-comparison-button-container button");
 for(let comparisonVideoButton of comparisonVideoButtons) {
     addTypeFocusToggle(comparisonVideoButton);
