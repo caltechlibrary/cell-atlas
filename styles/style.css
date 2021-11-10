@@ -3325,11 +3325,7 @@ file. These definitions will be defined mobile first.
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: visibility 0s ease 0.25s, opacity 0.25s;
-}
-
-.summary-menu__li--active .summary-menu__li-text {
-    transition: visibility 0s ease 0s, opacity 0.25s;
+    transition: opacity 0.25s;
 }
 
 .summary-menu__li-text--ch1 {
@@ -3374,7 +3370,6 @@ file. These definitions will be defined mobile first.
 
 .summary-menu__li-text--hidden {
     opacity: 0;
-    visibility: hidden;
 }
 
 .summary-menu__li--ch1-item1 {
