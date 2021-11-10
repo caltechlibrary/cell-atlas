@@ -19,6 +19,17 @@ let NarrationPlayer = function(root) {
         setTimeDisplay();
         playbackBtn.disabled = false;
         seekBar.disabled = false;
+        attachEventListeners();
+    };
+
+    let attachEventListeners = function() {
+        audio.addEventListener("play", onPlaybackChange);
+        audio.addEventListener("pause", onPlaybackChange);
+        audio.addEventListener("timeupdate", onTimeUpdate);
+        playbackBtn.addEventListener("click", togglePlayback);
+        seekBar.addEventListener("mousedown", onSeekbarMousedown);
+        seekBar.addEventListener("keydown", onSeekbarKeydown);
+        seekBar.addEventListener("input", onSeekbarInput);
     };
 
     let setTimeDisplay = function() {
@@ -76,14 +87,6 @@ let NarrationPlayer = function(root) {
     let onSeekbarInput = function() {
         audio.currentTime = seekBar.value;
     };
-
-    audio.addEventListener("play", onPlaybackChange);
-    audio.addEventListener("pause", onPlaybackChange);
-    audio.addEventListener("timeupdate", onTimeUpdate);
-    playbackBtn.addEventListener("click", togglePlayback);
-    seekBar.addEventListener("mousedown", onSeekbarMousedown);
-    seekBar.addEventListener("keydown", onSeekbarKeydown);
-    seekBar.addEventListener("input", onSeekbarInput);
 
     return {
         root,
