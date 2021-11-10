@@ -135,8 +135,9 @@ let SummaryMenu = function(root) {
     window.addEventListener("resize", resizeMenuContainer);
     for(let menuItem of menuItems) {
         menuItem.addEventListener("mouseenter", activateMenuPart);
+        menuItem.addEventListener("focus", activateMenuPart);
         menuItem.addEventListener("mouseleave", deactivateMenuPart);
-        menuItem.addEventListener("keydown", handleItemKeydown);
+        menuItem.addEventListener("blur", deactivateMenuPart);
     }
     root.addEventListener("pointerdown", onPointerdown);
     root.addEventListener("pointermove", onPointermove);
