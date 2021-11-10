@@ -32,6 +32,7 @@ let NarrationPlayer = function(root) {
         playbackBtn.addEventListener("click", togglePlayback);
         seekBar.addEventListener("mousedown", onSeekbarMousedown);
         seekBar.addEventListener("keydown", onSeekbarKeydown);
+        seekBar.addEventListener("touchstart", onSeekbarTouchstart);
         seekBar.addEventListener("input", onSeekbarInput);
     };
 
@@ -92,9 +93,16 @@ let NarrationPlayer = function(root) {
     };
 
     let onSeekbarKeydown = function(event) {
-        if( (event.code == "ArrowLeft" || event.code == "ArrowUp" || event.code == "ArrowDown" || event.code == "ArrowLeft") && !audio.paused ) {
+        if( (event.code == "ArrowRight" || event.code == "ArrowUp" || event.code == "ArrowDown" || event.code == "ArrowLeft") && !audio.paused ) {
             audio.pause();
             seekBar.addEventListener("keyup", togglePlayback, { once: true });
+        }
+    };
+
+    let onSeekbarTouchstart = function() {
+        if(!audio.paused) {
+            audio.pause();
+            seekBar.addEventListener("touchend", togglePlayback, { once: true });
         }
     };
 
