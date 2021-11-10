@@ -49,18 +49,6 @@ let SummaryMenu = function(root) {
         partText.classList.add("summary-menu__li-text--hidden");
     };
 
-    let handleItemKeydown = function(event) {
-        if(event.keyCode == 13 || event.keyCode == 32) {
-            if(event.target.classList.contains("summary-menu__li--active")) {
-                deactivateMenuPart(event);
-            } else {
-                activateMenuPart(event);
-            }
-        } else if(event.keyCode == 9 && event.target.classList.contains("summary-menu__li--active")){
-            deactivateMenuPart(event);
-        }
-    };
-
     let onPointerdown = function(event) {
         this.eventCache.push(event);
     };
