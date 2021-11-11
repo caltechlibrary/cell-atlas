@@ -21,7 +21,7 @@ ${head.tmpl()}
         </div>
 
         <div class="footer-container">
-          ${progress.tmpl()}
+          ${if(currentPageNum)} ${progress-bar.tmpl()} ${endif}
           ${footer.tmpl()}
         </div>
 
@@ -49,6 +49,7 @@ ${head.tmpl()}
       <script src="js/VideoPlayer.js"></script>
       <script src="js/CompSlider.js"></script>
       <script src="js/NarrationPlayer.js"></script>
+      <script src="js/ProgressBar.js"></script>
       <script src="js/section-refactor.js"></script>
   ${endif}
   <script src="js/modal_old.js"></script>

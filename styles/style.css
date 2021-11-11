@@ -871,100 +871,6 @@ file. These definitions will be defined mobile first.
         margin-top: 2em;
     }
 
-    /* || PROGRESS styles */
-    #customBookProgress {
-        position: relative;
-        width: 100%;
-        visibility: hidden;
-        transform: translate(0px, 300%);
-        transition: transform 0.25s;
-    }
-
-    #customBookProgress.unshelfed {
-        transform: none;
-    }
-    
-    #customBookProgress.showing {
-        visibility: visible;
-    }
-
-    .progress-popup {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        bottom: 0px;
-        margin-bottom: 1.25em;
-        color: #fff;
-        background-color: #363636;
-        border: 1px solid #fff;
-        border-radius: 5px;
-        padding: 0.5em 1em;
-        font-size: 0.85em;
-        font-weight: 600;
-        box-shadow: 0px 0px 10px 2px #383838;
-    }
-
-
-    .progress-popup-hidden {
-        left: -10000px;
-        top: auto;
-        overflow: hidden;
-    }
-
-    .progress-popup span {
-        white-space: nowrap;
-    }
-
-    .progress-bar-container {
-        position: relative;
-        overflow: hidden;
-    }
-
-    #customBookProgress progress[value]{
-        display: block;
-        -webkit-appearance: none;
-        appearance: none;
-        width: 100%;
-        height: 5px;
-    }
-
-    #customBookProgress progress[value]::-webkit-progress-bar {
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-    }
-
-    progress[value]::-webkit-progress-value {
-        background-color: #fff;
-    }
-
-    .progress-current-pos-marker {
-        position: absolute;
-        left: 0;
-        top: -9px;
-        width: 0px;
-        height: 0px;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 7px solid #ccc;
-        transform: translateX(-50%);
-        filter: drop-shadow(0px 0px 3px #000);
-    }
-
-    .progress-bar-chapter-mark {
-        position: absolute;
-        top: 0;
-        box-sizing: border-box;
-        width: 3px;
-        height: 100%;
-        background-color: #fff;
-        border-width: 0px 1px;
-        border-style: solid;
-        border-color: #000;
-        box-shadow: 0 0 10px 1px #000;
-    }
-
     /* || FOOTER styles */
     footer {
         position: relative;
@@ -3878,4 +3784,97 @@ file. These definitions will be defined mobile first.
 
 .narration-player__time-display {
     flex: 0 0 auto
+}
+
+/* progress-bar */
+.progress-bar {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.progress-bar__progress-bar-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress-bar__progress-el {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    display: block;
+}
+
+.progress-bar__progress-el::-webkit-progress-bar {
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+
+}
+
+.progress-bar__progress-el::-webkit-progress-value {
+    background-color: #fff;
+}
+
+.progress-bar__chapter-indicator {
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    width: 3px;
+    height: 100%;
+    border: 1px solid #000;
+    border-top: none;
+    border-bottom: none;
+    background-color: #fff;
+    box-shadow: 0 0 10px 1px #000;
+}
+
+.progress-bar__current-position-indicator {
+    position: absolute;
+    top: -11px;
+    transform: translateX(-50%);
+    width: 0.7em;
+    height: 0.7em;
+    filter: drop-shadow(0px 0px 3px #000);
+    fill: #ccc;
+}
+
+.progress-bar__current-position-indicator svg {
+    display: block;
+}
+
+.progress-bar__progress-pop-up {
+    position: absolute;
+    bottom: 16px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 2px #8f8f8f;
+    padding: 0.5em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #363636;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.progress-bar__progress-pop-up--left-aligned {
+    left: 0;
+}
+
+.progress-bar__progress-pop-up--centered {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.progress-bar__progress-pop-up--right-aligned {
+    right: 0;
+}
+
+.progress-bar__progress-pop-up--hidden {
+    visibility: hidden;
 }
