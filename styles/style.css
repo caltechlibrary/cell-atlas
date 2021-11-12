@@ -871,95 +871,6 @@ file. These definitions will be defined mobile first.
         margin-top: 2em;
     }
 
-    /* || FOOTER styles */
-    footer {
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        flex: 0 0 auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        height: 35px;
-        background: #757575;
-        font-weight: 600;
-        font-size: 0.85rem;
-        color: #ffffff;
-    }
-
-    footer a {
-        color: inherit;
-    }
-
-    footer > * {
-        flex: 1;
-        text-align: center;
-        padding: 0 1em;
-        white-space: nowrap;
-    }
-
-    .progress-toggle-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .progress-switch {
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-
-    .progress-switch-slider {
-        display: inline-block;
-        position: relative;
-        margin-left: 10px;
-        box-sizing: border-box;
-        width: 30px;
-        height: 15px;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border: 2px solid #0E2F34;
-        border-radius: 50px;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    .progress-switch-input:checked + .progress-switch-slider {
-        background-color: #E6E6E6;
-    }
-
-    .progress-switch-slider:before {
-        position: absolute;
-        content: "";
-        height: 9px;
-        width: 9px;
-        left: 2px;
-        bottom: 1px;
-        background-color: #0E2F34;
-        border-radius: 50%;
-        display: none;
-        transition: none;
-    }
-
-    .progress-switch-slider.is-showing:before {
-        display: block;
-        transition: 0.25s;
-    }
-
-    .progress-switch-input:checked + .progress-switch-slider:before {
-        -webkit-transform: translateX(150%);
-        -ms-transform: translateX(150%);
-        transform: translateX(150%);
-    }
-
-    .progress-switch-input:focus + .progress-switch-slider {
-        outline: -webkit-focus-ring-color auto 1px;
-    }
-
     /* || APPENDIX styles */
     .book-appendix-page {
         width: 100%;
@@ -3877,4 +3788,72 @@ file. These definitions will be defined mobile first.
 
 .progress-bar__progress-pop-up--hidden {
     visibility: hidden;
+}
+
+/* footer */
+.footer__footer {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #757575;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #ffffff;
+}
+
+.footer__footer-item {
+    flex: 1;
+    margin: 0 1em;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.footer__footer-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer__progress-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__progress-toggle {
+    position: relative;
+    margin-left: 10px;
+    box-sizing: border-box;
+    width: 30px;
+    height: 15px;
+    padding: 0;
+    border: 2px solid #0E2F34;
+    border-radius: 50px;
+    background: none;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+.footer__progress-toggle--on {
+    background: #E6E6E6;
+}
+
+.footer__progress-toggle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2px;
+    bottom: 0;
+    margin: auto;
+    height: 9px;
+    width: 9px;
+    border-radius: 100%;
+    background-color: #0E2F34;
+    transition: transform 0.25s;
+}
+
+.footer__progress-toggle--on::before {
+    transform: translateX(13px);
 }
