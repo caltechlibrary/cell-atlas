@@ -257,6 +257,6 @@
 
     progressBar = ProgressBar(progressBarEl);
 
-    footer = Footer(footerEl);
+    footer = Footer(footerEl, progressBar);
 
 })();
