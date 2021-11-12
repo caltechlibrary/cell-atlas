@@ -2155,43 +2155,61 @@
                                     </div>
                             </div>                  </div>
 
-        <div class="footer-container">
-              <div id="customBookProgress">
-                  <div id="posElementsContainer">
-                      <div id="progressPopUp" class="progress-popup progress-popup-hidden">
-                          <span>17%</span>
-                          <span>Page 20 of 121</span>
-                      </div>
-                      <div id="progressBarMarker" class="progress-current-pos-marker" style="left:16.528925619834713%" data-percent="16.528925619834713"></div>
-                  </div>
-                  <div class="progress-bar-container">
-                      <progress id="bookProgress" value="20" max="121"></progress>
-                                      <div class="progress-bar-chapter-mark" data-page="2" style="left:1.6528925619834711%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="14" style="left:11.570247933884298%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="26" style="left:21.487603305785125%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="35" style="left:28.92561983471074%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="46" style="left:38.01652892561984%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="60" style="left:49.586776859504134%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="74" style="left:61.15702479338842%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="82" style="left:67.76859504132231%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="95" style="left:78.51239669421489%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="108" style="left:89.25619834710744%"></div>
-                                      <div class="progress-bar-chapter-mark" data-page="120" style="left:99.17355371900827%"></div>
-                              </div>
-              </div>
-          <footer>
-            <a href="https://www.library.caltech.edu/" target="_blank" class="footer-link">A PUBLICATION OF THE CALTECH LIBRARY</a>
-            <span>&#169; 2021</span>
-            <a href="about.html" class="footer-link">ABOUT THIS BOOK</a>
-                  <div class="progress-toggle-container">
-                  <label class="progress-switch">
-                    Show Progress
-                    <input class="progress-switch-input sr-only" type="checkbox" disabled>
-                    <span class="progress-switch-slider"></span>
-                  </label>
+        <div class="footer">
+             <div class="progress-bar progress-bar--shelved" data-percent="16.528925619834713">
+            <div class="progress-bar__progress-bar-container">
+                <progress 
+                    class="progress-bar__progress-el" 
+                    value="20" 
+                    max="121" 
+                    aria-valuetext="Page 20 of 121" 
+                    aria-valuenow="20"
+                ></progress>
+                            <span class="progress-bar__chapter-indicator" style="left:1.6528925619834711%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:11.570247933884298%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:21.487603305785125%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:28.92561983471074%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:38.01652892561984%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:49.586776859504134%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:61.15702479338842%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:67.76859504132231%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:78.51239669421489%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:89.25619834710744%"></span>
+                            <span class="progress-bar__chapter-indicator" style="left:99.17355371900827%"></span>
+                    </div>
+            <div class="progress-bar__label-container">
+                <div 
+                    class="progress-bar__current-position-indicator" 
+                    style="left:16.528925619834713%"
+                    aria-describedby="progress-tooltip"
+                    aria-label="Current progress indicator"
+                    tabindex="0"
+                >
+                    <svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    	<g>
+                    		<path transform="matrix(0 .91667 -1.0833 0 33.333 3.1667)" d="m26 16-24 13.856v-13.856-13.856l12 6.9282z"/>
+                    	</g>
+                    </svg>            <div 
+                        class="progress-bar__progress-pop-up progress-bar__progress-pop-up--hidden"
+                        id="progress-tooltip"
+                        role="tooltip"
+                    >
+                        <span>17%</span>
+                        <span>Page 20 of 121</span>
+                    </div>
                 </div>
-            </footer>        </div>
-
+            </div>
+        </div> 
+            <footer class="footer__footer">
+                <a class="footer__footer-item footer__footer-link" href="https://www.library.caltech.edu/" target="_blank">A PUBLICATION OF THE CALTECH LIBRARY</a>
+                <span class="footer__footer-item">&#169; 2021</span>
+                <a class="footer__footer-item footer__footer-link" href="about.html">ABOUT THIS BOOK</a>
+                            <div class="footer__footer-item footer__progress-toggle-container">
+                        <span id="progressToggleLabel">Show Progress</span>
+                        <button class="footer__progress-toggle footer__progress-toggle--uninitialized" role="switch" aria-checked="false" aria-labelledby="progressToggleLabel"></button>
+                    </div>
+                    </footer>
+        </div>
     </div>
 
     <div class="mobile-controls mobile-controls--section-text">
@@ -2233,7 +2251,9 @@
     <script src="js/lunr/lunr.min.js"></script>
   <script src="js/SearchWidget.js"></script>
   <script src="js/search.js"></script>
-        <script src="js/MediaViewer.js"></script>
+  <script src="js/ProgressBar.js"></script>
+  <script src="js/Footer.js"></script>
+          <script src="js/MediaViewer.js"></script>
       <script src="js/SectionText.js"></script>
       <script src="js/ProteinViewer.js"></script>
       <script src="js/Modal.js"></script>
