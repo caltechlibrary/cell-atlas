@@ -3799,6 +3799,12 @@ file. These definitions will be defined mobile first.
 }
 
 /* footer */
+@media (max-width:900px) {
+    .footer {
+        display: none;
+    }
+}
+
 .footer__footer {
     flex: 0 0 auto;
     position: relative;
