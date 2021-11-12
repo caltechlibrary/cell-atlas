@@ -3850,6 +3850,10 @@ file. These definitions will be defined mobile first.
     background: #E6E6E6;
 }
 
+.footer__progress-toggle--uninitialized {
+    transition: none;
+}
+
 .footer__progress-toggle::before {
     content: "";
     position: absolute;
@@ -3866,4 +3870,9 @@ file. These definitions will be defined mobile first.
 
 .footer__progress-toggle--on::before {
     transform: translateX(13px);
+}
+
+.footer__progress-toggle--uninitialized::before {
+    display: none;
+    transition: none;
 }
