@@ -7,7 +7,7 @@
                     <div>Appendix</div>
                 ${else}
                     <div class="nav__chapter-header-container">
-                        <a href="${nav.page}.html">${nav.chapter} ${nav.title}</a>
+                        <a class="nav__chapter-header-link" href="${nav.page}.html">${nav.chapter} ${nav.title}</a>
                         ${if(nav.sections)}
                             <button 
                                 class="nav__section-list-toggle" 
@@ -15,12 +15,12 @@
                                 aria-expanded="false"
                                 aria-label="Chapter ${nav.chapter} section links"
                             >
-                                v
+                                <span class="nav__section-list-toggle-icon">${svg/chevron.svg()}</span>
                             </button>
                         ${endif}
                     </div>
                     ${if(nav.sections)}
-                        <ol id="navCh${nav.chapter}SectionList" class="nav__section-list nav__section-list--hidden">
+                        <ol id="navCh${nav.chapter}SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
                             ${for(nav.sections)}
                                 <li>
                                     <a href="${nav.sections.page}.html">

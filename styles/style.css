@@ -1076,8 +1076,9 @@ file. These definitions will be defined mobile first.
     height: auto;
     max-height: calc(100vh - 80px);
     width: 21.75em;
-    padding: 1.5em;
+    padding: 0.75em 0em 0.75em 1.5em;
     background: #fff;
+    color: #363636;
     overflow-y: scroll;
     z-index: 2;
     transition: max-height 0.5s, padding 0.5s;
@@ -1085,7 +1086,7 @@ file. These definitions will be defined mobile first.
 
 .nav--collapsed {
     max-height: 0px;
-    padding: 0 1.5em;
+    padding: 0em 0em 0em 1.5em;
     visibility: hidden;
     transition: max-height 0.5s, padding 0.5s, visibility 0s 0.5s;
 }
@@ -1103,8 +1104,43 @@ file. These definitions will be defined mobile first.
     align-items: center;
 }
 
-.nav__section-list--hidden {
-    display: none;
+.nav__chapter-header-link {
+    flex: 1;
+    height: 100%;
+    line-height: 2.65em;
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav__section-list-toggle {
+    margin: 0;
+    width: 2.625em;
+    height: 2.625em;
+    border: none;
+    padding: 0.75em;
+    background: none;
+}
+
+.nav__section-list-toggle-icon {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    fill: #8c8c8c;
+    transition: transform 1s;
+}
+
+.nav__section-list-toggle[aria-expanded='true'] .nav__section-list-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.nav__section-list {
+    overflow: hidden;
+    transition: height 1s;
+}
+
+.nav__section-list--collapsed {
+    visibility: hidden;
+    transition: height 1s, visibility 0s 1s;
 }
 
 /* main-non-text-container */

@@ -10,17 +10,27 @@ let NavWidget = function(root) {
 
         if(currExpandedToggle && sectionListToggle != currExpandedToggle) {
             currExpandedSectionList = root.querySelector(`#${currExpandedToggle.getAttribute("aria-controls")}`);
-            currExpandedSectionList.classList.add("nav__section-list--hidden");
+            collapseSectionList(currExpandedSectionList);
             currExpandedToggle.setAttribute("aria-expanded", "false");
         }
         
         if(sectionListToggle.getAttribute("aria-expanded") == "false") {
-            sectionList.classList.remove("nav__section-list--hidden");
+            expandSectionList(sectionList);
             sectionListToggle.setAttribute("aria-expanded", "true");
         } else {
-            sectionList.classList.add("nav__section-list--hidden");
+            collapseSectionList(sectionList);
             sectionListToggle.setAttribute("aria-expanded", "false");
         }
+    };
+
+    let expandSectionList = function(sectionList) {
+        sectionList.classList.remove("nav__section-list--collapsed");
+        sectionList.style.height = `${sectionList.scrollHeight}px`;
+    };
+
+    let collapseSectionList = function(sectionList) {
+        sectionList.classList.add("nav__section-list--collapsed");
+        sectionList.style.height = "0px";
     };
 
     let show = function() {

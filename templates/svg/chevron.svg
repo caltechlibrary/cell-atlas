@@ -1,0 +1,10 @@
+<svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+	<g>
+		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+			</g>
+		</g>
+	</g>
+</svg>
