@@ -23,10 +23,20 @@ let NavWidget = function(root) {
         }
     };
 
+    let show = function() {
+        root.classList.remove("nav--collapsed");
+    };
+
+    let hide = function() {
+        root.classList.add("nav--collapsed");
+    };
+
     for(let sectionListToggle of sectionListToggles) sectionListToggle.addEventListener("click", toggleSectionList);
 
     return {
-        root
+        root,
+        show,
+        hide
     };
 
 };

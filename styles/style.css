@@ -1069,15 +1069,25 @@ file. These definitions will be defined mobile first.
 
 /* nav */
 .nav {
-    position: absolute;
+    position: fixed;
+    top: 80px;
+    left: 0;
     box-sizing: border-box;
     height: auto;
-    max-height: 100%;
+    max-height: calc(100vh - 80px);
     width: 21.75em;
     padding: 1.5em;
     background: #fff;
     overflow-y: scroll;
     z-index: 2;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.nav--collapsed {
+    max-height: 0px;
+    padding: 0 1.5em;
+    visibility: hidden;
+    transition: max-height 0.5s, padding 0.5s, visibility 0s 0.5s;
 }
 
 .nav__chapter-list {
