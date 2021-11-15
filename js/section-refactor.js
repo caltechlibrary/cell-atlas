@@ -1,4 +1,5 @@
 (function() {
+    let navEl = document.querySelector(".nav");
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
@@ -10,7 +11,7 @@
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, progressBar, footer,
+    let sectionController, nav, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, progressBar, footer,
         mediaViewers = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
@@ -198,6 +199,8 @@
     };
 
     sectionController = SectionController();
+
+    nav = NavWidget(navEl);
 
     for(let mediaViewerEl of mediaViewerEls) {
         let videoPlayerEl = mediaViewerEl.querySelector(".video-player");

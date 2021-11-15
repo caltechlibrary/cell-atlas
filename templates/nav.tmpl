@@ -1,47 +1,37 @@
-<nav class="nav-menu" id="navMenu">
+<nav class="nav" aria-label="Main Navigation">
     ${navData:search-widget.tmpl()}
-    <ol class="nav-menu__section-list">
+    <ol class="nav__chapter-list">
         ${for(nav)}
-            <li class="nav-menu-chapter">
+            <li class="nav__entry">
                 ${if(nav.isAppendix)}
-                    <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
-                        ${nav.chapter}
-                    </h1>
+                    <div>Appendix</div>
                 ${else}
-                    <div class="nav-menu-chapter-container">
-                        <a tabindex="-1" ${if(nav.page)}href="${nav.page}.html"${endif}>
-                            <h1 id="nav${nav.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background" ${if(nav.isChapter)}data-chapter="true"${endif}>
-                                ${nav.chapter} <span class="nav-menu-chapter-title">${nav.title}</span>
-                            </h1>
-                        </a>
-                        ${if(nav.sections)}<button onclick="toggleSectionList(this)" tabindex="-1">${svg/noun_Chevron.svg()}</button>${endif}
+                    <div class="nav__chapter-header-container">
+                        <a href="${nav.page}.html">${nav.chapter} ${nav.title}</a>
+                        ${if(nav.sections)}
+                            <button 
+                                class="nav__section-list-toggle" 
+                                aria-controls="navCh${nav.chapter}SectionList"
+                                aria-expanded="false"
+                                aria-label="Chapter ${nav.chapter} section links"
+                            >
+                                v
+                            </button>
+                        ${endif}
                     </div>
-                ${endif}
-                ${if(nav.sections)}
-                    <ol class="nav-menu-sections">
-                        ${for(nav.sections)}
-                            <li id="nav${nav.sections.page}" class="nav-menu-default-hover nav-menu-ch${nav.chapter}-background">
-                                <a tabindex="-1" href="${nav.sections.page}.html">
-                                    <div class="nav-menu-section-entry">
-                                        <span class="nav-menu-section-number">${if(nav.chapter)}${nav.chapter}.${endif}${nav.sections.section}</span> 
-                                        ${nav.sections.title}
-                                    </div>
-                                </a>
-                            </li>
-                        ${endfor}
-                    </ol>
+                    ${if(nav.sections)}
+                        <ol id="navCh${nav.chapter}SectionList" class="nav__section-list nav__section-list--hidden">
+                            ${for(nav.sections)}
+                                <li>
+                                    <a href="${nav.sections.page}.html">
+                                        ${if(nav.chapter)}${nav.chapter}.${nav.sections.section}${endif} ${nav.sections.title}
+                                    </a>
+                                </li>
+                            ${endfor}
+                        </ol>
+                    ${endif}
                 ${endif}
             </li>
         ${endfor}
     </ol>
-    ${if(offline)}
-    ${else}
-        <div class="nav-menu-footer">
-            <a href="download.html" tabindex="-1">Offline Version</a>
-        </div>
-    ${endif}
-    <ul class="mobile-footer-data">
-        <li><a href="about.html">About This Book</a></li>
-        <li><a href="https://www.library.caltech.edu/" target="_blank">&#169; 2021 Caltech Library</a></li>
-    </ul>
 </nav>

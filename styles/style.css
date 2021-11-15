@@ -1067,6 +1067,36 @@ file. These definitions will be defined mobile first.
     }
 }
 
+/* nav */
+.nav {
+    position: absolute;
+    box-sizing: border-box;
+    height: auto;
+    max-height: 100%;
+    width: 21.75em;
+    padding: 1.5em;
+    background: #fff;
+    overflow-y: scroll;
+    z-index: 2;
+}
+
+.nav__chapter-list {
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    list-style: none;
+}
+
+.nav__chapter-header-container {
+    height: 2.625em;
+    display: flex;
+    align-items: center;
+}
+
+.nav__section-list--hidden {
+    display: none;
+}
+
 /* main-non-text-container */
 .main-non-text-container {
     position: fixed;
