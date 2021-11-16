@@ -15,7 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover">
     <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen">
     <meta name="description" content="A visual tour of the microbial cell.">
-    <title>${if(chapter)}${chapter}${endif}${if(section)}.${section}${endif} ${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
+    ${if(index)}
+        <title>${title}</title>
+    ${else}
+        <title>${if(chapter)}${chapter}${endif}${if(section)}.${section}${endif} ${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
+    ${endif}
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link href="styles/style.css" rel="stylesheet">
     <link href="styles/mobile.css" rel="stylesheet"/>

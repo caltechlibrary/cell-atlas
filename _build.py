@@ -520,6 +520,7 @@ searchData = {}
 # Render landing page
 metadata = getMarkdownMetadata("index.md")
 metadata["firstPage"] = "begin"
+metadata["index"] = True
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
 # Render opening quote page for introduction
