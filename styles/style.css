@@ -1076,7 +1076,7 @@ file. These definitions will be defined mobile first.
     height: auto;
     max-height: calc(100vh - 80px);
     width: 21.75em;
-    padding: 0.75em 0em 0.75em 1.5em;
+    padding: 0.75em 0em 0.75em 0.75em;
     background: #fff;
     color: #363636;
     overflow-y: scroll;
@@ -1086,7 +1086,7 @@ file. These definitions will be defined mobile first.
 
 .nav--collapsed {
     max-height: 0px;
-    padding: 0em 0em 0em 1.5em;
+    padding: 0em 0em 0em 0.75em;
     visibility: hidden;
     transition: max-height 0.5s, padding 0.5s, visibility 0s 0.5s;
 }
@@ -1104,12 +1104,61 @@ file. These definitions will be defined mobile first.
     align-items: center;
 }
 
+.nav__link:hover {
+    font-style: italic;
+}
+
+.nav__link--ch1:hover {
+    background-color: #a7a9ac;
+}
+
+.nav__link--ch2:hover {
+    background-color: #bcd3ed;
+}
+
+.nav__link--ch3:hover {
+    background-color: #9ac3c7;
+}
+
+.nav__link--ch4:hover {
+    background-color: #99bd99;
+}
+
+.nav__link--ch5:hover {
+    background-color: #ffef99;
+}
+
+.nav__link--ch6:hover {
+    background-color: #ffc799;
+}
+
+.nav__link--ch7:hover {
+    background-color: #fab19c;
+}
+
+.nav__link--ch8:hover {
+    background-color: #e0a1a4;
+}
+
+.nav__link--ch9:hover {
+    background-color: #c29db2;
+}
+
+.nav__link--ch10:hover {
+    background-color: #baafcc;
+}
+
 .nav__chapter-header-link {
     flex: 1;
     height: 100%;
+    padding-left: 0.75em;
     line-height: 2.65em;
     color: inherit;
     text-decoration: none;
+}
+
+.nav__section-text {
+    font-weight: 600;
 }
 
 .nav__section-list-toggle {
@@ -1149,6 +1198,7 @@ file. These definitions will be defined mobile first.
     width: 100%;
     height: 2.625em;
     display: block;
+    padding-left: 0.75em;
     line-height: 2.625em;
     color: inherit;
     text-decoration: none;
