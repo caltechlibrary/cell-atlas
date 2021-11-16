@@ -1112,47 +1112,47 @@ file. These definitions will be defined mobile first.
     text-decoration: none;
 }
 
-.nav__link:hover {
+.nav__link:hover, .nav__link--current {
     font-style: italic;
 }
 
-.nav__link--ch1:hover {
+.nav__link--ch1:hover, .nav__link--ch1.nav__link--current {
     background-color: #a7a9ac;
 }
 
-.nav__link--ch2:hover {
+.nav__link--ch2:hover, .nav__link--ch2.nav__link--current {
     background-color: #bcd3ed;
 }
 
-.nav__link--ch3:hover {
+.nav__link--ch3:hover, .nav__link--ch3.nav__link--current {
     background-color: #9ac3c7;
 }
 
-.nav__link--ch4:hover {
+.nav__link--ch4:hover, .nav__link--ch4.nav__link--current {
     background-color: #99bd99;
 }
 
-.nav__link--ch5:hover {
+.nav__link--ch5:hover, .nav__link--ch5.nav__link--current {
     background-color: #ffef99;
 }
 
-.nav__link--ch6:hover {
+.nav__link--ch6:hover, .nav__link--ch6.nav__link--current {
     background-color: #ffc799;
 }
 
-.nav__link--ch7:hover {
+.nav__link--ch7:hover, .nav__link--ch7.nav__link--current {
     background-color: #fab19c;
 }
 
-.nav__link--ch8:hover {
+.nav__link--ch8:hover, .nav__link--ch8.nav__link--current {
     background-color: #e0a1a4;
 }
 
-.nav__link--ch9:hover {
+.nav__link--ch9:hover, .nav__link--ch9.nav__link--current {
     background-color: #c29db2;
 }
 
-.nav__link--ch10:hover {
+.nav__link--ch10:hover, .nav__link--ch10.nav__link--current {
     background-color: #baafcc;
 }
 

@@ -2,6 +2,20 @@ let NavWidget = function(root) {
     
     let sectionListToggles = root.querySelectorAll(".nav__section-list-toggle");
 
+    let init = function() {
+        let currentPath = window.location.pathname.split("/")[1];
+        let currentPageLink = root.querySelector(`[href='${currentPath}']`);
+        let currentSectionList, currSectionListToggle;
+        if(currentPageLink) {
+            currentSectionList = currentPageLink.closest(".nav__section-list");
+            currSectionListToggle = root.querySelector(`[aria-controls='${currentSectionList.id}']`)
+            expandSectionList(currentSectionList);
+            currSectionListToggle.setAttribute("aria-expanded", "true");
+            currentPageLink.setAttribute("aria-current", "page");
+            currentPageLink.classList.add("nav__link--current");
+        }
+    };
+
     let toggleSectionList = function(event) {
         let sectionListToggle = event.currentTarget;
         let sectionList = root.querySelector(`#${sectionListToggle.getAttribute("aria-controls")}`);
@@ -25,8 +39,12 @@ let NavWidget = function(root) {
 
     let expandSectionList = function(sectionList) {
         sectionList.classList.remove("nav__section-list--collapsed");
-        sectionList.style.height = `${sectionList.scrollHeight}px`;
-        sectionList.addEventListener("transitionend", onSectionListExpanded, { once: true });
+        if(!document.querySelector("body").classList.contains("preload")) {
+            sectionList.style.height = `${sectionList.scrollHeight}px`;
+            sectionList.addEventListener("transitionend", onSectionListExpanded, { once: true });
+        } else {
+            sectionList.style.height = "auto";
+        }
     };
 
     let onSectionListExpanded = function(event) {
@@ -49,6 +67,7 @@ let NavWidget = function(root) {
         root.classList.add("nav--collapsed");
     };
 
+    init();
     for(let sectionListToggle of sectionListToggles) sectionListToggle.addEventListener("click", toggleSectionList);
 
     return {
