@@ -23,7 +23,7 @@
                         <ol id="navCh${nav.chapter}SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
                             ${for(nav.sections)}
                                 <li>
-                                    <a href="${nav.sections.page}.html">
+                                    <a class="nav__section-link" href="${nav.sections.page}.html">
                                         ${if(nav.chapter)}${nav.chapter}.${nav.sections.section}${endif} ${nav.sections.title}
                                     </a>
                                 </li>
