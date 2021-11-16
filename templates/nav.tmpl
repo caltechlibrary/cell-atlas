@@ -23,7 +23,7 @@
                         <ol id="navCh${nav.chapter}SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
                             ${for(nav.sections)}
                                 <li>
-                                    <a class="nav__link nav__link--ch${nav.chapter} nav__section-link" href="${nav.sections.page}.html">
+                                    <a class="nav__link nav__link--ch${nav.chapter}" href="${nav.sections.page}.html">
                                         ${if(nav.chapter)}<span class="nav__section-text">${nav.chapter}.${nav.sections.section}</span>${endif} ${nav.sections.title}
                                     </a>
                                 </li>
@@ -33,5 +33,15 @@
                 ${endif}
             </li>
         ${endfor}
+        <div class="nav__hr-break"></div>
+        <li class="nav__footer-entry">
+            <a class="nav__link" href="about.html">About This Book</a>
+        </li>
+        <li class="nav__footer-entry">
+            <a class="nav__link" href="https://www.library.caltech.edu/" target="_blank" rel="noopener">© 2021 Caltech Library</a>
+        </li>
+        <li class="nav__offline-entry">
+            <a class="nav__link" href="download.html">Offline Version</a>
+        </li>
     </ol>
 </nav>

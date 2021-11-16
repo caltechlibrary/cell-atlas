@@ -1206,6 +1206,28 @@ file. These definitions will be defined mobile first.
     cursor: not-allowed;
 }
 
+.nav__hr-break {
+    height: 1px;
+    margin: 4px 0 4px -16px;
+    background: #000;
+}
+
+@media (min-width:900px) {
+    .nav__footer-entry {
+        display: none;
+    }
+}
+
+.nav__offline-entry {
+    color: #525252;
+}
+
+@media (max-width:900px) {
+    .nav__offline-entry {
+        display: none;
+    }
+}
+
 /* main-non-text-container */
 .main-non-text-container {
     position: fixed;
