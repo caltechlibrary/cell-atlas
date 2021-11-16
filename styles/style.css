@@ -1204,6 +1204,15 @@ file. These definitions will be defined mobile first.
     text-decoration: none;
 }
 
+.nav__appendix-entry {
+    height: 2.625em;
+    padding-left: 0.75em;
+    line-height: 2.625em;
+    color: #757575;
+    font-weight: 600;
+    cursor: not-allowed;
+}
+
 /* main-non-text-container */
 .main-non-text-container {
     position: fixed;
