@@ -1134,6 +1134,7 @@ file. These definitions will be defined mobile first.
 }
 
 .nav__section-list {
+    height: auto;
     overflow: hidden;
     transition: height 1s;
 }
