@@ -1099,9 +1099,17 @@ file. These definitions will be defined mobile first.
 }
 
 .nav__chapter-header-container {
-    height: 2.625em;
     display: flex;
     align-items: center;
+}
+
+.nav__link {
+    height: 2.625em;
+    display: block;
+    padding-left: 0.75em;
+    line-height: 2.625em;
+    color: inherit;
+    text-decoration: none;
 }
 
 .nav__link:hover {
@@ -1150,11 +1158,6 @@ file. These definitions will be defined mobile first.
 
 .nav__chapter-header-link {
     flex: 1;
-    height: 100%;
-    padding-left: 0.75em;
-    line-height: 2.65em;
-    color: inherit;
-    text-decoration: none;
 }
 
 .nav__section-text {
@@ -1192,16 +1195,6 @@ file. These definitions will be defined mobile first.
 .nav__section-list--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
-}
-
-.nav__section-link {
-    width: 100%;
-    height: 2.625em;
-    display: block;
-    padding-left: 0.75em;
-    line-height: 2.625em;
-    color: inherit;
-    text-decoration: none;
 }
 
 .nav__appendix-entry {
