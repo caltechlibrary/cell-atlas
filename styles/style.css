@@ -1070,18 +1070,26 @@ file. These definitions will be defined mobile first.
 /* nav */
 .nav {
     position: fixed;
-    top: 80px;
+    top: 56px;
     left: 0;
     box-sizing: border-box;
     height: auto;
-    max-height: calc(100vh - 80px);
-    width: 21.75em;
+    max-height: calc(100vh - 56px);
+    width: 65%;
     padding: 0.75em 0em 0.75em 0.75em;
     background: #fff;
     color: #363636;
     overflow-y: scroll;
     z-index: 2;
     transition: max-height 0.5s, padding 0.5s;
+}
+
+@media (min-width:900px) {
+    .nav {
+        top: 80px;
+        max-height: calc(100vh - 80px);
+        width: 21.75em;
+    }
 }
 
 .nav--collapsed {
@@ -1104,12 +1112,16 @@ file. These definitions will be defined mobile first.
 }
 
 .nav__link {
-    height: 2.625em;
     display: block;
-    padding-left: 0.75em;
-    line-height: 2.625em;
+    padding: 0.75em 0;
     color: inherit;
     text-decoration: none;
+}
+
+@media (min-width:900px) {
+    .nav__link {
+        padding: 0.75em 0 0.75em 0.75em;
+    }
 }
 
 .nav__link:hover, .nav__link--current {

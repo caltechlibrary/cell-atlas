@@ -7,7 +7,9 @@
                     <div class="nav__appendix-entry">Appendix</div>
                 ${else}
                     <div class="nav__chapter-header-container">
-                        <a class="nav__link nav__link--ch${nav.chapter} nav__chapter-header-link" href="${nav.page}.html"><span class="nav__section-text">${nav.chapter}</span> ${nav.title}</a>
+                        <a class="nav__link nav__link--ch${nav.chapter} nav__chapter-header-link" href="${nav.page}.html">
+                            ${if(nav.chapter)}<span class="nav__section-text">${nav.chapter} </span>${endif}${nav.title}
+                        </a>
                         ${if(nav.sections)}
                             <button 
                                 class="nav__section-list-toggle" 
@@ -24,7 +26,7 @@
                             ${for(nav.sections)}
                                 <li>
                                     <a class="nav__link nav__link--ch${nav.chapter}" href="${nav.sections.page}.html">
-                                        ${if(nav.chapter)}<span class="nav__section-text">${nav.chapter}.${nav.sections.section}</span>${endif} ${nav.sections.title}
+                                        ${if(nav.chapter)}<span class="nav__section-text">${nav.chapter}.${nav.sections.section} </span>${endif}${nav.sections.title}
                                     </a>
                                 </li>
                             ${endfor}
