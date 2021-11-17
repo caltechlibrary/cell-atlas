@@ -5,9 +5,10 @@ let NavWidget = function(root) {
     let init = function() {
         let currentPath = window.location.pathname.split("/")[1];
         let currentPageLink = root.querySelector(`[href='${currentPath}']`);
-        let currentSectionList, currSectionListToggle;
+        let currentLinkLiParent, currentSectionList, currSectionListToggle;
         if(currentPageLink) {
-            currentSectionList = currentPageLink.closest(".nav__section-list");
+            currentLinkLiParent = currentPageLink.closest(".nav__entry");
+            currentSectionList = currentLinkLiParent.querySelector(".nav__section-list");
             currSectionListToggle = root.querySelector(`[aria-controls='${currentSectionList.id}']`)
             expandSectionList(currentSectionList);
             currSectionListToggle.setAttribute("aria-expanded", "true");

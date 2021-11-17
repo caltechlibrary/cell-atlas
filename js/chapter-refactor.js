@@ -21,6 +21,14 @@
             }
         };
 
+        let clickCloseNav = function(event) {
+            if(!nav.root.contains(event.target) && !navBtn.contains(event.target)) toggleNav();
+        };
+
+        let keydownCloseNav = function(event) {
+            if(event.code == "Escape") toggleNav();
+        };
+
         return {
             toggleNav
         };
