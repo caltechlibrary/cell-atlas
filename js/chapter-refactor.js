@@ -11,11 +11,13 @@
             if(nav.root.classList.contains("nav--collapsed")) {
                 nav.show();
                 nav.root.querySelector("a").focus();
+                window.sessionStorage.setItem("navOpened", true);
                 window.addEventListener("click", clickCloseNav);
                 window.addEventListener("keydown", keydownCloseNav);
             } else {
                 nav.hide();
                 navBtn.focus();
+                window.sessionStorage.setItem("navOpened", false);
                 window.removeEventListener("click", clickCloseNav);
                 window.removeEventListener("keydown", keydownCloseNav);
             }
@@ -39,6 +41,7 @@
 
     nav = NavWidget(navEl);
     navBtn.addEventListener("click", chapterController.toggleNav);
+    if(typeof(Storage) !== "undefined" && window.sessionStorage.getItem("navOpened") == "true") chapterController.toggleNav();
 
     progressBar = ProgressBar(progressBarEl);
 
