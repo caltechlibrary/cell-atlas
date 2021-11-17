@@ -20,7 +20,7 @@
         let toggleNav = function() {
             if(nav.root.classList.contains("nav--collapsed")) {
                 nav.show();
-                nav.root.querySelector("a").focus();
+                if(window.innerWidth > 900) nav.root.querySelector("a").focus();
                 window.sessionStorage.setItem("navOpened", true);
                 window.addEventListener("click", clickCloseNav);
                 window.addEventListener("keydown", keydownCloseNav);
