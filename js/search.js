@@ -14,12 +14,10 @@
         };
 
         let handleNavSearchBarFocus = function(event) {
-            let navMenu = document.querySelector(".nav-menu");
-            let sectionList = document.querySelector(".nav-menu__section-list");
-            let mobileNavFooter = document.querySelector(".mobile-footer-data");
-            navMenu.classList.add("nav-menu--searching");
-            sectionList.classList.add("nav-menu__section-list--searching");
-            mobileNavFooter.classList.add("mobile-footer-data--searching");
+            let navMenu = document.querySelector(".nav");
+            let chapterList = document.querySelector(".nav__chapter-list");
+            navMenu.classList.add("nav--searching");
+            chapterList.classList.add("nav__chapter-list--searching");
             mobileControlsEl.classList.add("mobile-controls--hidden");
         };
 
@@ -29,12 +27,11 @@
         };
 
         let exitNavSearch = function() {
-            let navMenu = document.querySelector(".nav-menu");
-            let sectionList = document.querySelector(".nav-menu__section-list");
-            let mobileNavFooter = document.querySelector(".mobile-footer-data");
-            navMenu.classList.remove("nav-menu--searching");
-            sectionList.classList.remove("nav-menu__section-list--searching");
-            mobileNavFooter.classList.remove("mobile-footer-data--searching");
+            let navMenu = document.querySelector(".nav");
+            let chapterList = document.querySelector(".nav__chapter-list");
+            navMenu.classList.remove("nav--searching");
+            chapterList.classList.remove("nav__chapter-list--searching");
+            mobileControlsEl.classList.remove("mobile-controls--hidden");
         };
 
         return {

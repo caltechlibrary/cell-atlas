@@ -1071,6 +1071,7 @@ file. These definitions will be defined mobile first.
 .nav {
     position: fixed;
     top: 56px;
+    bottom: 0;
     left: 0;
     box-sizing: border-box;
     height: auto;
@@ -1087,9 +1088,14 @@ file. These definitions will be defined mobile first.
 @media (min-width:900px) {
     .nav {
         top: 80px;
+        bottom: initial;
         max-height: calc(100vh - 80px);
         width: 21.75em;
     }
+}
+
+.nav--searching {
+    width: 85%;
 }
 
 .nav--collapsed {
@@ -1104,6 +1110,10 @@ file. These definitions will be defined mobile first.
     margin-block-start: 0;
     margin-block-end: 0;
     list-style: none;
+}
+
+.nav__chapter-list--searching {
+    display: none;
 }
 
 .nav__chapter-header-container {
