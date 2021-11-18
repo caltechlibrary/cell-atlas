@@ -13,8 +13,16 @@
     ${endif}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover">
+    ${if(index)}
+        <meta name="description" content="A visual tour of the microbial cell.">
+    ${elseif(typeChapter)}
+        <meta name="description" content="Microbiology textbook introductory page to chapter ${chapter} ${title}.">
+    ${elseif(typeSection)}
+        <meta name="description" content="Microbiology textbook entry about ${title} highlighting ${videoTitle}.">
+    ${elseif(typeAppendix)}
+        <meta name="description" content="Microbiology textbook appendix page about ${title}.">
+    ${endif}
     <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen">
-    <meta name="description" content="A visual tour of the microbial cell.">
     ${if(index)}
         <title>${title}</title>
     ${elseif(typeAppendix)}
