@@ -1,9 +1,14 @@
 import os
+import csv
 
 host = 'https://www.cellstructureatlas.org'
 siteDir = 'site'
 lines = []
+doiFileNameDict = {}
 files = [f for f in os.listdir(siteDir) if os.path.isfile('{}/{}'.format(siteDir, f))]
+
+with open("dois.csv", "r", encoding='utf-8') as csvfile:
+    for row in csv.DictReader(csvfile): doiFileNameDict[ row["DOI"] ] = row["movie"]
 
 lines.append('<?xml version="1.0" encoding="UTF-8"?>\n')
 lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
