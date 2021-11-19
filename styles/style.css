@@ -1082,7 +1082,7 @@ file. These definitions will be defined mobile first.
     color: #363636;
     overflow-y: scroll;
     z-index: 2;
-    transition: max-height 0.5s, padding 0.5s;
+    transition: max-height 0.5s, padding 0.5s, width 0.25s;
 }
 
 @media (min-width:900px) {
