@@ -1415,12 +1415,23 @@ file. These definitions will be defined mobile first.
 }
 
 /* section-text */
-.section-text__main-container {
-    display: flex;
-    padding: 4.5em 0;
-    flex-direction: column;
-    font-size: 1rem;
-    background: #363636;
+@media (min-width:900px) {
+    .section-text {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 38%;
+        max-height: 94%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 1s ease 1s;
+    }
+}
+
+.section-text--shelved {
+    transform: translate(100%, -50%);
+    transition: transform 1s ease 0s;
 }
 
 .section-text--hidden {
@@ -1428,7 +1439,38 @@ file. These definitions will be defined mobile first.
 }
 
 .section-text__unshelve-btn-container {
-    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    display: flex;
+    align-items: center;
+    padding: 0.2em 0.75em 0.2em 0;
+    background: #363636;
+    z-index: 0;
+    transition: transform 1s ease 1s, visibility 0s ease 1s;
+}
+
+@media (max-width: 900px) {
+    .section-text__unshelve-btn-container {
+        display: none;
+    }
+}
+
+.section-text__unshelve-btn-container--hidden {
+    transform: translateX(0%);
+    visibility: hidden;
+    transition: transform 1s ease 0s, visibility 1s ease 0s;
+}
+
+.section-text__unshelve-btn {
+    padding: 0.45em 1em 0.45em 0.45em;
+    border: none;
+    font-size: 1.35em;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #fff;
+    background: none;
 }
 
 .section-text__stop-narration-btn {
@@ -1450,6 +1492,38 @@ file. These definitions will be defined mobile first.
     fill: #fff;
 }
 
+.section-text__main-container {
+    display: flex;
+    padding: 4.5em 0;
+    flex-direction: column;
+    font-size: 1rem;
+    background: #363636;
+}
+
+@media (min-width:480px) {
+    .section-text__main-container {
+        padding: 4.5em 0 1em 0;
+    }
+}
+
+@media (min-width:900px) {
+    .section-text__main-container {
+        min-height: 0;
+        flex: 1;
+        padding: 0;
+        transition: visibility 0s ease 0s;
+    }
+
+    .section-text__main-container--hidden {
+        visibility: hidden;
+        transition: visibility 0s ease 1s;
+    }
+
+    .section-text__main-container--no-learn-more {
+        padding-bottom: 1em;
+    }
+}
+
 .section-text__text-container {
     display: flex;
     flex-direction: column;
@@ -1458,6 +1532,12 @@ file. These definitions will be defined mobile first.
     padding: 0 max(1em, env(safe-area-inset-right)) 0 max(1em, env(safe-area-inset-left));
     color: #fff;
     background: inherit;
+}
+
+@media (min-width:900px) {
+    .section-text__text-container {
+        padding: 1rem 0 0;
+    }
 }
 
 .section-text__header-container {
@@ -1469,8 +1549,13 @@ file. These definitions will be defined mobile first.
     font-size: 1.35em;
 }
 
+@media (min-width:900px) {
+    .section-text__header-container {
+        padding: 0.4rem 0 0 1rem;
+    }
+}
+
 .section-text__shelve-btn {
-    display: none;
     padding: 0;
     border: none;
     color: inherit;
@@ -1479,12 +1564,23 @@ file. These definitions will be defined mobile first.
     white-space: nowrap;
 }
 
+@media (max-width: 900px) {
+    .section-text__shelve-btn {
+        display: none;
+    }
+}
+
 .section-text__header-divider {
-    display: none;
     margin: 0 1em;
     width: .1em;
     height: 1.25em;
     background: #fff;
+}
+
+@media (max-width: 900px) {
+    .section-text__header-divider {
+        display: none;
+    }
 }
 
 .section-text__toggle-narration-btn {
@@ -1540,95 +1636,15 @@ file. These definitions will be defined mobile first.
     line-height: 1.34em;
 }
 
-.section-text__content a {
-    color: #5caac5;
-    text-decoration: underline;
-}
-
-@media (min-width:480px) {
-    .section-text__main-container {
-        padding: 4.5em 0 1em 0;
-    }
-}
-
 @media (min-width:900px) {
-    .section-text--shelveable {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translate(0, -50%);
-        width: 38%;
-        max-height: 94%;
-        display: flex;
-        flex-direction: column;
-        transition: transform 1s ease 1s;
-    }
-
-    .section-text--shelved {
-        transform: translate(100%, -50%);
-        transition: transform 1s ease 0s;
-    }
-
-    .section-text__main-container {
-        min-height: 0;
-        flex: 1;
-        padding: 0;
-        transition: visibility 0s ease 0s;
-    }
-
-    .section-text__main-container--hidden {
-        visibility: hidden;
-        transition: visibility 0s ease 1s;
-    }
-
-    .section-text__main-container--no-learn-more {
-        padding-bottom: 1em;
-    }
-
-    .section-text__unshelve-btn-container, .section-text__shelve-btn, .section-text__header-divider {
-        display: block;
-    }
-
-    .section-text__unshelve-btn-container {
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
-        display: flex;
-        align-items: center;
-        padding: 0.2em 0.75em 0.2em 0;
-        background: #363636;
-        z-index: 0;
-        transition: transform 1s ease 1s, visibility 0s ease 1s;
-    }
-
-    .section-text__unshelve-btn-container--hidden {
-        transform: translateX(0%);
-        visibility: hidden;
-        transition: transform 1s ease 0s, visibility 1s ease 0s;
-    }
-
-    .section-text__unshelve-btn {
-        padding: 0.45em 1em 0.45em 0.45em;
-        border: none;
-        font-size: 1.35em;
-        font-weight: 600;
-        white-space: nowrap;
-        color: #fff;
-        background: none;
-    }
-
-    .section-text__text-container {
-        padding: 1rem 0 0;
-    }
-
-    .section-text__header-container {
-        padding: 0.4rem 0 0 1rem;
-    }
-
     .section-text__content {
         padding: 0 1em;
     }
+}
+
+.section-text__content a {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 /* video-player */
