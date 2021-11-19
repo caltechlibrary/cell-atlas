@@ -24,9 +24,10 @@ let Footer = function(root, progressBar) {
         }
     };
 
-    progressToggle.addEventListener("click", toggleProgressBar);
-
-    init();
+    if(progressToggle) {
+        progressToggle.addEventListener("click", toggleProgressBar);
+        init();
+    }
 
     return {
         root

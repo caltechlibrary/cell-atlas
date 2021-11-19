@@ -3,7 +3,7 @@
     let footerEl = document.querySelector(".footer");
     let progressBar, footer;
 
-    progressBar = ProgressBar(progressBarEl);
+    if(progressBarEl) progressBar = ProgressBar(progressBarEl);
 
     footer = Footer(footerEl, progressBar);
 })();
