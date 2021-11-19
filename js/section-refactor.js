@@ -8,9 +8,7 @@
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
-    let progressBarEl = document.querySelector(".progress-bar");
-    let footerEl = document.querySelector(".footer");
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, progressBar, footer,
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
         mediaViewers = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
@@ -254,9 +252,5 @@
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
-
-    progressBar = ProgressBar(progressBarEl);
-
-    footer = Footer(footerEl, progressBar);
 
 })();
