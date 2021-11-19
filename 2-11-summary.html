@@ -22,9 +22,16 @@
 </head>
 <body class="preload">
   <div class="book-page-container" >
-    <header class="main-color-background">
-        <button id="openNavButton" onclick="toggleNav(this)" class="main-color-background header-nav-button header-nav-button-desk">&#9776;</button>
-        <button id="openNavButton" onclick="toggleNav(this)" class="main-color-background header-nav-button header-nav-button-mobile">&#8801;</button>
+    <header class="header">
+        <button class="header__nav-btn" aria-label="Open navigation">
+            <span class="header__nav-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    	<g stroke-linejoin="round" stroke-width="1.5689">
+    		<rect x="2" y="4" width="28" height="4"/>
+    		<rect x="2" y="24" width="28" height="4"/>
+    		<rect x="2" y="14" width="28" height="4"/>
+    	</g>
+    </svg></span>
+        </button>
         <div class="search-widget search-widget--header">
             
                 <button class="search-widget__open-btn" aria-controls="search-bar" aria-expanded="false">
@@ -50,15 +57,15 @@
                 <input class="search-widget__search-bar-input search-widget__search-bar-input--header" type="search" placeholder="Search..." aria-label="Search..." disabled>
                     </div>
             <ol class="search-widget__result-list search-widget__result-list--header search-widget__result-list--hidden"></ol>
-        </div>    <span class="header-title-mobile">2.11 Summary</span>
-        <a href="index.html">
-            <img alt="Atlas of Bacterial and Archaeal Cell Structure Home" src="img/AtlasLogoInvertedLong.svg" class="header-logo">
-            <img alt="Atlas of Bacterial and Archaeal Cell Structure Home" src="img/MinimalLogoAInverted.png" class="header-logo-mobile" >
+        </div>    <h1 class="header__title">2.11 Summary</h1>
+        <a class="header__home-link" href="index.html">
+            <img class="header__logo header__logo--mobile" alt="Cell Atlas Logo" src="img/MinimalLogoAInverted.png">
+            <img class="header__logo header__logo--desktop" alt="Cell Atlas Logo" src="img/AtlasLogoInvertedLong.svg">
         </a>
     </header>    
     <div class="book-page-content">
 
-        <nav class="nav-menu" id="navMenu">
+        <nav class="nav nav--collapsed" aria-label="Main Navigation">
             <div class="search-widget search-widget--nav-menu">
                 
                 <div id="search-bar" class="search-widget__search-bar ">
@@ -81,1118 +88,887 @@
                         </div>
                 <ol class="search-widget__result-list search-widget__result-list--nav-menu search-widget__result-list--hidden"></ol>
             </div>
-            <ol class="nav-menu__section-list">
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="introduction.html">
-                                    <h1 id="navintroduction" class="nav-menu-default-hover nav-menu-ch-background" >
-                                         <span class="nav-menu-chapter-title">Introduction</span>
-                                    </h1>
+            <ol class="nav__chapter-list">
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link  nav__chapter-header-link " href="introduction.html">
+                                    Introduction
                                 </a>
-                                
-                            </div>
-                                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="1-methods.html">
-                                    <h1 id="nav1-methods" class="nav-menu-default-hover nav-menu-ch1-background" data-chapter="true">
-                                        1 <span class="nav-menu-chapter-title">Methods</span>
-                                    </h1>
+                                                    </div>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch1 nav__chapter-header-link nav__has-section-list" href="1-methods.html">
+                                    <span class="nav__section-text">1 </span>Methods
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav1-1-light-microscopy" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-1-light-microscopy.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.1</span> 
-                                                Light Microscopy
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-2-fluorescence-light-microscopy" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-2-fluorescence-light-microscopy.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.2</span> 
-                                                Fluorescence Light Microscopy
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-3-scanning-electron-microscopy" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-3-scanning-electron-microscopy.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.3</span> 
-                                                Scanning Electron Microscopy
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-4-transmission-electron-microscopy" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-4-transmission-electron-microscopy.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.4</span> 
-                                                Transmission Electron Microscopy
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-5-cryogenic-electron-microscopy" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-5-cryogenic-electron-microscopy.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.5</span> 
-                                                Cryogenic Electron Microscopy
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-6-cryogenic-electron-tomography" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-6-cryogenic-electron-tomography.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.6</span> 
-                                                Cryogenic Electron Tomography
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-7-sub-tomogram-averaging" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-7-sub-tomogram-averaging.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.7</span> 
-                                                Sub-Tomogram Averaging
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-8-single-particle-reconstruction" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-8-single-particle-reconstruction.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.8</span> 
-                                                Single Particle Reconstruction
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-9-x-ray-crystallography" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-9-x-ray-crystallography.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.9</span> 
-                                                X-Ray Crystallography
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-10-putting-it-all-together" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-10-putting-it-all-together.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.10</span> 
-                                                Putting It All Together
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav1-11-summary" class="nav-menu-default-hover nav-menu-ch1-background">
-                                        <a tabindex="-1" href="1-11-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">1.11</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="2-cells.html">
-                                    <h1 id="nav2-cells" class="nav-menu-default-hover nav-menu-ch2-background" data-chapter="true">
-                                        2 <span class="nav-menu-chapter-title">Cells</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh1SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 1 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh1SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-1-light-microscopy.html">
+                                                <span class="nav__section-text">1.1 </span>Light Microscopy
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-2-fluorescence-light-microscopy.html">
+                                                <span class="nav__section-text">1.2 </span>Fluorescence Light Microscopy
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-3-scanning-electron-microscopy.html">
+                                                <span class="nav__section-text">1.3 </span>Scanning Electron Microscopy
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-4-transmission-electron-microscopy.html">
+                                                <span class="nav__section-text">1.4 </span>Transmission Electron Microscopy
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-5-cryogenic-electron-microscopy.html">
+                                                <span class="nav__section-text">1.5 </span>Cryogenic Electron Microscopy
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-6-cryogenic-electron-tomography.html">
+                                                <span class="nav__section-text">1.6 </span>Cryogenic Electron Tomography
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-7-sub-tomogram-averaging.html">
+                                                <span class="nav__section-text">1.7 </span>Sub-Tomogram Averaging
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-8-single-particle-reconstruction.html">
+                                                <span class="nav__section-text">1.8 </span>Single Particle Reconstruction
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-9-x-ray-crystallography.html">
+                                                <span class="nav__section-text">1.9 </span>X-Ray Crystallography
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-10-putting-it-all-together.html">
+                                                <span class="nav__section-text">1.10 </span>Putting It All Together
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch1" href="1-11-summary.html">
+                                                <span class="nav__section-text">1.11 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch2 nav__chapter-header-link nav__has-section-list" href="2-cells.html">
+                                    <span class="nav__section-text">2 </span>Cells
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav2-1-membrane" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-1-membrane.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.1</span> 
-                                                Membrane
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-2-cell-wall" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-2-cell-wall.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.2</span> 
-                                                Cell Wall
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-3-outer-membrane" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-3-outer-membrane.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.3</span> 
-                                                Outer Membrane
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-4-vesicles" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-4-vesicles.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.4</span> 
-                                                Vesicles
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-5-classification-exceptions" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-5-classification-exceptions.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.5</span> 
-                                                Classification Exceptions
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-6-surface-layer" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-6-surface-layer.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.6</span> 
-                                                Surface Layer
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-7-surface-layer-variety" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-7-surface-layer-variety.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.7</span> 
-                                                Surface Layer Variety
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-8-sheath" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-8-sheath.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.8</span> 
-                                                Sheath
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-9-dna" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-9-dna.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.9</span> 
-                                                DNA
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-10-nucleoid" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-10-nucleoid.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.10</span> 
-                                                Nucleoid
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav2-11-summary" class="nav-menu-default-hover nav-menu-ch2-background">
-                                        <a tabindex="-1" href="2-11-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">2.11</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="3-shape.html">
-                                    <h1 id="nav3-shape" class="nav-menu-default-hover nav-menu-ch3-background" data-chapter="true">
-                                        3 <span class="nav-menu-chapter-title">Shape</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh2SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 2 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh2SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-1-membrane.html">
+                                                <span class="nav__section-text">2.1 </span>Membrane
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-2-cell-wall.html">
+                                                <span class="nav__section-text">2.2 </span>Cell Wall
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-3-outer-membrane.html">
+                                                <span class="nav__section-text">2.3 </span>Outer Membrane
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-4-vesicles.html">
+                                                <span class="nav__section-text">2.4 </span>Vesicles
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-5-classification-exceptions.html">
+                                                <span class="nav__section-text">2.5 </span>Classification Exceptions
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-6-surface-layer.html">
+                                                <span class="nav__section-text">2.6 </span>Surface Layer
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-7-surface-layer-variety.html">
+                                                <span class="nav__section-text">2.7 </span>Surface Layer Variety
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-8-sheath.html">
+                                                <span class="nav__section-text">2.8 </span>Sheath
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-9-dna.html">
+                                                <span class="nav__section-text">2.9 </span>DNA
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-10-nucleoid.html">
+                                                <span class="nav__section-text">2.10 </span>Nucleoid
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch2" href="2-11-summary.html">
+                                                <span class="nav__section-text">2.11 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch3 nav__chapter-header-link nav__has-section-list" href="3-shape.html">
+                                    <span class="nav__section-text">3 </span>Shape
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav3-1-coccoid" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-1-coccoid.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.1</span> 
-                                                Coccoid
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav3-2-rod" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-2-rod.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.2</span> 
-                                                Rod
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav3-3-length" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-3-length.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.3</span> 
-                                                Length
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav3-4-vibrioid" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-4-vibrioid.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.4</span> 
-                                                Vibrioid
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav3-5-helical" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-5-helical.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.5</span> 
-                                                Helical
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav3-6-prosthecate" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-6-prosthecate.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.6</span> 
-                                                Prosthecate
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav3-7-square" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-7-square.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.7</span> 
-                                                Square
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav3-8-summary" class="nav-menu-default-hover nav-menu-ch3-background">
-                                        <a tabindex="-1" href="3-8-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">3.8</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="4-growth.html">
-                                    <h1 id="nav4-growth" class="nav-menu-default-hover nav-menu-ch4-background" data-chapter="true">
-                                        4 <span class="nav-menu-chapter-title">Growth</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh3SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 3 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh3SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-1-coccoid.html">
+                                                <span class="nav__section-text">3.1 </span>Coccoid
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-2-rod.html">
+                                                <span class="nav__section-text">3.2 </span>Rod
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-3-length.html">
+                                                <span class="nav__section-text">3.3 </span>Length
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-4-vibrioid.html">
+                                                <span class="nav__section-text">3.4 </span>Vibrioid
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-5-helical.html">
+                                                <span class="nav__section-text">3.5 </span>Helical
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-6-prosthecate.html">
+                                                <span class="nav__section-text">3.6 </span>Prosthecate
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-7-square.html">
+                                                <span class="nav__section-text">3.7 </span>Square
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch3" href="3-8-summary.html">
+                                                <span class="nav__section-text">3.8 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch4 nav__chapter-header-link nav__has-section-list" href="4-growth.html">
+                                    <span class="nav__section-text">4 </span>Growth
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav4-1-stalk-bands" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-1-stalk-bands.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.1</span> 
-                                                Stalk Bands
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-2-nanowires" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-2-nanowires.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.2</span> 
-                                                Nanowires
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-3-intracytoplasmic-membrane" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-3-intracytoplasmic-membrane.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.3</span> 
-                                                Intracytoplasmic Membrane
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-4-enzyme-filaments" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-4-enzyme-filaments.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.4</span> 
-                                                Enzyme Filaments
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-5-microcompartments" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-5-microcompartments.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.5</span> 
-                                                Microcompartments
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-6-carboxysomes" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-6-carboxysomes.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.6</span> 
-                                                Carboxysomes
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-7-bacterial-storage-granules" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-7-bacterial-storage-granules.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.7</span> 
-                                                Bacterial Storage Granules
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-8-storage-granule-variety" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-8-storage-granule-variety.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.8</span> 
-                                                Storage Granule Variety
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-9-archaeal-storage-granules" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-9-archaeal-storage-granules.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.9</span> 
-                                                Archaeal Storage Granules
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav4-10-summary" class="nav-menu-default-hover nav-menu-ch4-background">
-                                        <a tabindex="-1" href="4-10-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">4.10</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="5-division.html">
-                                    <h1 id="nav5-division" class="nav-menu-default-hover nav-menu-ch5-background" data-chapter="true">
-                                        5 <span class="nav-menu-chapter-title">Division</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh4SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 4 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh4SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-1-stalk-bands.html">
+                                                <span class="nav__section-text">4.1 </span>Stalk Bands
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-2-nanowires.html">
+                                                <span class="nav__section-text">4.2 </span>Nanowires
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-3-intracytoplasmic-membrane.html">
+                                                <span class="nav__section-text">4.3 </span>Intracytoplasmic Membrane
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-4-enzyme-filaments.html">
+                                                <span class="nav__section-text">4.4 </span>Enzyme Filaments
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-5-microcompartments.html">
+                                                <span class="nav__section-text">4.5 </span>Microcompartments
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-6-carboxysomes.html">
+                                                <span class="nav__section-text">4.6 </span>Carboxysomes
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-7-bacterial-storage-granules.html">
+                                                <span class="nav__section-text">4.7 </span>Bacterial Storage Granules
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-8-storage-granule-variety.html">
+                                                <span class="nav__section-text">4.8 </span>Storage Granule Variety
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-9-archaeal-storage-granules.html">
+                                                <span class="nav__section-text">4.9 </span>Archaeal Storage Granules
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch4" href="4-10-summary.html">
+                                                <span class="nav__section-text">4.10 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch5 nav__chapter-header-link nav__has-section-list" href="5-division.html">
+                                    <span class="nav__section-text">5 </span>Division
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav5-1-copy-number" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-1-copy-number.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.1</span> 
-                                                Copy Number
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-2-fission" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-2-fission.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.2</span> 
-                                                Fission
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-3-budding" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-3-budding.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.3</span> 
-                                                Budding
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-4-monoderm-septum" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-4-monoderm-septum.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.4</span> 
-                                                Monoderm Septum
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-5-monoderm-cytokinesis" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-5-monoderm-cytokinesis.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.5</span> 
-                                                Monoderm Cytokinesis
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-6-diderm-cytokinesis" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-6-diderm-cytokinesis.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.6</span> 
-                                                Diderm Cytokinesis
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-7-outer-membrane-constriction" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-7-outer-membrane-constriction.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.7</span> 
-                                                Outer Membrane Constriction
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-8-asymmetric-division" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-8-asymmetric-division.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.8</span> 
-                                                Asymmetric Division
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-9-asynchronous-constriction" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-9-asynchronous-constriction.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.9</span> 
-                                                Asynchronous Constriction
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-10-ftsz" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-10-ftsz.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.10</span> 
-                                                FtsZ
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-11-archaeal-cytokinesis" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-11-archaeal-cytokinesis.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.11</span> 
-                                                Archaeal Cytokinesis
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-12-cdv" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-12-cdv.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.12</span> 
-                                                Cdv
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav5-13-summary" class="nav-menu-default-hover nav-menu-ch5-background">
-                                        <a tabindex="-1" href="5-13-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">5.13</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="6-motility.html">
-                                    <h1 id="nav6-motility" class="nav-menu-default-hover nav-menu-ch6-background" data-chapter="true">
-                                        6 <span class="nav-menu-chapter-title">Motility</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh5SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 5 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh5SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-1-copy-number.html">
+                                                <span class="nav__section-text">5.1 </span>Copy Number
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-2-fission.html">
+                                                <span class="nav__section-text">5.2 </span>Fission
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-3-budding.html">
+                                                <span class="nav__section-text">5.3 </span>Budding
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-4-monoderm-septum.html">
+                                                <span class="nav__section-text">5.4 </span>Monoderm Septum
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-5-monoderm-cytokinesis.html">
+                                                <span class="nav__section-text">5.5 </span>Monoderm Cytokinesis
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-6-diderm-cytokinesis.html">
+                                                <span class="nav__section-text">5.6 </span>Diderm Cytokinesis
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-7-outer-membrane-constriction.html">
+                                                <span class="nav__section-text">5.7 </span>Outer Membrane Constriction
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-8-asymmetric-division.html">
+                                                <span class="nav__section-text">5.8 </span>Asymmetric Division
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-9-asynchronous-constriction.html">
+                                                <span class="nav__section-text">5.9 </span>Asynchronous Constriction
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-10-ftsz.html">
+                                                <span class="nav__section-text">5.10 </span>FtsZ
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-11-archaeal-cytokinesis.html">
+                                                <span class="nav__section-text">5.11 </span>Archaeal Cytokinesis
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-12-cdv.html">
+                                                <span class="nav__section-text">5.12 </span>Cdv
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch5" href="5-13-summary.html">
+                                                <span class="nav__section-text">5.13 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch6 nav__chapter-header-link nav__has-section-list" href="6-motility.html">
+                                    <span class="nav__section-text">6 </span>Motility
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav6-1-flagellum" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-1-flagellum.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.1</span> 
-                                                Flagellum
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-2-flagellar-motor" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-2-flagellar-motor.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.2</span> 
-                                                Flagellar Motor
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-3-flagellar-assembly" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-3-flagellar-assembly.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.3</span> 
-                                                Flagellar Assembly
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-4-flagella-patterns" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-4-flagella-patterns.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.4</span> 
-                                                Flagella Patterns
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-5-peritrichous-flagella" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-5-peritrichous-flagella.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.5</span> 
-                                                Peritrichous Flagella
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-6-sheathed-flagella" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-6-sheathed-flagella.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.6</span> 
-                                                Sheathed Flagella
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-7-periplasmic-flagella" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-7-periplasmic-flagella.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.7</span> 
-                                                Periplasmic Flagella
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-8-archaellum" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-8-archaellum.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.8</span> 
-                                                Archaellum
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-9-archaella-patterns" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-9-archaella-patterns.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.9</span> 
-                                                Archaella Patterns
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-10-type-iv-pilus" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-10-type-iv-pilus.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.10</span> 
-                                                Type IV Pilus
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-11-type-ix-secretion-system" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-11-type-ix-secretion-system.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.11</span> 
-                                                Type IX Secretion System
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-12-terminal-organelle" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-12-terminal-organelle.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.12</span> 
-                                                Terminal Organelle
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav6-13-summary" class="nav-menu-default-hover nav-menu-ch6-background">
-                                        <a tabindex="-1" href="6-13-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">6.13</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="7-navigation.html">
-                                    <h1 id="nav7-navigation" class="nav-menu-default-hover nav-menu-ch7-background" data-chapter="true">
-                                        7 <span class="nav-menu-chapter-title">Navigation</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh6SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 6 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh6SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-1-flagellum.html">
+                                                <span class="nav__section-text">6.1 </span>Flagellum
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-2-flagellar-motor.html">
+                                                <span class="nav__section-text">6.2 </span>Flagellar Motor
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-3-flagellar-assembly.html">
+                                                <span class="nav__section-text">6.3 </span>Flagellar Assembly
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-4-flagella-patterns.html">
+                                                <span class="nav__section-text">6.4 </span>Flagella Patterns
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-5-peritrichous-flagella.html">
+                                                <span class="nav__section-text">6.5 </span>Peritrichous Flagella
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-6-sheathed-flagella.html">
+                                                <span class="nav__section-text">6.6 </span>Sheathed Flagella
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-7-periplasmic-flagella.html">
+                                                <span class="nav__section-text">6.7 </span>Periplasmic Flagella
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-8-archaellum.html">
+                                                <span class="nav__section-text">6.8 </span>Archaellum
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-9-archaella-patterns.html">
+                                                <span class="nav__section-text">6.9 </span>Archaella Patterns
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-10-type-iv-pilus.html">
+                                                <span class="nav__section-text">6.10 </span>Type IV Pilus
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-11-type-ix-secretion-system.html">
+                                                <span class="nav__section-text">6.11 </span>Type IX Secretion System
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-12-terminal-organelle.html">
+                                                <span class="nav__section-text">6.12 </span>Terminal Organelle
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch6" href="6-13-summary.html">
+                                                <span class="nav__section-text">6.13 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch7 nav__chapter-header-link nav__has-section-list" href="7-navigation.html">
+                                    <span class="nav__section-text">7 </span>Navigation
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav7-1-chemotaxis" class="nav-menu-default-hover nav-menu-ch7-background">
-                                        <a tabindex="-1" href="7-1-chemotaxis.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">7.1</span> 
-                                                Chemotaxis
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav7-2-chemosensory-arrays" class="nav-menu-default-hover nav-menu-ch7-background">
-                                        <a tabindex="-1" href="7-2-chemosensory-arrays.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">7.2</span> 
-                                                Chemosensory Arrays
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav7-3-chemosensory-array-conservation" class="nav-menu-default-hover nav-menu-ch7-background">
-                                        <a tabindex="-1" href="7-3-chemosensory-array-conservation.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">7.3</span> 
-                                                Chemosensory Array Conservation
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav7-4-chemoreceptor-variety" class="nav-menu-default-hover nav-menu-ch7-background">
-                                        <a tabindex="-1" href="7-4-chemoreceptor-variety.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">7.4</span> 
-                                                Chemoreceptor Variety
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav7-5-cytoplasmic-chemosensory-arrays" class="nav-menu-default-hover nav-menu-ch7-background">
-                                        <a tabindex="-1" href="7-5-cytoplasmic-chemosensory-arrays.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">7.5</span> 
-                                                Cytoplasmic Chemosensory Arrays
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav7-6-magnetotaxis" class="nav-menu-default-hover nav-menu-ch7-background">
-                                        <a tabindex="-1" href="7-6-magnetotaxis.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">7.6</span> 
-                                                Magnetotaxis
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav7-7-summary" class="nav-menu-default-hover nav-menu-ch7-background">
-                                        <a tabindex="-1" href="7-7-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">7.7</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="8-lifecycle.html">
-                                    <h1 id="nav8-lifecycle" class="nav-menu-default-hover nav-menu-ch8-background" data-chapter="true">
-                                        8 <span class="nav-menu-chapter-title">Lifecycle</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh7SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 7 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh7SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch7" href="7-1-chemotaxis.html">
+                                                <span class="nav__section-text">7.1 </span>Chemotaxis
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch7" href="7-2-chemosensory-arrays.html">
+                                                <span class="nav__section-text">7.2 </span>Chemosensory Arrays
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch7" href="7-3-chemosensory-array-conservation.html">
+                                                <span class="nav__section-text">7.3 </span>Chemosensory Array Conservation
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch7" href="7-4-chemoreceptor-variety.html">
+                                                <span class="nav__section-text">7.4 </span>Chemoreceptor Variety
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch7" href="7-5-cytoplasmic-chemosensory-arrays.html">
+                                                <span class="nav__section-text">7.5 </span>Cytoplasmic Chemosensory Arrays
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch7" href="7-6-magnetotaxis.html">
+                                                <span class="nav__section-text">7.6 </span>Magnetotaxis
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch7" href="7-7-summary.html">
+                                                <span class="nav__section-text">7.7 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch8 nav__chapter-header-link nav__has-section-list" href="8-lifecycle.html">
+                                    <span class="nav__section-text">8 </span>Lifecycle
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav8-1-stationary-phase" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-1-stationary-phase.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.1</span> 
-                                                Stationary Phase
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-2-genome-protection" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-2-genome-protection.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.2</span> 
-                                                Genome Protection
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-3-archaeal-stationary-phase" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-3-archaeal-stationary-phase.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.3</span> 
-                                                Archaeal Stationary Phase
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-4-differentiation" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-4-differentiation.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.4</span> 
-                                                Differentiation
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-5-monoderm-sporulation" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-5-monoderm-sporulation.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.5</span> 
-                                                Monoderm Sporulation
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-6-monoderm-spore-engulfment" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-6-monoderm-spore-engulfment.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.6</span> 
-                                                Monoderm Spore Engulfment
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-7-monoderm-spores" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-7-monoderm-spores.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.7</span> 
-                                                Monoderm Spores
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-8-monoderm-germination" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-8-monoderm-germination.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.8</span> 
-                                                Monoderm Germination
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-9-diderm-sporulation" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-9-diderm-sporulation.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.9</span> 
-                                                Diderm Sporulation
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-10-diderm-spore-engulfment" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-10-diderm-spore-engulfment.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.10</span> 
-                                                Diderm Spore Engulfment
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-11-diderm-germination" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-11-diderm-germination.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.11</span> 
-                                                Diderm Germination
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav8-12-summary" class="nav-menu-default-hover nav-menu-ch8-background">
-                                        <a tabindex="-1" href="8-12-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">8.12</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="9-interaction.html">
-                                    <h1 id="nav9-interaction" class="nav-menu-default-hover nav-menu-ch9-background" data-chapter="true">
-                                        9 <span class="nav-menu-chapter-title">Interaction</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh8SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 8 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh8SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-1-stationary-phase.html">
+                                                <span class="nav__section-text">8.1 </span>Stationary Phase
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-2-genome-protection.html">
+                                                <span class="nav__section-text">8.2 </span>Genome Protection
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-3-archaeal-stationary-phase.html">
+                                                <span class="nav__section-text">8.3 </span>Archaeal Stationary Phase
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-4-differentiation.html">
+                                                <span class="nav__section-text">8.4 </span>Differentiation
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-5-monoderm-sporulation.html">
+                                                <span class="nav__section-text">8.5 </span>Monoderm Sporulation
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-6-monoderm-spore-engulfment.html">
+                                                <span class="nav__section-text">8.6 </span>Monoderm Spore Engulfment
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-7-monoderm-spores.html">
+                                                <span class="nav__section-text">8.7 </span>Monoderm Spores
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-8-monoderm-germination.html">
+                                                <span class="nav__section-text">8.8 </span>Monoderm Germination
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-9-diderm-sporulation.html">
+                                                <span class="nav__section-text">8.9 </span>Diderm Sporulation
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-10-diderm-spore-engulfment.html">
+                                                <span class="nav__section-text">8.10 </span>Diderm Spore Engulfment
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-11-diderm-germination.html">
+                                                <span class="nav__section-text">8.11 </span>Diderm Germination
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch8" href="8-12-summary.html">
+                                                <span class="nav__section-text">8.12 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch9 nav__chapter-header-link nav__has-section-list" href="9-interaction.html">
+                                    <span class="nav__section-text">9 </span>Interaction
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav9-1-biofilm" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-1-biofilm.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.1</span> 
-                                                Biofilm
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-2-biofilm-matrix" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-2-biofilm-matrix.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.2</span> 
-                                                Biofilm Matrix
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-3-type-ii-and-type-iv-secretion" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-3-type-ii-and-type-iv-secretion.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.3</span> 
-                                                Type II and Type IV Secretion
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-4-type-iii-secretion" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-4-type-iii-secretion.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.4</span> 
-                                                Type III Secretion
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-5-type-v-secretion" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-5-type-v-secretion.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.5</span> 
-                                                Type V Secretion
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-6-type-vi-secretion" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-6-type-vi-secretion.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.6</span> 
-                                                Type VI Secretion
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-7-contractile-weapons" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-7-contractile-weapons.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.7</span> 
-                                                Contractile Weapons
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-8-type-ix-secretion" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-8-type-ix-secretion.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.8</span> 
-                                                Type IX Secretion
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-9-predation" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-9-predation.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.9</span> 
-                                                Predation
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-10-predator-entry" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-10-predator-entry.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.10</span> 
-                                                Predator Entry
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-11-predator-replication" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-11-predator-replication.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.11</span> 
-                                                Predator Replication
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav9-12-summary" class="nav-menu-default-hover nav-menu-ch9-background">
-                                        <a tabindex="-1" href="9-12-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">9.12</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="10-viruses.html">
-                                    <h1 id="nav10-viruses" class="nav-menu-default-hover nav-menu-ch10-background" data-chapter="true">
-                                        10 <span class="nav-menu-chapter-title">Viruses</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh9SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 9 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh9SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-1-biofilm.html">
+                                                <span class="nav__section-text">9.1 </span>Biofilm
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-2-biofilm-matrix.html">
+                                                <span class="nav__section-text">9.2 </span>Biofilm Matrix
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-3-type-ii-and-type-iv-secretion.html">
+                                                <span class="nav__section-text">9.3 </span>Type II and Type IV Secretion
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-4-type-iii-secretion.html">
+                                                <span class="nav__section-text">9.4 </span>Type III Secretion
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-5-type-v-secretion.html">
+                                                <span class="nav__section-text">9.5 </span>Type V Secretion
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-6-type-vi-secretion.html">
+                                                <span class="nav__section-text">9.6 </span>Type VI Secretion
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-7-contractile-weapons.html">
+                                                <span class="nav__section-text">9.7 </span>Contractile Weapons
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-8-type-ix-secretion.html">
+                                                <span class="nav__section-text">9.8 </span>Type IX Secretion
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-9-predation.html">
+                                                <span class="nav__section-text">9.9 </span>Predation
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-10-predator-entry.html">
+                                                <span class="nav__section-text">9.10 </span>Predator Entry
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-11-predator-replication.html">
+                                                <span class="nav__section-text">9.11 </span>Predator Replication
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch9" href="9-12-summary.html">
+                                                <span class="nav__section-text">9.12 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--ch10 nav__chapter-header-link nav__has-section-list" href="10-viruses.html">
+                                    <span class="nav__section-text">10 </span>Viruses
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="nav10-1-phage" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-1-phage.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.1</span> 
-                                                Phage
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-2-contractile-tails" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-2-contractile-tails.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.2</span> 
-                                                Contractile Tails
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-3-noncontractile-tails" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-3-noncontractile-tails.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.3</span> 
-                                                Noncontractile Tails
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-4-structural-variation" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-4-structural-variation.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.4</span> 
-                                                Structural Variation
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-5-targeting" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-5-targeting.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.5</span> 
-                                                Targeting
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-6-head-fibers" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-6-head-fibers.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.6</span> 
-                                                Head Fibers
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-7-replication" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-7-replication.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.7</span> 
-                                                Replication
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-8-virus-associated-pyramids" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-8-virus-associated-pyramids.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.8</span> 
-                                                Virus-Associated Pyramids
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-9-pyramid-release" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-9-pyramid-release.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.9</span> 
-                                                Pyramid Release
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-10-cellular-defense" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-10-cellular-defense.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.10</span> 
-                                                Cellular Defense
-                                            </div>
-                                        </a>
-                                    </li>
-                                                            <li id="nav10-11-summary" class="nav-menu-default-hover nav-menu-ch10-background">
-                                        <a tabindex="-1" href="10-11-summary.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number">10.11</span> 
-                                                Summary
-                                            </div>
-                                        </a>
-                                    </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="outlook.html">
-                                    <h1 id="navoutlook" class="nav-menu-default-hover nav-menu-ch-background" data-chapter="true">
-                                         <span class="nav-menu-chapter-title">Outlook</span>
-                                    </h1>
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navCh10SectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter 10 section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navCh10SectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-1-phage.html">
+                                                <span class="nav__section-text">10.1 </span>Phage
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-2-contractile-tails.html">
+                                                <span class="nav__section-text">10.2 </span>Contractile Tails
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-3-noncontractile-tails.html">
+                                                <span class="nav__section-text">10.3 </span>Noncontractile Tails
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-4-structural-variation.html">
+                                                <span class="nav__section-text">10.4 </span>Structural Variation
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-5-targeting.html">
+                                                <span class="nav__section-text">10.5 </span>Targeting
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-6-head-fibers.html">
+                                                <span class="nav__section-text">10.6 </span>Head Fibers
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-7-replication.html">
+                                                <span class="nav__section-text">10.7 </span>Replication
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-8-virus-associated-pyramids.html">
+                                                <span class="nav__section-text">10.8 </span>Virus-Associated Pyramids
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-9-pyramid-release.html">
+                                                <span class="nav__section-text">10.9 </span>Pyramid Release
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-10-cellular-defense.html">
+                                                <span class="nav__section-text">10.10 </span>Cellular Defense
+                                            </a>
+                                        </li>
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch10" href="10-11-summary.html">
+                                                <span class="nav__section-text">10.11 </span>Summary
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link  nav__chapter-header-link nav__has-section-list" href="outlook.html">
+                                    Outlook
                                 </a>
-                                <button onclick="toggleSectionList(this)" tabindex="-1"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
-            <g transform="translate(0,-952.36218)">
-                <path style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;color:#000000;enable-background:accumulate;" d="m 49.99997,1018.5184 2.59376,-2.2188 28,-23.99996 -5.1875,-6.0937 -25.40626,21.78116 -25.4062,-21.78116 -5.1875,6.0937 28,23.99996 2.5937,2.2188 z" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible"/>
-            </g>
-        </svg></button>
-                            </div>
-                                                            <ol class="nav-menu-sections">
-                                                            <li id="navkeep-looking" class="nav-menu-default-hover nav-menu-ch-background">
-                                        <a tabindex="-1" href="keep-looking.html">
-                                            <div class="nav-menu-section-entry">
-                                                <span class="nav-menu-section-number"></span> 
+                                                            <button 
+                                        class="nav__section-list-toggle" 
+                                        aria-controls="navChSectionList"
+                                        aria-expanded="false"
+                                        aria-label="Chapter  section links"
+                                    >
+                                        <span class="nav__section-list-toggle-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="matrix(1.0774 0 0 -1.0774 .45487 33.238)">
+        			<g transform="matrix(1.3038 0 0 -1.3038 -.39199 37.597)" stroke-linejoin="round" stroke-width="1.4033">
+        				<rect transform="matrix(.70711 .70711 .70711 -.70711 0 0)" x="9.1684" y="-8.082" width="14.851" height="2.7846"/>
+        				<rect transform="rotate(135)" x="-6.7651" y="-24.301" width="14.851" height="2.7846"/>
+        			</g>
+        		</g>
+        	</g>
+        </svg></span>
+                                    </button>
+                                                    </div>
+                                                    <ol id="navChSectionList" class="nav__section-list nav__section-list--collapsed" style="height:0px">
+                                                                    <li>
+                                            <a class="nav__link nav__link--ch" href="keep-looking.html">
                                                 Keep Looking
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </li>
+                                                            </ol>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__appendix-entry">Appendix</div>
                                     </li>
-                                                    </ol>
-                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <h1 id="nav" class="nav-menu-default-hover nav-menu-chAppendix-background">
-                                Appendix
-                            </h1>
-                                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="A-feature-index.html">
-                                    <h1 id="navA-feature-index" class="nav-menu-default-hover nav-menu-chA-background" >
-                                        A <span class="nav-menu-chapter-title">Feature Index</span>
-                                    </h1>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--chA nav__chapter-header-link " href="A-feature-index.html">
+                                    <span class="nav__section-text">A </span>Feature Index
                                 </a>
-                                
-                            </div>
-                                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="B-scientist-profiles.html">
-                                    <h1 id="navB-scientist-profiles" class="nav-menu-default-hover nav-menu-chB-background" >
-                                        B <span class="nav-menu-chapter-title">Scientist Profiles</span>
-                                    </h1>
+                                                    </div>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--chB nav__chapter-header-link " href="B-scientist-profiles.html">
+                                    <span class="nav__section-text">B </span>Scientist Profiles
                                 </a>
-                                
-                            </div>
-                                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="C-phylogenetic-tree.html">
-                                    <h1 id="navC-phylogenetic-tree" class="nav-menu-default-hover nav-menu-chC-background" >
-                                        C <span class="nav-menu-chapter-title">Phylogenetic Tree</span>
-                                    </h1>
+                                                    </div>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--chC nav__chapter-header-link " href="C-phylogenetic-tree.html">
+                                    <span class="nav__section-text">C </span>Phylogenetic Tree
                                 </a>
-                                
-                            </div>
-                                                    </li>
-                            <li class="nav-menu-chapter">
-                                            <div class="nav-menu-chapter-container">
-                                <a tabindex="-1" href="D-references.html">
-                                    <h1 id="navD-references" class="nav-menu-default-hover nav-menu-chD-background" >
-                                        D <span class="nav-menu-chapter-title">References</span>
-                                    </h1>
+                                                    </div>
+                                                        </li>
+                            <li class="nav__entry">
+                                            <div class="nav__chapter-header-container">
+                                <a class="nav__link nav__link--chD nav__chapter-header-link " href="D-references.html">
+                                    <span class="nav__section-text">D </span>References
                                 </a>
-                                
-                            </div>
-                                                    </li>
-                    </ol>
-                    <div class="nav-menu-footer">
-                    <a href="download.html" tabindex="-1">Offline Version</a>
-                </div>
-                <ul class="mobile-footer-data">
-                <li><a href="about.html">About This Book</a></li>
-                <li><a href="https://www.library.caltech.edu/" target="_blank">&#169; 2021 Caltech Library</a></li>
-            </ul>
+                                                    </div>
+                                                        </li>
+                        <div class="nav__hr-break"></div>
+                <li class="nav__entry nav__footer-entry">
+                    <a class="nav__link" href="about.html">About This Book</a>
+                </li>
+                <li class="nav__entry nav__footer-entry">
+                    <a class="nav__link" href="https://www.library.caltech.edu/" target="_blank" rel="noopener">© 2021 Caltech Library</a>
+                </li>
+                <li class="nav__entry nav__offline-entry">
+                    <a class="nav__link" href="download.html">Offline Version</a>
+                </li>
+            </ol>
         </nav>        <div class="book-page-nonheader-container">
                         <div class="main-non-text-container main-non-text-container--hidden-mobile">
                             <a href="2-10-nucleoid.html" class="main-non-text-container__nav-arrow" data-nav="prev"><svg version="1.1" viewBox="0 0 16 32" xmlns="http://www.w3.org/2000/svg">
@@ -1479,7 +1255,6 @@
 
   <script src="js/script.js"></script>
   <script src="js/bio-pv/bio-pv.min.js"></script>
-  <script src="js/nav.js"></script>
   <script src="js/section.js"></script>
   <script src="js/MobileControls.js"></script>
         <script src="js/SummaryMenu.js"></script>
@@ -1488,6 +1263,8 @@
   <script src="js/search.js"></script>
   <script src="js/ProgressBar.js"></script>
   <script src="js/Footer.js"></script>
+  <script src="js/NavWidget.js"></script>
+  <script src="js/nav-controller.js"></script>
           <script src="js/MediaViewer.js"></script>
       <script src="js/SectionText.js"></script>
       <script src="js/ProteinViewer.js"></script>
