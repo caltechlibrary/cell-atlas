@@ -2488,17 +2488,23 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-.comp-slider__after-img {
+.comp-slider__after-img-container {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 50%;
-    background-size: cover;
+    overflow: hidden;
 }
 
-.comp-slider__after-img--hidden {
+.comp-slider__after-img-container--hidden {
     display: none;
+}
+
+.comp-slider__after-img {
+    display: block;
+    height: 100%;
+    width: auto;
 }
 
 .comp-slider__input--sr-only {
