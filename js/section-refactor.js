@@ -97,15 +97,6 @@
 
         let shelveTextWidget = function() {
             sectionText.setMainTabIndex(-1);
-
-            // Add classess to determine visual order that transitions happen
-            sectionText.root.classList.remove("section-text--transition-delay");
-            sectionText.root.classList.add("section-text--transition-instant");
-            sectionText.mainContainer.classList.remove("section-text__main-container-transition-instant");
-            sectionText.mainContainer.classList.add("section-text__unshelve-btn-container--transition-delay");
-            sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--transition-instant");
-            sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--transition-delay");
-
             sectionText.root.classList.add("section-text--shelved");
             sectionText.mainContainer.classList.add("section-text__main-container--hidden");
             sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--hidden");
@@ -114,15 +105,6 @@
 
         let unShelveTextWidget = function() {
             sectionText.unshelveBtnContainer.setAttribute("tabindex", -1);
-
-            // Add classess to determine visual order that transitions happen
-            sectionText.root.classList.remove("section-text--transition-instant");
-            sectionText.root.classList.add("section-text--transition-delay");
-            sectionText.mainContainer.classList.remove("section-text__main-container-transition-instant");
-            sectionText.mainContainer.classList.add("section-text__unshelve-btn-container--transition-delay");
-            sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--transition-delay");
-            sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--transition-instant");
-            
             sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--hidden");
             sectionText.mainContainer.classList.remove("section-text__main-container--hidden");
             sectionText.root.classList.remove("section-text--shelved");

@@ -1561,36 +1561,24 @@ file. These definitions will be defined mobile first.
         max-height: 94%;
         display: flex;
         flex-direction: column;
-    }
-
-    .section-text--transition-instant {
-        transition: transform 1s ease 0s;
-    }
-
-    .section-text--transition-delay {
         transition: transform 1s ease 1s;
     }
 
     .section-text--shelved {
         transform: translate(100%, -50%);
+        transition: transform 1s ease 0s;
     }
 
     .section-text__main-container {
         min-height: 0;
         flex: 1;
         padding: 0;
-    }
-
-    .section-text__main-container-transition-instant {
         transition: visibility 0s ease 0s;
-    }
-
-    .section-text__main-container--transition-delay {
-        transition: visibility 0s ease 1s;
     }
 
     .section-text__main-container--hidden {
         visibility: hidden;
+        transition: visibility 0s ease 1s;
     }
 
     .section-text__main-container--no-learn-more {
@@ -1611,19 +1599,13 @@ file. These definitions will be defined mobile first.
         padding: 0.2em 0.75em 0.2em 0;
         background: #363636;
         z-index: 0;
-    }
-
-    .section-text__unshelve-btn-container--transition-instant {
-        transition: transform 1s ease 0s, visibility 1s ease 0s;
-    }
-
-    .section-text__unshelve-btn-container--transition-delay {
         transition: transform 1s ease 1s, visibility 0s ease 1s;
     }
 
     .section-text__unshelve-btn-container--hidden {
         transform: translateX(0%);
         visibility: hidden;
+        transition: transform 1s ease 0s, visibility 1s ease 0s;
     }
 
     .section-text__unshelve-btn {
