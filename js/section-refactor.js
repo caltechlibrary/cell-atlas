@@ -1,6 +1,4 @@
 (function() {
-    let navEl = document.querySelector(".nav");
-    let navBtn = document.querySelector(".header__nav-btn");
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
@@ -12,34 +10,10 @@
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
-    let sectionController, nav, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, progressBar, footer,
+    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer, progressBar, footer,
         mediaViewers = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
-
-        let toggleNav = function() {
-            if(nav.root.classList.contains("nav--collapsed")) {
-                nav.show();
-                if(window.innerWidth > 900) nav.root.querySelector("a").focus();
-                window.sessionStorage.setItem("navOpened", true);
-                window.addEventListener("click", clickCloseNav);
-                window.addEventListener("keydown", keydownCloseNav);
-            } else {
-                nav.hide();
-                navBtn.focus();
-                window.sessionStorage.setItem("navOpened", false);
-                window.removeEventListener("click", clickCloseNav);
-                window.removeEventListener("keydown", keydownCloseNav);
-            }
-        };
-
-        let clickCloseNav = function(event) {
-            if(!nav.root.contains(event.target) && !navBtn.contains(event.target)) toggleNav();
-        };
-
-        let keydownCloseNav = function(event) {
-            if(event.code == "Escape") toggleNav();
-        };
 
         let handleMainMediaViewerFsBtnClick = function() {
             if(window.innerWidth < 900) {
@@ -206,7 +180,6 @@
         };
 
         return {
-            toggleNav,
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
             resizeMainPlayerScrubCanvas,
@@ -225,10 +198,6 @@
     };
 
     sectionController = SectionController();
-
-    nav = NavWidget(navEl);
-    navBtn.addEventListener("click", sectionController.toggleNav);
-    window.sessionStorage.setItem("navOpened", false);
 
     for(let mediaViewerEl of mediaViewerEls) {
         let videoPlayerEl = mediaViewerEl.querySelector(".video-player");

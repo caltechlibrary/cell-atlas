@@ -7,13 +7,15 @@ let NavWidget = function(root) {
         let currentPageLink = root.querySelector(`[href='${currentPath}']`);
         let currentLinkLiParent, currentSectionList, currSectionListToggle;
         if(currentPageLink) {
-            currentLinkLiParent = currentPageLink.closest(".nav__entry");
-            currentSectionList = currentLinkLiParent.querySelector(".nav__section-list");
-            currSectionListToggle = root.querySelector(`[aria-controls='${currentSectionList.id}']`)
-            expandSectionList(currentSectionList);
-            currSectionListToggle.setAttribute("aria-expanded", "true");
             currentPageLink.setAttribute("aria-current", "page");
             currentPageLink.classList.add("nav__link--current");
+            currentLinkLiParent = currentPageLink.closest(".nav__entry");
+            currentSectionList = currentLinkLiParent.querySelector(".nav__section-list");
+            if(currentSectionList) {
+                currSectionListToggle = root.querySelector(`[aria-controls='${currentSectionList.id}']`)
+                expandSectionList(currentSectionList);
+                currSectionListToggle.setAttribute("aria-expanded", "true");
+            }
         }
     };
 

@@ -7,7 +7,7 @@
                     <div class="nav__appendix-entry">Appendix</div>
                 ${else}
                     <div class="nav__chapter-header-container">
-                        <a class="nav__link nav__link--ch${nav.chapter} nav__chapter-header-link" href="${nav.page}.html">
+                        <a class="nav__link ${if(nav.chapter)}nav__link--ch${nav.chapter}${endif} nav__chapter-header-link ${if(nav.sections)}nav__has-section-list${endif}" href="${nav.page}.html">
                             ${if(nav.chapter)}<span class="nav__section-text">${nav.chapter} </span>${endif}${nav.title}
                         </a>
                         ${if(nav.sections)}
@@ -36,13 +36,13 @@
             </li>
         ${endfor}
         <div class="nav__hr-break"></div>
-        <li class="nav__footer-entry">
+        <li class="nav__entry nav__footer-entry">
             <a class="nav__link" href="about.html">About This Book</a>
         </li>
-        <li class="nav__footer-entry">
+        <li class="nav__entry nav__footer-entry">
             <a class="nav__link" href="https://www.library.caltech.edu/" target="_blank" rel="noopener">© 2021 Caltech Library</a>
         </li>
-        <li class="nav__offline-entry">
+        <li class="nav__entry nav__offline-entry">
             <a class="nav__link" href="download.html">Offline Version</a>
         </li>
     </ol>
