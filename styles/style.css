@@ -1762,7 +1762,7 @@ file. These definitions will be defined mobile first.
     display: block;
     margin-bottom: 0.5em;
     font-size: 1.15em;
-    color: #000;
+    color: inherit;
     text-decoration: underline;
 }
 
