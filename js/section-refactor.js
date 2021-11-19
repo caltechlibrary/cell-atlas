@@ -96,19 +96,15 @@
         };
 
         let shelveTextWidget = function() {
-            sectionText.setMainTabIndex(-1);
             sectionText.root.classList.add("section-text--shelved");
             sectionText.mainContainer.classList.add("section-text__main-container--hidden");
             sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--hidden");
-            sectionText.unshelveBtnContainer.setAttribute("tabindex", 0);
         };
 
         let unShelveTextWidget = function() {
-            sectionText.unshelveBtnContainer.setAttribute("tabindex", -1);
             sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--hidden");
             sectionText.mainContainer.classList.remove("section-text__main-container--hidden");
             sectionText.root.classList.remove("section-text--shelved");
-            sectionText.setMainTabIndex(0);
         };
 
         let handleLearnMoreBtnContainerClick = function(event) {

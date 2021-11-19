@@ -7,11 +7,6 @@ let SectionText = function(root, narrationPlayer) {
     let stopNarrationBtn = root.querySelector(".section-text__stop-narration-btn");
     let narrationToggleBtn = root.querySelector(".section-text__toggle-narration-btn");
 
-    let setMainTabIndex = function(tabIndex) {
-        let tabbableEls = mainContainer.querySelectorAll("a, button, .section-text__content");
-        for(let tabbableEl of tabbableEls) tabbableEl.setAttribute("tabindex", tabIndex);
-    };
-
     let toggleNarrationPlayer = function() {
         let showIcon = root.querySelector(".section-text__toggle-narration-btn-show-icon");
         let hideIcon = root.querySelector(".section-text__toggle-narration-btn-hide-icon");
@@ -52,7 +47,6 @@ let SectionText = function(root, narrationPlayer) {
         mainContainer,
         shelveBtn,
         unshelveBtnContainer,
-        unshelveBtn,
-        setMainTabIndex
+        unshelveBtn
     }
 }
