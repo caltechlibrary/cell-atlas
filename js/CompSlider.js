@@ -2,8 +2,8 @@ let CompSlider = function(root) {
     
     let beforeImg = root.querySelector(".comp-slider__before-img");
     let beforeSrc = beforeImg.getAttribute("data-src");
+    let afterImgContainer = root.querySelector(".comp-slider__after-img-container");
     let afterImg = root.querySelector(".comp-slider__after-img");
-    let afterImgPreload = document.createElement("img");
     let afterSrc = afterImg.getAttribute("data-src");
     let slider = root.querySelector(".comp-slider__slider");
     let sliderInput = root.querySelector(".comp-slider__input");
@@ -14,23 +14,18 @@ let CompSlider = function(root) {
         if(offline) {
             // Source images locally if offline
             beforeImg.setAttribute("src", `img/stillimages/${beforeSrc}`);
-            afterImg.style["background-image"] = `url(img/stillimages/${afterSrc})`;
+            afterImg.setAttribute("src", `img/stillimages/${afterSrc}`);
         } else {
             // Source images through host if online
             beforeImg.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${beforeSrc}`);
-            afterImgPreload.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${afterSrc}`);
+            afterImg.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${afterSrc}`);
         }
         if(root.classList.contains("comp-slider--main-section")) updateBeforeImgMaxHeight();
     };
 
-    let onAfterImagePreloadSuccess = function() {
-        afterImgPreload.remove();
-        afterImg.style["background-image"] = `url(${afterImgPreload.src})`;
-    };
-
     let displayFailedMsg = function(event) {
         beforeImg.classList.add("comp-slider__before-img--hidden");
-        afterImg.classList.add("comp-slider__after-img--hidden");
+        afterImgContainer.classList.add("comp-slider__after-img-container--hidden");
         slider.classList.add("comp-slider__slider--hidden");
         if(root.classList.contains("comp-slider--main-section")) root.classList.add("comp-slider--main-section-failed");
         failMsgContainer.classList.remove("comp-slider__fail-msg-container--hidden");
@@ -77,7 +72,7 @@ let CompSlider = function(root) {
 
     let setCompImgPercentage = function(percentage) {
         slider.style.left = `${percentage}%`;
-        afterImg.style.width = `${percentage}%`;
+        afterImgContainer.style.width = `${percentage}%`;
     };
 
     let endImgSliding = function(event) {
@@ -106,8 +101,7 @@ let CompSlider = function(root) {
     };
 
     beforeImg.addEventListener("error", displayFailedMsg);
-    afterImgPreload.addEventListener("error", displayFailedMsg);
-    afterImgPreload.addEventListener("load", onAfterImagePreloadSuccess);
+    afterImg.addEventListener("error", displayFailedMsg);
     init();
     if(root.classList.contains("comp-slider--main-section")) window.addEventListener("resize", updateBeforeImgMaxHeight);
     slider.addEventListener("mousedown", initImgSliding);
