@@ -1,7 +1,7 @@
 <div class="section-text">
     <div class="section-text__unshelve-btn-container section-text__unshelve-btn-container--hidden">
-        <button class="section-text__unshelve-btn">&#8249;&#8249; Text</button>
-        <button class="section-text__stop-narration-btn section-text__stop-narration-btn--hidden">
+        <button class="section-text__unshelve-btn" aria-label="Show text">&#8249;&#8249; Text</button>
+        <button class="section-text__stop-narration-btn section-text__stop-narration-btn--hidden" aria-label="Stop narration">
             <div class="section-text__stop-narration-btn-icon">${svg/mute.svg()}</div>
         </button>
     </div>
@@ -9,7 +9,7 @@
         <div class="section-text__text-container">
             ${vidMetadata:narration-player.tmpl()}
             <div class="section-text__header-container">
-                <button class="section-text__shelve-btn">&#8250;&#8250; Text</button>
+                <button class="section-text__shelve-btn" aria-label="Hide text">&#8250;&#8250; Text</button>
                 <div class="section-text__header-divider"></div>
                 <h1 class="section-text__title">${title}</h1>
             </div>
@@ -29,7 +29,7 @@
                 <h2 class="learn-more__title">Learn More:</h2>
                 <div class="learn-more__btn-container">
                     ${for(subsectionsData)}
-                        <button class="learn-more__btn" value="${it.id}">${it.title}</button>
+                        <button class="learn-more__btn" value="${it.id}" aria-label="Open ${it.title} modal">${it.title}</button>
                     ${endfor}
                 </div>
             </div>
