@@ -3,12 +3,19 @@ import csv
 import subprocess
 import json
 
+sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
+host = 'https://caltechlibrary.github.io/cell-atlas'
+videoHost = 'https://www.cellstructureatlas.org'
+lines = []
+doiFileNameDict = {}
+
 def getMarkdownMetadata(file):
     process = subprocess.run(args=["pandoc", "--template=templates/metadata.tmpl", file], stdout=subprocess.PIPE)
     return json.loads(process.stdout)
 
 def addSiteMapEntry(sourceFile, outFileName):
     metadata = getMarkdownMetadata(sourceFile) if sourceFile else None
+    if(not metadata or metadata["title"] != "Putting It All Together"): return
     lines.append('\t<url>\n')
     lines.append('\t\t<loc>{}/{}</loc>\n'.format(host, outFileName))
     if(metadata and "doi" in metadata):
@@ -17,14 +24,9 @@ def addSiteMapEntry(sourceFile, outFileName):
         lines.append('\t\t\t<video:thumbnail_loc>{}/img/thumbnails/{}_thumbnail.jpg</video:thumbnail_loc>\n'.format(host, "_".join(videoFile.split("_")[:2])))
         lines.append('\t\t\t<video:title>{}</video:title>\n'.format(metadata["title"]))
         lines.append('\t\t\t<video:description>Microbiology textbook video highlighting {}</video:description>\n'.format(metadata["title"]))
-        lines.append('\t\t\t<video:content_loc>{}/videos/{}</video:content_loc>\n'.format(host, videoFile))
+        lines.append('\t\t\t<video:content_loc>{}/videos/{}</video:content_loc>\n'.format(videoHost, videoFile))
         lines.append('\t\t</video:video>\n')
     lines.append('\t</url>\n')
-
-sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
-host = 'https://www.cellstructureatlas.org'
-lines = []
-doiFileNameDict = {}
 
 with open("dois.csv", "r", encoding='utf-8') as csvfile:
     for row in csv.DictReader(csvfile): doiFileNameDict[ row["DOI"] ] = row["movie"]
