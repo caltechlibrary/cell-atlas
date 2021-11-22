@@ -4,10 +4,10 @@
         <div class="chapter-content__quote">
             ${body}
         </div>
-        <h1 class="chapter-content__title">
+        <h1 class="chapter-content__title chapter-content__title--${title}">
             ${if(chapter)}<span class="chapter-content__title-line">Chapter ${chapter}</span>${endif}
             <span>${title}</span class="chapter-content__title-line">
         </h1>
     </div>
-    <a href="${nextSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(prevSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Next section">${svg/right-nav.svg()}</a>
+    <a href="${nextSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(nextSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Next section">${svg/right-nav.svg()}</a>
 </div>

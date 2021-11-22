@@ -3757,6 +3757,7 @@ file. These definitions will be defined mobile first.
 }
 
 .chapter-content__quote {
+    flex: 0 1 auto;
     line-height: 1.34em;
     text-align: right;
     font-size: 1em;
@@ -3794,8 +3795,13 @@ file. These definitions will be defined mobile first.
     font-size: 3.75em;
 }
 
+.chapter-content__title--Introduction {
+    font-size: 3.375em;
+}
+
 @media (min-width: 900px) {
     .chapter-content__title {
+        margin-left: 1em;
         font-size: 7em;
     }
 }
