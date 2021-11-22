@@ -866,23 +866,14 @@ file. These definitions will be defined mobile first.
 }
 
 .main-non-text-container__nav-arrow {
-    display: none;
     flex: 0 0 auto;
     margin: 0 1em;
-    width: 1.25em;
-    fill: #f5f5f5;
-    text-decoration: none;
-    transition: fill 0.25s;
 }
 
-@media (min-width: 900px) {
+@media (max-width:900px) {
     .main-non-text-container__nav-arrow {
-        display: initial;
+        display: none;
     }
-}
-
-.main-non-text-container__nav-arrow:hover {
-    fill: #262626;
 }
 
 .main-non-text-container__stop-narration-btn {

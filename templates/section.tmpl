@@ -1,11 +1,11 @@
 <div class="main-non-text-container main-non-text-container--hidden-mobile">
-    <a href="${prevSection}.html" class="main-non-text-container__nav-arrow" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
+    <a href="${prevSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
     ${if(summaryData)}
         ${summaryData:media-viewer.tmpl()}
     ${else}
         ${vidMetadata:media-viewer.tmpl()}
     ${endif}
-    <a href="${nextSection}.html" class="main-non-text-container__nav-arrow" data-nav="next" aria-label="Next section">${svg/right-nav.svg()}</a>
+    <a href="${nextSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-nav="next" aria-label="Next section">${svg/right-nav.svg()}</a>
 
     <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
         <div class="main-non-text-container__stop-narration-btn-icon">${svg/mute.svg()}</div>
