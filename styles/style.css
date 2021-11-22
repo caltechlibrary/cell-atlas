@@ -303,69 +303,6 @@ file. These definitions will be defined mobile first.
         color: #262626;
     }
 
-    /* || CHAPTER page styles (styles for every page of the book that is a chapter landing page) */
-    .book-chapter-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 100%;
-        align-items: center;
-    }
-
-    .book-chapter-text-section {
-        flex: 0 0 75%;
-        color: #ffffff;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .book-chapter-text-section a {
-        color: inherit;
-        text-decoration: underline;
-        margin: 0 0.15em;
-    }
-
-    .book-chapter-title {
-        font-size: 7em;
-        padding-right: 0.15em;
-        margin-left: 1em;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .book-chapter-title h1 {
-        margin-block-end: 0em;
-        margin-block-start: 0em;
-        white-space: nowrap;
-    }
-
-    .book-chapter-quote {
-        width: 40%;
-        text-align: right;
-        font-size: 1.25em;
-    }
-
-    @media only screen and (max-width: 1400px) {
-        .book-chapter-text-section {
-            flex-direction: column-reverse;
-            justify-content: center;
-            align-items: flex-end;
-            height: 80%;
-        }
-
-        .book-chapter-title {
-            padding-right: 0;
-            margin-left: 0;
-        }
-
-        .book-chapter-quote {
-            width: auto;
-        }
-    }
-
     /* || SECTION page styles (styles for every page of the book that is a section) */
 
     .book-section-non-text-content {
@@ -867,6 +804,18 @@ file. These definitions will be defined mobile first.
     .nav__offline-entry {
         display: none;
     }
+}
+
+/* nav-arrow */
+.nav-arrow {
+    width: 1.25em;
+    fill: #f5f5f5;
+    text-decoration: none;
+    transition: fill 0.25s;
+}
+
+.nav-arrow:hover {
+    fill: #262626;
 }
 
 /* main-non-text-container */
@@ -3739,4 +3688,122 @@ file. These definitions will be defined mobile first.
 .footer__progress-toggle--uninitialized::before {
     display: none;
     transition: none;
+}
+
+/* chapter-content */
+.chapter-content {
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .chapter-content {
+        position: static;
+        padding: 0;
+    }
+}
+
+.chapter-content__nav-arrow {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+    .chapter-content__nav-arrow {
+        display: none;
+    }
+}
+
+.chapter-content__nav-arrow--hidden {
+    visibility: hidden;
+}
+
+.chapter-content__text-container {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    color: #fff;
+}
+
+@media (min-width: 480px) {
+    .chapter-content__text-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 900px) {
+    .chapter-content__text-container {
+        width: 75%;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+}
+
+@media (min-width: 1400px) {
+    .chapter-content__text-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.chapter-content__quote {
+    flex: 0 1 auto;
+    line-height: 1.34em;
+    text-align: right;
+    font-size: 1em;
+}
+
+@media (min-width: 480px) {
+    .chapter-content__quote {
+        width: 45%;
+    }
+}
+
+@media (min-width: 900px) {
+    .chapter-content__quote {
+        width: auto;
+        font-size: 1.25em;
+    }
+}
+
+@media (min-width: 1400px) {
+    .chapter-content__quote {
+        width: 40%;
+    }
+}
+
+.chapter-content__quote a {
+    margin: 0 0.15em;
+    color: inherit;
+    text-decoration: underline;
+}
+
+.chapter-content__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 3.75em;
+}
+
+.chapter-content__title--Introduction {
+    font-size: 3.375em;
+}
+
+@media (min-width: 900px) {
+    .chapter-content__title {
+        margin-left: 1em;
+        font-size: 7em;
+    }
+}
+
+.chapter-content__title-line {
+    white-space: nowrap;
 }
