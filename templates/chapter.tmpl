@@ -1,21 +1,13 @@
-<div class="book-chapter-content">
-    ${if(prevSection)}
-        <a href="${prevSection}.html" class="book-page-nav" data-nav="prev">&#8249;</a>
-    ${else}
-        <a class="book-page-nav hidden">&#8249;</a>
-    ${endif}
-    <div id="book-chapter-text-section-${title}" class="book-chapter-text-section">
-        <div class="book-text-content book-chapter-quote">
+<div class="chapter-content">
+    <a href="${prevSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(prevSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
+    <div class="chapter-content__text-container">
+        <div class="chapter-content__quote">
             ${body}
         </div>
-        <div id="book-chapter-title-${title}" class="book-chapter-title">
-            ${if(chapter)}<h1>Chapter ${chapter}</h1>${endif}
-            <h1>${title}</h1>
-        </div>
+        <h1 class="chapter-content__title">
+            ${if(chapter)}<span class="chapter-content__title-line">Chapter ${chapter}</span>${endif}
+            <span>${title}</span class="chapter-content__title-line">
+        </h1>
     </div>
-    ${if(nextSection)}
-        ${if(nextSection)}<a href="${nextSection}.html" class="book-page-nav" data-nav="next">&#8250;</a>${endif}
-    ${else}
-        <a class="book-page-nav hidden">&#8250;</a>
-    ${endif}
+    <a href="${nextSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(prevSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Next section">${svg/right-nav.svg()}</a>
 </div>
