@@ -601,6 +601,8 @@ for i in range(len(sectionFiles)):
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
 
+    if(pageName == "1-10-putting-it-all-together"): metadata["noindex"] = True
+
     if("videoTitle" in metadata): 
         if "/" in metadata["videoTitle"]:
             addSpeciesToDict(metadata["videoTitle"].split("/")[0].strip(), "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])

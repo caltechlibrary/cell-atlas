@@ -23,6 +23,9 @@
         <meta name="description" content="Microbiology textbook appendix page about ${title}.">
     ${endif}
     <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen">
+    ${if(noindex)}
+        <meta name="robots" content="noindex">
+    ${endif}
     ${if(index)}
         <title>${title}</title>
     ${elseif(typeAppendix)}
