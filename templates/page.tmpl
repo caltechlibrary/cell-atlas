@@ -13,8 +13,6 @@ ${head.tmpl()}
         <div class="book-page-nonheader-container">
           ${if(typeChapter)}
               ${chapter.tmpl()}
-          ${elseif(typeSection)}
-              ${section.tmpl()}
           ${elseif(typeAppendix)}
               ${appendix.tmpl()}
           ${endif}

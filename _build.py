@@ -544,7 +544,7 @@ introFileMetaData["progPercent"] = (introFileMetaData["currentPageNum"] / introF
 introFileMetaData["displayPercent"] = round(introFileMetaData["progPercent"])
 addSliderData(introFileMetaData, movieDict[introFileMetaData["doi"]])
 addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html", "", "", "Introduction")
-writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
+writePage(SITEDIR, "introduction.md", "section-refactor", "introduction", introFileMetaData)
 
 # Render section pages
 for i in range(len(sectionFiles)):
@@ -610,12 +610,14 @@ for i in range(len(sectionFiles)):
         else:
             addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
 
+    template = "page"
     if metadata["section"] != "0":
         metadata["typeSection"] = True
+        template = "section-refactor"
     else:
         metadata["typeChapter"] = True
         del metadata["section"] # We don't want to register "0" as a section
-    writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
+    writePage(SITEDIR, "sections/{}".format(fileName), template, pageName, metadata)
 
 # Render opening quote page for "Keep Looking"
 metadata = getMarkdownMetadata("outlook.md")
@@ -644,7 +646,7 @@ keepLookingFileMetaData["progPercent"] = (keepLookingFileMetaData["currentPageNu
 keepLookingFileMetaData["displayPercent"] = round(keepLookingFileMetaData["progPercent"])
 addSliderData(keepLookingFileMetaData, movieDict[keepLookingFileMetaData["doi"]])
 addSpeciesToDict(keepLookingFileMetaData["videoTitle"], "keep-looking.html", "", "", "Keep Looking")
-writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)
+writePage(SITEDIR, "keepLooking.md", "section-refactor", "keep-looking", keepLookingFileMetaData)
 
 # Render feature index page
 metadata = {}

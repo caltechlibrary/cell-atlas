@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    ${head.tmpl()}
+
+    <body class="section preload">
+        ${header.tmpl()}
+        ${nav.tmpl()}
+
+        <div class="section__content-container">
+            <div class="main-non-text-container main-non-text-container--hidden-mobile">
+                <a href="${prevSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
+                ${if(summaryData)}
+                    ${summaryData:media-viewer.tmpl()}
+                ${else}
+                    ${vidMetadata:media-viewer.tmpl()}
+                ${endif}
+                <a href="${nextSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-nav="next" aria-label="Next section">${svg/right-nav.svg()}</a>
+
+                <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
+                    <div class="main-non-text-container__stop-narration-btn-icon">${svg/mute.svg()}</div>
+                </button>
+            </div>
+
+            ${section-text.tmpl()}
+
+            <div class="modal-overlay modal-overlay--hidden">
+                ${for(subsectionsData)}
+                    ${it:modal.tmpl()}
+                ${endfor}
+            </div>
+        </div>
+
+        ${mobile-controls.tmpl()}
+        ${footer.tmpl()}
+
+        <script src="js/script.js"></script>
+        <script src="js/NavWidget.js"></script>
+        <script src="js/nav-controller.js"></script>
+        <script src="js/lunr/lunr.min.js"></script>
+        <script src="js/SearchWidget.js"></script>
+        <script src="js/search.js"></script>
+        <script src="js/MobileControls.js"></script>
+        <script src="js/VideoPlayer.js"></script>
+        <script src="js/CompSlider.js"></script>
+        <script src="js/MediaViewer.js"></script>
+        <script src="js/NarrationPlayer.js"></script>
+        <script src="js/SectionText.js"></script>
+        <script src="js/Modal.js"></script>
+        ${if(summaryData)} <script src="js/SummaryMenu.js"></script> ${endif}
+        ${if(it.viewer)} 
+            <script src="js/bio-pv/bio-pv.min.js"></script> 
+            <script src="js/ProteinViewer.js"></script>
+        ${endif}
+        <script src="js/ProgressBar.js"></script>
+        <script src="js/Footer.js"></script>
+        <script src="js/footer-controller.js"></script>
+        <script src="js/section-refactor.js"></script>
+
+        <!-- Old script dependencies to be deleted soon -->
+        <script src="js/section.js"></script>
+        <script src="js/mobile.js"></script>
+    </body>
+
+</html>

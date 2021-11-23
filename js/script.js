@@ -1,8 +1,5 @@
 // Script to perform functions that aren't tied to any page but are applicable to pretty much all pages
 
-// Global variable to detect if page is in offline version
-let OFFLINE = document.querySelector(".book-page-container").getAttribute("data-offline");
-
 // Turn animations back on once page is loaded
 window.addEventListener('load', (event) => {
     document.getElementsByTagName("body")[0].classList.remove("preload")
