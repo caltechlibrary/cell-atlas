@@ -527,17 +527,25 @@ file. These definitions will be defined mobile first.
 /* section */
 .page {
     margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
     font-family: sans-serif;
     background: #717171;
 }
 
-.page__content-container {
-    flex: 1;
-    position: relative;
-    min-height: 0;
+@media (min-width:900px) {
+    .page {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width:900px) {
+    .page__content-container {
+        flex: 1;
+        min-height: 0;
+        position: relative;
+        overflow: auto;
+    }
 }
 
 /* header */
@@ -1444,16 +1452,17 @@ file. These definitions will be defined mobile first.
 }
 
 .section-text__main-container {
+    min-height: calc(100vh - 112px);
     display: flex;
-    padding: 4.5em 0;
     flex-direction: column;
+    padding: 72px 0;
     font-size: 1rem;
     background: #363636;
 }
 
 @media (min-width:480px) {
     .section-text__main-container {
-        padding: 4.5em 0 1em 0;
+        padding: 72px 0 16px 0;
     }
 }
 
