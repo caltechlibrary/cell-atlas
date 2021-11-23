@@ -45,11 +45,6 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     /* || GENERAL styles */
-    body {
-        margin: 0;
-        height: 100vh;
-        font-family: sans-serif;
-    }
 
     h1, h2, h3, button {
         font-size: 100%;
@@ -530,7 +525,7 @@ file. These definitions will be defined mobile first.
 }
 
 /* section */
-.section {
+.page {
     margin: 0;
     height: 100vh;
     display: flex;
@@ -539,9 +534,10 @@ file. These definitions will be defined mobile first.
     background: #717171;
 }
 
-.section__content-container {
+.page__content-container {
     flex: 1;
     position: relative;
+    min-height: 0;
 }
 
 /* header */
