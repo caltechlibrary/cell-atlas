@@ -529,6 +529,21 @@ file. These definitions will be defined mobile first.
     }
 }
 
+/* section */
+.section {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    background: #717171;
+}
+
+.section__content-container {
+    flex: 1;
+    position: relative;
+}
+
 /* header */
 .header {
     position: fixed;
@@ -3597,6 +3612,10 @@ file. These definitions will be defined mobile first.
 }
 
 /* footer */
+.footer {
+    flex: 0 0 auto;
+}
+
 @media (max-width:900px) {
     .footer {
         display: none;
