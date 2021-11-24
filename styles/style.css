@@ -502,6 +502,19 @@ file. These definitions will be defined mobile first.
     z-index: 100;
 }
 
+/* index */
+.index {
+    margin: 0;
+    font-family: sans-serif;
+    background: #717171;
+}
+
+@media (min-width:900px) {
+    .index {
+        height: 100vh;
+    }
+}
+
 /* landing-update-banner */
 .landing-update-banner {
     position: relative;
