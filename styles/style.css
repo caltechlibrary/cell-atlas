@@ -3375,7 +3375,7 @@ file. These definitions will be defined mobile first.
 }
 
 @media (orientation: landscape) {
-    .mobile-controls--section-text {
+    .mobile-controls--relative-landscape {
         position: relative;
     }
 }

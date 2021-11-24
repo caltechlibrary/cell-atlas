@@ -142,11 +142,11 @@
             if(tabBtn.value == "text") {
                 sectionTextEl.classList.remove("section-text--hidden");
                 mainNonTextContainer.classList.add("main-non-text-container--hidden-mobile");
-                mobileControls.root.classList.add("mobile-controls--section-text");
+                mobileControls.root.classList.add("mobile-controls--relative-landscape");
             } else {
                 sectionTextEl.classList.add("section-text--hidden");
                 mainNonTextContainer.classList.remove("main-non-text-container--hidden-mobile");
-                mobileControls.root.classList.remove("mobile-controls--section-text");
+                mobileControls.root.classList.remove("mobile-controls--relative-landscape");
                 if(tabBtn.value == "vid" || tabBtn.value == "img") {
                     mainMediaViewer.displayMediaType(tabBtn.value);
                 } else if(tabBtn.value == "sum") {
