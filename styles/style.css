@@ -45,11 +45,6 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     /* || GENERAL styles */
-    body {
-        margin: 0;
-        height: 100vh;
-        font-family: sans-serif;
-    }
 
     h1, h2, h3, button {
         font-size: 100%;
@@ -507,6 +502,19 @@ file. These definitions will be defined mobile first.
     z-index: 100;
 }
 
+/* index */
+.index {
+    margin: 0;
+    font-family: sans-serif;
+    background: #717171;
+}
+
+@media (min-width:900px) {
+    .index {
+        height: 100vh;
+    }
+}
+
 /* landing-update-banner */
 .landing-update-banner {
     position: relative;
@@ -530,18 +538,37 @@ file. These definitions will be defined mobile first.
 }
 
 /* section */
-.section {
+.page {
     margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    padding: 56px 0;
     font-family: sans-serif;
     background: #717171;
 }
 
-.section__content-container {
-    flex: 1;
-    position: relative;
+@media (min-width:480px) {
+    .page {
+        padding: 56px 0 0;
+    }
+}
+
+@media (min-width:900px) {
+    .page {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+}
+
+@media (min-width:900px) {
+    .page__content-container {
+        flex: 1;
+        min-height: 0;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
 
 /* header */
@@ -836,10 +863,12 @@ file. These definitions will be defined mobile first.
 /* main-non-text-container */
 .main-non-text-container {
     position: fixed;
+    top: 0;
+    left: 0;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: 56px 0.6em;
+    padding: 56px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -847,17 +876,12 @@ file. These definitions will be defined mobile first.
 
 @media (min-width: 900px) {
     .main-non-text-container {
-        /* Reset inherited styles */
-        height: initial;
-        padding: initial;
-
         position: absolute;
-        top: 0;
         right: 62%;
         bottom: 0;
-        left: 0;
         margin: auto;
         width: 62%;
+        padding: 0;
         transition: width 1s, right 1s;
     }
 }
@@ -1370,6 +1394,10 @@ file. These definitions will be defined mobile first.
 }
 
 /* section-text */
+.section-text {
+    position: relative;
+}
+
 @media (min-width:900px) {
     .section-text {
         position: absolute;
@@ -1448,17 +1476,12 @@ file. These definitions will be defined mobile first.
 }
 
 .section-text__main-container {
+    min-height: calc(100vh - 112px);
     display: flex;
-    padding: 4.5em 0;
     flex-direction: column;
+    padding: 16px 0;
     font-size: 1rem;
     background: #363636;
-}
-
-@media (min-width:480px) {
-    .section-text__main-container {
-        padding: 4.5em 0 1em 0;
-    }
 }
 
 @media (min-width:900px) {
@@ -1540,7 +1563,7 @@ file. These definitions will be defined mobile first.
 
 .section-text__toggle-narration-btn {
     position: absolute;
-    top: 4.5em;
+    top: 1.14em;
     right: 1em;
     box-sizing: border-box;
     width: 2.5em;
@@ -3365,7 +3388,7 @@ file. These definitions will be defined mobile first.
 }
 
 @media (orientation: landscape) {
-    .mobile-controls--section-text {
+    .mobile-controls--relative-landscape {
         position: relative;
     }
 }
@@ -3703,6 +3726,8 @@ file. These definitions will be defined mobile first.
 /* chapter-content */
 .chapter-content {
     position: fixed;
+    top: 0;
+    left: 0;
     box-sizing: border-box;
     width: 100%;
     height: 100%;

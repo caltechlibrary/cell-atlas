@@ -32,7 +32,7 @@ let CompSlider = function(root) {
     };
 
     let updateBeforeImgMaxHeight = function() {
-        let sectionContainer = document.querySelector(".section__content-container");
+        let sectionContainer = document.querySelector(".page__content-container");
         let parentMediaContainer = root.parentElement;
         let parentMediaViewer = parentMediaContainer.parentElement;
         let mediaViewerTabContainer = parentMediaViewer.querySelector(".media-viewer__tab-container");
