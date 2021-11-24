@@ -602,7 +602,8 @@ for i in range(len(sectionFiles)):
 
     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
 
-    if(pageName == "1-10-putting-it-all-together"): metadata["noindex"] = True
+    if(pageName == "1-10-putting-it-all-together"): 
+        metadata["structuredVidData"] = True
 
     if("videoTitle" in metadata): 
         if "/" in metadata["videoTitle"]:
