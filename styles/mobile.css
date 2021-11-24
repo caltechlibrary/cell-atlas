@@ -851,12 +851,12 @@ blockquote {
     }
 
     .book-appendix-inner {
-        padding: 72px 16px;
+        padding: 16px;
     }
 
     @supports(padding: max(0px)) {
         .book-appendix-inner {
-            padding: 72px max(16px, env(safe-area-inset-right)) 72px max(16px, env(safe-area-inset-left));
+            padding: 16px max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
         }
     }
 
