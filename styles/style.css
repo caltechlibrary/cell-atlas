@@ -3842,3 +3842,60 @@ file. These definitions will be defined mobile first.
 .chapter-content__title-line {
     white-space: nowrap;
 }
+
+/* appendix */
+.appendix {
+    color: #fff;
+    background-color: #363636;
+}
+
+.appendix__content-container {
+    margin: auto;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1048px;
+    padding: 16px max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
+}
+
+@media (min-width:900px) {
+    .appendix__content-container {
+        padding: 64px 48px;
+    }
+}
+
+.appendix__title {
+    margin-bottom: 16px;
+    font-size: 1.75em;
+}
+
+@media (min-width:900px) {
+    .appendix__title {
+        margin-bottom: 32px;
+        font-size: 2em;
+    }
+}
+
+.appendix__title-chapter {
+    margin-right: 32px;
+}
+
+.appendix__nav-arrow {
+    position: fixed;
+    top: 50%;
+    margin: 0 16px;
+    transform: translateY(-50%);
+}
+
+@media (max-width:900px) {
+    .appendix__nav-arrow {
+        display: none;
+    }
+}
+
+.appendix__nav-arrow:first-child {
+    left: 0;
+}
+
+.appendix__nav-arrow:last-child {
+    right: 0;
+}
