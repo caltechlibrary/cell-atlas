@@ -8,7 +8,10 @@
             </button>
         </h2>
         <div id="${it.id}-panel" class="appendix-accordion__entry-panel appendix-accordion__entry-panel--collapsed" style="height:0px">
-            <span>Placeholder</span>
+            ${if(appendixTypeFeatures)}
+                ${it:feature-index-entry.tmpl()}
+            ${elseif(appendixTypeProfiles)}
+            ${endif}
         </div>
     ${endfor}
 </div>

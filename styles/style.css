@@ -3956,3 +3956,27 @@ file. These definitions will be defined mobile first.
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
 }
+
+/* feature-index-entry */
+.feature-index-entry {
+    padding-left: 16px;
+}
+
+@media (min-width:900px) {
+    .feature-index-entry {
+        padding-left: 24px;
+    }
+}
+
+.feature-index-entry__ref {
+    margin-bottom: 16px;
+}
+
+.feature-index-entry__ref-name {
+    font-style: italic;
+}
+
+.feature-index-entry__ref-link {
+    color: #5caac5;
+    text-decoration: underline;
+}

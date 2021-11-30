@@ -1,0 +1,10 @@
+<ul class="feature-index-entry">
+    ${for(it.refs)}
+        <li class="feature-index-entry__ref">
+            <span class="feature-index-entry__ref-name">${it.species} - </span>  
+            <a class="feature-index-entry__ref-link" href="${it.ref.section}.html${if(it.ref.subsection)}#${it.ref.subsection}${endif}">
+                ${it.ref.label}
+            </a>
+        </li>
+    ${endfor}
+</ul>
