@@ -496,8 +496,9 @@ for profileFile in profileFiles:
     profile = {}
     profileMetadata = getMarkdownMetadata("{}/{}".format(profilesDir, profileFile))
     profile["name"] = profileMetadata["title"]
+    profile["title"] = profileMetadata["title"]
     profile["img"] = profileMetadata["img"]
-    profile["id"] = profile["name"].replace(" ", "")
+    profile["id"] = profile["title"].title().replace(" ", "")
 
     # Insert any possible reference links
     profileFormatted = insertLinks("{}/{}".format(profilesDir, profileFile), "profile.md")
@@ -669,7 +670,7 @@ metadata["chapter"] = "B"
 metadata["title"] = "Scientist Profiles"
 metadata["prevSection"] = "A-feature-index"
 metadata["nextSection"] = "C-phylogenetic-tree"
-metadata["profiles"] = profiles
+metadata["accordionData"] = profiles
 writePage(SITEDIR, "profiles.md", "page", "B-scientist-profiles", metadata)
 
 # Render phylogenetic tree page

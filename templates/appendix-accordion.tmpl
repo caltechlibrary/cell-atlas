@@ -11,6 +11,7 @@
             ${if(appendixTypeFeatures)}
                 ${it:feature-index-entry.tmpl()}
             ${elseif(appendixTypeProfiles)}
+                ${it:profile.tmpl()}
             ${endif}
         </div>
     ${endfor}
