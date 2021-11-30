@@ -658,7 +658,7 @@ metadata["nextSection"] = "B-scientist-profiles"
 featureIndex = None
 with open("features.json", "r", encoding='utf-8') as f:
     featureIndex = json.load(f)
-metadata["featureIndex"] = [{"name": key, "refs": featureIndex[key]} for key in featureIndex]
+metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndex[key]} for key in featureIndex]
 writePage(SITEDIR, "features.md", "page", "A-feature-index", metadata)
 
 # Render profiles page

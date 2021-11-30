@@ -3,9 +3,8 @@
     <div class="appendix__content-container">
         <h1 class="appendix__title"><span class="appendix__title-chapter">${chapter}</span>${title}</h1>
         ${if(appendixTypeFeatures)}
-            ${features.tmpl()}
+            ${appendix-accordion.tmpl()}
         ${elseif(appendixTypeProfiles)}
-            ${profiles.tmpl()}
         ${elseif(appendixTypeTree)}
         ${elseif(appendixTypeAbout)}
         ${elseif(appendixTypeReferences)}
