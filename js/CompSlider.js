@@ -1,25 +1,13 @@
 let CompSlider = function(root) {
     
     let beforeImg = root.querySelector(".comp-slider__before-img");
-    let beforeSrc = beforeImg.getAttribute("data-src");
     let afterImgContainer = root.querySelector(".comp-slider__after-img-container");
     let afterImg = root.querySelector(".comp-slider__after-img");
-    let afterSrc = afterImg.getAttribute("data-src");
     let slider = root.querySelector(".comp-slider__slider");
     let sliderInput = root.querySelector(".comp-slider__input");
     let failMsgContainer = root.querySelector(".comp-slider__fail-msg-container");
-    let offline = root.getAttribute("data-offline");
 
     let init = function() {
-        if(offline) {
-            // Source images locally if offline
-            beforeImg.setAttribute("src", `img/stillimages/${beforeSrc}`);
-            afterImg.setAttribute("src", `img/stillimages/${afterSrc}`);
-        } else {
-            // Source images through host if online
-            beforeImg.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${beforeSrc}`);
-            afterImg.setAttribute("src", `https://www.cellstructureatlas.org/img/stillimages/${afterSrc}`);
-        }
         if(root.classList.contains("comp-slider--main-section")) updateBeforeImgMaxHeight();
     };
 
