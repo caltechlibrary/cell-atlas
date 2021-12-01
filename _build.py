@@ -690,6 +690,7 @@ for species in speciesDict:
     speciesList.append(speciesObj)
 metadata["speciesList"] = speciesList 
 metadata["treeData"] = {
+    "id": "treeViewer",
     "speciesList": speciesList
 }
 writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
