@@ -7,6 +7,8 @@
         ${elseif(appendixTypeProfiles)}
             ${appendix-accordion.tmpl()}
         ${elseif(appendixTypeTree)}
+            ${body}
+            ${treeData:media-viewer.tmpl()}
         ${elseif(appendixTypeAbout)}
         ${elseif(appendixTypeReferences)}
         ${elseif(appendixTypeDownload)}

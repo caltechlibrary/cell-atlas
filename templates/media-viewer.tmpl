@@ -13,6 +13,7 @@
         ${if(it.img)} ${it:comp-slider.tmpl()} ${endif}
         ${if(it.pdb)} ${it:protein-viewer.tmpl()} ${endif}
         ${if(it.isSummary)} ${it:summary-menu.tmpl()} ${endif}
+        ${if(it.speciesList)} ${it:tree-viewer.tmpl()} ${endif}
         ${if(it.graphic)} <img class="media-viewer__graphic" src="img/schematics/${it.graphic}"> ${endif}
         <button class="media-viewer__fullscreen-btn ${if(it.vid)}media-viewer__fullscreen-btn--hidden${endif}" aria-label="Enter full screen" title="Enter full screen">
             <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon">${svg/fullscreen.svg()}</div>

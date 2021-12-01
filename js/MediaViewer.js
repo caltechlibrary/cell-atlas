@@ -1,4 +1,4 @@
-let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summaryMenu) {
+let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summaryMenu, treeViewer) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
@@ -147,6 +147,7 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         compSlider,
         proteinViewer,
         summaryMenu,
+        treeViewer,
         fullscreenBtn,
         displayMediaType,
         setFullscreenBtnState,

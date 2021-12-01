@@ -41,10 +41,3 @@ let AppendixAccordion = function(root) {
     }
 
 };
-
-(function() {
-
-    let appendixAccordionEl = document.querySelector(".appendix-accordion");
-    let appendixAccordion = AppendixAccordion(appendixAccordionEl);
-
-})();

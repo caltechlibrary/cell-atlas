@@ -689,6 +689,9 @@ for species in speciesDict:
     speciesObj["id"] = speciesDict[species]["id"]
     speciesList.append(speciesObj)
 metadata["speciesList"] = speciesList 
+metadata["treeData"] = {
+    "speciesList": speciesList
+}
 writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
 
 # Render bibliography page 
