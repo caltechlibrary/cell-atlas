@@ -8,7 +8,7 @@
             <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
-    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.isSummary)}media-viewer__media-container--summary-menu${endif}">
+    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.isSummary)}media-viewer__media-container--summary-menu${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
         ${if(it.vid)} ${it:video-player.tmpl()} ${endif}
         ${if(it.img)} ${it:comp-slider.tmpl()} ${endif}
         ${if(it.pdb)} ${it:protein-viewer.tmpl()} ${endif}

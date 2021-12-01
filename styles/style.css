@@ -1010,6 +1010,10 @@ file. These definitions will be defined mobile first.
     background: #ffffff;
 }
 
+.media-viewer__media-container--tree-viewer {
+    background: none;
+}
+
 @media (min-width:900px) {
     .media-viewer__media-container {
         width: 100%;
