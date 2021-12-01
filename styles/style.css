@@ -1011,7 +1011,7 @@ file. These definitions will be defined mobile first.
 }
 
 .media-viewer__media-container--tree-viewer {
-    background: none;
+    background: #363636;
 }
 
 @media (min-width:900px) {
@@ -3652,6 +3652,7 @@ file. These definitions will be defined mobile first.
 
 /* appendix */
 .appendix {
+    min-height: 100%;
     color: #fff;
     background-color: #363636;
 }
