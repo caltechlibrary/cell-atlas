@@ -3509,6 +3509,10 @@ file. These definitions will be defined mobile first.
     right: 0;
 }
 
+.appendix__nav-arrow--hidden {
+    visibility: hidden;
+}
+
 .appendix__body-text {
     line-height: 1.34;
 }
