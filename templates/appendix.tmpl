@@ -7,7 +7,9 @@
         ${elseif(appendixTypeProfiles)}
             ${appendix-accordion.tmpl()}
         ${elseif(appendixTypeTree)}
-            ${body}
+            <div class="appendix__body-text">
+                ${body}
+            </div>
             ${treeData:media-viewer.tmpl()}
         ${elseif(appendixTypeAbout)}
         ${elseif(appendixTypeReferences)}
