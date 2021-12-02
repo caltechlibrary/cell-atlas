@@ -2539,212 +2539,6 @@ file. These definitions will be defined mobile first.
     background: none;
 }
 
-/* species-example-list */
-.species-example-list {
-    display: flex;
-    flex-direction: column;
-    border: 3px solid #000;
-    border-radius: 10px;
-    box-shadow: #363636bf 5px 8px 7px 1px;
-    color: #000;
-    background: #fff;
-    font-size: 1em;
-    overflow: hidden;
-    z-index: 100;
-    cursor: default;
-}
-
-.species-example-list--pop-up {
-    position: fixed;
-    width: fit-content;
-}
-
-.species-example-list--hidden {
-    display: none;
-}
-
-.species-example-list__species-title {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0.25em 1em;
-    color: #000;
-    background: #dcdcdc;
-    font-size: 1.375em;
-    text-align: center;
-}
-
-.species-example-list__examples-container {
-    padding: 0.5em 1em;
-    overflow: auto;
-}
-
-.species-example-list__examples-header {
-    color: #000;
-    font-size: 1.15em;
-    font-weight: 300;
-}
-
-.species-example-list__examples-list {
-    list-style-type: disc;
-    list-style-position: inside;
-    padding-left: 10px;
-}
-
-.species-example-list__examples-list-item {
-    margin: 0.5em 0;
-}
-
-.species-example-list__link, .dark-background-text .species-example-list__link {
-    color: #325c69;
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .species-example-list--pop-up {
-        transform: translateY(-100%);
-    }
-}
-
-
-/* tree-viewer */
-.tree-viewer__fullscreen-container--fs-polyfill {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    z-index: 100;
-}
-
-.tree-viewer__viewer-container {
-    box-sizing: border-box;
-    position: relative;
-    border: 5px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 0 1px #444;
-    background: #363636;
-    cursor: grab;
-}
-
-.tree-viewer__viewer-container--fs-polyfill {
-    height: 100%;
-    margin: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
-}
-
-.tree-viewer__viewer-container--panning {
-    cursor: grabbing;
-}
-
-.tree-viewer__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    display: none;
-    padding: 0.5em;
-    border: none;
-    border-radius: 0 0 0 10px;
-    background: #ffffff87;
-    cursor: default;
-    z-index: 1;
-}
-
-.tree-viewer__btn--visible {
-    display: flex;
-}
-
-.tree-viewer__btn svg {
-    width: 1.25em;
-    fill: #15404e;
-}
-
-.tree-viewer__zoom-controls {
-    position: absolute;
-    top: 45px;
-    right: 3px;
-    display: flex;
-    flex-direction: column;
-    cursor: default;
-    z-index: 1;
-}
-
-.tree-viewer__zoom-controls-divider {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 1px;
-    width: 70%;
-    background: #fff;
-    transform: translate(-50%, -50%);
-}
-
-.tree-viewer__zoom-controls-btn {
-    margin: 0;
-    padding: 2px 0;
-    border: 3px solid #363636;
-    background: #4B889B;
-}
-
-.tree-viewer__zoom-controls-btn svg {
-    width: 1.5em;
-}
-
-.tree-viewer__zoom-in-btn {
-    border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
-    box-shadow: 0 -1px 0 1px #00000033, 0 -1px 2px 0px #00000099, inset 0px 0px 3px 0px #ffffff4d;
-}
-
-.tree-viewer__zoom-out-btn {
-    border-top: none;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 0 1px 0 1px #00000033, 0 1px 2px 0px #00000099, inset 0px 0px 3px 0px #ffffff4d;
-}
-
-.tree-viewer__svg-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.tree-viewer__tree-svg {
-    width: 100%;
-    height: 100%;
-    transform: matrix(1,0,0,1,0,0);
-}
-
-.tree-viewer__tree-svg-link, .dark-background-text .tree-viewer__tree-svg-link {
-    text-decoration: none;
-    color: initial;
-}
-
-.tree-viewer__tree-svg-link--highlighted, .dark-background-text .tree-viewer__tree-svg-link--highlighted {
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .tree-viewer__viewer-container--enlarged {
-        position: fixed;
-        left: 0;
-        right: 0;
-        margin: auto;
-        z-index: 100;
-    }
-
-    .tree-viewer__btn {
-        top: initial;
-        bottom: 0;
-        right: 0;
-        border-radius: 10px 0 0 0;
-    }
-
-    .tree-viewer__zoom-controls {
-        top: 10px;
-        right: 10px;
-    }
-}
-
 /* summary-menu */
 .summary-menu {
     position: relative;
@@ -3844,4 +3638,72 @@ file. These definitions will be defined mobile first.
 
 .profile__description p {
     margin-top: 0;
+}
+
+/* tree-viewer */
+.tree-viewer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+.tree-viewer__species-anchor--active {
+    text-decoration: underline;
+}
+
+.tree-viewer__pop-up {
+    position: fixed;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-shadow: #363636bf 5px 8px 7px 1px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    font-size: 1em;
+    overflow: hidden;
+    cursor: default;
+}
+
+.tree-viewer__pop-up--hidden {
+    display: none;
+}
+
+.tree-viewer__pop-up-title {
+    margin: 0;
+    padding: 5px 22px;
+    background: #dcdcdc;
+    color: #000;
+    font-size: 1.375em;
+    text-align: center;
+}
+
+.tree-viewer__pop-up-body {
+    padding: 8px 16px;
+    overflow: auto;
+}
+
+.tree-viewer__pop-up-body-header {
+    margin: 0;
+    color: #000;
+    font-size: 1.15em;
+}
+
+.tree-viewer__pup-up-list {
+    padding-left: 10px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.tree-viewer__pup-up-entry {
+    margin: 8px 0;
+}
+
+.tree-viewer__pup-up-entry::marker {
+    color: #000;
+}
+
+.tree-viewer__pup-up-link {
+    color: #325c69;
+    text-decoration: underline;
 }

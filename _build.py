@@ -443,7 +443,7 @@ def addSpeciesToDict(species, pageName, chapter, section, title):
         speciesDict[species] = {}
         speciesDict[species]["species"] = species
         speciesDict[species]["speciesObjs"] = [ speciesObj ]
-        speciesDict[species]["id"] = species.replace(" ", "-")
+        speciesDict[species]["id"] = species.replace(" ", "-").replace("/", "-")
 
 # function to create directory that will contain compiled content
 # this function will delete `siteDir` argument if the directory already exists. So be careful
@@ -685,8 +685,8 @@ speciesList = []
 for species in speciesDict:
     speciesObj = {}
     speciesObj["species"] = speciesDict[species]["species"]
-    speciesObj["speciesObjs"] = speciesDict[species]["speciesObjs"]
-    speciesObj["id"] = speciesDict[species]["id"]
+    speciesObj["speciesRefs"] = speciesDict[species]["speciesObjs"]
+    speciesObj["id"] = speciesDict[species]["id"].replace("/", "-")
     speciesList.append(speciesObj)
 metadata["speciesList"] = speciesList 
 metadata["treeData"] = {

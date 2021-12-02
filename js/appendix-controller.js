@@ -24,7 +24,8 @@
     if(appendixAccordionEl) appendixAccordion = AppendixAccordion(appendixAccordionEl);
     if(treeMediaViewerEl) {
         let treeViewerEl = treeMediaViewerEl.querySelector(".tree-viewer");
-        treeMediaViewer = MediaViewer(treeMediaViewerEl, undefined, undefined, undefined, undefined, treeViewerEl);
+        let treeViewer = TreeViewer(treeViewerEl);
+        treeMediaViewer = MediaViewer(treeMediaViewerEl, undefined, undefined, undefined, undefined, treeViewer);
         treeMediaViewer.fullscreenBtn.addEventListener("click", appendixController.handleTreeMediaViewerFsBtnClick);
     }
 
