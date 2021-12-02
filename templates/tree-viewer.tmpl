@@ -1,5 +1,7 @@
 <div class="tree-viewer">
-    ${svg/modifiedTree.svg()}
+    <div class="tree-viewer__svg-container">
+        ${svg/modifiedTree.svg()}
+    </div>
     ${for(speciesList)}
         <div class="tree-viewer__pop-up tree-viewer__pop-up--hidden" id="${speciesList.id}">
             <h2 class="tree-viewer__pop-up-title">${speciesList.species}</h2>
