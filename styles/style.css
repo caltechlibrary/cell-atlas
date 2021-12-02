@@ -1014,6 +1014,13 @@ file. These definitions will be defined mobile first.
     background: #363636;
 }
 
+@media (max-width:900px) {
+    .media-viewer__media-container--tree-viewer {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 @media (min-width:900px) {
     .media-viewer__media-container {
         width: 100%;
@@ -3646,6 +3653,11 @@ file. These definitions will be defined mobile first.
     width: 100%;
     height: 100%;
     cursor: grab;
+}
+
+.tree-viewer svg {
+    width: 100%;
+    height: 100%;
 }
 
 .tree-viewer__species-anchor--active {
