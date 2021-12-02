@@ -7,13 +7,14 @@ let TreeViewer = function(root) {
     let onSpeciesAnchorFocus = function(event) {
         let speciesAnchor = event.currentTarget;
         let popUp = root.querySelector(`#${speciesAnchor.getAttribute("data-species")}`);
+        let rootDimensions = root.getBoundingClientRect();
         clearTimeout(deactivatePopUp);
         if(root.querySelector(".tree-viewer__species-anchor--active") == speciesAnchor) return;
         deactivateCurSpeciesEntry();
         speciesAnchor.classList.add("tree-viewer__species-anchor--active");
         if(popUp) {
-            popUp.style.top = `${event.clientY}px`
-            popUp.style.left = `${event.clientX}px`
+            popUp.style.top = `${event.clientY - rootDimensions.top}px`
+            popUp.style.left = `${event.clientX - rootDimensions.left}px`
             popUp.classList.remove("tree-viewer__pop-up--hidden");
         }
     };

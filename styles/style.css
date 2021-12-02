@@ -3653,7 +3653,7 @@ file. These definitions will be defined mobile first.
 }
 
 .tree-viewer__pop-up {
-    position: fixed;
+    position: absolute;
     border: 3px solid #000;
     border-radius: 10px;
     box-shadow: #363636bf 5px 8px 7px 1px;
