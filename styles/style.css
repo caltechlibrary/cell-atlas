@@ -3731,3 +3731,9 @@ file. These definitions will be defined mobile first.
     color: #325c69;
     text-decoration: underline;
 }
+
+/* references */
+.references a {
+    color: #5caac5;
+    text-decoration: underline;
+}

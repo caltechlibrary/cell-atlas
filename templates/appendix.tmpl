@@ -11,8 +11,11 @@
                 ${body}
             </div>
             ${treeData:media-viewer.tmpl()}
-        ${elseif(appendixTypeAbout)}
         ${elseif(appendixTypeReferences)}
+            <div class="appendix__body-text">
+                ${body}
+            </div>
+        ${elseif(appendixTypeAbout)}
         ${elseif(appendixTypeDownload)}
         ${endif}
     </div>
