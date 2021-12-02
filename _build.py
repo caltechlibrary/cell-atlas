@@ -280,6 +280,7 @@ def processSubsection(subsectionFile, pageName, parentData):
                         pdbNumber = metadata["structures"][i]["text"].split(" ")[1].lower()
                         if(pdbNumber != "6s8h"):
                             metadata["structures"][i]["viewerId"] = pdbNumber
+                            parentData["viewer"] = True
                             metadata["viewer"] = {
                                 "id": metadata["id"],
                                 "pdb": pdbNumber
