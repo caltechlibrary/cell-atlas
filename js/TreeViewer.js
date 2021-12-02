@@ -12,6 +12,7 @@ let TreeViewer = function(root) {
     svgContainer.curTranslateX = 0;
     svgContainer.curTranslateY = 0;
     svgContainer.zoomWeight = 1.025;
+    svgContainer.wheelZoomWeight = 1.05;
 
     let onSpeciesAnchorFocus = function(event) {
         let speciesAnchor = event.currentTarget;
@@ -41,6 +42,23 @@ let TreeViewer = function(root) {
         let popUp = root.querySelector(".tree-viewer__pop-up:not(.tree-viewer__pop-up--hidden)");
         if(speciesAnchor) speciesAnchor.classList.remove("tree-viewer__species-anchor--active");
         if(popUp) popUp.classList.add("tree-viewer__pop-up--hidden");
+    };
+
+    let onWheel = function(event) {
+        event.preventDefault();
+        let gridPos = calcGridPos(event.pageX, event.pageY);
+        let zoomFactor;
+        if(event.deltaY >= 0) {
+            zoomFactor = (1 / this.wheelZoomWeight);
+        } else {
+            zoomFactor = this.wheelZoomWeight;
+        }
+
+        this.curTranslateX = this.curTranslateX - ( (gridPos.posX - this.curTranslateX) * (zoomFactor - 1) );
+        this.curTranslateY = this.curTranslateY - ( (this.curTranslateY - gridPos.posY) * (zoomFactor - 1) );
+        this.curScale = this.curScale * zoomFactor;
+
+        this.treeSvg.style.transform = `matrix(${this.curScale}, 0, 0, ${this.curScale}, ${this.curTranslateX}, ${this.curTranslateY})`;
     };
 
     let onPointerdown = function(event) {
@@ -121,6 +139,7 @@ let TreeViewer = function(root) {
         popUp.addEventListener("mouseenter", onPopUpFocus);
         popUp.addEventListener("mouseleave", initSpeciesEntryDeactivation);
     }
+    svgContainer.addEventListener("wheel", onWheel);
     svgContainer.addEventListener("pointerdown", onPointerdown);
     svgContainer.addEventListener("pointermove", onPointermove);
     svgContainer.addEventListener("pointerup", onPointerup);
