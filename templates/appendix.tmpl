@@ -18,6 +18,11 @@
         ${elseif(appendixTypeAbout)}
             ${appendix-accordion.tmpl()}
         ${elseif(appendixTypeDownload)}
+            <div class="appendix__body-text">
+                ${body}
+            </div>
+            <a download rel="noopener" href="https://data.caltech.edu/tindfiles/serve/702b2bde-b50d-4576-ab9d-fc63c5690cfb/" class="download-btn">Download Edition 2.0 - full version</a>
+            <a download rel="noopener" href="https://data.caltech.edu/tindfiles/serve/4fcdc9d0-7f3c-4e2b-b6cd-650d3de7e2d8/" class="download-btn">Download Edition 2.0 - light version</a>
         ${endif}
     </div>
     <a href="${nextSection}.html" class="nav-arrow appendix__nav-arrow ${if(nextSection)}${else}appendix__nav-arrow--hidden${endif}" data-nav="next" aria-label="Next section">${svg/right-nav.svg()}</a>
