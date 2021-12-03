@@ -4,7 +4,7 @@ let AppendixAccordion = function(root) {
 
     let manuallyOpenPanel = function(entryId) {
         let entryHeader = root.querySelector(`.appendix-accordion__entry-header[aria-controls='${entryId}-panel']`);
-        toggleEntryPanel(entryHeader);
+        if(entryHeader) toggleEntryPanel(entryHeader);
     };
 
     let onHeaderClick = function(event) {
