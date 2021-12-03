@@ -725,6 +725,7 @@ with open("about.md", 'r', encoding='utf-8') as f:
 metadata["aboutEntries"] = aboutEntries
 metadata["accordionData"] = aboutEntries
 metadata["feedbackData"] = {
+    "id": "feedback",
     "feedback": True
 }
 writePage(SITEDIR, "about.md", "page", "about", metadata)

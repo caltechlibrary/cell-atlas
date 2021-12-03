@@ -1,4 +1,4 @@
-<div id="${it.id}" class="modal modal--hidden">
+<div id="${it.id}" class="modal ${if(it.feedback)}modal--feedback${endif} modal--hidden">
     <button class="modal__exit-btn">
         <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
     </button>

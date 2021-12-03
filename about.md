@@ -47,4 +47,4 @@ Visit the [Download](download.html) page for instructions and download options.
 
 ## Contact
 
-We’d love to hear your thoughts on the book. Contact us through the [Feedback Form](#feedbackForm){.feedbackLink}.
+We’d love to hear your thoughts on the book. Contact us through the [Feedback Form](#feedbackForm){.about-entry__feadback-link}.

@@ -2259,6 +2259,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.modal--feedback {
+    height: 100%;
+}
+
 .modal--hidden {
     display: none;
 }
@@ -2345,6 +2349,11 @@ file. These definitions will be defined mobile first.
 .modal__text-content a {
     color: #325c69;
     text-decoration: underline;
+}
+
+.modal__feedback-iframe {
+    width: 100%;
+    height: 100%;
 }
 
 /* vid-metadata */
