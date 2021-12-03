@@ -3741,3 +3741,13 @@ file. These definitions will be defined mobile first.
     color: #5caac5;
     text-decoration: underline;
 }
+
+/* about-entry */
+.about-entry {
+    line-height: 1.34;
+}
+
+.about-entry a {
+    color: #5caac5;
+    text-decoration: underline;
+}

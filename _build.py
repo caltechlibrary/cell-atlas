@@ -716,13 +716,14 @@ with open("about.md", 'r', encoding='utf-8') as f:
     for line in f.readlines():
         if re.search(r"##", line):
             entry = {}
-            entry["name"] = line.split("##")[1].strip()
+            entry["title"] = line.split("##")[1].strip()
             entry["content"] = ""
-            entry["id"] = re.sub(r"[^\w\s]", "", entry["name"].replace(" ", "-"))
+            entry["id"] = re.sub(r"[^\w\s]", "", entry["title"].replace(" ", "-"))
             aboutEntries.append(entry)
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
             aboutEntries[-1]["content"] = aboutEntries[-1]["content"] + line    
 metadata["aboutEntries"] = aboutEntries
+metadata["accordionData"] = aboutEntries
 writePage(SITEDIR, "about.md", "page", "about", metadata)
 
 # Render download page
