@@ -2,8 +2,17 @@ let AppendixAccordion = function(root) {
 
     let entryHeaders = root.querySelectorAll(".appendix-accordion__entry-header");
 
-    let toggleEntryPanel = function(event) {
+    let manuallyOpenPanel = function(entryId) {
+        let entryHeader = root.querySelector(`.appendix-accordion__entry-header[aria-controls='${entryId}-panel']`);
+        toggleEntryPanel(entryHeader);
+    };
+
+    let onHeaderClick = function(event) {
         let entryHeader = event.currentTarget;
+        toggleEntryPanel(entryHeader);
+    };
+
+    let toggleEntryPanel = function(entryHeader) {
         let accordionPanel = document.getElementById(entryHeader.getAttribute("aria-controls"));
         if(entryHeader.getAttribute("aria-expanded") == "false") {
             expandPanel(accordionPanel);
@@ -36,19 +45,7 @@ let AppendixAccordion = function(root) {
         });
     };
 
-    let manuallyOpenPanel = function(entryId) {
-        let entryHeader = root.querySelector(`.appendix-accordion__entry-header[aria-controls='${entryId}-panel']`);
-        let accordionPanel = document.getElementById(`${entryId}-panel`);
-        if(entryHeader.getAttribute("aria-expanded") == "false") {
-            expandPanel(accordionPanel);
-            entryHeader.setAttribute("aria-expanded", "true");
-        } else {
-            collapsePanel(accordionPanel);
-            entryHeader.setAttribute("aria-expanded", "false");
-        }
-    };
-
-    for(let entryHeader of entryHeaders) entryHeader.addEventListener("click", toggleEntryPanel);
+    for(let entryHeader of entryHeaders) entryHeader.addEventListener("click", onHeaderClick);
 
     return {
         root,
