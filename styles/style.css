@@ -3533,6 +3533,13 @@ file. These definitions will be defined mobile first.
     color: #fff;
 }
 
+@media (max-width:900px) {
+    .appendix-accordion__entry-anchor {
+        position: absolute;
+        margin-top: -56px;
+    }
+}
+
 .appendix-accordion__entry-header {
     margin: 0 0 20px 0;
     width: 100%;

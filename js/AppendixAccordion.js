@@ -19,6 +19,8 @@ let AppendixAccordion = function(root) {
         if(!document.querySelector("body").classList.contains("preload")) {
             accordionPanel.style.height = `${accordionPanel.scrollHeight}px`;
             accordionPanel.addEventListener("transitionend", onAccordionPanelExpanded, { once: true });
+        } else {
+            accordionPanel.style.height = null;
         }
     };
 
@@ -34,10 +36,23 @@ let AppendixAccordion = function(root) {
         });
     };
 
+    let manuallyOpenPanel = function(entryId) {
+        let entryHeader = root.querySelector(`.appendix-accordion__entry-header[aria-controls='${entryId}-panel']`);
+        let accordionPanel = document.getElementById(`${entryId}-panel`);
+        if(entryHeader.getAttribute("aria-expanded") == "false") {
+            expandPanel(accordionPanel);
+            entryHeader.setAttribute("aria-expanded", "true");
+        } else {
+            collapsePanel(accordionPanel);
+            entryHeader.setAttribute("aria-expanded", "false");
+        }
+    };
+
     for(let entryHeader of entryHeaders) entryHeader.addEventListener("click", toggleEntryPanel);
 
     return {
-        root
+        root,
+        manuallyOpenPanel
     }
 
 };

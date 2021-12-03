@@ -2,6 +2,7 @@
 
     let appendixAccordionEl = document.querySelector(".appendix-accordion");
     let treeMediaViewerEl = document.querySelector(".media-viewer");
+    let hash = window.location.hash.substring(1);
     let appendixController, appendixAccordion, treeMediaViewer;
 
     let AppendixController = function() {
@@ -21,7 +22,10 @@
     };
     
     appendixController = AppendixController();
-    if(appendixAccordionEl) appendixAccordion = AppendixAccordion(appendixAccordionEl);
+    if(appendixAccordionEl) {
+        appendixAccordion = AppendixAccordion(appendixAccordionEl);
+        if(hash) appendixAccordion.manuallyOpenPanel(hash);
+    }
     if(treeMediaViewerEl) {
         let treeViewerEl = treeMediaViewerEl.querySelector(".tree-viewer");
         let treeViewer = TreeViewer(treeViewerEl);
