@@ -17,6 +17,9 @@
             </div>
         ${elseif(appendixTypeAbout)}
             ${appendix-accordion.tmpl()}
+            <div class="modal-overlay modal-overlay--hidden">
+                ${feedbackData:modal.tmpl()}
+            </div>
         ${elseif(appendixTypeDownload)}
             <div class="appendix__body-text">
                 ${body}

@@ -20,17 +20,21 @@
         ${endif}
     ${endif}
 
-    <div class="modal__content-container" tabindex="-1">
-        ${it:narration-player.tmpl()}
-        <button class="modal__toggle-narration-btn" aria-label="Open narration player">
-            <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
-            <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
-        </button>
-        <div class="modal__text-container">
-            <h1 class="modal__header">${it.title}</h1>
-            <div class="modal__text-content">
-                ${it.html}
+    ${if(it.feedback)}
+        ${feedback.tmpl()}
+    ${else}
+        <div class="modal__content-container" tabindex="-1">
+            ${it:narration-player.tmpl()}
+            <button class="modal__toggle-narration-btn" aria-label="Open narration player">
+                <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
+                <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
+            </button>
+            <div class="modal__text-container">
+                <h1 class="modal__header">${it.title}</h1>
+                <div class="modal__text-content">
+                    ${it.html}
+                </div>
             </div>
         </div>
-    </div>
+    ${endif}
 </div>
