@@ -3652,7 +3652,7 @@ file. These definitions will be defined mobile first.
     margin: 0 0 16px 0;
 }
 
-@media (min-width:900px) {
+@media (min-width:480px) {
     .profile__img {
         margin: 0 16px 0 0;
     }
@@ -3674,6 +3674,7 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .profile__description {
+        padding-right: 16px;
         text-align: right;
     }
 }
