@@ -1,6 +1,6 @@
 (function() {
 
-    let pageContainer = document.querySelector(".page__content-container");
+    let appendixContainer = document.querySelector(".appendix");
     let rightNav = document.querySelector(".appendix__nav-arrow:last-child");
     let appendixAccordionEl = document.querySelector(".appendix-accordion");
     let treeMediaViewerEl = document.querySelector(".media-viewer");
@@ -62,9 +62,9 @@
         feedbackModal.exitBtn.addEventListener("click", appendixController.hideFeedbackModal);
         modalOverlay.addEventListener("click", appendixController.hideFeedbackModal);
     }
-    if(pageContainer.offsetWidth > pageContainer.clientWidth) {
+    if(appendixContainer.offsetWidth > appendixContainer.clientWidth) {
         let currentMargin = parseInt(window.getComputedStyle(rightNav)["margin-right"]);
-        rightNav.style["margin-right"] = `${(pageContainer.offsetWidth - pageContainer.clientWidth) + currentMargin}px`;
+        rightNav.style["margin-right"] = `${(appendixContainer.offsetWidth - appendixContainer.clientWidth) + currentMargin}px`;
     }
 
 })();
