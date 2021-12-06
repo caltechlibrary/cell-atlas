@@ -3704,8 +3704,8 @@ file. These definitions will be defined mobile first.
     height: 100%;
 }
 
-.tree-viewer__species-anchor--active {
-    text-decoration: underline;
+.tree-viewer__species-anchor--active text {
+    outline: 1px solid #003b4c;
 }
 
 .tree-viewer__pop-up {
