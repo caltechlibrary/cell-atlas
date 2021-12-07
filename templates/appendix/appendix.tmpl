@@ -1,0 +1,20 @@
+<div class="appendix">
+    <a href="${prevSection}.html" class="nav-arrow appendix__nav-arrow ${if(prevSection)}${else}appendix__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
+    <div class="appendix__content-container">
+        <h1 class="appendix__title">${if(chapter)}<span class="appendix__title-chapter">${chapter}</span>${endif}${title}</h1>
+        ${if(appendixTypeFeatures)}
+            ${appendix/appendix-accordion.tmpl()}
+        ${elseif(appendixTypeProfiles)}
+            ${appendix/appendix-accordion.tmpl()}
+        ${elseif(appendixTypeTree)}
+            ${appendix/tree-page.tmpl()}
+        ${elseif(appendixTypeReferences)}
+            ${appendix/references-page.tmpl()}
+        ${elseif(appendixTypeAbout)}
+            ${appendix/about-page.tmpl()}
+        ${elseif(appendixTypeDownload)}
+            ${appendix/download-page.tmpl()}
+        ${endif}
+    </div>
+    <a href="${nextSection}.html" class="nav-arrow appendix__nav-arrow ${if(nextSection)}${else}appendix__nav-arrow--hidden${endif}" data-nav="next" aria-label="Next section">${svg/right-nav.svg()}</a>
+</div>
