@@ -10,6 +10,9 @@
             <div class="appendix__body-text">
                 ${body}
             </div>
+            <div class="modal-overlay modal-overlay--hidden">
+                ${treeViewerFsConfirmData:modal.tmpl()}
+            </div>
             ${treeData:media-viewer.tmpl()}
         ${elseif(appendixTypeReferences)}
             <div class="appendix__body-text">

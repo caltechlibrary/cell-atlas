@@ -693,6 +693,10 @@ metadata["treeData"] = {
     "id": "treeViewer",
     "speciesList": speciesList
 }
+metadata["treeViewerFsConfirmData"] = {
+    "id": "treeViewerFsConfirm",
+    "treeViewerFsConfirm": True
+}
 writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
 
 # Render bibliography page 

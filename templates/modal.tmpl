@@ -1,7 +1,9 @@
 <div id="${it.id}" class="modal ${if(it.feedback)}modal--feedback${endif} modal--hidden">
-    <button class="modal__exit-btn">
-        <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
-    </button>
+    ${if(it.treeViewerFsConfirm)}${else}
+        <button class="modal__exit-btn">
+            <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
+        </button>
+    ${endif}
 
     ${if(it.hasMainMediaViewer)}
         ${it:media-viewer.tmpl()}
@@ -22,6 +24,8 @@
 
     ${if(it.feedback)}
         ${feedback.tmpl()}
+    ${elseif(it.treeViewerFsConfirm)}
+        ${tree-viewer-fs-confirm.tmpl()}
     ${else}
         <div class="modal__content-container" tabindex="-1">
             ${it:narration-player.tmpl()}

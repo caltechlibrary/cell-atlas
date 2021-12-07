@@ -3832,3 +3832,23 @@ file. These definitions will be defined mobile first.
         width: 300px;
     }
 }
+
+/* tree-viewer-fs-confirm */
+.tree-viewer-fs-confirm__prompt {
+    margin: 0 0 1em 0;
+    font-size: 1.75em;
+    color: #000;
+}
+
+.tree-viewer-fs-confirm__btn-container {
+    float: right;
+}
+
+.tree-viewer-fs-confirm__btn {
+    margin: 0 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #15404e;
+    font-size: 1.25em;
+}
