@@ -3,9 +3,9 @@
     <div class="appendix__content-container">
         <h1 class="appendix__title">${if(chapter)}<span class="appendix__title-chapter">${chapter}</span>${endif}${title}</h1>
         ${if(appendixTypeFeatures)}
-            ${appendix-accordion.tmpl()}
+            ${appendix/appendix-accordion.tmpl()}
         ${elseif(appendixTypeProfiles)}
-            ${appendix-accordion.tmpl()}
+            ${appendix/appendix-accordion.tmpl()}
         ${elseif(appendixTypeTree)}
             <div class="appendix__body-text">
                 ${body}
@@ -19,7 +19,7 @@
                 ${body}
             </div>
         ${elseif(appendixTypeAbout)}
-            ${appendix-accordion.tmpl()}
+            ${appendix/appendix-accordion.tmpl()}
             <div class="modal-overlay modal-overlay--hidden">
                 ${feedbackData:modal.tmpl()}
             </div>

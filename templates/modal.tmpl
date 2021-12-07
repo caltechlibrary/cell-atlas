@@ -23,9 +23,9 @@
     ${endif}
 
     ${if(it.feedback)}
-        ${feedback.tmpl()}
+        ${appendix/feedback.tmpl()}
     ${elseif(it.treeViewerFsConfirm)}
-        ${tree-viewer-fs-confirm.tmpl()}
+        ${appendix/tree-viewer-fs-confirm.tmpl()}
     ${else}
         <div class="modal__content-container" tabindex="-1">
             ${it:narration-player.tmpl()}

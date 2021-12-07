@@ -9,11 +9,11 @@
         </h2>
         <div id="${it.id}-panel" class="appendix-accordion__entry-panel appendix-accordion__entry-panel--collapsed" style="height:0px">
             ${if(appendixTypeFeatures)}
-                ${it:feature-index-entry.tmpl()}
+                ${it:appendix/feature-index-entry.tmpl()}
             ${elseif(appendixTypeProfiles)}
-                ${it:profile.tmpl()}
+                ${it:appendix/profile.tmpl()}
             ${elseif(appendixTypeAbout)}
-                ${it:about-entry.tmpl()}
+                ${it:appendix/about-entry.tmpl()}
             ${endif}
         </div>
     ${endfor}
