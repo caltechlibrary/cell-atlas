@@ -55,6 +55,10 @@
         let treeViewer = TreeViewer(treeViewerEl);
         treeMediaViewer = MediaViewer(treeMediaViewerEl, undefined, undefined, undefined, undefined, treeViewer);
         treeMediaViewer.fullscreenBtn.addEventListener("click", appendixController.handleTreeMediaViewerFsBtnClick);
+        if(hash) {
+            appendixController.handleTreeMediaViewerFsBtnClick();
+            treeMediaViewer.treeViewer.manuallyOpenPopUp(hash);
+        }
     }
     if(feedbackLink) {
         feedbackModal = Modal(feedbackModalEl, undefined, undefined, undefined);

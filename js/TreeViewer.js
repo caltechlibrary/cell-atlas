@@ -18,15 +18,20 @@ let TreeViewer = function(root) {
 
     let onSpeciesAnchorFocus = function(event) {
         let speciesAnchor = event.currentTarget;
-        let popUp = root.querySelector(`#${speciesAnchor.getAttribute("data-species")}`);
         let rootDimensions = root.getBoundingClientRect();
+        activateSpeciesEntry(speciesAnchor.getAttribute("data-species"), event.clientX - rootDimensions.left, event.clientY - rootDimensions.top);
+    };
+
+    let activateSpeciesEntry = function(id, posX, posY) {
+        let speciesAnchor = root.querySelector(`.tree-viewer__species-anchor[data-species='${id}']`);
+        let popUp = root.querySelector(`#${id}`);
         clearTimeout(deactivatePopUp);
         if(root.querySelector(".tree-viewer__species-anchor--active") == speciesAnchor) return;
         deactivateCurSpeciesEntry();
-        speciesAnchor.classList.add("tree-viewer__species-anchor--active");
-        if(popUp) {
-            popUp.style.top = `${event.clientY - rootDimensions.top}px`
-            popUp.style.left = `${event.clientX - rootDimensions.left}px`
+        if(speciesAnchor && popUp) {
+            speciesAnchor.classList.add("tree-viewer__species-anchor--active");
+            popUp.style.left = `${posX}px`;
+            popUp.style.top = `${posY}px`;
             popUp.classList.remove("tree-viewer__pop-up--hidden");
         }
     };
@@ -151,7 +156,19 @@ let TreeViewer = function(root) {
         svgContainer.curScale = svgContainer.curScale * zoomFactor;
 
         svgContainer.treeSvg.style.transform = `matrix(${svgContainer.curScale}, 0, 0, ${svgContainer.curScale}, ${svgContainer.curTranslateX}, ${svgContainer.curTranslateY})`;
-    }
+    };
+
+    let manuallyOpenPopUp = function(id) {
+        let speciesAnchor = root.querySelector(`.tree-viewer__species-anchor[data-species='${id}']`);
+        let speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
+        let rootDimensions = root.getBoundingClientRect();
+        let gridPos = calcGridPos(speciesAnchorDimensions.left, speciesAnchorDimensions.top);
+        manualZoomTree(gridPos, svgContainer.wheelZoomWeight * 2.5);
+
+        speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
+        activateSpeciesEntry(id, (speciesAnchorDimensions.left + (speciesAnchorDimensions.width/2)) - rootDimensions.left, (speciesAnchorDimensions.top + (speciesAnchorDimensions.height/2)) - rootDimensions.top);
+
+    };
 
     for(let speciesAnchor of speciesAnchors) {
         speciesAnchor.addEventListener("mouseenter", onSpeciesAnchorFocus);
@@ -172,7 +189,8 @@ let TreeViewer = function(root) {
 
 
     return {
-        root
+        root,
+        manuallyOpenPopUp
     };
 
 };
