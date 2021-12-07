@@ -3765,6 +3765,36 @@ file. These definitions will be defined mobile first.
     text-decoration: underline;
 }
 
+.tree-viewer__zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-sizing: border-box;
+    width: 30px;
+    height: 70px;
+    border: 3px solid #363636;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 2px #252525;
+    display: flex;
+    flex-direction: column;
+    background: #4b889b;
+    overflow: hidden;
+}
+
+.tree-viewer__zoom-btn {
+    flex: 1;
+    margin: 0;
+    padding: 3px;
+    border: none;
+    box-shadow: inset 0px 0px 3px 0px #ffffff4d;
+    background: none;
+    fill: #fff;
+}
+
+.tree-viewer__zoom-btn:first-child {
+    border-bottom: 1px solid #fff;
+}
+
 /* references */
 .references a {
     color: #5caac5;

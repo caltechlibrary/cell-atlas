@@ -4,6 +4,8 @@ let TreeViewer = function(root) {
     let treeSvg = root.querySelector(".tree-viewer__tree-svg");
     let speciesAnchors = root.querySelectorAll(".tree-viewer__species-anchor");
     let popUps = root.querySelectorAll(".tree-viewer__pop-up");
+    let zoomInBtn = root.querySelector(".tree-viewer__zoom-btn-in");
+    let zoomOutBtn = root.querySelector(".tree-viewer__zoom-btn-out");
     let deactivatePopUp;
     svgContainer.treeSvg = treeSvg;
     svgContainer.eventCache = [];
@@ -131,6 +133,26 @@ let TreeViewer = function(root) {
         return { posX, posY };
     };
 
+    let onZoomInBtnClick = function(event) {
+        let rootDimensions = root.getBoundingClientRect();
+        let gridPos = calcGridPos(rootDimensions.left + (root.offsetWidth / 2), rootDimensions.top + (root.offsetHeight / 2));
+        manualZoomTree(gridPos, svgContainer.wheelZoomWeight);
+    };
+
+    let onZoomOutBtnClick = function() {
+        let rootDimensions = root.getBoundingClientRect();
+        let gridPos = calcGridPos(rootDimensions.left + (root.offsetWidth / 2), rootDimensions.top + (root.offsetHeight / 2));
+        manualZoomTree(gridPos, 1/svgContainer.wheelZoomWeight);
+    };
+
+    let manualZoomTree = function(gridPos, zoomFactor) {
+        svgContainer.curTranslateX = svgContainer.curTranslateX - ( (gridPos.posX - svgContainer.curTranslateX) * (zoomFactor - 1) );
+        svgContainer.curTranslateY = svgContainer.curTranslateY - ( (svgContainer.curTranslateY - gridPos.posY) * (zoomFactor - 1) );
+        svgContainer.curScale = svgContainer.curScale * zoomFactor;
+
+        svgContainer.treeSvg.style.transform = `matrix(${svgContainer.curScale}, 0, 0, ${svgContainer.curScale}, ${svgContainer.curTranslateX}, ${svgContainer.curTranslateY})`;
+    }
+
     for(let speciesAnchor of speciesAnchors) {
         speciesAnchor.addEventListener("mouseenter", onSpeciesAnchorFocus);
         speciesAnchor.addEventListener("mouseleave", initSpeciesEntryDeactivation);
@@ -145,6 +167,8 @@ let TreeViewer = function(root) {
     svgContainer.addEventListener("pointerup", onPointerup);
     svgContainer.addEventListener("pointercancel", onPointerup);
     svgContainer.addEventListener("pointerleave", onPointerup);
+    zoomInBtn.addEventListener("click", onZoomInBtnClick);
+    zoomOutBtn.addEventListener("click", onZoomOutBtnClick);
 
 
     return {
