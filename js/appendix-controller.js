@@ -34,8 +34,8 @@
         let onTreeViewerFsConfirmOK = function() {
             treeViewerFsConfirm.hide();
             modalOverlay.classList.add("modal-overlay--hidden");
-            appendixController.handleTreeMediaViewerFsBtnClick();
-            treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash);
+            treeMediaViewer.toggleFullscreen();
+            setTimeout(() => treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash), 200);
         };
 
         let openFeedbackModal = function() {

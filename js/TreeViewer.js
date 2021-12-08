@@ -72,7 +72,7 @@ let TreeViewer = function(root) {
     };
 
     let onWindowClick = function(event) {
-        if(root.contains(event.target)) return;
+        if(root.contains(event.target) || event.target.classList.contains("tree-viewer-fs-confirm__btn-ok")) return;
         forceClosePopUp();
     };
 
