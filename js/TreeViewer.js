@@ -72,6 +72,8 @@ let TreeViewer = function(root) {
 
     let onWheel = function(event) {
         event.preventDefault();
+        clearTimeout(deactivatePopUp);
+        deactivateCurSpeciesEntry();
         zoomTree(event.clientX, event.clientY, (event.deltaY <= 0) ? svgContainer.zoomWeight : 1 / svgContainer.zoomWeight);
     };
 
