@@ -17,9 +17,7 @@ let TreeViewer = function(root) {
     svgContainer.curTranslateY = 0;
 
     let onSpeciesAnchorFocus = function(event) {
-        let speciesAnchor = event.currentTarget;
-        let rootDimensions = root.getBoundingClientRect();
-        activateSpeciesEntry(speciesAnchor.getAttribute("data-species"), event.clientX - rootDimensions.left, event.clientY - rootDimensions.top);
+        activateSpeciesEntry(event.currentTarget.getAttribute("data-species"), event.clientX, event.clientY);
     };
 
     let activateSpeciesEntry = function(id, posX, posY) {
@@ -30,10 +28,24 @@ let TreeViewer = function(root) {
         deactivateCurSpeciesEntry();
         if(speciesAnchor && popUp) {
             speciesAnchor.classList.add("tree-viewer__species-anchor--active");
-            popUp.style.left = `${posX}px`;
-            popUp.style.top = `${posY}px`;
+            positionPopUp(popUp, posX, posY);
             popUp.classList.remove("tree-viewer__pop-up--hidden");
         }
+    };
+
+    let positionPopUp = function(popUp, posX, posY) {
+        let translateX = 0;
+        let translateY = 0;
+        let rootDimensions = root.getBoundingClientRect();
+        let rootMidPoint = {
+            clientX: rootDimensions.left + (rootDimensions.width / 2), 
+            clientY: rootDimensions.top + (rootDimensions.height / 2)
+        };
+        if(posX > rootMidPoint.clientX) translateX = -100;
+        if(posY > rootMidPoint.clientY) translateY = -100;
+        popUp.style.left = `${posX - rootDimensions.left}px`;
+        popUp.style.top = `${posY - rootDimensions.top}px`;
+        popUp.style.transform = `translate(${translateX}%, ${translateY}%)`;
     };
 
     let onPopUpFocus = function(event) {
