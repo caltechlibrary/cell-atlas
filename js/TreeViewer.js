@@ -34,14 +34,16 @@ let TreeViewer = function(root) {
     };
 
     let positionPopUp = function(popUp, posX, posY) {
-        let translateX = 0;
-        let translateY = 0;
         let rootDimensions = root.getBoundingClientRect();
         let rootMidPoint = getMidpoint(root);
-        if(posX > rootMidPoint.clientX) translateX = -100;
-        if(posY > rootMidPoint.clientY) translateY = -100;
+        let translateX = (posX > rootMidPoint.clientX) ? -100 : 0;
+        let translateY = (posY > rootMidPoint.clientY) ? -100 : 0;
+        let maxWidth = (posX > rootMidPoint.clientX) ? posX - 16 : window.innerWidth - posX - 16;
+        let maxHeight = (posY > rootMidPoint.clientY) ? posY - 16 : window.innerHeight - posY - 16;
         popUp.style.left = `${posX - rootDimensions.left}px`;
         popUp.style.top = `${posY - rootDimensions.top}px`;
+        popUp.style.maxWidth = `${maxWidth}px`;
+        popUp.style.maxHeight = `${maxHeight}px`;
         popUp.style.transform = `translate(${translateX}%, ${translateY}%)`;
     };
 
