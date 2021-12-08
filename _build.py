@@ -547,77 +547,77 @@ addSliderData(introFileMetaData, movieDict[introFileMetaData["doi"]])
 addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html", "", "", "Introduction")
 writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
 
-# # Render section pages
-# for i in range(len(sectionFiles)):
-#     fileName = sectionFiles[i]
-#     metadata = getMarkdownMetadata("sections/{}".format(fileName))
-#     metadata["chapter"], metadata["section"], *title = fileName.split("-")
-#     metadata["collectorProfile"] = False
-#     metadata["prevSection"] = None
-#     metadata["nextSection"] = None
-#     metadata["totalPages"] = totalPages
-#     metadata["currentPageNum"] = i + 2
-#     metadata["chapterPageNums"] = chapterPageValues
-#     metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
-#     metadata["displayPercent"] = round(metadata["progPercent"])
-#     if("doi" in metadata or "video" in metadata):
-#         if "doi" in metadata and metadata["doi"] in movieDict:
-#             addSliderData(metadata, movieDict[metadata["doi"]])
-#         elif "video" in metadata:
-#             addSliderData(metadata, metadata["video"])
-#         else:
-#             print("{} section file does not have DOI field".format(fileName)) 
-#     if(title[0] == "summary.md"):
-#         metadata["summaryData"] = {
-#             "isSummary": True,
-#             "isSection": True,
-#             "chapter{}".format(metadata["chapter"]): True 
-#         }
-#         metadata["vidMetadata"] = { "isSection": True }
-#     elif("video" in metadata):
-#         metadata["thumbnail"] = "{}_thumbnail".format("_".join(metadata["video"].split("_")[:2]))
+# Render section pages
+for i in range(len(sectionFiles)):
+    fileName = sectionFiles[i]
+    metadata = getMarkdownMetadata("sections/{}".format(fileName))
+    metadata["chapter"], metadata["section"], *title = fileName.split("-")
+    metadata["collectorProfile"] = False
+    metadata["prevSection"] = None
+    metadata["nextSection"] = None
+    metadata["totalPages"] = totalPages
+    metadata["currentPageNum"] = i + 2
+    metadata["chapterPageNums"] = chapterPageValues
+    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
+    metadata["displayPercent"] = round(metadata["progPercent"])
+    if("doi" in metadata or "video" in metadata):
+        if "doi" in metadata and metadata["doi"] in movieDict:
+            addSliderData(metadata, movieDict[metadata["doi"]])
+        elif "video" in metadata:
+            addSliderData(metadata, metadata["video"])
+        else:
+            print("{} section file does not have DOI field".format(fileName)) 
+    if(title[0] == "summary.md"):
+        metadata["summaryData"] = {
+            "isSummary": True,
+            "isSection": True,
+            "chapter{}".format(metadata["chapter"]): True 
+        }
+        metadata["vidMetadata"] = { "isSection": True }
+    elif("video" in metadata):
+        metadata["thumbnail"] = "{}_thumbnail".format("_".join(metadata["video"].split("_")[:2]))
     
-#     # Add links to next and prev pages
-#     # If we are not at the last file, then there is a next section
-#     if i != len(sectionFiles) - 1:
-#         nextFileName = sectionFiles[i+1][:-3]
-#         # If the next section is the start of a chapter, need to drop the "0" on the link
-#         if sectionFiles[i+1].split("-")[1] != "0":
-#             metadata["nextSection"] = nextFileName
-#         else:
-#             nextChapter, nextSection, *title = nextFileName.split("-")
-#             metadata["nextSection"] = nextChapter + "-" + "".join(title)
-#     else:
-#         metadata["nextSection"] = "outlook"
-#     # If we are not at the beggining, then there is a previous section
-#     if i != 0:
-#         prevFileName = sectionFiles[i-1][:-3]
-#         # If the previous section is the start of a chapter, need to drop the "0" on the link
-#         if metadata["section"] != "1":
-#             metadata["prevSection"] = prevFileName
-#         else:
-#             prevChapter, prevSection, *title = prevFileName.split("-")
-#             metadata["prevSection"] = prevChapter + "-" + "".join(title)
-#     else:
-#         metadata["prevSection"] = "introduction"
+    # Add links to next and prev pages
+    # If we are not at the last file, then there is a next section
+    if i != len(sectionFiles) - 1:
+        nextFileName = sectionFiles[i+1][:-3]
+        # If the next section is the start of a chapter, need to drop the "0" on the link
+        if sectionFiles[i+1].split("-")[1] != "0":
+            metadata["nextSection"] = nextFileName
+        else:
+            nextChapter, nextSection, *title = nextFileName.split("-")
+            metadata["nextSection"] = nextChapter + "-" + "".join(title)
+    else:
+        metadata["nextSection"] = "outlook"
+    # If we are not at the beggining, then there is a previous section
+    if i != 0:
+        prevFileName = sectionFiles[i-1][:-3]
+        # If the previous section is the start of a chapter, need to drop the "0" on the link
+        if metadata["section"] != "1":
+            metadata["prevSection"] = prevFileName
+        else:
+            prevChapter, prevSection, *title = prevFileName.split("-")
+            metadata["prevSection"] = prevChapter + "-" + "".join(title)
+    else:
+        metadata["prevSection"] = "introduction"
 
-#     pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
+    pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
 
-#     if(pageName == "1-10-putting-it-all-together"): 
-#         metadata["structuredVidData"] = True
+    if(pageName == "1-10-putting-it-all-together"): 
+        metadata["structuredVidData"] = True
 
-#     if("videoTitle" in metadata): 
-#         if "/" in metadata["videoTitle"]:
-#             addSpeciesToDict(metadata["videoTitle"].split("/")[0].strip(), "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
-#         else:
-#             addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
+    if("videoTitle" in metadata): 
+        if "/" in metadata["videoTitle"]:
+            addSpeciesToDict(metadata["videoTitle"].split("/")[0].strip(), "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
+        else:
+            addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
 
-#     if metadata["section"] != "0":
-#         metadata["typeSection"] = True
-#     else:
-#         metadata["typeChapter"] = True
-#         del metadata["section"] # We don't want to register "0" as a section
-#     writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
+    if metadata["section"] != "0":
+        metadata["typeSection"] = True
+    else:
+        metadata["typeChapter"] = True
+        del metadata["section"] # We don't want to register "0" as a section
+    writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
 
 # Render opening quote page for "Keep Looking"
 metadata = getMarkdownMetadata("outlook.md")
