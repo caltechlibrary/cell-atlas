@@ -2216,7 +2216,7 @@ file. These definitions will be defined mobile first.
     height: 100%;
     width: 100%;
     background: #9c9c9c80;
-    z-index: 2;
+    z-index: 3;
 }
 
 @media (min-width: 900px) {
@@ -3001,6 +3001,7 @@ file. These definitions will be defined mobile first.
     display: flex;
     align-items: center;
     background: #505050;
+    z-index: 2;
 }
 
 @media (orientation: landscape) {
