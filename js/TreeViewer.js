@@ -77,6 +77,8 @@ let TreeViewer = function(root) {
 
     let onPointerdown = function(event) {
         this.eventCache.push(event);
+        clearTimeout(deactivatePopUp);
+        deactivateCurSpeciesEntry();
     };
 
     let onPointermove = function(event) {
