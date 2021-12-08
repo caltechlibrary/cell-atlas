@@ -4,6 +4,7 @@ let TreeViewer = function(root) {
     let treeSvg = root.querySelector(".tree-viewer__tree-svg");
     let speciesAnchors = root.querySelectorAll(".tree-viewer__species-anchor");
     let popUps = root.querySelectorAll(".tree-viewer__pop-up");
+    let zoomControlscontainer = root.querySelector(".tree-viewer__zoom-controls");
     let zoomInBtn = root.querySelector(".tree-viewer__zoom-btn-in");
     let zoomOutBtn = root.querySelector(".tree-viewer__zoom-btn-out");
     let deactivatePopUp;
@@ -68,6 +69,12 @@ let TreeViewer = function(root) {
         let popUp = root.querySelector(".tree-viewer__pop-up:not(.tree-viewer__pop-up--hidden)");
         if(speciesAnchor) speciesAnchor.classList.remove("tree-viewer__species-anchor--active");
         if(popUp) popUp.classList.add("tree-viewer__pop-up--hidden");
+    };
+
+    let onWindowClick = function(event) {
+        if(root.contains(event.target)) return;
+        clearTimeout(deactivatePopUp);
+        deactivateCurSpeciesEntry();
     };
 
     let onWheel = function(event) {
@@ -140,6 +147,11 @@ let TreeViewer = function(root) {
         
     };
 
+    let onZoomControlscontainerClick = function() {
+        clearTimeout(deactivatePopUp);
+        deactivateCurSpeciesEntry();
+    };
+
     let onZoomInBtnClick = function(event) {
         let rootMidPoint = getMidpoint(root);
         zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, svgContainer.zoomWeight);
@@ -167,15 +179,16 @@ let TreeViewer = function(root) {
         popUp.addEventListener("mouseenter", onPopUpFocus);
         popUp.addEventListener("mouseleave", initSpeciesEntryDeactivation);
     }
+    window.addEventListener("click", onWindowClick);
     svgContainer.addEventListener("wheel", onWheel);
     svgContainer.addEventListener("pointerdown", onPointerdown);
     svgContainer.addEventListener("pointermove", onPointermove);
     svgContainer.addEventListener("pointerup", onPointerup);
     svgContainer.addEventListener("pointercancel", onPointerup);
     svgContainer.addEventListener("pointerleave", onPointerup);
+    zoomControlscontainer.addEventListener("click", onZoomControlscontainerClick);
     zoomInBtn.addEventListener("click", onZoomInBtnClick);
     zoomOutBtn.addEventListener("click", onZoomOutBtnClick);
-
 
     return {
         root,
