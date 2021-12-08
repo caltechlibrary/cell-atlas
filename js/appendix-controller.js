@@ -83,7 +83,7 @@
             }
         }
     }
-    if(feedbackLinks) {
+    if(feedbackLinks.length > 0) {
         feedbackModal = Modal(feedbackModalEl, undefined, undefined, undefined);
         for(let feedbackLink of feedbackLinks) feedbackLink.addEventListener("click", appendixController.openFeedbackModal);
         feedbackModal.exitBtn.addEventListener("click", appendixController.hideFeedbackModal);
