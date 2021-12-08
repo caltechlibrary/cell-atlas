@@ -160,6 +160,7 @@ let TreeViewer = function(root) {
 
     for(let speciesAnchor of speciesAnchors) {
         speciesAnchor.addEventListener("mouseenter", onSpeciesAnchorFocus);
+        speciesAnchor.addEventListener("click", onSpeciesAnchorFocus);
         speciesAnchor.addEventListener("mouseleave", initSpeciesEntryDeactivation);
     }
     for(let popUp of popUps) {
