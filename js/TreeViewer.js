@@ -37,15 +37,20 @@ let TreeViewer = function(root) {
         let translateX = 0;
         let translateY = 0;
         let rootDimensions = root.getBoundingClientRect();
-        let rootMidPoint = {
-            clientX: rootDimensions.left + (rootDimensions.width / 2), 
-            clientY: rootDimensions.top + (rootDimensions.height / 2)
-        };
+        let rootMidPoint = getMidpoint(root);
         if(posX > rootMidPoint.clientX) translateX = -100;
         if(posY > rootMidPoint.clientY) translateY = -100;
         popUp.style.left = `${posX - rootDimensions.left}px`;
         popUp.style.top = `${posY - rootDimensions.top}px`;
         popUp.style.transform = `translate(${translateX}%, ${translateY}%)`;
+    };
+
+    let getMidpoint = function(el) {
+        let dimensions = el.getBoundingClientRect();
+        return {
+            clientX: dimensions.left + (dimensions.width / 2), 
+            clientY: dimensions.top + (dimensions.height / 2)
+        };
     };
 
     let onPopUpFocus = function(event) {
@@ -107,11 +112,7 @@ let TreeViewer = function(root) {
     };
 
     let zoomTree = function(pointX, pointY, zoomFactor) {
-        let rootDimensions = root.getBoundingClientRect();
-        let rootMidPoint = {
-            clientX: rootDimensions.left + (rootDimensions.width / 2), 
-            clientY: rootDimensions.top + (rootDimensions.height / 2)
-        };
+        let rootMidPoint = getMidpoint(root);
         svgContainer.curTranslateX+= (pointX - rootMidPoint.clientX) * (1 - zoomFactor);
         svgContainer.curTranslateY+= (pointY - rootMidPoint.clientY) * (1 - zoomFactor);
         svgContainer.curScale*= zoomFactor;
@@ -134,20 +135,12 @@ let TreeViewer = function(root) {
     };
 
     let onZoomInBtnClick = function(event) {
-        let rootDimensions = root.getBoundingClientRect();
-        let rootMidPoint = {
-            clientX: rootDimensions.left + (rootDimensions.width / 2), 
-            clientY: rootDimensions.top + (rootDimensions.height / 2)
-        };
+        let rootMidPoint = getMidpoint(root);
         zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, svgContainer.zoomWeight);
     };
 
     let onZoomOutBtnClick = function(event) {
-        let rootDimensions = root.getBoundingClientRect();
-        let rootMidPoint = {
-            clientX: rootDimensions.left + (rootDimensions.width / 2), 
-            clientY: rootDimensions.top + (rootDimensions.height / 2)
-        };
+        let rootMidPoint = getMidpoint(root);
         zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, 1/ svgContainer.zoomWeight);
     };
 
