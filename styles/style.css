@@ -3831,7 +3831,7 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .download-btn {
-        width: 300px;
+        width: 380px;
     }
 }
 
