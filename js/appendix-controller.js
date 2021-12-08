@@ -35,7 +35,7 @@
             treeViewerFsConfirm.hide();
             modalOverlay.classList.add("modal-overlay--hidden");
             appendixController.handleTreeMediaViewerFsBtnClick();
-            treeMediaViewer.treeViewer.manuallyOpenPopUp(hash);
+            treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash);
         };
 
         let openFeedbackModal = function() {
@@ -79,7 +79,7 @@
                 modalOverlay.classList.remove("modal-overlay--hidden");
             } else {
                 appendixController.handleTreeMediaViewerFsBtnClick();
-                treeMediaViewer.treeViewer.manuallyOpenPopUp(hash);
+                treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash);
             }
         }
     }
