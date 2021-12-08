@@ -73,21 +73,18 @@ let TreeViewer = function(root) {
 
     let onWindowClick = function(event) {
         if(root.contains(event.target)) return;
-        clearTimeout(deactivatePopUp);
-        deactivateCurSpeciesEntry();
+        forceClosePopUp();
     };
 
     let onWheel = function(event) {
         event.preventDefault();
-        clearTimeout(deactivatePopUp);
-        deactivateCurSpeciesEntry();
+        forceClosePopUp();
         zoomTree(event.clientX, event.clientY, (event.deltaY <= 0) ? svgContainer.zoomWeight : 1 / svgContainer.zoomWeight);
     };
 
     let onPointerdown = function(event) {
         this.eventCache.push(event);
-        clearTimeout(deactivatePopUp);
-        deactivateCurSpeciesEntry();
+        forceClosePopUp();
     };
 
     let onPointermove = function(event) {
@@ -147,7 +144,7 @@ let TreeViewer = function(root) {
         
     };
 
-    let onZoomControlscontainerClick = function() {
+    let forceClosePopUp = function () {
         clearTimeout(deactivatePopUp);
         deactivateCurSpeciesEntry();
     };
@@ -186,7 +183,7 @@ let TreeViewer = function(root) {
     svgContainer.addEventListener("pointerup", onPointerup);
     svgContainer.addEventListener("pointercancel", onPointerup);
     svgContainer.addEventListener("pointerleave", onPointerup);
-    zoomControlscontainer.addEventListener("click", onZoomControlscontainerClick);
+    zoomControlscontainer.addEventListener("click", forceClosePopUp);
     zoomInBtn.addEventListener("click", onZoomInBtnClick);
     zoomOutBtn.addEventListener("click", onZoomOutBtnClick);
 
