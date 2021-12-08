@@ -5,7 +5,7 @@
     let appendixAccordionEl = document.querySelector(".appendix-accordion");
     let treeMediaViewerEl = document.querySelector(".media-viewer");
     let treeViewerFsConfirmEl = document.getElementById("treeViewerFsConfirm");
-    let feedbackLink = document.querySelector(".about-entry__feadback-link");
+    let feedbackLinks = document.querySelectorAll(".about-entry__feadback-link");
     let feedbackModalEl = document.getElementById("feedback");
     let modalOverlay = document.querySelector(".modal-overlay"); 
     let hash = window.location.hash.substring(1);
@@ -83,9 +83,9 @@
             }
         }
     }
-    if(feedbackLink) {
+    if(feedbackLinks) {
         feedbackModal = Modal(feedbackModalEl, undefined, undefined, undefined);
-        feedbackLink.addEventListener("click", appendixController.openFeedbackModal);
+        for(let feedbackLink of feedbackLinks) feedbackLink.addEventListener("click", appendixController.openFeedbackModal);
         feedbackModal.exitBtn.addEventListener("click", appendixController.hideFeedbackModal);
         modalOverlay.addEventListener("click", appendixController.hideFeedbackModal);
     }
