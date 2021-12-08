@@ -2405,7 +2405,14 @@ file. These definitions will be defined mobile first.
 }
 
 .vid-metadata__link {
+    padding: 8px 0;
     text-decoration: underline;
+}
+
+@media (min-width:900px) {
+    .vid-metadata__link {
+        padding: 0;
+    }
 }
 
 .vid-metadata__link--italicize {
