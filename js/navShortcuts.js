@@ -3,6 +3,7 @@
     let maxSwipeTime = 200;
     let minSwipeDist = 150;
     let vertSwipeThreshold = 100;
+    let blacklistedSwipeEls = [".protein-viewer", ".tree-viewer", ".summary-menu", ".comp-slider__slider", ".media-viewer--fullscreen-polyfill"];
     let touchStartTime, touchStartX, touchStartY;
 
     let onDocumentKeydown = function(event) {
@@ -25,9 +26,19 @@
         let elapsedTime = Date.now() - touchStartTime;
         let distX = touchStartX - event.changedTouches[0].clientX;
         let distY = touchStartY - event.changedTouches[0].clientY;
-        if(elapsedTime <= maxSwipeTime && Math.abs(distX) > minSwipeDist && Math.abs(distY) < vertSwipeThreshold) {
-            redirectPage((distX < 0) ? "prev" : "next");
+        if(validateSwipe(event.changedTouches[0], distX, distY, elapsedTime)) redirectPage((distX < 0) ? "prev" : "next");
+    };
+
+    let validateSwipe = function(touchObj, distX, distY, elapsedTime) {
+        if(document.fullscreenElement) return false;
+        if(touchObj.target.tagName == "INPUT") return false;
+        for(let blacklistedSwipeEl of blacklistedSwipeEls) {
+            if(touchObj.target.closest(blacklistedSwipeEl)) return false;
         }
+        if(elapsedTime > maxSwipeTime) return false;
+        if(Math.abs(distX) < minSwipeDist) return false;
+        if(Math.abs(distY) > vertSwipeThreshold) return false;
+        return true;
     };
 
     document.addEventListener("keydown", onDocumentKeydown);
