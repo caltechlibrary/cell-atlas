@@ -155,6 +155,28 @@
             }
         };
 
+        let onDocumentKeydown = function(event) {
+            if(event.key == "ArrowUp" || event.key == "ArrowDown") {
+                handleUpDownArrowPress(event);
+            } else if (event.key == " ") {
+                handleSpacebarPress(event);
+            }
+        };
+
+        let handleUpDownArrowPress = function(event) {
+            if(event.target.tagName == "INPUT") return;
+            let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            let textContent = (modalEl) ? modalEl.querySelector(".modal__content-container") : sectionText.root.querySelector(".section-text__content");
+            textContent.focus();
+        };
+
+        let handleSpacebarPress = function(event) {
+            if(event.target.tagName == "INPUT" || event.target.tagName == "BUTTON") return;
+            let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            let mediaViewer = (modalEl) ? mediaViewers[`mediaViewer-${modalEl.id}`] : mainMediaViewer;
+            if(!mediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mediaViewer.videoPlayer.togglePlayBack();
+        };
+
         return {
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
@@ -168,7 +190,8 @@
             handleLearnMoreBtnContainerClick,
             hideModal,
             onModalOverlayClick,
-            handleMobileControlClick
+            handleMobileControlClick,
+            onDocumentKeydown
         };
 
     };
@@ -230,5 +253,7 @@
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
+
+    document.addEventListener("keydown", sectionController.onDocumentKeydown);
 
 })();
