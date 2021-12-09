@@ -926,6 +926,12 @@ file. These definitions will be defined mobile first.
     }
 }
 
+@media (max-width: 900px) {
+    .media-viewer--subsection-has-tabmenu {
+        margin-top: calc(-1.25em - 8px);
+    }
+}
+
 .media-viewer--summary-menu {
     width: 95%;
     height: 90%;
@@ -2267,11 +2273,11 @@ file. These definitions will be defined mobile first.
 }
 
 .modal__exit-btn {
-    position: absolute;
-    top: 1em;
-    right: 1em;
+    position: relative;
+    margin: 0 0 8px auto;
     width: 1.25em;
     height: 1.25em;
+    display: block;
     border: none;
     padding: 0;
     background: none;

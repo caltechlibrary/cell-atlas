@@ -1,6 +1,11 @@
 <div
     id="${if(it.isSection)}mediaViewer-main${elseif(it.pdb)}mediaViewer-pv-${it.id}${else}mediaViewer-${it.id}${endif}"
-    class="media-viewer ${if(it.isSection)}media-viewer--main-section${endif} ${if(it.isSummary)}media-viewer--summary-menu${endif} ${if(it.pdb)}media-viewer--protein-viewer media-viewer--hidden${endif}"
+    class="
+        media-viewer 
+        ${if(it.isSection)}media-viewer--main-section${elseif(it.hasTabMenu)}media-viewer--subsection-has-tabmenu${endif} 
+        ${if(it.isSummary)}media-viewer--summary-menu${endif} 
+        ${if(it.pdb)}media-viewer--protein-viewer media-viewer--hidden${endif}
+    "
 >
     ${if(it.hasTabMenu)}
         <div class="media-viewer__tab-container ${if(it.isSection)}media-viewer__tab-container--main-section${endif}">
