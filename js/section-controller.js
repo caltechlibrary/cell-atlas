@@ -174,7 +174,10 @@
         };
 
         let handleSpacebarPress = function(event) {
-
+            if(event.target.tagName == "INPUT" || event.target.tagName == "BUTTON") return;
+            let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            let mediaViewer = (modalEl) ? mediaViewers[`mediaViewer-${modalEl.id}`] : mainMediaViewer;
+            if(!mediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mediaViewer.videoPlayer.togglePlayBack();
         };
 
         return {
