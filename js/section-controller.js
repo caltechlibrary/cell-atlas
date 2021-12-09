@@ -155,6 +155,28 @@
             }
         };
 
+        let onDocumentKeydown = function(event) {
+            if(event.key == "ArrowUp" || event.key == "ArrowDown") {
+                handleUpDownArrowPress(event);
+            } else if (event.key == " ") {
+                handleSpacebarPress(event);
+            }
+        };
+
+        let handleUpDownArrowPress = function(event) {
+            if(event.target.tagName == "INPUT") return;
+            let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            if(modalEl) {
+                modalEl.querySelector(".modal__content-container").focus();
+            } else {
+                sectionText.root.querySelector(".section-text__content").focus();
+            }
+        };
+
+        let handleSpacebarPress = function(event) {
+
+        };
+
         return {
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
@@ -168,7 +190,8 @@
             handleLearnMoreBtnContainerClick,
             hideModal,
             onModalOverlayClick,
-            handleMobileControlClick
+            handleMobileControlClick,
+            onDocumentKeydown
         };
 
     };
@@ -230,5 +253,7 @@
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
+
+    document.addEventListener("keydown", sectionController.onDocumentKeydown);
 
 })();
