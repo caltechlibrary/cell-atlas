@@ -380,52 +380,6 @@ file. These definitions will be defined mobile first.
         margin-top: 2em;
     }
 
-    /* || APPENDIX styles */
-    .book-appendix-page {
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-    }
-
-    .book-appendix-inner {
-        height: fit-content;
-        width: auto;
-        max-width: 57.5em;
-        padding: 4em 3em;
-        margin: 0 auto;
-    }
-
-    .book-appendix-page h1 {
-        font-size: 2em;
-        margin-bottom: 1em;
-    }
-
-    .book-appendix-chapter-heading {
-        margin-right: 1em;
-    }
-
-    .book-appendix-dropdown-list {
-        height: 100%;
-        width: 100%;
-    }
-
-    .book-appendix-nav {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .book-appendix-nav:hover {
-        color: rgb(179 179 179);
-    }
-
-    .book-appendix-nav-right {
-        right: 0;
-    }
-
     .book-appendix-download a {
         display: flex;
         justify-content: center;
@@ -566,8 +520,7 @@ file. These definitions will be defined mobile first.
         flex: 1;
         min-height: 0;
         position: relative;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden;
     }
 }
 
@@ -1054,6 +1007,17 @@ file. These definitions will be defined mobile first.
     border: 7px #cccccc solid;
     border-radius: 10px;
     background: #ffffff;
+}
+
+.media-viewer__media-container--tree-viewer {
+    background: #363636;
+}
+
+@media (max-width:900px) {
+    .media-viewer__media-container--tree-viewer {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media (min-width:900px) {
@@ -2252,7 +2216,7 @@ file. These definitions will be defined mobile first.
     height: 100%;
     width: 100%;
     background: #9c9c9c80;
-    z-index: 2;
+    z-index: 3;
 }
 
 @media (min-width: 900px) {
@@ -2292,6 +2256,10 @@ file. These definitions will be defined mobile first.
         flex-direction: column;
         overflow: initial;
     }
+}
+
+.modal--feedback {
+    height: 100%;
 }
 
 .modal--hidden {
@@ -2380,6 +2348,11 @@ file. These definitions will be defined mobile first.
 .modal__text-content a {
     color: #325c69;
     text-decoration: underline;
+}
+
+.modal__feedback-iframe {
+    width: 100%;
+    height: 100%;
 }
 
 /* vid-metadata */
@@ -2532,157 +2505,6 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-/* appendix-accordion-group */
-.appendix-accordion-group__dropdown-anchor {
-    position: absolute;
-    margin-top: -72px;
-}
-
-.appendix-accordion-group__button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    margin: 0 0 20px 0;
-    width: 100%;
-    padding: 0.535em 0;
-    border: none;
-    border-bottom: 1px solid white;
-    background: none;
-}
-
-.appendix-accordion-group__title {
-    flex: 0 1 auto;
-    color: #fff;
-    font-size: 1.25em;
-    font-weight: 700;
-    text-align: left;
-}
-
-.appendix-accordion-group__expand-icon {
-    flex: 0 0 auto;
-    height: 20px;
-    width: 20px;
-    transition: transform 1s;
-}
-
-.appendix-accordion-group__expand-icon--active {
-    transform: rotate(180deg);
-}
-
-.appendix-accordion-group__panel {
-    overflow: hidden;
-    transition: height 1s;
-}
-
-.appendix-accordion-group__panel--hidden {
-    visibility: hidden;
-}
-
-@media (min-width:900px) {
-    .appendix-accordion-group__dropdown-anchor {
-        position: static;
-        margin: 0;
-    }
-
-    .appendix-accordion-group__button {
-        margin: 0 0 24px 0;
-    }
-
-    .appendix-accordion-group__title {
-        font-family: -apple-system, Arial;
-        font-size: 1.5em;
-    }
-}
-
-/* feature-index-section-list */
-.feature-index-section-list {
-    padding-left: 1em;
-}
-
-.feature-index-section-list__li {
-    margin: 0 0 1em 0;
-    font-size: 1em;
-    font-weight: 300;
-}
-
-.feature-index-section-list__species-name {
-    color: #fff;
-    font-style: italic;
-}
-
-.feature-index-section-list__link {
-    color: #5caac5;
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .feature-index-section-list {
-        padding-left: 1.5em;
-    }
-}
-
-/* profile-bio */
-.profile-bio {
-    margin-bottom: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-bio__profile-img {
-    flex: 1 1 auto;
-    height: 200px;
-    object-fit: contain;
-}
-
-.profile-bio__description {
-    flex: 1 1 auto;
-    margin-top: 1em;
-    max-height: inherit;
-    overflow: auto;
-    line-height: 1.34em;
-}
-
-.profile-bio__description p {
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
-@media (min-width:480px) {
-    .profile-bio {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .profile-bio__profile-img {
-        margin-right: 16px;
-    }
-
-    .profile-bio__description {
-        margin: 0;
-    }
-
-    .profile-bio--appendix {
-        max-height: 200px;
-    }
-}
-
-@media (min-width:900px) {
-    .profile-bio__profile-img {
-        margin-right: 32px;
-        height: auto;
-    }
-
-    .profile-bio--appendix {
-        max-height: 267px;
-    }
-
-    .profile-bio__description {
-        text-align: right;
-    }
-}
-
 /* about-page-blurb */
 .about-page-blurb {
     line-height: 1.34em;
@@ -2737,212 +2559,6 @@ file. These definitions will be defined mobile first.
     font-size: 1.25em;
     color: #15404e;
     background: none;
-}
-
-/* species-example-list */
-.species-example-list {
-    display: flex;
-    flex-direction: column;
-    border: 3px solid #000;
-    border-radius: 10px;
-    box-shadow: #363636bf 5px 8px 7px 1px;
-    color: #000;
-    background: #fff;
-    font-size: 1em;
-    overflow: hidden;
-    z-index: 100;
-    cursor: default;
-}
-
-.species-example-list--pop-up {
-    position: fixed;
-    width: fit-content;
-}
-
-.species-example-list--hidden {
-    display: none;
-}
-
-.species-example-list__species-title {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0.25em 1em;
-    color: #000;
-    background: #dcdcdc;
-    font-size: 1.375em;
-    text-align: center;
-}
-
-.species-example-list__examples-container {
-    padding: 0.5em 1em;
-    overflow: auto;
-}
-
-.species-example-list__examples-header {
-    color: #000;
-    font-size: 1.15em;
-    font-weight: 300;
-}
-
-.species-example-list__examples-list {
-    list-style-type: disc;
-    list-style-position: inside;
-    padding-left: 10px;
-}
-
-.species-example-list__examples-list-item {
-    margin: 0.5em 0;
-}
-
-.species-example-list__link, .dark-background-text .species-example-list__link {
-    color: #325c69;
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .species-example-list--pop-up {
-        transform: translateY(-100%);
-    }
-}
-
-
-/* tree-viewer */
-.tree-viewer__fullscreen-container--fs-polyfill {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    z-index: 100;
-}
-
-.tree-viewer__viewer-container {
-    box-sizing: border-box;
-    position: relative;
-    border: 5px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 0 1px #444;
-    background: #363636;
-    cursor: grab;
-}
-
-.tree-viewer__viewer-container--fs-polyfill {
-    height: 100%;
-    margin: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
-}
-
-.tree-viewer__viewer-container--panning {
-    cursor: grabbing;
-}
-
-.tree-viewer__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    display: none;
-    padding: 0.5em;
-    border: none;
-    border-radius: 0 0 0 10px;
-    background: #ffffff87;
-    cursor: default;
-    z-index: 1;
-}
-
-.tree-viewer__btn--visible {
-    display: flex;
-}
-
-.tree-viewer__btn svg {
-    width: 1.25em;
-    fill: #15404e;
-}
-
-.tree-viewer__zoom-controls {
-    position: absolute;
-    top: 45px;
-    right: 3px;
-    display: flex;
-    flex-direction: column;
-    cursor: default;
-    z-index: 1;
-}
-
-.tree-viewer__zoom-controls-divider {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 1px;
-    width: 70%;
-    background: #fff;
-    transform: translate(-50%, -50%);
-}
-
-.tree-viewer__zoom-controls-btn {
-    margin: 0;
-    padding: 2px 0;
-    border: 3px solid #363636;
-    background: #4B889B;
-}
-
-.tree-viewer__zoom-controls-btn svg {
-    width: 1.5em;
-}
-
-.tree-viewer__zoom-in-btn {
-    border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
-    box-shadow: 0 -1px 0 1px #00000033, 0 -1px 2px 0px #00000099, inset 0px 0px 3px 0px #ffffff4d;
-}
-
-.tree-viewer__zoom-out-btn {
-    border-top: none;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 0 1px 0 1px #00000033, 0 1px 2px 0px #00000099, inset 0px 0px 3px 0px #ffffff4d;
-}
-
-.tree-viewer__svg-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.tree-viewer__tree-svg {
-    width: 100%;
-    height: 100%;
-    transform: matrix(1,0,0,1,0,0);
-}
-
-.tree-viewer__tree-svg-link, .dark-background-text .tree-viewer__tree-svg-link {
-    text-decoration: none;
-    color: initial;
-}
-
-.tree-viewer__tree-svg-link--highlighted, .dark-background-text .tree-viewer__tree-svg-link--highlighted {
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .tree-viewer__viewer-container--enlarged {
-        position: fixed;
-        left: 0;
-        right: 0;
-        margin: auto;
-        z-index: 100;
-    }
-
-    .tree-viewer__btn {
-        top: initial;
-        bottom: 0;
-        right: 0;
-        border-radius: 10px 0 0 0;
-    }
-
-    .tree-viewer__zoom-controls {
-        top: 10px;
-        right: 10px;
-    }
 }
 
 /* summary-menu */
@@ -3392,6 +3008,7 @@ file. These definitions will be defined mobile first.
     display: flex;
     align-items: center;
     background: #505050;
+    z-index: 2;
 }
 
 @media (orientation: landscape) {
@@ -3848,4 +3465,399 @@ file. These definitions will be defined mobile first.
 
 .chapter-content__title-line {
     white-space: nowrap;
+}
+
+/* appendix */
+.appendix {
+    min-height: 100vh;
+    color: #fff;
+    background-color: #363636;
+}
+
+@media (min-width:900px) {
+    .appendix {
+        min-height: auto;
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
+.appendix__content-container {
+    margin: auto;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1048px;
+    padding: 16px max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
+}
+
+@media (min-width:900px) {
+    .appendix__content-container {
+        padding: 64px 48px;
+    }
+}
+
+.appendix__title {
+    margin-bottom: 16px;
+    font-size: 1.75em;
+}
+
+@media (min-width:900px) {
+    .appendix__title {
+        margin-bottom: 32px;
+        font-size: 2em;
+    }
+}
+
+.appendix__title-chapter {
+    margin-right: 32px;
+}
+
+.appendix__nav-arrow {
+    position: fixed;
+    top: 50%;
+    margin: 0 16px;
+    transform: translateY(-50%);
+}
+
+@media (max-width:900px) {
+    .appendix__nav-arrow {
+        display: none;
+    }
+}
+
+.appendix__nav-arrow:first-child {
+    left: 0;
+}
+
+.appendix__nav-arrow:last-child {
+    right: 0;
+}
+
+.appendix__nav-arrow--hidden {
+    visibility: hidden;
+}
+
+.appendix__body-text {
+    line-height: 1.34;
+}
+
+.appendix__body-text a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* appendix-accordion */
+.appendix-accordion {
+    color: #fff;
+}
+
+@media (max-width:900px) {
+    .appendix-accordion__entry-anchor {
+        position: absolute;
+        margin-top: -56px;
+    }
+}
+
+.appendix-accordion__entry-header {
+    margin: 0 0 20px 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 8.5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    color: inherit;
+}
+
+@media (min-width: 900px) {
+    .appendix-accordion__entry-header {
+        margin: 0 0 24px 0;
+    }
+}
+
+.appendix-accordion__entry-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: left;
+}
+
+@media (min-width: 900px) {
+    .appendix-accordion__entry-title {
+        font-size: 1.5em;
+    }
+}
+
+.appendix-accordion__entry-toggle-icon {
+    width: 1.25em;
+    height: 1.25em;
+    fill: #4b889b;;
+    transition: transform 1s;
+}
+
+.appendix-accordion__entry-header[aria-expanded="true"] .appendix-accordion__entry-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.appendix-accordion__entry-panel {
+    height: auto;
+    overflow: hidden;
+    transition: height 1s;
+}
+
+.appendix-accordion__entry-panel--collapsed {
+    visibility: hidden;
+    transition: height 1s, visibility 0s 1s;
+}
+
+/* feature-index-entry */
+.feature-index-entry {
+    padding-left: 16px;
+}
+
+@media (min-width:900px) {
+    .feature-index-entry {
+        padding-left: 24px;
+    }
+}
+
+.feature-index-entry__ref {
+    margin-bottom: 16px;
+}
+
+.feature-index-entry__ref-name {
+    font-style: italic;
+}
+
+.feature-index-entry__ref-link {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* profile */
+.profile {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width:480px) {
+    .profile {
+        max-height: 200px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width:900px) {
+    .profile {
+        max-height: 267px;
+    }
+}
+
+.profile__img {
+    height: 200px;
+    margin: 0 0 16px 0;
+}
+
+@media (min-width:480px) {
+    .profile__img {
+        margin: 0 16px 0 0;
+    }
+}
+
+@media (min-width:900px) {
+    .profile__img {
+        margin: 0 32px 0 0;
+        height: auto;
+    }
+}
+
+.profile__description {
+    width: 100%;
+    max-height: inherit;
+    line-height: 1.34;
+    overflow: auto;
+}
+
+@media (min-width:900px) {
+    .profile__description {
+        padding-right: 16px;
+        text-align: right;
+    }
+}
+
+.profile__description p {
+    margin-top: 0;
+}
+
+/* tree-viewer */
+.tree-viewer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+.tree-viewer__svg-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.tree-viewer svg {
+    width: 100%;
+    height: 100%;
+}
+
+.tree-viewer__species-anchor--active text {
+    outline: 1px solid #003b4c;
+}
+
+.tree-viewer__pop-up {
+    position: absolute;
+    width: fit-content;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-shadow: #363636bf 5px 8px 7px 1px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    font-size: 1em;
+    overflow: hidden;
+    cursor: default;
+}
+
+.tree-viewer__pop-up--hidden {
+    display: none;
+}
+
+.tree-viewer__pop-up-title {
+    margin: 0;
+    padding: 5px 22px;
+    background: #dcdcdc;
+    color: #000;
+    font-size: 1.375em;
+    text-align: center;
+}
+
+.tree-viewer__pop-up-body {
+    padding: 8px 16px;
+    overflow: auto;
+}
+
+.tree-viewer__pop-up-body-header {
+    margin: 0;
+    color: #000;
+    font-size: 1.15em;
+}
+
+.tree-viewer__pup-up-list {
+    padding-left: 10px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.tree-viewer__pup-up-entry {
+    margin: 8px 0;
+}
+
+.tree-viewer__pup-up-entry::marker {
+    color: #000;
+}
+
+.tree-viewer__pup-up-link {
+    color: #325c69;
+    text-decoration: underline;
+}
+
+.tree-viewer__zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-sizing: border-box;
+    width: 30px;
+    height: 70px;
+    border: 3px solid #363636;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 2px #252525;
+    display: flex;
+    flex-direction: column;
+    background: #4b889b;
+    overflow: hidden;
+}
+
+.tree-viewer__zoom-btn {
+    flex: 1;
+    margin: 0;
+    padding: 3px;
+    border: none;
+    box-shadow: inset 0px 0px 3px 0px #ffffff4d;
+    background: none;
+    fill: #fff;
+}
+
+.tree-viewer__zoom-btn:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+/* references */
+.references a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* about-entry */
+.about-entry {
+    line-height: 1.34;
+}
+
+.about-entry a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* download-btn */
+.download-btn {
+    margin: 32px 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #24788f;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+@media (min-width:900px) {
+    .download-btn {
+        width: 380px;
+    }
+}
+
+/* tree-viewer-fs-confirm */
+.tree-viewer-fs-confirm__prompt {
+    margin: 0 0 1em 0;
+    font-size: 1.75em;
+    color: #000;
+}
+
+.tree-viewer-fs-confirm__btn-container {
+    float: right;
+}
+
+.tree-viewer-fs-confirm__btn {
+    margin: 0 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #15404e;
+    font-size: 1.25em;
 }

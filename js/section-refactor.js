@@ -184,7 +184,7 @@
         let compSlider = (compSliderEl) ? CompSlider(compSliderEl) : undefined;
         let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
         let summaryMenu = (summaryMenuEl) ? SummaryMenu(summaryMenuEl) : undefined;
-        let mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer, summaryMenu);
+        let mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer, summaryMenu, undefined);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
     }
 
