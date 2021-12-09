@@ -1,5 +1,5 @@
 <div class="appendix">
-    <a href="${prevSection}.html" class="nav-arrow appendix__nav-arrow ${if(prevSection)}${else}appendix__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
+    <a href="${prevSection}.html" class="nav-arrow appendix__nav-arrow ${if(prevSection)}${else}appendix__nav-arrow--hidden${endif}" data-page="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
     <div class="appendix__content-container">
         <h1 class="appendix__title">${if(chapter)}<span class="appendix__title-chapter">${chapter}</span>${endif}${title}</h1>
         ${if(appendixTypeFeatures)}
@@ -16,5 +16,5 @@
             ${appendix/download-page.tmpl()}
         ${endif}
     </div>
-    <a href="${nextSection}.html" class="nav-arrow appendix__nav-arrow ${if(nextSection)}${else}appendix__nav-arrow--hidden${endif}" data-nav="next" aria-label="Next section">${svg/right-nav.svg()}</a>
+    <a href="${nextSection}.html" class="nav-arrow appendix__nav-arrow ${if(nextSection)}${else}appendix__nav-arrow--hidden${endif}" data-page="next" aria-label="Next section">${svg/right-nav.svg()}</a>
 </div>

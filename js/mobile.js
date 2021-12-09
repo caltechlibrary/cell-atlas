@@ -107,7 +107,7 @@ function detectSwipe(event) {
         if(elaspedTime <= maxSwipeTime) {
             if(validSwipe && Math.abs(distX) >= minSwipeDist && Math.abs(distY) <= maxVertSwipe) {
                 let navLink = (distX < 0) ? "next" : "prev";
-                let navButton = document.querySelector(`.book-page-nav[data-nav='${navLink}']`);
+                let navButton = document.querySelector(`.book-page-nav[data-page='${navLink}']`);
                 if(navButton) navButton.click();
             }
         }

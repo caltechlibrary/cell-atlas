@@ -1,5 +1,5 @@
 <div class="chapter-content">
-    <a href="${prevSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(prevSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
+    <a href="${prevSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(prevSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-page="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
     <div class="chapter-content__text-container">
         <div class="chapter-content__quote">
             ${body}
@@ -9,5 +9,5 @@
             <span>${title}</span class="chapter-content__title-line">
         </h1>
     </div>
-    <a href="${nextSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(nextSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-nav="prev" aria-label="Next section">${svg/right-nav.svg()}</a>
+    <a href="${nextSection}.html" class="nav-arrow chapter-content__nav-arrow ${if(nextSection)}${else}chapter-content__nav-arrow--hidden${endif}" data-page="next" aria-label="Next section">${svg/right-nav.svg()}</a>
 </div>
