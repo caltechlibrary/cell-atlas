@@ -166,11 +166,8 @@
         let handleUpDownArrowPress = function(event) {
             if(event.target.tagName == "INPUT") return;
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
-            if(modalEl) {
-                modalEl.querySelector(".modal__content-container").focus();
-            } else {
-                sectionText.root.querySelector(".section-text__content").focus();
-            }
+            let textContent = (modalEl) ? modalEl.querySelector(".modal__content-container") : sectionText.root.querySelector(".section-text__content");
+            textContent.focus();
         };
 
         let handleSpacebarPress = function(event) {
