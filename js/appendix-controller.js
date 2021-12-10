@@ -41,11 +41,17 @@
         let openFeedbackModal = function() {
             feedbackModal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
+            document.addEventListener("keydown", onOpenModalKeydown);
+        };
+
+        let onOpenModalKeydown = function(event) {
+            if(event.key == "Escape") hideFeedbackModal();
         };
 
         let hideFeedbackModal = function() {
             feedbackModal.hide();
             modalOverlay.classList.add("modal-overlay--hidden");
+            document.removeEventListener("keydown", onOpenModalKeydown);
         };
 
         return {
