@@ -103,9 +103,8 @@ let VideoPlayer = function(root) {
             video.addEventListener("seeked", paintCurrentFrame);
             video.addEventListener("emptied", resetScrub);
             seekBar.addEventListener("mousedown", showScrubCanvas);
-            seekBar.addEventListener("keydown", showScrubCanvas);
+            seekBar.addEventListener("keydown", onKeyDownShowScrub);
             seekBar.addEventListener("mouseup", hideScrubCanvas);
-            seekBar.addEventListener("keyup", hideScrubCanvas);
             seekBar.addEventListener("input", paintSeekedFrame);
         }
     };
@@ -179,8 +178,8 @@ let VideoPlayer = function(root) {
         }
     };
 
-    let onSeekBarKeyDown = function() {
-        if(!video.paused) {
+    let onSeekBarKeyDown = function(event) {
+        if((event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") && !video.paused) {
             video.pause();
             seekBar.addEventListener("keyup", togglePlayBack, { once: true });
         }
@@ -233,7 +232,7 @@ let VideoPlayer = function(root) {
         if(window.createImageBitmap) {
             video.removeEventListener("seeked", paintCurrentFrame);
             seekBar.removeEventListener("mousedown", showScrubCanvas);
-            seekBar.removeEventListener("keydown", showScrubCanvas);
+            seekBar.removeEventListener("keydown", onKeyDownShowScrub);
         }
 
         video.addEventListener("canplay", onSourceSwitchCanPlay, { once: true });
@@ -256,7 +255,7 @@ let VideoPlayer = function(root) {
         if(window.createImageBitmap) {
             video.addEventListener("seeked", paintCurrentFrame);
             seekBar.addEventListener("mousedown", showScrubCanvas);
-            seekBar.addEventListener("keydown", showScrubCanvas);
+            seekBar.addEventListener("keydown", onKeyDownShowScrub);
         }
         if(playIcon.classList.contains("video-player__control-icon--hidden")) togglePlayBack();
         playBackBtn.disabled = false;
@@ -333,6 +332,13 @@ let VideoPlayer = function(root) {
 
     let showScrubCanvas = function() {
         scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+    };
+
+    let onKeyDownShowScrub = function(event) {
+        if(event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") {
+            showScrubCanvas();
+            seekBar.addEventListener("keyup", hideScrubCanvas, { once: true });
+        }
     };
 
     let hideScrubCanvas = function() {
