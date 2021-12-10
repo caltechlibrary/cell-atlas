@@ -8,6 +8,7 @@
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
+    let hash = window.location.hash.substring(1);
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
         mediaViewers = {}, modals = {}, narrationPlayers = {};
     
@@ -188,6 +189,7 @@
             shelveText,
             unshelveText,
             handleLearnMoreBtnContainerClick,
+            openModal,
             hideModal,
             onModalOverlayClick,
             handleMobileControlClick,
@@ -249,6 +251,7 @@
         let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer);
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
+        if(modalEl.id == hash) sectionController.openModal(modal.root.id);
     }
 
     mobileControls = MobileControls(mobileControlsEl);
