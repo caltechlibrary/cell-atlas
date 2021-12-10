@@ -651,7 +651,7 @@ file. These definitions will be defined mobile first.
 
 .nav--collapsed {
     max-height: 0px;
-    padding: 0em 0em 0em 0.75em;
+    padding: 0em 0em 0em max(0.75em, env(safe-area-inset-left));
     visibility: hidden;
     transition: max-height 0.5s, padding 0.5s, visibility 0s 0.5s;
 }
