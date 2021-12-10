@@ -123,8 +123,8 @@ let TreeViewer = function(root) {
 
     let zoomTree = function(pointX, pointY, zoomFactor) {
         let rootMidPoint = getMidpoint(root);
-        svgContainer.curTranslateX+= (pointX - rootMidPoint.clientX) * (1 - zoomFactor);
-        svgContainer.curTranslateY+= (pointY - rootMidPoint.clientY) * (1 - zoomFactor);
+        svgContainer.curTranslateX+= (pointX - rootMidPoint.clientX - svgContainer.curTranslateX) * (1 - zoomFactor);
+        svgContainer.curTranslateY+= (pointY - rootMidPoint.clientY - svgContainer.curTranslateY) * (1 - zoomFactor);
         svgContainer.curScale*= zoomFactor;
         svgContainer.treeSvg.style.transform = `matrix(${svgContainer.curScale}, 0, 0, ${svgContainer.curScale}, ${svgContainer.curTranslateX}, ${svgContainer.curTranslateY})`;
     };
