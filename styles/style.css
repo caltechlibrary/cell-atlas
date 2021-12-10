@@ -2304,6 +2304,7 @@ file. These definitions will be defined mobile first.
 .modal__header {
     margin-top: 7.6px;
     margin-top: calc(0.2em + 2px);
+    margin-right: 1.75em;
     line-height: 1;
     font-size: 1.75em;
 }
