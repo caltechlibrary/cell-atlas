@@ -162,7 +162,7 @@ let TreeViewer = function(root) {
     let activateSpeciesEntryHash = function(id) {
         let speciesAnchor = root.querySelector(`.tree-viewer__species-anchor[data-species='${id}']`);
         let speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
-        zoomTree(speciesAnchorDimensions.left, speciesAnchorDimensions.top, btnZoomWeight * 8);
+        zoomTree(speciesAnchorDimensions.left, speciesAnchorDimensions.top, (window.innerWidth > 480) ? btnZoomWeight * 3 :  btnZoomWeight * 8);
         speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
         activateSpeciesEntry(id, speciesAnchorDimensions.left, speciesAnchorDimensions.top);
     };
