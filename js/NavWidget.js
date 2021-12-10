@@ -3,7 +3,8 @@ let NavWidget = function(root) {
     let sectionListToggles = root.querySelectorAll(".nav__section-list-toggle");
 
     let init = function() {
-        let currentPath = window.location.pathname.split("/")[1];
+        let pathComponents = window.location.pathname.split("/");
+        let currentPath = pathComponents[pathComponents.length - 1];
         let currentPageLink = root.querySelector(`[href='${currentPath}']`);
         let currentLinkLiParent, currentSectionList, currSectionListToggle;
         if(currentPageLink) {
