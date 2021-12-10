@@ -8,6 +8,7 @@
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
     let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
+    let hash = window.location.hash.substring(1);
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
         mediaViewers = {}, modals = {}, narrationPlayers = {};
     
@@ -119,6 +120,12 @@
             let modal = modals[modalId];
             modal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
+            modalOverlay.focus();
+            document.addEventListener("keydown", onOpenModalKeydown);
+        };
+
+        let onOpenModalKeydown = function(event) {
+            if(event.key == "Escape") hideModal();
         };
 
         let hideModal = function() {
@@ -126,6 +133,7 @@
             let modal = modals[modalEl.id];
             modal.hide();
             modalOverlay.classList.add("modal-overlay--hidden");
+            document.removeEventListener("keydown", onOpenModalKeydown);
         };
 
         let onModalOverlayClick = function(event) {
@@ -188,6 +196,7 @@
             shelveText,
             unshelveText,
             handleLearnMoreBtnContainerClick,
+            openModal,
             hideModal,
             onModalOverlayClick,
             handleMobileControlClick,
@@ -249,6 +258,7 @@
         let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer);
         modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
+        if(modalEl.id == hash) sectionController.openModal(modal.root.id);
     }
 
     mobileControls = MobileControls(mobileControlsEl);

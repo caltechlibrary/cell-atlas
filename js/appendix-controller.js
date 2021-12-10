@@ -41,11 +41,18 @@
         let openFeedbackModal = function() {
             feedbackModal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
+            modalOverlay.focus();
+            document.addEventListener("keydown", onOpenModalKeydown);
+        };
+
+        let onOpenModalKeydown = function(event) {
+            if(event.key == "Escape") hideFeedbackModal();
         };
 
         let hideFeedbackModal = function() {
             feedbackModal.hide();
             modalOverlay.classList.add("modal-overlay--hidden");
+            document.removeEventListener("keydown", onOpenModalKeydown);
         };
 
         return {
@@ -77,6 +84,7 @@
             if(window.innerWidth < 900) {
                 treeViewerFsConfirm.show();
                 modalOverlay.classList.remove("modal-overlay--hidden");
+                modalOverlay.focus();
             } else {
                 appendixController.handleTreeMediaViewerFsBtnClick();
                 treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash);
