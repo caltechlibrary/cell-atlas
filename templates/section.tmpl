@@ -14,7 +14,7 @@
 
 ${section-text.tmpl()}
 
-<div class="modal-overlay modal-overlay--hidden">
+<div class="modal-overlay modal-overlay--hidden" tabindex="-1">
     ${for(subsectionsData)}
         ${it:modal.tmpl()}
     ${endfor}

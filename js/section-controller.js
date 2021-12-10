@@ -120,6 +120,7 @@
             let modal = modals[modalId];
             modal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
+            modalOverlay.focus();
             document.addEventListener("keydown", onOpenModalKeydown);
         };
 

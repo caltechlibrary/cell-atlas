@@ -41,6 +41,7 @@
         let openFeedbackModal = function() {
             feedbackModal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
+            modalOverlay.focus();
             document.addEventListener("keydown", onOpenModalKeydown);
         };
 
@@ -83,6 +84,7 @@
             if(window.innerWidth < 900) {
                 treeViewerFsConfirm.show();
                 modalOverlay.classList.remove("modal-overlay--hidden");
+                modalOverlay.focus();
             } else {
                 appendixController.handleTreeMediaViewerFsBtnClick();
                 treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash);
