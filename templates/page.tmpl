@@ -11,7 +11,7 @@
           ${if(typeChapter)}
             ${chapter.tmpl()}
           ${elseif(typeSection)}
-            ${section.tmpl()}
+            ${section/section.tmpl()}
           ${elseif(typeAppendix)}
             ${appendix/appendix.tmpl()}
           ${endif}
