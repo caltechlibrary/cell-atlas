@@ -12,7 +12,9 @@ let TreeViewer = function(root) {
     svgContainer.eventCache = [];
     svgContainer.prevMidPoint;
     svgContainer.prevDist;
-    svgContainer.zoomWeight = 1.025;
+    svgContainer.btnZoomWeight = 1.3;
+    svgContainer.wheelZoomWeight = 1.05;
+    svgContainer.touchZoomWeight = 1.025;
     svgContainer.curScale = 1;
     svgContainer.curTranslateX = 0;
     svgContainer.curTranslateY = 0;
@@ -79,7 +81,7 @@ let TreeViewer = function(root) {
     let onWheel = function(event) {
         event.preventDefault();
         forceClosePopUp();
-        zoomTree(event.clientX, event.clientY, (event.deltaY <= 0) ? svgContainer.zoomWeight : 1 / svgContainer.zoomWeight);
+        zoomTree(event.clientX, event.clientY, (event.deltaY <= 0) ? svgContainer.wheelZoomWeight : 1 / svgContainer.wheelZoomWeight);
     };
 
     let onPointerdown = function(event) {
@@ -108,7 +110,7 @@ let TreeViewer = function(root) {
             };
             if(this.prevMidPoint && this.prevDist) {
                 panTree(midPoint.clientX - this.prevMidPoint.clientX, midPoint.clientY - this.prevMidPoint.clientY);
-                if(Math.abs(dist - this.prevDist) > 0.998) zoomTree(midPoint.clientX, midPoint.clientY, (dist >= this.prevDist) ? this.zoomWeight : 1 / this.zoomWeight);
+                if(Math.abs(dist - this.prevDist) > 0.998) zoomTree(midPoint.clientX, midPoint.clientY, (dist >= this.prevDist) ? this.touchZoomWeight : 1 / this.touchZoomWeight);
             }
             this.prevMidPoint = midPoint;
             this.prevDist = dist;
@@ -151,18 +153,18 @@ let TreeViewer = function(root) {
 
     let onZoomInBtnClick = function(event) {
         let rootMidPoint = getMidpoint(root);
-        zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, svgContainer.zoomWeight);
+        zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, svgContainer.btnZoomWeight);
     };
 
     let onZoomOutBtnClick = function(event) {
         let rootMidPoint = getMidpoint(root);
-        zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, 1/ svgContainer.zoomWeight);
+        zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, 1 / svgContainer.btnZoomWeight);
     };
 
     let activateSpeciesEntryHash = function(id) {
         let speciesAnchor = root.querySelector(`.tree-viewer__species-anchor[data-species='${id}']`);
         let speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
-        zoomTree(speciesAnchorDimensions.left, speciesAnchorDimensions.top, svgContainer.zoomWeight * 2.5);
+        zoomTree(speciesAnchorDimensions.left, speciesAnchorDimensions.top, svgContainer.btnZoomWeight * 8);
         speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
         activateSpeciesEntry(id, speciesAnchorDimensions.left, speciesAnchorDimensions.top);
     };
