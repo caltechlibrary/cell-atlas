@@ -772,11 +772,16 @@ file. These definitions will be defined mobile first.
 
 .nav__appendix-entry {
     height: 2.625em;
-    padding-left: 0.75em;
     line-height: 2.625em;
     color: #757575;
     font-weight: 600;
     cursor: not-allowed;
+}
+
+@media (min-width:900px) {
+    .nav__appendix-entry {
+        padding-left: 0.75em;
+    }
 }
 
 .nav__hr-break {
