@@ -120,6 +120,11 @@
             let modal = modals[modalId];
             modal.show();
             modalOverlay.classList.remove("modal-overlay--hidden");
+            document.addEventListener("keydown", onOpenModalKeydown);
+        };
+
+        let onOpenModalKeydown = function(event) {
+            if(event.key == "Escape") hideModal();
         };
 
         let hideModal = function() {
@@ -127,6 +132,7 @@
             let modal = modals[modalEl.id];
             modal.hide();
             modalOverlay.classList.add("modal-overlay--hidden");
+            document.removeEventListener("keydown", onOpenModalKeydown);
         };
 
         let onModalOverlayClick = function(event) {
