@@ -1,4 +1,4 @@
-<div id="${it.id}" class="modal modal--hidden" tabindex="-1">
+<div id="${it.id}" class="modal modal--hidden" tabindex="-1" role="dialog" aria-labelledby="${it.title}-header" aria-modal="true">
     <div class="modal__modal-container ${if(it.feedback)}modal--feedback${endif}">
         ${if(it.treeViewerFsConfirm)}${else}
             <button class="modal__exit-btn">
@@ -35,7 +35,7 @@
                     <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
                 </button>
                 <div class="modal__text-container">
-                    <h1 class="modal__header">${it.title}</h1>
+                    <h1 id="${it.title}-header" class="modal__header">${it.title}</h1>
                     <div class="modal__text-content">
                         ${it.html}
                     </div>
