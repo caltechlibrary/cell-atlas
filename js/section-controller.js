@@ -2,7 +2,6 @@
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
-    let modalOverlay = document.querySelector(".modal-overlay");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
@@ -111,37 +110,10 @@
         let handleLearnMoreBtnContainerClick = function(event) {
             if(!event.target.classList.contains("learn-more__btn")) return;
             let learnMoreBtn = event.target;
+            let modal = modals[learnMoreBtn.value];
             if(!mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
             if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
-            openModal(learnMoreBtn.value);
-        };
-
-        let openModal = function(modalId) {
-            let modal = modals[modalId];
             modal.show();
-            modalOverlay.classList.remove("modal-overlay--hidden");
-            modalOverlay.focus();
-            document.addEventListener("keydown", onOpenModalKeydown);
-        };
-
-        let onOpenModalKeydown = function(event) {
-            if(event.key == "Escape") hideModal();
-        };
-
-        let hideModal = function() {
-            let modalEl = modalOverlay.querySelector(".modal:not(.modal--hidden)");
-            let modal = modals[modalEl.id];
-            modal.hide();
-            modalOverlay.classList.add("modal-overlay--hidden");
-            document.removeEventListener("keydown", onOpenModalKeydown);
-        };
-
-        let onModalOverlayClick = function(event) {
-            let modalEl = modalOverlay.querySelector(".modal:not(.modal--hidden)");
-            if(modalEl) {
-                let modal = modals[modalEl.id];
-                if(!modal.root.contains(event.target)) hideModal();
-            }
         };
 
         let handleMobileControlClick = function(event) {
@@ -196,9 +168,6 @@
             shelveText,
             unshelveText,
             handleLearnMoreBtnContainerClick,
-            openModal,
-            hideModal,
-            onModalOverlayClick,
             handleMobileControlClick,
             onDocumentKeydown
         };
@@ -249,16 +218,13 @@
 
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
-    modalOverlay.addEventListener("click", sectionController.onModalOverlayClick);
-
     for(let modalEl of modalEls) {
         let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
         let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
         let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
         let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer);
-        modal.exitBtn.addEventListener("click", sectionController.hideModal);
         modals[modal.root.id] = modal;
-        if(modalEl.id == hash) sectionController.openModal(modal.root.id);
+        if(modalEl.id == hash) modal.show();
     }
 
     mobileControls = MobileControls(mobileControlsEl);
