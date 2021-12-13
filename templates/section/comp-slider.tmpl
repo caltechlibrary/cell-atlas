@@ -1,19 +1,19 @@
-<div class="comp-slider comp-slider--hidden ${if(it.isSection)}comp-slider--main-section${else}comp-slider--subsection${endif}" data-offline="${offline}">
+<div class="comp-slider comp-slider--hidden ${if(it.isSection)}comp-slider--main-section${else}comp-slider--subsection${endif}" ${if(OFFLINE)}data-offline="true"${endif}>
     <picture class="comp-slider__before-picture" data-src="${it.sliderImgName}_before">
-        <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_before.webp">
-        <source type="image/jpeg" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_before.jpg">
+        ${if(OFFLINE)}${else}<source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_before.webp">${endif}
+        <source type="image/jpeg" srcset="${if(OFFLINE)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.sliderImgName}_before.jpg">
         <img 
             class="comp-slider__before-img ${if(it.isSection)}comp-slider__before-img--main-section${else}comp-slider__before-img--subsection${endif}"
-            src="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_before.jpg"
+            src="${if(OFFLINE)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.sliderImgName}_before.jpg"
         >
     </picture>
     <div class="comp-slider__after-img-container">
         <picture class="comp-slider__after-picture" data-src="${it.sliderImgName}_after">
-            <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_after.webp">
-            <source type="image/jpeg" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_after.jpg">
+            ${if(OFFLINE)}${else}<source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_after.webp">${endif}
+            <source type="image/jpeg" srcset="${if(OFFLINE)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.sliderImgName}_after.jpg">
             <img 
                 class="comp-slider__after-img"
-                src="https://www.cellstructureatlas.org/img/stillimages/${it.sliderImgName}_after.jpg"
+                src="${if(OFFLINE)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.sliderImgName}_after.jpg"
             >
         </picture>
     </div>
