@@ -159,6 +159,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
 
 def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
     offlineMetadata = copy.deepcopy(metadata)
+    offlineMetadata["OFFLINE"] = True
     pandocArgs = [
         "pandoc", 
         "--from=markdown", 
