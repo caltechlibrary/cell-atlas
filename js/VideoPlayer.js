@@ -26,17 +26,21 @@ let VideoPlayer = function(root) {
     let src1080, src480, paintInterval, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, fps = 10, scrubImages = {};
 
     let init = function() {
-        src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
-        if(doi) {
-            fetch(`https://api.datacite.org/dois/${doi}/media`)
-                .then(res => res.json())
-                .then(function(data) {
-                    src1080 = data.data[0].attributes.url;
-                    initSrc();
-                });
+        if(root.getAttribute("data-offline")) {
+            loadSrc(`videos/${vidName}.mp4`);
         } else {
-            src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
-            initSrc();
+            src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
+            if(doi) {
+                fetch(`https://api.datacite.org/dois/${doi}/media`)
+                    .then(res => res.json())
+                    .then(function(data) {
+                        src1080 = data.data[0].attributes.url;
+                        initSrc();
+                    });
+            } else {
+                src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
+                initSrc();
+            }
         }
     };
 

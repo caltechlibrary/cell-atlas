@@ -180,9 +180,11 @@ def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
                 videoName = offlineMetadata["video"]
             smallVideoName = videoName.split(".")[0] + "_480p." + videoName.split(".")[1]
             offlineMetadata["vidMetadata"]["video"] = smallVideoName
+            offlineMetadata["vidMetadata"]["vidName"] = smallVideoName.split(".")[0]
     else:
         if("doi" in offlineMetadata):
             offlineMetadata["vidMetadata"]["video"] = movieDict[offlineMetadata["doi"]]
+            offlineMetadata["vidMetadata"]["vidName"] = movieDict[offlineMetadata["doi"]].split(".")[0]
 
     if "subsectionsData" in offlineMetadata and offlineMetadata["subsectionsData"]:
         for i in range(len(offlineMetadata["subsectionsData"])):
@@ -194,9 +196,11 @@ def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
                     elif("video" in offlineMetadata["subsectionsData"][i]):
                         subVideoName = offlineMetadata["subsectionsData"][i]["video"]
                     offlineMetadata["subsectionsData"][i]["video"] = subVideoName.split(".")[0] + "_480p." + subVideoName.split(".")[1]
+                    offlineMetadata["subsectionsData"][i]["vidName"] = subVideoName.split(".")[0] + "_480p"
             else:
                 if("doi" in offlineMetadata["subsectionsData"][i]):
                     offlineMetadata["subsectionsData"][i]["video"] = movieDict[offlineMetadata["subsectionsData"][i]["doi"]]
+                    offlineMetadata["subsectionsData"][i]["vidName"] = movieDict[offlineMetadata["subsectionsData"][i]["doi"]].split(".")[0]
     
     with open("metadataOffline.json", "w", encoding='utf-8') as f:
         json.dump(offlineMetadata, f)
