@@ -40,7 +40,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add ID for the video player if there is one
     if "doi" in metadata or "video" in metadata: 
         metadata["vidMetadata"] = {}
-        metadata["vidMetadata"]["narrationSrc"] = pageName
+        metadata["vidMetadata"]["narrationSrc"] = "1_1"
         metadata["vidMetadata"]["isSection"] = True
         metadata["vidMetadata"]["video"] = metadata["video"]
         metadata["vidMetadata"]["vidName"] = metadata["video"].split(".")[0]
@@ -234,8 +234,7 @@ def processSubsection(subsectionFile, pageName, parentData):
             addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
             metadata["speciesId"] = metadata["species"].replace(" ", "-")
 
-    metadata["narrationSrc"] = metadata["id"]
-
+    metadata["narrationSrc"] = "1_1"
     # Check if collector profile exist in in scientist profiles
     addCollectorData(metadata, "collector")
     addCollectorData(metadata, "source")
