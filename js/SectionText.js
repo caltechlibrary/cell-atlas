@@ -37,12 +37,10 @@ let SectionText = function(root, narrationPlayer) {
         if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
     };
 
-    if(narrationPlayer) {
-        narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
-        narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
-        narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);
-        stopNarrationBtn.addEventListener("click", onStopNarrationBtnClick);
-    }
+    narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
+    narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
+    narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);
+    stopNarrationBtn.addEventListener("click", onStopNarrationBtnClick);
 
     return {
         root,

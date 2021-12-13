@@ -34,6 +34,7 @@ def getMarkdownMetadata(file):
     return json.loads(process.stdout)
 
 def writePage(siteDir, sourceFile, template, pageName, metadata):
+    metadata["narrationPostponed"] = False
     # Add site navigation to metadata
     metadata["nav"] = siteNav
     metadata["navData"] = { "nav": True }
