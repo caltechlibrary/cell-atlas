@@ -744,8 +744,3 @@ writePage(SITEDIR, "download.md", "page", "download", metadata)
 # Render data dict for search index
 with open("{}/searchData.json".format(SITEDIR), "w", encoding="utf-8") as f:
     json.dump(searchData, f, indent="\t")
-
-# Render search test page
-metadata = {}
-metadata["title"] = "Search Test"
-writePage(SITEDIR, "search-test.md", "search-test", "search-test", metadata)
