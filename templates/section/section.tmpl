@@ -7,9 +7,11 @@
     ${endif}
     <a href="${nextSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="next" aria-label="Next section">${svg/right-nav.svg()}</a>
 
-    <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
-        <div class="main-non-text-container__stop-narration-btn-icon">${svg/mute.svg()}</div>
-    </button>
+    ${if(vidMetadata.narrationSrc)}
+        <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
+            <div class="main-non-text-container__stop-narration-btn-icon">${svg/mute.svg()}</div>
+        </button>
+    ${endif}
 </div>
 
 ${section/section-text.tmpl()}
