@@ -1803,6 +1803,10 @@ file. These definitions will be defined mobile first.
     margin-left: auto;
 }
 
+.video-player__quality-changer--hidden {
+    visibility: hidden;
+}
+
 .video-player__quality-changer-open-btn {
     position: relative;
     box-sizing: border-box;
