@@ -1564,6 +1564,10 @@ file. These definitions will be defined mobile first.
     box-shadow: 0px 0px 0 2px #fff;
 }
 
+.section-text__toggle-narration-btn--postponed {
+    display: none;
+}
+
 .section-text__toggle-narration-btn-icon--hidden {
     display: none;    
 }
@@ -2333,6 +2337,10 @@ file. These definitions will be defined mobile first.
 
 .modal__toggle-narration-btn--activated {
     box-shadow: 0px 0px 0 2px #000;
+}
+
+.modal__toggle-narration-btn--postponed {
+    display: none;
 }
 
 .modal__toggle-narration-btn-icon--hidden {
