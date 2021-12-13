@@ -1177,8 +1177,31 @@
                       	</g>
                       </svg></a>
 
-                                  <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
-                                  <div class="main-non-text-container__stop-narration-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                          <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
+                              <div class="main-non-text-container__stop-narration-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      	<g>
+                      		<g transform="translate(1.9998 1)">
+                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                      					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                      						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                      						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                      					</g>
+                      				</g>
+                      			</g>
+                      		</g>
+                      	</g>
+                      </svg></div>
+                          </button>
+                      </div>
+
+                      <div class="section-text">
+                          <div class="section-text__unshelve-btn-container section-text__unshelve-btn-container--hidden">
+                              <button class="section-text__unshelve-btn" aria-label="Show text">&#8249;&#8249; Text</button>
+                              <button class="section-text__stop-narration-btn section-text__stop-narration-btn--hidden" aria-label="Stop narration">
+                                  <div class="section-text__stop-narration-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       	<g>
                       		<g transform="translate(1.9998 1)">
                       			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
@@ -1196,12 +1219,65 @@
                       </svg></div>
                               </button>
                           </div>
-
-                      <div class="section-text">
-                          <div class="section-text__unshelve-btn-container section-text__unshelve-btn-container--hidden">
-                              <button class="section-text__unshelve-btn" aria-label="Show text">&#8249;&#8249; Text</button>
-                                          <button class="section-text__stop-narration-btn section-text__stop-narration-btn--hidden" aria-label="Stop narration">
-                                      <div class="section-text__stop-narration-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                          <div class="section-text__main-container section-text__main-container--no-learn-more">
+                              <div class="section-text__text-container">
+                                  <div
+                                      id="narrationPlayer-main"
+                                      class="narration-player narration-player--hidden"
+                                      data-src="https://www.cellstructureatlas.org/audio/1_1.mp3"
+                                      tabindex="0"
+                                  >
+                                      <button class="narration-player__playback-btn" aria-label="Play" disabled>
+                                          <div class="narration-player__playback-btn-icon narration-player__playback-btn-icon--section-text narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                  	<g>
+                                  		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
+                                  	</g>
+                                  </svg></div>
+                                          <div class="narration-player__playback-btn-icon narration-player__playback-btn-icon--section-text narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                  	<g>
+                                  		<g transform="translate(2,1)">
+                                  			<rect x="3" y="2" width="8" height="26"/>
+                                  			<rect x="17" y="2" width="8" height="26"/>
+                                  		</g>
+                                  	</g>
+                                  </svg></div>
+                                      </button>
+                                      <input 
+                                          class="narration-player__seekbar narration-player__seekbar--section-text"
+                                          aria-label="audio time scrubber 0:00 / 0:00"
+                                          aria-valuetext="elapsed time: 0:00"
+                                          type="range" value="0" min="0" disabled
+                                      />
+                                      <span class="narration-player__time-display">
+                                          <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
+                                          <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
+                                      </span>
+                                      <audio class="narration-player__audio-el">
+                                          <source type="audio/mpeg">
+                                          Your browser doesn't support HTML5 audio.
+                                      </audio>
+                                  </div>
+                                  <div class="section-text__header-container">
+                                      <button class="section-text__shelve-btn" aria-label="Hide text">&#8250;&#8250; Text</button>
+                                      <div class="section-text__header-divider"></div>
+                                      <h1 class="section-text__title">Monoderm Germination</h1>
+                                  </div>
+                                   <button class="section-text__toggle-narration-btn " aria-label="Open narration player">
+                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      	<g>
+                      		<g transform="translate(1.9998 1)">
+                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                      					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                      					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                      				</g>
+                      			</g>
+                      		</g>
+                      	</g>
+                      </svg></div>
+                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       	<g>
                       		<g transform="translate(1.9998 1)">
                       			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
@@ -1218,83 +1294,7 @@
                       	</g>
                       </svg></div>
                                   </button>
-                                  </div>
-                          <div class="section-text__main-container section-text__main-container--no-learn-more">
-                              <div class="section-text__text-container">
-                                  <div
-                          id="narrationPlayer-main"
-                          class="narration-player narration-player--hidden"
-                          data-src="https://www.cellstructureatlas.org/audio/1_1.mp3"
-                          tabindex="0"
-                      >
-                          <button class="narration-player__playback-btn" aria-label="Play" disabled>
-                              <div class="narration-player__playback-btn-icon narration-player__playback-btn-icon--section-text narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      	<g>
-                      		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
-                      	</g>
-                      </svg></div>
-                              <div class="narration-player__playback-btn-icon narration-player__playback-btn-icon--section-text narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                      	<g>
-                      		<g transform="translate(2,1)">
-                      			<rect x="3" y="2" width="8" height="26"/>
-                      			<rect x="17" y="2" width="8" height="26"/>
-                      		</g>
-                      	</g>
-                      </svg></div>
-                          </button>
-                          <input 
-                              class="narration-player__seekbar narration-player__seekbar--section-text"
-                              aria-label="audio time scrubber 0:00 / 0:00"
-                              aria-valuetext="elapsed time: 0:00"
-                              type="range" value="0" min="0" disabled
-                          />
-                          <span class="narration-player__time-display">
-                              <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
-                              <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
-                          </span>
-                          <audio class="narration-player__audio-el">
-                              <source type="audio/mpeg">
-                              Your browser doesn't support HTML5 audio.
-                          </audio>
-                      </div>
-                                  <div class="section-text__header-container">
-                                      <button class="section-text__shelve-btn" aria-label="Hide text">&#8250;&#8250; Text</button>
-                                      <div class="section-text__header-divider"></div>
-                                      <h1 class="section-text__title">Monoderm Germination</h1>
-                                  </div>
-                                                   <button class="section-text__toggle-narration-btn" aria-label="Open narration player">
-                                          <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      	<g>
-                      		<g transform="translate(1.9998 1)">
-                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                      					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                      					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                      				</g>
-                      			</g>
-                      		</g>
-                      	</g>
-                      </svg></div>
-                                          <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      	<g>
-                      		<g transform="translate(1.9998 1)">
-                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                      					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                      						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                      						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                      					</g>
-                      				</g>
-                      			</g>
-                      		</g>
-                      	</g>
-                      </svg></div>
-                                      </button>
-                                              <div class="section-text__content" tabindex="0">
+                                  <div class="section-text__content" tabindex="0">
                                       <p>When conditions become conducive to growth, the spore will return to an active state, shedding its protein coat and outer membrane and dismantling its cortex to allow outgrowth of the reviving cell, as you see in this <strong>germinating</strong> <em>Bacillus subtilis</em> spore.</p>
                                       <p>The ready transition between a monoderm cell with a thick cell wall and a diderm spore with a thin septal wall may provide a hint to the origin of diderm bacterial cells. Perhaps spores, released prematurely from their mothers before their septum had thickened into a full cortex, kept growing and dividing with both membranes and a thin cell wall. Over many generations, evolution could then tinker with the second membrane, specializing it into the modern bacterial outer membrane.</p>
                                   </div>
