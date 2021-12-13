@@ -100,7 +100,7 @@ let VideoPlayer = function(root) {
             controlsContainer.addEventListener("transitionend", onControlsContainerTransitionEndMobile);
             root.addEventListener("fullscreenchange", onMobileFullscreenchange);
         }
-        if(window.innerWidth > 900 && window.createImageBitmap) {
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
             window.addEventListener("resize", resizeScrubCanvas);
             video.addEventListener("playing", startPaintInterval);
             video.addEventListener("pause", endPaintInterval);
