@@ -6,6 +6,7 @@ let NarrationPlayer = function(root) {
     let totalTimeDisplay = root.querySelector(".narration-player__total-time-display");
     let audio = root.querySelector(".narration-player__audio-el");
     let initialized = false;
+    let totalTime;
 
     let init = function() {
         let audioSrcEl = audio.querySelector("source");
@@ -17,18 +18,19 @@ let NarrationPlayer = function(root) {
 
     let onLoadedmetadata = function() {
         seekBar.setAttribute("max", Math.round(audio.duration));
-        setSeekbarValue();
-        setTimeDisplay();
+        totalTime = getFormattedTime(audio.duration);
+        totalTimeDisplay.replaceChild(document.createTextNode(`/ ${totalTime}`), totalTimeDisplay.firstChild);
+        totalTimeDisplay.setAttribute("aria-label", `total time: ${totalTime}`);
+        updateCurrentTime();
+        attachEventListeners();
         playbackBtn.disabled = false;
         seekBar.disabled = false;
-        attachEventListeners();
     };
 
     let attachEventListeners = function() {
         audio.addEventListener("play", onPlaybackChange);
         audio.addEventListener("pause", onPlaybackChange);
-        audio.addEventListener("timeupdate", setSeekbarValue);
-        audio.addEventListener("timeupdate", setTimeDisplay);
+        audio.addEventListener("timeupdate", updateCurrentTime);
         playbackBtn.addEventListener("click", togglePlayback);
         seekBar.addEventListener("mousedown", onSeekbarMousedown);
         seekBar.addEventListener("keydown", onSeekbarKeydown);
@@ -36,24 +38,13 @@ let NarrationPlayer = function(root) {
         seekBar.addEventListener("input", onSeekbarInput);
     };
 
-    let setSeekbarValue = function() {
-        seekBar.value = audio.currentTime;
-        seekBar.setAttribute("aria-label", `audio time scrubber ${getFormattedTime(audio.currentTime)} / ${getFormattedTime(audio.duration)}`);
-        seekBar.setAttribute("aria-valuetext", `elapsed time: ${getFormattedTime(audio.currentTime)}`);
-    };
-
-    let setTimeDisplay = function() {
+    let updateCurrentTime = function() {
         let currentTime = getFormattedTime(audio.currentTime);
-        let currentTimeTextNode = document.createTextNode(`${currentTime} `);
-        if(currentTimeDisplay.firstChild) currentTimeDisplay.removeChild(currentTimeDisplay.firstChild);
-        currentTimeDisplay.appendChild(currentTimeTextNode);
+        currentTimeDisplay.replaceChild(document.createTextNode(`${currentTime} `), currentTimeDisplay.firstChild);
         currentTimeDisplay.setAttribute("aria-label", `elapsed time: ${currentTime}`);
-
-        let totalTime = getFormattedTime(audio.duration);
-        let totalTimeTextNode = document.createTextNode(`/ ${totalTime}`);
-        if(totalTimeDisplay.firstChild) totalTimeDisplay.removeChild(totalTimeDisplay.firstChild);
-        totalTimeDisplay.appendChild(totalTimeTextNode);
-        totalTimeDisplay.setAttribute("aria-label", `total time: ${totalTime}`);
+        seekBar.value = audio.currentTime;
+        seekBar.setAttribute("aria-label", `audio time scrubber ${currentTime} / ${totalTime}`);
+        seekBar.setAttribute("aria-valuetext", `elapsed time: ${currentTime}`);
     };
 
     let getFormattedTime = function(seconds) {
