@@ -112,7 +112,7 @@
             let learnMoreBtn = event.target;
             let modal = modals[learnMoreBtn.value];
             if(!mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
-            if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
+            if(mainNarrationPlayer && !mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
             modal.show();
         };
 
@@ -201,16 +201,18 @@
     if(mainMediaViewer.videoPlayer) mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
     
     if(window.createImageBitmap && mainMediaViewer.videoPlayer) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
-    mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
+    if(mainStopNarrationButtonMobile) mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
         let narrationPlayer = NarrationPlayer(narrationPlayerEl);
         narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
     };
 
-    mainNarrationPlayer = narrationPlayers["narrationPlayer-main"];
-    mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
-    mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
+    if(narrationPlayers["narrationPlayer-main"]) {
+        mainNarrationPlayer = narrationPlayers["narrationPlayer-main"];
+        mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
+        mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
+    }
 
     sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);
