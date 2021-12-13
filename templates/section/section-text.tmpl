@@ -1,22 +1,26 @@
 <div class="section-text">
     <div class="section-text__unshelve-btn-container section-text__unshelve-btn-container--hidden">
         <button class="section-text__unshelve-btn" aria-label="Show text">&#8249;&#8249; Text</button>
-        <button class="section-text__stop-narration-btn section-text__stop-narration-btn--hidden" aria-label="Stop narration">
-            <div class="section-text__stop-narration-btn-icon">${svg/mute.svg()}</div>
-        </button>
+        ${if(vidMetadata.narrationSrc)}
+            <button class="section-text__stop-narration-btn section-text__stop-narration-btn--hidden" aria-label="Stop narration">
+                <div class="section-text__stop-narration-btn-icon">${svg/mute.svg()}</div>
+            </button>
+        ${endif}
     </div>
     <div class="section-text__main-container ${if(subsectionsData)}${else}section-text__main-container--no-learn-more${endif}">
         <div class="section-text__text-container">
-            ${vidMetadata:section/narration-player.tmpl()}
+            ${if(vidMetadata.narrationSrc)}${vidMetadata:section/narration-player.tmpl()}${endif}
             <div class="section-text__header-container">
                 <button class="section-text__shelve-btn" aria-label="Hide text">&#8250;&#8250; Text</button>
                 <div class="section-text__header-divider"></div>
                 <h1 class="section-text__title">${title}</h1>
             </div>
-            <button class="section-text__toggle-narration-btn" aria-label="Open narration player">
-                <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
-                <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
-            </button>
+             ${if(vidMetadata.narrationSrc)}
+                <button class="section-text__toggle-narration-btn" aria-label="Open narration player">
+                    <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
+                    <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
+                </button>
+            ${endif}
             <div class="section-text__content" tabindex="0">
                 ${body}
             </div>

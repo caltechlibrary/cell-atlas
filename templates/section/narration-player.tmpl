@@ -1,7 +1,7 @@
 <div
     id="${if(it.isSection)}narrationPlayer-main${else}narrationPlayer-${it.id}${endif}"
     class="narration-player narration-player--hidden"
-    data-src="https://www.cellstructureatlas.org/audio/1_1.mp3"
+    data-src="https://www.cellstructureatlas.org/audio/${it.narrationSrc}.mp3"
     tabindex="0"
 >
     <button class="narration-player__playback-btn" aria-label="Play" disabled>
