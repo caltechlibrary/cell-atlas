@@ -1,4 +1,4 @@
-<div class="search-widget ${if(it.nav)}search-widget--nav-menu${else}search-widget--header${endif}">
+<div class="search-widget ${if(it.nav)}search-widget--nav-menu${else}search-widget--header${endif} ${if(OFFLINE)}search-widget--hidden${endif}">
     ${if(it.nav)}${else}
         <button class="search-widget__open-btn" aria-controls="search-bar" aria-expanded="false">
             <div class="search-widget__search-icon search-widget__search-icon--header">${svg/search.svg()}</div>

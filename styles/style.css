@@ -1183,6 +1183,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.search-widget--hidden {
+    display: none;
+}
+
 .search-widget__open-btn {
     position: absolute;
     left: 0;
