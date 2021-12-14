@@ -1,6 +1,6 @@
 let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer) {
 
-    let modalContainer = document.querySelector(".modal__modal-container");
+    let modalContainer = root.querySelector(".modal__modal-container");
     let exitBtn = root.querySelector(".modal__exit-btn");
     let contentContainer = root.querySelector(".modal__content-container");
     let openProteinViewerBtn = root.querySelector(".vid-metadata__viewer-btn");
