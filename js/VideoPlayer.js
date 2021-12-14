@@ -70,7 +70,7 @@ let VideoPlayer = function(root) {
     let initPlayer = function() {
         formattedDuration = getFormattedTime(video.duration);
         updateTimeDisplay();
-        if(window.createImageBitmap) resizeScrubCanvas();
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) resizeScrubCanvas();
         attachEventListeners();
     };
 
@@ -233,7 +233,7 @@ let VideoPlayer = function(root) {
         video.removeEventListener("timeupdate", updateSeekBar);
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
         seekBar.removeEventListener("keydown", onSeekBarKeyDown);
-        if(window.createImageBitmap) {
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
             video.removeEventListener("seeked", paintCurrentFrame);
             seekBar.removeEventListener("mousedown", showScrubCanvas);
             seekBar.removeEventListener("keydown", onKeyDownShowScrub);
@@ -256,7 +256,7 @@ let VideoPlayer = function(root) {
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
-        if(window.createImageBitmap) {
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
             video.addEventListener("seeked", paintCurrentFrame);
             seekBar.addEventListener("mousedown", showScrubCanvas);
             seekBar.addEventListener("keydown", onKeyDownShowScrub);
