@@ -1183,6 +1183,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.search-widget--hidden {
+    display: none;
+}
+
 .search-widget__open-btn {
     position: absolute;
     left: 0;
@@ -1801,6 +1805,10 @@ file. These definitions will be defined mobile first.
 .video-player__quality-changer {
     position: relative;
     margin-left: auto;
+}
+
+.video-player__quality-changer--hidden {
+    visibility: hidden;
 }
 
 .video-player__quality-changer-open-btn {

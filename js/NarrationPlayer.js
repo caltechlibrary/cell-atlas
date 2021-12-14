@@ -11,7 +11,11 @@ let NarrationPlayer = function(root) {
     let init = function() {
         let audioSrcEl = audio.querySelector("source");
         audio.addEventListener("loadedmetadata", onLoadedmetadata, { once: true });
-        audioSrcEl.setAttribute("src", root.getAttribute("data-src"));
+        if(root.getAttribute("data-offline")) {
+            audioSrcEl.setAttribute("src", `audio/${root.getAttribute("data-src")}`);
+        } else {
+            audioSrcEl.setAttribute("src", `https://www.cellstructureatlas.org/audio/${root.getAttribute("data-src")}`);
+        }
         audio.load();
         this.initialized = true;
     };
