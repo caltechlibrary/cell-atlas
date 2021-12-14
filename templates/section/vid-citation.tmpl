@@ -38,7 +38,7 @@
             <span class="vid-metadata__key">Structure:</span>
             ${for(it.structures)}
                 <a class="vid-metadata__value vid-metadata__link" href="${it.link}">${it.text}</a>
-                ${if(offline)}${else}${if(it.viewerId)}<button class="vid-metadata__viewer-btn" value="${it.viewerId}"></button>${endif}${endif}
+                ${if(OFFLINE)}${else}${if(it.viewerId)}<button class="vid-metadata__viewer-btn" value="${it.viewerId}"></button>${endif}${endif}
                 ${if(it.last)}${else}<span  class="vid-metadata__text">, </span>${endif}
             ${endfor}
         </div>
