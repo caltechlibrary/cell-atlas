@@ -15,10 +15,15 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
             setTimeout(mainMediaViewer.videoPlayer.resizeScrubCanvas, 200);
         }
         document.addEventListener("keydown", onOpenModalKeyDown);
+        document.addEventListener("focusin", ononDocumentFocusIn);
     };
 
     let onOpenModalKeyDown = function(event) {
         if(event.key == "Escape") hide();
+    };
+
+    let ononDocumentFocusIn = function(event) {
+        if(!root.contains(event.target)) root.focus();
     };
 
     let hide = function() {
@@ -37,6 +42,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
         root.classList.add("modal--hidden");
         if(contentContainer) contentContainer.setAttribute("tabindex", -1);
         document.removeEventListener("keydown", onOpenModalKeyDown);
+        document.removeEventListener("focusin", ononDocumentFocusIn);
     };
 
     let onRootClick = function(event) {
