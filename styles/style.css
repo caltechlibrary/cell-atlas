@@ -545,6 +545,7 @@ file. These definitions will be defined mobile first.
         position: static;
         height: 80px;
         padding: 0 24px;
+        z-index: 4;
     }
 }
 
