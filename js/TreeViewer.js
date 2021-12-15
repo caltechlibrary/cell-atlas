@@ -83,6 +83,7 @@ let TreeViewer = function(root) {
     };
 
     let onPointerdown = function(event) {
+        event.preventDefault();
         eventCache.push(event);
         forceClosePopUp();
     };
