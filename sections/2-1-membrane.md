@@ -6,6 +6,7 @@ video: 2_1_Mgenitalium.mp4
 videoAlt: 2_1.png
 collector: Gregory Henderson
 subsections: ['lipid-bilayer', 'atp-synthase', 'ribosome']
+description: A phospholipid membrane encloses the contents of all cells, including monoderm Mycoplasma genitalium bacteria, and lets ATP synthase generate energy.
 ---
 
 The fundamental unit of life is the **cell**–a contained self-replicating assembly. For many species, including all bacteria and archaea, the organism consists of a single cell. And for nearly all species, no matter how many cells an organism eventually contains (probably around 10 trillion in your case), it started life as a single cell (an egg, in your case). The details vary, but every cell on Earth is the same at heart–a DNA-based replicating machine built from just four macromolecules:  nucleic acids, proteins, lipids and carbohydrates. In the environment, molecules interact rarely and randomly. Bringing them together enables the reproducible reactions required for life. So no matter what the first self-replicating molecules were (likely <u>r</u>ibo<u>n</u>ucleic <u>a</u>cid, or RNA), they were not a cell until they acquired a container.

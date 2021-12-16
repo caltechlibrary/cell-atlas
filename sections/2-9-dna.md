@@ -6,6 +6,7 @@ video: 2_9_Hargentinensis.mp4
 videoAlt: 2_9.png
 collector: Ariane Briegel
 subsections: []
+description: The DNA in the genomes of bacteria and archaea, like Haloarcula argentinensis, is very thin (~2 nm wide), but can be seen when a cell lyses.
 ---
 
 All the layers we just discussed collectively make up the container, or **envelope**, of a cell. As you have seen, different species use different combinations of these components to form their envelopes; the only constant is the cytoplasmic (or inner, for diderms) membrane.

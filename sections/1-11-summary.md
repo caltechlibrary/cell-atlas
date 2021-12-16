@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 1 of the Atlas of Bacterial & Archaeal Cell Structure covers methods used to visualize cells and their components.
 ---
 
 ## Concept Check Questions 
@@ -20,4 +21,4 @@ title: Summary
 
 • Ruska (1987). *Nobel Lecture: The development of the electron microscope and of electron microscopy* [@ruska1987].
 
-• Tsien (2005). *Breeding molecules to spy on cells* [@tsien2005]  
+• Tsien (2005). *Breeding molecules to spy on cells* [@tsien2005].  

@@ -6,6 +6,7 @@ video: 3_3_Hgracilis.mp4
 videoAlt: 3_3.png
 collector: Yi-Wei Chang
 subsections: []
+description: Rod-shaped archaeal and bacterial cells like Hylemonella gracilis can grow longer without significantly changing their ratio of surface area to volume.
 ---
 
 Rod-shaped cells have a useful property: they can grow by extending their length without significantly changing the ratio of their surface area to volume, which would in turn change how efficiently they can take up nutrients from the environment. This property enables an impressive range of lengths for rod-shaped cells, from the short *Cupriavidus necator* you just saw, to this much longer *Hylemonella gracilis*.

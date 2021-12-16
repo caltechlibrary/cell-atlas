@@ -83,8 +83,7 @@
           "species":"Methanoregula formicica",
           "ref":{
              "section":"6-8-archaellum",
-             "subsection":"archaellum-structure",
-             "label":"6.8 Archaellum: Archaellum structure"
+             "label":"6.8 Archaellum"
           }
        },
        {
@@ -1104,15 +1103,15 @@
        {
           "species":"Caulobacter crescentus",
           "ref":{
-             "section":"10-6-head-fibers",
-             "label":"10.6 Head Fibers"
+             "section":"2-6-surface-layer",
+             "label":"2.6 Surface Layer"
           }
        },
        {
           "species":"Caulobacter crescentus",
           "ref":{
-             "section":"2-6-surface-layer",
-             "label":"2.6 Surface Layer"
+             "section":"4-1-stalk-bands",
+             "label":"10.6 Stalk Bands"
           }
        },
        {
@@ -1122,6 +1121,13 @@
              "label":"8.4 Differentiation"
           }
        },
+       {
+           "species":"Caulobacter crescentus",
+           "ref":{
+              "section":"10-6-head-fibers",
+              "label":"10.6 Head Fibers"
+           }
+        },
        {
           "species":"Cupriavidus necator",
           "ref":{
@@ -5463,6 +5469,14 @@
        {
           "species":"Caulobacter crescentus",
           "ref":{
+             "section":"1-10-putting-it-all-together",
+             "subsection":"clem"
+             "label":"1.10 Putting It All Together: CLEM"
+          }
+       },
+       {
+          "species":"Caulobacter crescentus",
+          "ref":{
              "section":"4-1-stalk-bands",
              "label":"4.1 Stalk Bands"
           }
@@ -6460,6 +6474,13 @@
           "ref":{
              "section":"8-9-diderm-sporulation",
              "label":"8.9 Diderm Sporulation"
+          }
+       },
+       {
+          "species":"Agrobacterium tumefaciens",
+          "ref":{
+             "section":"5-8-asymmetric-division",
+             "label":"5.8 Asymmetric Division"
           }
        },
        {

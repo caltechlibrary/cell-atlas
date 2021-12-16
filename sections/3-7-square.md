@@ -6,6 +6,7 @@ video: 3_7_Hwalsbyi.mp4
 videoAlt: 3_7.png
 collector: Zhuo Li
 subsections: ['gas-vesicles']
+description: Gas vesicles help bacteria and archaea like Halobacterium salinarum and thin, square-shaped Haloquadratum walsbyi float.
 ---
 
 So far we have focused on bacteria, but archaea hold their own in the specialized shape competition. In fact, one of the most extreme examples of maximizing surface area relative to volume comes from this archaeon, *Haloquadratum walsbyi*, which grows as thin, square tiles. *Very* thin, square tiles. This property helps keep them oriented with their broad sides to the sun, whose light they rely on for photosynthesis. To float at the surface of the super-salty lakes where they live, they use gas vesicles (⇩).

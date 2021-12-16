@@ -6,6 +6,7 @@ video: 2_2_Lmonocytogenes.mp4
 videoAlt: 2_2.png
 collector: Ariane Briegel
 subsections: ['peptidoglycan-architecture', 'archaeal-cell-walls']
+description: A rigid peptidoglycan cell wall supports bacteria like Listeria monocytogenes.  Some archaea like Methanobacterium formicicum use a related structure.
 ---
 
 Being able to selectively move things into your cell enables it to do some powerful things. It also poses a structural problem. Remember that water can pass freely through the membrane, which means that increasing the solute concentration inside relative to the environment outside will cause water to rush in as well, introducing a pressure (known as **turgor pressure**) on the membrane. Lipid bilayers, unfortunately, are unable to withstand much pressure. If your cell lives exclusively in a constant, and fairly high-osmolarity, environment (like our bodies, in the case of the pathogenic *Mycoplasma genitalium* you just saw), it can balance internal and external osmolarity to minimize turgor pressure on its membrane. But most cells experience more variable, and dilute, environments. How could you keep your cell from bursting in such conditions?

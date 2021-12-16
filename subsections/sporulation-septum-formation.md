@@ -7,5 +7,5 @@ videoAlt: 8_5a.png
 collector: Elitza Tocheva
 ---
 
-From hundreds of sporulating *Bacillus subtilis* we imaged by cryo-ET, this is the only cell captured in the process of forming a septum. As you can see, it is at a very early stage in the process. The fact that we do not see more intermediates suggests that once the septum starts to form, it quickly proceeds to completion.
+The sporulation septum forms much like the division septum, as you can see in this *Bacillus subtilis* at a very early stage of the process; FtsZ draws in the membrane and directs cell wall to be built behind it. The arrangement of FtsZ is slightly different, though, with filaments forming on only one face of the division plane (facing the larger compartment of the cell). A sporulation-specific protein excludes them from the other side (facing the smaller compartment that will become the spore). This asymmetry likely explains why sporulation septa are thinner, with fewer layers of peptidoglycan, than division septa.
 

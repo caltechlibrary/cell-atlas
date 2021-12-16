@@ -6,6 +6,7 @@ video: 3_1_Snegevensis.mp4
 videoAlt: 3_1.png
 collector: Martin Pilhofer
 subsections: []
+description: Coccoid bacterial cells like Simkania negevensis are spherical and have maximal volume relative to surface area.
 ---
 
 What kind of life do you envision for your cell? Just as the design of buildings reflects their purpose, different cell shapes suit different lifestyles. Does your cell need to soak up sunlight for photosynthesis? Burrow through the tissue of a host? Chase down prey? Each lifestyle is best served by a particular form.

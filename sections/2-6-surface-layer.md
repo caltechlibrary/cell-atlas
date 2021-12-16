@@ -6,6 +6,7 @@ video: 2_6_Ccrescentus.mp4
 videoAlt: 2_6.png
 collector: Ariane Briegel
 subsections: ['surface-layer-architecture', 'nanopods']
+description: An external surface layer of protein protects some bacteria like Caulobacter crescentus and Delftia acidovorans. S-layer around vesicles forms nanopods.
 ---
 
 How else can you protect your cell from the rigors of a harsh world? What about encasing it in an armored shell a la the armadillo? Many bacteria (both monoderms and diderms) and archaea use modular proteins for this purpose, interlocking Lego-block-like pieces into a shell called the **surface layer**. This must offer a significant evolutionary advantage since up to 15% of the total protein in the cell can be found in the structure. In fact, surface layers play many roles for cells, but one of their main functions for bacteria is as a gatekeeper, preventing large things like viruses from reaching the membrane.
