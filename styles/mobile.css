@@ -93,7 +93,7 @@ blockquote {
     line-height: 1.34em;
 }
 
-#nonTextContent, .footer-container, .book-page-nav, .header-logo, .book-section-text-close-button, 
+.footer-container, .book-page-nav, .header-logo, .book-section-text-close-button, 
 .book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
 .nav-menu-footer, .landing-page-download-button, .book-section-video-player-scrub-canvas,
 .book-section-video-player-paint-canvas, .book-section-video-player-controls,
@@ -119,6 +119,12 @@ blockquote {
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+    }
+
+    .landing-page-container--preview-banner {
+        position: relative;
+        height: 100vh;
+        padding: 0;
     }
 
     .landing-page-background-overlay {
@@ -198,47 +204,6 @@ blockquote {
         line-height: 1
     }
 
-    /* || HEADER styles */
-    header {
-        position: fixed;
-        top: 0;
-        z-index: 2;
-        width: 100%;
-        height: 56px;
-        display: flex;
-        padding: 0 12px;
-        box-sizing: border-box;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .header-nav-button {
-        border: none;
-        font-size: 32px;
-        padding: 0;
-        color: #ffffff;
-    }
-
-    .header-title-mobile {
-        color: #ffffff;
-        font-size: 24px;
-        font-weight: 900;
-        max-width: 265px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
-
-    header a {
-        display: inline-block;
-        width: 20px;
-        transform: translateY(20%);
-    }
-
-    .header-logo-mobile {
-        width: 100%;
-    }
-
     /* || NAV styles */
     .nav-menu {
         top: 56px;
@@ -255,7 +220,13 @@ blockquote {
         z-index: 2;
         opacity: 0;
         color: #363636;
-        transition: max-height 0.5s;
+        transition: max-height 0.5s, width 0.25s;
+    }
+
+    @media (max-width:480px) {
+        .nav-menu--searching {
+            width: 85%;
+        }
     }
 
     .nav-menu-opened {
@@ -367,11 +338,19 @@ blockquote {
         opacity: 0.3;
     }
 
+    .nav-menu__section-list--searching {
+        display: none;
+    }
+
     .mobile-footer-data {
         border-top: 1px solid #000000;
         margin-left: -12px;
         padding: 12px 0 0 12px;
         font-weight: 300;
+    }
+
+    .mobile-footer-data--searching {
+        display: none;
     }
 
     .mobile-footer-data li {
@@ -424,44 +403,8 @@ blockquote {
     }
 
     /* || SECTION styles */
-    .book-section-text {
-        padding-bottom: 72px;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        min-height: calc(100vh - 72px);
-        background: #363636;
-    }
-
-    .book-section-text-margins {
-        margin: 0px 15px;
-    }
-
-    @supports(padding: max(0px)) {
-        .book-section-text-margins {
-            margin: 0px max(15px, env(safe-area-inset-right)) 0 max(15px, env(safe-area-inset-left));
-        }
-    }
-
-    .book-section-title {
-        padding-top: 72px;
-    }
-
-    .book-section-text-header {
-        font-size: 22px;
-        margin-bottom: 16px;
-    }
-
-    .book-section-text-material p {
-        margin-block-start: 0;
-    }
-
-    .book-section-text-material h2 {
-        font-size: 19px;
-        margin-bottom: 16px;
-    }
-
     .book-section-non-text-content {
+        display: flex;
         background: #717171;
         position: fixed;
         box-sizing: border-box;
@@ -472,13 +415,20 @@ blockquote {
         justify-content: center;
     }
 
-    .book-section-non-text-content video {
-        background: #ffffff;
-        width: 100%;
+    .book-section-non-text-content--hidden-mobile {
+        display: none;
+    }
+
+    .book-section-video-player--hidden {
+        display: none;
     }
 
     /* || QUALITY styles */
     .video-quality-changer-mobile {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 1em;
         display: flex;
         float: right;
         color: #ffffff;
@@ -549,6 +499,7 @@ blockquote {
     .subsection-modal-container .video-quality-changer-mobile {
         flex: 1 0 auto;
         position: relative;
+        margin-top: 0;
         margin-left: auto;
         margin-bottom: -22px;
         color: #000000;
@@ -556,6 +507,10 @@ blockquote {
         flex-direction: row;
         left: initial;
         top: initial;
+    }
+
+    .subsection-modal-container .book-section-video-player .video-quality-changer-mobile {
+        display: none;
     }
 
     .subsection-modal-container .video-quality-changer-control {
@@ -632,10 +587,7 @@ blockquote {
     .book-section-comparison-slider-container {
         display: flex;
         position: relative;
-        border: 7px #cccccc solid;
-        border-radius: 10px;
         background: #cccccc;
-        box-shadow: 0px 0px 0 1px #444;
     }
 
     .book-section-comparison-range:focus +  .book-section-comparison-slider .book-section-comparison-button {
@@ -756,17 +708,16 @@ blockquote {
         right: 0;
         bottom: 0;
         left: 0;
+        box-sizing: border-box;
         height: min-content;
-        width: 82.5%;
-        max-height: 90%;
+        width: 93%;
+        max-height: 94.5%;
         flex-direction: column;
-        padding: 16px;
-        padding-top: 8px;
+        padding: 1em;
         border: 4px solid #000000;
         background: #ffffff;
         overflow-y: auto;
         overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
     }
 
     .subsection-modal-container-slider-fullscreen {
@@ -780,15 +731,15 @@ blockquote {
     }
 
     .modal-exit-button-mobile {
-        flex: 0 0 auto;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        line-height: 1;
         background: #ffffff;
         border: none;
         font-size: 24px;
         font-weight: 900;
         padding: 0;
-        margin-left: auto;
-        margin-bottom: 8px;
-        z-index: 2;
     }
 
     .subsection-modal-container .book-section-comparison-button-container {
@@ -801,11 +752,12 @@ blockquote {
         background: #ffffff;
         display: flex;
         align-items: center;
-        border: 7px #cccccc solid;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-        flex: 1 0 auto;
+        flex: 0 1 auto;
         height: auto;
+    }
+
+    .subsection-modal-container .book-section-video-player--hidden {
+        display: none;
     }
 
     .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
@@ -840,12 +792,6 @@ blockquote {
         max-height: 50vh;
         object-fit: contain;
         margin-bottom: 16px;
-    }
-
-    .subsection-modal-container video {
-        width: 100%;
-        border: 1px solid #000000;
-        box-sizing: border-box;
     }
 
     /* || CHAPTER styles */
@@ -1011,6 +957,7 @@ blockquote {
 
     #feedbackModal {
         height: 90%;
+        -webkit-overflow-scrolling: touch;
     }
 
     .book-appendix-download a {
@@ -1033,6 +980,11 @@ blockquote {
     .landing-page-container {
         position: relative;
         height: 100vh;
+    }
+
+    .landing-page-container--preview-banner {
+        height: auto;
+        padding-bottom: 20px;
     }
 
     .landing-page-text {
@@ -1058,14 +1010,6 @@ blockquote {
     }
 
     /* || SECTION styles */
-    .book-section-text {
-        padding-bottom: 16px;
-    }
-
-    .book-section-non-text-content video {
-        height: 100%;
-        width: auto;
-    }
 
     .book-section-video-player {
         height: 100%;
@@ -1077,12 +1021,12 @@ blockquote {
         max-height: 90%;
     }
 
-
     /* || QUALITY styles */
     .video-quality-changer-mobile {
         flex-direction: column;
-        position: absolute;
         top: 50%;
+        right: initial;
+        margin-top: 0;
         left: 100%;
         transform: translate(0, -50%);
     }
@@ -1145,12 +1089,8 @@ blockquote {
 
     /* || MODAL styles */
     .subsection-modal-container {
-        width: 90%;
-        max-height: 82.5%;
-    }
-
-    .subsection-modal-container video {
-        max-height: 50vh;
+        width: 96%;
+        max-height: 91%;
     }
 
     /* || CHAPTER styles */

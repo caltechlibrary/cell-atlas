@@ -1,34 +1,30 @@
-<div class="page-controls-mobile" ${if(typeChapter)}data-chapter="true"${endif}>
+<div class="mobile-controls ${if(typeSection)}mobile-controls--section-text${endif}">
     ${if(prevSection)}
-        <a href="${prevSection}.html" class="page-controls-nav">&#10094;</a>
-    ${else}
-        <a href="${prevSection}.html" class="page-controls-nav hidden">&#10094;</a>
+        <a class="mobile-controls__nav mobile-controls__nav--prev" href="${prevSection}.html" aria-label="Previous section">${svg/left-nav.svg()}</a>
     ${endif}
 
     ${if(typeSection)}
-        <button onclick="toggleView(this)" value="text" class="page-controls-button page-controls-selected">
+        <button class="mobile-controls__btn mobile-controls__btn--selected" value="text">
             ${svg/noun_File.svg()}
         </button>
     ${endif}
     ${if(video)}
-        <button onclick="toggleView(this)" value="video" class="page-controls-button">
+        <button class="mobile-controls__btn" value="vid">
             ${svg/noun_Video.svg()}
         </button>
     ${endif}
     ${if(vidMetadata.sliderImgName)}
-        <button onclick="toggleView(this)" value="image" class="page-controls-button">
+        <button class="mobile-controls__btn" value="img" >
             ${svg/noun_Image.svg()}
         </button>
     ${endif}
     ${if(summaryData)}
-        <button onclick="toggleView(this)" value="summary" class="page-controls-button">
+        <button class="mobile-controls__btn" value="sum">
             ${svg/noun_Cycle.svg()}
         </button>
     ${endif}
 
     ${if(nextSection)}
-        <a href="${nextSection}.html" class="page-controls-nav">&#10095;</a>
-    ${else}
-        <a href="${nextSection}.html" class="page-controls-nav hidden">&#10095;</a>
+        <a class="mobile-controls__nav mobile-controls__nav--next" href="${nextSection}.html" aria-label="Next section">${svg/right-nav.svg()}</a>
     ${endif}
 </div>

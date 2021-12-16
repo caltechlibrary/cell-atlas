@@ -1,0 +1,27 @@
+<div class="protein-viewer" data-pdb="${it.pdb}">
+    <div class="protein-viewer__menu">
+        <label class="protein-viewer__menu-label">
+            Model:
+            <select class="protein-viewer__menu-select protein-viewer__model-select">
+                <option value="cartoon" selected>Secondary Structure</option>
+                ${if(it.modified)}
+                ${else}
+                    <option value="spheres">Volume Filling</option>
+                ${endif}
+                <option value="tube">Backbone</option>
+                ${if(it.modified)}
+                ${else}
+                    <option value="ballsAndSticks">Ball and Stick</option>
+                ${endif}
+            </select>
+        </label>
+        <label class="protein-viewer__menu-label">
+            Color:
+            <select class="protein-viewer__menu-select protein-viewer__color-select">
+                <option value="chain" selected>Individual Proteins</option>
+                <option value="ss">Secondary Structure</option>
+            </select>
+        </label>
+    </div>
+    <span class="protein-viewer__atom-label protein-viewer__atom-label--hidden"></span>
+</div>

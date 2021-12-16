@@ -13,9 +13,23 @@
     ${endif}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover">
+    ${if(index)}
+        <meta name="description" content="A visual tour of the microbial cell.">
+    ${elseif(typeChapter)}
+        <meta name="description" content="Microbiology textbook introductory page to chapter ${chapter} ${title}.">
+    ${elseif(typeSection)}
+        <meta name="description" content="Microbiology textbook entry about ${title} highlighting ${videoTitle}.">
+    ${elseif(typeAppendix)}
+        <meta name="description" content="Microbiology textbook appendix page about ${title}.">
+    ${endif}
     <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen">
-    <meta name="description" content="A visual tour of the microbial cell.">
-    <title>${if(chapter)}${chapter}${endif}${if(section)}.${section}${endif} ${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
+    ${if(index)}
+        <title>${title}</title>
+    ${elseif(typeAppendix)}
+        <title>${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
+    ${else}
+        <title>${if(chapter)}${chapter}${endif}${if(section)}.${section}${endif} ${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
+    ${endif}
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link href="styles/style.css" rel="stylesheet">
     <link href="styles/mobile.css" rel="stylesheet"/>

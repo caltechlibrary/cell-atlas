@@ -36,13 +36,21 @@ def getMarkdownMetadata(file):
 def writePage(siteDir, sourceFile, template, pageName, metadata):
     # Add site navigation to metadata
     metadata["nav"] = siteNav
+    metadata["navData"] = { "nav": True }
     # Add ID for the video player if there is one
     if "doi" in metadata or "video" in metadata: 
         metadata["vidMetadata"] = {}
         metadata["vidMetadata"]["isSection"] = True
         metadata["vidMetadata"]["video"] = metadata["video"]
+        metadata["vidMetadata"]["vidName"] = metadata["video"].split(".")[0]
         metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
-        if "sliderImgName" in metadata:  metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
+        metadata["vidMetadata"]["vid"] = True
+        if "sliderImgName" in metadata:  
+            metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
+            metadata["vidMetadata"]["img"] = True
+            metadata["vidMetadata"]["hasTabMenu"] = True
+        else:
+            metadata["vidMetadata"]["hasTabMenu"] = False
         if "doi" in metadata:
             metadata["vidMetadata"]["species"] = metadata["videoTitle"]
             if "/" in metadata["videoTitle"]:
@@ -75,6 +83,58 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     if("appendixTypeDownload" not in metadata):
         writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_SMALL)
         writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_LARGE)
+
+    subprocess.run([
+        "pandoc", 
+        "--from=markdown", 
+        "--to=plain", 
+        "--output=sectionPlain.txt",
+        sourceFormatted.name
+    ])
+    with open("sectionPlain.txt", "r", encoding="utf-8") as f:
+        document = {}
+        document["id"] = pageName
+        if "title" in metadata: 
+            document["title"] = metadata["title"]
+            if "chapter" in metadata:
+                if "section" in metadata:
+                    document["titlePrefix"] = "{}.{}".format(metadata["chapter"], metadata["section"])
+                else:
+                    document["titlePrefix"] = metadata["chapter"]
+        document["content"] = f.read()
+        if "videoTitle" in metadata: document["species"] = metadata["videoTitle"]
+        if "collector" in metadata: document["collector"] = metadata["collector"]
+        searchData[document["id"]] = document
+    os.remove("sectionPlain.txt")
+
+    if "subsectionsData" in metadata:
+        for subsectionData in metadata["subsectionsData"]:
+            with open("subsectionHTML.html", "w", encoding="utf-8") as f:
+                f.write(subsectionData["html"])
+            subprocess.run([
+                "pandoc", 
+                "--from=html", 
+                "--to=plain", 
+                "--output=subsectionPlain.txt",
+                "subsectionHTML.html"
+            ])
+            os.remove("subsectionHTML.html")
+            with open("subsectionPlain.txt", "r", encoding="utf-8") as f:
+                document = {}
+                document["id"] = "{}#{}".format(pageName, subsectionData["id"])
+                if "title" in subsectionData: 
+                    document["title"] = subsectionData["title"]
+                    if "chapter" in metadata:
+                        document["titlePrefix"] = "{}.{} {}:".format(metadata["chapter"], metadata["section"], metadata["title"])
+                if "structures" in subsectionData:
+                    document["structure"] = ""
+                    for structure in subsectionData["structures"]:
+                        document["structure"] = document["structure"] + structure["text"]
+                document["content"] = f.read()
+                if "species" in subsectionData: document["species"] = subsectionData["species"]
+                if "collector" in subsectionData: document["collector"] = subsectionData["collector"]
+                searchData[document["id"]] = document
+            os.remove("subsectionPlain.txt")
 
     pandocArgs = [
         "pandoc", 
@@ -153,6 +213,7 @@ def processSubsection(subsectionFile, pageName, parentData):
     metadata["collectorProfile"] = False
     metadata["isSubsection"] = True
     if "video" in metadata:
+        metadata["vidName"] = metadata["video"].split(".")[0]
         currVideoName = metadata["video"].split(".")[0]
         subsectionName = currVideoName.split("_")[-1]
         if subsectionName.isnumeric():
@@ -162,6 +223,7 @@ def processSubsection(subsectionFile, pageName, parentData):
         addSliderData(metadata, currVideoName)
     if("doi" in metadata):
         metadata["video"] = movieDict[metadata["doi"]]
+        metadata["vidName"] = metadata["video"].split(".")[0]
         addSliderData(metadata, metadata["video"])
     if("species" in metadata): 
         if "+" in metadata["species"]:
@@ -197,6 +259,10 @@ def processSubsection(subsectionFile, pageName, parentData):
     # Add player id for videos
     if "doi" in metadata or "video" in metadata: 
         metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
+        metadata["vid"] = True
+        if "sliderImgName" in metadata:
+            metadata["img"] = True
+            metadata["hasTabMenu"] = True
     # Deconstruct preformatted structure data
     if "structure" in metadata: 
         metadata["structures"] = []
@@ -211,12 +277,23 @@ def processSubsection(subsectionFile, pageName, parentData):
                 if matchString != ">, <": 
                     metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
                     if "-" not in metadata["structures"][i]["text"]:
-                        metadata["structures"][i]["viewerId"] = metadata["structures"][i]["text"].split(" ")[1].lower()
-                        metadata["viewer"] = {
-                            "pdb": metadata["structures"][i]["viewerId"]
-                        }
+                        pdbNumber = metadata["structures"][i]["text"].split(" ")[1].lower()
+                        if(pdbNumber != "6s8h"):
+                            metadata["structures"][i]["viewerId"] = pdbNumber
+                            metadata["viewer"] = {
+                                "id": metadata["id"],
+                                "pdb": pdbNumber
+                            }
+                            if(pdbNumber == "3jc8" or pdbNumber == "3dkt" or pdbNumber == "3j31" or pdbNumber == "5tcr" or pdbNumber == "5u3c" or pdbNumber == "6kgx" or pdbNumber == "6o9j"):
+                                metadata["viewer"]["modified"] = True
                     i = i + 1
         if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
+
+    if("species" in metadata or "sources" in metadata):
+        metadata["citationAttached"] = True
+
+    if("vid" in metadata or "img" in metadata or "graphic" in metadata):
+        metadata["hasMainMediaViewer"] = True
 
     sourceFormatted = insertLinks(subsectionFile, "subsection.md")
     # Return subsection content as html because this will be passed to pandoc as metadata
@@ -437,14 +514,17 @@ with open("dois.csv", "r", encoding='utf-8') as csvfile:
         movieDict[doi] = movie
 # Create a dictionary that maps species to sections
 speciesDict = {}
+# Create dictionary for search data
+searchData = {}
 
 # Render landing page
-metadata = {}
+metadata = getMarkdownMetadata("index.md")
 metadata["firstPage"] = "begin"
+metadata["index"] = True
 writePage(SITEDIR, "index.md", "index","index", metadata)
 
 # Render opening quote page for introduction
-metadata = {}
+metadata = getMarkdownMetadata("introQuote.md")
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
@@ -487,8 +567,11 @@ for i in range(len(sectionFiles)):
             print("{} section file does not have DOI field".format(fileName)) 
     if(title[0] == "summary.md"):
         metadata["summaryData"] = {
+            "isSummary": True,
+            "isSection": True,
             "chapter{}".format(metadata["chapter"]): True 
         }
+        metadata["vidMetadata"] = { "isSection": True }
     elif("video" in metadata):
         metadata["thumbnail"] = "{}_thumbnail".format("_".join(metadata["video"].split("_")[:2]))
     
@@ -532,7 +615,7 @@ for i in range(len(sectionFiles)):
     writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
 
 # Render opening quote page for "Keep Looking"
-metadata = {}
+metadata = getMarkdownMetadata("outlook.md")
 metadata["prevSection"] = sectionFiles[-1][:-3]
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
@@ -616,7 +699,7 @@ writePage(SITEDIR, "bib.json", "page", "D-references", metadata)
 os.remove("bib.json")
 
 # Render about page
-metadata = {}
+metadata = getMarkdownMetadata("about.md")
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
 aboutEntries = []
@@ -634,7 +717,16 @@ metadata["aboutEntries"] = aboutEntries
 writePage(SITEDIR, "about.md", "page", "about", metadata)
 
 # Render download page
-metadata = {}
+metadata = getMarkdownMetadata("download.md")
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage(SITEDIR, "download.md", "page", "download", metadata)
+
+# Render data dict for search index
+with open("{}/searchData.json".format(SITEDIR), "w", encoding="utf-8") as f:
+    json.dump(searchData, f, indent="\t")
+
+# Render search test page
+metadata = {}
+metadata["title"] = "Search Test"
+writePage(SITEDIR, "search-test.md", "search-test", "search-test", metadata)

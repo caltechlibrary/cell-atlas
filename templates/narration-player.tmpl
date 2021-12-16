@@ -1,0 +1,25 @@
+<div
+    id="${if(it.isSection)}narrationPlayer-main${else}narrationPlayer-${it.id}${endif}"
+    class="narration-player narration-player--hidden"
+    data-src="https://www.cellstructureatlas.org/audio/1_1.mp3"
+    tabindex="0"
+>
+    <button class="narration-player__playback-btn" aria-label="Play" disabled>
+        <div class="narration-player__playback-btn-icon ${if(it.isSection)}narration-player__playback-btn-icon--section-text${else}narration-player__playback-btn-icon--modal${endif} narration-player__playback-btn-play-icon">${svg/play.svg()}</div>
+        <div class="narration-player__playback-btn-icon ${if(it.isSection)}narration-player__playback-btn-icon--section-text${else}narration-player__playback-btn-icon--modal${endif} narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon">${svg/pause.svg()}</div>
+    </button>
+    <input 
+        class="narration-player__seekbar ${if(it.isSection)}narration-player__seekbar--section-text${else}narration-player__seekbar--modal${endif}"
+        aria-label="audio time scrubber 0:00 / 0:00"
+        aria-valuetext="elapsed time: 0:00"
+        type="range" value="0" min="0" disabled
+    />
+    <span class="narration-player__time-display">
+        <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
+        <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
+    </span>
+    <audio class="narration-player__audio-el">
+        <source type="audio/mpeg">
+        Your browser doesn't support HTML5 audio.
+    </audio>
+</div>

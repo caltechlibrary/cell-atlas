@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+	<url>
+		<loc>https://www.cellstructureatlas.org/</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/begin.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/introduction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/0_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Introduction</video:title>
+			<video:description>Microbiology textbook video highlighting Introduction</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/0_1_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-methods.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-1-light-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Light Microscopy</video:title>
+			<video:description>Microbiology textbook video highlighting Light Microscopy</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_1_Saureus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-2-fluorescence-light-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Fluorescence Light Microscopy</video:title>
+			<video:description>Microbiology textbook video highlighting Fluorescence Light Microscopy</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_2_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-3-scanning-electron-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Scanning Electron Microscopy</video:title>
+			<video:description>Microbiology textbook video highlighting Scanning Electron Microscopy</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_3_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-4-transmission-electron-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Transmission Electron Microscopy</video:title>
+			<video:description>Microbiology textbook video highlighting Transmission Electron Microscopy</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_4_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-5-cryogenic-electron-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cryogenic Electron Microscopy</video:title>
+			<video:description>Microbiology textbook video highlighting Cryogenic Electron Microscopy</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_5_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-6-cryogenic-electron-tomography.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cryogenic Electron Tomography</video:title>
+			<video:description>Microbiology textbook video highlighting Cryogenic Electron Tomography</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_6_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-7-sub-tomogram-averaging.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Sub-Tomogram Averaging</video:title>
+			<video:description>Microbiology textbook video highlighting Sub-Tomogram Averaging</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_7_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-8-single-particle-reconstruction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Single Particle Reconstruction</video:title>
+			<video:description>Microbiology textbook video highlighting Single Particle Reconstruction</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_8_Styphimurium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-9-x-ray-crystallography.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>X-Ray Crystallography</video:title>
+			<video:description>Microbiology textbook video highlighting X-Ray Crystallography</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_9_Hpylori.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-10-putting-it-all-together.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Putting It All Together</video:title>
+			<video:description>Microbiology textbook video highlighting Putting It All Together</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_10_Bbacteriovorus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-11-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-cells.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-1-membrane.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Membrane</video:title>
+			<video:description>Microbiology textbook video highlighting Membrane</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_1_Mgenitalium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-2-cell-wall.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cell Wall</video:title>
+			<video:description>Microbiology textbook video highlighting Cell Wall</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_2_Lmonocytogenes.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-3-outer-membrane.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Outer Membrane</video:title>
+			<video:description>Microbiology textbook video highlighting Outer Membrane</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_3_Hcrunogenus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-4-vesicles.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Vesicles</video:title>
+			<video:description>Microbiology textbook video highlighting Vesicles</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_4_Mxanthus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-5-classification-exceptions.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Classification Exceptions</video:title>
+			<video:description>Microbiology textbook video highlighting Classification Exceptions</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_5_Mmarinum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-6-surface-layer.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Surface Layer</video:title>
+			<video:description>Microbiology textbook video highlighting Surface Layer</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_6_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-7-surface-layer-variety.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Surface Layer Variety</video:title>
+			<video:description>Microbiology textbook video highlighting Surface Layer Variety</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_7_Ssolfataricus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-8-sheath.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Sheath</video:title>
+			<video:description>Microbiology textbook video highlighting Sheath</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_8_Mhungatei.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-9-dna.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>DNA</video:title>
+			<video:description>Microbiology textbook video highlighting DNA</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_9_Hargentinensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-10-nucleoid.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Nucleoid</video:title>
+			<video:description>Microbiology textbook video highlighting Nucleoid</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_10_Bbacteriovorus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-11-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-shape.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-1-coccoid.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Coccoid</video:title>
+			<video:description>Microbiology textbook video highlighting Coccoid</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_1_Snegevensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-2-rod.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Rod</video:title>
+			<video:description>Microbiology textbook video highlighting Rod</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_2_Cnecator.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-3-length.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Length</video:title>
+			<video:description>Microbiology textbook video highlighting Length</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_3_Hgracilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-4-vibrioid.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Vibrioid</video:title>
+			<video:description>Microbiology textbook video highlighting Vibrioid</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_4_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-5-helical.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Helical</video:title>
+			<video:description>Microbiology textbook video highlighting Helical</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_5_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-6-prosthecate.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Prosthecate</video:title>
+			<video:description>Microbiology textbook video highlighting Prosthecate</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_6_Vspinosum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-7-square.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Square</video:title>
+			<video:description>Microbiology textbook video highlighting Square</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_7_Hwalsbyi.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-8-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-growth.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-1-stalk-bands.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Stalk Bands</video:title>
+			<video:description>Microbiology textbook video highlighting Stalk Bands</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_1_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-2-nanowires.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Nanowires</video:title>
+			<video:description>Microbiology textbook video highlighting Nanowires</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_2_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-3-intracytoplasmic-membrane.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Intracytoplasmic Membrane</video:title>
+			<video:description>Microbiology textbook video highlighting Intracytoplasmic Membrane</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_3_Rpalustris.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-4-enzyme-filaments.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Enzyme Filaments</video:title>
+			<video:description>Microbiology textbook video highlighting Enzyme Filaments</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_5_Cthermocellum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-5-microcompartments.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Microcompartments</video:title>
+			<video:description>Microbiology textbook video highlighting Microcompartments</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_6_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-6-carboxysomes.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Carboxysomes</video:title>
+			<video:description>Microbiology textbook video highlighting Carboxysomes</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_7_Tintermedia.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-7-bacterial-storage-granules.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Bacterial Storage Granules</video:title>
+			<video:description>Microbiology textbook video highlighting Bacterial Storage Granules</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_8_Cnecator.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-8-storage-granule-variety.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Storage Granule Variety</video:title>
+			<video:description>Microbiology textbook video highlighting Storage Granule Variety</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_9_Atumefaciens.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-9-archaeal-storage-granules.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaeal Storage Granules</video:title>
+			<video:description>Microbiology textbook video highlighting Archaeal Storage Granules</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_10_Hlitoreum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-10-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-division.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-1-copy-number.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Copy Number</video:title>
+			<video:description>Microbiology textbook video highlighting Copy Number</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_1_Tintermedia.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-2-fission.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Fission</video:title>
+			<video:description>Microbiology textbook video highlighting Fission</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_2_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-3-budding.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Budding</video:title>
+			<video:description>Microbiology textbook video highlighting Budding</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_3_Hneptunium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-4-monoderm-septum.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Septum</video:title>
+			<video:description>Microbiology textbook video highlighting Monoderm Septum</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_4_Saureus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-5-monoderm-cytokinesis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Cytokinesis</video:title>
+			<video:description>Microbiology textbook video highlighting Monoderm Cytokinesis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_5_Tremsis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-6-diderm-cytokinesis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Cytokinesis</video:title>
+			<video:description>Microbiology textbook video highlighting Diderm Cytokinesis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_6_Iloihiensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-7-outer-membrane-constriction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Outer Membrane Constriction</video:title>
+			<video:description>Microbiology textbook video highlighting Outer Membrane Constriction</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_7_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-8-asymmetric-division.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Asymmetric Division</video:title>
+			<video:description>Microbiology textbook video highlighting Asymmetric Division</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_8_Atumefaciens.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-9-asynchronous-constriction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Asynchronous Constriction</video:title>
+			<video:description>Microbiology textbook video highlighting Asynchronous Constriction</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_9_Cnecator.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-10-ftsz.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>FtsZ</video:title>
+			<video:description>Microbiology textbook video highlighting FtsZ</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_10_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-11-archaeal-cytokinesis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_11_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaeal Cytokinesis</video:title>
+			<video:description>Microbiology textbook video highlighting Archaeal Cytokinesis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_11_Sacidocaldarius.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-12-cdv.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_12_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cdv</video:title>
+			<video:description>Microbiology textbook video highlighting Cdv</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_12_Sacidocaldarius.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-13-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-motility.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-1-flagellum.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagellum</video:title>
+			<video:description>Microbiology textbook video highlighting Flagellum</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_1_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-2-flagellar-motor.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagellar Motor</video:title>
+			<video:description>Microbiology textbook video highlighting Flagellar Motor</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_2_Bbacteriovorus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-3-flagellar-assembly.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagellar Assembly</video:title>
+			<video:description>Microbiology textbook video highlighting Flagellar Assembly</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_3_Hgracilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-4-flagella-patterns.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagella Patterns</video:title>
+			<video:description>Microbiology textbook video highlighting Flagella Patterns</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_4_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-5-peritrichous-flagella.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Peritrichous Flagella</video:title>
+			<video:description>Microbiology textbook video highlighting Peritrichous Flagella</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_5_Pflexibilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-6-sheathed-flagella.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Sheathed Flagella</video:title>
+			<video:description>Microbiology textbook video highlighting Sheathed Flagella</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_6_Hhepaticus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-7-periplasmic-flagella.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Periplasmic Flagella</video:title>
+			<video:description>Microbiology textbook video highlighting Periplasmic Flagella</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_7_Bburgdorferi.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-8-archaellum.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaellum</video:title>
+			<video:description>Microbiology textbook video highlighting Archaellum</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_8_Mformicica.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-9-archaella-patterns.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaella Patterns</video:title>
+			<video:description>Microbiology textbook video highlighting Archaella Patterns</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_9_Tkodakaraensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-10-type-iv-pilus.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type IV Pilus</video:title>
+			<video:description>Microbiology textbook video highlighting Type IV Pilus</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_10_Mxanthus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-11-type-ix-secretion-system.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_11_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type IX Secretion System</video:title>
+			<video:description>Microbiology textbook video highlighting Type IX Secretion System</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_11_Fjohnsoniae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-12-terminal-organelle.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_12_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Terminal Organelle</video:title>
+			<video:description>Microbiology textbook video highlighting Terminal Organelle</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_12_Mpneumoniae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-13-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-navigation.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-1-chemotaxis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemotaxis</video:title>
+			<video:description>Microbiology textbook video highlighting Chemotaxis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_1_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-2-chemosensory-arrays.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemosensory Arrays</video:title>
+			<video:description>Microbiology textbook video highlighting Chemosensory Arrays</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_2_Styphimurium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-3-chemosensory-array-conservation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemosensory Array Conservation</video:title>
+			<video:description>Microbiology textbook video highlighting Chemosensory Array Conservation</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_3_Mhungatei.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-4-chemoreceptor-variety.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemoreceptor Variety</video:title>
+			<video:description>Microbiology textbook video highlighting Chemoreceptor Variety</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_4_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-5-cytoplasmic-chemosensory-arrays.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cytoplasmic Chemosensory Arrays</video:title>
+			<video:description>Microbiology textbook video highlighting Cytoplasmic Chemosensory Arrays</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_5_Mformicica.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-6-magnetotaxis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Magnetotaxis</video:title>
+			<video:description>Microbiology textbook video highlighting Magnetotaxis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_6_Mmagneticum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-7-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-lifecycle.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-1-stationary-phase.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Stationary Phase</video:title>
+			<video:description>Microbiology textbook video highlighting Stationary Phase</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_1_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-2-genome-protection.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Genome Protection</video:title>
+			<video:description>Microbiology textbook video highlighting Genome Protection</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_2_Hpylori.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-3-archaeal-stationary-phase.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaeal Stationary Phase</video:title>
+			<video:description>Microbiology textbook video highlighting Archaeal Stationary Phase</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_3_Tkodakaraensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-4-differentiation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Differentiation</video:title>
+			<video:description>Microbiology textbook video highlighting Differentiation</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_4_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-5-monoderm-sporulation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Sporulation</video:title>
+			<video:description>Microbiology textbook video highlighting Monoderm Sporulation</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_5_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-6-monoderm-spore-engulfment.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Spore Engulfment</video:title>
+			<video:description>Microbiology textbook video highlighting Monoderm Spore Engulfment</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_6_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-7-monoderm-spores.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Spores</video:title>
+			<video:description>Microbiology textbook video highlighting Monoderm Spores</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_7_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-8-monoderm-germination.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Germination</video:title>
+			<video:description>Microbiology textbook video highlighting Monoderm Germination</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_8_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-9-diderm-sporulation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Sporulation</video:title>
+			<video:description>Microbiology textbook video highlighting Diderm Sporulation</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_9_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-10-diderm-spore-engulfment.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Spore Engulfment</video:title>
+			<video:description>Microbiology textbook video highlighting Diderm Spore Engulfment</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_10_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-11-diderm-germination.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_11_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Germination</video:title>
+			<video:description>Microbiology textbook video highlighting Diderm Germination</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_11_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-12-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-interaction.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-1-biofilm.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Biofilm</video:title>
+			<video:description>Microbiology textbook video highlighting Biofilm</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_1_Atumefaciens.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-2-biofilm-matrix.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Biofilm Matrix</video:title>
+			<video:description>Microbiology textbook video highlighting Biofilm Matrix</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_2_Ghansenii.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-3-type-ii-and-type-iv-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type II and Type IV Secretion</video:title>
+			<video:description>Microbiology textbook video highlighting Type II and Type IV Secretion</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_3_Lpneumophila.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-4-type-iii-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type III Secretion</video:title>
+			<video:description>Microbiology textbook video highlighting Type III Secretion</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_4_Paeruginosa.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-5-type-v-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type V Secretion</video:title>
+			<video:description>Microbiology textbook video highlighting Type V Secretion</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_5_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-6-type-vi-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type VI Secretion</video:title>
+			<video:description>Microbiology textbook video highlighting Type VI Secretion</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_6_Mxanthus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-7-contractile-weapons.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Contractile Weapons</video:title>
+			<video:description>Microbiology textbook video highlighting Contractile Weapons</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_7_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-8-type-ix-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type IX Secretion</video:title>
+			<video:description>Microbiology textbook video highlighting Type IX Secretion</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_8_Pgingivalis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-9-predation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Predation</video:title>
+			<video:description>Microbiology textbook video highlighting Predation</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_9_BbacteriovorusVcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-10-predator-entry.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Predator Entry</video:title>
+			<video:description>Microbiology textbook video highlighting Predator Entry</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_10_BbacteriovorusEcoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-11-predator-replication.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_11_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Predator Replication</video:title>
+			<video:description>Microbiology textbook video highlighting Predator Replication</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_11_BbacteriovorusVcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-12-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-viruses.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-1-phage.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Phage</video:title>
+			<video:description>Microbiology textbook video highlighting Phage</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_1_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-2-contractile-tails.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_2_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Contractile Tails</video:title>
+			<video:description>Microbiology textbook video highlighting Contractile Tails</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_2_Bacteroidetes.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-3-noncontractile-tails.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_3_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Noncontractile Tails</video:title>
+			<video:description>Microbiology textbook video highlighting Noncontractile Tails</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_3_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-4-structural-variation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_4_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Structural Variation</video:title>
+			<video:description>Microbiology textbook video highlighting Structural Variation</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_4_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-5-targeting.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_5_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Targeting</video:title>
+			<video:description>Microbiology textbook video highlighting Targeting</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_5_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-6-head-fibers.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_6_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Head Fibers</video:title>
+			<video:description>Microbiology textbook video highlighting Head Fibers</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_6_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-7-replication.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_7_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Replication</video:title>
+			<video:description>Microbiology textbook video highlighting Replication</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_7_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-8-virus-associated-pyramids.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_8_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Virus-Associated Pyramids</video:title>
+			<video:description>Microbiology textbook video highlighting Virus-Associated Pyramids</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_8_Ssolfataricus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-9-pyramid-release.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_9_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Pyramid Release</video:title>
+			<video:description>Microbiology textbook video highlighting Pyramid Release</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_9_Ssolfataricus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-10-cellular-defense.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_10_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cellular Defense</video:title>
+			<video:description>Microbiology textbook video highlighting Cellular Defense</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_10_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-11-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/outlook.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/keep-looking.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/11_1_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Keep Looking</video:title>
+			<video:description>Microbiology textbook video highlighting Keep Looking</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/11_1_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/A-feature-index.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/B-scientist-profiles.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/C-phylogenetic-tree.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/D-references.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/about.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/download.html</loc>
+	</url>
+</urlset>

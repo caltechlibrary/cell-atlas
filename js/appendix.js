@@ -263,10 +263,6 @@ if(treeViewer) {
         viewerContainer.style.top = `${posTop}px`;
     }
 
-    let resizePolyFullscreenViewer = function() {
-        viewerContainer.style.height = `${window.innerHeight}px`;
-    }
-
     let enlargeTree = function() {
         enlargeBtn.classList.remove("tree-viewer__btn--visible"); 
         minBtn.classList.add("tree-viewer__btn--visible"); 
@@ -281,8 +277,6 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.add("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.add("tree-viewer__viewer-container--fs-polyfill");
-                resizePolyFullscreenViewer();
-                window.addEventListener("resize", resizePolyFullscreenViewer);
             }
         }
     }
@@ -302,8 +296,6 @@ if(treeViewer) {
             } else {
                 fsContainer.classList.remove("tree-viewer__fullscreen-container--fs-polyfill");
                 viewerContainer.classList.remove("tree-viewer__viewer-container--fs-polyfill");
-                window.removeEventListener("resize", resizePolyFullscreenViewer);
-                viewerContainer.style.height = "initial";
             }
         }
     }
@@ -445,6 +437,21 @@ if(treeViewer) {
             viewerContainer.addEventListener("touchstart", detectTouchLeave);
         }
 
+        let simulateOpenPopUpAndroid = function() {
+            let initialLinkPos = { posX: speciesLink.getBoundingClientRect().x, posY: speciesLink.getBoundingClientRect().y };
+            let gridPos = calcGridPos(initialLinkPos.posX, initialLinkPos.posY);
+            let zoomAmount = (window.innerWidth >= 900) ? 2.5 : 4.5;
+            panTree(gridPos.posX, gridPos.posY);
+            zoomTree(0, 0, zoomWeight*zoomAmount);
+            let newLinkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
+            let newLinkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
+            focusLink();
+            setTimeout(() => {
+                openPopUp(newLinkPosX, newLinkPosY);
+                viewerContainer.addEventListener("touchstart", detectTouchLeave);
+            }, 1000);
+        };
+
         let handlePopUpHover = function() {
             clearTimeout(hidePopUpTimeout);
         }
@@ -462,14 +469,7 @@ if(treeViewer) {
             } else {
                 let handleConfirm = function() {
                     if(viewerContainer.requestFullscreen) {
-                        let adjustPopUpAfterFullscreen = function() {
-                            let linkPosX = speciesLink.getBoundingClientRect().x + (speciesLink.getBoundingClientRect().width / 2);
-                            let linkPosY = speciesLink.getBoundingClientRect().y + (speciesLink.getBoundingClientRect().height / 2) - 16;
-                            openPopUp(linkPosX, linkPosY);
-                        }
-
-                        document.addEventListener("fullscreenchange", simulateOpenPopUp, { once: true });
-                        setTimeout(adjustPopUpAfterFullscreen, 200);
+                        document.addEventListener("fullscreenchange", simulateOpenPopUpAndroid, { once: true });
                         enlargeTree();
                     } else {
                         enlargeTree();

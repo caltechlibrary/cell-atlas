@@ -1,23 +1,10 @@
-<div class="subsection-modal-container" id="${it.id}" data-player="${it.playerId}">
-    <button class="modal-exit-button-mobile" onclick="closeModalMobile(this)">&#10005;</button>
-    ${if(it.video)}
+<div id="${it.id}" class="modal modal--hidden">
+    <button class="modal__exit-btn">
+        <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
+    </button>
 
-        ${if(it.sliderImgName)}
-            ${it:toggleImgVid.tmpl()}
-            ${it:slider.tmpl()}
-        ${endif}
-
-        ${it:player.tmpl()}
-    ${elseif(it.graphic)}
-        <div class="content-img">
-            <div class="content-img__fullscreen-container">
-                <div class="content-img__img-container ${if(it.species)}content-img__img-container--open-bottom${elseif(it.source)}content-img__img-container--open-bottom${endif}">
-                    <img class="content-img__img" src="img/schematics/${it.graphic}">
-                    <button class="content-img__btn content-img__enlarge-btn" disabled>${svg/noun_Fullscreen.svg()}</button>
-                    <button class="content-img__btn content-img__minimize-btn content-img__btn--hidden" disabled>${svg/noun_X.svg()}</button>
-                </div>
-            </div>
-        </div>
+    ${if(it.hasMainMediaViewer)}
+        ${it:media-viewer.tmpl()}
     ${endif}
 
     ${if(it.species)}
@@ -29,21 +16,21 @@
     ${if(offline)}
     ${else}
         ${if(it.viewer)}
-            ${it:viewer.tmpl()}
-        ${endif}
-    ${endif}
-    
-    ${if(it.video)}
-        ${if(offline)}
-        ${else}
-            ${it:quality-changer-mobile.tmpl()}
+            ${it.viewer:media-viewer.tmpl()}
         ${endif}
     ${endif}
 
-    <div class="subsection-modal-text" tabindex="-1">
-        <h1>${it.title}</h1>
-        <div class="book-text-content">
-            ${it.html}
+    <div class="modal__content-container" tabindex="-1">
+        ${it:narration-player.tmpl()}
+        <button class="modal__toggle-narration-btn" aria-label="Open narration player">
+            <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
+            <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
+        </button>
+        <div class="modal__text-container">
+            <h1 class="modal__header">${it.title}</h1>
+            <div class="modal__text-content">
+                ${it.html}
+            </div>
         </div>
     </div>
 </div>

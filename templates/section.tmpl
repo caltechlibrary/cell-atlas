@@ -1,55 +1,21 @@
-<div id="modalOverlay" class="subsection-modal-overlay">
+<div class="main-non-text-container main-non-text-container--hidden-mobile">
+    <a href="${prevSection}.html" class="main-non-text-container__nav-arrow" data-nav="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
+    ${if(summaryData)}
+        ${summaryData:media-viewer.tmpl()}
+    ${else}
+        ${vidMetadata:media-viewer.tmpl()}
+    ${endif}
+    <a href="${nextSection}.html" class="main-non-text-container__nav-arrow" data-nav="next" aria-label="Next section">${svg/right-nav.svg()}</a>
+
+    <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
+        <div class="main-non-text-container__stop-narration-btn-icon">${svg/mute.svg()}</div>
+    </button>
+</div>
+
+${section-text.tmpl()}
+
+<div class="modal-overlay modal-overlay--hidden">
     ${for(subsectionsData)}
         ${it:modal.tmpl()}
     ${endfor}
 </div>
-
-<div id="nonTextContent" class="book-section-non-text-content">
-    <a href="${prevSection}.html" class="book-page-nav" data-nav="prev">&#8249;</a>
-    <div class="book-section-video-container ${if(summaryData)}book-section-video-container--summary${endif}">
-
-        ${if(summaryData)}
-            ${summaryData:summary.tmpl()}
-        ${else}
-            ${if(vidMetadata.sliderImgName)}
-                    ${vidMetadata:toggleImgVid.tmpl()}
-                    ${vidMetadata:slider.tmpl()}
-            ${endif}
-
-            ${vidMetadata:player.tmpl()}
-
-            ${if(offline)}
-            ${else}
-                ${vidMetadata:quality-changer-mobile.tmpl()}
-            ${endif}
-        ${endif}
-    </div>
-    <a href="${nextSection}.html" class="book-page-nav" data-nav="next">&#8250;</a>
-</div>
-
-<div id="textContent" class="book-section-text">
-    <div class="book-section-text-content dark-background-text">
-        <div class="book-section-text-margins book-section-title book-section-text-header">
-            <button id="shelfButton" class="dark-background-text book-section-text-close-button" onclick="shelfText(this)">&#8250;&#8250; Text</button>
-            <div class="book-section-text-divider"></div>
-            <h1>${title}</h1>
-        </div>
-        <div class= "book-text-content book-section-text-margins book-section-text-material ${if(media)}book-section-summary-material${endif}" tabindex="0">
-            ${body}
-        </div>
-    </div>
-    ${if(videoTitle)}
-        ${vidMetadata:vid-citation.tmpl()}
-    ${endif}
-    ${if(subsectionsData)}
-        <div class="learn-more learn-more--in-section">
-            <h1 class="learn-more__title">Learn More:</h1>
-            <div class="learn-more__btn-container">
-                ${for(subsectionsData)}
-                    <button class="learn-more__btn" value="${it.id}" onclick="showModal(this)">${it.title}</button>
-                ${endfor}
-            </div>
-        </div>
-    ${endif}
-</div>
-<button tabindex="-1" id="unshelfButton" class="dark-background-text book-section-text-open-button" onclick="openText(this)">&#8249;&#8249; Text</button>

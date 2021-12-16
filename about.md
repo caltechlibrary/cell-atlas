@@ -14,7 +14,7 @@ You can find more information about how the book was built, content and navigati
 We hope the material in this book is useful and accessible to students and educators. To further that goal, please feel free to reuse and share. We simply ask that you credit the source. Or, in other words, all content is available for non-commercial reuse with attribution under a Creative Commons [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license. 
 
 Example citation:
-Oikonomou, C. M. and Jensen, G. J. (2020). *Atlas of Bacterial and Archaeal Cell Structure*. Caltech Library. Available from: https://cellstructureatlas.org
+Oikonomou, C. M. and Jensen, G. J. (2020). *Atlas of Bacterial and Archaeal Cell Structure*. Caltech Library. Available from: https://doi.org/10.7907/7sdv-zs48
 
 Videos can be downloaded from the [Caltech Data Repository](https://data.caltech.edu/) through the DOI links on each page. The source data (cryo-ET tilt-series and reconstructions) are available from the [ETDB-Caltech](https://etdb.caltech.edu/), through links from the video records in the Repository.
 
@@ -29,6 +29,7 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 ## What’s New
 
 **Edition 2.1** introduces new interface features, improvements in site performance, and minor edits to videos and text to correct errors and incorporate new information from recent literature. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
+
 
 Major new features since Edition 2.0 include:
 - audio feature to listen to section text
