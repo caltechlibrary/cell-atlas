@@ -512,6 +512,7 @@ file. These definitions will be defined mobile first.
         display: flex;
         flex-direction: column;
         padding: 0;
+        overflow: hidden;
     }
 }
 
