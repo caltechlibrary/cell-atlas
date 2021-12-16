@@ -6,6 +6,7 @@ video: 1_2_Ecoli.mp4
 videoAlt: 1_2.png
 collector: Howard Berg
 subsections: []
+description: A simple introduction to fluorescence light microscopy and how it's used to image components of archaea and bacteria like Escherichia coli flagella
 ---
 
 The addition of **fluorescence** to light microscopy allows us to look not just *at* cells, but *for* things inside them. Specific cellular components can be fluorescently labeled, with a stain or antibody that binds a particular molecule. Alternatively, a protein of interest can be genetically linked to a fluorescent protein such as Green Fluorescent Protein (**GFP**, isolated from a bioluminescent jellyfish off the Pacific coast in the 1970s and adapted as a revolutionary molecular biology tool in the 1990s). While tagging a protein can sometimes change its properties (e.g. affecting its function or altering its localization), this technique often enables us to identify where in the cell a protein is found, and what it might be doing there.

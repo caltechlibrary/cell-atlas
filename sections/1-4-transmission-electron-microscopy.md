@@ -6,6 +6,7 @@ video: 1_4_Soneidensis.mp4
 videoAlt: 1_4.png
 collector: Mohammed Kaplan
 subsections: []
+description: A simple introduction to negative-stain TEM and how it's used to see projection images through archaea and bacteria like Shewanella oneidensis
 ---
 
 In **Transmission Electron Microscopy (TEM)**, we detect electrons that have interacted with atoms in the sample as they passed through it, producing a “**projection**” **image** of the 3D object onto a 2D plane, similar to a medical X-ray image. This shows details throughout the cell, not just on the surface.

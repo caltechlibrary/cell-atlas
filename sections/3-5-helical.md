@@ -6,6 +6,7 @@ video: 3_5_Cjejuni.mp4
 videoAlt: 3_5.png
 collector: Morgan Beeby
 subsections: ['borrelia-burgdorferi-shape']
+description: Helical or wavy bacterial cells like Campylobacter jejuni and Borrelia burgdorferi use their corkscrew shape to burrow into host tissue.
 ---
 
 Why stop at a quarter turn when you can twist your cell into a full wave or even a corkscrew? Just as a corkscrew penetrates its target, helical pathogenic bacteria like this *Campylobacter jejuni* can burrow efficiently into the tissue of their target.

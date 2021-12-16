@@ -1,5 +1,6 @@
 ---
 title: About this Book
+description: Information about the Atlas of Bacterial & Archaeal Cell Structure, including how to reuse the open-access material and resources for educators
 ---
 ## About the Project
 
@@ -27,17 +28,27 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 ## What’s New
 
-Edition 2.0 introduces several new interface features, along with minor improvements in clarity and consistency throughout the text and videos. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos, we encourage you to check for a new version.
+**Edition 2.1** introduces new interface features, improvements in site performance, and minor edits to videos and text to correct errors and incorporate new information from recent literature. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
 
-Major new features since Edition 1.0 include:  
-- 480p video option for slower connections  
-- mobile-optimized interface  
-- downloadable packages for offline viewing  
-- key images with interactive label slider  
-- interactive protein structure viewer  
-- interactive phylogenetic tree  
-- interactive chapter summaries  
-- progress bar  
+
+Major new features since Edition 2.0 include:
+- audio feature to listen to section text
+- site search function
+- PDF of text and images (available on the [download page](download.html)
+
+***Previous updates***:
+
+*Edition 2.0 (August 2021) introduced several new interface features, along with minor improvements in clarity and consistency throughout the text and videos.*
+
+*Major new features since Edition 1.0 included:*
+- *480p video option for slower connections*
+- *mobile-optimized interface*
+- *downloadable packages for offline viewing*
+- *key images with interactive label slider*
+- *interactive protein structure viewer*
+- *interactive phylogenetic tree*
+- *interactive chapter summaries*
+- *progress bar*
 
 
 ## Download this Book
@@ -47,4 +58,4 @@ Visit the [Download](download.html) page for instructions and download options.
 
 ## Contact
 
-We’d love to hear your thoughts on the book. Contact us through the [Feedback Form](#feedbackForm){.about-entry__feadback-link}.
+We’d love to hear your thoughts on the book and how we can improve it in the future. Contact us through the [Feedback Form](#feedbackForm){.about-entry__feadback-link}.

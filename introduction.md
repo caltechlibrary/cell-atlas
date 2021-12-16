@@ -6,6 +6,7 @@ video: 0_1_Cjejuni.mp4
 videoAlt: 0_1.png
 collector: Morgan Beeby
 subsections: ['acknowledgements']
+description: Introduction to the Atlas of Bacterial & Archaeal Cell Structure, a free multimedia microbiology textbook showcasing real images of bacteria and archaea
 noSlider: true
 ---
 

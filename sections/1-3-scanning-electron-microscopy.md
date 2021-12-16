@@ -6,6 +6,7 @@ video: 1_3_Soneidensis.mp4
 videoAlt: 1_3.png
 collector: Sahand Pirbadian
 subsections: ['electron-microscopy-modes']
+description: A simple introduction to electron microscopy and how SEM is used to image the surfaces of archaea and bacteria like Shewanella oneidensis
 ---
 
 While fluorescence allows us to highlight subcellular structures, we still cannot resolve much of their detail. This is because the resolution of microscopy is limited by the wavelength of the imaging beam. For light microscopy, the wavelength of the photons limits the resolution to a few hundred nanometers (more powerful for higher-energy blue light and less for lower-energy red). This resolving power is on the order of the width of many bacterial and archaeal cells. There are some technical “super-resolution” tricks to more finely pinpoint fluorescent molecules, but the overall subcellular details of bacteria and archaea are beyond the resolution of light microscopy.

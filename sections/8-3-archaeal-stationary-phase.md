@@ -8,5 +8,5 @@ collector: Debnath Ghosal
 subsections: []
 ---
 
-Stationary phase in archaea looks much the same as in bacteria, as you can see in this *Thermococcus kodakaraensis*. The cell has shrunk to about half its size in active growth, partly by shedding vesicles, and much of the surface layer has been dismantled. It has lost its archaella (though the conical plate in the cytoplasm remains) and degraded its chemosensory array, and is protecting its genome with **RadA** filaments. Now it waits for things to get better.
+Stationary phase in archaea looks much the same as in bacteria, as you can see in this *Thermococcus kodakaraensis*. The cell has shrunk to about half its size in active growth, partly by shedding vesicles, and much of the surface layer has been dismantled. It has lost its archaella (though the conical plate in the cytoplasm remains) and degraded its chemosensory array, and is protecting its genome with RadA filaments. Now it waits for things to get better.
 

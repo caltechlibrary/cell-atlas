@@ -6,6 +6,7 @@ video: 1_1_Saureus.mp4
 videoAlt: 1_1.png
 collector: David Rogers
 subsections: ['structural-biology-toolkit']
+description: A simple introduction to light microscopy and how it's used to image archaea and bacteria like Staphylococcus aureus
 ---
 
 To understand a picture, it helps to know how it was made. So before we start looking at the structures of cells, let us quickly cover some of the techniques we use to see them.

@@ -6,6 +6,7 @@ video: 1_6_Ccrescentus.mp4
 videoAlt: 1_6.png
 collector: Steven Wang
 subsections: ['missing-wedge']
+description: A simple introduction to cryo-ET and how it can image archaea and bacteria like Caulobacter crescentus at high resolution in 3D
 ---
 
 To truly understand a three-dimensional object, we need to be able to visualize it in three dimensions. To do that, we can use **tomography** (from the Greek for “writing slices”). The process may be familiar from medical Computed Tomography, or CT, scans. Simply, the object is imaged from different angles (in a CT scan, the camera moves around the patient; in our case we keep the imaging path constant and simply rotate the small sample). This produces a “**tilt-series**” of projection images that can be digitally processed into a 3D reconstruction of the object: a **tomogram**. To compute the reconstruction, we need to be able to precisely align the images, which is difficult because of the low contrast from cryo-EM samples (unstained and sensitive to electron dose). This is where the gold beads come in. As you saw on the previous page, they provide clear markers in the images to guide the alignment.

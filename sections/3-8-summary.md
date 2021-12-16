@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 3 of the Atlas of Bacterial & Archaeal Cell Structure covers the various cell shapes of bacteria and archaea.
 ---
 
 ## Concept Check Questions 

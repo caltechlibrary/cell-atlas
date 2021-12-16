@@ -6,6 +6,7 @@ video: 1_9_Hpylori.mp4
 videoAlt: 1_9.png
 collector: Shannon Au Lab
 subsections: ['structural-biology-timeline']
+description: A simple introduction to X-ray crystallography and how it's used to solve high-resolution structures of proteins like those in the Helicobacter pylori flagellum
 ---
 
 For smaller protein complexes and individual proteins or pieces of proteins, we can use a different technique, based on photons produced by electron interactions: X-rays. This technique, too, relies on a kind of averaging of many particles, in this case identical molecules that have been purified from the cell and crystallized. The wavelength of X-rays (~0.01 - 10 nm) is on the order of the distances between atoms in the crystal, which means that the atoms’ electrons scatter the X-rays into a **diffraction pattern** that can be used to deduce the precise arrangement of each atom in the crystal. Beginning in the 1950s, **X-ray crystallography** has been enormously successful in revealing the structure of biological macromolecules like proteins and, famously, deoxyribonucleic acid (DNA) polymers (⇩).

@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 2 of the Atlas of Bacterial & Archaeal Cell Structure covers the various components of the envelopes of bacteria and archaea.
 ---
 
 ## Concept Check Questions 

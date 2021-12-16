@@ -6,6 +6,7 @@ video: 2_4_Mxanthus.mp4
 videoAlt: 2_4.png
 collector: Yi-Wei Chang
 subsections: ['pearled-vesicles', 'tubular-vesicles', 'cytoplasmic-vesicles', 'cytoplasmic-vesicle-variety', 'archaeal-vesicles']
+description: Vesicles bud from membranes of bacteria like Myxococcus xanthus and Borrelia burgdorferi and archaea like Halomicrobium mukohataei.
 ---
 
 What else can your cell do with an extra membrane? Since membranes make such excellent containers for molecules, why not get into the shipping business? In the coming chapters (especially Chapter 9), you will see some of the ways that cells interact with each other and their environment. For diderm bacteria, many of these interactions are made possible by outer membrane **vesicles** ("little bladders")–self-contained pockets budded off the membrane. The vesicles may carry cargo of antibiotics to inhibit competitors' growth, or toxins to lyse neighboring cells, or enzymes to digest those lysed remains into nutrients that your cell can use. Alternatively, they may carry emergency kits, first aid and survival factors for other members of a biofilm community. The appearance of these vesicles can vary as much as their contents (⇩). They are usually spherical, though, of a fairly consistent size, and often come off the cell at one or a few sites, forming chains, as you can see in this *Myxococcus xanthus*.

@@ -6,6 +6,7 @@ video: 1_5_Ccrescentus.mp4
 videoAlt: 1_5.png
 collector: Steven Wang
 subsections: []
+description: A simple introduction to cryo-EM and how it's used to make high-resolution projection images through archaea and bacteria like Caulobacter crescentus
 ---
 
 We are able to visualize the native structure of bacterial and archaeal cells thanks to a breakthrough in TEM sample preparation. Instead of getting rid of the water, why not just freeze it, since ice sublimates very slowly in a vacuum? The problem is that water expands as it freezes into crystalline ice, damaging the cell in the process. But in the 1980s scientists discovered that freezing a sample quickly enough (done by rapidly plunging a small volume into a very efficient cryogen like liquid ethane) creates a very different kind of ice. The water molecules are immobilized so abruptly that they do not have a chance to find binding partners to form a crystal. The result, called “vitreous” ice for its glass-like properties, preserves cells in their native, fully-hydrated state. The frozen sample can then be inserted directly into the vacuum of the TEM without needing additional treatment or staining. This technique is called **cryogenic electron microscopy**, or **cryo-EM**.

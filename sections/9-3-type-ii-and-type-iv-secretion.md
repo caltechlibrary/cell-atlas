@@ -14,7 +14,7 @@ Type II secretion systems (**T2SSs**) in *Legionella pneumophila* like this pump
 
 Unlike the secretion systems in Chapter 6, the T2SS does not build an extracellular appendage. Instead, it is thought to work by pumping proteins through the envelope channel using a short piston-like “pseudo-pilus” (⇩), pushing the molecules into the extracellular space. (Keep in mind that for these intracellular pathogens, their extracellular space is the interior of the host cell.)
 
-*L. pneumophila* also use another, unrelated machine, a type IV secretion system (**T4SS**), to deliver more than 400(!) different kinds of effector proteins into host cells to promote infection. You can see multiple inactive T4SSs in this cell (⇩). We do not yet know what they look like during active secretion, so the mechanism remains unclear. In another human pathogen, *Helicobacter pylori*, inactive T4SSs are sometimes seen next to mysterious extracellular tubes, raising the intriguing possibility that the structures are somehow related (⇩).
+*L. pneumophila* also use another, unrelated machine, a **type IV secretion system** (**T4SS**), to deliver more than 400(!) different kinds of effector proteins into host cells to promote infection. You can see multiple inactive T4SSs in this cell (⇩). We do not yet know what they look like during active secretion, so the mechanism remains unclear. In another human pathogen, *Helicobacter pylori*, inactive T4SSs are sometimes seen next to mysterious extracellular tubes, raising the intriguing possibility that the structures are somehow related (⇩).
 
 This *L. pneumophila* cell is not unusual; it is common for pathogenic bacteria to employ multiple types of secretion systems. The bristling arsenal of bacteria is a fearsome thing.
 
