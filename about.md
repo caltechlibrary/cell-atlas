@@ -1,6 +1,5 @@
 ---
 title: About this Book
-description: Information about the Atlas of Bacterial & Archaeal Cell Structure, including how to reuse the open-access material and resources for educators
 ---
 ## About the Project
 
