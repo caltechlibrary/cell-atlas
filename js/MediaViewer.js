@@ -68,7 +68,10 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         root.classList.add("media-viewer--fullscreen");
         if(tabContainer) tabContainer.classList.add("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.add("media-viewer__media-container--fullscreen");
-        if(proteinViewer) mediaContainer.classList.add("media-viewer__media-container--fullscreen-protein-viewer");
+        if(proteinViewer) {
+            mediaContainer.classList.add("media-viewer__media-container--fullscreen-protein-viewer");
+            window.addEventListener("resize", proteinViewer.resizeViewer);
+        }
         if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
         if(graphic) graphic.classList.add("media-viewer__graphic--fullscreen");
         if(root.requestFullscreen) {
@@ -83,7 +86,10 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         root.classList.remove("media-viewer--fullscreen");
         if(tabContainer) tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.remove("media-viewer__media-container--fullscreen");
-        if(proteinViewer) mediaContainer.classList.remove("media-viewer__media-container--fullscreen-protein-viewer");
+        if(proteinViewer) {
+            mediaContainer.classList.remove("media-viewer__media-container--fullscreen-protein-viewer");
+            window.removeEventListener("resize", proteinViewer.resizeViewer);
+        }
         if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
         if(graphic) graphic.classList.remove("media-viewer__graphic--fullscreen");
         if(root.requestFullscreen) {
