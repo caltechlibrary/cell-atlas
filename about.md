@@ -31,7 +31,6 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 
 Major new features since Edition 2.0 include:   
-- audio feature to listen to section text   
 - site search function  
 - PDF of text and images (available on the [download page](download.html))  
 
