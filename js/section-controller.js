@@ -200,7 +200,7 @@
     mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
     if(mainMediaViewer.videoPlayer) mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
     
-    if(window.createImageBitmap && mainMediaViewer.videoPlayer) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
+    // if(window.createImageBitmap && mainMediaViewer.videoPlayer) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
     mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
