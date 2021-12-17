@@ -11,9 +11,9 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
         if(contentContainer) contentContainer.setAttribute("tabindex", 0);
         root.classList.remove("modal--hidden");
         root.focus();
-        if(mainMediaViewer && mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden") && window.innerWidth > 900 && window.createImageBitmap) {
-            setTimeout(mainMediaViewer.videoPlayer.resizeScrubCanvas, 200);
-        }
+        // if(mainMediaViewer && mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden") && window.innerWidth > 900 && window.createImageBitmap) {
+        //     setTimeout(mainMediaViewer.videoPlayer.resizeScrubCanvas, 200);
+        // }
         document.addEventListener("keydown", onOpenModalKeyDown);
     };
 
