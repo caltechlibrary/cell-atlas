@@ -95,7 +95,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
     ])
     with open("sectionPlain.txt", "r", encoding="utf-8") as f:
         document = {}
-        document["id"] = pageName
+        document["id"] = pageName + ".html"
         if "title" in metadata: 
             document["title"] = metadata["title"]
             if "chapter" in metadata:
@@ -123,7 +123,7 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
             os.remove("subsectionHTML.html")
             with open("subsectionPlain.txt", "r", encoding="utf-8") as f:
                 document = {}
-                document["id"] = "{}#{}".format(pageName, subsectionData["id"])
+                document["id"] = "{}.html#{}".format(pageName, subsectionData["id"])
                 if "title" in subsectionData: 
                     document["title"] = subsectionData["title"]
                     if "chapter" in metadata:
