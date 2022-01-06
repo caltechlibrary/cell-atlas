@@ -70,7 +70,7 @@ let VideoPlayer = function(root) {
     let initPlayer = function() {
         formattedDuration = getFormattedTime(video.duration);
         updateTimeDisplay();
-        // if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) resizeScrubCanvas();
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) resizeScrubCanvas();
         attachEventListeners();
     };
 
@@ -100,17 +100,17 @@ let VideoPlayer = function(root) {
             controlsContainer.addEventListener("transitionend", onControlsContainerTransitionEndMobile);
             root.addEventListener("fullscreenchange", onMobileFullscreenchange);
         }
-        // if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
-        //     window.addEventListener("resize", resizeScrubCanvas);
-        //     video.addEventListener("playing", startPaintInterval);
-        //     video.addEventListener("pause", endPaintInterval);
-        //     video.addEventListener("seeked", paintCurrentFrame);
-        //     video.addEventListener("emptied", resetScrub);
-        //     seekBar.addEventListener("mousedown", showScrubCanvas);
-        //     seekBar.addEventListener("keydown", onKeyDownShowScrub);
-        //     seekBar.addEventListener("mouseup", hideScrubCanvas);
-        //     seekBar.addEventListener("input", paintSeekedFrame);
-        // }
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
+            window.addEventListener("resize", resizeScrubCanvas);
+            video.addEventListener("playing", startPaintInterval);
+            video.addEventListener("pause", endPaintInterval);
+            video.addEventListener("seeked", paintCurrentFrame);
+            video.addEventListener("emptied", resetScrub);
+            seekBar.addEventListener("mousedown", showScrubCanvas);
+            seekBar.addEventListener("keydown", onKeyDownShowScrub);
+            seekBar.addEventListener("mouseup", hideScrubCanvas);
+            seekBar.addEventListener("input", paintSeekedFrame);
+        }
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -233,11 +233,11 @@ let VideoPlayer = function(root) {
         video.removeEventListener("timeupdate", updateSeekBar);
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
         seekBar.removeEventListener("keydown", onSeekBarKeyDown);
-        // if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
-        //     video.removeEventListener("seeked", paintCurrentFrame);
-        //     seekBar.removeEventListener("mousedown", showScrubCanvas);
-        //     seekBar.removeEventListener("keydown", onKeyDownShowScrub);
-        // }
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
+            video.removeEventListener("seeked", paintCurrentFrame);
+            seekBar.removeEventListener("mousedown", showScrubCanvas);
+            seekBar.removeEventListener("keydown", onKeyDownShowScrub);
+        }
 
         video.addEventListener("canplay", onSourceSwitchCanPlay, { once: true });
 
@@ -256,11 +256,11 @@ let VideoPlayer = function(root) {
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
-        // if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
-        //     video.addEventListener("seeked", paintCurrentFrame);
-        //     seekBar.addEventListener("mousedown", showScrubCanvas);
-        //     seekBar.addEventListener("keydown", onKeyDownShowScrub);
-        // }
+        if(window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline")) {
+            video.addEventListener("seeked", paintCurrentFrame);
+            seekBar.addEventListener("mousedown", showScrubCanvas);
+            seekBar.addEventListener("keydown", onKeyDownShowScrub);
+        }
         if(playIcon.classList.contains("video-player__control-icon--hidden")) togglePlayBack();
         playBackBtn.disabled = false;
         playBackBtnMobile.disabled = false;
@@ -334,9 +334,9 @@ let VideoPlayer = function(root) {
         scrubImages = {};
     };
 
-    // let showScrubCanvas = function() {
-    //     scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
-    // };
+    let showScrubCanvas = function() {
+        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+    };
 
     let onKeyDownShowScrub = function(event) {
         if(event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") {
