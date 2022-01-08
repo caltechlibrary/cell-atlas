@@ -354,6 +354,7 @@ let VideoPlayer = function(root) {
         window.addEventListener("resize", resizeScrubCanvas);
         video.addEventListener("playing", startPaintInterval);
         video.addEventListener("pause", endPaintInterval);
+        video.addEventListener("waiting", endPaintInterval);
         video.addEventListener("seeked", paintCurrentFrame);
         video.addEventListener("emptied", resetScrub);
         seekBar.addEventListener("mousedown", showScrubCanvas);
@@ -389,6 +390,8 @@ let VideoPlayer = function(root) {
     };
 
     let startPaintInterval = function() {
+        // Clear any previous painting intervals
+        endPaintInterval();
         paintInterval = setInterval(paintCurrentFrame, 1000 / fps);
     };
 
