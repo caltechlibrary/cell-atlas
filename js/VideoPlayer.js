@@ -400,6 +400,7 @@ let VideoPlayer = function(root) {
     };
 
     let paintCurrentFrame = async function() {
+        if(video.seeking) return;
         let frameTime = Math.round(video.currentTime  * fps) / fps;
         if(!scrubImages[frameTime]) {
             scrubContext.drawImage(video, 0, 0, scrubCanvas.width, scrubCanvas.height);
