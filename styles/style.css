@@ -1699,7 +1699,7 @@ file. These definitions will be defined mobile first.
 }
 
 .video-player__scrub-canvas--hidden {
-    display: none !important;
+    display: none;
 }
 
 .video-player__playback-btn-mobile {
