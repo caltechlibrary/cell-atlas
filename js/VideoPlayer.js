@@ -14,8 +14,6 @@ let VideoPlayer = function(root) {
     let qualityOptionsMenu = root.querySelector(".video-player__quality-options-menu");
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
-    let fsIcon = root.querySelector(".video-player__control-icon-fs");
-    let exitFsIcon = root.querySelector(".video-player__control-icon-exit-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
     let scrubContext = scrubCanvas.getContext("2d");
@@ -251,15 +249,9 @@ let VideoPlayer = function(root) {
 
     let onFullscreenChange = function() {
         if(document.fullscreenElement || document.webkitFullscreenElement) {
-            fsBtn.classList.remove("video-player__control-btn-fs--hidden-mobile");
-            fsIcon.classList.add("video-player__control-icon--hidden");
-            exitFsIcon.classList.remove("video-player__control-icon--hidden");
-            video.classList.add("video-player__video--fullscreen");
+            root.classList.add("video-player--fullscreen");
         } else {
-            fsBtn.classList.add("video-player__control-btn-fs--hidden-mobile");
-            fsIcon.classList.remove("video-player__control-icon--hidden");
-            exitFsIcon.classList.add("video-player__control-icon--hidden");
-            video.classList.remove("video-player__video--fullscreen");
+            root.classList.remove("video-player--fullscreen");
         }
     };
 
