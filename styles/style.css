@@ -1746,7 +1746,7 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-.video-player--paused .video-player__playback-btn-mobile-pause-icon {
+.video-player:not(.video-player--playing) .video-player__playback-btn-mobile-pause-icon {
     display: none;
 }
 
@@ -1949,7 +1949,7 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-.video-player--paused .video-player__control-icon-pause {
+.video-player:not(.video-player--playing) .video-player__control-icon-pause {
     display: none;
 }
 

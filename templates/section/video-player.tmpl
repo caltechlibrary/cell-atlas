@@ -1,4 +1,4 @@
-<div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif} video-player--paused" data-doi="${it.doi}" data-vid-name="${it.vidName}" ${if(OFFLINE)}data-offline="true"${endif}>
+<div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" data-doi="${it.doi}" data-vid-name="${it.vidName}" ${if(OFFLINE)}data-offline="true"${endif}>
     <video class="video-player__video ${if(it.isSection)}video-player__video--main-section${else}video-player__video--subsection${endif}" poster="img/thumbnails/${it.thumbnail}.jpg" width="1920px" height="1080px" muted ${if(OFFLINE)}${else}crossorigin${endif} playsinline>
         <source>
         Your browser does not support the video tag.

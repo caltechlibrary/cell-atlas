@@ -119,12 +119,10 @@ let VideoPlayer = function(root) {
 
     let onPlay = function() {
         root.classList.add("video-player--playing");
-        root.classList.remove("video-player--paused");
         hideMobileControls();
     };
 
     let onPause = function() {
-        root.classList.add("video-player--paused");
         root.classList.remove("video-player--playing");
     };
 
