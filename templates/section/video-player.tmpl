@@ -1,4 +1,4 @@
-<div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" data-doi="${it.doi}" data-vid-name="${it.vidName}" ${if(OFFLINE)}data-offline="true"${endif}>
+<div class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif} video-player--paused" data-doi="${it.doi}" data-vid-name="${it.vidName}" ${if(OFFLINE)}data-offline="true"${endif}>
     <video class="video-player__video ${if(it.isSection)}video-player__video--main-section${else}video-player__video--subsection${endif}" poster="img/thumbnails/${it.thumbnail}.jpg" width="1920px" height="1080px" muted ${if(OFFLINE)}${else}crossorigin${endif} playsinline>
         <source>
         Your browser does not support the video tag.
@@ -6,13 +6,13 @@
     <canvas class="video-player__scrub-canvas video-player__scrub-canvas--hidden"></canvas>
     <button class="video-player__playback-btn-mobile">
         <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-play-icon">${svg/play.svg()}</div>
-        <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-pause-icon video-player__playback-btn-mobile-icon--hidden">${svg/pause.svg()}</div>
+        <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-pause-icon">${svg/pause.svg()}</div>
     </button>
     <div class="video-player__controls-container">
         <div class="video-player__top-controls-container">
             <button class="video-player__control-btn video-player__control-btn-playback">
                 <div class="video-player__control-icon video-player__control-icon-play">${svg/play.svg()}</div>
-                <div class="video-player__control-icon video-player__control-icon-pause video-player__control-icon--hidden">${svg/pause.svg()}</div>
+                <div class="video-player__control-icon video-player__control-icon-pause">${svg/pause.svg()}</div>
             </button>
             <span class="video-player__time-display">0:00</span>
             <div class="video-player__quality-changer ${if(OFFLINE)}video-player__quality-changer--hidden${endif}">
