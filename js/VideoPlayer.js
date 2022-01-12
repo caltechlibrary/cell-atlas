@@ -224,6 +224,7 @@ let VideoPlayer = function(root) {
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
         if(scrubEnabled) sourceSwitchEnableScrub();
+        if(root.classList.contains("video-player--playing")) togglePlayBack();
         playBackBtn.disabled = false;
         playBackBtnMobile.disabled = false;
         seekBar.disabled = false;
