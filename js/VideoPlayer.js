@@ -199,7 +199,7 @@ let VideoPlayer = function(root) {
         playBackBtn.disabled = true;
         playBackBtnMobile.disabled = true;
         seekBar.disabled = true;
-        video.removeEventListener("click", togglePlayBack);
+        if(window.innerWidth > 900) video.removeEventListener("click", togglePlayBack);
         video.removeEventListener("timeupdate", updateTimeDisplay);
         video.removeEventListener("timeupdate", updateSeekBar);
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
@@ -218,7 +218,7 @@ let VideoPlayer = function(root) {
     };
 
     let onSourceSwitchSeeked = function() {
-        video.addEventListener("click", togglePlayBack);
+        if(window.innerWidth > 900) video.addEventListener("click", togglePlayBack);
         video.addEventListener("timeupdate", updateTimeDisplay);
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
