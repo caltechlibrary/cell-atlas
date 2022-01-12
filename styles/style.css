@@ -1683,7 +1683,7 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.video-player__video--fullscreen {
+.video-player--fullscreen .video-player__video {
     width: 100%;
     height: 100%;
     max-height: none;
@@ -1728,16 +1728,12 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.video-player__playback-btn-mobile--playing {
+.video-player--playing .video-player__playback-btn-mobile {
     opacity: 0;
 }
 
-.video-player__playback-btn-mobile--show-mobile {
+.video-player--playing .video-player__playback-btn-mobile--show {
     opacity: 1;
-}
-
-.video-player__playback-btn-mobile--hidden-mobile {
-    visibility: hidden;
 }
 
 .video-player__playback-btn-mobile-icon {
@@ -1746,7 +1742,11 @@ file. These definitions will be defined mobile first.
     fill: #000;
 }
 
-.video-player__playback-btn-mobile-icon--hidden {
+.video-player--playing .video-player__playback-btn-mobile-play-icon {
+    display: none;
+}
+
+.video-player:not(.video-player--playing) .video-player__playback-btn-mobile-pause-icon {
     display: none;
 }
 
@@ -1762,22 +1762,18 @@ file. These definitions will be defined mobile first.
     transition: opacity 0.25s;
 }
 
-.video-player__controls-container--playing {
+.video-player--playing .video-player__controls-container {
     opacity: 0;
 }
 
 @media (min-width: 900px) {
-    .video-player:hover .video-player__controls-container--playing {
+    .video-player--playing:hover .video-player__controls-container {
         opacity: 1;
     }
 }
 
-.video-player__controls-container--show-mobile {
+.video-player--playing .video-player__controls-container--show {
     opacity: 1;
-}
-
-.video-player__controls-container--hidden {
-    visibility: hidden;
 }
 
 .video-player__top-controls-container {
@@ -1926,9 +1922,17 @@ file. These definitions will be defined mobile first.
 }
 
 @media (max-width:900px) {
-    .video-player__control-btn-fs--hidden-mobile {
+    .video-player:not(.video-player--fullscreen) .video-player__control-btn-fs {
         display: none;
     }
+}
+
+.video-player--fullscreen .video-player__control-icon-fs {
+    display: none;
+}
+
+.video-player:not(.video-player--fullscreen) .video-player__control-icon-exit-fs {
+    display: none;
 }
 
 .video-player__control-icon {
@@ -1941,7 +1945,11 @@ file. These definitions will be defined mobile first.
     display: block;
 }
 
-.video-player__control-icon--hidden {
+.video-player--playing .video-player__control-icon-play {
+    display: none;
+}
+
+.video-player:not(.video-player--playing) .video-player__control-icon-pause {
     display: none;
 }
 
