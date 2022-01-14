@@ -17,7 +17,7 @@ let VideoPlayer = function(root) {
     let seekBar = root.querySelector(".video-player__seek-bar");
     let scrubToggle = root.querySelector(".video-player__scrub-toggle-checkbox");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
-    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [], preLoaded = false;
+    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [], preLoaded = false, fps = 30;
 
     let init = function() {
         if(root.getAttribute("data-offline")) {
@@ -63,7 +63,7 @@ let VideoPlayer = function(root) {
 
     let initPlayer = function() {
         formattedDuration = getFormattedTime(video.duration);
-        seekBar.max = Math.round(video.duration * 30);
+        seekBar.max = Math.round(video.duration * fps);
         updateTimeDisplay();
         attachEventListeners();
     };
