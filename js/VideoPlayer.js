@@ -16,9 +16,7 @@ let VideoPlayer = function(root) {
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
-    let scrubContext = scrubCanvas.getContext("2d");
-    let scrubEnabled = window.innerWidth > 900 && window.createImageBitmap && !root.getAttribute("data-offline");
-    let src1080, src480, paintInterval, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, fps = 10, scrubImages = {};
+    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [];
 
     let init = function() {
         if(root.getAttribute("data-offline")) {
@@ -65,8 +63,9 @@ let VideoPlayer = function(root) {
     let initPlayer = function() {
         formattedDuration = getFormattedTime(video.duration);
         updateTimeDisplay();
-        if(scrubEnabled) resizeScrubCanvas();
         attachEventListeners();
+
+        preloadImages();
     };
 
     let attachEventListeners = function() {
@@ -93,7 +92,10 @@ let VideoPlayer = function(root) {
             controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
             root.addEventListener("fullscreenchange", onMobileFullscreenchange);
         }
-        if(scrubEnabled) enableScrubbing();
+
+        seekBar.addEventListener("input", paintFrame);
+        seekBar.addEventListener("mousedown", showScrubCanvas);
+        seekBar.addEventListener("mouseup", hideScrubCanvas);
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -204,7 +206,6 @@ let VideoPlayer = function(root) {
         video.removeEventListener("timeupdate", updateSeekBar);
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
         seekBar.removeEventListener("keydown", onSeekBarKeyDown);
-        if(scrubEnabled) sourceSwitchDisableScrub();
 
         video.addEventListener("canplay", onSourceSwitchCanPlay, { once: true });
 
@@ -223,7 +224,6 @@ let VideoPlayer = function(root) {
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
-        if(scrubEnabled) sourceSwitchEnableScrub();
         if(root.classList.contains("video-player--playing")) togglePlayBack();
         playBackBtn.disabled = false;
         playBackBtnMobile.disabled = false;
@@ -303,81 +303,22 @@ let VideoPlayer = function(root) {
         root.classList.remove("video-player--hidden");
     };
 
-    // Scrub related functions
-    let enableScrubbing = function() {
-        window.addEventListener("resize", resizeScrubCanvas);
-        video.addEventListener("playing", startPaintInterval);
-        video.addEventListener("pause", endPaintInterval);
-        video.addEventListener("waiting", endPaintInterval);
-        video.addEventListener("seeked", paintCurrentFrame);
-        video.addEventListener("emptied", resetScrub);
-        seekBar.addEventListener("mousedown", showScrubCanvas);
-        seekBar.addEventListener("keydown", onKeyDownShowScrub);
-        seekBar.addEventListener("mouseup", hideScrubCanvas);
-        seekBar.addEventListener("input", paintSeekedFrame);
-    };
-
-    let sourceSwitchDisableScrub = function() {
-        video.removeEventListener("seeked", paintCurrentFrame);
-        seekBar.removeEventListener("mousedown", showScrubCanvas);
-        seekBar.removeEventListener("keydown", onKeyDownShowScrub);
-    };
-
-    let sourceSwitchEnableScrub = function() {
-        video.addEventListener("seeked", paintCurrentFrame);
-        seekBar.addEventListener("mousedown", showScrubCanvas);
-        seekBar.addEventListener("keydown", onKeyDownShowScrub);
-    };
-
-    let resizeScrubCanvas = function() {
-        let height = video.getBoundingClientRect().height;
-        let width = video.getBoundingClientRect().width;
-        let intrinsicRatio = video.videoWidth / video.videoHeight;
-        let currentRatio = width / height;
-        if(currentRatio > intrinsicRatio) {
-            scrubCanvas.setAttribute("height", `${height}px`);
-            scrubCanvas.setAttribute("width", `${height * intrinsicRatio}px`);
-        } else {
-            scrubCanvas.setAttribute("width", `${width}px`);
-            scrubCanvas.setAttribute("height", `${width / intrinsicRatio}px`);
+    // Experimental Scrub related functions
+    let preloadImages = function() {
+        let totalFrames = Math.round(video.duration * 30);
+        for(let i = 0; i < totalFrames; i++) {
+            frames[i] = new Image();
+            frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.jpeg`;
         }
     };
 
-    let startPaintInterval = function() {
-        // Clear any previous painting intervals
-        endPaintInterval();
-        paintInterval = setInterval(paintCurrentFrame, 1000 / fps);
-    };
-
-    let endPaintInterval = function() {
-        clearInterval(paintInterval);
-    };
-
-    let paintCurrentFrame = async function() {
-        if(video.seeking) return;
-        let frameTime = Math.round(video.currentTime  * fps) / fps;
-        if(!scrubImages[frameTime]) {
-            scrubContext.drawImage(video, 0, 0, scrubCanvas.width, scrubCanvas.height);
-            imageData = scrubContext.getImageData(0, 0, scrubCanvas.width, scrubCanvas.height);
-            imageBitmap = await createImageBitmap(imageData);
-            scrubImages[frameTime] = imageBitmap;
-        }
-    };
-
-    let resetScrub = function() {
-        endPaintInterval();
-        scrubImages = {};
-    };
+    let paintFrame = function() {
+        let frameNumber = Math.round((seekBar.value / 1000) * frames.length);
+        if(frames.length > 0 && frames[frameNumber] && frames[frameNumber].complete) scrubCanvas.src = frames[frameNumber].src;
+    }
 
     let showScrubCanvas = function() {
         scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
-    };
-
-    let onKeyDownShowScrub = function(event) {
-        if(event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") {
-            showScrubCanvas();
-            seekBar.addEventListener("keyup", hideScrubCanvas, { once: true });
-        }
     };
 
     let hideScrubCanvas = function() {
@@ -388,12 +329,6 @@ let VideoPlayer = function(root) {
         }
     };
 
-    let paintSeekedFrame = function() {
-        let seekedTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
-        let frameTime = Math.round(seekedTime  * fps) / fps;
-        if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
-    };
-
     video.addEventListener("loadedmetadata", initPlayer, { once: true });
     init();
 
@@ -402,7 +337,6 @@ let VideoPlayer = function(root) {
         video,
         qualityOptionInputs,
         changeQuality,
-        resizeScrubCanvas,
         togglePlayBack,
         hide,
         show
