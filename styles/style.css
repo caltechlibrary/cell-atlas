@@ -1814,9 +1814,33 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.video-player__scrub-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 0.85em;
+}
+
+@media (max-width: 900px) {
+    .video-player__scrub-toggle {
+       display: none;
+    }
+}
+
+.video-player__scrub-toggle-checkbox {
+    margin-right: 0.75em;
+}
+
 .video-player__quality-changer {
     position: relative;
     margin-left: auto;
+}
+
+@media (min-width: 900px) {
+    .video-player__quality-changer {
+        margin-left: 0.75em;
+    }
 }
 
 .video-player__quality-changer--hidden {

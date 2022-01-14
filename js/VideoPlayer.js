@@ -15,8 +15,9 @@ let VideoPlayer = function(root) {
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
+    let scrubToggle = root.querySelector(".video-player__scrub-toggle-checkbox");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
-    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [];
+    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [], preLoaded = false;
 
     let init = function() {
         if(root.getAttribute("data-offline")) {
@@ -64,8 +65,6 @@ let VideoPlayer = function(root) {
         formattedDuration = getFormattedTime(video.duration);
         updateTimeDisplay();
         attachEventListeners();
-
-        preloadImages();
     };
 
     let attachEventListeners = function() {
@@ -78,6 +77,7 @@ let VideoPlayer = function(root) {
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
         seekBar.addEventListener("input", onSeekBarInput);
+        scrubToggle.addEventListener("change", onScrubToggle);
         openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
         fsBtn.addEventListener("click", toggleFullscreen);
         root.addEventListener("fullscreenchange", onFullscreenChange);
@@ -92,10 +92,6 @@ let VideoPlayer = function(root) {
             controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
             root.addEventListener("fullscreenchange", onMobileFullscreenchange);
         }
-
-        seekBar.addEventListener("input", paintFrame);
-        seekBar.addEventListener("mousedown", showScrubCanvas);
-        seekBar.addEventListener("mouseup", hideScrubCanvas);
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -165,6 +161,19 @@ let VideoPlayer = function(root) {
     let onSeekBarInput = function() {
         video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
         updateSeekBarBackground();
+    };
+
+    let onScrubToggle = function() {
+        if(scrubToggle.checked) {
+            if(!preLoaded) preloadImages();
+            seekBar.addEventListener("input", paintFrame);
+            seekBar.addEventListener("mousedown", showScrubCanvas);
+            seekBar.addEventListener("mouseup", hideScrubCanvas);
+        } else {
+            seekBar.removeEventListener("input", paintFrame);
+            seekBar.removeEventListener("mousedown", showScrubCanvas);
+            seekBar.removeEventListener("mouseup", hideScrubCanvas);
+        }
     };
 
     let toggleQualityOptionsMenu = function() {
@@ -310,6 +319,7 @@ let VideoPlayer = function(root) {
             frames[i] = new Image();
             frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.jpeg`;
         }
+        preLoaded = true;
     };
 
     let paintFrame = function() {
