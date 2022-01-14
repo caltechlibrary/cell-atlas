@@ -63,6 +63,7 @@ let VideoPlayer = function(root) {
 
     let initPlayer = function() {
         formattedDuration = getFormattedTime(video.duration);
+        seekBar.max = Math.round(video.duration * 30);
         updateTimeDisplay();
         attachEventListeners();
     };
@@ -314,8 +315,7 @@ let VideoPlayer = function(root) {
 
     // Experimental Scrub related functions
     let preloadImages = function() {
-        let totalFrames = Math.round(video.duration * 30);
-        for(let i = 0; i < totalFrames; i++) {
+        for(let i = 0; i < seekBar.max; i++) {
             frames[i] = new Image();
             frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.jpeg`;
         }
@@ -323,8 +323,7 @@ let VideoPlayer = function(root) {
     };
 
     let paintFrame = function() {
-        let frameNumber = Math.round((seekBar.value / 1000) * frames.length);
-        if(frames.length > 0 && frames[frameNumber] && frames[frameNumber].complete) scrubCanvas.src = frames[frameNumber].src;
+        if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) scrubCanvas.src = frames[seekBar.value].src;
     }
 
     let showScrubCanvas = function() {
