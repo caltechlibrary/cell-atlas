@@ -18,6 +18,7 @@ let VideoPlayer = function(root) {
     let scrubToggle = root.querySelector(".video-player__scrub-toggle-checkbox");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
     let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [], preLoaded = false, fps = 30;
+    let webpSupport = { "lossy": undefined, "lossless": undefined, "alpha": undefined, "animation": undefined };
 
     let init = function() {
         if(root.getAttribute("data-offline")) {
@@ -164,19 +165,6 @@ let VideoPlayer = function(root) {
         updateSeekBarBackground();
     };
 
-    let onScrubToggle = function() {
-        if(scrubToggle.checked) {
-            if(!preLoaded) preloadImages();
-            seekBar.addEventListener("input", paintFrame);
-            seekBar.addEventListener("mousedown", showScrubCanvas);
-            seekBar.addEventListener("mouseup", hideScrubCanvas);
-        } else {
-            seekBar.removeEventListener("input", paintFrame);
-            seekBar.removeEventListener("mousedown", showScrubCanvas);
-            seekBar.removeEventListener("mouseup", hideScrubCanvas);
-        }
-    };
-
     let toggleQualityOptionsMenu = function() {
         if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
             openQualityChangerBtn.classList.add("video-player__quality-changer-open-btn--activated");
@@ -314,13 +302,68 @@ let VideoPlayer = function(root) {
     };
 
     // Experimental Scrub related functions
-    let preloadImages = function() {
-        for(let i = 0; i < seekBar.max; i++) {
-            frames[i] = new Image();
-            frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.jpeg`;
+    let onScrubToggle = function() {
+        if(scrubToggle.checked) {
+            if(!preLoaded) preloadImages();
+            seekBar.addEventListener("input", paintFrame);
+            seekBar.addEventListener("mousedown", showScrubCanvas);
+            seekBar.addEventListener("mouseup", hideScrubCanvas);
+        } else {
+            seekBar.removeEventListener("input", paintFrame);
+            seekBar.removeEventListener("mousedown", showScrubCanvas);
+            seekBar.removeEventListener("mouseup", hideScrubCanvas);
         }
+    };
+
+    let preloadImages = function() {
+        for(feature in webpSupport) check_webp_feature(feature, onWebpFeatureResult);
         preLoaded = true;
     };
+
+    let onWebpFeatureResult = function(feature, result) {
+        webpSupport[feature] = result;
+        for(feature in webpSupport) if(webpSupport[feature] == undefined) return;
+        onWebpFeatureTestingEnd();
+    };
+
+    let onWebpFeatureTestingEnd = function() {
+        for(feature in webpSupport) {
+            if(webpSupport[feature] == false) {
+                loadImages("jpeg");
+                return;
+            }
+        }
+        loadImages("webp");
+    }
+
+    let loadImages = function(type) {
+        for(let i = 0; i < seekBar.max; i++) {
+            frames[i] = new Image();
+            frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.${type}`;
+        }
+    };
+
+    // check_webp_feature:
+    //   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
+    //   'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)
+    //   taken from https://developers.google.com/speed/webp/faq#in_your_own_javascript 
+    function check_webp_feature(feature, callback) {
+        var kTestImages = {
+            lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
+            lossless: "UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",
+            alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",
+            animation: "UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"
+        };
+        var img = new Image();
+        img.onload = function () {
+            var result = (img.width > 0) && (img.height > 0);
+            callback(feature, result);
+        };
+        img.onerror = function () {
+            callback(feature, false);
+        };
+        img.src = "data:image/webp;base64," + kTestImages[feature];
+    }
 
     let paintFrame = function() {
         if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) scrubCanvas.src = frames[seekBar.value].src;
