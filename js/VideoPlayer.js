@@ -18,7 +18,6 @@ let VideoPlayer = function(root) {
     let scrubToggle = root.querySelector(".video-player__scrub-toggle-checkbox");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
     let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [], preLoaded = false, fps = 30;
-    let webpSupport = { "lossy": undefined, "lossless": undefined, "alpha": undefined, "animation": undefined };
 
     let init = function() {
         if(root.getAttribute("data-offline")) {
@@ -66,6 +65,7 @@ let VideoPlayer = function(root) {
         formattedDuration = getFormattedTime(video.duration);
         seekBar.max = Math.round(video.duration * fps);
         updateTimeDisplay();
+        checkWebpSupport();
         attachEventListeners();
     };
 
@@ -316,31 +316,42 @@ let VideoPlayer = function(root) {
     };
 
     let preloadImages = function() {
-        for(feature in webpSupport) check_webp_feature(feature, onWebpFeatureResult);
+        for(let i = 0; i < seekBar.max; i++) {
+            frames[i] = new Image();
+            frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.webp`;
+        }
         preLoaded = true;
     };
 
-    let onWebpFeatureResult = function(feature, result) {
-        webpSupport[feature] = result;
-        for(feature in webpSupport) if(webpSupport[feature] == undefined) return;
-        onWebpFeatureTestingEnd();
-    };
-
-    let onWebpFeatureTestingEnd = function() {
-        for(feature in webpSupport) {
-            if(webpSupport[feature] == false) {
-                loadImages("jpeg");
-                return;
-            }
-        }
-        loadImages("webp");
+    let paintFrame = function() {
+        if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) scrubCanvas.src = frames[seekBar.value].src;
     }
 
-    let loadImages = function(type) {
-        for(let i = 0; i < seekBar.max; i++) {
-            frames[i] = new Image();
-            frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.${type}`;
+    let showScrubCanvas = function() {
+        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+    };
+
+    let hideScrubCanvas = function() {
+        if(video.seeking) {
+            video.addEventListener("seeked", hideScrubCanvas, { once: true });
+        } else {
+            scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
         }
+    };
+
+    let checkWebpSupport = function() {
+        let webpFeatures = ["lossy", "lossless", "alpha", "animation"];
+
+        let featureTestCallback = function(feature, result) {
+            if(!result) return;
+            if (webpFeatures.indexOf(feature) == webpFeatures.length - 1) {
+                scrubToggle.disabled = false;
+            } else {
+                check_webp_feature(webpFeatures[webpFeatures.indexOf(feature) + 1], featureTestCallback);
+            }
+        };
+
+        check_webp_feature(webpFeatures[0], featureTestCallback);
     };
 
     // check_webp_feature:
@@ -364,22 +375,6 @@ let VideoPlayer = function(root) {
         };
         img.src = "data:image/webp;base64," + kTestImages[feature];
     }
-
-    let paintFrame = function() {
-        if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) scrubCanvas.src = frames[seekBar.value].src;
-    }
-
-    let showScrubCanvas = function() {
-        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
-    };
-
-    let hideScrubCanvas = function() {
-        if(video.seeking) {
-            video.addEventListener("seeked", hideScrubCanvas, { once: true });
-        } else {
-            scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
-        }
-    };
 
     video.addEventListener("loadedmetadata", initPlayer, { once: true });
     init();
