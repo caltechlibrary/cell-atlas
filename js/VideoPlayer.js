@@ -318,7 +318,7 @@ let VideoPlayer = function(root) {
     let preloadImages = function() {
         for(let i = 0; i < seekBar.max; i++) {
             frames[i] = new Image();
-            frames[i].src = `http://127.0.0.1:8080/${vidName}_frame${i}.webp`;
+            frames[i].src = `https://www.cellstructureatlas.org/scrubbing/${vidName}_frame${i}.webp`;
         }
         preLoaded = true;
     };
