@@ -20,7 +20,6 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         if(mediaType == "vid") {
             if(compSlider) compSlider.hide();
             videoPlayer.show();
-            if(window.createImageBitmap && window.innerWidth > 900) requestAnimationFrame(videoPlayer.resizeScrubCanvas);
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
         } else if(mediaType == "img") {
             if(!videoPlayer.video.paused) videoPlayer.togglePlayBack();
