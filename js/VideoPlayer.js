@@ -17,7 +17,7 @@ let VideoPlayer = function(root) {
     let seekBar = root.querySelector(".video-player__seek-bar");
     let scrubToggle = root.querySelector(".video-player__scrub-toggle-checkbox");
     let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
-    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [], preLoaded = false, fps = 30;
+    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, frames = [], fps = 30;
 
     let init = function() {
         if(root.getAttribute("data-offline")) {
@@ -304,15 +304,49 @@ let VideoPlayer = function(root) {
     // Experimental Scrub related functions
     let onScrubToggle = function() {
         if(scrubToggle.checked) {
-            if(!preLoaded) preloadImages();
-            seekBar.addEventListener("input", paintFrameAtCurrValue);
-            seekBar.addEventListener("mousedown", showScrubCanvas);
-            seekBar.addEventListener("mouseup", hideScrubCanvas);
+            initScrub();
         } else {
-            seekBar.removeEventListener("input", paintFrameAtCurrValue);
-            seekBar.removeEventListener("mousedown", showScrubCanvas);
-            seekBar.removeEventListener("mouseup", hideScrubCanvas);
+            removeScrub();
         }
+    };
+
+    let initScrub = function() {
+        // Preload images if we have not already
+        if(frames.length == 0) preloadImages();
+
+        // Pause video to go into scrub mode
+        video.pause();
+
+        // Disable video related buttons
+        playBackBtn.disabled = true;
+        openQualityChangerBtn.disabled = true;
+
+        // Add scrub related stylings to controls
+        controlsContainer.classList.add("video-player__controls-container--scrubbing");
+
+        // Initialize scrub functionality
+        paintFrameAtCurrValue();
+        seekBar.addEventListener("input", paintFrameAtCurrValue);
+        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+
+        // Hide video after showing scrub canvas
+        video.classList.add("video-player__video--hidden");
+    };
+
+    let removeScrub = function() {
+        // Enable video related buttons
+        playBackBtn.disabled = false;
+        openQualityChangerBtn.disabled = false;
+
+        // Remove scrub related stylings to controls
+        controlsContainer.classList.remove("video-player__controls-container--scrubbing");
+
+        // Show video before removing scrub canvas
+        video.classList.remove("video-player__video--hidden");
+
+        // Remove scrub functionality
+        seekBar.removeEventListener("input", paintFrameAtCurrValue);
+        scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
     };
 
     let preloadImages = function() {
@@ -320,28 +354,11 @@ let VideoPlayer = function(root) {
             frames[i] = new Image();
             frames[i].src = `https://www.cellstructureatlas.org/scrubbing/${vidName}_frame${i}.webp`;
         }
-        preLoaded = true;
     };
 
     let paintFrameAtCurrValue = function() {
         if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) scrubCanvas.src = frames[seekBar.value].src;
     }
-
-    let showScrubCanvas = function(event) {
-        if(event.button == 0) {
-            video.removeEventListener("seeked", hideScrubCanvas);
-            paintFrameAtCurrValue();
-            scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
-        }
-    };
-
-    let hideScrubCanvas = function() {
-        if(video.seeking) {
-            video.addEventListener("seeked", hideScrubCanvas, { once: true });
-        } else {
-            scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
-        }
-    };
 
     let checkWebpSupport = function() {
         let webpFeatures = ["lossy", "lossless", "alpha", "animation"];

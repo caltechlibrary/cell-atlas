@@ -1689,6 +1689,10 @@ file. These definitions will be defined mobile first.
     max-height: none;
 }
 
+.video-player__video--hidden {
+    visibility: hidden;
+}
+
 .video-player__scrub-canvas {
     position: absolute;
     left: 0;
@@ -1814,6 +1818,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.video-player__controls-container--scrubbing .video-player__control-btn-playback {
+    opacity: 0.3;
+}
+
 .video-player__scrub-toggle {
     margin-left: auto;
     display: flex;
@@ -1845,6 +1853,10 @@ file. These definitions will be defined mobile first.
     .video-player__quality-changer {
         margin-left: 0.75em;
     }
+}
+
+.video-player__controls-container--scrubbing .video-player__quality-changer {
+    opacity: 0.3;
 }
 
 .video-player__quality-changer--hidden {
