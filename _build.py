@@ -69,6 +69,9 @@ def writePage(siteDir, sourceFile, template, pageName, metadata):
             metadata["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
             metadata["vidMetadata"]["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
 
+    if("vidMetadata" in metadata and "vidName" in metadata["vidMetadata"] and metadata["vidMetadata"]["vidName"] == "1_10_Bbacteriovorus"):
+        metadata["vidMetadata"]["scrubTest"] = True
+
     # Check if collector profile exist in scientist profiles
     addCollectorData(metadata, "collector")
     # create temp file with inserted references/profiles

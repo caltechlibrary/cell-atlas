@@ -1828,6 +1828,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.video-player__scrub-toggle--hidden {
+    visibility: hidden;
+}
+
 .video-player__scrub-toggle-checkbox {
     margin-right: 0.75em;
 }

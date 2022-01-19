@@ -15,7 +15,7 @@
                 <div class="video-player__control-icon video-player__control-icon-pause">${svg/pause.svg()}</div>
             </button>
             <span class="video-player__time-display">0:00</span>
-            <label class="video-player__scrub-toggle">
+            <label class="video-player__scrub-toggle ${if(it.scrubTest)}${else}video-player__scrub-toggle--hidden${endif}">
                 <input class="video-player__scrub-toggle-checkbox" type="checkbox" disabled>
                 <span class="video-player__scrub-toggle-text">Scrubbing (uses network)</span>
             </label>
