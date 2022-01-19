@@ -305,11 +305,11 @@ let VideoPlayer = function(root) {
     let onScrubToggle = function() {
         if(scrubToggle.checked) {
             if(!preLoaded) preloadImages();
-            seekBar.addEventListener("input", paintFrame);
+            seekBar.addEventListener("input", paintFrameAtCurrValue);
             seekBar.addEventListener("mousedown", showScrubCanvas);
             seekBar.addEventListener("mouseup", hideScrubCanvas);
         } else {
-            seekBar.removeEventListener("input", paintFrame);
+            seekBar.removeEventListener("input", paintFrameAtCurrValue);
             seekBar.removeEventListener("mousedown", showScrubCanvas);
             seekBar.removeEventListener("mouseup", hideScrubCanvas);
         }
@@ -323,12 +323,16 @@ let VideoPlayer = function(root) {
         preLoaded = true;
     };
 
-    let paintFrame = function() {
+    let paintFrameAtCurrValue = function() {
         if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) scrubCanvas.src = frames[seekBar.value].src;
     }
 
-    let showScrubCanvas = function() {
-        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+    let showScrubCanvas = function(event) {
+        if(event.button == 0) {
+            video.removeEventListener("seeked", hideScrubCanvas);
+            paintFrameAtCurrValue();
+            scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+        }
     };
 
     let hideScrubCanvas = function() {
