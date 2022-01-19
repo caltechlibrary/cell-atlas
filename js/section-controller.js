@@ -79,10 +79,6 @@
             }
         };
 
-        let resizeMainPlayerScrubCanvas = function() {
-            if(!mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mainMediaViewer.videoPlayer.resizeScrubCanvas();
-        };
-
         let stopMainNarration = function() {
             if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
         };
@@ -160,7 +156,6 @@
         return {
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
-            resizeMainPlayerScrubCanvas,
             stopMainNarration,
             showStopNarrationBtn,
             hideStopNarrationBtn,
@@ -200,7 +195,6 @@
     mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
     if(mainMediaViewer.videoPlayer) mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
     
-    if(window.createImageBitmap && mainMediaViewer.videoPlayer) mainNonTextContainer.addEventListener("transitionend", sectionController.resizeMainPlayerScrubCanvas);
     mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
