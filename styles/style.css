@@ -1571,7 +1571,7 @@ file. These definitions will be defined mobile first.
     box-shadow: 0px 0px 0 2px #fff;
 }
 
-.section-text__toggle-narration-btn--postponed {
+.section-text__toggle-narration-btn--hidden {
     display: none;
 }
 

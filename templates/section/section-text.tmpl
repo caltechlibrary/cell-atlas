@@ -13,7 +13,7 @@
                 <div class="section-text__header-divider"></div>
                 <h1 class="section-text__title">${title}</h1>
             </div>
-             <button class="section-text__toggle-narration-btn ${if(narrationPostponed)}section-text__toggle-narration-btn--postponed${endif}" aria-label="Open narration player">
+            <button class="section-text__toggle-narration-btn ${if(vidMetadata.narrationSrc)}${else}section-text__toggle-narration-btn--hidden${endif}" aria-label="Open narration player">
                 <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
                 <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
             </button>
