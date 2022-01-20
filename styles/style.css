@@ -3096,6 +3096,7 @@ file. These definitions will be defined mobile first.
     }
 }
 
+/* narration-player */
 .narration-player {
     flex: 0 0 auto;
     box-sizing: border-box;
@@ -3131,6 +3132,10 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .narration-player__playback-btn:hover {
+        box-shadow: 0px 0px 0 2px #000;
+    }
+
+    .narration-player--light-theme .narration-player__playback-btn:hover {
         box-shadow: 0px 0px 0 2px #fff;
     }
 }
@@ -3139,15 +3144,12 @@ file. These definitions will be defined mobile first.
     width: 100%;
     height: 100%;
     stroke-width: 2;
+    stroke: #000;
     fill: none;
 }
 
-.narration-player__playback-btn-icon--section-text {
+.narration-player--light-theme .narration-player__playback-btn-icon {
     stroke: #fff;
-}
-
-.narration-player__playback-btn-icon--modal {
-    stroke: #000;
 }
 
 .narration-player__playback-btn-icon--hidden {
@@ -3161,16 +3163,13 @@ file. These definitions will be defined mobile first.
     -webkit-appearance: none;
     width: 15.5em;
     height: 2px;
+    background: #000;
     font-size: 0.85em;
     cursor: pointer;
 }
 
-.narration-player__seekbar--section-text {
+.narration-player--light-theme .narration-player__seekbar {
     background: #fff;
-}
-
-.narration-player__seekbar--modal {
-    background: #000;
 }
 
 .narration-player__seekbar::-webkit-slider-thumb {
@@ -3178,18 +3177,20 @@ file. These definitions will be defined mobile first.
     width: 0.85em;
     height: 0.85em;
     border-radius: 100px;
-}
-
-.narration-player__seekbar--section-text::-webkit-slider-thumb {
-    background: #fff;
-}
-
-.narration-player__seekbar--modal::-webkit-slider-thumb {
     background: #000;
 }
 
+.narration-player--light-theme .narration-player__seekbar::-webkit-slider-thumb {
+    background: #fff;
+}
+
 .narration-player__time-display {
-    flex: 0 0 auto
+    flex: 0 0 auto;
+    color: #000
+}
+
+.narration-player--light-theme .narration-player__time-display {
+    color: #fff
 }
 
 /* progress-bar */

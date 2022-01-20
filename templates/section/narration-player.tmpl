@@ -1,16 +1,16 @@
 <div
     id="${if(it.isSection)}narrationPlayer-main${else}narrationPlayer-${it.id}${endif}"
-    class="narration-player narration-player--hidden"
+    class="narration-player narration-player--hidden ${if(it.isSection)}narration-player--light-theme${endif}"
     data-src="${it.narrationSrc}.mp3"
     tabindex="0"
     ${if(OFFLINE)}data-offline="true"${endif}
 >
     <button class="narration-player__playback-btn" aria-label="Play" disabled>
-        <div class="narration-player__playback-btn-icon ${if(it.isSection)}narration-player__playback-btn-icon--section-text${else}narration-player__playback-btn-icon--modal${endif} narration-player__playback-btn-play-icon">${svg/play.svg()}</div>
-        <div class="narration-player__playback-btn-icon ${if(it.isSection)}narration-player__playback-btn-icon--section-text${else}narration-player__playback-btn-icon--modal${endif} narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon">${svg/pause.svg()}</div>
+        <span class="narration-player__playback-btn-icon narration-player__playback-btn-play-icon">${svg/play.svg()}</span>
+        <span class="narration-player__playback-btn-icon narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon">${svg/pause.svg()}</span>
     </button>
     <input 
-        class="narration-player__seekbar ${if(it.isSection)}narration-player__seekbar--section-text${else}narration-player__seekbar--modal${endif}"
+        class="narration-player__seekbar"
         aria-label="audio time scrubber 0:00 / 0:00"
         aria-valuetext="elapsed time: 0:00"
         type="range" value="0" min="0" disabled
