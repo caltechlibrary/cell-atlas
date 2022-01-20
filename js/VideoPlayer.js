@@ -314,12 +314,13 @@ let VideoPlayer = function(root) {
         // Preload images if we have not already
         if(frames.length == 0) preloadImages();
 
-        // Pause video to go into scrub mode
-        video.pause();
-
-        // Disable video related buttons
+        // Disable buttons and methods that control video playback
         playBackBtn.disabled = true;
         openQualityChangerBtn.disabled = true;
+        video.removeEventListener("click", togglePlayBack);
+
+        // Pause video to go into scrub mode
+        video.pause();
 
         // Add scrub related stylings to controls
         controlsContainer.classList.add("video-player__controls-container--scrubbing");
@@ -334,9 +335,10 @@ let VideoPlayer = function(root) {
     };
 
     let removeScrub = function() {
-        // Enable video related buttons
+        // Enable buttons and methods that control video playback
         playBackBtn.disabled = false;
         openQualityChangerBtn.disabled = false;
+        video.addEventListener("click", togglePlayBack);
 
         // Remove scrub related stylings to controls
         controlsContainer.classList.remove("video-player__controls-container--scrubbing");
