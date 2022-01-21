@@ -314,10 +314,11 @@ let VideoPlayer = function(root) {
         // Preload images if we have not already
         if(frames.length == 0) preloadImages();
 
-        // Disable buttons and methods that control video playback
+        // Disable buttons and methods that control video playback/time
         playBackBtn.disabled = true;
         openQualityChangerBtn.disabled = true;
         video.removeEventListener("click", togglePlayBack);
+        seekBar.removeEventListener("input", onSeekBarInput);
 
         // Pause video to go into scrub mode
         video.pause();
@@ -330,20 +331,23 @@ let VideoPlayer = function(root) {
     };
 
     let removeScrub = function() {
-        // Enable buttons and methods that control video playback
+        // Remove scrub functionality
+        seekBar.removeEventListener("input", paintFrameAtCurrValue);
+
+        // Reset seekBar value to what it was before scrubbing
+        updateSeekBar();
+
+        // Hide scrub canvas
+        scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
+
+        // Enable buttons and methods that control video playback/time
         playBackBtn.disabled = false;
         openQualityChangerBtn.disabled = false;
         video.addEventListener("click", togglePlayBack);
+        seekBar.addEventListener("input", onSeekBarInput);
 
         // Remove scrub related stylings to controls
         controlsContainer.classList.remove("video-player__controls-container--scrubbing");
-
-        // Show video before removing scrub canvas
-        video.classList.remove("video-player__video--hidden");
-
-        // Remove scrub functionality
-        seekBar.removeEventListener("input", paintFrameAtCurrValue);
-        scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
     };
 
     let preloadImages = function() {
@@ -355,9 +359,8 @@ let VideoPlayer = function(root) {
 
     let paintFrameAtCurrValue = function() {
         if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) {
-            // Hide video and show scrub canvas if we haven't already
+            // Show scrub canvas if we haven't already
             scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
-            video.classList.add("video-player__video--hidden");
 
             scrubCanvas.src = frames[seekBar.value].src;
         }

@@ -1689,10 +1689,6 @@ file. These definitions will be defined mobile first.
     max-height: none;
 }
 
-.video-player__video--hidden {
-    visibility: hidden;
-}
-
 .video-player__scrub-canvas {
     position: absolute;
     left: 0;
@@ -2012,6 +2008,10 @@ file. These definitions will be defined mobile first.
     font-family: sans-serif;
 }
 
+.video-player__controls-container--scrubbing .video-player__time-display {
+    opacity: 0.3;
+}
+
 .video-player__seek-bar {
     -webkit-appearance: none;
     margin: 0;
@@ -2020,6 +2020,10 @@ file. These definitions will be defined mobile first.
     border-radius: 100px;
     background: #717171;
     cursor: pointer;
+}
+
+.video-player__controls-container--scrubbing .video-player__seek-bar {
+    background: #717171 !important;
 }
 
 .video-player__seek-bar::-webkit-slider-thumb {
