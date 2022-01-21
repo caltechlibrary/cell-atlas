@@ -17,41 +17,29 @@ let VideoPlayer = function(root) {
     let seekBar = root.querySelector(".video-player__seek-bar");
     let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0;
 
-    let init = function() {
-        if(root.getAttribute("data-offline")) {
-            loadSrc(`videos/${vidName}.mp4`);
-        } else {
+    let init = async function() {
+        // Set default quality based on session storage variable
+        let vidQuality = (window.sessionStorage.getItem("vidQuality") == "480") ? "480" : "1080";
+
+        // Set variables for 1080/480 src
+        if(doi) { // If doi, generate source strings from that
+            let res = await fetch(`https://api.datacite.org/dois/${doi}/media`);
+            let data = await res.json();
+            src1080 = data.data[0].attributes.url;
+            src480 = `${src1080.substring(0, src1080.indexOf(".mp4"))}_480p.mp4`;
+        } else { // If no doi, fallback to vidName variable which is set by build script
+            src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
             src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
-            if(doi) {
-                fetch(`https://api.datacite.org/dois/${doi}/media`)
-                    .then(res => res.json())
-                    .then(function(data) {
-                        src1080 = data.data[0].attributes.url;
-                        initSrc();
-                    });
-            } else {
-                src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
-                initSrc();
-            }
         }
-    };
 
-    let initSrc = function() {
-        if(window.sessionStorage.getItem("vidQuality") == "480") {
-            updateQualityChanger("480");
-            loadSrc(src480);
-        } else {
-            updateQualityChanger("1080");
-            loadSrc(src1080);
-        }
-    };
+        // Add event listener to init player functionality when source is loaded
+        video.addEventListener("loadedmetadata", initPlayer, { once: true });
 
-    let updateQualityChanger = function(quality) {
-        let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
-        let qualityTextNode = document.createTextNode(`${quality}p`);
-        qualityInput.checked = true;
-        if(openQualityChangerBtnText.firstChild) openQualityChangerBtnText.removeChild(openQualityChangerBtnText.firstChild);
-        openQualityChangerBtnText.appendChild(qualityTextNode);
+        // Load source in video element
+        loadSrc((vidQuality == "480") ? src480 : src1080);
+
+        // Update quality changer text
+        updateQualityChanger(vidQuality);
     };
 
     let loadSrc = function(source) {
@@ -206,6 +194,14 @@ let VideoPlayer = function(root) {
         if(quality == "480") loadSrc(src480);
     };
 
+    let updateQualityChanger = function(quality) {
+        let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
+        let qualityTextNode = document.createTextNode(`${quality}p`);
+        qualityInput.checked = true;
+        if(openQualityChangerBtnText.firstChild) openQualityChangerBtnText.removeChild(openQualityChangerBtnText.firstChild);
+        openQualityChangerBtnText.appendChild(qualityTextNode);
+    };
+
     let onSourceSwitchCanPlay = function() {
         video.addEventListener("seeked", onSourceSwitchSeeked, { once: true });
         video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
@@ -296,7 +292,6 @@ let VideoPlayer = function(root) {
         root.classList.remove("video-player--hidden");
     };
 
-    video.addEventListener("loadedmetadata", initPlayer, { once: true });
     init();
 
     return {
