@@ -326,12 +326,7 @@ let VideoPlayer = function(root) {
         controlsContainer.classList.add("video-player__controls-container--scrubbing");
 
         // Initialize scrub functionality
-        paintFrameAtCurrValue();
         seekBar.addEventListener("input", paintFrameAtCurrValue);
-        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
-
-        // Hide video after showing scrub canvas
-        video.classList.add("video-player__video--hidden");
     };
 
     let removeScrub = function() {
@@ -359,7 +354,13 @@ let VideoPlayer = function(root) {
     };
 
     let paintFrameAtCurrValue = function() {
-        if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) scrubCanvas.src = frames[seekBar.value].src;
+        if(frames.length > 0 && frames[seekBar.value] && frames[seekBar.value].complete) {
+            // Hide video and show scrub canvas if we haven't already
+            scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
+            video.classList.add("video-player__video--hidden");
+
+            scrubCanvas.src = frames[seekBar.value].src;
+        }
     }
 
     let checkWebpSupport = function() {
