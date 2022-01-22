@@ -15,7 +15,7 @@ let VideoPlayer = function(root) {
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
-    let src1080, src480, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0;
+    let src1080, src480, hideMobileControlsTimeout, percentBuffered = 0;
 
     let init = async function() {
         // Set default quality based on session storage variable
@@ -48,35 +48,39 @@ let VideoPlayer = function(root) {
     }
 
     let initPlayer = function() {
-        formattedDuration = getFormattedTime(video.duration);
+        // Update time display now that we have video metadata
         updateTimeDisplay();
-        attachEventListeners();
-    };
 
-    let attachEventListeners = function() {
-        playBackBtn.addEventListener("click", togglePlayBack);
+        // Attach all player event listeners
+        root.addEventListener("fullscreenchange", onFullscreenChange);
+        root.addEventListener("webkitfullscreenchange", onFullscreenChange);
         video.addEventListener("play", onPlay);
         video.addEventListener("pause", onPause);
         video.addEventListener("timeupdate", updateTimeDisplay);
         video.addEventListener("timeupdate", updateSeekBar);
         video.addEventListener("progress", updatePercentBuffered);
+        playBackBtn.addEventListener("click", togglePlayBack);
+        openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
+        fsBtn.addEventListener("click", toggleFullscreen);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
         seekBar.addEventListener("input", onSeekBarInput);
-        openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
-        fsBtn.addEventListener("click", toggleFullscreen);
-        root.addEventListener("fullscreenchange", onFullscreenChange);
-        root.addEventListener("webkitfullscreenchange", onFullscreenChange);
         if(window.innerWidth > 900) {
             video.addEventListener("click", togglePlayBack);
         } else {
+            root.addEventListener("fullscreenchange", onMobileFullscreenchange);
             video.addEventListener("click", onVideoClickMobile);
             video.addEventListener("play", forceFullscreenMobile);
             playBackBtnMobile.addEventListener("click", togglePlayBack);
             controlsContainer.addEventListener("touchstart", onControlsContainerTouchStartMobile);
             controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
-            root.addEventListener("fullscreenchange", onMobileFullscreenchange);
         }
+    };
+
+    let updateTimeDisplay = function() {
+        let timeTextNode = document.createTextNode(`${getFormattedTime(video.currentTime)} / ${getFormattedTime(video.duration)}`);
+        timeDisplay.removeChild(timeDisplay.firstChild);
+        timeDisplay.appendChild(timeTextNode);
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -84,12 +88,6 @@ let VideoPlayer = function(root) {
         let secondsFormatted = Math.round(timeSeconds) - (minutesFormatted * 60);
         if(secondsFormatted < 10) secondsFormatted = `0${secondsFormatted}`;
         return `${minutesFormatted}:${secondsFormatted}`;
-    };
-
-    let updateTimeDisplay = function() {
-        let timeTextNode = document.createTextNode(`${getFormattedTime(video.currentTime)} / ${formattedDuration}`);
-        timeDisplay.removeChild(timeDisplay.firstChild);
-        timeDisplay.appendChild(timeTextNode);
     };
 
     let togglePlayBack = function() {
