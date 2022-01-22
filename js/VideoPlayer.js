@@ -77,6 +77,15 @@ let VideoPlayer = function(root) {
         }
     };
 
+    let onPlay = function() {
+        root.classList.add("video-player--playing");
+        hideMobileControls();
+    };
+
+    let onPause = function() {
+        root.classList.remove("video-player--playing");
+    };
+
     let updateTimeDisplay = function() {
         let timeTextNode = document.createTextNode(`${getFormattedTime(video.currentTime)} / ${getFormattedTime(video.duration)}`);
         timeDisplay.removeChild(timeDisplay.firstChild);
@@ -88,23 +97,6 @@ let VideoPlayer = function(root) {
         let secondsFormatted = Math.round(timeSeconds) - (minutesFormatted * 60);
         if(secondsFormatted < 10) secondsFormatted = `0${secondsFormatted}`;
         return `${minutesFormatted}:${secondsFormatted}`;
-    };
-
-    let togglePlayBack = function() {
-        if (video.paused || video.ended) {
-            video.play();
-        } else {
-            video.pause();
-        }
-    };
-
-    let onPlay = function() {
-        root.classList.add("video-player--playing");
-        hideMobileControls();
-    };
-
-    let onPause = function() {
-        root.classList.remove("video-player--playing");
     };
 
     let updateSeekBar = function() {
@@ -124,6 +116,14 @@ let VideoPlayer = function(root) {
                 updateSeekBarBackground();
                 break;
             }
+        }
+    };
+
+    let togglePlayBack = function() {
+        if (video.paused || video.ended) {
+            video.play();
+        } else {
+            video.pause();
         }
     };
 
