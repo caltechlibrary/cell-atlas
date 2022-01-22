@@ -224,7 +224,7 @@ let VideoPlayer = function(root) {
             } else if(document.webkitExitFullscreen) {
                 document.webkitExitFullscreen();
             }
-        } else if(!document.fullscreenElement || !document.webkitFullscreenElement) {
+        } else if(!document.fullscreenElement && !document.webkitFullscreenElement) {
             if (root.requestFullscreen) {
                 root.requestFullscreen();
             } else if (root.webkitRequestFullscreen) {
@@ -234,7 +234,7 @@ let VideoPlayer = function(root) {
     };
 
     let onFullscreenChange = function() {
-        if(document.fullscreenElement || document.webkitFullscreenElement) {
+        if(document.fullscreenElement == root || document.webkitFullscreenElement == root) {
             root.classList.add("video-player--fullscreen");
         } else {
             root.classList.remove("video-player--fullscreen");
