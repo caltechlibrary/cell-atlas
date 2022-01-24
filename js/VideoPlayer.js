@@ -146,24 +146,14 @@ let VideoPlayer = function(root) {
     let toggleQualityOptionsMenu = function() {
         if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
             openQualityChangerBtn.classList.add("video-player__quality-changer-open-btn--activated");
-            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-open");
-            qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-closed");
             qualityOptionsMenu.classList.remove("video-player__quality-options-menu--hidden");
             window.addEventListener("click", autoCloseQualityOptionsMenu);
             window.addEventListener("keyup", autoCloseQualityOptionsMenu);
         } else {
-            qualityOptionsMenu.addEventListener("transitionend", onQualityMenuClose, { once: true });
-            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-closed");
-            qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-open");
+            openQualityChangerBtn.classList.remove("video-player__quality-changer-open-btn--activated");
             qualityOptionsMenu.classList.add("video-player__quality-options-menu--hidden");
             window.removeEventListener("click", autoCloseQualityOptionsMenu);
             window.removeEventListener("keyup", autoCloseQualityOptionsMenu);
-        }
-    };
-
-    let onQualityMenuClose = function() {
-        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
-            openQualityChangerBtn.classList.remove("video-player__quality-changer-open-btn--activated");
         }
     };
 
