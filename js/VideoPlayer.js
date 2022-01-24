@@ -69,17 +69,15 @@ let VideoPlayer = function(root) {
             video.addEventListener("click", togglePlayBack);
         } else {
             root.addEventListener("fullscreenchange", onMobileFullscreenchange);
-            video.addEventListener("click", onVideoClickMobile);
+            root.addEventListener("touchstart", onMobileTouchstart);
+            root.addEventListener("touchend", onMobileTouchend);
             video.addEventListener("play", forceFullscreenMobile);
             playBackBtnMobile.addEventListener("click", togglePlayBack);
-            controlsContainer.addEventListener("touchstart", onControlsContainerTouchStartMobile);
-            controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
         }
     };
 
     let onPlay = function() {
         root.classList.add("video-player--playing");
-        hideMobileControls();
     };
 
     let onPause = function() {
@@ -241,11 +239,13 @@ let VideoPlayer = function(root) {
         }
     };
 
-    let onVideoClickMobile = function() {
-        if(video.paused) return;
+    let onMobileTouchstart = function() {
         clearTimeout(hideMobileControlsTimeout);
         playBackBtnMobile.classList.add("video-player__playback-btn-mobile--show");
         controlsContainer.classList.add("video-player__controls-container--show");
+    };
+
+    let onMobileTouchend = function() {
         hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
     };
 
@@ -263,14 +263,6 @@ let VideoPlayer = function(root) {
                 video.webkitEnterFullscreen();
             }
         }
-    };
-
-    let onControlsContainerTouchStartMobile = function() {
-        clearTimeout(hideMobileControlsTimeout);
-    };
-
-    let onControlsContainerTouchEndMobile = function() {
-        hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
     };
 
     let onMobileFullscreenchange = function() {
