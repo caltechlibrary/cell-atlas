@@ -241,8 +241,7 @@ let VideoPlayer = function(root) {
 
     let onMobileTouchstart = function() {
         clearTimeout(hideMobileControlsTimeout);
-        playBackBtnMobile.classList.add("video-player__playback-btn-mobile--show");
-        controlsContainer.classList.add("video-player__controls-container--show");
+        root.classList.add("video-player--show-controls");
     };
 
     let onMobileTouchend = function() {
@@ -250,9 +249,7 @@ let VideoPlayer = function(root) {
     };
 
     let hideMobileControls = function() {
-        if(!qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) return;
-        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--show");
-        controlsContainer.classList.remove("video-player__controls-container--show");
+        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) root.classList.remove("video-player--show-controls");
     };
 
     let forceFullscreenMobile = function() {

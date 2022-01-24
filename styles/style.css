@@ -1721,7 +1721,7 @@ file. These definitions will be defined mobile first.
     transition: opacity 0.25s, left 0s 0.25s;
 }
 
-.video-player--playing .video-player__playback-btn-mobile--show {
+.video-player--show-controls .video-player__playback-btn-mobile {
     left: 0px;
     opacity: 1;
     transition: opacity 0.25s;
@@ -1770,7 +1770,7 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.video-player--playing .video-player__controls-container--show {
+.video-player--show-controls .video-player__controls-container {
     opacity: 1;
     transform: none;
     transition: opacity 0.25s;
