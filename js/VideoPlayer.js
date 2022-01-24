@@ -85,7 +85,7 @@ let VideoPlayer = function(root) {
 
     let updateTimeDisplay = function() {
         let timeTextNode = document.createTextNode(`${getFormattedTime(video.currentTime)} / ${getFormattedTime(video.duration)}`);
-        timeDisplay.removeChild(timeDisplay.firstChild);
+        while(timeDisplay.firstChild) timeDisplay.removeChild(timeDisplay.firstChild);
         timeDisplay.appendChild(timeTextNode);
     };
 
