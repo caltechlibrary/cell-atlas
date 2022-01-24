@@ -14,7 +14,7 @@
                 <div class="video-player__control-icon video-player__control-icon-pause">${svg/pause.svg()}</div>
             </button>
             <span class="video-player__time-display">0:00</span>
-            <div class="video-player__quality-changer ${if(OFFLINE)}video-player__quality-changer--hidden${endif}">
+            <div class="video-player__quality-changer video-player__quality-changer--closed ${if(OFFLINE)}video-player__quality-changer--hidden${endif}">
                 <button class="video-player__quality-changer-open-btn">
                     <span class="video-player__quality-changer-open-btn-text"></span>
                     <div class="video-player__quality-changer-open-btn-icon">${svg/expand.svg()}</div>

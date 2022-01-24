@@ -10,7 +10,6 @@ let VideoPlayer = function(root) {
     let qualityChanger = root.querySelector(".video-player__quality-changer");
     let openQualityChangerBtn = root.querySelector(".video-player__quality-changer-open-btn");
     let openQualityChangerBtnText = root.querySelector(".video-player__quality-changer-open-btn-text");
-    let qualityOptionsMenu = root.querySelector(".video-player__quality-options-menu");
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
@@ -144,14 +143,12 @@ let VideoPlayer = function(root) {
     };
 
     let toggleQualityOptionsMenu = function() {
-        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
-            openQualityChangerBtn.classList.add("video-player__quality-changer-open-btn--activated");
-            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--hidden");
+        if(qualityChanger.classList.contains("video-player__quality-changer--closed")) {
+            qualityChanger.classList.remove("video-player__quality-changer--closed");
             window.addEventListener("click", autoCloseQualityOptionsMenu);
             window.addEventListener("keyup", autoCloseQualityOptionsMenu);
         } else {
-            openQualityChangerBtn.classList.remove("video-player__quality-changer-open-btn--activated");
-            qualityOptionsMenu.classList.add("video-player__quality-options-menu--hidden");
+            qualityChanger.classList.add("video-player__quality-changer--closed");
             window.removeEventListener("click", autoCloseQualityOptionsMenu);
             window.removeEventListener("keyup", autoCloseQualityOptionsMenu);
         }
@@ -238,7 +235,7 @@ let VideoPlayer = function(root) {
     };
 
     let hideMobileControls = function() {
-        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) root.classList.remove("video-player--show-controls");
+        if(qualityChanger.classList.contains("video-player__quality-changer--closed")) root.classList.remove("video-player--show-controls");
     };
 
     let forceFullscreenMobile = function() {
