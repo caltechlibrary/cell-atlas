@@ -4,7 +4,6 @@ let VideoPlayer = function(root) {
     let videoSrc = video.querySelector("source");
     let doi = root.getAttribute("data-doi");
     let vidName = root.getAttribute("data-vid-name");
-    let controlsContainer = root.querySelector(".video-player__controls-container");
     let playBackBtn = root.querySelector(".video-player__control-btn-playback");
     let playBackBtnMobile = root.querySelector(".video-player__playback-btn-mobile");
     let timeDisplay = root.querySelector(".video-player__time-display");
