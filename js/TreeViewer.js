@@ -163,9 +163,29 @@ let TreeViewer = function(root) {
     let activateSpeciesEntryHash = function(id) {
         let speciesAnchor = root.querySelector(`.tree-viewer__species-anchor[data-species='${id}']`);
         let speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
+        let pos;
         zoomTree(speciesAnchorDimensions.left, speciesAnchorDimensions.top, (window.innerWidth > 480) ? btnZoomWeight * 3 :  btnZoomWeight * 8);
-        speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
-        activateSpeciesEntry(id, (speciesAnchorDimensions.left + speciesAnchorDimensions.right) / 2, (speciesAnchorDimensions.top + speciesAnchorDimensions.bottom) / 2);
+        pos = calcSimulatedClick(speciesAnchor);
+        activateSpeciesEntry(id, pos.x, pos.y);
+    };
+
+    let calcSimulatedClick = function(anchor) {
+        let speciesAnchorDimensions = anchor.getBoundingClientRect();
+        let rootDimensions = root.getBoundingClientRect();
+        let x = (speciesAnchorDimensions.left + speciesAnchorDimensions.right) / 2;
+        let y = (speciesAnchorDimensions.top + speciesAnchorDimensions.bottom) / 2;
+        if(x > rootDimensions.right - 8) {
+            x = rootDimensions.right - 8;
+        } else if(x < rootDimensions.left + 8) {
+            x = rootDimensions.left + 8;
+        }
+
+        if(y > rootDimensions.bottom - 8) {
+            y = rootDimensions.bottom - 8;
+        } else if(y < rootDimensions.top + 8) {
+            y = rootDimensions.top + 8;
+        }
+        return { x, y };
     };
 
     for(let speciesAnchor of speciesAnchors) {
