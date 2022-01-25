@@ -28,6 +28,7 @@
         let onTreeViewerFsConfirmOK = function() {
             treeViewerFsConfirm.hide();
             treeMediaViewer.toggleFullscreen();
+            treeMediaViewer.setFullscreenBtnState("expanded");
             setTimeout(() => treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash), 200);
         };
 
@@ -57,7 +58,8 @@
             if(window.innerWidth < 900) {
                 treeViewerFsConfirm.show();
             } else {
-                appendixController.handleTreeMediaViewerFsBtnClick();
+                treeMediaViewer.toggleFixedEnlarged();
+                treeMediaViewer.setFullscreenBtnState("expanded");
                 treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash);
             }
         }
