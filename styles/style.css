@@ -562,8 +562,17 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .header__nav-btn {
-        width: 1.75em;
-        height: 1.75em;
+        box-sizing: border-box;
+        width: 3em;
+        height: 3em;
+        border: 2px solid #cfcfcf00;
+        border-radius: 100px;
+        padding: 0.5em;
+        transition: border 0.25s;
+    }
+
+    .header__nav-btn:hover {
+        border: 2px solid #cfcfcf;
     }
 }
 
