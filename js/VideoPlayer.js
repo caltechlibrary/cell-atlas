@@ -40,11 +40,6 @@ let VideoPlayer = function(root) {
         updateQualityChanger(vidQuality);
     };
 
-    let loadSrc = function(source) {
-        videoSrc.setAttribute("src", source);
-        video.load();
-    }
-
     let initPlayer = function() {
         // Update time display now that we have video metadata
         updateTimeDisplay();
@@ -74,6 +69,11 @@ let VideoPlayer = function(root) {
         }
     };
 
+    let onFullscreenChange = function() {
+        if (document.fullscreenElement || document.webkitFullscreenElement) root.classList.add("video-player--fullscreen");
+        else root.classList.remove("video-player--fullscreen");
+    };
+
     let onPlay = function() {
         root.classList.add("video-player--playing");
     };
@@ -98,11 +98,6 @@ let VideoPlayer = function(root) {
         updateSeekBarBackground();
     };
 
-    let updateSeekBarBackground = function() {
-        let seekBarValuePercent = (seekBar.value / parseInt(seekBar.max)) * 100;
-        seekBar.style.background = `linear-gradient(90deg, #fff 0% ${seekBarValuePercent}%, #bfbfbf ${seekBarValuePercent + 0.1}% ${percentBuffered}%, #717171 ${percentBuffered + 0.1}%)`;
-    };
-
     let updatePercentBuffered = function() {
         for(let i = 0; i < video.buffered.length; i++) {
             if(video.buffered.start(video.buffered.length - 1 - i) < video.currentTime || video.buffered.start(video.buffered.length - 1 - i) <= 0) {
@@ -113,31 +108,17 @@ let VideoPlayer = function(root) {
         }
     };
 
+    let updateSeekBarBackground = function() {
+        let seekBarValuePercent = (seekBar.value / parseInt(seekBar.max)) * 100;
+        seekBar.style.background = `linear-gradient(90deg, #fff 0% ${seekBarValuePercent}%, #bfbfbf ${seekBarValuePercent + 0.1}% ${percentBuffered}%, #717171 ${percentBuffered + 0.1}%)`;
+    };
+
     let togglePlayBack = function() {
         if (video.paused || video.ended) {
             video.play();
         } else {
             video.pause();
         }
-    };
-
-    let onSeekBarMouseDown = function() {
-        if(!video.paused) {
-            video.pause();
-            seekBar.addEventListener("mouseup", togglePlayBack, { once: true });
-        }
-    };
-
-    let onSeekBarKeyDown = function(event) {
-        if((event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") && !video.paused) {
-            video.pause();
-            seekBar.addEventListener("keyup", togglePlayBack, { once: true });
-        }
-    };
-
-    let onSeekBarInput = function() {
-        video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
-        updateSeekBarBackground();
     };
 
     let toggleQualityOptionsMenu = function() {
@@ -185,6 +166,11 @@ let VideoPlayer = function(root) {
         openQualityChangerBtnText.textContent = `${quality}p`;
     };
 
+    let loadSrc = function(source) {
+        videoSrc.setAttribute("src", source);
+        video.load();
+    }
+
     let onSourceSwitchLoadedmetadata = function() {
         // Set video currentTime to whatever the seekbar is at
         video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
@@ -213,9 +199,32 @@ let VideoPlayer = function(root) {
         }
     };
 
-    let onFullscreenChange = function() {
-        if (document.fullscreenElement || document.webkitFullscreenElement) root.classList.add("video-player--fullscreen");
-        else root.classList.remove("video-player--fullscreen");
+    let onSeekBarMouseDown = function() {
+        if(!video.paused) {
+            video.pause();
+            seekBar.addEventListener("mouseup", togglePlayBack, { once: true });
+        }
+    };
+
+    let onSeekBarKeyDown = function(event) {
+        if((event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") && !video.paused) {
+            video.pause();
+            seekBar.addEventListener("keyup", togglePlayBack, { once: true });
+        }
+    };
+
+    let onSeekBarInput = function() {
+        video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
+        updateSeekBarBackground();
+    };
+
+    let onMobileFullscreenchange = function() {
+        if(document.fullscreenElement) {
+            screen.orientation.lock("landscape");
+        } else {
+            if(!video.paused) togglePlayBack();
+            screen.orientation.unlock();
+        }
     };
 
     let onMobileTouchstart = function() {
@@ -234,15 +243,6 @@ let VideoPlayer = function(root) {
     let forceFullscreenMobile = function() {
         if (root.requestFullscreen) root.requestFullscreen();
         else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
-    };
-
-    let onMobileFullscreenchange = function() {
-        if(document.fullscreenElement) {
-            screen.orientation.lock("landscape");
-        } else {
-            if(!video.paused) togglePlayBack();
-            screen.orientation.unlock();
-        }
     };
 
     let hide = function() {
