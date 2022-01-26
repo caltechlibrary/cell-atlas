@@ -154,7 +154,7 @@ let VideoPlayer = function(root) {
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
         seekBar.removeEventListener("keydown", onSeekBarKeyDown);
 
-        // Add event listener to resume player functionality after switching sources
+        // Add event listener to resume player position after switching sources
         video.addEventListener("loadedmetadata", onSourceSwitchLoadedmetadata, { once: true });
 
         loadSrc(quality == "1080" ? src1080 : src480);
@@ -172,9 +172,14 @@ let VideoPlayer = function(root) {
     }
 
     let onSourceSwitchLoadedmetadata = function() {
+        // Add event listener to resume player functionality after setting video time
+        video.addEventListener("seeked", onSourceSwitchSeeked, { once: true });
+
         // Set video currentTime to whatever the seekbar is at
         video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
+    };
 
+    let onSourceSwitchSeeked = function() {
         // Enable player functionality that was disabled before
         playBackBtn.disabled = false;
         playBackBtnMobile.disabled = false;
