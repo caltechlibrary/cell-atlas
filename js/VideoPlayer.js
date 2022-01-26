@@ -204,27 +204,18 @@ let VideoPlayer = function(root) {
     };
 
     let toggleFullscreen = function() {
-        if(document.fullscreenElement == root || document.webkitFullscreenElement == root) {
-            if(document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if(document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            }
-        } else if(!document.fullscreenElement && !document.webkitFullscreenElement) {
-            if (root.requestFullscreen) {
-                root.requestFullscreen();
-            } else if (root.webkitRequestFullscreen) {
-                root.webkitRequestFullscreen();
-            }
+        if (document.fullscreenElement == root || document.webkitFullscreenElement == root) {
+            if (document.exitFullscreen) document.exitFullscreen(); 
+            else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        } else if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+            if (root.requestFullscreen) root.requestFullscreen(); 
+            else if (root.webkitRequestFullscreen) root.webkitRequestFullscreen();
         }
     };
 
     let onFullscreenChange = function() {
-        if(document.fullscreenElement == root || document.webkitFullscreenElement == root) {
-            root.classList.add("video-player--fullscreen");
-        } else {
-            root.classList.remove("video-player--fullscreen");
-        }
+        if (document.fullscreenElement || document.webkitFullscreenElement) root.classList.add("video-player--fullscreen");
+        else root.classList.remove("video-player--fullscreen");
     };
 
     let onMobileTouchstart = function() {
@@ -241,13 +232,8 @@ let VideoPlayer = function(root) {
     };
 
     let forceFullscreenMobile = function() {
-        if(!document.fullscreenElement || !video.webkitDisplayingFullscreen) {
-            if (root.requestFullscreen) {
-                root.requestFullscreen();
-            } else if (video.webkitEnterFullscreen) {
-                video.webkitEnterFullscreen();
-            }
-        }
+        if (root.requestFullscreen) root.requestFullscreen();
+        else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
     };
 
     let onMobileFullscreenchange = function() {
