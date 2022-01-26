@@ -83,9 +83,7 @@ let VideoPlayer = function(root) {
     };
 
     let updateTimeDisplay = function() {
-        let timeTextNode = document.createTextNode(`${getFormattedTime(video.currentTime)} / ${getFormattedTime(video.duration)}`);
-        while(timeDisplay.firstChild) timeDisplay.removeChild(timeDisplay.firstChild);
-        timeDisplay.appendChild(timeTextNode);
+        timeDisplay.textContent = `${getFormattedTime(video.currentTime)} / ${getFormattedTime(video.duration)}`;
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -183,10 +181,8 @@ let VideoPlayer = function(root) {
 
     let updateQualityChanger = function(quality) {
         let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
-        let qualityTextNode = document.createTextNode(`${quality}p`);
         qualityInput.checked = true;
-        if(openQualityChangerBtnText.firstChild) openQualityChangerBtnText.removeChild(openQualityChangerBtnText.firstChild);
-        openQualityChangerBtnText.appendChild(qualityTextNode);
+        openQualityChangerBtnText.textContent = `${quality}p`;
     };
 
     let onSourceSwitchLoadedmetadata = function() {
