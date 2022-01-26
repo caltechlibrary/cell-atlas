@@ -13,7 +13,7 @@ let VideoPlayer = function(root) {
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
-    let src1080, src480, hideMobileControlsTimeout, percentBuffered = 0;
+    let src1080, src480, hideMobileControlsTimeout, percentBuffered = 0, wasPlaying = false;
 
     let init = async function() {
         // Set default quality based on session storage variable
@@ -159,8 +159,13 @@ let VideoPlayer = function(root) {
     };
 
     let changeQuality = function(quality) {
+        // Store video playstate to use after source switching
+        wasPlaying = !video.paused;
+
+        // Update quality changer to reflect new quality
         updateQualityChanger(quality);
 
+        // Disable player functionality that would be problematic during quality switching
         playBackBtn.disabled = true;
         playBackBtnMobile.disabled = true;
         seekBar.disabled = true;
@@ -170,10 +175,10 @@ let VideoPlayer = function(root) {
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
         seekBar.removeEventListener("keydown", onSeekBarKeyDown);
 
-        video.addEventListener("canplay", onSourceSwitchCanPlay, { once: true });
+        // Add event listener to resume player functionality after switching sources
+        video.addEventListener("loadedmetadata", onSourceSwitchLoadedmetadata, { once: true });
 
-        if(quality == "1080") loadSrc(src1080);
-        if(quality == "480") loadSrc(src480);
+        loadSrc(quality == "1080" ? src1080 : src480);
     };
 
     let updateQualityChanger = function(quality) {
@@ -184,21 +189,22 @@ let VideoPlayer = function(root) {
         openQualityChangerBtnText.appendChild(qualityTextNode);
     };
 
-    let onSourceSwitchCanPlay = function() {
-        video.addEventListener("seeked", onSourceSwitchSeeked, { once: true });
+    let onSourceSwitchLoadedmetadata = function() {
+        // Set video currentTime to whatever the seekbar is at
         video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
-    };
 
-    let onSourceSwitchSeeked = function() {
+        // Enable player functionality that was disabled before
+        playBackBtn.disabled = false;
+        playBackBtnMobile.disabled = false;
+        seekBar.disabled = false;
         if(window.innerWidth > 900) video.addEventListener("click", togglePlayBack);
         video.addEventListener("timeupdate", updateTimeDisplay);
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
-        if(root.classList.contains("video-player--playing")) togglePlayBack();
-        playBackBtn.disabled = false;
-        playBackBtnMobile.disabled = false;
-        seekBar.disabled = false;
+
+        // Resume video if it was playing before
+        if(wasPlaying) togglePlayBack();
     };
 
     let toggleFullscreen = function() {
