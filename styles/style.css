@@ -1730,7 +1730,7 @@ file. These definitions will be defined mobile first.
     transition: opacity 0.25s, left 0s 0.25s;
 }
 
-.video-player--playing .video-player__playback-btn-mobile--show {
+.video-player--show-controls .video-player__playback-btn-mobile {
     left: 0px;
     opacity: 1;
     transition: opacity 0.25s;
@@ -1779,7 +1779,7 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.video-player--playing .video-player__controls-container--show {
+.video-player--show-controls .video-player__controls-container {
     opacity: 1;
     transform: none;
     transition: opacity 0.25s;
@@ -1826,12 +1826,12 @@ file. These definitions will be defined mobile first.
     width: 5.5em;
     border: none;
     border-radius: 6px;
-    box-shadow: 0px 0px 0px 0px #fff;
+    box-shadow: 0px 0px 0px 2px #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 0.5em;
-    background: none;
+    background: #363636;
     color: #fff;
     font-size: 0.85em;
     font-weight: 600;
@@ -1840,14 +1840,10 @@ file. These definitions will be defined mobile first.
     z-index: 2;
 }
 
-.video-player__quality-changer-open-btn:hover {
-    box-shadow: 0px 0px 0px 2px #fff;
-    background: #363636;
-}
-
-.video-player__quality-changer-open-btn--activated {
-    box-shadow: 0px 0px 0px 2px #fff;
-    background: #363636;
+.video-player__quality-changer--closed .video-player__quality-changer-open-btn:not(:hover) {
+    box-shadow: 0px 0px 0px 0px #fff;
+    background: none;
+    transition: background 0.1s 0.5s, box-shadow 0.1s 0.5s;
 }
 
 .video-player__quality-changer-open-btn-icon {
@@ -1869,20 +1865,14 @@ file. These definitions will be defined mobile first.
     background: #363636;
     z-index: 1;
     overflow: hidden;
-}
-
-.video-player__quality-options-menu--transition-closed {
     transition: height 0.5s, padding 0.5s;
 }
 
-.video-player__quality-options-menu--transition-open {
-    transition: height 0.5s, padding 0.5s, visibility 0s ease 0.5s;
-}
-
-.video-player__quality-options-menu--hidden {
+.video-player__quality-changer--closed .video-player__quality-options-menu {
     height: 0em;
     padding: 0em 0.5em 0em;
     visibility: hidden;
+    transition: height 0.5s, padding 0.5s, visibility 0s ease 0.5s;
 }
 
 .video-player__quality-option {
