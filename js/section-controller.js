@@ -44,11 +44,11 @@
         };
 
         let handleVideoPlayerQualityInput = function(event) {
-            let quality = event.target.value;
-            for(let mediaViewerId in mediaViewers) {
-                if(mediaViewers[mediaViewerId].videoPlayer) mediaViewers[mediaViewerId].videoPlayer.changeQuality(quality);
-            }
-            window.sessionStorage.setItem("vidQuality", quality);
+            // let quality = event.target.value;
+            // for(let mediaViewerId in mediaViewers) {
+            //     if(mediaViewers[mediaViewerId].videoPlayer) mediaViewers[mediaViewerId].videoPlayer.changeQuality(quality);
+            // }
+            // window.sessionStorage.setItem("vidQuality", quality);
         };
 
         let shelveText = function() {
