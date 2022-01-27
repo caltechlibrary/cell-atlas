@@ -1698,6 +1698,10 @@ file. These definitions will be defined mobile first.
     max-height: none;
 }
 
+.video-player--quality-switching .video-player__video {
+    visibility: hidden;
+}
+
 .video-player__playback-btn-mobile {
     position: absolute;
     top: -1em;

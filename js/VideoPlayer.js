@@ -138,6 +138,9 @@ let VideoPlayer = function(root) {
     };
 
     let changeQuality = function(quality) {
+        // Add any necessary quality switching styles
+        root.classList.add("video-player--quality-switching");
+
         // Store video playstate to use after source switching
         wasPlaying = !video.paused;
 
@@ -189,6 +192,9 @@ let VideoPlayer = function(root) {
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
+
+        // Remove any necessary quality switching styles
+        root.classList.remove("video-player--quality-switching");
 
         // Resume video if it was playing before
         if(wasPlaying) togglePlayBack();
