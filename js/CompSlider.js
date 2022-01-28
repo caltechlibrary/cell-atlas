@@ -8,7 +8,7 @@ let CompSlider = function(root) {
     let failMsgContainer = root.querySelector(".comp-slider__fail-msg-container");
 
     let init = function() {
-        if(root.classList.contains("comp-slider--main-section")) updateBeforeImgMaxHeight();
+        if(root.classList.contains("comp-slider--main-section") && window.innerWidth >= 900) updateBeforeImgMaxHeight();
     };
 
     let displayFailedMsg = function(event) {
@@ -91,7 +91,7 @@ let CompSlider = function(root) {
     beforeImg.addEventListener("error", displayFailedMsg);
     afterImg.addEventListener("error", displayFailedMsg);
     init();
-    if(root.classList.contains("comp-slider--main-section")) window.addEventListener("resize", updateBeforeImgMaxHeight);
+    if(root.classList.contains("comp-slider--main-section") && window.innerWidth >= 900) window.addEventListener("resize", updateBeforeImgMaxHeight);
     slider.addEventListener("mousedown", initImgSliding);
     slider.addEventListener("touchstart", initImgSliding);
     sliderInput.addEventListener("input", onSliderManualInput);
