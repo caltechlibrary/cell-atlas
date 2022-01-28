@@ -57,6 +57,7 @@ let VideoPlayer = function(root) {
         fsBtn.addEventListener("click", toggleFullscreen);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
+        seekBar.addEventListener("touchstart", onSeekBarTouchstart);
         seekBar.addEventListener("input", onSeekBarInput);
         if(window.innerWidth > 900) {
             video.addEventListener("click", togglePlayBack);
@@ -157,6 +158,7 @@ let VideoPlayer = function(root) {
         video.removeEventListener("timeupdate", updateSeekBar);
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
         seekBar.removeEventListener("keydown", onSeekBarKeyDown);
+        seekBar.removeEventListener("touchstart", onSeekBarTouchstart);
 
         // Add event listener to resume player position after switching sources
         video.addEventListener("loadedmetadata", onSourceSwitchLoadedmetadata, { once: true });
@@ -194,6 +196,7 @@ let VideoPlayer = function(root) {
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
+        seekBar.addEventListener("touchstart", onSeekBarTouchstart);
 
         // Remove any necessary quality switching styles
         root.classList.remove("video-player--quality-switching");
@@ -223,6 +226,13 @@ let VideoPlayer = function(root) {
         if((event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") && !video.paused) {
             video.pause();
             seekBar.addEventListener("keyup", togglePlayBack, { once: true });
+        }
+    };
+
+    let onSeekBarTouchstart = function() {
+        if(!video.paused) {
+            video.pause();
+            seekBar.addEventListener("touchend", togglePlayBack, { once: true });
         }
     };
 
