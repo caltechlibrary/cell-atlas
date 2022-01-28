@@ -151,6 +151,7 @@ let VideoPlayer = function(root) {
         playBackBtn.disabled = true;
         playBackBtnMobile.disabled = true;
         seekBar.disabled = true;
+        for(let qualityOptionInput of qualityOptionInputs) qualityOptionInput.disabled = true;
         if(window.innerWidth > 900) video.removeEventListener("click", togglePlayBack);
         video.removeEventListener("timeupdate", updateTimeDisplay);
         video.removeEventListener("timeupdate", updateSeekBar);
@@ -187,6 +188,7 @@ let VideoPlayer = function(root) {
         playBackBtn.disabled = false;
         playBackBtnMobile.disabled = false;
         seekBar.disabled = false;
+        for(let qualityOptionInput of qualityOptionInputs) qualityOptionInput.disabled = false;
         if(window.innerWidth > 900) video.addEventListener("click", togglePlayBack);
         video.addEventListener("timeupdate", updateTimeDisplay);
         video.addEventListener("timeupdate", updateSeekBar);
