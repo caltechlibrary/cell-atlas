@@ -2,6 +2,7 @@ import os
 import shutil
 import subprocess
 import json
+import re
 
 def getPageName(fileName):
     pageName = os.path.splitext(fileName)[0]
@@ -10,6 +11,8 @@ def getPageName(fileName):
 
 siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
+bibData = json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) )
+usedBibs = []
 
 # Create site directory with assets
 if os.path.isdir(siteDir): shutil.rmtree(siteDir)
@@ -34,6 +37,13 @@ for i, fileName in enumerate(sectionFileNames):
         metadata["typeChapter"] = True
     else:
         metadata["typeSection"] = True
+
+    # Format body text to insert links
+    metadata["body"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", f"sections/{fileName}"]).decode("utf-8")
+    for match in re.finditer(r"\[@.*?]", metadata["body"]): 
+        bibId = match.group().strip("[@]")
+        if bibId not in usedBibs: usedBibs.append(bibId)
+        metadata["body"] = metadata["body"].replace(match.group(), f"[[{usedBibs.index(bibId) + 1}](D-references.html#ref-{bibId})]")
 
     metadata["mediaViewer"] = {}
     metadata["mediaViewer"]["hasTabMenu"] = True
