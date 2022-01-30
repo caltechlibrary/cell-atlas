@@ -1,9 +1,8 @@
 ---
 title: Stalk Bands
 doi: 10.22002/D1.1489
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 4_1_Ccrescentus.mp4
-videoAlt: 4_1.png
 collector: Zhuo Li
 subsections: []
 ---

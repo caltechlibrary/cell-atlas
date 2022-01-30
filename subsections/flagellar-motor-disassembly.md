@@ -3,7 +3,6 @@ title: Disassembly
 species: Pseudomonas aeruginosa 
 doi: 10.22002/D1.1538
 video: 6_3a_Paeruginosa.mp4
-videoAlt: 6_3a.png
 collector: Ariane Briegel
 ---
 

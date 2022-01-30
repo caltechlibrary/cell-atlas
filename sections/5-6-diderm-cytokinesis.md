@@ -1,9 +1,8 @@
 ---
 title: Diderm Cytokinesis
 doi: 10.22002/D1.1512
-videoTitle: Idiomarina loihiensis
+species: Idiomarina loihiensis
 video: 5_6_Iloihiensis.mp4
-videoAlt: 5_6.png
 collector: Morgan Beeby
 subsections: ['sphingopyxis-alaskensis-division']
 ---

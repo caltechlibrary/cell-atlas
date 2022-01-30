@@ -1,9 +1,8 @@
 ---
 title: Diderm Germination
 doi: 10.22002/D1.1563
-videoTitle: Acetonema longum
+species: Acetonema longum
 video: 8_11_Alongum.mp4
-videoAlt: 8_11.png
 collector: Elitza Tocheva
 subsections: []
 ---

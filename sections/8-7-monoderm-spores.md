@@ -1,9 +1,8 @@
 ---
 title: Monoderm Spores
 doi: 10.22002/D1.1559
-videoTitle: Bacillus subtilis
+species: Bacillus subtilis
 video: 8_7_Bsubtilis.mp4
-videoAlt: 8_7.png
 collector: Elitza Tocheva
 subsections: []
 ---

@@ -1,9 +1,8 @@
 ---
 title: Terminal Organelle
 doi: 10.22002/D1.1536
-videoTitle: Mycoplasma pneumoniae
+species: Mycoplasma pneumoniae
 video: 6_12_Mpneumoniae.mp4
-videoAlt: 6_12.png
 collector: Gregory Henderson
 subsections: []
 ---

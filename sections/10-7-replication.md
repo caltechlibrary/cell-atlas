@@ -1,9 +1,8 @@
 ---
 title: Replication
 doi: 10.22002/D1.1592
-videoTitle: Vibrio cholerae
+species: Vibrio cholerae
 video: 10_7_Vcholerae.mp4
-videoAlt: 10_7.png
 collector: Poorna Subramanian
 subsections: []
 ---

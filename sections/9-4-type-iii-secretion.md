@@ -1,9 +1,8 @@
 ---
 title: Type III Secretion
 doi: 10.22002/D1.1574
-videoTitle: Pseudomonas aeruginosa
+species: Pseudomonas aeruginosa
 video: 9_4_Paeruginosa.mp4
-videoAlt: 9_4.png
 collector: Steven Wang
 subsections: ['injectisome-structure', 'secretin-channel-structure']
 ---

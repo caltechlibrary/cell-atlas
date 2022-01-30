@@ -1,9 +1,8 @@
 ---
 title: Monoderm Sporulation
 doi: 10.22002/D1.1557
-videoTitle: Bacillus subtilis
+species: Bacillus subtilis
 video: 8_5_Bsubtilis.mp4
-videoAlt: 8_5.png
 collector: Elitza Tocheva
 subsections: ['sporulation-septum-formation']
 ---

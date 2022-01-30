@@ -1,9 +1,8 @@
 ---
 title: Monoderm Cytokinesis
 doi: 10.22002/D1.1511
-videoTitle: Tetrasphaera remsis
+species: Tetrasphaera remsis
 video: 5_5_Tremsis.mp4
-videoAlt: 5_5.png
 collector: Ariane Briegel
 subsections: []
 ---

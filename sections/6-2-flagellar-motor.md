@@ -1,9 +1,8 @@
 ---
 title: Flagellar Motor
 doi: 10.22002/D1.1526
-videoTitle: Bdellovibrio bacteriovorus
+species: Bdellovibrio bacteriovorus
 video: 6_2_Bbacteriovorus.mp4
-videoAlt: 6_2.png
 collector: Yi-Wei Chang
 subsections: ['flagellar-motor-structure', 'flagellar-motor-diversity']
 ---

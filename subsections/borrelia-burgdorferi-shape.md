@@ -3,7 +3,6 @@ title: Borrelia shape
 species: Borrelia burgdorferi 
 doi: 10.22002/D1.1486
 video: 3_5a_Bburgdorferi.mp4
-videoAlt: 3_5a.png
 collector: Ariane Briegel
 ---
 

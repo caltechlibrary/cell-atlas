@@ -1,9 +1,8 @@
 ---
 title: Diderm Sporulation
 doi: 10.22002/D1.1561
-videoTitle: Acetonema longum
+species: Acetonema longum
 video: 8_9_Alongum.mp4
-videoAlt: 8_9.png
 collector: Elitza Tocheva
 subsections: []
 ---

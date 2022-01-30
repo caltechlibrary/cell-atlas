@@ -3,7 +3,6 @@ title: Light
 species: Haloferax gibbonsii 
 doi: 10.22002/D1.1505
 video: 4_10a_Hgibbonsii.mp4
-videoAlt: 4_10a.png
 collector: Ariane Briegel
 ---
 

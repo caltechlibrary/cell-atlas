@@ -3,7 +3,6 @@ title: Gas vesicles
 species: Halobacterium salinarum 
 doi: 10.22002/D1.1488
 video: 3_7a_Hsalinarum.mp4
-videoAlt: 3_7a.png
 collector: Ariane Briegel
 ---
 

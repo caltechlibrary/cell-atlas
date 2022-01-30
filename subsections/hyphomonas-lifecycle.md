@@ -3,7 +3,6 @@ title: Lifecycle
 species: Hyphomonas neptunium 
 doi: 10.22002/D1.1519
 video: 5_3a_Hneptunium.mp4
-videoAlt: 5_3a.png
 collector: Jian Shi
 ---
 

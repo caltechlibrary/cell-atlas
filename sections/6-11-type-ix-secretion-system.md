@@ -1,9 +1,8 @@
 ---
 title: Type IX Secretion System
 doi: 10.22002/D1.1535
-videoTitle: Flavobacterium johnsoniae
+species: Flavobacterium johnsoniae
 video: 6_11_Fjohnsoniae.mp4
-videoAlt: 6_11.png
 collector: Gregory Henderson
 subsections: []
 ---

@@ -3,7 +3,6 @@ title: Pearled
 species: Borrelia burgdorferi 
 doi: 10.22002/D1.1363
 video: 2_4a_Bburgdorferi.mp4
-videoAlt: 2_4a.png
 collector: Ariane Briegel
 ---
 

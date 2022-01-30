@@ -1,9 +1,8 @@
 ---
 title: Carboxysomes
 doi: 10.22002/D1.1495
-videoTitle: Thiomonas intermedia
+species: Thiomonas intermedia
 video: 4_7_Tintermedia.mp4
-videoAlt: 4_7.png
 collector: Cristina Iancu
 subsections: ['rubisco', 'carboxysome-variety', 'long-carboxysomes']
 ---

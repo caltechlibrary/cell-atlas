@@ -1,9 +1,8 @@
 ---
 title: Copy Number
 doi: 10.22002/D1.1507
-videoTitle: Thiomonas intermedia
+species: Thiomonas intermedia
 video: 5_1_Tintermedia.mp4
-videoAlt: 5_1.png
 collector: Cristina Iancu
 subsections: []
 ---

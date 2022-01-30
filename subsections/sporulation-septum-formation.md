@@ -3,7 +3,6 @@ title: Septum formation
 species: Bacillus subtilis 
 doi: 10.22002/D1.1565
 video: 8_5a_Bsubtilis.mp4
-videoAlt: 8_5a.png
 collector: Elitza Tocheva
 ---
 

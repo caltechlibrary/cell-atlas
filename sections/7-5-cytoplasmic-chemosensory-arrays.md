@@ -1,9 +1,8 @@
 ---
 title: Cytoplasmic Chemosensory Arrays
 doi: 10.22002/D1.1549
-videoTitle: Methanoregula formicica
+species: Methanoregula formicica
 video: 7_5_Mformicica.mp4
-videoAlt: 7_5.png
 collector: Ariane Briegel
 subsections: ['vibrio-cholerae-chemosensory-arrays']
 ---

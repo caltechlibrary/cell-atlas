@@ -1,9 +1,8 @@
 ---
 title: Membrane
 doi: 10.22002/D1.1350
-videoTitle: Mycoplasma genitalium
+species: Mycoplasma genitalium
 video: 2_1_Mgenitalium.mp4
-videoAlt: 2_1.png
 collector: Gregory Henderson
 subsections: ['lipid-bilayer', 'atp-synthase', 'ribosome']
 description: A phospholipid membrane encloses the contents of all cells, including monoderm Mycoplasma genitalium bacteria, and lets ATP synthase generate energy.

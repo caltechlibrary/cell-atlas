@@ -1,7 +1,7 @@
 <div
     id="${if(it.isSection)}narrationPlayer-main${else}narrationPlayer-${it.id}${endif}"
     class="narration-player narration-player--hidden ${if(it.isSection)}narration-player--light-theme${endif}"
-    data-src="${it.narrationSrc}.mp3"
+    data-src="${it.src}.mp3"
     tabindex="0"
     ${if(OFFLINE)}data-offline="true"${endif}
 >

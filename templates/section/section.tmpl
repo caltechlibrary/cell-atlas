@@ -3,7 +3,7 @@
     ${if(summaryData)}
         ${summaryData:media-viewer.tmpl()}
     ${else}
-        ${vidMetadata:media-viewer.tmpl()}
+        ${mediaViewer:media-viewer.tmpl()}
     ${endif}
     <a href="${nextSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="next" aria-label="Next section">${svg/right-nav.svg()}</a>
 

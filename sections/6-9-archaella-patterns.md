@@ -1,9 +1,8 @@
 ---
 title: Archaella Patterns
 doi: 10.22002/D1.1533
-videoTitle: Thermococcus kodakaraensis
+species: Thermococcus kodakaraensis
 video: 6_9_Tkodakaraensis.mp4
-videoAlt: 6_9.png
 collector: Ariane Briegel
 subsections: ['cone-structure', 'organizing-center', 'lophotrichous-halobacteria']
 ---

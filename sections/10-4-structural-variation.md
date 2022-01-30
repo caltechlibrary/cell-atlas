@@ -1,9 +1,8 @@
 ---
 title: Structural Variation
 doi: 10.22002/D1.1589
-videoTitle: Vibrio cholerae
+species: Vibrio cholerae
 video: 10_4_Vcholerae.mp4
-videoAlt: 10_4.png
 collector: Yi-Wei Chang
 subsections: []
 ---

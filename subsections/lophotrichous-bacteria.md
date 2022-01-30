@@ -3,7 +3,6 @@ title: Lophotrichous
 species: Helicobacter pylori 
 doi: 10.22002/D1.1539
 video: 6_4a_Hpylori.mp4
-videoAlt: 6_4a.png
 collector: Yi-Wei Chang
 ---
 

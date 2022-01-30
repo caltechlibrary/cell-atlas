@@ -1,9 +1,8 @@
 ---
 title: Chemotaxis
 doi: 10.22002/D1.1545
-videoTitle: Shewanella oneidensis
+species: Shewanella oneidensis
 video: 7_1_Soneidensis.mp4
-videoAlt: 7_1.png
 collector: Mohammed Kaplan
 subsections: ['chemoreceptor-structure']
 ---

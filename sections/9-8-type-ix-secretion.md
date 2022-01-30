@@ -1,9 +1,8 @@
 ---
 title: Type IX Secretion
 doi: 10.22002/D1.1578
-videoTitle: Porphyromonas gingivalis
+species: Porphyromonas gingivalis
 video: 9_8_Pgingivalis.mp4
-videoAlt: 9_8.png
 collector: Poorna Subramanian
 subsections: []
 ---

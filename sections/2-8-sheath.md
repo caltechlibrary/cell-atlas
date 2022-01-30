@@ -1,9 +1,8 @@
 ---
 title: Sheath
 doi: 10.22002/D1.1357
-videoTitle: Methanospirillum hungatei
+species: Methanospirillum hungatei
 video: 2_8_Mhungatei.mp4
-videoAlt: 2_8.png
 collector: Ariane Briegel
 subsections: []
 description: Methanospirillum hungatei archaea make an external protein sheath that's highly resistant to pressure. Cells can form long chains with connected sheaths.

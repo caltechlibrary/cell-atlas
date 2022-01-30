@@ -1,9 +1,8 @@
 ---
 title: Contractile Tails
 doi: 10.22002/D1.1587
-videoTitle: Bacteroidetes JT5
+species: Bacteroidetes JT5
 video: 10_2_Bacteroidetes.mp4
-videoAlt: 10_2.png
 collector: Elitza Tocheva
 subsections: []
 ---

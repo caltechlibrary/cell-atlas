@@ -1,9 +1,8 @@
 ---
 title: Phage
 doi: 10.22002/D1.1586
-videoTitle: Shewanella oneidensis
+species: Shewanella oneidensis
 video: 10_1_Soneidensis.mp4
-videoAlt: 10_1.png
 collector: Poorna Subramanian
 subsections: []
 ---

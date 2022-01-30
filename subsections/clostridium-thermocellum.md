@@ -3,7 +3,6 @@ title: Monoderm
 species: Clostridium thermocellum 
 doi: 10.22002/D1.1476
 video: 2_7b_Cthermocellum.mp4
-videoAlt: 2_7b.png
 collector: William Nicolas
 ---
 

@@ -1,9 +1,8 @@
 ---
 title: Length
 doi: 10.22002/D1.1479
-videoTitle: Hylemonella gracilis
+species: Hylemonella gracilis
 video: 3_3_Hgracilis.mp4
-videoAlt: 3_3.png
 collector: Yi-Wei Chang
 subsections: []
 description: Rod-shaped archaeal and bacterial cells like Hylemonella gracilis can grow longer without significantly changing their ratio of surface area to volume.

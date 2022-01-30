@@ -1,9 +1,8 @@
 ---
 title: Magnetotaxis
 doi: 10.22002/D1.1550
-videoTitle: Magnetospirillum magneticum
+species: Magnetospirillum magneticum
 video: 7_6_Mmagneticum.mp4
-videoAlt: 7_6.png
 collector: Zhuo Li
 subsections: ['mamk-structure']
 ---

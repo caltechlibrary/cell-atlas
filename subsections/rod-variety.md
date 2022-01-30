@@ -3,7 +3,6 @@ title: Variety
 species: Brucella abortus 
 doi: 10.22002/D1.1484
 video: 3_2a_Babortus.mp4
-videoAlt: 3_2a.png
 collector: Ariane Briegel
 ---
 

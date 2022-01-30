@@ -3,7 +3,6 @@ title: Mapping
 species: Campylobacter jejuni 
 doi: 10.22002/D1.1473
 video: 1_10a_Cjejuni.mp4
-videoAlt: 1_10a.png
 collector: Morgan Beeby
 ---
 

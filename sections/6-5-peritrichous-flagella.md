@@ -1,9 +1,8 @@
 ---
 title: Peritrichous Flagella
 doi: 10.22002/D1.1529
-videoTitle: Pseudomonas flexibilis
+species: Pseudomonas flexibilis
 video: 6_5_Pflexibilis.mp4
-videoAlt: 6_5.png
 collector: Morgan Beeby
 subsections: ['proteus-mirabilis-flagella']
 ---

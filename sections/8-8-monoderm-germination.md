@@ -1,9 +1,8 @@
 ---
 title: Monoderm Germination
 doi: 10.22002/D1.1560
-videoTitle: Bacillus subtilis
+species: Bacillus subtilis
 video: 8_8_Bsubtilis.mp4
-videoAlt: 8_8.png
 collector: Elitza Tocheva
 subsections: []
 ---

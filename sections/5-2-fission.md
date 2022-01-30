@@ -1,9 +1,8 @@
 ---
 title: Fission
 doi: 10.22002/D1.1508
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 5_2_Ccrescentus.mp4
-videoAlt: 5_2.png
 collector: Ariane Briegel
 subsections: []
 ---

@@ -1,9 +1,8 @@
 ---
 title: Diderm Spore Engulfment
 doi: 10.22002/D1.1562
-videoTitle: Acetonema longum
+species: Acetonema longum
 video: 8_10_Alongum.mp4
-videoAlt: 8_10.png
 collector: Elitza Tocheva
 subsections: ['complete-engulfment', 'mature-spore', 'sporomusa-acidovorans-sporulation']
 ---

@@ -1,9 +1,8 @@
 ---
 title: DNA
 doi: 10.22002/D1.1358
-videoTitle: Haloarcula argentinensis
+species: Haloarcula argentinensis
 video: 2_9_Hargentinensis.mp4
-videoAlt: 2_9.png
 collector: Ariane Briegel
 subsections: []
 description: The DNA in the genomes of bacteria and archaea, like Haloarcula argentinensis, is very thin (~2 nm wide), but can be seen when a cell lyses.

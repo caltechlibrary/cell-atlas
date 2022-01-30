@@ -1,9 +1,8 @@
 ---
 title: Predator Replication
 doi: 10.22002/D1.1581
-videoTitle: Bdellovibrio bacteriovorus / Vibrio cholerae
+species: Bdellovibrio bacteriovorus / Vibrio cholerae
 video: 9_11_BbacteriovorusVcholerae.mp4
-videoAlt: 9_11.png
 collector: Yi-Wei Chang
 subsections: []
 ---

@@ -3,7 +3,6 @@ title: Final constriction
 species: Caulobacter crescentus 
 doi: 10.22002/D1.1523
 video: 5_7a_Ccrescentus.mp4
-videoAlt: 5_7a.png
 collector: Qing Yao
 ---
 

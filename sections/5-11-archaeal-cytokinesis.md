@@ -1,9 +1,8 @@
 ---
 title: Archaeal Cytokinesis
 doi: 10.22002/D1.1517
-videoTitle: Sulfolobus acidocaldarius
+species: Sulfolobus acidocaldarius
 video: 5_11_Sacidocaldarius.mp4
-videoAlt: 5_11.png
 collector: Shrawan Mageswaran
 subsections: []
 ---

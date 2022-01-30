@@ -1,9 +1,8 @@
 ---
 title: Square
 doi: 10.22002/D1.1483
-videoTitle: Haloquadratum walsbyi
+species: Haloquadratum walsbyi
 video: 3_7_Hwalsbyi.mp4
-videoAlt: 3_7.png
 collector: Zhuo Li
 subsections: ['gas-vesicles']
 description: Gas vesicles help bacteria and archaea like Halobacterium salinarum and thin, square-shaped Haloquadratum walsbyi float.

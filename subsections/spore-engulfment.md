@@ -3,7 +3,6 @@ title: Engulfment
 species: Bacillus subtilis 
 doi: 10.22002/D1.1566
 video: 8_6a_Bsubtilis.mp4
-videoAlt: 8_6a.png
 collector: Elitza Tocheva
 ---
 

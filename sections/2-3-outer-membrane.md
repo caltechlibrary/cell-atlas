@@ -1,9 +1,8 @@
 ---
 title: Outer Membrane
 doi: 10.22002/D1.1352
-videoTitle: Hydrogenovibrio crunogenus
+species: Hydrogenovibrio crunogenus
 video: 2_3_Hcrunogenus.mp4
-videoAlt: 2_3.png
 collector: Cristina Iancu
 subsections: ['lipopolysaccharide', 'brauns-lipoprotein', 'diderm-peptidoglycan-architecture', 'cell-wall-remodeling']
 description: Diderm bacteria like Hydrogenovibrio crunogenus have a thin cell wall and a second, outer membrane enclosing a periplasmic space.

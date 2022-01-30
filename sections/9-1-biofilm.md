@@ -1,9 +1,8 @@
 ---
 title: Biofilm
 doi: 10.22002/D1.1571
-videoTitle: Agrobacterium tumefaciens
+species: Agrobacterium tumefaciens
 video: 9_1_Atumefaciens.mp4
-videoAlt: 9_1.png
 collector: Elitza Tocheva
 subsections: []
 ---

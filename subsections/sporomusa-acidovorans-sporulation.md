@@ -3,7 +3,6 @@ title: Ovoid
 species: Sporomusa acidovorans 
 doi: 10.22002/D1.1570
 video: 8_10c_Sacidovorans.mp4
-videoAlt: 8_10c.png
 collector: Elitza Tocheva
 ---
 

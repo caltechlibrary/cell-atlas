@@ -1,9 +1,8 @@
 ---
 title: Flagellar Assembly
 doi: 10.22002/D1.1527
-videoTitle: Hylemonella gracilis
+species: Hylemonella gracilis
 video: 6_3_Hgracilis.mp4
-videoAlt: 6_3.png
 collector: Yi-Wei Chang
 subsections: ['flagellar-motor-disassembly']
 ---

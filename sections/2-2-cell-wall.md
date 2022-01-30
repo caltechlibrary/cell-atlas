@@ -1,9 +1,8 @@
 ---
 title: Cell Wall
 doi: 10.22002/D1.1351
-videoTitle: Listeria monocytogenes
+species: Listeria monocytogenes
 video: 2_2_Lmonocytogenes.mp4
-videoAlt: 2_2.png
 collector: Ariane Briegel
 subsections: ['peptidoglycan-architecture', 'archaeal-cell-walls']
 description: A rigid peptidoglycan cell wall supports bacteria like Listeria monocytogenes.  Some archaea like Methanobacterium formicicum use a related structure.

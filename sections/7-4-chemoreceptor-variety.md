@@ -1,9 +1,8 @@
 ---
 title: Chemoreceptor Variety
 doi: 10.22002/D1.1548
-videoTitle: Vibrio cholerae
+species: Vibrio cholerae
 video: 7_4_Vcholerae.mp4
-videoAlt: 7_4.png
 collector: Ariane Briegel
 subsections: ['azospirillum-brasilense-aerotaxis']
 ---

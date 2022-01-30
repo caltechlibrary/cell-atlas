@@ -3,7 +3,6 @@ title: Connections
 species: Halothiobacillus neapolitanus 
 doi: 10.22002/D1.1504
 video: 4_9b_Hneapolitanus.mp4
-videoAlt: 4_9b.png
 collector: Cristina Iancu
 ---
 

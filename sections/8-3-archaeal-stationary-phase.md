@@ -1,9 +1,8 @@
 ---
 title: Archaeal Stationary Phase
 doi: 10.22002/D1.1555
-videoTitle: Thermococcus kodakaraensis
+species: Thermococcus kodakaraensis
 video: 8_3_Tkodakaraensis.mp4
-videoAlt: 8_3.png
 collector: Debnath Ghosal
 subsections: []
 ---

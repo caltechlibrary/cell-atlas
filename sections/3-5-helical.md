@@ -1,9 +1,8 @@
 ---
 title: Helical
 doi: 10.22002/D1.1481
-videoTitle: Campylobacter jejuni
+species: Campylobacter jejuni
 video: 3_5_Cjejuni.mp4
-videoAlt: 3_5.png
 collector: Morgan Beeby
 subsections: ['borrelia-burgdorferi-shape']
 description: Helical or wavy bacterial cells like Campylobacter jejuni and Borrelia burgdorferi use their corkscrew shape to burrow into host tissue.

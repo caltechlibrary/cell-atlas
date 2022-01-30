@@ -3,7 +3,6 @@ title: Swarming
 species: Proteus mirabilis 
 doi: 10.22002/D1.1540
 video: 6_5a_Pmirabilis.mp4
-videoAlt: 6_5a.png
 collector: Qing Yao
 ---
 

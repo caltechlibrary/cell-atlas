@@ -1,9 +1,8 @@
 ---
 title: Type II and Type IV Secretion
 doi: 10.22002/D1.1573
-videoTitle: Legionella pneumophila
+species: Legionella pneumophila
 video: 9_3_Lpneumophila.mp4
-videoAlt: 9_3.png
 collector: Debnath Ghosal
 subsections: ['legionella-t2ss-structure', 'legionella-t4ss-structure', 'helicobacter-pylori-tubes']
 ---

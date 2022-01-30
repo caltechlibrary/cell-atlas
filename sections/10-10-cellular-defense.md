@@ -1,9 +1,8 @@
 ---
 title: Cellular Defense
 doi: 10.22002/D1.1595
-videoTitle: Shewanella oneidensis
+species: Shewanella oneidensis
 video: 10_10_Soneidensis.mp4
-videoAlt: 10_10.png
 collector: Lauren Ann Metskas
 subsections: []
 ---

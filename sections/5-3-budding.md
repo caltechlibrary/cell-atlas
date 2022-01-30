@@ -1,9 +1,8 @@
 ---
 title: Budding
 doi: 10.22002/D1.1509
-videoTitle: Hyphomonas neptunium
+species: Hyphomonas neptunium
 video: 5_3_Hneptunium.mp4
-videoAlt: 5_3.png
 collector: Jian Shi
 subsections: ['hyphomonas-lifecycle']
 ---

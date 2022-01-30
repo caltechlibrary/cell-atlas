@@ -3,7 +3,6 @@ title: Aerotaxis
 species: Azospirillum brasilense 
 doi: 10.22002/D1.1551
 video: 7_4a_Abrasilense.mp4
-videoAlt: 7_4a.png
 collector: Ariane Briegel
 ---
 

@@ -1,9 +1,8 @@
 ---
 title: Nanowires
 doi: 10.22002/D1.1490
-videoTitle: Shewanella oneidensis
+species: Shewanella oneidensis
 video: 4_2_Soneidensis.mp4
-videoAlt: 4_2.png
 collector: Poorna Subramanian
 subsections: []
 ---

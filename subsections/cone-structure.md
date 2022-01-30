@@ -3,7 +3,6 @@ title: Cone
 species: Thermococcus kodakaraensis 
 doi: 10.22002/D1.1542
 video: 6_9a_Tkodakaraensis.mp4
-videoAlt: 6_9a.png
 collector: Ariane Briegel
 ---
 

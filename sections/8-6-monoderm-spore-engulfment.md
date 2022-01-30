@@ -1,9 +1,8 @@
 ---
 title: Monoderm Spore Engulfment
 doi: 10.22002/D1.1558
-videoTitle: Bacillus subtilis
+species: Bacillus subtilis
 video: 8_6_Bsubtilis.mp4
-videoAlt: 8_6.png
 collector: Elitza Tocheva
 subsections: ['spore-engulfment', 'spore-coating']
 ---

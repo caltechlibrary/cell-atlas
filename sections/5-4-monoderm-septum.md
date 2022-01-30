@@ -1,9 +1,8 @@
 ---
 title: Monoderm Septum
 doi: 10.22002/D1.1510
-videoTitle: Staphylococcus aureus
+species: Staphylococcus aureus
 video: 5_4_Saureus.mp4
-videoAlt: 5_4.png
 collector: Georges Chreifi
 subsections: []
 ---

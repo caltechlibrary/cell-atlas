@@ -3,7 +3,6 @@ title: Battery
 species: Amoebophilus asiaticus 
 doi: 10.22002/D1.1583
 video: 9_7a_Aasiaticus.mp4
-videoAlt: 9_7a.png
 collector: Martin Pilhofer
 ---
 

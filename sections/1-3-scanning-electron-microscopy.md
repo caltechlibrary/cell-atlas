@@ -1,9 +1,8 @@
 ---
 title: Scanning Electron Microscopy
 doi: 10.22002/D1.1465
-videoTitle: Shewanella oneidensis
+species: Shewanella oneidensis
 video: 1_3_Soneidensis.mp4
-videoAlt: 1_3.png
 collector: Sahand Pirbadian
 subsections: ['electron-microscopy-modes']
 description: A simple introduction to electron microscopy and how SEM is used to image the surfaces of archaea and bacteria like Shewanella oneidensis
