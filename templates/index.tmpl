@@ -5,10 +5,10 @@ ${head.tmpl()}
 
 <body class="index preload">
     <div class="book-page-container" ${if(offline)}data-offline="true"${endif}>
-        <div class="landing-page-container ${if(previewBanner)} landing-page-container--preview-banner ${endif}">
-            ${if(previewBanner)}
+        <div class="landing-page-container ${if(banner)} landing-page-container--preview-banner ${endif}">
+            ${if(banner)}
                 <div class="landing-update-banner">
-                    <span>Edition 2.1 coming soon! Preview it <a class="landing-update-banner__link" href="/preview/index.html">here</a> now.</span>
+                    <span>${banner}</span>
                 </div>
             ${endif}
             <div class="main-color-background landing-page-logo">
