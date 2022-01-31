@@ -77,6 +77,54 @@ for i, fileName in enumerate(sectionFileNames):
         metadata["citation"]["collector"] = metadata["collector"]
         metadata["citation"]["doi"] = metadata["doi"]
 
+    # Process subsections
+    if "subsections" in metadata:
+        metadata["subsectionsData"] = []
+        for subsectionFileName in metadata["subsections"]:
+            subsectionData = json.loads( subprocess.check_output(["pandoc", "--template=templates/metadata.tmpl", f"subsections/{subsectionFileName}.md"]) )
+            subsectionData["id"] = subsectionFileName
+
+            # Format body text to insert links
+            subsectionData["body"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", f"subsections/{subsectionFileName}.md"]).decode("utf-8")
+            for match in re.finditer(r"\[@.*?]", subsectionData["body"]): 
+                bibId = match.group().strip("[@]")
+                if bibId not in usedBibs: usedBibs.append(bibId)
+                subsectionData["body"] = subsectionData["body"].replace(match.group(), f"[[{usedBibs.index(bibId) + 1}](D-references.html#ref-{bibId})]")
+
+            subsectionData["hasMainMediaViewer"] = True
+
+            subsectionData["mediaViewer"] = {}
+            subsectionData["mediaViewer"]["id"] = subsectionData["id"]
+            subsectionData["mediaViewer"]["hasTabMenu"] = True
+            subsectionData["mediaViewer"]["citationAttached"] = True
+
+            # Create video metadata
+            if "doi" in subsectionData:
+                subsectionData["mediaViewer"]["vidPlayer"] = {}
+                subsectionData["mediaViewer"]["vidPlayer"]["doi"] = subsectionData["doi"]
+                subsectionData["mediaViewer"]["vidPlayer"]["vidName"] = subsectionData["video"].split(".")[0]
+                subsectionData["mediaViewer"]["vidPlayer"]["thumbnail"] = f"{'_'.join(subsectionData['video'].split('_', 2)[:2])}_thumbnail"
+
+            # Create comp slider metadata
+            if "doi" in subsectionData:
+                subsectionData["mediaViewer"]["compSlider"] = {}
+                subsectionData["mediaViewer"]["compSlider"]["imgName"] = subsectionData["video"].split(".")[0]
+
+            # Create narration metadata
+            if "doi" in subsectionData:
+                subsectionData["narration"] = {}
+                subsectionData["narration"]["id"] = subsectionData["id"]
+                subsectionData["narration"]["src"] = subsectionData["id"]
+
+            # Create citation data
+            if "doi" in subsectionData:
+                subsectionData["citation"] = {}
+                subsectionData["citation"]["species"] = subsectionData["species"]
+                subsectionData["citation"]["collector"] = subsectionData["collector"]
+                subsectionData["citation"]["doi"] = subsectionData["doi"]
+            
+            metadata["subsectionsData"].append(subsectionData)
+
     with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
 
     subprocess.run([

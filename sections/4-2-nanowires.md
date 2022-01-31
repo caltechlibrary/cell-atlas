@@ -4,7 +4,6 @@ doi: 10.22002/D1.1490
 species: Shewanella oneidensis
 video: 4_2_Soneidensis.mp4
 collector: Poorna Subramanian
-subsections: []
 ---
 
 Other cell extensions also aid metabolism. Non-photosynthesizing cells break down nutrients into chemical energy (ATP) through respiration reactions. The chemistry is beyond our scope here, but it involves the ultimate transfer of electrons to an acceptor molecule, typically oxygen (the "aer" in aerobic respiration). When no oxygen is present, some cells can use an alternative electron acceptor, such as iron or sulfur, in a process called anaerobic respiration. This works well when the acceptor is soluble and can diffuse into the cell. You can see deposits of soluble metal on the membrane of this *Shewanella oneidensis* cell which it is likely using for anaerobic respiration.

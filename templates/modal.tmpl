@@ -7,13 +7,11 @@
         ${endif}
 
         ${if(it.hasMainMediaViewer)}
-            ${it:media-viewer.tmpl()}
+            ${it.mediaViewer:media-viewer.tmpl()}
         ${endif}
 
-        ${if(it.species)}
-            ${it:section/vid-citation.tmpl()}
-        ${elseif(it.sources)}
-            ${it:section/vid-citation.tmpl()}
+        ${if(it.citation)}
+            ${it.citation:section/vid-citation.tmpl()}
         ${endif}
 
         ${if(OFFLINE)}
@@ -29,15 +27,15 @@
             ${appendix/tree-viewer-fs-confirm.tmpl()}
         ${else}
             <div class="modal__content-container" tabindex="-1">
-                ${it:section/narration-player.tmpl()}
-                <button class="modal__toggle-narration-btn ${if(it.narrationSrc)}${else}modal__toggle-narration-btn--postponed${endif}" aria-label="Open narration player">
+                ${it.narration:section/narration-player.tmpl()}
+                <button class="modal__toggle-narration-btn ${if(it.narration)}${else}modal__toggle-narration-btn--postponed${endif}" aria-label="Open narration player">
                     <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
                     <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
                 </button>
                 <div class="modal__text-container">
                     <h1 id="${it.title}-header" class="modal__header">${it.title}</h1>
                     <div class="modal__text-content">
-                        ${it.html}
+                        ${it.body}
                     </div>
                 </div>
             </div>

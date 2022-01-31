@@ -4,7 +4,6 @@ doi: 10.22002/D1.1489
 species: Caulobacter crescentus
 video: 4_1_Ccrescentus.mp4
 collector: Zhuo Li
-subsections: []
 ---
 
 The life of a cell is simple in theory, and complex in practice. The evolutionary purpose of your cell is to grow, ultimately amassing enough resources to produce all the macromolecules needed to make another cell. How best to grow, though, depends on the environment and what fuel is available. Rather than focusing on the chemical reactions of metabolism, which are well covered in other texts, in this chapter we will examine a few architectural features that enhance growth in various conditions. In a world of scarce resources and fierce competition, any adaptation that lets your cell grow more efficiently can have a big effect on its success. And often, these adaptations are visible in the structure of the cell.

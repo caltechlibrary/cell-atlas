@@ -4,7 +4,6 @@ doi: 10.22002/D1.1563
 species: Acetonema longum
 video: 8_11_Alongum.mp4
 collector: Elitza Tocheva
-subsections: []
 ---
 
 Again, when the spore encounters favorable conditions, it will germinate, as this *Acetonema longum* spore is doing. Unlike the *Bacillus subtilis* you saw earlier, germinating diderm spores do not shed their outer membrane. Instead, they remodel their cortex back into a thin cell wall (compare to the mature spore on the previous page). This process is a good reminder of the similarity of monoderm and diderm cell walls; they may look very different, but their fundamental architecture is the same, just with more sheets of material in monoderms (and spores). After the remodeling, the cell sheds its protein coat, as you see here, and starts to grow.

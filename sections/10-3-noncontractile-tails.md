@@ -4,7 +4,6 @@ doi: 10.22002/D1.1588
 species: Shewanella oneidensis
 video: 10_3_Soneidensis.mp4
 collector: Poorna Subramanian
-subsections: []
 ---
 
 Some phage have tails that are not contractile, like this siphophage attacking a *Shewanella oneidensis* cell. The long, flexible tail still serves the essential function of crossing the barrier of the cell’s envelope, providing a conduit for the genome to enter the cell.

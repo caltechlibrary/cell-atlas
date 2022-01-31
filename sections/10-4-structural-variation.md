@@ -4,7 +4,6 @@ doi: 10.22002/D1.1589
 species: Vibrio cholerae
 video: 10_4_Vcholerae.mp4
 collector: Yi-Wei Chang
-subsections: []
 ---
 
 Not all phage tails are so long. Podophage (which this unidentified attacker of a *Vibrio cholerae* may be) have short tails that extend after docking to cross the host envelope. Other phage lack tails entirely.

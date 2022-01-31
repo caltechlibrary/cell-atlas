@@ -4,7 +4,6 @@ doi: 10.22002/D1.1508
 species: Caulobacter crescentus
 video: 5_2_Ccrescentus.mp4
 collector: Ariane Briegel
-subsections: []
 ---
 
 The most important low-copy number component in your cell is its genome; without the instructions, nothing gets built. Reflecting its importance, cells have evolved complex mechanisms to coordinate DNA replication and segregation in time as well as space. The details are beyond our scope here, but we can touch on some general structural principles.

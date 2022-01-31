@@ -4,7 +4,6 @@ doi: 10.22002/D1.1560
 species: Bacillus subtilis
 video: 8_8_Bsubtilis.mp4
 collector: Elitza Tocheva
-subsections: []
 ---
 
 When conditions become conducive to growth, the spore will return to an active state, shedding its protein coat and outer membrane and dismantling its cortex to allow outgrowth of the reviving cell, as you see in this **germinating** *Bacillus subtilis* spore.

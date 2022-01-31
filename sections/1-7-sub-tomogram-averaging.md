@@ -4,7 +4,6 @@ doi: 10.22002/D1.1469
 species: Campylobacter jejuni
 video: 1_7_Cjejuni.mp4
 collector: Morgan Beeby
-subsections: []
 description: A simple introduction to cryo-ET subtomogram averaging and how it can boost the resolution of bacterial structures like Campylobacter jejuni flagella
 ---
 

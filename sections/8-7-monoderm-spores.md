@@ -4,7 +4,6 @@ doi: 10.22002/D1.1559
 species: Bacillus subtilis
 video: 8_7_Bsubtilis.mp4
 collector: Elitza Tocheva
-subsections: []
 ---
 
 Fully mature *Bacillus subtilis* spores like this one are ovoid, and swollen with armor, including the thick cortex and multilayered coat. This dense shield protects the cargo within from drying out, or denaturing in heat or acid. (It also makes it hard to make out much internal detail in images.)

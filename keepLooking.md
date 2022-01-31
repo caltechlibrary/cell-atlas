@@ -5,7 +5,7 @@ videoTitle: Escherichia coli
 video: 11_1_Ecoli.mp4
 videoAlt: 11_1.png
 collector: David Goodsell
-subsections: []
+
 description: A concluding summary, providing an outlook on the field of bacterial and archaeal cell biology with an illustration of Escherichia coli by David Goodsell
 ---
 

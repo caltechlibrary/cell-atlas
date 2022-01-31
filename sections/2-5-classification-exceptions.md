@@ -4,7 +4,6 @@ doi: 10.22002/D1.1354
 species: Mycobacterium marinum
 video: 2_5_Mmarinum.mp4
 collector: Elitza Tocheva
-subsections: []
 description: Not all bacteria can be classified as Gram-positive or Gram-negative. Mycobacterium marinum have a unique outer membrane and a multi-layered cell wall
 ---
 

@@ -4,7 +4,6 @@ doi: 10.22002/D1.1586
 species: Shewanella oneidensis
 video: 10_1_Soneidensis.mp4
 collector: Poorna Subramanian
-subsections: []
 ---
 
 Life is a battlefield for your cell, and other cells are not the only enemy. Attack can come from another front: viruses called **phage** (short for bacteriophage, or “bacterium eaters” because they were first identified infecting and killing bacteria). Like all viruses, phage use cells as vehicles for their replication. And, just like eukaryotic viruses, there is an army of different phage that prey on bacteria and archaea. No species is known to be immune.
