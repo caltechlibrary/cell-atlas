@@ -102,20 +102,24 @@ for i, fileName in enumerate(sectionFileNames):
                 subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md")
 
                 # Get media viewer metadata
-                if "doi" in subsectionData or "video" in  subsectionData:
+                if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
+                    subsectionData["hasMainMediaViewer"] = True
                     subsectionData["mediaViewer"] = {}
                     subsectionData["mediaViewer"]["id"] = subsectionData["id"]
-                    subsectionData["mediaViewer"]["citationAttached"] = True
-                    subsectionData["mediaViewer"]["hasTabMenu"] = True
-                    subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(subsectionData)
-                    subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(subsectionData)
-                    subsectionData["hasMainMediaViewer"] = True
+                    if "doi" in subsectionData or "video" in  subsectionData:
+                        subsectionData["mediaViewer"]["hasTabMenu"] = True
+                        subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(subsectionData)
+                        subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(subsectionData)
+                    elif "graphic" in subsectionData:
+                        subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
                 # Create narration metadata
                 subsectionData["narration"] = {}
                 subsectionData["narration"]["id"] = subsectionData["id"]
                 subsectionData["narration"]["src"] = subsectionData["id"]
                 # Create citation data
-                if "doi" in subsectionData or "source" in subsectionData: subsectionData["citation"] = getCitationMetadata(subsectionData)
+                if "doi" in subsectionData or "source" in subsectionData:
+                    subsectionData["citation"] = getCitationMetadata(subsectionData)
+                    subsectionData["mediaViewer"]["citationAttached"] = True
                 
                 metadata["subsectionsData"].append(subsectionData)
 
