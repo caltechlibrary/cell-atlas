@@ -10,7 +10,7 @@ def getPageName(fileName):
     return pageName
 
 def getYAMLMetadata(fileName):
-    return json.loads( subprocess.check_output(["pandoc", "--template=templates/metadata.tmpl", fileName]) )
+    return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.tmpl", fileName]) )
 
 def getFormattedBodyText(fileName):
     bodyText = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", fileName]).decode("utf-8")
@@ -37,12 +37,22 @@ def getCitationMetadata(metadata):
     if "species" in metadata: citationMetadata["species"] = metadata["species"]
     if "collector" in metadata: citationMetadata["collector"] = metadata["collector"]
     if "doi" in metadata: citationMetadata["doi"] = metadata["doi"]
-    if "source" in metadata: citationMetadata["sources"] = metadata["source"]
+    if "source" in metadata:
+        citationMetadata["sources"] = []
+        sources = [source.strip() for source in metadata["source"].split(',')]
+        for source in sources:
+            id = source.strip("[@]")
+            if id in bibData: 
+                name = bibData[id]["author"][0]["family"] 
+                if len(bibData[id]["author"]) > 1: name = f"{name} et al."
+                year = bibData[id]["issued"]["date-parts"][0][0]
+                citationMetadata["sources"].append({"text": f"{name} ({year})", "link": f"D-references.html#ref-{id}.html"})
+        if(len(citationMetadata["sources"]) >= 1): citationMetadata["sources"][-1]["last"] = True
     return citationMetadata
 
 siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
-bibData = json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) )
+bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
 usedBibs = []
 
 # Create site directory with assets
