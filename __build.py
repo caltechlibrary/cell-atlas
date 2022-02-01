@@ -65,7 +65,7 @@ shutil.copytree("js/", f"{siteDir}/js")
 # Create navigation menu data for site
 navData = []
 navData.append({ "title": "Introduction", "page": "introduction" })
-for fileName in sectionFileNames:
+for page, fileName in enumerate(sectionFileNames, 2):
     metadata = getYAMLMetadata(f"sections/{fileName}")
     chapter = fileName.split("-")[0]
     section = fileName.split("-")[1]
@@ -76,6 +76,7 @@ for fileName in sectionFileNames:
     if section == "0":
         navEntry["sections"] = []
         navEntry["isChapter"] = True
+        navEntry["progPercent"] = (page / (len(sectionFileNames) + 3)) * 100
         navData.append(navEntry)
     else:
          navEntry["section"] = section
@@ -84,7 +85,8 @@ navData.append({
     "title": "Outlook",
     "page": "outlook",
     "isChapter": "true",
-    "sections": [{ "title": "Keep Looking", "page": "keep-looking" }]
+    "sections": [{ "title": "Keep Looking", "page": "keep-looking" }],
+    "progPercent": ((len(sectionFileNames) + 2) / (len(sectionFileNames) + 3)) * 100
 })
 navData.append({ "chapter": "Appendix", "isAppendix": True })
 navData.append({ "chapter": "A", "title": "Feature Index", "page": "A-feature-index" })
@@ -110,6 +112,13 @@ for i, fileName in enumerate(sectionFileNames):
         metadata["typeChapter"] = True
     else:
         metadata["typeSection"] = True
+
+    # Generate progress bar data
+    metadata["currentPageNum"] = i + 2
+    metadata["totalPages"] = len(sectionFileNames) + 3
+    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
+    metadata["displayPercent"] = round(metadata["progPercent"])
+    metadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData if "isChapter" in navEntry ]
 
     # Format body text to insert links
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}")
