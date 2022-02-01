@@ -62,6 +62,36 @@ shutil.copytree("img/", f"{siteDir}/img")
 shutil.copytree("styles/", f"{siteDir}/styles")
 shutil.copytree("js/", f"{siteDir}/js")
 
+# Create navigation menu data for site
+navData = []
+navData.append({ "title": "Introduction", "page": "introduction" })
+for fileName in sectionFileNames:
+    metadata = getYAMLMetadata(f"sections/{fileName}")
+    chapter = fileName.split("-")[0]
+    section = fileName.split("-")[1]
+    navEntry = {}
+    navEntry["chapter"] = chapter
+    navEntry["title"] = metadata["title"]
+    navEntry["page"] = getPageName(fileName)
+    if section == "0":
+        navEntry["sections"] = []
+        navEntry["isChapter"] = True
+        navData.append(navEntry)
+    else:
+         navEntry["section"] = section
+         navData[-1]["sections"].append(navEntry)
+navData.append({
+    "title": "Outlook",
+    "page": "outlook",
+    "isChapter": "true",
+    "sections": [{ "title": "Keep Looking", "page": "keep-looking" }]
+})
+navData.append({ "chapter": "Appendix", "isAppendix": True })
+navData.append({ "chapter": "A", "title": "Feature Index", "page": "A-feature-index" })
+navData.append({ "chapter": "B", "title": "Scientist Profiles", "page": "B-scientist-profiles" })
+navData.append({ "chapter": "C", "title": "Phylogenetic Tree", "page": "C-phylogenetic-tree" })
+navData.append({ "chapter": "D", "title": "References", "page": "D-references" })
+
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
 
@@ -71,6 +101,7 @@ for i, fileName in enumerate(sectionFileNames):
     metadata = getYAMLMetadata(f"sections/{fileName}")
     
     # Start generating metadata to be used in page template
+    metadata["nav"] = navData
     metadata["chapter"] = fileName.split("-")[0]
     metadata["section"] = fileName.split("-")[1]
     if(i > 0): metadata["prevSection"] = getPageName(sectionFileNames[i - 1])
