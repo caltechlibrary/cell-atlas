@@ -9,6 +9,37 @@ def getPageName(fileName):
     pageName.replace("-0-", "-")
     return pageName
 
+def getYAMLMetadata(fileName):
+    return json.loads( subprocess.check_output(["pandoc", "--template=templates/metadata.tmpl", fileName]) )
+
+def getFormattedBodyText(fileName):
+    bodyText = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", fileName]).decode("utf-8")
+    for match in re.finditer(r"\[@.*?]", bodyText): 
+        bibId = match.group().strip("[@]")
+        if bibId not in usedBibs: usedBibs.append(bibId)
+        bodyText = bodyText.replace(match.group(), f"[[{usedBibs.index(bibId) + 1}](D-references.html#ref-{bibId})]")
+    return bodyText
+
+def getVidPlayerMetadata(metadata):
+    vidPlayerMetadata = {}
+    vidPlayerMetadata["vidName"] = metadata["video"].split(".")[0]
+    vidPlayerMetadata["thumbnail"] = f"{'_'.join(metadata['video'].split('_', 2)[:2])}_thumbnail"
+    if "doi" in metadata: vidPlayerMetadata["doi"] = metadata["doi"]
+    return vidPlayerMetadata
+
+def getCompSliderMetadata(metadata):
+    compSliderMetadata = {}
+    compSliderMetadata["imgName"] = metadata["video"].split(".")[0]
+    return compSliderMetadata
+
+def getCitationMetadata(metadata):
+    citationMetadata = {}
+    if "species" in metadata: citationMetadata["species"] = metadata["species"]
+    if "collector" in metadata: citationMetadata["collector"] = metadata["collector"]
+    if "doi" in metadata: citationMetadata["doi"] = metadata["doi"]
+    if "source" in metadata: citationMetadata["sources"] = metadata["source"]
+    return citationMetadata
+
 siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 bibData = json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) )
@@ -27,8 +58,9 @@ subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/i
 # Render pages in sections/
 for i, fileName in enumerate(sectionFileNames):
     # Initialize metadata with yaml metadata in markdown file
-    metadata = json.loads( subprocess.check_output(["pandoc", "--template=templates/metadata.tmpl", f"sections/{fileName}"]) )
-
+    metadata = getYAMLMetadata(f"sections/{fileName}")
+    
+    # Start generating metadata to be used in page template
     metadata["chapter"] = fileName.split("-")[0]
     metadata["section"] = fileName.split("-")[1]
     if(i > 0): metadata["prevSection"] = getPageName(sectionFileNames[i - 1])
@@ -39,91 +71,53 @@ for i, fileName in enumerate(sectionFileNames):
         metadata["typeSection"] = True
 
     # Format body text to insert links
-    metadata["body"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", f"sections/{fileName}"]).decode("utf-8")
-    for match in re.finditer(r"\[@.*?]", metadata["body"]): 
-        bibId = match.group().strip("[@]")
-        if bibId not in usedBibs: usedBibs.append(bibId)
-        metadata["body"] = metadata["body"].replace(match.group(), f"[[{usedBibs.index(bibId) + 1}](D-references.html#ref-{bibId})]")
+    metadata["body"] = getFormattedBodyText(f"sections/{fileName}")
 
-    metadata["mediaViewer"] = {}
-    metadata["mediaViewer"]["hasTabMenu"] = True
-    metadata["mediaViewer"]["isSection"] = True
-
-    # Create video metadata
-    if "doi" in metadata:
-        metadata["mediaViewer"]["vidPlayer"] = {}
-        metadata["mediaViewer"]["vidPlayer"]["doi"] = metadata["doi"]
-        metadata["mediaViewer"]["vidPlayer"]["vidName"] = metadata["video"].split(".")[0]
-        metadata["mediaViewer"]["vidPlayer"]["thumbnail"] = f"{metadata['chapter']}_{metadata['section']}_thumbnail"
-        metadata["mediaViewer"]["vidPlayer"]["isSection"] = getPageName(fileName)
-
-    # Create comp slider metadata
-    if "doi" in metadata:
-        metadata["mediaViewer"]["compSlider"] = {}
-        metadata["mediaViewer"]["compSlider"]["imgName"] = metadata["video"].split(".")[0]
-        metadata["mediaViewer"]["compSlider"]["isSection"] = getPageName(fileName)
-    
-    # Create narration metadata
-    if "doi" in metadata:
+    if "typeSection" in metadata:
+        # Get media viewer metadata
+        if "doi" in metadata:
+            metadata["mediaViewer"] = {}
+            metadata["mediaViewer"]["isSection"] = True
+            metadata["mediaViewer"]["hasTabMenu"] = True
+            metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(metadata)
+            metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
+            metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(metadata)
+            metadata["mediaViewer"]["compSlider"]["isSection"] = True
+        # Create narration metadata
         metadata["narration"] = {}
-        metadata["narration"]["id"] = "main"
         metadata["narration"]["src"] = getPageName(fileName)
-        metadata["narration"]["isSection"] = getPageName(fileName)
+        metadata["narration"]["isSection"] = True
+        # Create citation data
+        if "doi" in metadata: 
+            metadata["citation"] = getCitationMetadata(metadata)
+            metadata["citation"]["isSection"] = True
+        # Process subsections
+        if "subsections" in metadata:
+            metadata["subsectionsData"] = []
+            for subsectionFileName in metadata["subsections"]:
+                subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
+                subsectionData["id"] = subsectionFileName
 
-    # Create citation data
-    if "doi" in metadata:
-        metadata["citation"] = {}
-        metadata["citation"]["species"] = metadata["species"]
-        metadata["citation"]["collector"] = metadata["collector"]
-        metadata["citation"]["doi"] = metadata["doi"]
+                # Format body text to insert links
+                subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md")
 
-    # Process subsections
-    if "subsections" in metadata:
-        metadata["subsectionsData"] = []
-        for subsectionFileName in metadata["subsections"]:
-            subsectionData = json.loads( subprocess.check_output(["pandoc", "--template=templates/metadata.tmpl", f"subsections/{subsectionFileName}.md"]) )
-            subsectionData["id"] = subsectionFileName
-
-            # Format body text to insert links
-            subsectionData["body"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", f"subsections/{subsectionFileName}.md"]).decode("utf-8")
-            for match in re.finditer(r"\[@.*?]", subsectionData["body"]): 
-                bibId = match.group().strip("[@]")
-                if bibId not in usedBibs: usedBibs.append(bibId)
-                subsectionData["body"] = subsectionData["body"].replace(match.group(), f"[[{usedBibs.index(bibId) + 1}](D-references.html#ref-{bibId})]")
-
-            subsectionData["hasMainMediaViewer"] = True
-
-            subsectionData["mediaViewer"] = {}
-            subsectionData["mediaViewer"]["id"] = subsectionData["id"]
-            subsectionData["mediaViewer"]["hasTabMenu"] = True
-            subsectionData["mediaViewer"]["citationAttached"] = True
-
-            # Create video metadata
-            if "doi" in subsectionData:
-                subsectionData["mediaViewer"]["vidPlayer"] = {}
-                subsectionData["mediaViewer"]["vidPlayer"]["doi"] = subsectionData["doi"]
-                subsectionData["mediaViewer"]["vidPlayer"]["vidName"] = subsectionData["video"].split(".")[0]
-                subsectionData["mediaViewer"]["vidPlayer"]["thumbnail"] = f"{'_'.join(subsectionData['video'].split('_', 2)[:2])}_thumbnail"
-
-            # Create comp slider metadata
-            if "doi" in subsectionData:
-                subsectionData["mediaViewer"]["compSlider"] = {}
-                subsectionData["mediaViewer"]["compSlider"]["imgName"] = subsectionData["video"].split(".")[0]
-
-            # Create narration metadata
-            if "doi" in subsectionData:
+                # Get media viewer metadata
+                if "doi" in subsectionData or "video" in  subsectionData:
+                    subsectionData["mediaViewer"] = {}
+                    subsectionData["mediaViewer"]["id"] = subsectionData["id"]
+                    subsectionData["mediaViewer"]["citationAttached"] = True
+                    subsectionData["mediaViewer"]["hasTabMenu"] = True
+                    subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(subsectionData)
+                    subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(subsectionData)
+                    subsectionData["hasMainMediaViewer"] = True
+                # Create narration metadata
                 subsectionData["narration"] = {}
                 subsectionData["narration"]["id"] = subsectionData["id"]
                 subsectionData["narration"]["src"] = subsectionData["id"]
-
-            # Create citation data
-            if "doi" in subsectionData:
-                subsectionData["citation"] = {}
-                subsectionData["citation"]["species"] = subsectionData["species"]
-                subsectionData["citation"]["collector"] = subsectionData["collector"]
-                subsectionData["citation"]["doi"] = subsectionData["doi"]
-            
-            metadata["subsectionsData"].append(subsectionData)
+                # Create citation data
+                if "doi" in subsectionData or "source" in subsectionData: subsectionData["citation"] = getCitationMetadata(subsectionData)
+                
+                metadata["subsectionsData"].append(subsectionData)
 
     with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
 
