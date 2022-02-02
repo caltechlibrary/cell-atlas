@@ -13,7 +13,7 @@ def getYAMLMetadata(fileName):
     return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.tmpl", fileName]) )
 
 def getFormattedBodyText(fileName):
-    bodyText = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", fileName]).decode("utf-8")
+    bodyText = subprocess.check_output(["pandoc", "--from=markdown-citations", "--to=html", fileName]).decode("utf-8")
     for match in re.finditer(r"\[@.*?]", bodyText): 
         bibId = match.group().strip("[@]")
         if bibId not in usedBibs: usedBibs.append(bibId)
