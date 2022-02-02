@@ -4,6 +4,11 @@ import subprocess
 import json
 import re
 
+def writePage(source, pageName, metadata):
+    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
+    os.remove("metadata.json")
+
 def getPageName(fileName):
     pageName = os.path.splitext(fileName)[0]
     pageName.replace("-0-", "-")
@@ -97,6 +102,14 @@ navData.append({ "chapter": "D", "title": "References", "page": "D-references" }
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
 
+# Render begin page
+metadata = getYAMLMetadata("introQuote.md")
+metadata["nav"] = navData
+metadata["nextSection"] = "introduction"
+metadata["typeChapter"] = True
+metadata["body"] = getFormattedBodyText("introQuote.md")
+writePage("introQuote.md", "begin", metadata)
+
 # Render pages in sections/
 for i, fileName in enumerate(sectionFileNames):
     # Initialize metadata with yaml metadata in markdown file
@@ -173,16 +186,4 @@ for i, fileName in enumerate(sectionFileNames):
                 
                 metadata["subsectionsData"].append(subsectionData)
 
-    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
-
-    subprocess.run([
-        "pandoc", 
-        "--from=markdown", 
-        "--to=html", 
-        f"--output={siteDir}/{getPageName(fileName)}.html", 
-        "--template=templates/page.tmpl",
-        "--metadata-file=metadata.json",
-        f"sections/{fileName}"
-    ])
-
-    os.remove("metadata.json")
+    writePage(f"sections/{fileName}", getPageName(fileName), metadata)
