@@ -115,6 +115,13 @@ def buildSectionMetadata(metadata):
 
 siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
+profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
+profileData = {}
+for profileFileName in profileFileNames:
+    profileMetadata = getYAMLMetadata(f"profiles/{profileFileName}")
+    profileMetadata["id"] = profileMetadata["title"].title().replace(" ", "")
+    profileMetadata["html"] = getFormattedBodyText(f"profiles/{profileFileName}")
+    profileData[profileMetadata["title"]] = profileMetadata
 bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
 usedBibs = []
 
@@ -245,3 +252,15 @@ with open("features.json", "r", encoding="utf-8") as f:
     featureIndexData = json.load(f)
     metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key]} for key in featureIndexData]
 writePage("features.md", metadata["pageName"], metadata)
+
+# Render profiles page
+metadata = getYAMLMetadata("profiles.md")
+metadata["pageName"] = "B-scientist-profiles"
+metadata["chapter"] = "B"
+metadata["nav"] = navData
+metadata["prevSection"] = "A-feature-index"
+metadata["nextSection"] = "C-phylogenetic-tree"
+metadata["typeAppendix"] = True
+metadata["appendixTypeProfiles"] = True
+metadata["accordionData"] = list(profileData.values())
+writePage("profiles.md", metadata["pageName"], metadata)
