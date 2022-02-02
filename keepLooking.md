@@ -1,9 +1,8 @@
 --- 
 title: Keep Looking
 doi: 10.22002/D1.1789
-videoTitle: Escherichia coli
+species: Escherichia coli
 video: 11_1_Ecoli.mp4
-videoAlt: 11_1.png
 collector: David Goodsell
 
 description: A concluding summary, providing an outlook on the field of bacterial and archaeal cell biology with an illustration of Escherichia coli by David Goodsell

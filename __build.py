@@ -191,7 +191,10 @@ for i, fileName in enumerate(sectionFileNames):
         metadata["prevSection"] = "introduction"
     else: 
         metadata["prevSection"] = getPageName(sectionFileNames[i - 1])
-    if(i < len(sectionFileNames) - 1): metadata["nextSection"] = getPageName(sectionFileNames[i + 1])
+    if(i == len(sectionFileNames) - 1):
+        metadata["nextSection"] = "outlook"
+    else:
+        metadata["nextSection"] = getPageName(sectionFileNames[i + 1])
     if(metadata["section"] == "0"):
         metadata["typeChapter"] = True
     else:
@@ -205,3 +208,26 @@ for i, fileName in enumerate(sectionFileNames):
     if "typeSection" in metadata: buildSectionMetadata(metadata)
     
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
+
+# Render outlook page
+metadata = getYAMLMetadata("outlook.md")
+metadata["pageName"] = "outlook"
+metadata["nav"] = navData
+metadata["prevSection"] = getPageName(sectionFileNames[-1])
+metadata["nextSection"] = "keep-looking"
+metadata["typeChapter"] = True
+metadata["body"] = getFormattedBodyText("outlook.md")
+buildProgressBarData(len(sectionFileNames) + 2, metadata)
+writePage("outlook.md", metadata["pageName"], metadata)
+
+# Render keep looking page
+metadata = getYAMLMetadata("keepLooking.md")
+metadata["pageName"] = "keep-looking"
+metadata["nav"] = navData
+metadata["prevSection"] = "outlook"
+metadata["nextSection"] = "A-feature-index"
+metadata["typeSection"] = True
+metadata["body"] = getFormattedBodyText("keepLooking.md")
+buildProgressBarData(len(sectionFileNames) + 3, metadata)
+buildSectionMetadata(metadata)
+writePage("keepLooking.md", metadata["pageName"], metadata)
