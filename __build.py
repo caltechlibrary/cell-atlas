@@ -231,3 +231,17 @@ metadata["body"] = getFormattedBodyText("keepLooking.md")
 buildProgressBarData(len(sectionFileNames) + 3, metadata)
 buildSectionMetadata(metadata)
 writePage("keepLooking.md", metadata["pageName"], metadata)
+
+# Render feature index page
+metadata = getYAMLMetadata("features.md")
+metadata["pageName"] = "A-feature-index"
+metadata["chapter"] = "A"
+metadata["nav"] = navData
+metadata["prevSection"] = "keep-looking"
+metadata["nextSection"] = "B-scientist-profiles"
+metadata["typeAppendix"] = True
+metadata["appendixTypeFeatures"] = True
+with open("features.json", "r", encoding="utf-8") as f:
+    featureIndexData = json.load(f)
+    metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key]} for key in featureIndexData]
+writePage("features.md", metadata["pageName"], metadata)
