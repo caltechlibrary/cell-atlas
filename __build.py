@@ -55,6 +55,64 @@ def getCitationMetadata(metadata):
         if(len(citationMetadata["sources"]) >= 1): citationMetadata["sources"][-1]["last"] = True
     return citationMetadata
 
+def buildProgressBarData(pageNum, metadata):
+    metadata["currentPageNum"] = pageNum
+    metadata["totalPages"] = len(sectionFileNames) + 3
+    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
+    metadata["displayPercent"] = round(metadata["progPercent"])
+    metadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData if "isChapter" in navEntry ]
+
+def buildSectionMetadata(metadata):
+    # Get media viewer metadata
+    if "doi" in metadata:
+        metadata["mediaViewer"] = {}
+        metadata["mediaViewer"]["isSection"] = True
+        metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(metadata)
+        metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
+        if metadata["title"] != "Introduction":
+            metadata["mediaViewer"]["hasTabMenu"] = True
+            metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(metadata)
+            metadata["mediaViewer"]["compSlider"]["isSection"] = True
+    # Create narration metadata
+    metadata["narration"] = {}
+    metadata["narration"]["src"] = metadata["pageName"]
+    metadata["narration"]["isSection"] = True
+    # Create citation data
+    if "doi" in metadata:
+        metadata["citation"] = getCitationMetadata(metadata)
+        metadata["citation"]["isSection"] = True
+    # Process subsections
+    if "subsections" in metadata:
+        metadata["subsectionsData"] = []
+        for subsectionFileName in metadata["subsections"]:
+            subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
+            subsectionData["id"] = subsectionFileName
+
+            # Format body text to insert links
+            subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md")
+
+            # Get media viewer metadata
+            if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
+                subsectionData["hasMainMediaViewer"] = True
+                subsectionData["mediaViewer"] = {}
+                subsectionData["mediaViewer"]["id"] = subsectionData["id"]
+                if "doi" in subsectionData or "video" in  subsectionData:
+                    subsectionData["mediaViewer"]["hasTabMenu"] = True
+                    subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(subsectionData)
+                    subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(subsectionData)
+                elif "graphic" in subsectionData:
+                    subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
+            # Create narration metadata
+            subsectionData["narration"] = {}
+            subsectionData["narration"]["id"] = subsectionData["id"]
+            subsectionData["narration"]["src"] = subsectionData["id"]
+            # Create citation data
+            if "doi" in subsectionData or "source" in subsectionData:
+                subsectionData["citation"] = getCitationMetadata(subsectionData)
+                subsectionData["mediaViewer"]["citationAttached"] = True
+            
+            metadata["subsectionsData"].append(subsectionData)
+
 siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
@@ -110,80 +168,40 @@ metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("introQuote.md")
 writePage("introQuote.md", "begin", metadata)
 
+# Render introduction page
+metadata = getYAMLMetadata("introduction.md")
+metadata["pageName"] = "introduction"
+metadata["nav"] = navData
+metadata["prevSection"] = "begin"
+metadata["nextSection"] = getPageName(sectionFileNames[0])
+metadata["typeSection"] = True
+metadata["body"] = getFormattedBodyText("introduction.md")
+buildProgressBarData(1, metadata)
+buildSectionMetadata(metadata)
+writePage("introduction.md", metadata["pageName"], metadata)
+
 # Render pages in sections/
 for i, fileName in enumerate(sectionFileNames):
-    # Initialize metadata with yaml metadata in markdown file
     metadata = getYAMLMetadata(f"sections/{fileName}")
-    
-    # Start generating metadata to be used in page template
-    metadata["nav"] = navData
+
+    # Generate data specefic to pages in sections/ folder
     metadata["chapter"] = fileName.split("-")[0]
     metadata["section"] = fileName.split("-")[1]
-    if(i > 0): metadata["prevSection"] = getPageName(sectionFileNames[i - 1])
+    if(i == 0):
+        metadata["prevSection"] = "introduction"
+    else: 
+        metadata["prevSection"] = getPageName(sectionFileNames[i - 1])
     if(i < len(sectionFileNames) - 1): metadata["nextSection"] = getPageName(sectionFileNames[i + 1])
     if(metadata["section"] == "0"):
         metadata["typeChapter"] = True
     else:
         metadata["typeSection"] = True
 
-    # Generate progress bar data
-    metadata["currentPageNum"] = i + 2
-    metadata["totalPages"] = len(sectionFileNames) + 3
-    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
-    metadata["displayPercent"] = round(metadata["progPercent"])
-    metadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData if "isChapter" in navEntry ]
-
-    # Format body text to insert links
+    # Generate general metadata
+    metadata["pageName"] = getPageName(fileName)
+    metadata["nav"] = navData
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}")
-
-    if "typeSection" in metadata:
-        # Get media viewer metadata
-        if "doi" in metadata:
-            metadata["mediaViewer"] = {}
-            metadata["mediaViewer"]["isSection"] = True
-            metadata["mediaViewer"]["hasTabMenu"] = True
-            metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(metadata)
-            metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
-            metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(metadata)
-            metadata["mediaViewer"]["compSlider"]["isSection"] = True
-        # Create narration metadata
-        metadata["narration"] = {}
-        metadata["narration"]["src"] = getPageName(fileName)
-        metadata["narration"]["isSection"] = True
-        # Create citation data
-        if "doi" in metadata: 
-            metadata["citation"] = getCitationMetadata(metadata)
-            metadata["citation"]["isSection"] = True
-        # Process subsections
-        if "subsections" in metadata:
-            metadata["subsectionsData"] = []
-            for subsectionFileName in metadata["subsections"]:
-                subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
-                subsectionData["id"] = subsectionFileName
-
-                # Format body text to insert links
-                subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md")
-
-                # Get media viewer metadata
-                if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
-                    subsectionData["hasMainMediaViewer"] = True
-                    subsectionData["mediaViewer"] = {}
-                    subsectionData["mediaViewer"]["id"] = subsectionData["id"]
-                    if "doi" in subsectionData or "video" in  subsectionData:
-                        subsectionData["mediaViewer"]["hasTabMenu"] = True
-                        subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(subsectionData)
-                        subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(subsectionData)
-                    elif "graphic" in subsectionData:
-                        subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
-                # Create narration metadata
-                subsectionData["narration"] = {}
-                subsectionData["narration"]["id"] = subsectionData["id"]
-                subsectionData["narration"]["src"] = subsectionData["id"]
-                # Create citation data
-                if "doi" in subsectionData or "source" in subsectionData:
-                    subsectionData["citation"] = getCitationMetadata(subsectionData)
-                    subsectionData["mediaViewer"]["citationAttached"] = True
-                
-                metadata["subsectionsData"].append(subsectionData)
-
-    writePage(f"sections/{fileName}", getPageName(fileName), metadata)
+    buildProgressBarData(i + 2, metadata)
+    if "typeSection" in metadata: buildSectionMetadata(metadata)
+    
+    writePage(f"sections/{fileName}", metadata["pageName"], metadata)
