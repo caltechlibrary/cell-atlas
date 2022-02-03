@@ -39,20 +39,21 @@ def getCompSliderMetadata(fileName):
     compSliderMetadata["imgName"] = fileMetadata["video"].split(".")[0]
     return compSliderMetadata
 
-def getCitationMetadata(metadata):
+def getCitationMetadata(fileName):
+    fileMetadata = getYAMLMetadata(fileName)
     citationMetadata = {}
-    if "species" in metadata: 
-        citationMetadata["species"] = metadata["species"]
-        citationMetadata["speciesId"] = metadata["species"].replace(" ", "-")
-    if "collector" in metadata: 
-        citationMetadata["collector"] = metadata["collector"]
-        if metadata["collector"] in profileData:
+    if "species" in fileMetadata: 
+        citationMetadata["species"] = fileMetadata["species"]
+        citationMetadata["speciesId"] = fileMetadata["species"].replace(" ", "-")
+    if "collector" in fileMetadata: 
+        citationMetadata["collector"] = fileMetadata["collector"]
+        if fileMetadata["collector"] in profileData:
             citationMetadata["collectorProfile"] = True
-            citationMetadata["collectorId"] = profileData[metadata["collector"]]["id"]
-    if "doi" in metadata: citationMetadata["doi"] = metadata["doi"]
-    if "source" in metadata:
+            citationMetadata["collectorId"] = profileData[fileMetadata["collector"]]["id"]
+    if "doi" in fileMetadata: citationMetadata["doi"] = fileMetadata["doi"]
+    if "source" in fileMetadata:
         citationMetadata["sources"] = []
-        sources = [source.strip() for source in metadata["source"].split(',')]
+        sources = [source.strip() for source in fileMetadata["source"].split(',')]
         for source in sources:
             id = source.strip("[@]")
             if id in bibData: 
@@ -116,7 +117,7 @@ def buildSectionMetadata(fileName, metadata):
     metadata["narration"]["isSection"] = True
     # Create citation data
     if "doi" in metadata:
-        metadata["citation"] = getCitationMetadata(metadata)
+        metadata["citation"] = getCitationMetadata(fileName)
         metadata["citation"]["isSection"] = True
     # Process subsections
     if "subsections" in metadata:
@@ -145,7 +146,7 @@ def buildSectionMetadata(fileName, metadata):
             subsectionData["narration"]["src"] = subsectionData["id"]
             # Create citation data
             if "doi" in subsectionData or "source" in subsectionData:
-                subsectionData["citation"] = getCitationMetadata(subsectionData)
+                subsectionData["citation"] = getCitationMetadata(f"subsections/{subsectionFileName}.md")
                 subsectionData["mediaViewer"]["citationAttached"] = True
             
             metadata["subsectionsData"].append(subsectionData)
