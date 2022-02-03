@@ -21,8 +21,8 @@ def getFormattedBodyText(fileName):
     bodyText = subprocess.check_output(["pandoc", "--from=markdown-citations", "--to=html", fileName]).decode("utf-8")
     for match in re.finditer(r"\[@.*?]", bodyText): 
         bibId = match.group().strip("[@]")
-        if bibId not in usedBibs: usedBibs.append(bibId)
-        bodyText = bodyText.replace(match.group(), f"[[{usedBibs.index(bibId) + 1}](D-references.html#ref-{bibId})]")
+        if bibData[bibId] not in usedBibs: usedBibs.append(bibData[bibId])
+        bodyText = bodyText.replace(match.group(), f"[[{usedBibs.index(bibData[bibId]) + 1}](D-references.html#ref-{bibId})]")
     return bodyText
 
 def getVidPlayerMetadata(metadata):
@@ -316,3 +316,18 @@ metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()
 metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
 metadata["treeViewerFsConfirmData"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
 writePage("phylogenetics.md", metadata["pageName"], metadata)
+
+# Render bibliography page 
+metadata = {}
+metadata["pageName"] = "D-references"
+metadata["chapter"] = "D"
+metadata["title"] = "References"
+metadata["nav"] = navData
+metadata["prevSection"] = "C-phylogenetic-tree"
+metadata["typeAppendix"] = True
+metadata["appendixTypeReferences"] = True
+with open("bib.json", "w", encoding='utf-8') as f: json.dump(usedBibs, f)
+with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDir}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+os.remove("metadata.json")
+os.remove("bib.json")
