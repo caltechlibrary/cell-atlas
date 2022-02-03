@@ -64,12 +64,21 @@ def getCitationMetadata(fileName):
         if(len(citationMetadata["sources"]) >= 1): citationMetadata["sources"][-1]["last"] = True
     return citationMetadata
 
-def buildProgressBarData(pageNum, metadata):
-    metadata["currentPageNum"] = pageNum
-    metadata["totalPages"] = len(sectionFileNames) + 3
-    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
-    metadata["displayPercent"] = round(metadata["progPercent"])
-    metadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData if "isChapter" in navEntry ]
+def getProgressMetadata(fileName, navData):
+    fileMetadata = getYAMLMetadata(fileName)
+    progressMetadata = {}
+    # Find entry in nav data with the same page name
+    for navEntry in navData["navList"]:
+        if "title" in navEntry and navEntry["title"] == fileMetadata["title"]:
+            progressMetadata["currentPageNum"] = navEntry["pageNum"]
+        elif "sections" in navEntry:
+            for sectionEntry in navEntry["sections"]:
+                if "title" in sectionEntry and sectionEntry["title"] == fileMetadata["title"]: progressMetadata["currentPageNum"] = sectionEntry["pageNum"]
+    progressMetadata["totalPages"] = navData["totalPages"]
+    progressMetadata["progPercent"] = (progressMetadata["currentPageNum"] / navData["totalPages"]) * 100
+    progressMetadata["displayPercent"] = round(progressMetadata["progPercent"])
+    progressMetadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData["navList"] if "isChapter" in navEntry ]
+    return progressMetadata
 
 def addSpeciesEntryToSpeciesData(species, speciesEntry):
     if(species in speciesData):
@@ -172,9 +181,11 @@ shutil.copytree("styles/", f"{siteDir}/styles")
 shutil.copytree("js/", f"{siteDir}/js")
 
 # Create navigation menu data for site
-navData = []
-navData.append({ "title": "Introduction", "page": "introduction" })
-for page, fileName in enumerate(sectionFileNames, 2):
+navData = {}
+navData["navList"] = []
+navData["totalPages"] = len(sectionFileNames) + 3
+navData["navList"].append({ "title": "Introduction", "page": "introduction", "pageNum": 1 })
+for pageNum, fileName in enumerate(sectionFileNames, 2):
     metadata = getYAMLMetadata(f"sections/{fileName}")
     chapter = fileName.split("-")[0]
     section = fileName.split("-")[1]
@@ -182,33 +193,35 @@ for page, fileName in enumerate(sectionFileNames, 2):
     navEntry["chapter"] = chapter
     navEntry["title"] = metadata["title"]
     navEntry["page"] = getPageName(fileName)
+    navEntry["pageNum"] = pageNum
     if section == "0":
         navEntry["sections"] = []
         navEntry["isChapter"] = True
-        navEntry["progPercent"] = (page / (len(sectionFileNames) + 3)) * 100
-        navData.append(navEntry)
+        navEntry["progPercent"] = (pageNum / navData["totalPages"]) * 100
+        navData["navList"].append(navEntry)
     else:
          navEntry["section"] = section
-         navData[-1]["sections"].append(navEntry)
-navData.append({
+         navData["navList"][-1]["sections"].append(navEntry)
+navData["navList"].append({
     "title": "Outlook",
     "page": "outlook",
+    "pageNum": len(sectionFileNames) + 2,
     "isChapter": "true",
-    "sections": [{ "title": "Keep Looking", "page": "keep-looking" }],
-    "progPercent": ((len(sectionFileNames) + 2) / (len(sectionFileNames) + 3)) * 100
+    "sections": [{ "title": "Keep Looking", "page": "keep-looking", "pageNum": navData["totalPages"] }],
+    "progPercent": ((len(sectionFileNames) + 2) / navData["totalPages"]) * 100
 })
-navData.append({ "chapter": "Appendix", "isAppendix": True })
-navData.append({ "chapter": "A", "title": "Feature Index", "page": "A-feature-index" })
-navData.append({ "chapter": "B", "title": "Scientist Profiles", "page": "B-scientist-profiles" })
-navData.append({ "chapter": "C", "title": "Phylogenetic Tree", "page": "C-phylogenetic-tree" })
-navData.append({ "chapter": "D", "title": "References", "page": "D-references" })
+navData["navList"].append({ "chapter": "Appendix", "isAppendix": True })
+navData["navList"].append({ "chapter": "A", "title": "Feature Index", "page": "A-feature-index" })
+navData["navList"].append({ "chapter": "B", "title": "Scientist Profiles", "page": "B-scientist-profiles" })
+navData["navList"].append({ "chapter": "C", "title": "Phylogenetic Tree", "page": "C-phylogenetic-tree" })
+navData["navList"].append({ "chapter": "D", "title": "References", "page": "D-references" })
 
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
 
 # Render begin page
 metadata = getYAMLMetadata("introQuote.md")
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("introQuote.md")
@@ -217,12 +230,12 @@ writePage("introQuote.md", "begin", metadata)
 # Render introduction page
 metadata = getYAMLMetadata("introduction.md")
 metadata["pageName"] = "introduction"
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "begin"
 metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("introduction.md")
-buildProgressBarData(1, metadata)
+for key, value in getProgressMetadata("introduction.md", navData).items(): metadata[key] = value
 buildSectionMetadata("introduction.md", metadata)
 addPageToSpeciesData(metadata) 
 writePage("introduction.md", metadata["pageName"], metadata)
@@ -249,9 +262,9 @@ for i, fileName in enumerate(sectionFileNames):
 
     # Generate general metadata
     metadata["pageName"] = getPageName(fileName)
-    metadata["nav"] = navData
+    metadata["nav"] = navData["navList"]
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}")
-    buildProgressBarData(i + 2, metadata)
+    for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
     if "typeSection" in metadata:
         buildSectionMetadata(f"sections/{fileName}", metadata)
         addPageToSpeciesData(metadata) 
@@ -261,23 +274,23 @@ for i, fileName in enumerate(sectionFileNames):
 # Render outlook page
 metadata = getYAMLMetadata("outlook.md")
 metadata["pageName"] = "outlook"
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["prevSection"] = getPageName(sectionFileNames[-1])
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("outlook.md")
-buildProgressBarData(len(sectionFileNames) + 2, metadata)
+for key, value in getProgressMetadata("outlook.md", navData).items(): metadata[key] = value
 writePage("outlook.md", metadata["pageName"], metadata)
 
 # Render keep looking page
 metadata = getYAMLMetadata("keepLooking.md")
 metadata["pageName"] = "keep-looking"
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("keepLooking.md")
-buildProgressBarData(len(sectionFileNames) + 3, metadata)
+for key, value in getProgressMetadata("keepLooking.md", navData).items(): metadata[key] = value
 buildSectionMetadata("keepLooking.md", metadata)
 addPageToSpeciesData(metadata) 
 writePage("keepLooking.md", metadata["pageName"], metadata)
@@ -286,7 +299,7 @@ writePage("keepLooking.md", metadata["pageName"], metadata)
 metadata = getYAMLMetadata("features.md")
 metadata["pageName"] = "A-feature-index"
 metadata["chapter"] = "A"
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "keep-looking"
 metadata["nextSection"] = "B-scientist-profiles"
 metadata["typeAppendix"] = True
@@ -300,7 +313,7 @@ writePage("features.md", metadata["pageName"], metadata)
 metadata = getYAMLMetadata("profiles.md")
 metadata["pageName"] = "B-scientist-profiles"
 metadata["chapter"] = "B"
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "A-feature-index"
 metadata["nextSection"] = "C-phylogenetic-tree"
 metadata["typeAppendix"] = True
@@ -312,7 +325,7 @@ writePage("profiles.md", metadata["pageName"], metadata)
 metadata = getYAMLMetadata("profiles.md")
 metadata["pageName"] = "C-phylogenetic-tree"
 metadata["chapter"] = "C"
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "B-scientist-profiles"
 metadata["nextSection"] = "D-references"
 metadata["typeAppendix"] = True
@@ -327,7 +340,7 @@ metadata = {}
 metadata["pageName"] = "D-references"
 metadata["chapter"] = "D"
 metadata["title"] = "References"
-metadata["nav"] = navData
+metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "C-phylogenetic-tree"
 metadata["typeAppendix"] = True
 metadata["appendixTypeReferences"] = True
