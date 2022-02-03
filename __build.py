@@ -33,9 +33,10 @@ def getVidPlayerMetadata(fileName):
     if "doi" in fileMetadata: vidPlayerMetadata["doi"] = fileMetadata["doi"]
     return vidPlayerMetadata
 
-def getCompSliderMetadata(metadata):
+def getCompSliderMetadata(fileName):
+    fileMetadata = getYAMLMetadata(fileName)
     compSliderMetadata = {}
-    compSliderMetadata["imgName"] = metadata["video"].split(".")[0]
+    compSliderMetadata["imgName"] = fileMetadata["video"].split(".")[0]
     return compSliderMetadata
 
 def getCitationMetadata(metadata):
@@ -107,7 +108,7 @@ def buildSectionMetadata(fileName, metadata):
         metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
         if metadata["title"] != "Introduction":
             metadata["mediaViewer"]["hasTabMenu"] = True
-            metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(metadata)
+            metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
             metadata["mediaViewer"]["compSlider"]["isSection"] = True
     # Create narration metadata
     metadata["narration"] = {}
@@ -135,7 +136,7 @@ def buildSectionMetadata(fileName, metadata):
                 if "doi" in subsectionData or "video" in  subsectionData:
                     subsectionData["mediaViewer"]["hasTabMenu"] = True
                     subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(f"subsections/{subsectionFileName}.md")
-                    subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(subsectionData)
+                    subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(f"subsections/{subsectionFileName}.md")
                 elif "graphic" in subsectionData:
                     subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
             # Create narration metadata
