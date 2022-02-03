@@ -25,11 +25,12 @@ def getFormattedBodyText(fileName):
         bodyText = bodyText.replace(match.group(), f"[[{usedBibs.index(bibData[bibId]) + 1}](D-references.html#ref-{bibId})]")
     return bodyText
 
-def getVidPlayerMetadata(metadata):
+def getVidPlayerMetadata(fileName):
+    fileMetadata = getYAMLMetadata(fileName)
     vidPlayerMetadata = {}
-    vidPlayerMetadata["vidName"] = metadata["video"].split(".")[0]
-    vidPlayerMetadata["thumbnail"] = f"{'_'.join(metadata['video'].split('_', 2)[:2])}_thumbnail"
-    if "doi" in metadata: vidPlayerMetadata["doi"] = metadata["doi"]
+    vidPlayerMetadata["vidName"] = fileMetadata["video"].split(".")[0]
+    vidPlayerMetadata["thumbnail"] = f"{'_'.join(fileMetadata['video'].split('_', 2)[:2])}_thumbnail"
+    if "doi" in fileMetadata: vidPlayerMetadata["doi"] = fileMetadata["doi"]
     return vidPlayerMetadata
 
 def getCompSliderMetadata(metadata):
@@ -97,12 +98,12 @@ def addPageToSpeciesData(metadata):
                 addSpeciesEntryToSpeciesData(subsectionData["species"], speciesEntry)
 
 
-def buildSectionMetadata(metadata):
+def buildSectionMetadata(fileName, metadata):
     # Get media viewer metadata
     if "doi" in metadata:
         metadata["mediaViewer"] = {}
         metadata["mediaViewer"]["isSection"] = True
-        metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(metadata)
+        metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(fileName)
         metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
         if metadata["title"] != "Introduction":
             metadata["mediaViewer"]["hasTabMenu"] = True
@@ -133,7 +134,7 @@ def buildSectionMetadata(metadata):
                 subsectionData["mediaViewer"]["id"] = subsectionData["id"]
                 if "doi" in subsectionData or "video" in  subsectionData:
                     subsectionData["mediaViewer"]["hasTabMenu"] = True
-                    subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(subsectionData)
+                    subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(f"subsections/{subsectionFileName}.md")
                     subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(subsectionData)
                 elif "graphic" in subsectionData:
                     subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
@@ -220,7 +221,7 @@ metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("introduction.md")
 buildProgressBarData(1, metadata)
-buildSectionMetadata(metadata)
+buildSectionMetadata("introduction.md", metadata)
 addPageToSpeciesData(metadata) 
 writePage("introduction.md", metadata["pageName"], metadata)
 
@@ -250,7 +251,7 @@ for i, fileName in enumerate(sectionFileNames):
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}")
     buildProgressBarData(i + 2, metadata)
     if "typeSection" in metadata:
-        buildSectionMetadata(metadata)
+        buildSectionMetadata(f"sections/{fileName}", metadata)
         addPageToSpeciesData(metadata) 
     
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
@@ -275,7 +276,7 @@ metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("keepLooking.md")
 buildProgressBarData(len(sectionFileNames) + 3, metadata)
-buildSectionMetadata(metadata)
+buildSectionMetadata("keepLooking.md", metadata)
 addPageToSpeciesData(metadata) 
 writePage("keepLooking.md", metadata["pageName"], metadata)
 
