@@ -39,7 +39,9 @@ def getCompSliderMetadata(metadata):
 
 def getCitationMetadata(metadata):
     citationMetadata = {}
-    if "species" in metadata: citationMetadata["species"] = metadata["species"]
+    if "species" in metadata: 
+        citationMetadata["species"] = metadata["species"]
+        citationMetadata["speciesId"] = metadata["species"].replace(" ", "-")
     if "collector" in metadata: 
         citationMetadata["collector"] = metadata["collector"]
         if metadata["collector"] in profileData:
