@@ -66,6 +66,35 @@ def buildProgressBarData(pageNum, metadata):
     metadata["displayPercent"] = round(metadata["progPercent"])
     metadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData if "isChapter" in navEntry ]
 
+def addSpeciesEntryToSpeciesData(species, speciesEntry):
+    if(species in speciesData):
+        speciesData[species]["speciesRefs"].append(speciesEntry)
+    else:
+        speciesData[species] = {}
+        speciesData[species]["species"] = species
+        speciesData[species]["speciesRefs"] = [ speciesEntry ]
+        speciesData[species]["id"] = species.replace(" ", "-")
+
+def addPageToSpeciesData(metadata):
+    if "species" in metadata:
+        speciesEntry = {}
+        speciesEntry["title"] =  metadata["title"]
+        speciesEntry["page"] =  f"{metadata['pageName']}.html"
+        if "chapter" in metadata: speciesEntry["chapter"] = metadata["chapter"]
+        if "section" in metadata: speciesEntry["section"] = metadata["section"]
+        addSpeciesEntryToSpeciesData(metadata["species"], speciesEntry)
+    if "subsections" in metadata:
+        for subsectionFileName in metadata["subsections"]:
+            subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
+            if "species" in subsectionData:
+                speciesEntry = {}
+                speciesEntry["title"] =  f"{metadata['title']}: {subsectionData['title']}"
+                speciesEntry["page"] =  f"{metadata['pageName']}.html#{subsectionFileName}"
+                if "chapter" in metadata: speciesEntry["chapter"] = metadata["chapter"]
+                if "section" in metadata: speciesEntry["section"] = metadata["section"]
+                addSpeciesEntryToSpeciesData(subsectionData["species"], speciesEntry)
+
+
 def buildSectionMetadata(metadata):
     # Get media viewer metadata
     if "doi" in metadata:
@@ -126,6 +155,7 @@ for profileFileName in profileFileNames:
     profileMetadata["id"] = profileMetadata["title"].title().replace(" ", "")
     profileMetadata["html"] = getFormattedBodyText(f"profiles/{profileFileName}")
     profileData[profileMetadata["title"]] = profileMetadata
+speciesData = {}
 bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
 usedBibs = []
 
@@ -189,6 +219,7 @@ metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("introduction.md")
 buildProgressBarData(1, metadata)
 buildSectionMetadata(metadata)
+addPageToSpeciesData(metadata) 
 writePage("introduction.md", metadata["pageName"], metadata)
 
 # Render pages in sections/
@@ -216,7 +247,9 @@ for i, fileName in enumerate(sectionFileNames):
     metadata["nav"] = navData
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}")
     buildProgressBarData(i + 2, metadata)
-    if "typeSection" in metadata: buildSectionMetadata(metadata)
+    if "typeSection" in metadata:
+        buildSectionMetadata(metadata)
+        addPageToSpeciesData(metadata) 
     
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
 
@@ -241,6 +274,7 @@ metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("keepLooking.md")
 buildProgressBarData(len(sectionFileNames) + 3, metadata)
 buildSectionMetadata(metadata)
+addPageToSpeciesData(metadata) 
 writePage("keepLooking.md", metadata["pageName"], metadata)
 
 # Render feature index page
@@ -268,3 +302,17 @@ metadata["typeAppendix"] = True
 metadata["appendixTypeProfiles"] = True
 metadata["accordionData"] = list(profileData.values())
 writePage("profiles.md", metadata["pageName"], metadata)
+
+# Render phylogenetic tree page
+metadata = getYAMLMetadata("profiles.md")
+metadata["pageName"] = "C-phylogenetic-tree"
+metadata["chapter"] = "C"
+metadata["nav"] = navData
+metadata["prevSection"] = "B-scientist-profiles"
+metadata["nextSection"] = "D-references"
+metadata["typeAppendix"] = True
+metadata["appendixTypeTree"] = True
+metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
+metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
+metadata["treeViewerFsConfirmData"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
+writePage("phylogenetics.md", metadata["pageName"], metadata)
