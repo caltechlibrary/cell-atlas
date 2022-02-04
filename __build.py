@@ -108,7 +108,6 @@ def addPageToSpeciesData(metadata):
                 if "section" in metadata: speciesEntry["section"] = metadata["section"]
                 addSpeciesEntryToSpeciesData(subsectionData["species"], speciesEntry)
 
-
 def buildSectionMetadata(fileName, metadata):
     # Get media viewer metadata
     if "doi" in metadata:
