@@ -369,3 +369,11 @@ with open("about.md", 'r', encoding='utf-8') as f:
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
             metadata["accordionData"][-1]["content"] = metadata["accordionData"][-1]["content"] + line    
 writePage("about.md", metadata["pageName"], metadata)
+
+# Render download page
+metadata = getYAMLMetadata("download.md")
+metadata["pageName"] = "download"
+metadata["nav"] = navData["navList"]
+metadata["typeAppendix"] = True
+metadata["appendixTypeDownload"] = True
+writePage("download.md", metadata["pageName"], metadata)
