@@ -17,12 +17,24 @@ def getPageName(fileName):
 def getYAMLMetadata(fileName):
     return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.tmpl", fileName]) )
 
-def getFormattedBodyText(fileName):
+def addDocumentToBibList(fileName, bibData, bibList):
+    bodyText = subprocess.check_output(["pandoc", "--from=markdown", "--to=markdown", fileName]).decode("utf-8")
+    for match in re.finditer(r"\[@.*?]", bodyText): 
+        bibId = match.group().strip("[@]")
+        if bibData[bibId] not in bibList: bibList.append(bibData[bibId])
+
+def addPageToBibList(fileName, bibData, bibList):
+    metadata = getYAMLMetadata(fileName)
+    addDocumentToBibList(fileName, bibData, bibList)
+    if "subsections" in metadata:
+        for subsectionFileName in metadata["subsections"]: 
+            addDocumentToBibList(f"subsections/{subsectionFileName}.md", bibData, bibList)
+
+def getFormattedBodyText(fileName, bibList):
     bodyText = subprocess.check_output(["pandoc", "--from=markdown-citations", "--to=html", fileName]).decode("utf-8")
     for match in re.finditer(r"\[@.*?]", bodyText): 
         bibId = match.group().strip("[@]")
-        if bibData[bibId] not in usedBibs: usedBibs.append(bibData[bibId])
-        bodyText = bodyText.replace(match.group(), f"[[{usedBibs.index(bibData[bibId]) + 1}](D-references.html#ref-{bibId})]")
+        bodyText = bodyText.replace(match.group(), f"[[{bibList.index(bibData[bibId]) + 1}](D-references.html#ref-{bibId})]")
     return bodyText
 
 def getVidPlayerMetadata(fileName):
@@ -135,7 +147,7 @@ def buildSectionMetadata(fileName, metadata):
             subsectionData["id"] = subsectionFileName
 
             # Format body text to insert links
-            subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md")
+            subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md", usedBibs)
 
             # Get media viewer metadata
             if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
@@ -166,11 +178,9 @@ profileData = {}
 for profileFileName in profileFileNames:
     profileMetadata = getYAMLMetadata(f"profiles/{profileFileName}")
     profileMetadata["id"] = profileMetadata["title"].title().replace(" ", "")
-    profileMetadata["html"] = getFormattedBodyText(f"profiles/{profileFileName}")
+    profileMetadata["html"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=html", f"profiles/{profileFileName}"]).decode("utf-8")
     profileData[profileMetadata["title"]] = profileMetadata
 speciesData = {}
-bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
-usedBibs = []
 
 # Create site directory with assets
 if os.path.isdir(siteDir): shutil.rmtree(siteDir)
@@ -215,6 +225,15 @@ navData["navList"].append({ "chapter": "B", "title": "Scientist Profiles", "page
 navData["navList"].append({ "chapter": "C", "title": "Phylogenetic Tree", "page": "C-phylogenetic-tree" })
 navData["navList"].append({ "chapter": "D", "title": "References", "page": "D-references" })
 
+# Generate bibliography data
+bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
+usedBibs = []
+addPageToBibList("introQuote.md", bibData, usedBibs)
+addPageToBibList("introduction.md", bibData, usedBibs)
+for fileName in sectionFileNames: addPageToBibList(f"sections/{fileName}", bibData, usedBibs)
+addPageToBibList("outlook.md", bibData, usedBibs)
+addPageToBibList("keepLooking.md", bibData, usedBibs)
+
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
 
@@ -223,7 +242,7 @@ metadata = getYAMLMetadata("introQuote.md")
 metadata["nav"] = navData["navList"]
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
-metadata["body"] = getFormattedBodyText("introQuote.md")
+metadata["body"] = getFormattedBodyText("introQuote.md", usedBibs)
 writePage("introQuote.md", "begin", metadata)
 
 # Render introduction page
@@ -233,7 +252,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "begin"
 metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
-metadata["body"] = getFormattedBodyText("introduction.md")
+metadata["body"] = getFormattedBodyText("introduction.md", usedBibs)
 for key, value in getProgressMetadata("introduction.md", navData).items(): metadata[key] = value
 buildSectionMetadata("introduction.md", metadata)
 addPageToSpeciesData(metadata) 
@@ -262,7 +281,7 @@ for i, fileName in enumerate(sectionFileNames):
     # Generate general metadata
     metadata["pageName"] = getPageName(fileName)
     metadata["nav"] = navData["navList"]
-    metadata["body"] = getFormattedBodyText(f"sections/{fileName}")
+    metadata["body"] = getFormattedBodyText(f"sections/{fileName}", usedBibs)
     for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
     if "typeSection" in metadata:
         buildSectionMetadata(f"sections/{fileName}", metadata)
@@ -277,7 +296,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = getPageName(sectionFileNames[-1])
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
-metadata["body"] = getFormattedBodyText("outlook.md")
+metadata["body"] = getFormattedBodyText("outlook.md", usedBibs)
 for key, value in getProgressMetadata("outlook.md", navData).items(): metadata[key] = value
 writePage("outlook.md", metadata["pageName"], metadata)
 
@@ -288,7 +307,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
-metadata["body"] = getFormattedBodyText("keepLooking.md")
+metadata["body"] = getFormattedBodyText("keepLooking.md", usedBibs)
 for key, value in getProgressMetadata("keepLooking.md", navData).items(): metadata[key] = value
 buildSectionMetadata("keepLooking.md", metadata)
 addPageToSpeciesData(metadata) 
