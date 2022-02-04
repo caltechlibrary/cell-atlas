@@ -349,3 +349,23 @@ with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
 subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDir}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
 os.remove("metadata.json")
 os.remove("bib.json")
+
+# Render about page
+metadata = getYAMLMetadata("about.md")
+metadata["pageName"] = "about"
+metadata["nav"] = navData["navList"]
+metadata["typeAppendix"] = True
+metadata["appendixTypeAbout"] = True
+metadata["feedbackData"] = { "id": "feedback", "feedback": True }
+metadata["accordionData"] = []
+with open("about.md", 'r', encoding='utf-8') as f:
+    for line in f.readlines():
+        if re.search(r"##", line):
+            entry = {}
+            entry["title"] = line.split("##")[1].strip()
+            entry["content"] = ""
+            entry["id"] = re.sub(r"[^\w\s]", "", entry["title"].replace(" ", "-"))
+            metadata["accordionData"].append(entry)
+        elif not re.search(r"---", line) and not re.search("title: About this Book", line):
+            metadata["accordionData"][-1]["content"] = metadata["accordionData"][-1]["content"] + line    
+writePage("about.md", metadata["pageName"], metadata)
