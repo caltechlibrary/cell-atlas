@@ -60,16 +60,18 @@ def createSearchDataDocument(fileName, id, bibList, searchData, titlePrefix):
 def addPageToSearchData(fileName, bibList, searchData):
     metadata = getYAMLMetadata(fileName)
     titlePrefix = None
+    subsectionTitlePrefix = None
     if os.path.dirname(fileName) == "sections":
         chapter = os.path.basename(fileName).split("-")[0]
         section = os.path.basename(fileName).split("-")[1]
         titlePrefix = f"{chapter}.{section}" if section != "0" else chapter
+        subsectionTitlePrefix = f"{titlePrefix} {metadata['title']}:"
 
     createSearchDataDocument(fileName, f"{getPageName(fileName)}.html", bibList, searchData, titlePrefix)
 
     if "subsections" in metadata:
         for subsectionFileName in metadata["subsections"]: 
-            createSearchDataDocument(f"subsections/{subsectionFileName}.md", f"{getPageName(fileName)}.html#{subsectionFileName}", bibList, searchData, titlePrefix)
+            createSearchDataDocument(f"subsections/{subsectionFileName}.md", f"{getPageName(fileName)}.html#{subsectionFileName}", bibList, searchData, subsectionTitlePrefix)
 
 
 def getVidPlayerMetadata(fileName):
