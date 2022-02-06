@@ -10,8 +10,9 @@ def writePage(source, pageName, metadata):
     os.remove("metadata.json")
 
 def getPageName(fileName):
-    pageName = os.path.splitext(fileName)[0]
-    pageName.replace("-0-", "-")
+    pageName = os.path.basename(fileName)
+    pageName = os.path.splitext(pageName)[0]
+    pageName = pageName.replace("-0-", "-")
     return pageName
 
 def getYAMLMetadata(fileName):
@@ -36,6 +37,40 @@ def getFormattedBodyText(fileName, bibList):
         bibId = match.group().strip("[@]")
         bodyText = bodyText.replace(match.group(), f"[[{bibList.index(bibData[bibId]) + 1}](D-references.html#ref-{bibId})]")
     return bodyText
+
+def getFormattedBodyTextPlain(fileName, bibList):
+    bodyText = subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", fileName]).decode("utf-8")
+    for match in re.finditer(r"\[@.*?]", bodyText): 
+        bibId = match.group().strip("[@]")
+        bodyText = bodyText.replace(match.group(), f"[{bibList.index(bibData[bibId]) + 1}]")
+    return bodyText
+
+def createSearchDataDocument(fileName, id, bibList, searchData, titlePrefix):
+    metadata = getYAMLMetadata(fileName)
+    document = {}
+    document["id"] = id
+    document["title"] = metadata["title"]
+    document["content"] = getFormattedBodyTextPlain(fileName, bibList)
+    if "species" in metadata: document["species"] = metadata["species"]
+    if "collector" in metadata: document["collector"] = metadata["collector"]
+    if "structure" in metadata: document["structure"] = ", ".join([structure.strip() for structure in metadata["structure"].split(",")])
+    if titlePrefix is not None: document["titlePrefix"] = titlePrefix
+    searchData[document["id"]] = document
+
+def addPageToSearchData(fileName, bibList, searchData):
+    metadata = getYAMLMetadata(fileName)
+    titlePrefix = None
+    if os.path.dirname(fileName) == "sections":
+        chapter = os.path.basename(fileName).split("-")[0]
+        section = os.path.basename(fileName).split("-")[1]
+        titlePrefix = f"{chapter}.{section}" if section != "0" else chapter
+
+    createSearchDataDocument(fileName, f"{getPageName(fileName)}.html", bibList, searchData, titlePrefix)
+
+    if "subsections" in metadata:
+        for subsectionFileName in metadata["subsections"]: 
+            createSearchDataDocument(f"subsections/{subsectionFileName}.md", f"{getPageName(fileName)}.html#{subsectionFileName}", bibList, searchData, titlePrefix)
+
 
 def getVidPlayerMetadata(fileName):
     fileMetadata = getYAMLMetadata(fileName)
@@ -234,6 +269,15 @@ for fileName in sectionFileNames: addPageToBibList(f"sections/{fileName}", bibDa
 addPageToBibList("outlook.md", bibData, usedBibs)
 addPageToBibList("keepLooking.md", bibData, usedBibs)
 
+# Generate search data
+searchData = {}
+addPageToSearchData("introQuote.md", usedBibs, searchData)
+addPageToSearchData("introduction.md", usedBibs, searchData)
+for fileName in sectionFileNames: addPageToSearchData(f"sections/{fileName}", usedBibs, searchData)
+addPageToSearchData("outlook.md", usedBibs, searchData)
+addPageToSearchData("keepLooking.md", usedBibs, searchData)
+with open("{}/searchData.json".format(siteDir), "w", encoding="utf-8") as f: json.dump(searchData, f, indent="\t")
+
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
 
@@ -287,6 +331,8 @@ for i, fileName in enumerate(sectionFileNames):
         buildSectionMetadata(f"sections/{fileName}", metadata)
         addPageToSpeciesData(metadata) 
     
+    metadata["navData"] = { "nav": True }
+
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
 
 # Render outlook page
