@@ -31,18 +31,15 @@ def addDocumentToBibList(fileName, bibList, bibDict):
         bibId = match.group().strip("[@]")
         if bibDict[bibId] not in bibList: bibList.append(bibDict[bibId])
 
-def getFormattedBodyTextHTML(fileName, bibList, bibDict):
-    bodyText = subprocess.check_output(["pandoc", "--from=markdown-citations", "--to=html", fileName]).decode("utf-8")
+def getFormattedBodyText(fileName, format, bibList, bibDict):
+    bodyText = subprocess.check_output(["pandoc", "--from=markdown-citations", f"--to={format}", fileName]).decode("utf-8")
     for match in re.finditer(r"\[@.*?]", bodyText): 
         bibId = match.group().strip("[@]")
-        bodyText = bodyText.replace(match.group(), f'[<a href="D-references.html#ref-{bibId}">{bibList.index(bibDict[bibId]) + 1}</a>]')
-    return bodyText
-
-def getFormattedBodyTextPlain(fileName, bibList, bibDict):
-    bodyText = subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", fileName]).decode("utf-8")
-    for match in re.finditer(r"\[@.*?]", bodyText): 
-        bibId = match.group().strip("[@]")
-        bodyText = bodyText.replace(match.group(), f"[{bibList.index(bibDict[bibId]) + 1}]")
+        bibNum = bibList.index(bibDict[bibId]) + 1
+        if format == "html":
+            bodyText = bodyText.replace(match.group(), f'[<a href="D-references.html#ref-{bibId}">{bibNum}</a>]')
+        elif format == "plain":
+            bodyText = bodyText.replace(match.group(), f"[{bibNum}]")
     return bodyText
 
 def createSearchDataDocument(fileName, id, bibList, bibDict, searchData, titlePrefix):
@@ -50,7 +47,7 @@ def createSearchDataDocument(fileName, id, bibList, bibDict, searchData, titlePr
     document = {}
     document["id"] = id
     document["title"] = metadata["title"]
-    document["content"] = getFormattedBodyTextPlain(fileName, bibList, bibDict)
+    document["content"] = getFormattedBodyText(fileName, "plain", bibList, bibDict)
     if "species" in metadata: document["species"] = metadata["species"]
     if "collector" in metadata: document["collector"] = metadata["collector"]
     if "structure" in metadata: document["structure"] = ", ".join([structure.strip() for structure in metadata["structure"].split(",")])
@@ -183,7 +180,7 @@ def buildSectionMetadata(fileName, metadata, bibDict):
             subsectionData["id"] = subsectionFileName
 
             # Format body text to insert links
-            subsectionData["body"] = getFormattedBodyTextHTML(f"subsections/{subsectionFileName}.md", bibList, bibDict)
+            subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md", "html", bibList, bibDict)
 
             # Get media viewer metadata
             if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
@@ -290,7 +287,7 @@ metadata = getYAMLMetadata("begin.md")
 metadata["nav"] = navData["navList"]
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
-metadata["body"] = getFormattedBodyTextHTML("begin.md", bibList, bibDict)
+metadata["body"] = getFormattedBodyText("begin.md", "html", bibList, bibDict)
 writePage("begin.md", "begin", metadata)
 
 # Render introduction page
@@ -300,7 +297,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "begin"
 metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
-metadata["body"] = getFormattedBodyTextHTML("introduction.md", bibList, bibDict)
+metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibDict)
 for key, value in getProgressMetadata("introduction.md", navData).items(): metadata[key] = value
 buildSectionMetadata("introduction.md", metadata, bibDict)
 addPageToSpeciesData(metadata) 
@@ -331,7 +328,7 @@ for i, fileName in enumerate(sectionFileNames):
     # Generate general metadata
     metadata["pageName"] = getPageName(fileName)
     metadata["nav"] = navData["navList"]
-    metadata["body"] = getFormattedBodyTextHTML(f"sections/{fileName}", bibList, bibDict)
+    metadata["body"] = getFormattedBodyText(f"sections/{fileName}", "html", bibList, bibDict)
     for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
     if "typeSection" in metadata:
         buildSectionMetadata(f"sections/{fileName}", metadata, bibDict)
@@ -348,7 +345,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = getPageName(sectionFileNames[-1])
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
-metadata["body"] = getFormattedBodyTextHTML("outlook.md", bibList, bibDict)
+metadata["body"] = getFormattedBodyText("outlook.md", "html", bibList, bibDict)
 for key, value in getProgressMetadata("outlook.md", navData).items(): metadata[key] = value
 writePage("outlook.md", metadata["pageName"], metadata)
 
@@ -359,7 +356,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
-metadata["body"] = getFormattedBodyTextHTML("keep-looking.md", bibList, bibDict)
+metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibDict)
 for key, value in getProgressMetadata("keep-looking.md", navData).items(): metadata[key] = value
 buildSectionMetadata("keep-looking.md", metadata, bibDict)
 addPageToSpeciesData(metadata) 
