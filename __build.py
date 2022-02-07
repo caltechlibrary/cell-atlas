@@ -323,14 +323,8 @@ for i, fileName in enumerate(sectionFileNames):
         metadata["typeSection"] = True
 
     # Generate next/prev section metadata
-    if i == 0:
-        metadata["prevSection"] = "introduction"
-    else: 
-        metadata["prevSection"] = getPageName(sectionFileNames[i - 1])
-    if i == len(sectionFileNames) - 1:
-        metadata["nextSection"] = "outlook"
-    else:
-        metadata["nextSection"] = getPageName(sectionFileNames[i + 1])
+    metadata["prevSection"] = "introduction" if i == 0 else getPageName(sectionFileNames[i - 1])
+    metadata["nextSection"] = "outlook" if i == len(sectionFileNames) - 1 else getPageName(sectionFileNames[i + 1])
 
     # Generate general metadata
     metadata["pageName"] = getPageName(fileName)
