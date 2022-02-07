@@ -309,21 +309,23 @@ writePage("introduction.md", metadata["pageName"], metadata)
 for i, fileName in enumerate(sectionFileNames):
     metadata = getYAMLMetadata(f"sections/{fileName}")
 
-    # Generate data specefic to pages in sections/ folder
+    # Generate chapter/section metadata
     metadata["chapter"] = fileName.split("-")[0]
-    metadata["section"] = fileName.split("-")[1]
-    if(i == 0):
+    if fileName.split("-")[1] == "0":
+        metadata["typeChapter"] = True
+    else:
+        metadata["section"] = fileName.split("-")[1]
+        metadata["typeSection"] = True
+
+    # Generate next/prev section metadata
+    if i == 0:
         metadata["prevSection"] = "introduction"
     else: 
         metadata["prevSection"] = getPageName(sectionFileNames[i - 1])
-    if(i == len(sectionFileNames) - 1):
+    if i == len(sectionFileNames) - 1:
         metadata["nextSection"] = "outlook"
     else:
         metadata["nextSection"] = getPageName(sectionFileNames[i + 1])
-    if(metadata["section"] == "0"):
-        metadata["typeChapter"] = True
-    else:
-        metadata["typeSection"] = True
 
     # Generate general metadata
     metadata["pageName"] = getPageName(fileName)
