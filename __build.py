@@ -31,11 +31,11 @@ def addPageToBibList(fileName, bibData, bibList):
         for subsectionFileName in metadata["subsections"]: 
             addDocumentToBibList(f"subsections/{subsectionFileName}.md", bibData, bibList)
 
-def getFormattedBodyText(fileName, bibList):
+def getFormattedBodyTextHTML(fileName, bibList):
     bodyText = subprocess.check_output(["pandoc", "--from=markdown-citations", "--to=html", fileName]).decode("utf-8")
     for match in re.finditer(r"\[@.*?]", bodyText): 
         bibId = match.group().strip("[@]")
-        bodyText = bodyText.replace(match.group(), f"[[{bibList.index(bibData[bibId]) + 1}](D-references.html#ref-{bibId})]")
+        bodyText = bodyText.replace(match.group(), f'[<a href="D-references.html#ref-{bibId}">{bibList.index(bibData[bibId]) + 1}</a>]')
     return bodyText
 
 def getFormattedBodyTextPlain(fileName, bibList):
@@ -184,7 +184,7 @@ def buildSectionMetadata(fileName, metadata):
             subsectionData["id"] = subsectionFileName
 
             # Format body text to insert links
-            subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md", usedBibs)
+            subsectionData["body"] = getFormattedBodyTextHTML(f"subsections/{subsectionFileName}.md", usedBibs)
 
             # Get media viewer metadata
             if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
@@ -289,7 +289,7 @@ metadata = getYAMLMetadata("begin.md")
 metadata["nav"] = navData["navList"]
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
-metadata["body"] = getFormattedBodyText("begin.md", usedBibs)
+metadata["body"] = getFormattedBodyTextHTML("begin.md", usedBibs)
 writePage("begin.md", "begin", metadata)
 
 # Render introduction page
@@ -299,7 +299,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "begin"
 metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
-metadata["body"] = getFormattedBodyText("introduction.md", usedBibs)
+metadata["body"] = getFormattedBodyTextHTML("introduction.md", usedBibs)
 for key, value in getProgressMetadata("introduction.md", navData).items(): metadata[key] = value
 buildSectionMetadata("introduction.md", metadata)
 addPageToSpeciesData(metadata) 
@@ -330,7 +330,7 @@ for i, fileName in enumerate(sectionFileNames):
     # Generate general metadata
     metadata["pageName"] = getPageName(fileName)
     metadata["nav"] = navData["navList"]
-    metadata["body"] = getFormattedBodyText(f"sections/{fileName}", usedBibs)
+    metadata["body"] = getFormattedBodyTextHTML(f"sections/{fileName}", usedBibs)
     for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
     if "typeSection" in metadata:
         buildSectionMetadata(f"sections/{fileName}", metadata)
@@ -347,7 +347,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = getPageName(sectionFileNames[-1])
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
-metadata["body"] = getFormattedBodyText("outlook.md", usedBibs)
+metadata["body"] = getFormattedBodyTextHTML("outlook.md", usedBibs)
 for key, value in getProgressMetadata("outlook.md", navData).items(): metadata[key] = value
 writePage("outlook.md", metadata["pageName"], metadata)
 
@@ -358,7 +358,7 @@ metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
-metadata["body"] = getFormattedBodyText("keep-looking.md", usedBibs)
+metadata["body"] = getFormattedBodyTextHTML("keep-looking.md", usedBibs)
 for key, value in getProgressMetadata("keep-looking.md", navData).items(): metadata[key] = value
 buildSectionMetadata("keep-looking.md", metadata)
 addPageToSpeciesData(metadata) 
