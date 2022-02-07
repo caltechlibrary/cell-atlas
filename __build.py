@@ -212,12 +212,6 @@ siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 appendixFileNames = os.listdir("appendix")
 profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
-profileData = {}
-for profileFileName in profileFileNames:
-    profileMetadata = getYAMLMetadata(f"profiles/{profileFileName}")
-    profileMetadata["id"] = profileMetadata["title"].title().replace(" ", "")
-    profileMetadata["html"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=html", f"profiles/{profileFileName}"]).decode("utf-8")
-    profileData[profileMetadata["title"]] = profileMetadata
 speciesData = {}
 
 # Create site directory with assets
@@ -262,6 +256,14 @@ navData["navList"].append({ "chapter": "A", "title": "Feature Index", "page": "A
 navData["navList"].append({ "chapter": "B", "title": "Scientist Profiles", "page": "B-scientist-profiles" })
 navData["navList"].append({ "chapter": "C", "title": "Phylogenetic Tree", "page": "C-phylogenetic-tree" })
 navData["navList"].append({ "chapter": "D", "title": "References", "page": "D-references" })
+
+# Generate profiles data
+profileData = {}
+for profileFileName in profileFileNames:
+    profileMetadata = getYAMLMetadata(f"profiles/{profileFileName}")
+    profileMetadata["id"] = profileMetadata["title"].title().replace(" ", "")
+    profileMetadata["html"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=html", f"profiles/{profileFileName}"]).decode("utf-8")
+    profileData[profileMetadata["title"]] = profileMetadata
 
 # Generate bibliography data
 bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
