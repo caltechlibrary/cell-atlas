@@ -42,18 +42,6 @@ def getFormattedBodyText(fileName, format, bibList, bibDict):
             bodyText = bodyText.replace(match.group(), f"[{bibNum}]")
     return bodyText
 
-def createSearchDataDocument(fileName, id, bibList, bibDict, searchData, titlePrefix):
-    metadata = getYAMLMetadata(fileName)
-    document = {}
-    document["id"] = id
-    document["title"] = metadata["title"]
-    document["content"] = getFormattedBodyText(fileName, "plain", bibList, bibDict)
-    if "species" in metadata: document["species"] = metadata["species"]
-    if "collector" in metadata: document["collector"] = metadata["collector"]
-    if "structure" in metadata: document["structure"] = ", ".join([structure.strip() for structure in metadata["structure"].split(",")])
-    if titlePrefix is not None: document["titlePrefix"] = titlePrefix
-    searchData[document["id"]] = document
-
 def addPageToSearchData(fileName, bibList, bibDict, searchData):
     metadata = getYAMLMetadata(fileName)
     titlePrefix = None
@@ -69,6 +57,18 @@ def addPageToSearchData(fileName, bibList, bibDict, searchData):
     if "subsections" in metadata:
         for subsectionFileName in metadata["subsections"]: 
             createSearchDataDocument(f"subsections/{subsectionFileName}.md", f"{getPageName(fileName)}.html#{subsectionFileName}", bibList, bibDict, searchData, subsectionTitlePrefix)
+
+def createSearchDataDocument(fileName, id, bibList, bibDict, searchData, titlePrefix):
+    metadata = getYAMLMetadata(fileName)
+    document = {}
+    document["id"] = id
+    document["title"] = metadata["title"]
+    document["content"] = getFormattedBodyText(fileName, "plain", bibList, bibDict)
+    if "species" in metadata: document["species"] = metadata["species"]
+    if "collector" in metadata: document["collector"] = metadata["collector"]
+    if "structure" in metadata: document["structure"] = ", ".join([structure.strip() for structure in metadata["structure"].split(",")])
+    if titlePrefix is not None: document["titlePrefix"] = titlePrefix
+    searchData[document["id"]] = document
 
 def getVidPlayerMetadata(fileName):
     fileMetadata = getYAMLMetadata(fileName)
