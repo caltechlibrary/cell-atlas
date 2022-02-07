@@ -171,9 +171,10 @@ def buildSectionMetadata(fileName, metadata, bibDict):
         metadata["summaryData"]["isSection"] = True
         metadata["summaryData"][f'chapter{metadata["chapter"]}'] = True
     # Create narration metadata
-    metadata["narration"] = {}
-    metadata["narration"]["src"] = metadata["pageName"]
-    metadata["narration"]["isSection"] = True
+    if metadata["title"] != "Summary":
+        metadata["narration"] = {}
+        metadata["narration"]["src"] = metadata["pageName"]
+        metadata["narration"]["isSection"] = True
     # Create citation data
     if "doi" in metadata:
         metadata["citation"] = getCitationMetadata(fileName, bibDict)
