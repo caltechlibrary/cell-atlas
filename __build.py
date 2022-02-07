@@ -266,31 +266,31 @@ navData["navList"].append({ "chapter": "D", "title": "References", "page": "D-re
 # Generate bibliography data
 bibData = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
 usedBibs = []
-addPageToBibList("introQuote.md", bibData, usedBibs)
+addPageToBibList("begin.md", bibData, usedBibs)
 addPageToBibList("introduction.md", bibData, usedBibs)
 for fileName in sectionFileNames: addPageToBibList(f"sections/{fileName}", bibData, usedBibs)
 addPageToBibList("outlook.md", bibData, usedBibs)
-addPageToBibList("keepLooking.md", bibData, usedBibs)
+addPageToBibList("keep-looking.md", bibData, usedBibs)
 
 # Generate search data
 searchData = {}
-addPageToSearchData("introQuote.md", usedBibs, searchData)
+addPageToSearchData("begin.md", usedBibs, searchData)
 addPageToSearchData("introduction.md", usedBibs, searchData)
 for fileName in sectionFileNames: addPageToSearchData(f"sections/{fileName}", usedBibs, searchData)
 addPageToSearchData("outlook.md", usedBibs, searchData)
-addPageToSearchData("keepLooking.md", usedBibs, searchData)
+addPageToSearchData("keep-looking.md", usedBibs, searchData)
 with open("{}/searchData.json".format(siteDir), "w", encoding="utf-8") as f: json.dump(searchData, f, indent="\t")
 
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
 
 # Render begin page
-metadata = getYAMLMetadata("introQuote.md")
+metadata = getYAMLMetadata("begin.md")
 metadata["nav"] = navData["navList"]
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
-metadata["body"] = getFormattedBodyText("introQuote.md", usedBibs)
-writePage("introQuote.md", "begin", metadata)
+metadata["body"] = getFormattedBodyText("begin.md", usedBibs)
+writePage("begin.md", "begin", metadata)
 
 # Render introduction page
 metadata = getYAMLMetadata("introduction.md")
@@ -350,17 +350,17 @@ for key, value in getProgressMetadata("outlook.md", navData).items(): metadata[k
 writePage("outlook.md", metadata["pageName"], metadata)
 
 # Render keep looking page
-metadata = getYAMLMetadata("keepLooking.md")
+metadata = getYAMLMetadata("keep-looking.md")
 metadata["pageName"] = "keep-looking"
 metadata["nav"] = navData["navList"]
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
-metadata["body"] = getFormattedBodyText("keepLooking.md", usedBibs)
-for key, value in getProgressMetadata("keepLooking.md", navData).items(): metadata[key] = value
-buildSectionMetadata("keepLooking.md", metadata)
+metadata["body"] = getFormattedBodyText("keep-looking.md", usedBibs)
+for key, value in getProgressMetadata("keep-looking.md", navData).items(): metadata[key] = value
+buildSectionMetadata("keep-looking.md", metadata)
 addPageToSpeciesData(metadata) 
-writePage("keepLooking.md", metadata["pageName"], metadata)
+writePage("keep-looking.md", metadata["pageName"], metadata)
 
 # Render appendix pages
 for i, fileName in enumerate(appendixFileNames):
