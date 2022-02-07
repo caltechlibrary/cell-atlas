@@ -313,6 +313,9 @@ writePage("introduction.md", metadata["pageName"], metadata)
 # Render pages in sections/
 for i, fileName in enumerate(sectionFileNames):
     metadata = getYAMLMetadata(f"sections/{fileName}")
+    metadata["pageName"] = getPageName(fileName)
+    metadata["nav"] = navData["navList"]
+    metadata["navData"] = { "nav": True }
 
     # Generate chapter/section metadata
     metadata["chapter"] = fileName.split("-")[0]
@@ -326,16 +329,12 @@ for i, fileName in enumerate(sectionFileNames):
     metadata["prevSection"] = "introduction" if i == 0 else getPageName(sectionFileNames[i - 1])
     metadata["nextSection"] = "outlook" if i == len(sectionFileNames) - 1 else getPageName(sectionFileNames[i + 1])
 
-    # Generate general metadata
-    metadata["pageName"] = getPageName(fileName)
-    metadata["nav"] = navData["navList"]
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}", "html", bibList, bibDict)
     for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
+
     if "typeSection" in metadata:
         buildSectionMetadata(f"sections/{fileName}", metadata, bibDict)
-        addPageToSpeciesData(metadata) 
-    
-    metadata["navData"] = { "nav": True }
+        addPageToSpeciesData(metadata)
 
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
 
