@@ -164,6 +164,12 @@ def buildSectionMetadata(fileName, metadata, bibDict):
             metadata["mediaViewer"]["hasTabMenu"] = True
             metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
             metadata["mediaViewer"]["compSlider"]["isSection"] = True
+    # Get summary menu metadata
+    if metadata["title"] == "Summary":
+        metadata["summaryData"] = {}
+        metadata["summaryData"]["isSummary"] = True
+        metadata["summaryData"]["isSection"] = True
+        metadata["summaryData"][f'chapter{metadata["chapter"]}'] = True
     # Create narration metadata
     metadata["narration"] = {}
     metadata["narration"]["src"] = metadata["pageName"]
