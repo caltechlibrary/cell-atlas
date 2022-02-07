@@ -210,6 +210,7 @@ def buildSectionMetadata(fileName, metadata):
 
 siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
+appendixFileNames = os.listdir("appendix")
 profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
 profileData = {}
 for profileFileName in profileFileNames:
@@ -361,60 +362,46 @@ buildSectionMetadata("keepLooking.md", metadata)
 addPageToSpeciesData(metadata) 
 writePage("keepLooking.md", metadata["pageName"], metadata)
 
-# Render feature index page
-metadata = getYAMLMetadata("features.md")
-metadata["pageName"] = "A-feature-index"
-metadata["chapter"] = "A"
-metadata["nav"] = navData["navList"]
-metadata["prevSection"] = "keep-looking"
-metadata["nextSection"] = "B-scientist-profiles"
-metadata["typeAppendix"] = True
-metadata["appendixTypeFeatures"] = True
-with open("features.json", "r", encoding="utf-8") as f:
-    featureIndexData = json.load(f)
-    metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key]} for key in featureIndexData]
-writePage("features.md", metadata["pageName"], metadata)
+# Render appendix pages
+for i, fileName in enumerate(appendixFileNames):
+    metadata = getYAMLMetadata(f"appendix/{fileName}")
+    metadata["pageName"] = os.path.splitext(fileName)[0]
+    metadata["chapter"] = fileName.split("-")[0]
+    metadata["nav"] = navData["navList"]
+    metadata["typeAppendix"] = True
 
-# Render profiles page
-metadata = getYAMLMetadata("profiles.md")
-metadata["pageName"] = "B-scientist-profiles"
-metadata["chapter"] = "B"
-metadata["nav"] = navData["navList"]
-metadata["prevSection"] = "A-feature-index"
-metadata["nextSection"] = "C-phylogenetic-tree"
-metadata["typeAppendix"] = True
-metadata["appendixTypeProfiles"] = True
-metadata["accordionData"] = list(profileData.values())
-writePage("profiles.md", metadata["pageName"], metadata)
+    # Generate next/prev section metadata
+    if(i == 0):
+        metadata["prevSection"] = "keep-looking"
+    else: 
+        metadata["prevSection"] = os.path.splitext(appendixFileNames[i - 1])[0]
+    if(i != len(appendixFileNames) - 1):
+        metadata["nextSection"] = os.path.splitext(appendixFileNames[i + 1])[0]
 
-# Render phylogenetic tree page
-metadata = getYAMLMetadata("profiles.md")
-metadata["pageName"] = "C-phylogenetic-tree"
-metadata["chapter"] = "C"
-metadata["nav"] = navData["navList"]
-metadata["prevSection"] = "B-scientist-profiles"
-metadata["nextSection"] = "D-references"
-metadata["typeAppendix"] = True
-metadata["appendixTypeTree"] = True
-metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
-metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
-metadata["treeViewerFsConfirmData"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
-writePage("phylogenetics.md", metadata["pageName"], metadata)
+    if fileName == "A-feature-index.md":
+        metadata["appendixTypeFeatures"] = True
+        with open("features.json", "r", encoding="utf-8") as f:
+            featureIndexData = json.load(f)
+            metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key]} for key in featureIndexData]
+    elif fileName == "B-scientist-profiles.md":
+        metadata["appendixTypeProfiles"] = True
+        metadata["accordionData"] = list(profileData.values())
+    elif fileName == "C-phylogenetic-tree.md":
+        metadata["appendixTypeTree"] = True
+        metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
+        metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
+        metadata["treeViewerFsConfirmData"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
+    elif fileName == "D-references.md":
+        metadata["appendixTypeReferences"] = True
 
-# Render bibliography page 
-metadata = {}
-metadata["pageName"] = "D-references"
-metadata["chapter"] = "D"
-metadata["title"] = "References"
-metadata["nav"] = navData["navList"]
-metadata["prevSection"] = "C-phylogenetic-tree"
-metadata["typeAppendix"] = True
-metadata["appendixTypeReferences"] = True
-with open("bib.json", "w", encoding='utf-8') as f: json.dump(usedBibs, f)
-with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
-subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDir}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
-os.remove("metadata.json")
-os.remove("bib.json")
+    if fileName == "D-references.md":
+        with open("bib.json", "w", encoding='utf-8') as f: json.dump(usedBibs, f)
+        with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDir}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+        os.remove("metadata.json")
+        os.remove("bib.json")
+    else:
+        writePage(f"appendix/{fileName}", metadata["pageName"], metadata)
 
 # Render about page
 metadata = getYAMLMetadata("about.md")
