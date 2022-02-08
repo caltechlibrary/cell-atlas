@@ -168,12 +168,6 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
             metadata["mediaViewer"]["hasTabMenu"] = True
             metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
             metadata["mediaViewer"]["compSlider"]["isSection"] = True
-    # Get summary menu metadata
-    if metadata["title"] == "Summary":
-        metadata["summaryData"] = {}
-        metadata["summaryData"]["isSummary"] = True
-        metadata["summaryData"]["isSection"] = True
-        metadata["summaryData"][f'chapter{metadata["chapter"]}'] = True
     # Create narration metadata
     if metadata["title"] != "Summary":
         metadata["narration"] = {}
@@ -214,6 +208,13 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 subsectionData["mediaViewer"]["citationAttached"] = True
             
             metadata["subsectionsData"].append(subsectionData)
+
+def getSummaryMenuMetadata(fileName):
+    summaryMetadata = {}
+    summaryMetadata["isSummary"] = True
+    summaryMetadata["isSection"] = True
+    summaryMetadata[f'chapter{os.path.basename(fileName).split("-")[0]}'] = True
+    return summaryMetadata
 
 siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
@@ -340,8 +341,9 @@ for i, fileName in enumerate(sectionFileNames):
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}", "html", bibList, bibDict)
     for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
 
-    if "typeSection" in metadata:
-        addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
+    if "typeSection" in metadata and metadata["title"] != "Summary": addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
+
+    if metadata["title"] == "Summary": metadata["summaryData"] = getSummaryMenuMetadata(fileName)
 
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
 
