@@ -1,20 +1,20 @@
-<div class="progress-bar progress-bar--shelved" data-percent="${progPercent}">
+<div class="progress-bar progress-bar--shelved" data-percent="${it.progPercent}">
     <div class="progress-bar__progress-bar-container">
         <progress 
             class="progress-bar__progress-el" 
-            value="${currentPageNum}" 
-            max="${totalPages}" 
-            aria-valuetext="Page ${currentPageNum} of ${totalPages}" 
-            aria-valuenow="${currentPageNum}"
+            value="${it.currentPageNum}" 
+            max="${it.totalPages}" 
+            aria-valuetext="Page ${it.currentPageNum} of ${it.totalPages}" 
+            aria-valuenow="${it.currentPageNum}"
         ></progress>
-        ${for(chapterPageNums)}
+        ${for(it.chapterPageNums)}
             <span class="progress-bar__chapter-indicator" style="left:${it.progPercent}%"></span>
         ${endfor}
     </div>
     <div class="progress-bar__label-container">
         <div 
             class="progress-bar__current-position-indicator" 
-            style="left:${progPercent}%"
+            style="left:${it.progPercent}%"
             aria-describedby="progress-tooltip"
             aria-label="Current progress indicator"
             tabindex="0"
@@ -25,8 +25,8 @@
                 id="progress-tooltip"
                 role="tooltip"
             >
-                <span>${displayPercent}%</span>
-                <span>Page ${currentPageNum} of ${totalPages}</span>
+                <span>${it.displayPercent}%</span>
+                <span>Page ${it.currentPageNum} of ${it.totalPages}</span>
             </div>
         </div>
     </div>

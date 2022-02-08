@@ -1,10 +1,10 @@
 <div class="footer">
-    ${if(currentPageNum)} ${progress-bar.tmpl()} ${endif}
+    ${if(progressData)} ${progressData:progress-bar.tmpl()} ${endif}
     <footer class="footer__footer">
         <a class="footer__footer-item footer__footer-link" href="https://www.library.caltech.edu/" target="_blank">A PUBLICATION OF THE CALTECH LIBRARY</a>
         <span class="footer__footer-item">&#169; 2022</span>
         <a class="footer__footer-item footer__footer-link" href="about.html">ABOUT THIS BOOK</a>
-        ${if(currentPageNum)}
+        ${if(progressData)}
             <div class="footer__footer-item footer__progress-toggle-container">
                 <span id="progressToggleLabel">Show Progress</span>
                 <button class="footer__progress-toggle footer__progress-toggle--uninitialized" role="switch" aria-checked="false" aria-labelledby="progressToggleLabel"></button>

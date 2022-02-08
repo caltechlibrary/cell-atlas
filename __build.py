@@ -315,7 +315,7 @@ metadata["prevSection"] = "begin"
 metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibDict)
-for key, value in getProgressMetadata("introduction.md", navData).items(): metadata[key] = value
+metadata["progressData"] = getProgressMetadata("introduction.md", navData)
 addMainSectionMetadata("introduction.md", metadata, bibDict)
 writePage("introduction.md", metadata["pageName"], metadata)
 
@@ -339,7 +339,8 @@ for i, fileName in enumerate(sectionFileNames):
     metadata["nextSection"] = "outlook" if i == len(sectionFileNames) - 1 else getPageName(sectionFileNames[i + 1])
 
     metadata["body"] = getFormattedBodyText(f"sections/{fileName}", "html", bibList, bibDict)
-    for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
+
+    metadata["progressData"] = getProgressMetadata(f"sections/{fileName}", navData)
 
     if "typeSection" in metadata and metadata["title"] != "Summary": addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
 
@@ -355,7 +356,7 @@ metadata["prevSection"] = getPageName(sectionFileNames[-1])
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("outlook.md", "html", bibList, bibDict)
-for key, value in getProgressMetadata("outlook.md", navData).items(): metadata[key] = value
+metadata["progressData"] = getProgressMetadata("outlook.md", navData)
 writePage("outlook.md", metadata["pageName"], metadata)
 
 # Render keep looking page
@@ -366,7 +367,7 @@ metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibDict)
-for key, value in getProgressMetadata("keep-looking.md", navData).items(): metadata[key] = value
+metadata["progressData"] = getProgressMetadata("keep-looking.md", navData)
 addMainSectionMetadata("keep-looking.md", metadata, bibDict)
 writePage("keep-looking.md", metadata["pageName"], metadata)
 
