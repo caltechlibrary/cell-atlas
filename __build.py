@@ -157,7 +157,7 @@ def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
         speciesData[species]["speciesRefs"] = [ speciesEntry ]
         speciesData[species]["id"] = species.replace(" ", "-")
 
-def buildSectionMetadata(fileName, metadata, bibDict):
+def addMainSectionMetadata(fileName, metadata, bibDict):
     # Get media viewer metadata
     if "doi" in metadata:
         metadata["mediaViewer"] = {}
@@ -315,7 +315,7 @@ metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibDict)
 for key, value in getProgressMetadata("introduction.md", navData).items(): metadata[key] = value
-buildSectionMetadata("introduction.md", metadata, bibDict)
+addMainSectionMetadata("introduction.md", metadata, bibDict)
 writePage("introduction.md", metadata["pageName"], metadata)
 
 # Render pages in sections/
@@ -341,7 +341,7 @@ for i, fileName in enumerate(sectionFileNames):
     for key, value in getProgressMetadata(f"sections/{fileName}", navData).items(): metadata[key] = value
 
     if "typeSection" in metadata:
-        buildSectionMetadata(f"sections/{fileName}", metadata, bibDict)
+        addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
 
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
 
@@ -365,7 +365,7 @@ metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibDict)
 for key, value in getProgressMetadata("keep-looking.md", navData).items(): metadata[key] = value
-buildSectionMetadata("keep-looking.md", metadata, bibDict)
+addMainSectionMetadata("keep-looking.md", metadata, bibDict)
 writePage("keep-looking.md", metadata["pageName"], metadata)
 
 # Render appendix pages
