@@ -125,7 +125,30 @@ def getProgressMetadata(fileName, navData):
     progressMetadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData["navList"] if "isChapter" in navEntry ]
     return progressMetadata
 
-def addSpeciesEntryToSpeciesData(species, speciesEntry):
+def addPageToSpeciesData(fileName, speciesData):
+    fileMetadata = getYAMLMetadata(fileName)
+    if "species" in fileMetadata:
+        speciesEntry = {}
+        speciesEntry["title"] =  fileMetadata["title"]
+        speciesEntry["page"] =  f"{getPageName(fileName)}.html"
+        if os.path.dirname(fileName) == "sections":
+            speciesEntry["chapter"] = os.path.basename(fileName).split("-")[0]
+            speciesEntry["section"] = os.path.basename(fileName).split("-")[1]
+        addSpeciesEntryToSpeciesData(fileMetadata["species"], speciesEntry, speciesData)
+
+    if "subsections" in fileMetadata:
+        for subsectionFileName in fileMetadata["subsections"]:
+            subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
+            if "species" in subsectionData:
+                speciesEntry = {}
+                speciesEntry["title"] =  f"{fileMetadata['title']}: {subsectionData['title']}"
+                speciesEntry["page"] =  f"{getPageName(fileName)}.html#{subsectionFileName}"
+                if os.path.dirname(fileName) == "sections":
+                    speciesEntry["chapter"] = os.path.basename(fileName).split("-")[0]
+                    speciesEntry["section"] = os.path.basename(fileName).split("-")[1]
+                addSpeciesEntryToSpeciesData(subsectionData["species"], speciesEntry, speciesData)
+
+def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
     if(species in speciesData):
         speciesData[species]["speciesRefs"].append(speciesEntry)
     else:
@@ -133,25 +156,6 @@ def addSpeciesEntryToSpeciesData(species, speciesEntry):
         speciesData[species]["species"] = species
         speciesData[species]["speciesRefs"] = [ speciesEntry ]
         speciesData[species]["id"] = species.replace(" ", "-")
-
-def addPageToSpeciesData(metadata):
-    if "species" in metadata:
-        speciesEntry = {}
-        speciesEntry["title"] =  metadata["title"]
-        speciesEntry["page"] =  f"{metadata['pageName']}.html"
-        if "chapter" in metadata: speciesEntry["chapter"] = metadata["chapter"]
-        if "section" in metadata: speciesEntry["section"] = metadata["section"]
-        addSpeciesEntryToSpeciesData(metadata["species"], speciesEntry)
-    if "subsections" in metadata:
-        for subsectionFileName in metadata["subsections"]:
-            subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
-            if "species" in subsectionData:
-                speciesEntry = {}
-                speciesEntry["title"] =  f"{metadata['title']}: {subsectionData['title']}"
-                speciesEntry["page"] =  f"{metadata['pageName']}.html#{subsectionFileName}"
-                if "chapter" in metadata: speciesEntry["chapter"] = metadata["chapter"]
-                if "section" in metadata: speciesEntry["section"] = metadata["section"]
-                addSpeciesEntryToSpeciesData(subsectionData["species"], speciesEntry)
 
 def buildSectionMetadata(fileName, metadata, bibDict):
     # Get media viewer metadata
@@ -215,7 +219,6 @@ siteDir = "site"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 appendixFileNames = os.listdir("appendix")
 profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
-speciesData = {}
 
 # Create site directory with assets
 if os.path.isdir(siteDir): shutil.rmtree(siteDir)
@@ -268,6 +271,12 @@ for profileFileName in profileFileNames:
     profileMetadata["html"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=html", f"profiles/{profileFileName}"]).decode("utf-8")
     profileData[profileMetadata["title"]] = profileMetadata
 
+# Generate species data
+speciesData = {}
+addPageToSpeciesData("introduction.md", speciesData)
+for fileName in sectionFileNames: addPageToSpeciesData(f"sections/{fileName}", speciesData)
+addPageToSpeciesData("keep-looking.md", speciesData)
+
 # Generate bibliography data
 bibDict = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
 bibList = []
@@ -307,7 +316,6 @@ metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibDict)
 for key, value in getProgressMetadata("introduction.md", navData).items(): metadata[key] = value
 buildSectionMetadata("introduction.md", metadata, bibDict)
-addPageToSpeciesData(metadata) 
 writePage("introduction.md", metadata["pageName"], metadata)
 
 # Render pages in sections/
@@ -334,7 +342,6 @@ for i, fileName in enumerate(sectionFileNames):
 
     if "typeSection" in metadata:
         buildSectionMetadata(f"sections/{fileName}", metadata, bibDict)
-        addPageToSpeciesData(metadata)
 
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
 
@@ -359,7 +366,6 @@ metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibDict)
 for key, value in getProgressMetadata("keep-looking.md", navData).items(): metadata[key] = value
 buildSectionMetadata("keep-looking.md", metadata, bibDict)
-addPageToSpeciesData(metadata) 
 writePage("keep-looking.md", metadata["pageName"], metadata)
 
 # Render appendix pages
