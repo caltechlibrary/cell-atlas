@@ -110,15 +110,15 @@ def getCitationMetadata(fileName, bibDict):
     return citationMetadata
 
 def getProgressMetadata(fileName, navData):
-    fileMetadata = getYAMLMetadata(fileName)
     progressMetadata = {}
     # Find entry in nav data with the same page name
     for navEntry in navData["navList"]:
-        if "title" in navEntry and navEntry["title"] == fileMetadata["title"]:
+        if "isAppendix" in navEntry: continue
+        if getPageName(fileName) == navEntry["page"]:
             progressMetadata["currentPageNum"] = navEntry["pageNum"]
         elif "sections" in navEntry:
             for sectionEntry in navEntry["sections"]:
-                if "title" in sectionEntry and sectionEntry["title"] == fileMetadata["title"]: progressMetadata["currentPageNum"] = sectionEntry["pageNum"]
+                if getPageName(fileName) == sectionEntry["page"]: progressMetadata["currentPageNum"] = sectionEntry["pageNum"]
     progressMetadata["totalPages"] = navData["totalPages"]
     progressMetadata["progPercent"] = (progressMetadata["currentPageNum"] / navData["totalPages"]) * 100
     progressMetadata["displayPercent"] = round(progressMetadata["progPercent"])
