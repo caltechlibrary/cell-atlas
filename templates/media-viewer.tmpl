@@ -1,5 +1,5 @@
 <div
-    id="${if(it.isSection)}mediaViewer-main${elseif(it.pdb)}mediaViewer-pv-${it.id}${else}mediaViewer-${it.id}${endif}"
+    id="${if(it.isSection)}mediaViewer-main${else}mediaViewer-${it.id}${endif}"
     class="
         media-viewer 
         ${if(it.isSection)}media-viewer--main-section${elseif(it.hasTabMenu)}media-viewer--subsection-has-tabmenu${endif} 

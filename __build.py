@@ -66,7 +66,7 @@ def createSearchDataDocument(fileName, id, bibList, bibDict, searchData, titlePr
     document["content"] = getFormattedBodyText(fileName, "plain", bibList, bibDict)
     if "species" in metadata: document["species"] = metadata["species"]
     if "collector" in metadata: document["collector"] = metadata["collector"]
-    if "structure" in metadata: document["structure"] = ", ".join([structure.strip() for structure in metadata["structure"].split(",")])
+    if "structure" in metadata: document["structure"] = ", ".join([structure["name"] for structure in metadata["structure"]])
     if titlePrefix is not None: document["titlePrefix"] = titlePrefix
     searchData[document["id"]] = document
 
@@ -110,6 +110,12 @@ def getCitationMetadata(fileName, bibDict):
                 year = bibDict[id]["issued"]["date-parts"][0][0]
                 citationMetadata["sources"].append({"text": f"{name} ({year})", "link": f"D-references.html#ref-{id}.html"})
         if(len(citationMetadata["sources"]) >= 1): citationMetadata["sources"][-1]["last"] = True
+    if "structure" in fileMetadata:
+        citationMetadata["structures"] = []
+        for structure in fileMetadata["structure"]:
+            if "PDB" in structure["name"]: structure["viewerId"] = structure["name"].split(" ")[1].lower()
+            citationMetadata["structures"].append(structure)
+        citationMetadata["structures"][-1]["last"] = True
     return citationMetadata
 
 def getProgressMetadata(fileName, navData):
@@ -209,7 +215,13 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
             if "doi" in subsectionData or "source" in subsectionData:
                 subsectionData["citation"] = getCitationMetadata(f"subsections/{subsectionFileName}.md", bibDict)
                 subsectionData["mediaViewer"]["citationAttached"] = True
-            
+            # Create protein viewer data
+            if "structure" in subsectionData:
+                subsectionData["viewer"] = {}
+                subsectionData["viewer"]["id"] = f"pv-{subsectionData['id']}"
+                for structure in subsectionData["structure"]:
+                    if "PDB" in structure["name"]: subsectionData["viewer"]["pdb"] = structure["name"].split(" ")[1].lower()
+
             metadata["subsectionsData"].append(subsectionData)
 
 def getSummaryMenuMetadata(fileName):
