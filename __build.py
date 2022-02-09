@@ -304,6 +304,7 @@ subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/i
 # Render begin page
 metadata = getYAMLMetadata("begin.md")
 metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("begin.md", "html", bibList, bibDict)
@@ -313,6 +314,7 @@ writePage("begin.md", "begin", metadata)
 metadata = getYAMLMetadata("introduction.md")
 metadata["pageName"] = "introduction"
 metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["prevSection"] = "begin"
 metadata["nextSection"] = getPageName(sectionFileNames[0])
 metadata["typeSection"] = True
@@ -354,6 +356,7 @@ for i, fileName in enumerate(sectionFileNames):
 metadata = getYAMLMetadata("outlook.md")
 metadata["pageName"] = "outlook"
 metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["prevSection"] = getPageName(sectionFileNames[-1])
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
@@ -365,6 +368,7 @@ writePage("outlook.md", metadata["pageName"], metadata)
 metadata = getYAMLMetadata("keep-looking.md")
 metadata["pageName"] = "keep-looking"
 metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["prevSection"] = "outlook"
 metadata["nextSection"] = "A-feature-index"
 metadata["typeSection"] = True
@@ -379,6 +383,7 @@ for i, fileName in enumerate(appendixFileNames):
     metadata["pageName"] = os.path.splitext(fileName)[0]
     metadata["chapter"] = fileName.split("-")[0]
     metadata["nav"] = navData["navList"]
+    metadata["navData"] = { "nav": True }
     metadata["typeAppendix"] = True
 
     # Generate next/prev section metadata
@@ -418,6 +423,7 @@ for i, fileName in enumerate(appendixFileNames):
 metadata = getYAMLMetadata("about.md")
 metadata["pageName"] = "about"
 metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
 metadata["feedbackData"] = { "id": "feedback", "feedback": True }
@@ -438,6 +444,7 @@ writePage("about.md", metadata["pageName"], metadata)
 metadata = getYAMLMetadata("download.md")
 metadata["pageName"] = "download"
 metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage("download.md", metadata["pageName"], metadata)
