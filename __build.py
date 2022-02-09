@@ -159,24 +159,21 @@ def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
 
 def addMainSectionMetadata(fileName, metadata, bibDict):
     # Get media viewer metadata
-    if "doi" in metadata:
-        metadata["mediaViewer"] = {}
-        metadata["mediaViewer"]["isSection"] = True
-        metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(fileName)
-        metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
-        if metadata["title"] != "Introduction":
-            metadata["mediaViewer"]["hasTabMenu"] = True
-            metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
-            metadata["mediaViewer"]["compSlider"]["isSection"] = True
+    metadata["mediaViewer"] = {}
+    metadata["mediaViewer"]["isSection"] = True
+    metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(fileName)
+    metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
+    if metadata["title"] != "Introduction":
+        metadata["mediaViewer"]["hasTabMenu"] = True
+        metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
+        metadata["mediaViewer"]["compSlider"]["isSection"] = True
     # Create narration metadata
-    if metadata["title"] != "Summary":
-        metadata["narration"] = {}
-        metadata["narration"]["src"] = metadata["pageName"]
-        metadata["narration"]["isSection"] = True
+    metadata["narration"] = {}
+    metadata["narration"]["src"] = metadata["pageName"]
+    metadata["narration"]["isSection"] = True
     # Create citation data
-    if "doi" in metadata:
-        metadata["citation"] = getCitationMetadata(fileName, bibDict)
-        metadata["citation"]["isSection"] = True
+    metadata["citation"] = getCitationMetadata(fileName, bibDict)
+    metadata["citation"]["isSection"] = True
     # Process subsections
     if "subsections" in metadata:
         metadata["subsectionsData"] = []
