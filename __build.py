@@ -131,25 +131,27 @@ def getProgressMetadata(fileName, navData):
 def addPageToSpeciesData(fileName, speciesData):
     fileMetadata = getYAMLMetadata(fileName)
     if "species" in fileMetadata:
+        species = fileMetadata["species"].split("/")[0].strip()
         speciesEntry = {}
         speciesEntry["title"] =  fileMetadata["title"]
         speciesEntry["page"] =  f"{getPageName(fileName)}.html"
         if os.path.dirname(fileName) == "sections":
             speciesEntry["chapter"] = os.path.basename(fileName).split("-")[0]
             speciesEntry["section"] = os.path.basename(fileName).split("-")[1]
-        addSpeciesEntryToSpeciesData(fileMetadata["species"], speciesEntry, speciesData)
+        addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData)
 
     if "subsections" in fileMetadata:
         for subsectionFileName in fileMetadata["subsections"]:
             subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
             if "species" in subsectionData:
+                species = subsectionData["species"].split("/")[0].strip()
                 speciesEntry = {}
                 speciesEntry["title"] =  f"{fileMetadata['title']}: {subsectionData['title']}"
                 speciesEntry["page"] =  f"{getPageName(fileName)}.html#{subsectionFileName}"
                 if os.path.dirname(fileName) == "sections":
                     speciesEntry["chapter"] = os.path.basename(fileName).split("-")[0]
                     speciesEntry["section"] = os.path.basename(fileName).split("-")[1]
-                addSpeciesEntryToSpeciesData(subsectionData["species"], speciesEntry, speciesData)
+                addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData)
 
 def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
     if(species in speciesData):
