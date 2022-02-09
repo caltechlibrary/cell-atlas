@@ -168,7 +168,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
     metadata["mediaViewer"]["isSection"] = True
     metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(fileName)
     metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
-    if metadata["title"] != "Introduction":
+    if "noSlider" not in metadata:
         metadata["mediaViewer"]["hasTabMenu"] = True
         metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
         metadata["mediaViewer"]["compSlider"]["isSection"] = True
@@ -195,9 +195,10 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 subsectionData["mediaViewer"] = {}
                 subsectionData["mediaViewer"]["id"] = subsectionData["id"]
                 if "doi" in subsectionData or "video" in  subsectionData:
-                    subsectionData["mediaViewer"]["hasTabMenu"] = True
                     subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(f"subsections/{subsectionFileName}.md")
-                    subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(f"subsections/{subsectionFileName}.md")
+                    if "noSlider" not in subsectionData:
+                        subsectionData["mediaViewer"]["hasTabMenu"] = True
+                        subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(f"subsections/{subsectionFileName}.md")
                 elif "graphic" in subsectionData:
                     subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
             # Create narration metadata
