@@ -74,7 +74,10 @@ def getVidPlayerMetadata(fileName):
     fileMetadata = getYAMLMetadata(fileName)
     vidPlayerMetadata = {}
     vidPlayerMetadata["vidName"] = fileMetadata["video"].split(".")[0]
-    vidPlayerMetadata["thumbnail"] = f"{'_'.join(fileMetadata['video'].split('_', 2)[:2])}_thumbnail"
+    if "doi" in fileMetadata:
+        vidPlayerMetadata["thumbnail"] = f"{'_'.join(fileMetadata['video'].split('_', 2)[:2])}_thumbnail"
+    else:
+        vidPlayerMetadata["thumbnail"] = f"{os.path.splitext(fileMetadata['video'])[0]}_thumbnail"
     if "doi" in fileMetadata: vidPlayerMetadata["doi"] = fileMetadata["doi"]
     return vidPlayerMetadata
 
