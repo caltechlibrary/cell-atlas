@@ -203,8 +203,10 @@
     };
 
     mainNarrationPlayer = narrationPlayers["narrationPlayer-main"];
-    mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
-    mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
+    if(mainNarrationPlayer) {
+        mainNarrationPlayer.audio.addEventListener("play", sectionController.showStopNarrationBtn);
+        mainNarrationPlayer.audio.addEventListener("pause", sectionController.hideStopNarrationBtn);
+    }
 
     sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
     sectionText.shelveBtn.addEventListener("click", sectionController.shelveText);

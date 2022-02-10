@@ -38,8 +38,10 @@ let SectionText = function(root, narrationPlayer) {
     };
 
     narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
-    narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
-    narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);
+    if(narrationPlayer) {
+        narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
+        narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);   
+    }
     stopNarrationBtn.addEventListener("click", onStopNarrationBtnClick);
 
     return {
