@@ -3,7 +3,7 @@
     class="narration-player narration-player--hidden ${if(it.isSection)}narration-player--light-theme${endif}"
     data-src="${it.src}.mp3"
     tabindex="0"
-    ${if(OFFLINE)}data-offline="true"${endif}
+    ${if(offline)}data-offline="true"${endif}
 >
     <button class="narration-player__playback-btn" aria-label="Play" disabled>
         <span class="narration-player__playback-btn-icon narration-player__playback-btn-play-icon">${svg/play.svg()}</span>
