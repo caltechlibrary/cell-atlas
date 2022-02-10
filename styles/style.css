@@ -1816,7 +1816,6 @@ file. These definitions will be defined mobile first.
 
 .video-player__quality-changer {
     position: relative;
-    margin-left: auto;
 }
 
 .video-player__quality-changer--hidden {
@@ -1957,6 +1956,7 @@ file. These definitions will be defined mobile first.
 }
 
 .video-player__time-display {
+    margin-right: auto;
     color: #fff;
     font-size: 0.85em;
     font-family: sans-serif;

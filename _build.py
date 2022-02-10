@@ -10,9 +10,13 @@ def writePage(source, pageName, metadata):
     os.remove("metadata.json")
 
 def writePageOffline(source, pageName, metadata):
-    metadata["offline"] = True
+    metadata["offline"] = { "full": True }
     with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
     subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOffline}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
+    os.remove("metadata.json")
+
+    metadata["offline"] = { "lite": True }
+    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
     subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOfflineLite}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
     os.remove("metadata.json")
 

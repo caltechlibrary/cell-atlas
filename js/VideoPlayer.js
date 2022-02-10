@@ -13,31 +13,36 @@ let VideoPlayer = function(root) {
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
+    let offline = root.getAttribute("data-offline");
     let src1080, src480, hideMobileControlsTimeout, percentBuffered = 0, wasPlaying = false;
 
     let init = async function() {
-        // Set default quality based on session storage variable
-        let vidQuality = (window.sessionStorage.getItem("vidQuality") == "480") ? "480" : "1080";
-
-        // Set variables for 1080/480 src
-        if(doi) { // If doi, generate source strings from that
-            let res = await fetch(`https://api.datacite.org/dois/${doi}/media`);
-            let data = await res.json();
-            src1080 = data.data[0].attributes.url;
-            src480 = `${src1080.substring(0, src1080.indexOf(".mp4"))}_480p.mp4`;
-        } else { // If no doi, fallback to vidName variable which is set by build script
-            src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
-            src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
-        }
-
         // Add event listener to init player functionality when source is loaded
         video.addEventListener("loadedmetadata", initPlayer, { once: true });
 
-        // Load source in video element
-        loadSrc((vidQuality == "480") ? src480 : src1080);
+        if(offline) {
+            loadSrc(`videos/${root.getAttribute("data-src")}`);
+        } else {
+            // Set default quality based on session storage variable
+            let vidQuality = (window.sessionStorage.getItem("vidQuality") == "480") ? "480" : "1080";
 
-        // Update quality changer text
-        updateQualityChanger(vidQuality);
+            // Set variables for 1080/480 src
+            if(doi) { // If doi, generate source strings from that
+                let res = await fetch(`https://api.datacite.org/dois/${doi}/media`);
+                let data = await res.json();
+                src1080 = data.data[0].attributes.url;
+                src480 = `${src1080.substring(0, src1080.indexOf(".mp4"))}_480p.mp4`;
+            } else { // If no doi, fallback to vidName variable which is set by build script
+                src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
+                src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
+            }
+
+            // Load source in video element
+            loadSrc((vidQuality == "480") ? src480 : src1080);
+
+            // Update quality changer text
+            updateQualityChanger(vidQuality);
+        }
     };
 
     let initPlayer = function() {
@@ -53,7 +58,6 @@ let VideoPlayer = function(root) {
         video.addEventListener("timeupdate", updateSeekBar);
         video.addEventListener("progress", updatePercentBuffered);
         playBackBtn.addEventListener("click", togglePlayBack);
-        openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
         fsBtn.addEventListener("click", toggleFullscreen);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
@@ -68,6 +72,8 @@ let VideoPlayer = function(root) {
             video.addEventListener("play", forceFullscreenMobile);
             playBackBtnMobile.addEventListener("click", togglePlayBack);
         }
+        
+        if(!offline) openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
     };
 
     let onFullscreenChange = function() {
