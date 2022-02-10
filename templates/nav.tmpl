@@ -1,5 +1,5 @@
 <nav class="nav nav--collapsed" aria-label="Main Navigation">
-    ${navData:search-widget.tmpl()}
+    ${if(offline)}${else} ${navData:search-widget.tmpl()} ${endif}
     <ol class="nav__chapter-list">
         ${for(nav)}
             <li class="nav__entry">
@@ -35,15 +35,18 @@
                 ${endif}
             </li>
         ${endfor}
-        <div class="nav__hr-break"></div>
-        <li class="nav__entry nav__footer-entry">
-            <a class="nav__link" href="about.html">About This Book</a>
-        </li>
-        <li class="nav__entry nav__footer-entry">
-            <a class="nav__link" href="https://www.library.caltech.edu/" target="_blank" rel="noopener">© 2022 Caltech Library</a>
-        </li>
-        <li class="nav__entry nav__offline-entry">
-            <a class="nav__link" href="download.html">Offline Version</a>
-        </li>
+        
+        ${if(offline)}${else}
+            <div class="nav__hr-break"></div>
+            <li class="nav__entry nav__footer-entry">
+                <a class="nav__link" href="about.html">About This Book</a>
+            </li>
+            <li class="nav__entry nav__footer-entry">
+                <a class="nav__link" href="https://www.library.caltech.edu/" target="_blank" rel="noopener">© 2022 Caltech Library</a>
+            </li>
+            <li class="nav__entry nav__offline-entry">
+                <a class="nav__link" href="download.html">Offline Version</a>
+            </li>
+        ${endif}
     </ol>
 </nav>

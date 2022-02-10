@@ -4,7 +4,7 @@
 ${head.tmpl()}
 
 <body class="index preload">
-    <div class="book-page-container" ${if(offline)}data-offline="true"${endif}>
+    <div class="book-page-container">
         <div class="landing-page-container ${if(banner)} landing-page-container--preview-banner ${endif}">
             ${if(banner)}
                 <div class="landing-update-banner">
@@ -22,8 +22,7 @@ ${head.tmpl()}
                 </div>
                 <div class="landing-page-options-container">
                     <a href="begin.html" id="readNowButton" class="landing-page-start-button">${svg/noun_Play.svg()}<span>READ ONLINE NOW</span></a>
-                    ${if(offline)}
-                    ${else}
+                    ${if(offline)}${else}
                         <p class="landing-page-download-button">or <a href="download.html">DOWNLOAD</a></p>
                     ${endif}
                 </div>

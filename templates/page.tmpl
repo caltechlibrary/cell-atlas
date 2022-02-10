@@ -24,8 +24,8 @@
         <script src="js/NavWidget.js"></script>
         <script src="js/nav-controller.js"></script>
         <script src="js/lunr/lunr.min.js"></script>
-        <script src="js/SearchWidget.js"></script>
-        <script src="js/search.js"></script>
+        ${if(offline)}${else} <script src="js/SearchWidget.js"></script> ${endif}
+        ${if(offline)}${else} <script src="js/search.js"></script> ${endif}
         <script src="js/MobileControls.js"></script>
         <script src="js/navShortcuts.js"></script>
         ${if(typeChapter)}

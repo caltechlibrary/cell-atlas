@@ -9,6 +9,13 @@ def writePage(source, pageName, metadata):
     subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
     os.remove("metadata.json")
 
+def writePageOffline(source, pageName, metadata):
+    metadata["offline"] = True
+    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOffline}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
+    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOfflineLite}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
+    os.remove("metadata.json")
+
 def getPageName(fileName):
     pageName = os.path.basename(fileName)
     pageName = os.path.splitext(pageName)[0]
@@ -236,16 +243,22 @@ def getSummaryMenuMetadata(fileName):
     return summaryMetadata
 
 siteDir = "site"
+siteDirOffline = "cell_atlas_offline"
+siteDirOfflineLite = "cell_atlas_offline_lite"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 appendixFileNames = os.listdir("appendix")
 profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
 
 # Create site directory with assets
 if os.path.isdir(siteDir): shutil.rmtree(siteDir)
+if os.path.isdir(siteDirOffline): shutil.rmtree(siteDirOffline)
+if os.path.isdir(siteDirOfflineLite): shutil.rmtree(siteDirOfflineLite)
 os.mkdir(siteDir)
 shutil.copytree("img/", f"{siteDir}/img")
 shutil.copytree("styles/", f"{siteDir}/styles")
 shutil.copytree("js/", f"{siteDir}/js")
+shutil.copytree(siteDir, siteDirOffline)
+shutil.copytree(siteDir, siteDirOfflineLite)
 
 # Create navigation menu data for site
 navData = {}
@@ -317,6 +330,8 @@ with open("{}/searchData.json".format(siteDir), "w", encoding="utf-8") as f: jso
 
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
+subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.tmpl", "index.md"])
+subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.tmpl", "index.md"])
 
 # Render begin page
 metadata = getYAMLMetadata("begin.md")
@@ -326,6 +341,7 @@ metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("begin.md", "html", bibList, bibDict)
 writePage("begin.md", "begin", metadata)
+writePageOffline("begin.md", "begin", metadata)
 
 # Render introduction page
 metadata = getYAMLMetadata("introduction.md")
@@ -339,6 +355,7 @@ metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibD
 metadata["progressData"] = getProgressMetadata("introduction.md", navData)
 addMainSectionMetadata("introduction.md", metadata, bibDict)
 writePage("introduction.md", metadata["pageName"], metadata)
+writePageOffline("introduction.md", metadata["pageName"], metadata)
 
 # Render pages in sections/
 for i, fileName in enumerate(sectionFileNames):
@@ -368,6 +385,7 @@ for i, fileName in enumerate(sectionFileNames):
     if metadata["title"] == "Summary": metadata["summaryData"] = getSummaryMenuMetadata(fileName)
 
     writePage(f"sections/{fileName}", metadata["pageName"], metadata)
+    writePageOffline(f"sections/{fileName}", metadata["pageName"], metadata)
 
 # Render outlook page
 metadata = getYAMLMetadata("outlook.md")
@@ -380,6 +398,7 @@ metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("outlook.md", "html", bibList, bibDict)
 metadata["progressData"] = getProgressMetadata("outlook.md", navData)
 writePage("outlook.md", metadata["pageName"], metadata)
+writePageOffline("outlook.md", metadata["pageName"], metadata)
 
 # Render keep looking page
 metadata = getYAMLMetadata("keep-looking.md")
@@ -393,6 +412,7 @@ metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibD
 metadata["progressData"] = getProgressMetadata("keep-looking.md", navData)
 addMainSectionMetadata("keep-looking.md", metadata, bibDict)
 writePage("keep-looking.md", metadata["pageName"], metadata)
+writePageOffline("keep-looking.md", metadata["pageName"], metadata)
 
 # Render appendix pages
 for i, fileName in enumerate(appendixFileNames):
@@ -435,6 +455,7 @@ for i, fileName in enumerate(appendixFileNames):
         os.remove("bib.json")
     else:
         writePage(f"appendix/{fileName}", metadata["pageName"], metadata)
+        writePageOffline(f"appendix/{fileName}", metadata["pageName"], metadata)
 
 # Render about page
 metadata = getYAMLMetadata("about.md")
@@ -456,6 +477,7 @@ with open("about.md", 'r', encoding='utf-8') as f:
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
             metadata["accordionData"][-1]["content"] = metadata["accordionData"][-1]["content"] + line    
 writePage("about.md", metadata["pageName"], metadata)
+writePageOffline("about.md", metadata["pageName"], metadata)
 
 # Render download page
 metadata = getYAMLMetadata("download.md")
@@ -465,3 +487,4 @@ metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage("download.md", metadata["pageName"], metadata)
+writePageOffline("download.md", metadata["pageName"], metadata)
