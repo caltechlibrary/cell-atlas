@@ -219,10 +219,12 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 subsectionData["mediaViewer"]["citationAttached"] = True
             # Create protein viewer data
             if "structure" in subsectionData:
-                subsectionData["viewer"] = {}
-                subsectionData["viewer"]["id"] = f"pv-{subsectionData['id']}"
                 for structure in subsectionData["structure"]:
-                    if "PDB" in structure["name"]: subsectionData["viewer"]["pdb"] = structure["name"].split(" ")[1].lower()
+                    if "PDB" in structure["name"]: 
+                        subsectionData["viewer"] = {}
+                        subsectionData["viewer"]["id"] = f"pv-{subsectionData['id']}"
+                        subsectionData["viewer"]["pdb"] = structure["name"].split(" ")[1].lower()
+                        if "modified" in structure: subsectionData["viewer"]["modified"] = True
 
             metadata["subsectionsData"].append(subsectionData)
 
