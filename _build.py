@@ -3,6 +3,7 @@ import shutil
 import subprocess
 import json
 import re
+import copy
 
 def writePage(source, pageName, metadata):
     with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
@@ -10,13 +11,14 @@ def writePage(source, pageName, metadata):
     os.remove("metadata.json")
 
 def writePageOffline(source, pageName, metadata):
-    metadata["offline"] = { "full": True }
-    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+    offlineMetadata = copy.deepcopy(metadata)
+    offlineMetadata["offline"] = { "full": True }
+    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(offlineMetadata, f)
     subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOffline}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
     os.remove("metadata.json")
 
-    metadata["offline"] = { "lite": True }
-    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+    offlineMetadata["offline"] = { "lite": True }
+    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(offlineMetadata, f)
     subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOfflineLite}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
     os.remove("metadata.json")
 
