@@ -455,6 +455,8 @@ for i, fileName in enumerate(appendixFileNames):
         with open("bib.json", "w", encoding='utf-8') as f: json.dump(bibList, f)
         with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
         subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDir}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOffline}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOfflineLite}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
         os.remove("metadata.json")
         os.remove("bib.json")
     else:
@@ -491,4 +493,3 @@ metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
 writePage("download.md", metadata["pageName"], metadata)
-writePageOffline("download.md", metadata["pageName"], metadata)
