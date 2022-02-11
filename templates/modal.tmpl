@@ -14,8 +14,7 @@
             ${it.citation:section/vid-citation.tmpl()}
         ${endif}
 
-        ${if(OFFLINE)}
-        ${else}
+        ${if(offline)}${else}
             ${if(it.viewer)}
                 ${it.viewer:media-viewer.tmpl()}
             ${endif}

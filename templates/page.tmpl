@@ -40,8 +40,8 @@
           <script src="js/SectionText.js"></script>
           <script src="js/Modal.js"></script>
           ${if(summaryData)} <script src="js/SummaryMenu.js"></script> ${endif}
-          <script src="js/bio-pv/bio-pv.min.js"></script> 
-          <script src="js/ProteinViewer.js"></script>
+          ${if(offline)}${else} <script src="js/bio-pv/bio-pv.min.js"></script> ${endif}
+          ${if(offline)}${else} <script src="js/ProteinViewer.js"></script> ${endif}
           <script src="js/ProgressBar.js"></script>
           <script src="js/Footer.js"></script>
           <script src="js/footer-controller.js"></script>
