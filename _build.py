@@ -5,22 +5,19 @@ import json
 import re
 import copy
 
-def writePage(source, pageName, metadata):
+def writePage(siteDir, source, pageName, metadata):
     with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
     subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
     os.remove("metadata.json")
 
-def writePageOffline(source, pageName, metadata):
+def writePageOffline(siteDirOffline, siteDirOfflineLite, source, pageName, metadata):
     offlineMetadata = copy.deepcopy(metadata)
+
     offlineMetadata["offline"] = { "full": True }
-    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(offlineMetadata, f)
-    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOffline}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
-    os.remove("metadata.json")
+    writePage(siteDirOffline, source, pageName, offlineMetadata)
 
     offlineMetadata["offline"] = { "lite": True }
-    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(offlineMetadata, f)
-    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirOfflineLite}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
-    os.remove("metadata.json")
+    writePage(siteDirOfflineLite, source, pageName, offlineMetadata)
 
 def getPageName(fileName):
     pageName = os.path.basename(fileName)
@@ -248,7 +245,7 @@ def getSummaryMenuMetadata(fileName):
     summaryMetadata[f'chapter{os.path.basename(fileName).split("-")[0]}'] = True
     return summaryMetadata
 
-siteDir = "site"
+siteDirRegular = "site"
 siteDirOffline = "cell_atlas_offline"
 siteDirOfflineLite = "cell_atlas_offline_lite"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
@@ -256,15 +253,15 @@ appendixFileNames = os.listdir("appendix")
 profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
 
 # Create site directory with assets
-if os.path.isdir(siteDir): shutil.rmtree(siteDir)
+if os.path.isdir(siteDirRegular): shutil.rmtree(siteDirRegular)
 if os.path.isdir(siteDirOffline): shutil.rmtree(siteDirOffline)
 if os.path.isdir(siteDirOfflineLite): shutil.rmtree(siteDirOfflineLite)
-os.mkdir(siteDir)
-shutil.copytree("img/", f"{siteDir}/img")
-shutil.copytree("styles/", f"{siteDir}/styles")
-shutil.copytree("js/", f"{siteDir}/js")
-shutil.copytree(siteDir, siteDirOffline)
-shutil.copytree(siteDir, siteDirOfflineLite)
+os.mkdir(siteDirRegular)
+shutil.copytree("img/", f"{siteDirRegular}/img")
+shutil.copytree("styles/", f"{siteDirRegular}/styles")
+shutil.copytree("js/", f"{siteDirRegular}/js")
+shutil.copytree(siteDirRegular, siteDirOffline)
+shutil.copytree(siteDirRegular, siteDirOfflineLite)
 
 # Create navigation menu data for site
 navData = {}
@@ -332,10 +329,10 @@ addPageToSearchData("introduction.md", bibList, bibDict, searchData)
 for fileName in sectionFileNames: addPageToSearchData(f"sections/{fileName}", bibList, bibDict, searchData)
 addPageToSearchData("outlook.md", bibList, bibDict, searchData)
 addPageToSearchData("keep-looking.md", bibList, bibDict, searchData)
-with open("{}/searchData.json".format(siteDir), "w", encoding="utf-8") as f: json.dump(searchData, f, indent="\t")
+with open("{}/searchData.json".format(siteDirRegular), "w", encoding="utf-8") as f: json.dump(searchData, f, indent="\t")
 
 # Render landing page
-subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/index.html", "--template=templates/index.tmpl", "index.md"])
+subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirRegular}/index.html", "--template=templates/index.tmpl", "index.md"])
 subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.tmpl", "index.md"])
 subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.tmpl", "index.md"])
 
@@ -346,8 +343,8 @@ metadata["navData"] = { "nav": True }
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("begin.md", "html", bibList, bibDict)
-writePage("begin.md", "begin", metadata)
-writePageOffline("begin.md", "begin", metadata)
+writePage(siteDirRegular, "begin.md", "begin", metadata)
+writePageOffline(siteDirOffline, siteDirOfflineLite, "begin.md", "begin", metadata)
 
 # Render introduction page
 metadata = getYAMLMetadata("introduction.md")
@@ -360,8 +357,8 @@ metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibDict)
 metadata["progressData"] = getProgressMetadata("introduction.md", navData)
 addMainSectionMetadata("introduction.md", metadata, bibDict)
-writePage("introduction.md", metadata["pageName"], metadata)
-writePageOffline("introduction.md", metadata["pageName"], metadata)
+writePage(siteDirRegular, "introduction.md", metadata["pageName"], metadata)
+writePageOffline(siteDirOffline, siteDirOfflineLite, "introduction.md", metadata["pageName"], metadata)
 
 # Render pages in sections/
 for i, fileName in enumerate(sectionFileNames):
@@ -390,8 +387,8 @@ for i, fileName in enumerate(sectionFileNames):
 
     if metadata["title"] == "Summary": metadata["summaryData"] = getSummaryMenuMetadata(fileName)
 
-    writePage(f"sections/{fileName}", metadata["pageName"], metadata)
-    writePageOffline(f"sections/{fileName}", metadata["pageName"], metadata)
+    writePage(siteDirRegular, f"sections/{fileName}", metadata["pageName"], metadata)
+    writePageOffline(siteDirOffline, siteDirOfflineLite, f"sections/{fileName}", metadata["pageName"], metadata)
 
 # Render outlook page
 metadata = getYAMLMetadata("outlook.md")
@@ -403,8 +400,8 @@ metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("outlook.md", "html", bibList, bibDict)
 metadata["progressData"] = getProgressMetadata("outlook.md", navData)
-writePage("outlook.md", metadata["pageName"], metadata)
-writePageOffline("outlook.md", metadata["pageName"], metadata)
+writePage(siteDirRegular, "outlook.md", metadata["pageName"], metadata)
+writePageOffline(siteDirOffline, siteDirOfflineLite, "outlook.md", metadata["pageName"], metadata)
 
 # Render keep looking page
 metadata = getYAMLMetadata("keep-looking.md")
@@ -417,8 +414,8 @@ metadata["typeSection"] = True
 metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibDict)
 metadata["progressData"] = getProgressMetadata("keep-looking.md", navData)
 addMainSectionMetadata("keep-looking.md", metadata, bibDict)
-writePage("keep-looking.md", metadata["pageName"], metadata)
-writePageOffline("keep-looking.md", metadata["pageName"], metadata)
+writePage(siteDirRegular, "keep-looking.md", metadata["pageName"], metadata)
+writePageOffline(siteDirOffline, siteDirOfflineLite, "keep-looking.md", metadata["pageName"], metadata)
 
 # Render appendix pages
 for i, fileName in enumerate(appendixFileNames):
@@ -456,14 +453,14 @@ for i, fileName in enumerate(appendixFileNames):
     if fileName == "D-references.md":
         with open("bib.json", "w", encoding='utf-8') as f: json.dump(bibList, f)
         with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
-        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDir}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDirRegular}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
         subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOffline}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
         subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOfflineLite}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
         os.remove("metadata.json")
         os.remove("bib.json")
     else:
-        writePage(f"appendix/{fileName}", metadata["pageName"], metadata)
-        writePageOffline(f"appendix/{fileName}", metadata["pageName"], metadata)
+        writePage(siteDirRegular, f"appendix/{fileName}", metadata["pageName"], metadata)
+        writePageOffline(siteDirOffline, siteDirOfflineLite, f"appendix/{fileName}", metadata["pageName"], metadata)
 
 # Render about page
 metadata = getYAMLMetadata("about.md")
@@ -484,8 +481,8 @@ with open("about.md", 'r', encoding='utf-8') as f:
             metadata["accordionData"].append(entry)
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
             metadata["accordionData"][-1]["content"] = metadata["accordionData"][-1]["content"] + line    
-writePage("about.md", metadata["pageName"], metadata)
-writePageOffline("about.md", metadata["pageName"], metadata)
+writePage(siteDirRegular, "about.md", metadata["pageName"], metadata)
+writePageOffline(siteDirOffline, siteDirOfflineLite, "about.md", metadata["pageName"], metadata)
 
 # Render download page
 metadata = getYAMLMetadata("download.md")
@@ -494,4 +491,4 @@ metadata["nav"] = navData["navList"]
 metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
-writePage("download.md", metadata["pageName"], metadata)
+writePage(siteDirRegular, "download.md", metadata["pageName"], metadata)
