@@ -948,6 +948,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.media-viewer--subsection-no-citation {
+    margin-bottom: 1em;
+}
+
 .media-viewer--summary-menu {
     width: 95%;
     height: 90%;

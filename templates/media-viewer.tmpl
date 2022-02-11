@@ -2,8 +2,10 @@
     id="${if(it.isSection)}mediaViewer-main${else}mediaViewer-${it.id}${endif}"
     class="
         media-viewer 
-        ${if(it.isSection)}media-viewer--main-section${elseif(it.hasTabMenu)}media-viewer--subsection-has-tabmenu${endif} 
-        ${if(it.isSummary)}media-viewer--summary-menu${endif} 
+        ${if(it.isSection)}media-viewer--main-section${endif}
+        ${if(it.isSection)}${elseif(it.hasTabMenu)} media-viewer--subsection-has-tabmenu ${endif}
+        ${if(it.isSection)}${elseif(it.citationAttached)}${else} media-viewer--subsection-no-citation ${endif}
+        ${if(it.isSummary)}media-viewer--summary-menu${endif}
         ${if(it.pdb)}media-viewer--protein-viewer media-viewer--hidden${endif}
     "
 >
