@@ -1513,14 +1513,14 @@ file. These definitions will be defined mobile first.
     display: flex;
     align-items: center;
     flex: 1 0 auto;
+    margin-top: calc(0.4rem + 2px);
     margin-right: 4.5rem;
-    padding-top: 0.4em;
     font-size: 1.35em;
 }
 
 @media (min-width:900px) {
     .section-text__header-container {
-        padding: 0.4rem 0 0 1rem;
+        padding-left: 1rem;
     }
 }
 
@@ -1554,7 +1554,7 @@ file. These definitions will be defined mobile first.
 
 .section-text__toggle-narration-btn {
     position: absolute;
-    top: 1.14em;
+    top: 1em;
     right: 1em;
     box-sizing: border-box;
     width: 2.75em;
@@ -1567,10 +1567,6 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
-    .section-text__toggle-narration-btn {
-        top: 1em;
-    }
-
     .section-text__toggle-narration-btn:hover {
         border: 2px solid #fff;
     }
@@ -2324,8 +2320,7 @@ file. These definitions will be defined mobile first.
 }
 
 .modal__header {
-    margin-top: 7.6px;
-    margin-top: calc(0.2em + 2px);
+    margin-top: calc(0.4rem + 2px);
     margin-right: 1.75em;
     line-height: 1;
     font-size: 1.75em;
@@ -3104,9 +3099,14 @@ file. These definitions will be defined mobile first.
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 0.5em;
     visibility: inherit;
     transition: height 0.75s;
+}
+
+@media (min-width:900px) {
+    .narration-player--section-text {
+        padding-left: 1rem;
+    }
 }
 
 .narration-player--hidden {
