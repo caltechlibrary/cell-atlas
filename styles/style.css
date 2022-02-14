@@ -948,6 +948,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.media-viewer--subsection-no-citation {
+    margin-bottom: 1em;
+}
+
 .media-viewer--summary-menu {
     width: 95%;
     height: 90%;
@@ -1509,14 +1513,14 @@ file. These definitions will be defined mobile first.
     display: flex;
     align-items: center;
     flex: 1 0 auto;
+    margin-top: calc(0.4rem + 2px);
     margin-right: 4.5rem;
-    padding-top: 0.4em;
     font-size: 1.35em;
 }
 
 @media (min-width:900px) {
     .section-text__header-container {
-        padding: 0.4rem 0 0 1rem;
+        padding-left: 1rem;
     }
 }
 
@@ -1550,30 +1554,26 @@ file. These definitions will be defined mobile first.
 
 .section-text__toggle-narration-btn {
     position: absolute;
-    top: 1.14em;
+    top: 1em;
     right: 1em;
     box-sizing: border-box;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.75em;
+    height: 2.75em;
     border-radius: 100px;
-    border: none;
+    border: 2px solid #0000;
     padding: 0.4em;
     background: none;
-    transition: box-shadow 0.25s;
+    transition: border 0.25s;
 }
 
 @media (min-width:900px) {
-    .section-text__toggle-narration-btn {
-        top: 1em;
-    }
-
     .section-text__toggle-narration-btn:hover {
-        box-shadow: 0px 0px 0 2px #fff;
+        border: 2px solid #fff;
     }
 }
 
 .section-text__toggle-narration-btn--activated {
-    box-shadow: 0px 0px 0 2px #fff;
+    border: 2px solid #fff;
 }
 
 .section-text__toggle-narration-btn--hidden {
@@ -2320,8 +2320,7 @@ file. These definitions will be defined mobile first.
 }
 
 .modal__header {
-    margin-top: 7.6px;
-    margin-top: calc(0.2em + 2px);
+    margin-top: calc(0.4rem + 2px);
     margin-right: 1.75em;
     line-height: 1;
     font-size: 1.75em;
@@ -2329,27 +2328,27 @@ file. These definitions will be defined mobile first.
 
 .modal__toggle-narration-btn {
     position: absolute;
-    top: 2px;
+    top: 0px;
     right: 2px;
     box-sizing: border-box;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.75em;
+    height: 2.75em;
     border-radius: 100px;
-    border: none;
+    border: 2px solid #0000;
     padding: 0.4em;
     background: none;
-    transition: box-shadow 0.25s;
+    transition: border 0.25s;
 }
 
 @media (min-width:900px) {
 
     .modal__toggle-narration-btn:hover {
-        box-shadow: 0px 0px 0 2px #000;
+        border: 2px solid #000;
     }
 }
 
 .modal__toggle-narration-btn--activated {
-    box-shadow: 0px 0px 0 2px #000;
+    border: 2px solid #000;
 }
 
 .modal__toggle-narration-btn--postponed {
@@ -3095,14 +3094,19 @@ file. These definitions will be defined mobile first.
     flex: 0 0 auto;
     box-sizing: border-box;
     margin-right: 4.5rem;
-    height: 2.5em;
+    height: 2.75em;
     max-width: 25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 0.5em;
     visibility: inherit;
     transition: height 0.75s;
+}
+
+@media (min-width:900px) {
+    .narration-player--section-text {
+        padding-left: 1rem;
+    }
 }
 
 .narration-player--hidden {
@@ -3115,22 +3119,22 @@ file. These definitions will be defined mobile first.
 .narration-player__playback-btn {
     flex: 0 0 auto;
     box-sizing: border-box;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.75em;
+    height: 2.75em;
     border-radius: 100px;
-    border: none;
+    border: 2px solid #0000;
     padding: 0.75em;
     background: none;
-    transition: box-shadow 0.25s;
+    transition: border 0.25s;
 }
 
 @media (min-width:900px) {
     .narration-player__playback-btn:hover {
-        box-shadow: 0px 0px 0 2px #000;
+        border: 2px solid #000;
     }
 
     .narration-player--light-theme .narration-player__playback-btn:hover {
-        box-shadow: 0px 0px 0 2px #fff;
+        border: 2px solid #fff;
     }
 }
 
