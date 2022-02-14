@@ -5,13 +5,14 @@ let NarrationPlayer = function(root) {
     let currentTimeDisplay = root.querySelector(".narration-player__current-time-display");
     let totalTimeDisplay = root.querySelector(".narration-player__total-time-display");
     let audio = root.querySelector(".narration-player__audio-el");
+    let offline = root.getAttribute("data-offline");
     let initialized = false;
     let totalTime;
 
     let init = function() {
         let audioSrcEl = audio.querySelector("source");
         audio.addEventListener("loadedmetadata", onLoadedmetadata, { once: true });
-        if(root.getAttribute("data-offline")) {
+        if(offline) {
             audioSrcEl.setAttribute("src", `audio/${root.getAttribute("data-src")}`);
         } else {
             audioSrcEl.setAttribute("src", `https://www.cellstructureatlas.org/audio/${root.getAttribute("data-src")}`);
