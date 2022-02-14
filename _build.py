@@ -5,6 +5,22 @@ import json
 import re
 import copy
 
+def createSiteDir(siteDir):
+    if os.path.isdir(siteDir): shutil.rmtree(siteDir)
+    os.mkdir(siteDir)
+    shutil.copytree("img/", f"{siteDir}/img")
+    shutil.copytree("styles/", f"{siteDir}/styles")
+    shutil.copytree("js/", f"{siteDir}/js")
+
+def createOfflineDir(siteDir, version):
+    createSiteDir(siteDir)
+    shutil.copytree("stillimages/", f"{siteDir}/img/stillimages")
+    shutil.copytree("narration/", f"{siteDir}/audio")
+    if version == "full":
+        shutil.copytree("videos/", f"{siteDir}/videos")
+    elif version == "lite":
+        shutil.copytree("videos-480p/", f"{siteDir}/videos")
+
 def writePage(siteDir, source, pageName, metadata):
     with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
     subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
@@ -251,17 +267,16 @@ siteDirOfflineLite = "cell_atlas_offline_lite"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 appendixFileNames = os.listdir("appendix")
 profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
+offlineAssetsExists = os.path.isdir("videos") and os.path.isdir("videos-480p") and os.path.isdir("stillimages") and os.path.isdir("narration")
 
-# Create site directory with assets
-if os.path.isdir(siteDirRegular): shutil.rmtree(siteDirRegular)
-if os.path.isdir(siteDirOffline): shutil.rmtree(siteDirOffline)
-if os.path.isdir(siteDirOfflineLite): shutil.rmtree(siteDirOfflineLite)
-os.mkdir(siteDirRegular)
-shutil.copytree("img/", f"{siteDirRegular}/img")
-shutil.copytree("styles/", f"{siteDirRegular}/styles")
-shutil.copytree("js/", f"{siteDirRegular}/js")
-shutil.copytree(siteDirRegular, siteDirOffline)
-shutil.copytree(siteDirRegular, siteDirOfflineLite)
+# Create site directories with assets
+createSiteDir(siteDirRegular)
+# Create offline versions only if all offline assets are present
+if offlineAssetsExists:
+    createOfflineDir(siteDirOffline, "full")
+    createOfflineDir(siteDirOfflineLite, "lite")
+else:
+    print("Not all offline assets exist. Skipping offline build")
 
 # Create navigation menu data for site
 navData = {}
@@ -333,8 +348,8 @@ with open("{}/searchData.json".format(siteDirRegular), "w", encoding="utf-8") as
 
 # Render landing page
 subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirRegular}/index.html", "--template=templates/index.tmpl", "index.md"])
-subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.tmpl", "index.md"])
-subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.tmpl", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.tmpl", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.tmpl", "index.md"])
 
 # Render begin page
 metadata = getYAMLMetadata("begin.md")
@@ -344,7 +359,7 @@ metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("begin.md", "html", bibList, bibDict)
 writePage(siteDirRegular, "begin.md", "begin", metadata)
-writePageOffline(siteDirOffline, siteDirOfflineLite, "begin.md", "begin", metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "begin.md", "begin", metadata)
 
 # Render introduction page
 metadata = getYAMLMetadata("introduction.md")
@@ -358,7 +373,7 @@ metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibD
 metadata["progressData"] = getProgressMetadata("introduction.md", navData)
 addMainSectionMetadata("introduction.md", metadata, bibDict)
 writePage(siteDirRegular, "introduction.md", metadata["pageName"], metadata)
-writePageOffline(siteDirOffline, siteDirOfflineLite, "introduction.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "introduction.md", metadata["pageName"], metadata)
 
 # Render pages in sections/
 for i, fileName in enumerate(sectionFileNames):
@@ -388,7 +403,7 @@ for i, fileName in enumerate(sectionFileNames):
     if metadata["title"] == "Summary": metadata["summaryData"] = getSummaryMenuMetadata(fileName)
 
     writePage(siteDirRegular, f"sections/{fileName}", metadata["pageName"], metadata)
-    writePageOffline(siteDirOffline, siteDirOfflineLite, f"sections/{fileName}", metadata["pageName"], metadata)
+    if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, f"sections/{fileName}", metadata["pageName"], metadata)
 
 # Render outlook page
 metadata = getYAMLMetadata("outlook.md")
@@ -401,7 +416,7 @@ metadata["typeChapter"] = True
 metadata["body"] = getFormattedBodyText("outlook.md", "html", bibList, bibDict)
 metadata["progressData"] = getProgressMetadata("outlook.md", navData)
 writePage(siteDirRegular, "outlook.md", metadata["pageName"], metadata)
-writePageOffline(siteDirOffline, siteDirOfflineLite, "outlook.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "outlook.md", metadata["pageName"], metadata)
 
 # Render keep looking page
 metadata = getYAMLMetadata("keep-looking.md")
@@ -415,7 +430,7 @@ metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibD
 metadata["progressData"] = getProgressMetadata("keep-looking.md", navData)
 addMainSectionMetadata("keep-looking.md", metadata, bibDict)
 writePage(siteDirRegular, "keep-looking.md", metadata["pageName"], metadata)
-writePageOffline(siteDirOffline, siteDirOfflineLite, "keep-looking.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "keep-looking.md", metadata["pageName"], metadata)
 
 # Render appendix pages
 for i, fileName in enumerate(appendixFileNames):
@@ -454,13 +469,13 @@ for i, fileName in enumerate(appendixFileNames):
         with open("bib.json", "w", encoding='utf-8') as f: json.dump(bibList, f)
         with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
         subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDirRegular}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
-        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOffline}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
-        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOfflineLite}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOffline}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOfflineLite}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
         os.remove("metadata.json")
         os.remove("bib.json")
     else:
         writePage(siteDirRegular, f"appendix/{fileName}", metadata["pageName"], metadata)
-        writePageOffline(siteDirOffline, siteDirOfflineLite, f"appendix/{fileName}", metadata["pageName"], metadata)
+        if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, f"appendix/{fileName}", metadata["pageName"], metadata)
 
 # Render about page
 metadata = getYAMLMetadata("about.md")
@@ -482,7 +497,7 @@ with open("about.md", 'r', encoding='utf-8') as f:
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
             metadata["accordionData"][-1]["content"] = metadata["accordionData"][-1]["content"] + line    
 writePage(siteDirRegular, "about.md", metadata["pageName"], metadata)
-writePageOffline(siteDirOffline, siteDirOfflineLite, "about.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "about.md", metadata["pageName"], metadata)
 
 # Render download page
 metadata = getYAMLMetadata("download.md")
