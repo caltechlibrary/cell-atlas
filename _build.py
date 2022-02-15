@@ -265,7 +265,7 @@ siteDirRegular = "site"
 siteDirOffline = "cell_atlas_offline"
 siteDirOfflineLite = "cell_atlas_offline_lite"
 sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
-appendixFileNames = os.listdir("appendix")
+appendixFileNames = sorted( os.listdir("appendix") )
 profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
 offlineAssetsExists = os.path.isdir("videos") and os.path.isdir("videos-480p") and os.path.isdir("stillimages") and os.path.isdir("narration")
 
