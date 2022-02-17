@@ -6,6 +6,7 @@ video: 4_9_Atumefaciens.mp4
 videoAlt: 4_9.png
 collector: Elitza Tocheva
 subsections: ['granule-containing-carboxysomes', 'carboxysome-granule-connections']
+description: Bacteria like Agrobacterium tumefaciens or Halothiobacillus neapolitanus use various storage granules, which also interact with carboxysomes
 ---
 
 Some types of storage granules, like poly-phosphate and poly-hydroxybutyrate, are very densely packed and clearly delineated from the rest of the cytoplasm. Others are less tightly packed and more amorphous, like the ones in this *Agrobacterium tumefaciens* cell. We do not yet know what these contain.

@@ -6,6 +6,7 @@ video: 7_6_Mmagneticum.mp4
 videoAlt: 7_6.png
 collector: Zhuo Li
 subsections: ['mamk-structure']
+description: Iron-filled membrane pockets called magnetosomes enable magnetotactic bacteria like Magnetospirillum magneticum  to orient in a magnetic field
 ---
 
 Chemotaxis is not the only mode of navigation available to your cell. For a clue to others, think about how we orient ourselves in the world. In addition to our nose sniffing out food, we also use our eyes to sense light. Similarly, some photosynthetic bacteria have evolved **phototaxis** (ordered movement in response to light).

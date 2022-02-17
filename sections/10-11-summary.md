@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 10 of the Atlas of Bacterial & Archaeal Cell Structure covers structures that viruses use to infect archaea and bacteria
 ---
 
 ## Concept Check Questions 

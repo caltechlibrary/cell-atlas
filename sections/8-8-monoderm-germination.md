@@ -6,6 +6,7 @@ video: 8_8_Bsubtilis.mp4
 videoAlt: 8_8.png
 collector: Elitza Tocheva
 subsections: []
+description: Spores of monoderm bacteria like Bacillus subtilis germinate by shedding their protein coat and outer membrane as well as the outer cortex
 ---
 
 When conditions become conducive to growth, the spore will return to an active state, shedding its protein coat and outer membrane and dismantling its cortex to allow outgrowth of the reviving cell, as you see in this **germinating** *Bacillus subtilis* spore.

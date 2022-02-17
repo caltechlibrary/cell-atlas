@@ -6,6 +6,7 @@ video: 7_1_Soneidensis.mp4
 videoAlt: 7_1.png
 collector: Mohammed Kaplan
 subsections: ['chemoreceptor-structure']
+description: Archaea and bacteria like Shewanella oneidensis use chemosensory arrays to sense chemicals in the environment and direct motility through chemotaxis
 ---
 
 Now that your cell can move, it needs to figure out which way to go.  Perhaps it should take a sniff. **Chemosensory systems** are ancient (they were already present in the common ancestor of bacteria and archaea) and widespread, reflecting their great utility. Chemosensory systems are two-component signaling systems. The first component is a **chemoreceptor** that binds a specific chemical, such as a sugar or amino acid. The binding results in a conformational change that propagates down the long receptor (⇩), turning off a kinase bound at the other end that controls the state of the second component: a **response regulator**. These response regulator proteins then carry the signal elsewhere in the cell by diffusion.

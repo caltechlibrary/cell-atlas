@@ -6,7 +6,7 @@ video: 11_1_Ecoli.mp4
 videoAlt: 11_1.png
 collector: David Goodsell
 subsections: []
-description: A concluding summary, providing an outlook on the field of bacterial and archaeal cell biology with an illustration of Escherichia coli by David Goodsell
+description: Conclusion of the Atlas of Bacterial & Archaeal Cell Structure, reminding us that our knowledge of microbiology is still a work in progress
 ---
 
 To return to the quote from Richard Feynman that opened the book, “It is very easy to answer many of these fundamental biological questions; you just *look at the thing!*” Now that you have looked at many bacterial and archaeal cells, we hope you are beginning to appreciate the structure that underlies their complex lives. 

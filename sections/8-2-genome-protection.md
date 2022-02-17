@@ -6,6 +6,7 @@ video: 8_2_Hpylori.mp4
 videoAlt: 8_2.png
 collector: Yi-Wei Chang
 subsections: []
+description: In stationary phase, bacteria like Helicobacter pylori protect their genome with RecA, which forms nucleoprotein complexes and repairs DNA damage
 ---
 
 Remember that the most critical part of your cell is its instruction manual–the genome. Ensuring that the instructions remain intact is paramount to your cell in stationary phase. To do this, all cells have proteins (**RecA** in bacteria, **RadA** in archaea, and **Rad51** in eukaryotes) that repair DNA damage caused by reactive oxygen species, UV (or other) radiation, heat, or other sources. RecA (and related) proteins form complexes with the DNA they protect. These ordered arrays can become quite extensive in stationary phase cells, like this *Helicobacter pylori*.

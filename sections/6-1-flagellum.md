@@ -6,6 +6,7 @@ video: 6_1_Cjejuni.mp4
 videoAlt: 6_1.png
 collector: Morgan Beeby
 subsections: ['flagellum-structure']
+description: Bacteria like Campylobacter jejuni use a long helical propeller called a flagellum to swim through their liquid environment
 ---
 
 Location, location, location. So far, we have focused on how your cell can take the best advantage of its spot in the world. But why not find a better spot? Some cells live stationary lives, attached to a surface or embedded in a biofilm. Many, though, are explorers, using an impressive variety of techniques to move through their environments, finding advantages in places with more food or fewer competitors. In this chapter, we explore how your cell might make a mobile home.

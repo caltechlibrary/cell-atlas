@@ -6,6 +6,7 @@ video: 9_10_BbacteriovorusEcoli.mp4
 videoAlt: 9_10.png
 collector: Yi-Wei Chang
 subsections: ['bdellovibrio-bacteriovorus-entry']
+description: Bdellovibrio bacteriovorus breach the outer membrane and invade the periplasm of their prey, other diderm bacteria like Escherichia coli
 ---
 
 Once a *Bdellovibrio bacteriovorus* like this one has latched onto its unfortunate host, it opens a portal in the host’s outer membrane, secreting a cocktail of enzymes that alter the host cell wall, causing the cell to round up and enlarge the periplasmic space. The *B. bacteriovorus* quickly slides into the host periplasm through the portal (⇩) and seals the door behind it. In the process of preparing for entry, the cell dismantles equipment that is no longer necessary, including its chemosensory array and flagellum. As you can see here, the sheathed flagellum dislocates from the motor and is pulled into the periplasm, where the filament is degraded.

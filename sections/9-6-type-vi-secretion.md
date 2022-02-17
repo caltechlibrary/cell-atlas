@@ -6,6 +6,7 @@ video: 9_6_Mxanthus.mp4
 videoAlt: 9_6.png
 collector: Yi-Wei Chang
 subsections: ['primed-t6ss-structure']
+description: Bacteria like Myxococcus xanthus use contractile weapons called type VI secretion systems to shoot toxins into neighboring cells
 ---
 
 How else could your cell deliver a toxin to a nearby competitor? As usual, nature has provided another, even more entertaining, option: the poison dart gun. Many diderm bacteria, including *Myxococcus xanthus* like this, use **type VI secretion systems** (**T6SSs**) to launch effector proteins into neighboring cells. The effectors vary, from toxins that cause lysis to factors that promote biofilm formation. The target range of the T6SS is similarly broad, including monoderm and diderm bacteria and eukaryotic cells.

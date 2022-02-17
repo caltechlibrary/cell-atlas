@@ -6,6 +6,7 @@ video: 9_4_Paeruginosa.mp4
 videoAlt: 9_4.png
 collector: Steven Wang
 subsections: ['injectisome-structure', 'secretin-channel-structure']
+description: Bacteria like Pseudomonas aeruginosa use type III secretion system injectisomes to pump effector proteins into other cells
 ---
 
 What if your cell wanted to go a step further and deliver toxins directly into its target? Perhaps it needs a syringe. One of the most common, and best-studied, pathogenic secretion systems is the type III secretion system (**T3SS**) that assembles a needle-like toxin delivery system called the **injectisome**. T3SS injectisomes and flagellar motors are closely related, and the basal machines have similar structures (⇩). Rather than assembling a long helical filament for motility, though, injectisomes form a shorter needle, which you can see on this *Pseudomonas aeruginosa*. The needle can penetrate a eukaryotic cell, delivering effectors directly into its cytoplasm that block the immune response of the host, and lead to cell lysis. (*You can watch an animation of this process on [YouTube](https://youtu.be/OBf64TEo7gA).*)

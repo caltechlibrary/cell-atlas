@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 9 of the Atlas of Bacterial & Archaeal Cell Structure covers structures microbes use to interact with their environments, and other cells
 ---
 
 ## Concept Check Questions 

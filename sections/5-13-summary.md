@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 5 of the Atlas of Bacterial & Archaeal Cell Structure covers structures that enable archaea and bacteria to divide
 ---
 
 ## Concept Check Questions 

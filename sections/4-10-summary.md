@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 4 of the Atlas of Bacterial & Archaeal Cell Structure covers structures that enhance growth in archaea and bacteria
 ---
 
 ## Concept Check Questions 

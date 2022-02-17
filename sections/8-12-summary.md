@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 8 of the Atlas of Bacterial & Archaeal Cell Structure covers structures that enable specialized microbial lifecycles
 ---
 
 ## Concept Check Questions 

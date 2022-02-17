@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 6 of the Atlas of Bacterial & Archaeal Cell Structure covers structures that allow archaea and bacteria to swim, burrow, crawl and glide
 ---
 
 ## Concept Check Questions 

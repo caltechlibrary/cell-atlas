@@ -1,5 +1,6 @@
 ---
 title: Summary
+description: Summary of Chapter 7 of the Atlas of Bacterial & Archaeal Cell Structure covers structures that microbes use to navigate based on environmental cues
 ---
 
 ## Concept Check Questions 

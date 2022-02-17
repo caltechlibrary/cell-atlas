@@ -6,6 +6,7 @@ video: 5_5_Tremsis.mp4
 videoAlt: 5_5.png
 collector: Ariane Briegel
 subsections: []
+description: Bacteria like Tetrasphaera remsis can divide into two or four daughter cells, by building one or two septa simultaneously
 ---
 
 The division septum grows in from the periphery of the dividing cell toward the middle, drawing the membrane with it. When it reaches the middle, the membrane seals off on each side and the septum separates to release the two cells. The bottom *Tetrasphaera remsis* cell here is at a fairly late stage of this process. This cell also illustrates another point about division: the division plane is not always in the exact middle of the cell. Depending on the species, division may produce daughter cells of unequal sizes.

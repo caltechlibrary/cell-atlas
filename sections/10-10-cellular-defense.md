@@ -6,6 +6,7 @@ video: 10_10_Soneidensis.mp4
 videoAlt: 10_10.png
 collector: Lauren Ann Metskas
 subsections: []
+description: Bacteria like Shewanella oneidensis may use outer membrane vesicles as decoys to prevent infection by viruses like myophage
 ---
 
 So what can your cell do to protect itself from these attackers? The most well-known defense is the CRISPR-Cas system now widely used to edit genomes across the tree of life. Its original function, though, is as an immune system similar to our own. Bacterial and archaeal cells “record” snippets of the genes of infecting phage in their own genome, enabling the cell to rapidly identify and chop up matching genes in future infections, much as our immune system stores the memory of antigen fragments for rapid neutralization in the future.

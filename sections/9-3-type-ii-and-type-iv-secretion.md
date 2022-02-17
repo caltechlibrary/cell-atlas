@@ -6,6 +6,7 @@ video: 9_3_Lpneumophila.mp4
 videoAlt: 9_3.png
 collector: Debnath Ghosal
 subsections: ['legionella-t2ss-structure', 'legionella-t4ss-structure', 'helicobacter-pylori-tubes']
+description: Bacteria like Legionella pneumophila and Helicobacter pylori use type II and type IV secretion systems to pump out effector proteins for infection
 ---
 
 How else might your cell deal with the crowd? Well, if you can’t join them, maybe you should try to beat (and eat) them. Bacteria have evolved an impressive arsenal of molecular weaponry. In fact, most of the antibiotics we use were invented by bacteria. In many cases, cells simply release these antibiotics to the environment, either directly or in membrane vesicles, which may travel further. For more specific targeting, though, cells employ a varied array of **secretion systems**. You already saw some of these nanomachines in Chapter 6: a type III secretion system assembles the flagellum and a type II secretion system assembles the archaellum. Another type II secretion system makes (and unmakes) type IV pili. Other family members have evolved more militaristic functions.

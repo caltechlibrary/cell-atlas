@@ -6,6 +6,7 @@ video: 5_9_Cnecator.mp4
 videoAlt: 5_9.png
 collector: Morgan Beeby
 subsections: ['asymmetric-constriction', 'ftsz-structure']
+description: Archaea and bacteria like Cupriavidus necator use cytoskeletal filaments of FtsZ to constrict their cell envelope during cytokinesis
 ---
 
 Division can also be asymmetric in a different way: how constricted one side of the cell is relative to the other. You can see that in this *Cupriavidus necator* cell. Asymmetric constriction is most common early in division, but it sometimes persists longer (⇩). To understand why this happens, we need to take a closer look at how cells divide.

@@ -6,6 +6,7 @@ video: 10_1_Soneidensis.mp4
 videoAlt: 10_1.png
 collector: Poorna Subramanian
 subsections: []
+description: Viruses like myophage infect bacterial cells like Shewanella oneidensis. They recognize and dock onto cells using their tail fibers
 ---
 
 Life is a battlefield for your cell, and other cells are not the only enemy. Attack can come from another front: viruses called **phage** (short for bacteriophage, or “bacterium eaters” because they were first identified infecting and killing bacteria). Like all viruses, phage use cells as vehicles for their replication. And, just like eukaryotic viruses, there is an army of different phage that prey on bacteria and archaea. No species is known to be immune.

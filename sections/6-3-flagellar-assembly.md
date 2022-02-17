@@ -6,6 +6,7 @@ video: 6_3_Hgracilis.mp4
 videoAlt: 6_3.png
 collector: Yi-Wei Chang
 subsections: ['flagellar-motor-disassembly']
+description: The flagellum of bacteria like Hylemonella gracilis or Pseudomonas aeruginosa is assembled by a type III secretion system at its base
 ---
 
 Operating the flagellar motor is impressive, but so is building it in the first place. Remember that the envelope of bacterial cells is a complicated multilayered barrier. The flagellar motor has about two dozen unique components, each present in many copies, embedded in every layer of the cell envelope. How can your cell get all hundred or more components (tens of thousands if you count the components of the filament) where they need to go? Making the feat even more impressive, the machine builds itself, assembling from the inside out. First the components associated with the inner membrane come together, forming an “export apparatus” which pumps subsequent components across the membrane to assemble in the periplasm and outer membrane (if the cell is a diderm). The energy for this process comes from an ATPase at the base of the machine. You can see a late stage in the assembly process in this *Hylemonella gracilis*. The final piece to be assembled (still missing here) is the flagellar filament, which continues the pattern of outward assembly; flagellin monomers travel through the hollow tube to take their places at the tip. Flagellar motors can also disassemble, for instance when the filament is broken (⇩), and cells may make many new flagella throughout their lifetime.

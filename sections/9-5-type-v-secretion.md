@@ -6,6 +6,7 @@ video: 9_5_Ecoli.mp4
 videoAlt: 9_5.png
 collector: Poorna Subramanian
 subsections: ['cdi-mechanism']
+description: Bacteria like Escherichia coli use type V secretion systems to inhibit neighboring cell's growth through contact-dependent inhibition
 ---
 
 Other secretion systems independently evolved similar mechanisms, though using very different structures. Some strains of *Escherichia coli* have an ability, called “<u>C</u>ontact-<u>D</u>ependent <u>I</u>nhibition” or **CDI**, to inhibit the growth of neighboring diderm bacterial cells. They do this by coopting a pore in the outer membrane of the target cell to introduce a toxin that halts its growth. To safeguard themselves, they make an antitoxin that binds to the toxin and renders it harmless. Such antidote systems are common for microbe-produced toxins.

@@ -6,6 +6,7 @@ video: 8_6_Bsubtilis.mp4
 videoAlt: 8_6.png
 collector: Elitza Tocheva
 subsections: ['spore-engulfment', 'spore-coating']
+description: Endospore-forming bacteria like Bacillus subtilis develop their spores internally, then lyse to release them once they are mature
 ---
 
 Once the septum is in place, it is then extended, as you can see in this *Bacillus subtilis*, enlarging the nascent spore and ultimately separating it from the mother cell envelope. Note that the monoderm mother is producing a diderm spore, surrounded by two layers of its mother’s membrane. As this occurs, a copy of the genome is pumped through a specialized protein nanomachine. The increased turgor pressure from the highly-concentrated DNA helps the **forespore** round and expand. Usually, the mother cell membrane finishes closing off at the cell pole, but occasionally this occurs instead on the side of the mother cell (⇩).

@@ -6,6 +6,7 @@ video: 5_1_Tintermedia.mp4
 videoAlt: 5_1.png
 collector: Cristina Iancu
 subsections: []
+description: Archaea and bacteria like Thiomonas intermedia have dedicated mechanisms to sort low copy-number components for division
 ---
 
 Growth only gets you so far. For a coccoid cell, growth increases volume more rapidly than surface area, which is a problem if the cell relies on nutrients imported from the environment. Even if a cell is rod-shaped (so its surface area to volume ratio remains relatively constant with growth), increased volume increases diffusion times, making metabolism less efficient. So what can you do to keep your cell thriving?

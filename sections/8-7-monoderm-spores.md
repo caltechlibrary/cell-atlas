@@ -6,6 +6,7 @@ video: 8_7_Bsubtilis.mp4
 videoAlt: 8_7.png
 collector: Elitza Tocheva
 subsections: []
+description: Spores of bacteria like Bacillus subtilis are encased in two membranes, a thick cortex, and a multilayered protein coat to protect from harsh conditions
 ---
 
 Fully mature *Bacillus subtilis* spores like this one are ovoid, and swollen with armor, including the thick cortex and multilayered coat. This dense shield protects the cargo within from drying out, or denaturing in heat or acid. (It also makes it hard to make out much internal detail in images.)
