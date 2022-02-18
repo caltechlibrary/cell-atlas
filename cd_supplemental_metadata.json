@@ -2,13 +2,13 @@
   "descriptions": [
     {
       "descriptionType": "Abstract",
-      "description": "Supplemental materials (pdb files and images) for version 2.0 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
+      "description": "Supplemental materials (pdb files, images, and narration) for version 2.1 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
     }
   ],
   "relatedIdentifiers": [
     {
       "relatedIdentifier":
-      "https://github.com/caltechlibrary/cell-atlas/releases/tag/v2.0",
+      "https://github.com/caltechlibrary/cell-atlas/releases/tag/v2.1",
       "relationType": "IsSupplementTo",
       "relatedIdentifierType": "URL"
     }
@@ -33,7 +33,7 @@
       "subject": "Jensen Lab"
     }
   ],
-  "version": "v2.0",
+  "version": "v2.1",
   "titles": [
     {
       "title": "Supplemental Materials for the Atlas of Bacterial and Archaeal Cell Structure"
@@ -41,7 +41,7 @@
   ],
   "dates": [
     {
-      "date": "2021-08-30",
+      "date": "2022-02-18",
       "dateType": "Issued"
     }
   ],

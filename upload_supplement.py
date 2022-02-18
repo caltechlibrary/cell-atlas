@@ -9,6 +9,6 @@ metadata = json.load(metaf)
 
 production = True
 
-response = caltechdata_write(metadata, token, ['stillimages.zip','pdbs.zip'], production)
+response = caltechdata_write(metadata, token, ['narration.zip','stillimages.zip','pdbs.zip'], production)
 print(response)
 
