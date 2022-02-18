@@ -32,20 +32,18 @@ python _build.py
 ```
 
 <u>This will delete the `site/` directory in the this script's working directory</u>. 
-Videos are will not be included in the site build by default and will only be included 
-in the generated site if there exists a `videos` directory in this script's working directory.
-Supplemental files (video preview images and pdb files) are required for the
+Videos are will not be included in the site build and need to be moved to a `videos` directory 
+in 'site' directory.
+Supplemental files (video preview images, narration, and pdb files) are required for the
 site to function completely and are available to
-[download from CaltechDATA](https://doi.org/10.22002/D1.2100)
+[download from CaltechDATA](https://doi.org/10.22002/D1.20040)
 
 
 Offline versions of the cell atlas are automatically generated in the
-`cell_atlas_offline` and `cell_atlas_offline_lite` directories. In order to
-package these for release, you need to copy in the full resolution or 480p
-videos into a directory called `videos`. You will also need to copy the 
-'stillimages' folder of preview images for the
-movies to the 'img' folder. Then zip up the cell atlas using the 
-command `zip -rX cell_atlas_offline_lite.zip *`
+`cell_atlas_offline` and `cell_atlas_offline_lite` directories, assuming you
+have "video", "videos-480p", "narration", and "stillimages" directories present. 
+In order to zip up the offline version, navigate to `cell_atlas_offline` and `cell_atlas_offline_lite` directories 
+and use the command `zip -rX cell_atlas_offline_lite.zip *`
 
 Getting help
 ------------
@@ -61,9 +59,9 @@ You can submit change requests by submitting a pull request through GitHub.
 License
 -------
 
-Software produced by the Caltech Library is Copyright (C) 2020, Caltech.  This software is freely distributed under a BSD/MIT type license.  Please see the [LICENSE](LICENSE) file for more information.
+Software produced by the Caltech Library is Copyright (C) 2022, Caltech.  This software is freely distributed under a BSD/MIT type license.  Please see the [LICENSE](LICENSE) file for more information.
 
-The book text is (C) 2020, Caltech.
+The book text is (C) 2022, Caltech.
 
 Authors and Acknowledgments
 ---------------------------
