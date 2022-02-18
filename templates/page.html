@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    ${head.tmpl()}
+    ${head.html()}
 
     <body class="page preload">
-        ${header.tmpl()}
-        ${nav.tmpl()}
+        ${header.html()}
+        ${nav.html()}
 
         <div class="page__content-container">
           ${if(typeChapter)}
-            ${chapter.tmpl()}
+            ${chapter.html()}
           ${elseif(typeSection)}
-            ${section/section.tmpl()}
+            ${section/section.html()}
           ${elseif(typeAppendix)}
-            ${appendix/appendix.tmpl()}
+            ${appendix/appendix.html()}
           ${endif}
         </div>
 
-        ${mobile-controls.tmpl()}
-        ${footer.tmpl()}
+        ${mobile-controls.html()}
+        ${footer.html()}
 
         <script src="js/script.js"></script>
         <script src="js/NavWidget.js"></script>

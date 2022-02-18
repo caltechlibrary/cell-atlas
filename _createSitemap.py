@@ -10,7 +10,7 @@ lines = []
 doiFileNameDict = {}
 
 def getMarkdownMetadata(file):
-    process = subprocess.run(args=["pandoc", "--template=templates/metadata.tmpl", file], stdout=subprocess.PIPE)
+    process = subprocess.run(args=["pandoc", "--template=templates/metadata.txt", file], stdout=subprocess.PIPE)
     return json.loads(process.stdout)
 
 def addSiteMapEntry(sourceFile, outFileName):

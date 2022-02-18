@@ -23,7 +23,7 @@ def createOfflineDir(siteDir, version):
 
 def writePage(siteDir, source, pageName, metadata):
     with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
-    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/{pageName}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", source])
+    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/{pageName}.html", "--template=templates/page.html", "--metadata-file=metadata.json", source])
     os.remove("metadata.json")
 
 def writePageOffline(siteDirOffline, siteDirOfflineLite, source, pageName, metadata):
@@ -42,7 +42,7 @@ def getPageName(fileName):
     return pageName
 
 def getYAMLMetadata(fileName):
-    return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.tmpl", fileName]) )
+    return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.txt", fileName]) )
 
 def addPageToBibList(fileName, bibList, bibDict):
     metadata = getYAMLMetadata(fileName)
@@ -347,9 +347,9 @@ addPageToSearchData("keep-looking.md", bibList, bibDict, searchData)
 with open("{}/searchData.json".format(siteDirRegular), "w", encoding="utf-8") as f: json.dump(searchData, f, indent="\t")
 
 # Render landing page
-subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirRegular}/index.html", "--template=templates/index.tmpl", "index.md"])
-if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.tmpl", "index.md"])
-if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.tmpl", "index.md"])
+subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirRegular}/index.html", "--template=templates/index.html", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.html", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.html", "index.md"])
 
 # Render begin page
 metadata = getYAMLMetadata("begin.md")
@@ -468,9 +468,9 @@ for i, fileName in enumerate(appendixFileNames):
     if fileName == "D-references.md":
         with open("bib.json", "w", encoding='utf-8') as f: json.dump(bibList, f)
         with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
-        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDirRegular}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
-        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOffline}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
-        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOfflineLite}/{metadata['pageName']}.html", "--template=templates/page.tmpl", "--metadata-file=metadata.json", "bib.json"])
+        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDirRegular}/{metadata['pageName']}.html", "--template=templates/page.html", "--metadata-file=metadata.json", "bib.json"])
+        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOffline}/{metadata['pageName']}.html", "--template=templates/page.html", "--metadata-file=metadata.json", "bib.json"])
+        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOfflineLite}/{metadata['pageName']}.html", "--template=templates/page.html", "--metadata-file=metadata.json", "bib.json"])
         os.remove("metadata.json")
         os.remove("bib.json")
     else:

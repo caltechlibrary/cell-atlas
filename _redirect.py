@@ -4,7 +4,7 @@ import subprocess
 import json
 
 def getYAMLMetadata(fileName):
-    return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.tmpl", fileName]) )
+    return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.txt", fileName]) )
 
 def getPageName(fileName):
     pageName = os.path.basename(fileName)
@@ -31,7 +31,7 @@ def writeRedirectPage(redirectDir, fileName):
         "--from=markdown", 
         "--to=html", 
         f"--output={redirectDir}/{pageName}.html", 
-        "--template=templates/redirect.tmpl", 
+        "--template=templates/redirect.html", 
         f"--metadata=title:{title}", 
         f"--metadata=pageName:{pageName}", 
         fileName
