@@ -1,12 +1,10 @@
 ---
 title: Fission
 doi: 10.22002/D1.1508
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 5_2_Ccrescentus.mp4
-videoAlt: 5_2.png
 collector: Ariane Briegel
-subsections: []
-description:Caulobacter crescentus bacteria use a PopZ hub to tether the chromosome to one end of the asymmetric cell for division
+description: Caulobacter crescentus bacteria use a PopZ hub to tether the chromosome to one end of the asymmetric cell for division
 ---
 
 The most important low-copy number component in your cell is its genome; without the instructions, nothing gets built. Reflecting its importance, cells have evolved complex mechanisms to coordinate DNA replication and segregation in time as well as space. The details are beyond our scope here, but we can touch on some general structural principles.

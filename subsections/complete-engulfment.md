@@ -3,7 +3,6 @@ title: Forespore
 species: Acetonema longum 
 doi: 10.22002/D1.1568
 video: 8_10a_Alongum.mp4
-videoAlt: 8_10a.png
 collector: Elitza Tocheva
 ---
 

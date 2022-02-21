@@ -3,7 +3,6 @@ title: Multiple arrays
 species: Vibrio cholerae 
 doi: 10.22002/D1.1552
 video: 7_5a_Vcholerae.mp4
-videoAlt: 7_5a.png
 collector: Ariane Briegel
 ---
 

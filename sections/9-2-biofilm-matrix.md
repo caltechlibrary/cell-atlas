@@ -1,11 +1,9 @@
 ---
 title: Biofilm Matrix
 doi: 10.22002/D1.1572
-videoTitle: Gluconacetobacter hansenii
+species: Gluconacetobacter hansenii
 video: 9_2_Ghansenii.mp4
-videoAlt: 9_2.png
 collector: William Nicolas
-subsections: []
 description: Bacteria like Gluconacetobacter hansenii secrete cellulose that forms bundles that contribute to the extracellular matrix of their biofilms
 ---
 

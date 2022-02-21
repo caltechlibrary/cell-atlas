@@ -3,7 +3,6 @@ title: Surface structures
 species: Treponema primitia 
 doi: 10.22002/D1.1541
 video: 6_7a_Tprimitia.mp4
-videoAlt: 6_7a.png
 collector: Gavin Murphy
 ---
 

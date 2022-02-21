@@ -1,9 +1,8 @@
 ---
 title: Archaeal Storage Granules
 doi: 10.22002/D1.1498
-videoTitle: Halorubrum litoreum
+species: Halorubrum litoreum
 video: 4_10_Hlitoreum.mp4
-videoAlt: 4_10.png
 collector: Ariane Briegel
 subsections: ['haloferax-gibbonsii-granules', 'halohasta-litchfieldiae-granules']
 description: Archaea like Halorubrum litoreum, Haloferax gibbonssii or Halohasta litchfieldiae use storage granules to stockpile nutrients

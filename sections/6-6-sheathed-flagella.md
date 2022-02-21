@@ -1,11 +1,9 @@
 ---
 title: Sheathed Flagella
 doi: 10.22002/D1.1530
-videoTitle: Helicobacter hepaticus
+species: Helicobacter hepaticus
 video: 6_6_Hhepaticus.mp4
-videoAlt: 6_6.png
 collector: Megan Dobro
-subsections: []
 description: Some pathogenic bacteria like Helicobacter pylori encase their flagella in a sheath of outer membrane
 ---
 

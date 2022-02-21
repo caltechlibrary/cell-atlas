@@ -1,9 +1,8 @@
 ---
 title: Outer Membrane Constriction
 doi: 10.22002/D1.1513
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 5_7_Ccrescentus.mp4
-videoAlt: 5_7.png
 collector: Zhuo Li
 subsections: ['caulobacter-division']
 description: During cytokinesis, the outer membrane of diderm bacteria like Caulobacter crescentus constricts with, or after, the cell wall, depending on the species

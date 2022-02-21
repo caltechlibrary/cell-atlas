@@ -1,11 +1,9 @@
 ---
 title: Sub-Tomogram Averaging
 doi: 10.22002/D1.1469
-videoTitle: Campylobacter jejuni
+species: Campylobacter jejuni
 video: 1_7_Cjejuni.mp4
-videoAlt: 1_7.png
 collector: Morgan Beeby
-subsections: []
 description: A simple introduction to cryo-ET subtomogram averaging and how it can boost the resolution of bacterial structures like Campylobacter jejuni flagella
 ---
 

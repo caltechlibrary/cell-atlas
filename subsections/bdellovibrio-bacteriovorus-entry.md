@@ -3,7 +3,6 @@ title: Entry
 species: Bdellovibrio bacteriovorus / Escherichia coli 
 doi: 10.22002/D1.1585
 video: 9_10a_BbacteriovorusEcoli.mp4
-videoAlt: 9_10a.png
 collector: Yi-Wei Chang
 ---
 

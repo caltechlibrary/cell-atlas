@@ -1,9 +1,8 @@
 ---
 title: Type IV Pilus
 doi: 10.22002/D1.1534
-videoTitle: Myxococcus xanthus
+species: Myxococcus xanthus
 video: 6_10_Mxanthus.mp4
-videoAlt: 6_10.png
 collector: Yi-Wei Chang
 subsections: ['type-iv-pilus-structure']
 description: Some bacteria like Myxococcus xanthus extend, attach, and retract type IV pili for twitching motility across surfaces

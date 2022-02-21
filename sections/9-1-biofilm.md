@@ -1,11 +1,9 @@
 ---
 title: Biofilm
 doi: 10.22002/D1.1571
-videoTitle: Agrobacterium tumefaciens
+species: Agrobacterium tumefaciens
 video: 9_1_Atumefaciens.mp4
-videoAlt: 9_1.png
 collector: Elitza Tocheva
-subsections: []
 description: Bacteria like Agrobacterium tumefaciens attach to other cells in a biofilm with pili, holdfast, or unipolar polysaccharide, and secrete cellulose for the matrix
 ---
 

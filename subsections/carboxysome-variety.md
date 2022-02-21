@@ -3,7 +3,6 @@ title: Variety
 species: Halothiobacillus neapolitanus 
 doi: 10.22002/D1.1500
 video: 4_7a_Hneapolitanus.mp4
-videoAlt: 4_7a.png
 collector: Cristina Iancu
 ---
 

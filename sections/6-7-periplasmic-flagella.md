@@ -1,9 +1,8 @@
 ---
 title: Periplasmic Flagella
 doi: 10.22002/D1.1531
-videoTitle: Borrelia burgdorferi
+species: Borrelia burgdorferi
 video: 6_7_Bburgdorferi.mp4
-videoAlt: 6_7.png
 collector: Ariane Briegel
 subsections: ['treponema-primitia']
 description: Spirochete bacteria like Borrelia burgdorferi and Treponema primitia burrow with periplasmic flagella built between the cell wall and outer membrane

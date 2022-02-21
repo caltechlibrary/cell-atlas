@@ -1,11 +1,9 @@
 ---
 title: Nucleoid
 doi: 10.22002/D1.1359
-videoTitle: Bdellovibrio bacteriovorus
+species: Bdellovibrio bacteriovorus
 video: 2_10_Bbacteriovorus.mp4
-videoAlt: 2_10.png
 collector: Yi-Wei Chang
-subsections: []
 description: Archaea and bacteria, like Bdellovibrio bacteriovorus, contain huge amounts of DNA, which is packed into a concentrated region called the nucleoid.
 ---
 

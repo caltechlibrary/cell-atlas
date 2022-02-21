@@ -3,7 +3,6 @@ title: Variety
 species: Prosthecobacter debontii 
 doi: 10.22002/D1.1365
 video: 2_4d_Pdebontii.mp4
-videoAlt: 2_4d.png
 collector: Martin Pilhofer
 ---
 

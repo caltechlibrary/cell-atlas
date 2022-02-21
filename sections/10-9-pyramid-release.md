@@ -1,11 +1,9 @@
 ---
 title: Pyramid Release
 doi: 10.22002/D1.1594
-videoTitle: Sulfolobus solfataricus
+species: Sulfolobus solfataricus
 video: 10_9_Ssolfataricus.mp4
-videoAlt: 10_9.png
 collector: Lu Gan
-subsections: []
 description: Virus-associated pyramids open the membrane of Sulfolobus solfataricus archaea to release Sulfolobus Turreted Icosahedral Virus
 ---
 

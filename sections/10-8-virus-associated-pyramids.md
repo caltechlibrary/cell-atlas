@@ -1,9 +1,8 @@
 ---
 title: Virus-Associated Pyramids
 doi: 10.22002/D1.1593
-videoTitle: Sulfolobus solfataricus
+species: Sulfolobus solfataricus
 video: 10_8_Ssolfataricus.mp4
-videoAlt: 10_8.png
 collector: Lu Gan
 subsections: ['stiv-structure']
 description: Sulfolobus Turreted Icosahedral Virus makes a pyramid in the membrane of infected archaea like Sulfolobus solfataricus to release replicated copies

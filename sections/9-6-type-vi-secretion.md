@@ -1,9 +1,8 @@
 ---
 title: Type VI Secretion
 doi: 10.22002/D1.1576
-videoTitle: Myxococcus xanthus
+species: Myxococcus xanthus
 video: 9_6_Mxanthus.mp4
-videoAlt: 9_6.png
 collector: Yi-Wei Chang
 subsections: ['primed-t6ss-structure']
 description: Bacteria like Myxococcus xanthus use contractile weapons called type VI secretion systems to shoot toxins into neighboring cells

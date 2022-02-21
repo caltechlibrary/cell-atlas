@@ -1,9 +1,8 @@
 ---
 title: Predator Entry
 doi: 10.22002/D1.1580
-videoTitle: Bdellovibrio bacteriovorus / Escherichia coli
+species: Bdellovibrio bacteriovorus / Escherichia coli
 video: 9_10_BbacteriovorusEcoli.mp4
-videoAlt: 9_10.png
 collector: Yi-Wei Chang
 subsections: ['bdellovibrio-bacteriovorus-entry']
 description: Bdellovibrio bacteriovorus breach the outer membrane and invade the periplasm of their prey, other diderm bacteria like Escherichia coli

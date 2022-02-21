@@ -1,0 +1,30 @@
+<div
+    id="${if(it.isSection)}mediaViewer-main${else}mediaViewer-${it.id}${endif}"
+    class="
+        media-viewer 
+        ${if(it.isSection)}media-viewer--main-section${endif}
+        ${if(it.isSection)}${elseif(it.hasTabMenu)} media-viewer--subsection-has-tabmenu ${endif}
+        ${if(it.isSection)}${elseif(it.citationAttached)}${else} media-viewer--subsection-no-citation ${endif}
+        ${if(it.isSummary)}media-viewer--summary-menu${endif}
+        ${if(it.pdb)}media-viewer--protein-viewer media-viewer--hidden${endif}
+    "
+>
+    ${if(it.hasTabMenu)}
+        <div class="media-viewer__tab-container ${if(it.isSection)}media-viewer__tab-container--main-section${endif}">
+            <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid">${svg/noun_Video.svg()}</button>
+            <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
+        </div>
+    ${endif}
+    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.isSummary)}media-viewer__media-container--summary-menu${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
+        ${if(it.vidPlayer)} ${it.vidPlayer:section/video-player.html()} ${endif}
+        ${if(it.compSlider)} ${it.compSlider:section/comp-slider.html()} ${endif}
+        ${if(it.pdb)} ${it:section/protein-viewer.html()} ${endif}
+        ${if(it.isSummary)} ${it:section/summary-menu.html()} ${endif}
+        ${if(it.speciesList)} ${it:appendix/tree-viewer.html()} ${endif}
+        ${if(it.graphic)} <img class="media-viewer__graphic" src="img/schematics/${it.graphic}"> ${endif}
+        <button class="media-viewer__fullscreen-btn ${if(it.vidPlayer)}media-viewer__fullscreen-btn--hidden${endif}" aria-label="Enter full screen" title="Enter full screen">
+            <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon">${svg/fullscreen.svg()}</div>
+            <div class="media-viewer__fullscreen-btn-icon media-viewer__exit-fs-icon media-viewer__fullscreen-btn-icon--hidden">${svg/exit-fullscreen.svg()}</div>
+        </button>
+    </div>
+</div>

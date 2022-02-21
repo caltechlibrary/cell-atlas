@@ -45,11 +45,6 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     /* || GENERAL styles */
-    body {
-        margin: 0;
-        height: 100vh;
-        font-family: sans-serif;
-    }
 
     h1, h2, h3, button {
         font-size: 100%;
@@ -303,205 +298,6 @@ file. These definitions will be defined mobile first.
         color: #262626;
     }
 
-    .nav-menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: auto;
-        max-height: 0%;
-        width: 21.75em;
-        padding: 0em 0em 0em 0.75em;
-        box-sizing: border-box;
-        background-color: #f5f5f5;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        z-index: 99;
-        opacity: 0;
-        transition: max-height 0.5s, opacity 0.2s;
-        color: #363636;
-    }
-
-    .nav-menu-opened {
-        padding: .75em 0em 0.75em 0.75em;
-    }
-
-    .nav-menu a {
-        color: inherit;
-        width: 100%;
-    }
-
-    .nav-menu-chapter-container {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .nav-menu-chapter-container button {
-        width: 11%;
-        padding: 0 0.5em;
-        border: none;
-        background: none;
-        display: flex;
-        align-items: center;
-        box-sizing: content-box;
-        transform: rotate(0deg);
-        transition: transform 1s; 
-    }
-
-    .nav-menu-chapter-container button svg {
-        flex: 1;
-        fill: #8c8c8c;
-    }
-
-    .nav-menu-chapter h1 {
-        padding: 0.75em 0 0.75em 0.75em;
-        font-weight: 600
-    }
-
-    .nav-menu-chapter-title {
-        font-weight: 400;
-    }
-
-    .nav-menu-sections {
-        padding-inline-start: 1em;
-        -webkit-padding-start: 1em;
-        overflow: hidden;
-        height: 0;
-        transition: height 1s;
-    }
-
-    .nav-menu-section-entry {
-        padding: 0.75em 0 0.75em 0.75em;
-        font-weight: 400;
-    }
-
-    .nav-menu-section-number {
-        font-weight: 600;
-    }
-
-    .nav-menu-default-hover:hover {
-        font-style: italic;
-    }
-
-    .nav-menu-ch1-on, .nav-menu-ch1-background:hover {
-        background-color: #a7a9ac;
-    }
-
-    .nav-menu-ch2-on, .nav-menu-ch2-background:hover {
-        background-color: #bcd3ed;
-    }
-
-    .nav-menu-ch3-on, .nav-menu-ch3-background:hover {
-        background-color: #9ac3c7;
-    }
-
-    .nav-menu-ch4-on,  .nav-menu-ch4-background:hover {
-        background-color: #99bd99;
-    }
-
-    .nav-menu-ch5-on, .nav-menu-ch5-background:hover {
-        background-color: #ffef99;
-    }
-
-    .nav-menu-ch6-on,  .nav-menu-ch6-background:hover {
-        background-color: #ffc799;
-    }
-
-    .nav-menu-ch7-on,  .nav-menu-ch7-background:hover {
-        background-color: #fab19c;
-    }
-
-    .nav-menu-ch8-on, .nav-menu-ch8-background:hover {
-        background-color: #e0a1a4;
-    }
-
-    .nav-menu-ch9-on, .nav-menu-ch9-background:hover {
-        background-color: #c29db2;
-    }
-
-    .nav-menu-ch10-on, .nav-menu-ch10-background:hover {
-        background-color: #baafcc;
-    }
-
-    #nav {
-        cursor: not-allowed;
-        opacity: 0.3;
-    }
-
-    .nav-menu-footer {
-        border-top: 1px solid #000000;
-        color: #525252;
-        margin-left: -12px;
-        margin-top: 4px;
-        padding: 1em 0 12px 24px;
-    }
-
-    .nav-menu-footer:hover {
-        font-style: italic;
-    }
-
-    /* || CHAPTER page styles (styles for every page of the book that is a chapter landing page) */
-    .book-chapter-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 100%;
-        align-items: center;
-    }
-
-    .book-chapter-text-section {
-        flex: 0 0 75%;
-        color: #ffffff;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .book-chapter-text-section a {
-        color: inherit;
-        text-decoration: underline;
-        margin: 0 0.15em;
-    }
-
-    .book-chapter-title {
-        font-size: 7em;
-        padding-right: 0.15em;
-        margin-left: 1em;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .book-chapter-title h1 {
-        margin-block-end: 0em;
-        margin-block-start: 0em;
-        white-space: nowrap;
-    }
-
-    .book-chapter-quote {
-        width: 40%;
-        text-align: right;
-        font-size: 1.25em;
-    }
-
-    @media only screen and (max-width: 1400px) {
-        .book-chapter-text-section {
-            flex-direction: column-reverse;
-            justify-content: center;
-            align-items: flex-end;
-            height: 80%;
-        }
-
-        .book-chapter-title {
-            padding-right: 0;
-            margin-left: 0;
-        }
-
-        .book-chapter-quote {
-            width: auto;
-        }
-    }
-
     /* || SECTION page styles (styles for every page of the book that is a section) */
 
     .book-section-non-text-content {
@@ -521,251 +317,6 @@ file. These definitions will be defined mobile first.
 
     .book-section-non-text-content-empty {
         justify-content: space-between;
-    }
-
-    /* || PLAYER styles */
-
-    .book-section-video-player {
-        position: relative;
-        flex: 0 1 auto;
-        min-height: 0;
-        background: #ffffff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .book-section-video-player--hidden {
-        display: none;
-    }
-
-    .book-section-video-player-fullscreen {
-        border: none;
-        border-radius: 0;
-    }
-
-    .book-section-video-player-fullscreen .book-section-video-player-controls {
-        border-radius: 0;
-    }
-
-    .book-section-video-player video {
-        flex: 0 1 auto;
-        min-height: 0;
-        min-width: 100%;
-        max-width: 100%;
-        max-height: 100%;
-    }
-
-    .book-section-video-player-fullscreen video {
-        flex: 1;
-        width: 100%;
-        max-height: initial;
-        border-radius: 0;
-    }
-
-    .book-section-video-player-paint-canvas, .book-section-video-player-scrub-canvas {
-        display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-    }
-    
-    .book-section-video-player-controls {
-        width: 100%;
-        height: 6.25em;
-        position: absolute;
-        bottom: 0;
-        box-sizing: border-box;
-        padding: 0 1.5em 2em 1.5em;
-        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        transition: opacity 0.25s;
-        opacity: 1;
-    }
-
-    .book-section-video-player-controls-buttons {
-        margin-bottom: 1em;
-        display: flex;
-        align-items: center;
-        color: #fff;
-    }
-
-    .book-section-video-player-controls-buttons button {
-        height: 1.5em;
-        border:none;
-        cursor:pointer;
-        background:transparent;
-        background-size:contain;
-        background-repeat:no-repeat;
-        background-position: center;
-        overflow: hidden;
-    }
-
-    .book-section-video-player-time {
-        font-size: 0.85em;
-        font-family: sans-serif;
-        margin: 0 1em;
-        margin-right: auto;
-    }
-
-    .book-section-video-player-controls-buttons button[data-state="play"] {
-        background-image: url("../img/noun_Play.svg");
-        width: 0.75em;
-    }
-     
-    .book-section-video-player-controls-buttons button[data-state="pause"] {
-        background-image: url("../img/noun_Pause.svg");
-        width: 0.75em;
-    }
-    
-    .book-section-video-player-controls-buttons button[data-state="go-fullscreen"] {
-        background-image: url("../img/noun_Fullscreen.svg");
-        margin: 0 1em;
-        width: 0.75em;
-    }
-
-    .book-section-video-player-controls input {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 0.25em;
-        border-radius: 100px;
-        padding: 0;
-        margin: 0;
-        background: linear-gradient(#ffffff 0% 0%, #bfbfbf 0% 0%, #717171 0% 100%);
-    }
-
-    .book-section-video-player-controls input::-webkit-slider-thumb {
-        appearance: none;
-        width: 1em;
-        height: 1em;
-        border-radius: 100px;
-        background: #fff;
-        cursor: pointer;
-    }
-
-    .book-section-video-player-controls input::-moz-range-thumb {
-        width: 1em;
-        height: 1em;
-        border: 0;
-        border-radius: 100px;
-        background: #fff;
-        cursor: pointer;
-    }
-    
-    /* Firefox Overrides */
-    .book-section-video-player-controls input::-moz-range-track {
-        background: #fff;
-        border: 0;
-    }
-    
-    .book-section-video-player-controls input::-moz-focus-inner,
-    .book-section-video-player-controls input::-moz-focus-outer { 
-      border: 0; 
-    }
-
-    /* || QUALITY */
-    .video-quality-player-control {
-        position: relative; 
-    }
-
-    .video-quality-changer-button {
-        position: relative;
-        display: flex;
-        background: none;
-        border: none;
-        border-radius: 6px;
-        margin: 0;
-        padding: 0;
-        width: 5.5em;
-        color: #fff;
-        font-family: -apple-system, Arial;
-        font-size: 0.85em;
-        font-weight: 600;
-        transition: background 0.1s, box-shadow 0.1s;
-        box-shadow: 0px 0px #fff;
-        z-index: 1;
-    }
-
-    .video-quality-changer-button:hover {
-        background: #363636;
-    }
-
-    .video-quality-changer {
-        display: flex;
-        flex: 0;
-        position: absolute;
-        bottom: 5px;
-        width: 100%;
-        height: 0;
-        box-sizing: border-box;
-        overflow: hidden;
-        flex-direction: column;
-        color: #ffffff;
-        background: #363636;
-        border-radius: 6px;
-        font-size: 0.85em;
-        transition: height 0.5s, padding 0.5s;
-    }
-
-    .video-quality-player-control[data-state="expanded"] .video-quality-changer-button {
-        background: #363636;
-        box-shadow: 0px 0px 0px 2px #fff;
-    }
-
-    .video-quality-changer * {
-        box-sizing: border-box;
-    }
-
-    .video-quality-changer-entry {
-        position: relative;
-        display: flex;
-        height: 1.5em;
-        font-weight: 600;
-        z-index: 0;
-    }
-
-    .video-quality-changer-input {
-        display: flex;
-        align-items: center;
-    }
-
-    .video-quality-changer-label {
-        line-height: 1.5;
-        margin-left: auto;
-    }
-
-    .video-quality-changer-control {
-        display: flex;
-        visibility: hidden;
-        margin-left: auto;
-    }
-
-    .video-quality-changer-entry input:checked + .video-quality-changer-control {
-        visibility: visible;
-    }
-
-    .video-quality-changer-control svg {
-        margin-left: 0.5em;
-        width: 1.5em;
-    }
-
-    .video-quality-changer-button span {
-        line-height: 1.5em;
-        margin-left: auto;
-    }
-
-    .video-quality-changer-button-icon {
-        margin-left: 0.5em;
-    }
-
-    .video-quality-changer-button-icon svg {
-        fill: #fff;
-        width: 1.5em;
     }
 
     /* || MODAL styles */
@@ -827,52 +378,6 @@ file. These definitions will be defined mobile first.
 
     #concept-check-questions, #further-reading {
         margin-top: 2em;
-    }
-
-    /* || APPENDIX styles */
-    .book-appendix-page {
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-    }
-
-    .book-appendix-inner {
-        height: fit-content;
-        width: auto;
-        max-width: 57.5em;
-        padding: 4em 3em;
-        margin: 0 auto;
-    }
-
-    .book-appendix-page h1 {
-        font-size: 2em;
-        margin-bottom: 1em;
-    }
-
-    .book-appendix-chapter-heading {
-        margin-right: 1em;
-    }
-
-    .book-appendix-dropdown-list {
-        height: 100%;
-        width: 100%;
-    }
-
-    .book-appendix-nav {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .book-appendix-nav:hover {
-        color: rgb(179 179 179);
-    }
-
-    .book-appendix-nav-right {
-        right: 0;
     }
 
     .book-appendix-download a {
@@ -951,6 +456,19 @@ file. These definitions will be defined mobile first.
     z-index: 100;
 }
 
+/* index */
+.index {
+    margin: 0;
+    font-family: sans-serif;
+    background: #717171;
+}
+
+@media (min-width:900px) {
+    .index {
+        height: 100vh;
+    }
+}
+
 /* landing-update-banner */
 .landing-update-banner {
     position: relative;
@@ -970,6 +488,40 @@ file. These definitions will be defined mobile first.
 @media (min-width:900px) {
     .landing-update-banner {
         margin-bottom: 0;
+    }
+}
+
+/* section */
+.page {
+    margin: 0;
+    padding: 56px 0;
+    font-family: sans-serif;
+    background: #717171;
+}
+
+@media (min-width:480px) {
+    .page {
+        padding: 56px 0 0;
+    }
+}
+
+@media (min-width:900px) {
+    .page {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
+@media (min-width:900px) {
+    .page__content-container {
+        flex: 1;
+        min-height: 0;
+        position: relative;
+        overflow: hidden;
     }
 }
 
@@ -994,6 +546,7 @@ file. These definitions will be defined mobile first.
         position: static;
         height: 80px;
         padding: 0 24px;
+        z-index: 4;
     }
 }
 
@@ -1009,8 +562,17 @@ file. These definitions will be defined mobile first.
 
 @media (min-width:900px) {
     .header__nav-btn {
-        width: 1.75em;
-        height: 1.75em;
+        box-sizing: border-box;
+        width: 3em;
+        height: 3em;
+        border: 2px solid #cfcfcf00;
+        border-radius: 100px;
+        padding: 0.5em;
+        transition: border 0.25s;
+    }
+
+    .header__nav-btn:hover {
+        border: 2px solid #cfcfcf;
     }
 }
 
@@ -1081,7 +643,7 @@ file. These definitions will be defined mobile first.
     background: #fff;
     color: #363636;
     overflow-y: scroll;
-    z-index: 2;
+    z-index: 101;
     transition: max-height 0.5s, padding 0.5s, width 0.25s;
 }
 
@@ -1100,7 +662,7 @@ file. These definitions will be defined mobile first.
 
 .nav--collapsed {
     max-height: 0px;
-    padding: 0em 0em 0em 0.75em;
+    padding: 0em 0em 0em max(0.75em, env(safe-area-inset-left));
     visibility: hidden;
     transition: max-height 0.5s, padding 0.5s, visibility 0s 0.5s;
 }
@@ -1221,11 +783,16 @@ file. These definitions will be defined mobile first.
 
 .nav__appendix-entry {
     height: 2.625em;
-    padding-left: 0.75em;
     line-height: 2.625em;
     color: #757575;
     font-weight: 600;
     cursor: not-allowed;
+}
+
+@media (min-width:900px) {
+    .nav__appendix-entry {
+        padding-left: 0.75em;
+    }
 }
 
 .nav__hr-break {
@@ -1250,13 +817,27 @@ file. These definitions will be defined mobile first.
     }
 }
 
+/* nav-arrow */
+.nav-arrow {
+    width: 1.25em;
+    fill: #f5f5f5;
+    text-decoration: none;
+    transition: fill 0.25s;
+}
+
+.nav-arrow:hover {
+    fill: #262626;
+}
+
 /* main-non-text-container */
 .main-non-text-container {
     position: fixed;
+    top: 0;
+    left: 0;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    padding: 56px 0.6em;
+    padding: 56px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1264,17 +845,12 @@ file. These definitions will be defined mobile first.
 
 @media (min-width: 900px) {
     .main-non-text-container {
-        /* Reset inherited styles */
-        height: initial;
-        padding: initial;
-
         position: absolute;
-        top: 0;
         right: 62%;
         bottom: 0;
-        left: 0;
         margin: auto;
         width: 62%;
+        padding: 0;
         transition: width 1s, right 1s;
     }
 }
@@ -1298,23 +874,14 @@ file. These definitions will be defined mobile first.
 }
 
 .main-non-text-container__nav-arrow {
-    display: none;
     flex: 0 0 auto;
     margin: 0 1em;
-    width: 1.25em;
-    fill: #f5f5f5;
-    text-decoration: none;
-    transition: fill 0.25s;
 }
 
-@media (min-width: 900px) {
+@media (max-width:900px) {
     .main-non-text-container__nav-arrow {
-        display: initial;
+        display: none;
     }
-}
-
-.main-non-text-container__nav-arrow:hover {
-    fill: #262626;
 }
 
 .main-non-text-container__stop-narration-btn {
@@ -1375,6 +942,16 @@ file. These definitions will be defined mobile first.
     }
 }
 
+@media (max-width: 900px) {
+    .media-viewer--subsection-has-tabmenu {
+        margin-top: calc(-1.25em - 8px);
+    }
+}
+
+.media-viewer--subsection-no-citation {
+    margin-bottom: 1em;
+}
+
 .media-viewer--summary-menu {
     width: 95%;
     height: 90%;
@@ -1396,6 +973,7 @@ file. These definitions will be defined mobile first.
     position: fixed;
     top: 0;
     left: 0;
+    margin: 0;
     width: 100%;
     height: 100%;
     background: #000;
@@ -1456,6 +1034,17 @@ file. These definitions will be defined mobile first.
     border: 7px #cccccc solid;
     border-radius: 10px;
     background: #ffffff;
+}
+
+.media-viewer__media-container--tree-viewer {
+    background: #363636;
+}
+
+@media (max-width:900px) {
+    .media-viewer__media-container--tree-viewer {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media (min-width:900px) {
@@ -1796,12 +1385,27 @@ file. These definitions will be defined mobile first.
 }
 
 /* section-text */
-.section-text__main-container {
-    display: flex;
-    padding: 4.5em 0;
-    flex-direction: column;
-    font-size: 1rem;
-    background: #363636;
+.section-text {
+    position: relative;
+}
+
+@media (min-width:900px) {
+    .section-text {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 38%;
+        max-height: 94%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 1s ease 1s;
+    }
+}
+
+.section-text--shelved {
+    transform: translate(100%, -50%);
+    transition: transform 1s ease 0s;
 }
 
 .section-text--hidden {
@@ -1809,7 +1413,38 @@ file. These definitions will be defined mobile first.
 }
 
 .section-text__unshelve-btn-container {
-    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    display: flex;
+    align-items: center;
+    padding: 0.2em 0.75em 0.2em 0;
+    background: #363636;
+    z-index: 0;
+    transition: transform 1s ease 1s, visibility 0s ease 1s;
+}
+
+@media (max-width: 900px) {
+    .section-text__unshelve-btn-container {
+        display: none;
+    }
+}
+
+.section-text__unshelve-btn-container--hidden {
+    transform: translateX(0%);
+    visibility: hidden;
+    transition: transform 1s ease 0s, visibility 1s ease 0s;
+}
+
+.section-text__unshelve-btn {
+    padding: 0.45em 1em 0.45em 0.45em;
+    border: none;
+    font-size: 1.35em;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #fff;
+    background: none;
 }
 
 .section-text__stop-narration-btn {
@@ -1831,6 +1466,33 @@ file. These definitions will be defined mobile first.
     fill: #fff;
 }
 
+.section-text__main-container {
+    min-height: calc(100vh - 112px);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    font-size: 1rem;
+    background: #363636;
+}
+
+@media (min-width:900px) {
+    .section-text__main-container {
+        min-height: 0;
+        flex: 1;
+        padding: 0;
+        transition: visibility 0s ease 0s;
+    }
+
+    .section-text__main-container--hidden {
+        visibility: hidden;
+        transition: visibility 0s ease 1s;
+    }
+
+    .section-text__main-container--no-learn-more {
+        padding-bottom: 1em;
+    }
+}
+
 .section-text__text-container {
     display: flex;
     flex-direction: column;
@@ -1841,17 +1503,28 @@ file. These definitions will be defined mobile first.
     background: inherit;
 }
 
+@media (min-width:900px) {
+    .section-text__text-container {
+        padding: 1rem 0 0;
+    }
+}
+
 .section-text__header-container {
     display: flex;
     align-items: center;
     flex: 1 0 auto;
+    margin-top: calc(0.4rem + 2px);
     margin-right: 4.5rem;
-    padding-top: 0.4em;
     font-size: 1.35em;
 }
 
+@media (min-width:900px) {
+    .section-text__header-container {
+        padding-left: 1rem;
+    }
+}
+
 .section-text__shelve-btn {
-    display: none;
     padding: 0;
     border: none;
     color: inherit;
@@ -1860,40 +1533,51 @@ file. These definitions will be defined mobile first.
     white-space: nowrap;
 }
 
+@media (max-width: 900px) {
+    .section-text__shelve-btn {
+        display: none;
+    }
+}
+
 .section-text__header-divider {
-    display: none;
     margin: 0 1em;
     width: .1em;
     height: 1.25em;
     background: #fff;
 }
 
+@media (max-width: 900px) {
+    .section-text__header-divider {
+        display: none;
+    }
+}
+
 .section-text__toggle-narration-btn {
     position: absolute;
-    top: 4.5em;
+    top: 1em;
     right: 1em;
     box-sizing: border-box;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.75em;
+    height: 2.75em;
     border-radius: 100px;
-    border: none;
+    border: 2px solid #0000;
     padding: 0.4em;
     background: none;
-    transition: box-shadow 0.25s;
+    transition: border 0.25s;
 }
 
 @media (min-width:900px) {
-    .section-text__toggle-narration-btn {
-        top: 1em;
-    }
-
     .section-text__toggle-narration-btn:hover {
-        box-shadow: 0px 0px 0 2px #fff;
+        border: 2px solid #fff;
     }
 }
 
 .section-text__toggle-narration-btn--activated {
-    box-shadow: 0px 0px 0 2px #fff;
+    border: 2px solid #fff;
+}
+
+.section-text__toggle-narration-btn--hidden {
+    display: none;
 }
 
 .section-text__toggle-narration-btn-icon--hidden {
@@ -1921,113 +1605,15 @@ file. These definitions will be defined mobile first.
     line-height: 1.34em;
 }
 
-.section-text__content a {
-    color: #5caac5;
-    text-decoration: underline;
-}
-
-@media (min-width:480px) {
-    .section-text__main-container {
-        padding: 4.5em 0 1em 0;
-    }
-}
-
 @media (min-width:900px) {
-    .section-text--shelveable {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translate(0, -50%);
-        width: 38%;
-        max-height: 94%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .section-text--transition-instant {
-        transition: transform 1s ease 0s;
-    }
-
-    .section-text--transition-delay {
-        transition: transform 1s ease 1s;
-    }
-
-    .section-text--shelved {
-        transform: translate(100%, -50%);
-    }
-
-    .section-text__main-container {
-        min-height: 0;
-        flex: 1;
-        padding: 0;
-    }
-
-    .section-text__main-container-transition-instant {
-        transition: visibility 0s ease 0s;
-    }
-
-    .section-text__main-container--transition-delay {
-        transition: visibility 0s ease 1s;
-    }
-
-    .section-text__main-container--hidden {
-        visibility: hidden;
-    }
-
-    .section-text__main-container--no-learn-more {
-        padding-bottom: 1em;
-    }
-
-    .section-text__unshelve-btn-container, .section-text__shelve-btn, .section-text__header-divider {
-        display: block;
-    }
-
-    .section-text__unshelve-btn-container {
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
-        display: flex;
-        align-items: center;
-        padding: 0.2em 0.75em 0.2em 0;
-        background: #363636;
-        z-index: 0;
-    }
-
-    .section-text__unshelve-btn-container--transition-instant {
-        transition: transform 1s ease 0s, visibility 1s ease 0s;
-    }
-
-    .section-text__unshelve-btn-container--transition-delay {
-        transition: transform 1s ease 1s, visibility 0s ease 1s;
-    }
-
-    .section-text__unshelve-btn-container--hidden {
-        transform: translateX(0%);
-        visibility: hidden;
-    }
-
-    .section-text__unshelve-btn {
-        padding: 0.45em 1em 0.45em 0.45em;
-        border: none;
-        font-size: 1.35em;
-        font-weight: 600;
-        white-space: nowrap;
-        color: #fff;
-        background: none;
-    }
-
-    .section-text__text-container {
-        padding: 1rem 0 0;
-    }
-
-    .section-text__header-container {
-        padding: 0.4rem 0 0 1rem;
-    }
-
     .section-text__content {
         padding: 0 1em;
     }
+}
+
+.section-text__content a {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 /* video-player */
@@ -2102,23 +1688,14 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.video-player__video--fullscreen {
+.video-player--fullscreen .video-player__video {
     width: 100%;
     height: 100%;
     max-height: none;
 }
 
-.video-player__scrub-canvas {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-}
-
-.video-player__scrub-canvas--hidden {
-    display: none;
+.video-player--quality-switching .video-player__video {
+    visibility: hidden;
 }
 
 .video-player__playback-btn-mobile {
@@ -2147,16 +1724,16 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.video-player__playback-btn-mobile--playing {
+.video-player--playing .video-player__playback-btn-mobile {
+    left: -10000px;
     opacity: 0;
+    transition: opacity 0.25s, left 0s 0.25s;
 }
 
-.video-player__playback-btn-mobile--show-mobile {
+.video-player--show-controls .video-player__playback-btn-mobile {
+    left: 0px;
     opacity: 1;
-}
-
-.video-player__playback-btn-mobile--hidden-mobile {
-    visibility: hidden;
+    transition: opacity 0.25s;
 }
 
 .video-player__playback-btn-mobile-icon {
@@ -2165,7 +1742,11 @@ file. These definitions will be defined mobile first.
     fill: #000;
 }
 
-.video-player__playback-btn-mobile-icon--hidden {
+.video-player--playing .video-player__playback-btn-mobile-play-icon {
+    display: none;
+}
+
+.video-player:not(.video-player--playing) .video-player__playback-btn-mobile-pause-icon {
     display: none;
 }
 
@@ -2181,22 +1762,27 @@ file. These definitions will be defined mobile first.
     transition: opacity 0.25s;
 }
 
-.video-player__controls-container--playing {
+.video-player--playing .video-player__controls-container {
     opacity: 0;
 }
 
+@media (max-width: 900px) {
+    .video-player--playing .video-player__controls-container {
+        transform: translateY(100%);
+        transition: opacity 0.25s, transform 0s 0.25s;
+    }
+}
+
 @media (min-width: 900px) {
-    .video-player:hover .video-player__controls-container--playing {
+    .video-player--playing:hover .video-player__controls-container {
         opacity: 1;
     }
 }
 
-.video-player__controls-container--show-mobile {
+.video-player--show-controls .video-player__controls-container {
     opacity: 1;
-}
-
-.video-player__controls-container--hidden {
-    visibility: hidden;
+    transform: none;
+    transition: opacity 0.25s;
 }
 
 .video-player__top-controls-container {
@@ -2226,7 +1812,10 @@ file. These definitions will be defined mobile first.
 
 .video-player__quality-changer {
     position: relative;
-    margin-left: auto;
+}
+
+.video-player__quality-changer--hidden {
+    visibility: hidden;
 }
 
 .video-player__quality-changer-open-btn {
@@ -2236,12 +1825,12 @@ file. These definitions will be defined mobile first.
     width: 5.5em;
     border: none;
     border-radius: 6px;
-    box-shadow: 0px 0px 0px 0px #fff;
+    box-shadow: 0px 0px 0px 2px #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 0.5em;
-    background: none;
+    background: #363636;
     color: #fff;
     font-size: 0.85em;
     font-weight: 600;
@@ -2250,14 +1839,10 @@ file. These definitions will be defined mobile first.
     z-index: 2;
 }
 
-.video-player__quality-changer-open-btn:hover {
-    box-shadow: 0px 0px 0px 2px #fff;
-    background: #363636;
-}
-
-.video-player__quality-changer-open-btn--activated {
-    box-shadow: 0px 0px 0px 2px #fff;
-    background: #363636;
+.video-player__quality-changer--closed .video-player__quality-changer-open-btn:not(:hover) {
+    box-shadow: 0px 0px 0px 0px #fff;
+    background: none;
+    transition: background 0.1s 0.5s, box-shadow 0.1s 0.5s;
 }
 
 .video-player__quality-changer-open-btn-icon {
@@ -2279,20 +1864,14 @@ file. These definitions will be defined mobile first.
     background: #363636;
     z-index: 1;
     overflow: hidden;
-}
-
-.video-player__quality-options-menu--transition-closed {
     transition: height 0.5s, padding 0.5s;
 }
 
-.video-player__quality-options-menu--transition-open {
-    transition: height 0.5s, padding 0.5s, visibility 0s ease 0.5s;
-}
-
-.video-player__quality-options-menu--hidden {
+.video-player__quality-changer--closed .video-player__quality-options-menu {
     height: 0em;
     padding: 0em 0.5em 0em;
     visibility: hidden;
+    transition: height 0.5s, padding 0.5s, visibility 0s ease 0.5s;
 }
 
 .video-player__quality-option {
@@ -2341,9 +1920,17 @@ file. These definitions will be defined mobile first.
 }
 
 @media (max-width:900px) {
-    .video-player__control-btn-fs--hidden-mobile {
+    .video-player:not(.video-player--fullscreen) .video-player__control-btn-fs {
         display: none;
     }
+}
+
+.video-player--fullscreen .video-player__control-icon-fs {
+    display: none;
+}
+
+.video-player:not(.video-player--fullscreen) .video-player__control-icon-exit-fs {
+    display: none;
 }
 
 .video-player__control-icon {
@@ -2356,11 +1943,16 @@ file. These definitions will be defined mobile first.
     display: block;
 }
 
-.video-player__control-icon--hidden {
+.video-player--playing .video-player__control-icon-play {
+    display: none;
+}
+
+.video-player:not(.video-player--playing) .video-player__control-icon-pause {
     display: none;
 }
 
 .video-player__time-display {
+    margin-right: auto;
     color: #fff;
     font-size: 0.85em;
     font-family: sans-serif;
@@ -2488,17 +2080,23 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-.comp-slider__after-img {
+.comp-slider__after-img-container {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 50%;
-    background-size: cover;
+    overflow: hidden;
 }
 
-.comp-slider__after-img--hidden {
+.comp-slider__after-img-container--hidden {
     display: none;
+}
+
+.comp-slider__after-img {
+    display: block;
+    height: 100%;
+    width: auto;
 }
 
 .comp-slider__input--sr-only {
@@ -2644,37 +2242,32 @@ file. These definitions will be defined mobile first.
 }
 
 /* modal */
-.modal-overlay {
+.modal {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #9c9c9c80;
-    z-index: 2;
+    z-index: 3;
 }
 
 @media (min-width: 900px) {
-    .modal-overlay {
+    .modal {
         position: absolute;
     }
 }
 
-.modal-overlay--hidden {
+.modal--hidden {
     display: none;
 }
 
-.modal {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
+.modal__modal-container {
     box-sizing: border-box;
     width: 93%;
-    height: -moz-fit-content;
-    height: fit-content;
     max-height: 95%;
     border: 4px solid #000;
     padding: 1em;
@@ -2683,7 +2276,7 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width: 900px) {
-    .modal {
+    .modal__modal-container {
         width: 52%;
         max-width: 95vh;
         max-height: 97%;
@@ -2693,16 +2286,16 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.modal--hidden {
-    display: none;
+.modal--feedback {
+    height: 100%;
 }
 
 .modal__exit-btn {
-    position: absolute;
-    top: 1em;
-    right: 1em;
+    position: relative;
+    margin: 0 0 8px auto;
     width: 1.25em;
     height: 1.25em;
+    display: block;
     border: none;
     padding: 0;
     background: none;
@@ -2727,35 +2320,39 @@ file. These definitions will be defined mobile first.
 }
 
 .modal__header {
-    margin-top: 7.6px;
-    margin-top: calc(0.2em + 2px);
+    margin-top: calc(0.4rem + 2px);
+    margin-right: 1.75em;
     line-height: 1;
     font-size: 1.75em;
 }
 
 .modal__toggle-narration-btn {
     position: absolute;
-    top: 2px;
+    top: 0px;
     right: 2px;
     box-sizing: border-box;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.75em;
+    height: 2.75em;
     border-radius: 100px;
-    border: none;
+    border: 2px solid #0000;
     padding: 0.4em;
     background: none;
-    transition: box-shadow 0.25s;
+    transition: border 0.25s;
 }
 
 @media (min-width:900px) {
 
     .modal__toggle-narration-btn:hover {
-        box-shadow: 0px 0px 0 2px #000;
+        border: 2px solid #000;
     }
 }
 
 .modal__toggle-narration-btn--activated {
-    box-shadow: 0px 0px 0 2px #000;
+    border: 2px solid #000;
+}
+
+.modal__toggle-narration-btn--postponed {
+    display: none;
 }
 
 .modal__toggle-narration-btn-icon--hidden {
@@ -2779,6 +2376,11 @@ file. These definitions will be defined mobile first.
 .modal__text-content a {
     color: #325c69;
     text-decoration: underline;
+}
+
+.modal__feedback-iframe {
+    width: 100%;
+    height: 100%;
 }
 
 /* vid-metadata */
@@ -2831,7 +2433,14 @@ file. These definitions will be defined mobile first.
 }
 
 .vid-metadata__link {
+    padding: 8px 0;
     text-decoration: underline;
+}
+
+@media (min-width:900px) {
+    .vid-metadata__link {
+        padding: 0;
+    }
 }
 
 .vid-metadata__link--italicize {
@@ -2924,157 +2533,6 @@ file. These definitions will be defined mobile first.
     display: none;
 }
 
-/* appendix-accordion-group */
-.appendix-accordion-group__dropdown-anchor {
-    position: absolute;
-    margin-top: -72px;
-}
-
-.appendix-accordion-group__button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    margin: 0 0 20px 0;
-    width: 100%;
-    padding: 0.535em 0;
-    border: none;
-    border-bottom: 1px solid white;
-    background: none;
-}
-
-.appendix-accordion-group__title {
-    flex: 0 1 auto;
-    color: #fff;
-    font-size: 1.25em;
-    font-weight: 700;
-    text-align: left;
-}
-
-.appendix-accordion-group__expand-icon {
-    flex: 0 0 auto;
-    height: 20px;
-    width: 20px;
-    transition: transform 1s;
-}
-
-.appendix-accordion-group__expand-icon--active {
-    transform: rotate(180deg);
-}
-
-.appendix-accordion-group__panel {
-    overflow: hidden;
-    transition: height 1s;
-}
-
-.appendix-accordion-group__panel--hidden {
-    visibility: hidden;
-}
-
-@media (min-width:900px) {
-    .appendix-accordion-group__dropdown-anchor {
-        position: static;
-        margin: 0;
-    }
-
-    .appendix-accordion-group__button {
-        margin: 0 0 24px 0;
-    }
-
-    .appendix-accordion-group__title {
-        font-family: -apple-system, Arial;
-        font-size: 1.5em;
-    }
-}
-
-/* feature-index-section-list */
-.feature-index-section-list {
-    padding-left: 1em;
-}
-
-.feature-index-section-list__li {
-    margin: 0 0 1em 0;
-    font-size: 1em;
-    font-weight: 300;
-}
-
-.feature-index-section-list__species-name {
-    color: #fff;
-    font-style: italic;
-}
-
-.feature-index-section-list__link {
-    color: #5caac5;
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .feature-index-section-list {
-        padding-left: 1.5em;
-    }
-}
-
-/* profile-bio */
-.profile-bio {
-    margin-bottom: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-bio__profile-img {
-    flex: 1 1 auto;
-    height: 200px;
-    object-fit: contain;
-}
-
-.profile-bio__description {
-    flex: 1 1 auto;
-    margin-top: 1em;
-    max-height: inherit;
-    overflow: auto;
-    line-height: 1.34em;
-}
-
-.profile-bio__description p {
-    margin-block-start: 0;
-    margin-block-end: 0;
-}
-
-@media (min-width:480px) {
-    .profile-bio {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .profile-bio__profile-img {
-        margin-right: 16px;
-    }
-
-    .profile-bio__description {
-        margin: 0;
-    }
-
-    .profile-bio--appendix {
-        max-height: 200px;
-    }
-}
-
-@media (min-width:900px) {
-    .profile-bio__profile-img {
-        margin-right: 32px;
-        height: auto;
-    }
-
-    .profile-bio--appendix {
-        max-height: 267px;
-    }
-
-    .profile-bio__description {
-        text-align: right;
-    }
-}
-
 /* about-page-blurb */
 .about-page-blurb {
     line-height: 1.34em;
@@ -3129,212 +2587,6 @@ file. These definitions will be defined mobile first.
     font-size: 1.25em;
     color: #15404e;
     background: none;
-}
-
-/* species-example-list */
-.species-example-list {
-    display: flex;
-    flex-direction: column;
-    border: 3px solid #000;
-    border-radius: 10px;
-    box-shadow: #363636bf 5px 8px 7px 1px;
-    color: #000;
-    background: #fff;
-    font-size: 1em;
-    overflow: hidden;
-    z-index: 100;
-    cursor: default;
-}
-
-.species-example-list--pop-up {
-    position: fixed;
-    width: fit-content;
-}
-
-.species-example-list--hidden {
-    display: none;
-}
-
-.species-example-list__species-title {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0.25em 1em;
-    color: #000;
-    background: #dcdcdc;
-    font-size: 1.375em;
-    text-align: center;
-}
-
-.species-example-list__examples-container {
-    padding: 0.5em 1em;
-    overflow: auto;
-}
-
-.species-example-list__examples-header {
-    color: #000;
-    font-size: 1.15em;
-    font-weight: 300;
-}
-
-.species-example-list__examples-list {
-    list-style-type: disc;
-    list-style-position: inside;
-    padding-left: 10px;
-}
-
-.species-example-list__examples-list-item {
-    margin: 0.5em 0;
-}
-
-.species-example-list__link, .dark-background-text .species-example-list__link {
-    color: #325c69;
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .species-example-list--pop-up {
-        transform: translateY(-100%);
-    }
-}
-
-
-/* tree-viewer */
-.tree-viewer__fullscreen-container--fs-polyfill {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    z-index: 100;
-}
-
-.tree-viewer__viewer-container {
-    box-sizing: border-box;
-    position: relative;
-    border: 5px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 0 1px #444;
-    background: #363636;
-    cursor: grab;
-}
-
-.tree-viewer__viewer-container--fs-polyfill {
-    height: 100%;
-    margin: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
-}
-
-.tree-viewer__viewer-container--panning {
-    cursor: grabbing;
-}
-
-.tree-viewer__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    display: none;
-    padding: 0.5em;
-    border: none;
-    border-radius: 0 0 0 10px;
-    background: #ffffff87;
-    cursor: default;
-    z-index: 1;
-}
-
-.tree-viewer__btn--visible {
-    display: flex;
-}
-
-.tree-viewer__btn svg {
-    width: 1.25em;
-    fill: #15404e;
-}
-
-.tree-viewer__zoom-controls {
-    position: absolute;
-    top: 45px;
-    right: 3px;
-    display: flex;
-    flex-direction: column;
-    cursor: default;
-    z-index: 1;
-}
-
-.tree-viewer__zoom-controls-divider {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 1px;
-    width: 70%;
-    background: #fff;
-    transform: translate(-50%, -50%);
-}
-
-.tree-viewer__zoom-controls-btn {
-    margin: 0;
-    padding: 2px 0;
-    border: 3px solid #363636;
-    background: #4B889B;
-}
-
-.tree-viewer__zoom-controls-btn svg {
-    width: 1.5em;
-}
-
-.tree-viewer__zoom-in-btn {
-    border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
-    box-shadow: 0 -1px 0 1px #00000033, 0 -1px 2px 0px #00000099, inset 0px 0px 3px 0px #ffffff4d;
-}
-
-.tree-viewer__zoom-out-btn {
-    border-top: none;
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 0 1px 0 1px #00000033, 0 1px 2px 0px #00000099, inset 0px 0px 3px 0px #ffffff4d;
-}
-
-.tree-viewer__svg-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.tree-viewer__tree-svg {
-    width: 100%;
-    height: 100%;
-    transform: matrix(1,0,0,1,0,0);
-}
-
-.tree-viewer__tree-svg-link, .dark-background-text .tree-viewer__tree-svg-link {
-    text-decoration: none;
-    color: initial;
-}
-
-.tree-viewer__tree-svg-link--highlighted, .dark-background-text .tree-viewer__tree-svg-link--highlighted {
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .tree-viewer__viewer-container--enlarged {
-        position: fixed;
-        left: 0;
-        right: 0;
-        margin: auto;
-        z-index: 100;
-    }
-
-    .tree-viewer__btn {
-        top: initial;
-        bottom: 0;
-        right: 0;
-        border-radius: 10px 0 0 0;
-    }
-
-    .tree-viewer__zoom-controls {
-        top: 10px;
-        right: 10px;
-    }
 }
 
 /* summary-menu */
@@ -3784,10 +3036,11 @@ file. These definitions will be defined mobile first.
     display: flex;
     align-items: center;
     background: #505050;
+    z-index: 2;
 }
 
 @media (orientation: landscape) {
-    .mobile-controls--section-text {
+    .mobile-controls--relative-landscape {
         position: relative;
     }
 }
@@ -3836,18 +3089,24 @@ file. These definitions will be defined mobile first.
     }
 }
 
+/* narration-player */
 .narration-player {
     flex: 0 0 auto;
     box-sizing: border-box;
     margin-right: 4.5rem;
-    height: 2.5em;
+    height: 2.75em;
     max-width: 25em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 0.5em;
     visibility: inherit;
     transition: height 0.75s;
+}
+
+@media (min-width:900px) {
+    .narration-player--section-text {
+        padding-left: 1rem;
+    }
 }
 
 .narration-player--hidden {
@@ -3860,18 +3119,22 @@ file. These definitions will be defined mobile first.
 .narration-player__playback-btn {
     flex: 0 0 auto;
     box-sizing: border-box;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.75em;
+    height: 2.75em;
     border-radius: 100px;
-    border: none;
+    border: 2px solid #0000;
     padding: 0.75em;
     background: none;
-    transition: box-shadow 0.25s;
+    transition: border 0.25s;
 }
 
 @media (min-width:900px) {
     .narration-player__playback-btn:hover {
-        box-shadow: 0px 0px 0 2px #fff;
+        border: 2px solid #000;
+    }
+
+    .narration-player--light-theme .narration-player__playback-btn:hover {
+        border: 2px solid #fff;
     }
 }
 
@@ -3879,15 +3142,12 @@ file. These definitions will be defined mobile first.
     width: 100%;
     height: 100%;
     stroke-width: 2;
+    stroke: #000;
     fill: none;
 }
 
-.narration-player__playback-btn-icon--section-text {
+.narration-player--light-theme .narration-player__playback-btn-icon {
     stroke: #fff;
-}
-
-.narration-player__playback-btn-icon--modal {
-    stroke: #000;
 }
 
 .narration-player__playback-btn-icon--hidden {
@@ -3901,16 +3161,13 @@ file. These definitions will be defined mobile first.
     -webkit-appearance: none;
     width: 15.5em;
     height: 2px;
+    background: #000;
     font-size: 0.85em;
     cursor: pointer;
 }
 
-.narration-player__seekbar--section-text {
+.narration-player--light-theme .narration-player__seekbar {
     background: #fff;
-}
-
-.narration-player__seekbar--modal {
-    background: #000;
 }
 
 .narration-player__seekbar::-webkit-slider-thumb {
@@ -3918,18 +3175,20 @@ file. These definitions will be defined mobile first.
     width: 0.85em;
     height: 0.85em;
     border-radius: 100px;
-}
-
-.narration-player__seekbar--section-text::-webkit-slider-thumb {
-    background: #fff;
-}
-
-.narration-player__seekbar--modal::-webkit-slider-thumb {
     background: #000;
 }
 
+.narration-player--light-theme .narration-player__seekbar::-webkit-slider-thumb {
+    background: #fff;
+}
+
 .narration-player__time-display {
-    flex: 0 0 auto
+    flex: 0 0 auto;
+    color: #000
+}
+
+.narration-player--light-theme .narration-player__time-display {
+    color: #fff
 }
 
 /* progress-bar */
@@ -4034,6 +3293,10 @@ file. These definitions will be defined mobile first.
 }
 
 /* footer */
+.footer {
+    flex: 0 0 auto;
+}
+
 @media (max-width:900px) {
     .footer {
         display: none;
@@ -4116,4 +3379,519 @@ file. These definitions will be defined mobile first.
 .footer__progress-toggle--uninitialized::before {
     display: none;
     transition: none;
+}
+
+/* chapter-content */
+.chapter-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .chapter-content {
+        position: static;
+        padding: 0;
+    }
+}
+
+.chapter-content__nav-arrow {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+    .chapter-content__nav-arrow {
+        display: none;
+    }
+}
+
+.chapter-content__nav-arrow--hidden {
+    visibility: hidden;
+}
+
+.chapter-content__text-container {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    color: #fff;
+}
+
+@media (min-width: 480px) {
+    .chapter-content__text-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 900px) {
+    .chapter-content__text-container {
+        width: 75%;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+}
+
+@media (min-width: 1400px) {
+    .chapter-content__text-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.chapter-content__quote {
+    flex: 0 1 auto;
+    line-height: 1.34em;
+    text-align: right;
+    font-size: 1em;
+}
+
+@media (min-width: 480px) {
+    .chapter-content__quote {
+        width: 45%;
+    }
+}
+
+@media (min-width: 900px) {
+    .chapter-content__quote {
+        width: auto;
+        font-size: 1.25em;
+    }
+}
+
+@media (min-width: 1400px) {
+    .chapter-content__quote {
+        width: 40%;
+    }
+}
+
+.chapter-content__quote a {
+    margin: 0 0.15em;
+    color: inherit;
+    text-decoration: underline;
+}
+
+.chapter-content__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 3.75em;
+}
+
+.chapter-content__title--Introduction {
+    font-size: 3.375em;
+}
+
+@media (min-width: 900px) {
+    .chapter-content__title {
+        margin-left: 1em;
+        font-size: 7em;
+    }
+}
+
+.chapter-content__title-line {
+    white-space: nowrap;
+}
+
+/* appendix */
+.appendix {
+    min-height: 100vh;
+    color: #fff;
+    background-color: #363636;
+}
+
+@media (min-width:900px) {
+    .appendix {
+        min-height: auto;
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
+.appendix__content-container {
+    margin: auto;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1048px;
+    padding: 16px max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
+}
+
+@media (min-width:900px) {
+    .appendix__content-container {
+        padding: 64px 48px;
+    }
+}
+
+.appendix__title {
+    margin-bottom: 16px;
+    font-size: 1.75em;
+}
+
+@media (min-width:900px) {
+    .appendix__title {
+        margin-bottom: 32px;
+        font-size: 2em;
+    }
+}
+
+.appendix__title-chapter {
+    margin-right: 32px;
+}
+
+.appendix__nav-arrow {
+    position: fixed;
+    top: 50%;
+    margin: 0 16px;
+    transform: translateY(-50%);
+}
+
+@media (max-width:900px) {
+    .appendix__nav-arrow {
+        display: none;
+    }
+}
+
+.appendix__nav-arrow:first-child {
+    left: 0;
+}
+
+.appendix__nav-arrow:last-child {
+    right: 0;
+}
+
+.appendix__nav-arrow--hidden {
+    visibility: hidden;
+}
+
+.appendix__body-text {
+    line-height: 1.34;
+}
+
+.appendix__body-text a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* appendix-accordion */
+.appendix-accordion {
+    color: #fff;
+}
+
+@media (max-width:900px) {
+    .appendix-accordion__entry-anchor {
+        position: absolute;
+        margin-top: -56px;
+    }
+}
+
+.appendix-accordion__entry-header {
+    margin: 0 0 20px 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 8.5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    color: inherit;
+}
+
+@media (min-width: 900px) {
+    .appendix-accordion__entry-header {
+        margin: 0 0 24px 0;
+    }
+}
+
+.appendix-accordion__entry-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: left;
+}
+
+@media (min-width: 900px) {
+    .appendix-accordion__entry-title {
+        font-size: 1.5em;
+    }
+}
+
+.appendix-accordion__entry-toggle-icon {
+    width: 1.25em;
+    height: 1.25em;
+    fill: #4b889b;;
+    transition: transform 1s;
+}
+
+.appendix-accordion__entry-header[aria-expanded="true"] .appendix-accordion__entry-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.appendix-accordion__entry-panel {
+    height: auto;
+    overflow: hidden;
+    transition: height 1s;
+}
+
+.appendix-accordion__entry-panel--collapsed {
+    visibility: hidden;
+    transition: height 1s, visibility 0s 1s;
+}
+
+/* feature-index-entry */
+.feature-index-entry {
+    padding-left: 16px;
+}
+
+@media (min-width:900px) {
+    .feature-index-entry {
+        padding-left: 24px;
+    }
+}
+
+.feature-index-entry__ref {
+    margin-bottom: 16px;
+}
+
+.feature-index-entry__ref-name {
+    font-style: italic;
+}
+
+.feature-index-entry__ref-link {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* profile */
+.profile {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width:480px) {
+    .profile {
+        max-height: 200px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width:900px) {
+    .profile {
+        max-height: 267px;
+    }
+}
+
+.profile__img {
+    height: 200px;
+    margin: 0 0 16px 0;
+}
+
+@media (min-width:480px) {
+    .profile__img {
+        margin: 0 16px 0 0;
+    }
+}
+
+@media (min-width:900px) {
+    .profile__img {
+        margin: 0 32px 0 0;
+        height: auto;
+    }
+}
+
+.profile__description {
+    width: 100%;
+    max-height: inherit;
+    line-height: 1.34;
+    overflow: auto;
+}
+
+@media (min-width:900px) {
+    .profile__description {
+        padding-right: 16px;
+        text-align: right;
+    }
+}
+
+.profile__description p {
+    margin-top: 0;
+}
+
+/* tree-viewer */
+.tree-viewer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+.tree-viewer__svg-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.tree-viewer svg {
+    width: 100%;
+    height: 100%;
+}
+
+.tree-viewer__species-anchor--active text {
+    outline: 1px solid #003b4c;
+}
+
+.tree-viewer__pop-up {
+    position: absolute;
+    width: fit-content;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-shadow: #363636bf 5px 8px 7px 1px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    font-size: 1em;
+    overflow: hidden;
+    cursor: default;
+}
+
+.tree-viewer__pop-up--hidden {
+    display: none;
+}
+
+.tree-viewer__pop-up-title {
+    margin: 0;
+    padding: 5px 22px;
+    background: #dcdcdc;
+    color: #000;
+    font-size: 1.375em;
+    text-align: center;
+}
+
+.tree-viewer__pop-up-body {
+    padding: 8px 16px;
+    overflow: auto;
+}
+
+.tree-viewer__pop-up-body-header {
+    margin: 0;
+    color: #000;
+    font-size: 1.15em;
+}
+
+.tree-viewer__pup-up-list {
+    padding-left: 10px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.tree-viewer__pup-up-entry {
+    margin: 8px 0;
+}
+
+.tree-viewer__pup-up-entry::marker {
+    color: #000;
+}
+
+.tree-viewer__pup-up-link {
+    color: #325c69;
+    text-decoration: underline;
+}
+
+.tree-viewer__zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-sizing: border-box;
+    width: 30px;
+    height: 70px;
+    border: 3px solid #363636;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 2px #252525;
+    display: flex;
+    flex-direction: column;
+    background: #4b889b;
+    overflow: hidden;
+}
+
+.tree-viewer__zoom-btn {
+    flex: 1;
+    margin: 0;
+    padding: 3px;
+    border: none;
+    box-shadow: inset 0px 0px 3px 0px #ffffff4d;
+    background: none;
+    fill: #fff;
+}
+
+.tree-viewer__zoom-btn:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+/* references */
+.references a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* about-entry */
+.about-entry {
+    line-height: 1.34;
+}
+
+.about-entry a {
+    color: #5caac5;
+    text-decoration: underline;
+}
+
+/* download-btn */
+.download-btn {
+    margin: 32px 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #24788f;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+@media (min-width:900px) {
+    .download-btn {
+        width: 380px;
+    }
+}
+
+/* tree-viewer-fs-confirm */
+.tree-viewer-fs-confirm__prompt {
+    margin: 0 0 1em 0;
+    font-size: 1.75em;
+    color: #000;
+}
+
+.tree-viewer-fs-confirm__btn-container {
+    float: right;
+}
+
+.tree-viewer-fs-confirm__btn {
+    margin: 0 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #15404e;
+    font-size: 1.25em;
 }

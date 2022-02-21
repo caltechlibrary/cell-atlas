@@ -3,7 +3,6 @@ title: Infection
 species: Caulobacter crescentus 
 doi: 10.22002/D1.1596
 video: 10_6a_Ccrescentus.mp4
-videoAlt: 10_6a.png
 collector: Elizabeth Wright
 ---
 

@@ -3,7 +3,6 @@ title: Tubes
 species: Helicobacter pylori 
 doi: 10.22002/D1.1582
 video: 9_3a_Hpylori.mp4
-videoAlt: 9_3a.png
 collector: Yi-Wei Chang
 ---
 

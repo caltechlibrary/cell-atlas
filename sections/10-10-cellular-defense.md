@@ -1,11 +1,9 @@
 ---
 title: Cellular Defense
 doi: 10.22002/D1.1595
-videoTitle: Shewanella oneidensis
+species: Shewanella oneidensis
 video: 10_10_Soneidensis.mp4
-videoAlt: 10_10.png
 collector: Lauren Ann Metskas
-subsections: []
 description: Bacteria like Shewanella oneidensis may use outer membrane vesicles as decoys to prevent infection by viruses like myophage
 ---
 

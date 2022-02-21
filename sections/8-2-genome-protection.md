@@ -1,11 +1,9 @@
 ---
 title: Genome Protection
 doi: 10.22002/D1.1554
-videoTitle: Helicobacter pylori
+species: Helicobacter pylori
 video: 8_2_Hpylori.mp4
-videoAlt: 8_2.png
 collector: Yi-Wei Chang
-subsections: []
 description: In stationary phase, bacteria like Helicobacter pylori protect their genome with RecA, which forms nucleoprotein complexes and repairs DNA damage
 ---
 

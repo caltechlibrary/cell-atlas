@@ -1,9 +1,8 @@
 ---
 title: Surface Layer Variety
 doi: 10.22002/D1.1356
-videoTitle: Sulfolobus solfataricus
+species: Sulfolobus solfataricus
 video: 2_7_Ssolfataricus.mp4
-videoAlt: 2_7.png
 collector: Lu Gan
 subsections: ['methylomicrobium-alcaliphilum', 'clostridium-thermocellum', 'nitrosopumilus-maritimus', 'methanoregula-formicica']
 description: Protein surface layers look very different on various diderm and monoderm bacteria and archaea, like Sulfolobus solfataricus, N. maritimus or M. formicica.

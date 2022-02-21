@@ -1,11 +1,9 @@
 ---
 title: Noncontractile Tails
 doi: 10.22002/D1.1588
-videoTitle: Shewanella oneidensis
+species: Shewanella oneidensis
 video: 10_3_Soneidensis.mp4
-videoAlt: 10_3.png
 collector: Poorna Subramanian
-subsections: []
 description: Viruses like siphophage use long, non-contractile tails to deliver their genomes into bacteria like Shewanella oneidensis
 ---
 

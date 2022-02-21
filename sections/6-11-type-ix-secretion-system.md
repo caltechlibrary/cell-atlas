@@ -1,11 +1,9 @@
 ---
 title: Type IX Secretion System
 doi: 10.22002/D1.1535
-videoTitle: Flavobacterium johnsoniae
+species: Flavobacterium johnsoniae
 video: 6_11_Fjohnsoniae.mp4
-videoAlt: 6_11.png
 collector: Gregory Henderson
-subsections: []
 description: Flavobacterium johnsoniae bacteria use machinery including a type IX secretion system, a periplasmic track, and surface adhesins to glide across surfaces
 ---
 

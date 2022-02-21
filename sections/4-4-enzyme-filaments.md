@@ -1,9 +1,8 @@
 ---
 title: Enzyme Filaments
 doi: 10.22002/D1.1493
-videoTitle: Clostridium thermocellum
+species: Clostridium thermocellum
 video: 4_5_Cthermocellum.mp4
-videoAlt: 4_5.png
 collector: Elitza Tocheva
 subsections: ['adhe-spirosome-structure']
 description: Polymerization can regulate enzyme activity, and provide cytoskeletal filaments, for bacteria like Clostridium thermocellum

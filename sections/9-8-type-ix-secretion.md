@@ -1,11 +1,9 @@
 ---
 title: Type IX Secretion
 doi: 10.22002/D1.1578
-videoTitle: Porphyromonas gingivalis
+species: Porphyromonas gingivalis
 video: 9_8_Pgingivalis.mp4
-videoAlt: 9_8.png
 collector: Poorna Subramanian
-subsections: []
 description: Porphyromonas gingivalis bacteria use a type IX secretion system to cover themselves in gingipains, which cause the host tissue damage of periodontitis
 ---
 

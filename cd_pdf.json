@@ -1,0 +1,95 @@
+{
+  "descriptions": [
+    {
+      "descriptionType": "Abstract",
+      "description": "PDF format of version 2.1 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
+    }
+  ],
+  "relatedIdentifiers": [
+    {
+      "relatedIdentifier":
+      "https://github.com/caltechlibrary/cell-atlas/releases/tag/v2.1",
+      "relationType": "IsSupplementTo",
+      "relatedIdentifierType": "URL"
+    }
+  ],
+  "resourceType": {
+    "resourceTypeGeneral": "Dataset"
+  },
+  "rightsList": [
+    {
+      "rights": "CC-BY-NC",
+      "rightsURI": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "Atlas of Bacterial and Archaeal Cell Structure"
+    },
+    {
+      "subject": "CryoEM"
+    },
+    {
+      "subject": "Jensen Lab"
+    }
+  ],
+  "version": "v2.1",
+  "titles": [
+    {
+      "title": "PDF version the Atlas of Bacterial and Archaeal Cell Structure"
+    }
+  ],
+  "dates": [
+    {
+      "date": "2021-12-17",
+      "dateType": "Issued"
+    }
+  ],
+  "publicationYear": "2021",
+  "publisher": "CaltechDATA",
+  "creators": [
+    {
+      "affiliations": [
+        "Caltech"
+      ],
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "0000-0003-2312-4746",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ],
+      "creatorName": "Oikonomou, Catherine"
+    },
+    {
+      "affiliations": [
+        "Caltech"
+      ],
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "0000-0003-1556-4864",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ],
+      "creatorName": "Jensen, Grant"
+    }
+  ],
+  "contributors":[
+    {
+      "affiliations": [
+        "Caltech Library"
+      ],
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "0000-0001-9266-5146",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ],
+      "contributorName": "Morrell, Thomas E",
+      "contributorType": "Data Manager"
+    },
+    {
+      "contributorName": "Badie, Kian",
+      "contributorType": "Project Member"
+    }
+  ]
+}

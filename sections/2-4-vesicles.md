@@ -1,9 +1,8 @@
 ---
 title: Vesicles
 doi: 10.22002/D1.1474
-videoTitle: Myxococcus xanthus
+species: Myxococcus xanthus
 video: 2_4_Mxanthus.mp4
-videoAlt: 2_4.png
 collector: Yi-Wei Chang
 subsections: ['pearled-vesicles', 'tubular-vesicles', 'cytoplasmic-vesicles', 'cytoplasmic-vesicle-variety', 'archaeal-vesicles']
 description: Vesicles bud from membranes of bacteria like Myxococcus xanthus and Borrelia burgdorferi and archaea like Halomicrobium mukohataei.

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    ${head.html()}
+
+    <body class="page preload">
+        ${header.html()}
+        ${nav.html()}
+
+        <div class="page__content-container">
+          ${if(typeChapter)}
+            ${chapter.html()}
+          ${elseif(typeSection)}
+            ${section/section.html()}
+          ${elseif(typeAppendix)}
+            ${appendix/appendix.html()}
+          ${endif}
+        </div>
+
+        ${mobile-controls.html()}
+        ${footer.html()}
+
+        <script src="js/script.js"></script>
+        <script src="js/NavWidget.js"></script>
+        <script src="js/nav-controller.js"></script>
+        <script src="js/lunr/lunr.min.js"></script>
+        ${if(offline)}${else} <script src="js/SearchWidget.js"></script> ${endif}
+        ${if(offline)}${else} <script src="js/search.js"></script> ${endif}
+        <script src="js/MobileControls.js"></script>
+        <script src="js/navShortcuts.js"></script>
+        ${if(typeChapter)}
+          <script src="js/ProgressBar.js"></script>
+          <script src="js/Footer.js"></script>
+          <script src="js/footer-controller.js"></script>
+        ${elseif(typeSection)}
+          <script src="js/VideoPlayer.js"></script>
+          <script src="js/CompSlider.js"></script>
+          <script src="js/MediaViewer.js"></script>
+          <script src="js/NarrationPlayer.js"></script>
+          <script src="js/SectionText.js"></script>
+          <script src="js/Modal.js"></script>
+          ${if(summaryData)} <script src="js/SummaryMenu.js"></script> ${endif}
+          ${if(offline)}${else} <script src="js/bio-pv/bio-pv.min.js"></script> ${endif}
+          ${if(offline)}${else} <script src="js/ProteinViewer.js"></script> ${endif}
+          <script src="js/ProgressBar.js"></script>
+          <script src="js/Footer.js"></script>
+          <script src="js/footer-controller.js"></script>
+          <script src="js/section-controller.js"></script>
+        ${elseif(typeAppendix)}
+          <script src="js/AppendixAccordion.js"></script>
+          <script src="js/TreeViewer.js"></script>
+          <script src="js/MediaViewer.js"></script>
+          <script src="js/Modal.js"></script>
+          <script src="js/appendix-controller.js"></script>
+        ${endif}
+    </body>
+
+</html>

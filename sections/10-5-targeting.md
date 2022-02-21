@@ -1,11 +1,9 @@
 ---
 title: Targeting
 doi: 10.22002/D1.1590
-videoTitle: Escherichia coli
+species: Escherichia coli
 video: 10_5_Ecoli.mp4
-videoAlt: 10_5.png
 collector: Yi-Wei Chang
-subsections: []
 description: Viruses like MS2 leviphage target the competence pili of bacteria like Escherichia coli, injecting their genomes into the DNA-conducting channel
 ---
 

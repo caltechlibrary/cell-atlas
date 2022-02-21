@@ -3,7 +3,6 @@ title: Microtubules
 species: Prosthecobacter vanneervenii 
 doi: 10.22002/D1.1487
 video: 3_6a_Pvanneervenii.mp4
-videoAlt: 3_6a.png
 collector: Martin Pilhofer
 ---
 

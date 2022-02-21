@@ -1,9 +1,8 @@
 ---
 title: Head Fibers
 doi: 10.22002/D1.1591
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 10_6_Ccrescentus.mp4
-videoAlt: 10_6.png
 collector: Elizabeth Wright
 subsections: ['phicb13-infection']
 description: Viruses like φCb13 siphophage wrap their head fibers around the flagella of Caulobacter crescentus. Flagellar rotation draws them down to their receptors

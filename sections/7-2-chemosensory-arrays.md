@@ -1,9 +1,8 @@
 ---
 title: Chemosensory Arrays
 doi: 10.22002/D1.1546
-videoTitle: Salmonella typhimurium
+species: Salmonella typhimurium
 video: 7_2_Styphimurium.mp4
-videoAlt: 7_2.png
 collector: Morgan Beeby
 subsections: ['chemosensory-array-architecture']
 description: The hexagonal lattice of chemosensory arrays in archaea and bacteria like Salmonella typhimurium amplifies signal, making them highly sensitive

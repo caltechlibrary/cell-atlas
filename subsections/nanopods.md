@@ -3,7 +3,6 @@ title: Nanopods
 species: Delftia acidovorans 
 doi: 10.22002/D1.1366
 video: 2_6a_Dacidovorans.mp4
-videoAlt: 2_6a.png
 collector: Elitza Tocheva
 ---
 

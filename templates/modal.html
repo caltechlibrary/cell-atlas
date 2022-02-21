@@ -1,0 +1,43 @@
+<div id="${it.id}" class="modal modal--hidden" tabindex="-1" role="dialog" aria-labelledby="${it.title}-header" aria-modal="true">
+    <div class="modal__modal-container ${if(it.feedback)}modal--feedback${endif}">
+        ${if(it.treeViewerFsConfirm)}${else}
+            <button class="modal__exit-btn">
+                <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
+            </button>
+        ${endif}
+
+        ${if(it.hasMainMediaViewer)}
+            ${it.mediaViewer:media-viewer.html()}
+        ${endif}
+
+        ${if(it.citation)}
+            ${it.citation:section/vid-citation.html()}
+        ${endif}
+
+        ${if(offline)}${else}
+            ${if(it.viewer)}
+                ${it.viewer:media-viewer.html()}
+            ${endif}
+        ${endif}
+
+        ${if(it.feedback)}
+            ${appendix/feedback.html()}
+        ${elseif(it.treeViewerFsConfirm)}
+            ${appendix/tree-viewer-fs-confirm.html()}
+        ${else}
+            <div class="modal__content-container" tabindex="-1">
+                ${it.narration:section/narration-player.html()}
+                <button class="modal__toggle-narration-btn ${if(it.narration)}${else}modal__toggle-narration-btn--postponed${endif}" aria-label="Open narration player">
+                    <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
+                    <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
+                </button>
+                <div class="modal__text-container">
+                    <h1 id="${it.title}-header" class="modal__header">${it.title}</h1>
+                    <div class="modal__text-content">
+                        ${it.body}
+                    </div>
+                </div>
+            </div>
+        ${endif}
+    </div>
+</div>

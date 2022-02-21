@@ -1,9 +1,8 @@
 ---
 title: Type V Secretion
 doi: 10.22002/D1.1575
-videoTitle: Escherichia coli
+species: Escherichia coli
 video: 9_5_Ecoli.mp4
-videoAlt: 9_5.png
 collector: Poorna Subramanian
 subsections: ['cdi-mechanism']
 description: Bacteria like Escherichia coli use type V secretion systems to inhibit neighboring cell's growth through contact-dependent inhibition

@@ -1,0 +1,33 @@
+<div class="comp-slider comp-slider--hidden ${if(it.isSection)}comp-slider--main-section${else}comp-slider--subsection${endif}" ${if(offline)}data-offline="true"${endif}>
+    <picture class="comp-slider__before-picture" data-src="${it.imgName}_before">
+        ${if(offline)}${else} <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.imgName}_before.webp"> ${endif}
+        <source type="image/jpeg" srcset="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_before.jpg">
+        <img 
+            class="comp-slider__before-img ${if(it.isSection)}comp-slider__before-img--main-section${else}comp-slider__before-img--subsection${endif}"
+            src="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_before.jpg"
+        >
+    </picture>
+    <div class="comp-slider__after-img-container">
+        <picture class="comp-slider__after-picture" data-src="${it.imgName}_after">
+            ${if(offline)}${else} <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.imgName}_after.webp"> ${endif}
+            <source type="image/jpeg" srcset="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_after.jpg">
+            <img 
+                class="comp-slider__after-img"
+                src="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_after.jpg"
+            >
+        </picture>
+    </div>
+    <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+    <div class="comp-slider__slider">
+        <div class="comp-slider__slider-btn">
+            <div class="comp-slider__slider-btn-arrow">${svg/left-arrow.svg()}</div>
+            <div class="comp-slider__slider-btn-arrow">${svg/right-arrow.svg()}</div>
+        </div>
+    </div>
+    <div class="comp-slider__fail-msg-container comp-slider__fail-msg-container--hidden">
+        <div class="comp-slider__fail-msg">
+            <div class="comp-slider__fail-msg-icon">${svg/noun_BrokenImage.svg()}</div>
+            <p class="comp-slider__fail-msg-text">Image failed to load. Please try refreshing.</p>
+        </div>
+    </div>
+</div>

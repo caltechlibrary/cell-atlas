@@ -1,11 +1,9 @@
 ---
 title: FtsZ
 doi: 10.22002/D1.1516
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 5_10_Ccrescentus.mp4
-videoAlt: 5_10.png
 collector: Qing Yao
-subsections: []
 description: Archaea and bacteria like Caulobacter crescentus use cytoskeletal filaments of FtsZ to constrict their cell envelope during cytokinesis
 ---
 

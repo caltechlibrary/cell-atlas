@@ -1,11 +1,9 @@
 ---
 title: Monoderm Spores
 doi: 10.22002/D1.1559
-videoTitle: Bacillus subtilis
+species: Bacillus subtilis
 video: 8_7_Bsubtilis.mp4
-videoAlt: 8_7.png
 collector: Elitza Tocheva
-subsections: []
 description: Spores of bacteria like Bacillus subtilis are encased in two membranes, a thick cortex, and a multilayered protein coat to protect from harsh conditions
 ---
 

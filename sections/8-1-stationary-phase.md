@@ -1,11 +1,9 @@
 ---
 title: Stationary Phase
 doi: 10.22002/D1.1553
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 8_1_Ccrescentus.mp4
-videoAlt: 8_1.png
 collector: Prabha Dias
-subsections: []
 description: Archaea and bacteria like Caulobacter crescentus enter a non-growing stationary phase to try to survive adverse conditions
 ---
 

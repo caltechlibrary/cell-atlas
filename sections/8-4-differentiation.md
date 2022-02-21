@@ -1,9 +1,8 @@
 ---
 title: Differentiation
 doi: 10.22002/D1.1556
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 8_4_Ccrescentus.mp4
-videoAlt: 8_4.png
 collector: Zhuo Li
 subsections: ['holdfast']
 description: Caulobacter crescentus bacteria have a dimorphic lifecycle, dividing asymmetrically into a surface-attached stalked cell and a motile swarmer cell

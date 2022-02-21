@@ -1,9 +1,8 @@
 ---
 title: Putting It All Together
 doi: 10.22002/D1.1472
-videoTitle: Bdellovibrio bacteriovorus
+species: Bdellovibrio bacteriovorus
 video: 1_10_Bbacteriovorus.mp4
-videoAlt: 1_10.png
 collector: Yi-Wei Chang
 subsections: ['clem', 'difference-mapping']
 description: How biology techniques, including CLEM and cryo-ET mutant analysis, can combine to create maps of archaea and bacteria like Bdellovibrio bacteriovorus

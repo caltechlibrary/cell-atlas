@@ -3,7 +3,6 @@ title: Wall architecture
 species: Bacillus subtilis 
 doi: 10.22002/D1.1360
 video: 2_2a_Bsubtilis.mp4
-videoAlt: 2_2a.png
 collector: Morgan Beeby
 ---
 

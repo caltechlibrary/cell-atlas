@@ -1,11 +1,9 @@
 ---
 title: Asymmetric Division
 doi: 10.22002/D1.1514
-videoTitle: Agrobacterium tumefaciens
+species: Agrobacterium tumefaciens
 video: 5_8_Atumefaciens.mp4
-videoAlt: 5_8.png
 collector: Elitza Tocheva
-subsections: []
 description: Some bacteria like Agrobacterium tumefaciens reproduce by budding, with division producing two cells of unequal size
 ---
 

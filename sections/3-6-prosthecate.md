@@ -1,9 +1,8 @@
 ---
 title: Prosthecate
 doi: 10.22002/D1.1482
-videoTitle: Verrucomicrobium spinosum
+species: Verrucomicrobium spinosum
 video: 3_6_Vspinosum.mp4
-videoAlt: 3_6.png
 collector: Martin Pilhofer
 subsections: ['bactofilin', 'bacterial-microtubules']
 description: Bactofilin and bacterial microtubules are part of the cytoskeleton that lets bacteria like star-shaped Verrucomicrobium spinosum extend prosthecae.

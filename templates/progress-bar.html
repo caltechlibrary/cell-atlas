@@ -1,0 +1,33 @@
+<div class="progress-bar progress-bar--shelved" data-percent="${it.progPercent}">
+    <div class="progress-bar__progress-bar-container">
+        <progress 
+            class="progress-bar__progress-el" 
+            value="${it.currentPageNum}" 
+            max="${it.totalPages}" 
+            aria-valuetext="Page ${it.currentPageNum} of ${it.totalPages}" 
+            aria-valuenow="${it.currentPageNum}"
+        ></progress>
+        ${for(it.chapterPageNums)}
+            <span class="progress-bar__chapter-indicator" style="left:${it.progPercent}%"></span>
+        ${endfor}
+    </div>
+    <div class="progress-bar__label-container">
+        <div 
+            class="progress-bar__current-position-indicator" 
+            style="left:${it.progPercent}%"
+            aria-describedby="progress-tooltip"
+            aria-label="Current progress indicator"
+            tabindex="0"
+        >
+            ${svg/caret.svg()}
+            <div 
+                class="progress-bar__progress-pop-up progress-bar__progress-pop-up--hidden"
+                id="progress-tooltip"
+                role="tooltip"
+            >
+                <span>${it.displayPercent}%</span>
+                <span>Page ${it.currentPageNum} of ${it.totalPages}</span>
+            </div>
+        </div>
+    </div>
+</div>

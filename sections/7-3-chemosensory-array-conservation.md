@@ -1,11 +1,9 @@
 ---
 title: Chemosensory Array Conservation
 doi: 10.22002/D1.1547
-videoTitle: Methanospirillum hungatei
+species: Methanospirillum hungatei
 video: 7_3_Mhungatei.mp4
-videoAlt: 7_3.png
 collector: Ariane Briegel
-subsections: []
 description: Chemosensory arrays have the same architecture in archaea like Methanospirillum hungatei as in bacteria: a tightly-packed hexagonal lattice of receptors
 ---
 

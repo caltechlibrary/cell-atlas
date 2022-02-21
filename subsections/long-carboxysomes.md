@@ -3,7 +3,6 @@ title: Length
 species: Hydrogenovibrio crunogenus 
 doi: 10.22002/D1.1501
 video: 4_7b_Hcrunogenus.mp4
-videoAlt: 4_7b.png
 collector: Cristina Iancu
 ---
 

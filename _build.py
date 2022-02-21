@@ -1,732 +1,509 @@
-# This script is a bit unorganized currently. Will be rewritten soon.
-
-import subprocess
-import json
 import os
 import shutil
-import re 
-import csv
+import subprocess
+import json
+import re
 import copy
 
-SITEDIR = "site"
-ZIPDIR_LARGE = "cell_atlas_offline"
-ZIPDIR_SMALL = "cell_atlas_offline_lite"
-
-def markdownToHTML(filen):
-    process = subprocess.run(
-        args=[
-            "pandoc", 
-            "--from=markdown", 
-            "--to=html", 
-            filen], 
-            stdout=subprocess.PIPE
-    )
-    return (process.stdout).decode("utf-8")
-
-def getMarkdownMetadata(file):
-    process = subprocess.run(
-        args=[
-            "pandoc", 
-            "--template=templates/metadata.tmpl", 
-            file], 
-            stdout=subprocess.PIPE
-    )
-    return json.loads(process.stdout)
-
-def writePage(siteDir, sourceFile, template, pageName, metadata):
-    # Add site navigation to metadata
-    metadata["nav"] = siteNav
-    metadata["navData"] = { "nav": True }
-    # Add ID for the video player if there is one
-    if "doi" in metadata or "video" in metadata: 
-        metadata["vidMetadata"] = {}
-        metadata["vidMetadata"]["isSection"] = True
-        metadata["vidMetadata"]["video"] = metadata["video"]
-        metadata["vidMetadata"]["vidName"] = metadata["video"].split(".")[0]
-        metadata["vidMetadata"]["thumbnail"] = metadata["thumbnail"]
-        metadata["vidMetadata"]["vid"] = True
-        if "sliderImgName" in metadata:  
-            metadata["vidMetadata"]["sliderImgName"] = metadata["sliderImgName"]
-            metadata["vidMetadata"]["img"] = True
-            metadata["vidMetadata"]["hasTabMenu"] = True
-        else:
-            metadata["vidMetadata"]["hasTabMenu"] = False
-        if "doi" in metadata:
-            metadata["vidMetadata"]["species"] = metadata["videoTitle"]
-            if "/" in metadata["videoTitle"]:
-                metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].split("/")[0].strip().replace(" ", "-")
-            else:
-                metadata["vidMetadata"]["speciesId"] = metadata["videoTitle"].replace(" ", "-")
-            metadata["vidMetadata"]["doi"] = metadata["doi"]
-            metadata["vidMetadata"]["collector"] = metadata["collector"]
-
-        if "sections/" in sourceFile:
-            metadata["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]
-            metadata["vidMetadata"]["playerId"] = "player-" +  sourceFile[sourceFile.index("/")+1 : sourceFile.index(".")]
-        else:
-            metadata["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
-            metadata["vidMetadata"]["playerId"] = "player-" +  sourceFile[:sourceFile.index(".")]
-    
-    # Check if collector profile exist in scientist profiles
-    addCollectorData(metadata, "collector")
-    # create temp file with inserted references/profiles
-    sourceFormatted = insertLinks(sourceFile, "section.md")
-    if "subsections" in metadata and metadata["subsections"]:
-        # Aggregate "learn more" subsection content associated with this section
-        metadata["subsectionsData"] = []
-        for subsection in metadata["subsections"]:
-            metadata["subsectionsData"].append(processSubsection("subsections/{}.md".format(subsection), pageName, metadata))
-    # create temp metadata file to pass to pandoc
-    with open("metadata.json", "w", encoding='utf-8') as f:
-        json.dump(metadata, f)
-
-    if("appendixTypeDownload" not in metadata):
-        writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_SMALL)
-        writePageOffline(sourceFormatted, template, pageName, metadata, ZIPDIR_LARGE)
-
-    subprocess.run([
-        "pandoc", 
-        "--from=markdown", 
-        "--to=plain", 
-        "--output=sectionPlain.txt",
-        sourceFormatted.name
-    ])
-    with open("sectionPlain.txt", "r", encoding="utf-8") as f:
-        document = {}
-        document["id"] = pageName
-        if "title" in metadata: 
-            document["title"] = metadata["title"]
-            if "chapter" in metadata:
-                if "section" in metadata:
-                    document["titlePrefix"] = "{}.{}".format(metadata["chapter"], metadata["section"])
-                else:
-                    document["titlePrefix"] = metadata["chapter"]
-        document["content"] = f.read()
-        if "videoTitle" in metadata: document["species"] = metadata["videoTitle"]
-        if "collector" in metadata: document["collector"] = metadata["collector"]
-        searchData[document["id"]] = document
-    os.remove("sectionPlain.txt")
-
-    if "subsectionsData" in metadata:
-        for subsectionData in metadata["subsectionsData"]:
-            with open("subsectionHTML.html", "w", encoding="utf-8") as f:
-                f.write(subsectionData["html"])
-            subprocess.run([
-                "pandoc", 
-                "--from=html", 
-                "--to=plain", 
-                "--output=subsectionPlain.txt",
-                "subsectionHTML.html"
-            ])
-            os.remove("subsectionHTML.html")
-            with open("subsectionPlain.txt", "r", encoding="utf-8") as f:
-                document = {}
-                document["id"] = "{}#{}".format(pageName, subsectionData["id"])
-                if "title" in subsectionData: 
-                    document["title"] = subsectionData["title"]
-                    if "chapter" in metadata:
-                        document["titlePrefix"] = "{}.{} {}:".format(metadata["chapter"], metadata["section"], metadata["title"])
-                if "structures" in subsectionData:
-                    document["structure"] = ""
-                    for structure in subsectionData["structures"]:
-                        document["structure"] = document["structure"] + structure["text"]
-                document["content"] = f.read()
-                if "species" in subsectionData: document["species"] = subsectionData["species"]
-                if "collector" in subsectionData: document["collector"] = subsectionData["collector"]
-                searchData[document["id"]] = document
-            os.remove("subsectionPlain.txt")
-
-    pandocArgs = [
-        "pandoc", 
-        "--from=markdown", 
-        "--to=html", 
-        "--output={}/{}.html".format(siteDir, pageName), 
-        "--metadata-file=metadata.json", 
-        "--template=templates/{}.tmpl".format(template)
-    ]
-    if("appendixTypeReferences" in metadata):
-        pandocArgs = pandocArgs + [
-            "--from=csljson", 
-            "--citeproc", 
-            "--csl=springer-socpsych-brackets.csl"
-        ]
-    pandocArgs.append(sourceFormatted.name)
-    subprocess.run(pandocArgs)
-    # remove temp metadata and source file file once we are done using it
-    os.remove("metadata.json")
-    os.remove(sourceFormatted.name)
-
-def writePageOffline(sourceFormatted, template, pageName, metadata, outDir):
-    offlineMetadata = copy.deepcopy(metadata)
-    pandocArgs = [
-        "pandoc", 
-        "--from=markdown", 
-        "--to=html", 
-        "--output={}/{}.html".format(outDir, pageName), 
-        "--metadata-file=metadataOffline.json", 
-        "--metadata=offline",
-        "--template=templates/{}.tmpl".format(template)
-    ]
-
-    if(outDir == ZIPDIR_SMALL):
-        if("doi" in offlineMetadata or "video" in offlineMetadata):
-            videoName = None
-            if("doi" in offlineMetadata):
-                videoName = movieDict[offlineMetadata["doi"]]
-            elif("video" in offlineMetadata):
-                videoName = offlineMetadata["video"]
-            smallVideoName = videoName.split(".")[0] + "_480p." + videoName.split(".")[1]
-            offlineMetadata["vidMetadata"]["video"] = smallVideoName
-    else:
-        if("doi" in offlineMetadata):
-            offlineMetadata["vidMetadata"]["video"] = movieDict[offlineMetadata["doi"]]
-
-    if "subsectionsData" in offlineMetadata and offlineMetadata["subsectionsData"]:
-        for i in range(len(offlineMetadata["subsectionsData"])):
-            if(outDir == ZIPDIR_SMALL):
-                if("doi" in offlineMetadata["subsectionsData"][i] or "video" in offlineMetadata["subsectionsData"][i]):
-                    subVideoName = None
-                    if("doi" in offlineMetadata["subsectionsData"][i]):
-                        subVideoName = movieDict[offlineMetadata["subsectionsData"][i]["doi"]]
-                    elif("video" in offlineMetadata["subsectionsData"][i]):
-                        subVideoName = offlineMetadata["subsectionsData"][i]["video"]
-                    offlineMetadata["subsectionsData"][i]["video"] = subVideoName.split(".")[0] + "_480p." + subVideoName.split(".")[1]
-            else:
-                if("doi" in offlineMetadata["subsectionsData"][i]):
-                    offlineMetadata["subsectionsData"][i]["video"] = movieDict[offlineMetadata["subsectionsData"][i]["doi"]]
-    
-    with open("metadataOffline.json", "w", encoding='utf-8') as f:
-        json.dump(offlineMetadata, f)
-    if("appendixTypeReferences" in offlineMetadata):
-        pandocArgs = pandocArgs + [
-            "--from=csljson", 
-            "--citeproc", 
-            "--csl=springer-socpsych-brackets.csl"
-        ]
-    pandocArgs.append(sourceFormatted.name)
-    subprocess.run(pandocArgs)
-    os.remove("metadataOffline.json")
-
-def processSubsection(subsectionFile, pageName, parentData):
-    metadata = getMarkdownMetadata(subsectionFile)
-    metadata["id"] = subsectionFile.split("/")[-1][:-3]
-    metadata["collectorProfile"] = False
-    metadata["isSubsection"] = True
-    if "video" in metadata:
-        metadata["vidName"] = metadata["video"].split(".")[0]
-        currVideoName = metadata["video"].split(".")[0]
-        subsectionName = currVideoName.split("_")[-1]
-        if subsectionName.isnumeric():
-            metadata["thumbnail"] = "{}_thumbnail".format(currVideoName)
-        else:
-            metadata["thumbnail"] = "{}_thumbnail".format("_".join(currVideoName.split(".")[0].split("_")[:-1]))
-        addSliderData(metadata, currVideoName)
-    if("doi" in metadata):
-        metadata["video"] = movieDict[metadata["doi"]]
-        metadata["vidName"] = metadata["video"].split(".")[0]
-        addSliderData(metadata, metadata["video"])
-    if("species" in metadata): 
-        if "+" in metadata["species"]:
-            addSpeciesToDict(metadata["species"].split("+")[0].strip(), "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
-            metadata["speciesId"] = metadata["species"].split("+")[0].strip().replace(" ", "-")
-        else:
-            addSpeciesToDict(metadata["species"], "{}.html#{}".format(pageName, metadata["id"]), parentData["chapter"], parentData["section"], "{}: {}".format(parentData["title"], metadata["title"]))
-            metadata["speciesId"] = metadata["species"].replace(" ", "-")
-
-    # Check if collector profile exist in in scientist profiles
-    addCollectorData(metadata, "collector")
-    addCollectorData(metadata, "source")
-    # Format any references in the metadata (right now, I'm just going to hard code it to the source fields of schematics)
-    if("source" in metadata): 
-        sourceFormatted = insertRefLinks(metadata["source"], isSchematic=True)
-        metadata["sources"] = []
-        
-        if "[" not in sourceFormatted or "]" not in sourceFormatted:
-            metadata["sources"].append({ "text": sourceFormatted, "link": "B-scientist-profiles.html#{}".format(sourceFormatted.replace(" ", "")) })
-        else:
-            pare = re.compile(r"\(([^\)]+)\)")
-            bracket = re.compile(r"\[(.*?)\]")
-            for match in re.finditer(pare, sourceFormatted):
-                matchString = match.group()
-                if "D-references" in matchString:
-                    metadata["sources"].append({ "link": matchString[1:len(matchString)-1] })
-            i = 0
-            for match in re.finditer(bracket, sourceFormatted):
-                matchString = match.group()
-                metadata["sources"][i]["text"] = matchString[1:len(matchString)-1]
-                i = i + 1
-        if(len(metadata["sources"]) >= 1): metadata["sources"][-1]["last"] = True
-    # Add player id for videos
-    if "doi" in metadata or "video" in metadata: 
-        metadata["playerId"] = "player-" + subsectionFile[subsectionFile.index("/")+1 : subsectionFile.index(".")]
-        metadata["vid"] = True
-        if "sliderImgName" in metadata:
-            metadata["img"] = True
-            metadata["hasTabMenu"] = True
-    # Deconstruct preformatted structure data
-    if "structure" in metadata: 
-        metadata["structures"] = []
-        textR = re.compile(r"\>(.*?)\<")
-        link = re.compile(r"\"(.*?)\"")
-        for match in re.finditer(link, metadata["structure"]):
-            matchString = match.group()
-            metadata["structures"].append({ "link": matchString[1:len(matchString)-1] })
-        i = 0
-        for match in re.finditer(textR, metadata["structure"]):
-                matchString = match.group()
-                if matchString != ">, <": 
-                    metadata["structures"][i]["text"] = matchString[1:len(matchString)-1]
-                    if "-" not in metadata["structures"][i]["text"]:
-                        pdbNumber = metadata["structures"][i]["text"].split(" ")[1].lower()
-                        if(pdbNumber != "6s8h"):
-                            metadata["structures"][i]["viewerId"] = pdbNumber
-                            metadata["viewer"] = {
-                                "id": metadata["id"],
-                                "pdb": pdbNumber
-                            }
-                            if(pdbNumber == "3jc8" or pdbNumber == "3dkt" or pdbNumber == "3j31" or pdbNumber == "5tcr" or pdbNumber == "5u3c" or pdbNumber == "6kgx" or pdbNumber == "6o9j"):
-                                metadata["viewer"]["modified"] = True
-                    i = i + 1
-        if(len(metadata["structures"]) >= 1): metadata["structures"][-1]["last"] = True
-
-    if("species" in metadata or "sources" in metadata):
-        metadata["citationAttached"] = True
-
-    if("vid" in metadata or "img" in metadata or "graphic" in metadata):
-        metadata["hasMainMediaViewer"] = True
-
-    sourceFormatted = insertLinks(subsectionFile, "subsection.md")
-    # Return subsection content as html because this will be passed to pandoc as metadata
-    metadata["html"] = markdownToHTML(sourceFormatted.name)
-    os.remove(sourceFormatted.name)
-    return metadata
-
-def createNavData():
-    navData = []
-    navData.append({
-        "title": "Introduction",
-        "page": "introduction"
-    })
-    pageNum = 1
-    for sectionFile in sectionFiles:
-        pageNum = pageNum + 1
-        sectionMetadata = getMarkdownMetadata("sections/{}".format(sectionFile))
-        chapter, navSection, *title = sectionFile[:-3].split("-")
-        if navSection == "0":
-            navChapter = {}
-            navChapter["sections"] = []
-            navChapter["chapter"] = chapter
-            navChapter["title"] = sectionMetadata["title"]
-            navChapter["page"] = chapter + "-" + "-".join(title)
-            navChapter["isChapter"] = "true"
-            navChapter["progressData"] = {
-                "pageNum": pageNum,
-                "progPercent": ((pageNum) / (totalPages)) * 100
-            }
-            navData.append(navChapter)
-        else:
-            sectionEntry = {}
-            sectionEntry["chapter"] = chapter
-            sectionEntry["section"] = navSection
-            sectionEntry["title"] = sectionMetadata["title"]
-            sectionEntry["page"] = sectionFile[:-3]
-            navData[-1]["sections"].append(sectionEntry)
-    navData.append({
-        "title": "Outlook",
-        "page": "outlook",
-        "isChapter": "true",
-        "progressData": {
-            "pageNum": pageNum + 1,
-            "progPercent": ((pageNum + 1) / (totalPages)) * 100
-        },
-        "sections": [{
-            "title": "Keep Looking",
-            "page": "keep-looking"
-        }]
-    })
-    # Add appendix data
-    navData.append({
-        "chapter": "Appendix",
-        "isAppendix": True
-    })
-    navData.append({
-        "chapter": "A",
-        "title": "Feature Index",
-        "page": "A-feature-index"
-    })
-    navData.append({
-        "chapter": "B",
-        "title": "Scientist Profiles",
-        "page": "B-scientist-profiles"
-    })
-    navData.append({
-        "chapter": "C",
-        "title": "Phylogenetic Tree",
-        "page": "C-phylogenetic-tree"
-    })
-    navData.append({
-        "chapter": "D",
-        "title": "References",
-        "page": "D-references"
-    })
-    return navData
-
-def insertLinks(sourceFile, outFile):
-    with open(sourceFile, "r", encoding='utf-8') as f:
-        formattedContent = insertRefLinks(f.read())
-        formattedContent = insertProfileLinks(formattedContent)
-        with open(outFile, "w", encoding='utf-8') as f:
-            f.write(formattedContent)
-            return f
-
-def insertRefLinks(content, isSchematic=False):
-    r = re.compile(r"\[@.*?]")
-    offset = 0
-    for match in re.finditer(r, content):
-        linkStart = match.span()[0]+offset
-        linkEnd = match.span()[1]+offset
-        id = match.group().split("[@")[1].strip(" ]")
-        if id not in bibDict:
-            print("Bib ID {} not found in bibliography data".format(id))
-            continue
-        if bibDict[id] not in usedBibs: usedBibs.append(bibDict[id])
-        link = "D-references.html#ref-{}".format(id)
-        if isSchematic:
-            name = bibDict[id]["author"][0]["family"]
-            etAl = "et al." if len(bibDict[id]["author"]) > 1 else ""
-            year = bibDict[id]["issued"]["date-parts"][0][0]
-            citation = " ".join([name, etAl, "(" + str(year) + ")"])
-            content = content[:linkStart] + "[{}]({})".format(citation, link) + content[linkEnd:]
-            offset = offset + 1 + + len(citation) + len(link) - len(id)
-        else:
-            refNum = str(len(usedBibs)) if bibDict[id] not in usedBibs else str(usedBibs.index(bibDict[id])+1)
-            content = content[:linkStart]+'[['+refNum+']('+link+')]'+content[linkEnd:]
-            offset = offset + 3 + len(refNum) + len(link) - len(id)
-    return content
-
-def insertProfileLinks(content):
-    r = re.compile(r"\[[^\[\]]*\]\(#[^\[\]]*?\)")
-    for match in re.finditer(r, content):
-        linkStart = match.span()[0]
-        linkEnd = match.span()[1]
-        name = match.group().split("]")[0].lstrip("[")
-        if name in profileDict:
-            link = "B-scientist-profiles.html#{}".format(profileDict[name]["id"])
-            anchor = match.group().split("(")[1].rstrip(")")
-            content = content.replace(anchor, link, 1)
-    return content
-
-def addCollectorData(metadata, identifier):
-    if identifier in metadata:
-        if metadata[identifier] in profileDict:
-            metadata["collectorProfile"] = profileDict[metadata[identifier]]["name"]
-            metadata["collectorId"] = profileDict[metadata[identifier]]["id"]
-
-            if "vidMetadata" in metadata:
-                metadata["vidMetadata"]["collectorProfile"] = metadata["collectorProfile"]
-                metadata["vidMetadata"]["collectorId"] = metadata["collectorId"]
-            
-def addSliderData(metadata, videoName):
-    if "noSlider" in metadata: return
-    videoTitle = videoName.split(".")[0]
-    metadata["sliderImgName"] = videoTitle
-
-def addSpeciesToDict(species, pageName, chapter, section, title):
-    speciesObj = {}
-    if(chapter != ""): speciesObj["chapter"] = chapter
-    if(section != ""): speciesObj["section"] = section
-    speciesObj["title"] = title
-    speciesObj["page"] = pageName
-    if(species in speciesDict):
-        speciesDict[species]["speciesObjs"].append(speciesObj)
-    else:
-        speciesDict[species] = {}
-        speciesDict[species]["species"] = species
-        speciesDict[species]["speciesObjs"] = [ speciesObj ]
-        speciesDict[species]["id"] = species.replace(" ", "-")
-
-# function to create directory that will contain compiled content
-# this function will delete `siteDir` argument if the directory already exists. So be careful
-def createSiteDirectory(siteDir, zipDirSmall, zipDirLarge):
-    if os.path.isdir(siteDir):
-        shutil.rmtree(siteDir)
+def createSiteDir(siteDir):
+    if os.path.isdir(siteDir): shutil.rmtree(siteDir)
     os.mkdir(siteDir)
-    shutil.copytree("styles/", "{}/styles/".format(siteDir))
-    shutil.copytree("js/", "{}/js/".format(siteDir))
-    shutil.copytree("img/", "{}/img/".format(siteDir))
+    shutil.copytree("img/", f"{siteDir}/img")
+    shutil.copytree("styles/", f"{siteDir}/styles")
+    shutil.copytree("js/", f"{siteDir}/js")
 
-    if os.path.isdir(zipDirSmall):
-        shutil.rmtree(zipDirSmall)
-    shutil.copytree(siteDir, zipDirSmall)
-    os.mkdir("{}/videos".format(zipDirSmall))
-    if os.path.isdir(zipDirLarge):
-        shutil.rmtree(zipDirLarge)
-    shutil.copytree(siteDir, zipDirLarge)
-    os.mkdir("{}/videos".format(zipDirLarge))
+def createOfflineDir(siteDir, version):
+    createSiteDir(siteDir)
+    shutil.copytree("stillimages/", f"{siteDir}/img/stillimages")
+    shutil.copytree("narration/", f"{siteDir}/audio")
+    if version == "full":
+        shutil.copytree("videos/", f"{siteDir}/videos")
+    elif version == "lite":
+        shutil.copytree("videos-480p/", f"{siteDir}/videos")
 
-# Create rendered site directory
-createSiteDirectory(SITEDIR, ZIPDIR_SMALL, ZIPDIR_LARGE)
-# Create dict of references
-process = subprocess.run(
-    args= [
-        "pandoc", 
-        "--to=csljson", 
-        "AtlasBibTeX.bib"
-    ],
-    stdout=subprocess.PIPE
-)
-bibData = json.loads(process.stdout)
-bibDict = {entry["id"]: entry for entry in bibData}
-# Create array of references that will be built as book is built
-usedBibs = []
-# Get all section files
-sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
-# Create nav menu data
-totalExtraPages = 3
-totalPages = len(sectionFiles) + totalExtraPages
-siteNav = createNavData()
-chapterPageValues = [ siteNav[i]["progressData"] for i in range(len(siteNav)) if "isChapter" in siteNav[i] ]
-# Create profiles data to use in section pages
-profiles = []
-profileDict = {}
-profilesDir = "profiles"
-profileFiles = sorted(os.listdir(profilesDir), key=lambda s: s.split("-")[-1])
-for profileFile in profileFiles:
-    profile = {}
-    profileMetadata = getMarkdownMetadata("{}/{}".format(profilesDir, profileFile))
-    profile["name"] = profileMetadata["title"]
-    profile["img"] = profileMetadata["img"]
-    profile["id"] = profile["name"].replace(" ", "")
+def writePage(siteDir, source, pageName, metadata):
+    with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+    subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDir}/{pageName}.html", "--template=templates/page.html", "--metadata-file=metadata.json", source])
+    os.remove("metadata.json")
 
-    # Insert any possible reference links
-    profileFormatted = insertLinks("{}/{}".format(profilesDir, profileFile), "profile.md")
-    profile["html"] = markdownToHTML(profileFormatted.name)
-    os.remove(profileFormatted.name)
-    profiles.append(profile)
-    profileDict[profile["name"]] = profile
-# Create dictionary of DOIs to video file names
-movieDict = {}
-with open("dois.csv", "r", encoding='utf-8') as csvfile:
-    reader = csv.DictReader(csvfile)
-    for row in reader:
-        doi = row["DOI"]
-        movie = row["movie"]
-        movieDict[doi] = movie
-# Create a dictionary that maps species to sections
-speciesDict = {}
-# Create dictionary for search data
+def writePageOffline(siteDirOffline, siteDirOfflineLite, source, pageName, metadata):
+    offlineMetadata = copy.deepcopy(metadata)
+
+    offlineMetadata["offline"] = { "full": True }
+    writePage(siteDirOffline, source, pageName, offlineMetadata)
+
+    offlineMetadata["offline"] = { "lite": True }
+    writePage(siteDirOfflineLite, source, pageName, offlineMetadata)
+
+def getPageName(fileName):
+    pageName = os.path.basename(fileName)
+    pageName = os.path.splitext(pageName)[0]
+    pageName = pageName.replace("-0-", "-")
+    return pageName
+
+def getYAMLMetadata(fileName):
+    return json.loads( subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", "--template=templates/metadata.txt", fileName]) )
+
+def addPageToBibList(fileName, bibList, bibDict):
+    metadata = getYAMLMetadata(fileName)
+    addDocumentToBibList(fileName, bibList, bibDict)
+    if "subsections" in metadata:
+        for subsectionFileName in metadata["subsections"]: 
+            addDocumentToBibList(f"subsections/{subsectionFileName}.md", bibList, bibDict)
+
+def addDocumentToBibList(fileName, bibList, bibDict):
+    bodyText = subprocess.check_output(["pandoc", "--from=markdown", "--to=plain", fileName]).decode("utf-8")
+    for match in re.finditer(r"\[@.*?]", bodyText): 
+        bibId = match.group().strip("[@]")
+        if bibDict[bibId] not in bibList: bibList.append(bibDict[bibId])
+
+def getFormattedBodyText(fileName, format, bibList, bibDict):
+    bodyText = subprocess.check_output(["pandoc", "--from=markdown-citations", f"--to={format}", fileName]).decode("utf-8")
+    for match in re.finditer(r"\[@.*?]", bodyText): 
+        bibId = match.group().strip("[@]")
+        bibNum = bibList.index(bibDict[bibId]) + 1
+        if format == "html":
+            bodyText = bodyText.replace(match.group(), f'[<a href="D-references.html#ref-{bibId}">{bibNum}</a>]')
+        elif format == "plain":
+            bodyText = bodyText.replace(match.group(), f"[{bibNum}]")
+    return bodyText
+
+def addPageToSearchData(fileName, bibList, bibDict, searchData):
+    metadata = getYAMLMetadata(fileName)
+    titlePrefix = None
+    subsectionTitlePrefix = None
+    if os.path.dirname(fileName) == "sections":
+        chapter = os.path.basename(fileName).split("-")[0]
+        section = os.path.basename(fileName).split("-")[1]
+        titlePrefix = f"{chapter}.{section}" if section != "0" else chapter
+        subsectionTitlePrefix = f"{titlePrefix} {metadata['title']}:"
+
+    createSearchDataDocument(fileName, f"{getPageName(fileName)}.html", bibList, bibDict, searchData, titlePrefix)
+
+    if "subsections" in metadata:
+        for subsectionFileName in metadata["subsections"]: 
+            createSearchDataDocument(f"subsections/{subsectionFileName}.md", f"{getPageName(fileName)}.html#{subsectionFileName}", bibList, bibDict, searchData, subsectionTitlePrefix)
+
+def createSearchDataDocument(fileName, id, bibList, bibDict, searchData, titlePrefix):
+    metadata = getYAMLMetadata(fileName)
+    document = {}
+    document["id"] = id
+    document["title"] = metadata["title"]
+    document["content"] = getFormattedBodyText(fileName, "plain", bibList, bibDict)
+    if "species" in metadata: document["species"] = metadata["species"]
+    if "collector" in metadata: document["collector"] = metadata["collector"]
+    if "structure" in metadata: document["structure"] = ", ".join([structure["name"] for structure in metadata["structure"]])
+    if titlePrefix is not None: document["titlePrefix"] = titlePrefix
+    searchData[document["id"]] = document
+
+def getVidPlayerMetadata(fileName):
+    fileMetadata = getYAMLMetadata(fileName)
+    vidPlayerMetadata = {}
+    vidPlayerMetadata["vidName"] = fileMetadata["video"].split(".")[0]
+    if "doi" in fileMetadata:
+        vidPlayerMetadata["thumbnail"] = f"{'_'.join(fileMetadata['video'].split('_', 2)[:2])}_thumbnail"
+    else:
+        vidPlayerMetadata["thumbnail"] = f"{os.path.splitext(fileMetadata['video'])[0]}_thumbnail"
+    if "doi" in fileMetadata: vidPlayerMetadata["doi"] = fileMetadata["doi"]
+    return vidPlayerMetadata
+
+def getCompSliderMetadata(fileName):
+    fileMetadata = getYAMLMetadata(fileName)
+    compSliderMetadata = {}
+    compSliderMetadata["imgName"] = fileMetadata["video"].split(".")[0]
+    return compSliderMetadata
+
+def getCitationMetadata(fileName, bibDict):
+    fileMetadata = getYAMLMetadata(fileName)
+    citationMetadata = {}
+    if "species" in fileMetadata: 
+        citationMetadata["species"] = fileMetadata["species"]
+        citationMetadata["speciesId"] = fileMetadata["species"].replace(" ", "-")
+    if "collector" in fileMetadata: 
+        citationMetadata["collector"] = fileMetadata["collector"]
+        if fileMetadata["collector"] in profileData:
+            citationMetadata["collectorProfile"] = True
+            citationMetadata["collectorId"] = profileData[fileMetadata["collector"]]["id"]
+    if "doi" in fileMetadata: citationMetadata["doi"] = fileMetadata["doi"]
+    if "source" in fileMetadata:
+        citationMetadata["sources"] = []
+        sources = [source.strip() for source in fileMetadata["source"].split(',')]
+        for source in sources:
+            id = source.strip("[@]")
+            if id in bibDict: 
+                name = bibDict[id]["author"][0]["family"] 
+                if len(bibDict[id]["author"]) > 1: name = f"{name} et al."
+                year = bibDict[id]["issued"]["date-parts"][0][0]
+                citationMetadata["sources"].append({"text": f"{name} ({year})", "link": f"D-references.html#ref-{id}.html"})
+            elif id in profileData:
+                citationMetadata["sources"].append({"text": id, "link": f"B-scientist-profiles.html#{profileData[id]['id']}"})
+        if(len(citationMetadata["sources"]) >= 1): citationMetadata["sources"][-1]["last"] = True
+    if "structure" in fileMetadata:
+        citationMetadata["structures"] = []
+        for structure in fileMetadata["structure"]:
+            if "PDB" in structure["name"]: structure["viewerId"] = structure["name"].split(" ")[1].lower()
+            citationMetadata["structures"].append(structure)
+        citationMetadata["structures"][-1]["last"] = True
+    return citationMetadata
+
+def getProgressMetadata(fileName, navData):
+    progressMetadata = {}
+    # Find entry in nav data with the same page name
+    for navEntry in navData["navList"]:
+        if "isAppendix" in navEntry: continue
+        if getPageName(fileName) == navEntry["page"]:
+            progressMetadata["currentPageNum"] = navEntry["pageNum"]
+        elif "sections" in navEntry:
+            for sectionEntry in navEntry["sections"]:
+                if getPageName(fileName) == sectionEntry["page"]: progressMetadata["currentPageNum"] = sectionEntry["pageNum"]
+    progressMetadata["totalPages"] = navData["totalPages"]
+    progressMetadata["progPercent"] = (progressMetadata["currentPageNum"] / navData["totalPages"]) * 100
+    progressMetadata["displayPercent"] = round(progressMetadata["progPercent"])
+    progressMetadata["chapterPageNums"] = [ { "progPercent": navEntry["progPercent"] } for navEntry in navData["navList"] if "isChapter" in navEntry ]
+    return progressMetadata
+
+def addPageToSpeciesData(fileName, speciesData):
+    fileMetadata = getYAMLMetadata(fileName)
+    if "species" in fileMetadata:
+        species = fileMetadata["species"].split("/")[0].strip()
+        speciesEntry = {}
+        speciesEntry["title"] =  fileMetadata["title"]
+        speciesEntry["page"] =  f"{getPageName(fileName)}.html"
+        if os.path.dirname(fileName) == "sections":
+            speciesEntry["chapter"] = os.path.basename(fileName).split("-")[0]
+            speciesEntry["section"] = os.path.basename(fileName).split("-")[1]
+        addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData)
+
+    if "subsections" in fileMetadata:
+        for subsectionFileName in fileMetadata["subsections"]:
+            subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
+            if "species" in subsectionData:
+                species = subsectionData["species"].split("/")[0].strip()
+                speciesEntry = {}
+                speciesEntry["title"] =  f"{fileMetadata['title']}: {subsectionData['title']}"
+                speciesEntry["page"] =  f"{getPageName(fileName)}.html#{subsectionFileName}"
+                if os.path.dirname(fileName) == "sections":
+                    speciesEntry["chapter"] = os.path.basename(fileName).split("-")[0]
+                    speciesEntry["section"] = os.path.basename(fileName).split("-")[1]
+                addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData)
+
+def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
+    if(species in speciesData):
+        speciesData[species]["speciesRefs"].append(speciesEntry)
+    else:
+        speciesData[species] = {}
+        speciesData[species]["species"] = species
+        speciesData[species]["speciesRefs"] = [ speciesEntry ]
+        speciesData[species]["id"] = species.replace(" ", "-")
+
+def addMainSectionMetadata(fileName, metadata, bibDict):
+    # Get media viewer metadata
+    metadata["mediaViewer"] = {}
+    metadata["mediaViewer"]["isSection"] = True
+    metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(fileName)
+    metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
+    if "noSlider" not in metadata:
+        metadata["mediaViewer"]["hasTabMenu"] = True
+        metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
+        metadata["mediaViewer"]["compSlider"]["isSection"] = True
+    # Create narration metadata
+    metadata["narration"] = {}
+    metadata["narration"]["src"] = metadata["pageName"]
+    metadata["narration"]["isSection"] = True
+    # Create citation data
+    metadata["citation"] = getCitationMetadata(fileName, bibDict)
+    metadata["citation"]["isSection"] = True
+    # Process subsections
+    if "subsections" in metadata:
+        metadata["subsectionsData"] = []
+        for subsectionFileName in metadata["subsections"]:
+            subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
+            subsectionData["id"] = subsectionFileName
+
+            # Format body text to insert links
+            subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md", "html", bibList, bibDict)
+
+            # Get media viewer metadata
+            if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
+                subsectionData["hasMainMediaViewer"] = True
+                subsectionData["mediaViewer"] = {}
+                subsectionData["mediaViewer"]["id"] = subsectionData["id"]
+                if "doi" in subsectionData or "video" in  subsectionData:
+                    subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(f"subsections/{subsectionFileName}.md")
+                    if "noSlider" not in subsectionData:
+                        subsectionData["mediaViewer"]["hasTabMenu"] = True
+                        subsectionData["mediaViewer"]["compSlider"] = getCompSliderMetadata(f"subsections/{subsectionFileName}.md")
+                elif "graphic" in subsectionData:
+                    subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
+            # Create narration metadata
+            subsectionData["narration"] = {}
+            subsectionData["narration"]["id"] = subsectionData["id"]
+            subsectionData["narration"]["src"] = subsectionData["id"]
+            # Create citation data
+            if "doi" in subsectionData or "source" in subsectionData:
+                subsectionData["citation"] = getCitationMetadata(f"subsections/{subsectionFileName}.md", bibDict)
+                subsectionData["mediaViewer"]["citationAttached"] = True
+            # Create protein viewer data
+            if "structure" in subsectionData:
+                for structure in subsectionData["structure"]:
+                    if "PDB" in structure["name"]: 
+                        subsectionData["viewer"] = {}
+                        subsectionData["viewer"]["id"] = f"pv-{subsectionData['id']}"
+                        subsectionData["viewer"]["pdb"] = structure["name"].split(" ")[1].lower()
+                        if "modified" in structure: subsectionData["viewer"]["modified"] = True
+
+            metadata["subsectionsData"].append(subsectionData)
+
+def getSummaryMenuMetadata(fileName):
+    summaryMetadata = {}
+    summaryMetadata["isSummary"] = True
+    summaryMetadata["isSection"] = True
+    summaryMetadata[f'chapter{os.path.basename(fileName).split("-")[0]}'] = True
+    return summaryMetadata
+
+siteDirRegular = "site"
+siteDirOffline = "cell_atlas_offline"
+siteDirOfflineLite = "cell_atlas_offline_lite"
+sectionFileNames = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
+appendixFileNames = sorted( os.listdir("appendix") )
+profileFileNames = sorted(os.listdir("profiles"), key=lambda s: s.split("-")[-1])
+offlineAssetsExists = os.path.isdir("videos") and os.path.isdir("videos-480p") and os.path.isdir("stillimages") and os.path.isdir("narration")
+
+# Create site directories with assets
+createSiteDir(siteDirRegular)
+# Create offline versions only if all offline assets are present
+if offlineAssetsExists:
+    createOfflineDir(siteDirOffline, "full")
+    createOfflineDir(siteDirOfflineLite, "lite")
+else:
+    print("Not all offline assets exist. Skipping offline build")
+
+# Create navigation menu data for site
+navData = {}
+navData["navList"] = []
+navData["totalPages"] = len(sectionFileNames) + 3
+navData["navList"].append({ "title": "Introduction", "page": "introduction", "pageNum": 1 })
+for pageNum, fileName in enumerate(sectionFileNames, 2):
+    metadata = getYAMLMetadata(f"sections/{fileName}")
+    chapter = fileName.split("-")[0]
+    section = fileName.split("-")[1]
+    navEntry = {}
+    navEntry["chapter"] = chapter
+    navEntry["title"] = metadata["title"]
+    navEntry["page"] = getPageName(fileName)
+    navEntry["pageNum"] = pageNum
+    if section == "0":
+        navEntry["sections"] = []
+        navEntry["isChapter"] = True
+        navEntry["progPercent"] = (pageNum / navData["totalPages"]) * 100
+        navData["navList"].append(navEntry)
+    else:
+         navEntry["section"] = section
+         navData["navList"][-1]["sections"].append(navEntry)
+navData["navList"].append({
+    "title": "Outlook",
+    "page": "outlook",
+    "pageNum": len(sectionFileNames) + 2,
+    "isChapter": "true",
+    "sections": [{ "title": "Keep Looking", "page": "keep-looking", "pageNum": navData["totalPages"] }],
+    "progPercent": ((len(sectionFileNames) + 2) / navData["totalPages"]) * 100
+})
+navData["navList"].append({ "chapter": "Appendix", "isAppendix": True })
+navData["navList"].append({ "chapter": "A", "title": "Feature Index", "page": "A-feature-index" })
+navData["navList"].append({ "chapter": "B", "title": "Scientist Profiles", "page": "B-scientist-profiles" })
+navData["navList"].append({ "chapter": "C", "title": "Phylogenetic Tree", "page": "C-phylogenetic-tree" })
+navData["navList"].append({ "chapter": "D", "title": "References", "page": "D-references" })
+
+# Generate profiles data
+profileData = {}
+for profileFileName in profileFileNames:
+    profileMetadata = getYAMLMetadata(f"profiles/{profileFileName}")
+    profileMetadata["id"] = profileMetadata["title"].title().replace(" ", "")
+    profileMetadata["html"] = subprocess.check_output(["pandoc", "--from=markdown", "--to=html", f"profiles/{profileFileName}"]).decode("utf-8")
+    profileData[profileMetadata["title"]] = profileMetadata
+
+# Generate species data
+speciesData = {}
+addPageToSpeciesData("introduction.md", speciesData)
+for fileName in sectionFileNames: addPageToSpeciesData(f"sections/{fileName}", speciesData)
+addPageToSpeciesData("keep-looking.md", speciesData)
+
+# Generate bibliography data
+bibDict = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
+bibList = []
+addPageToBibList("begin.md", bibList, bibDict)
+addPageToBibList("introduction.md", bibList, bibDict)
+for fileName in sectionFileNames: addPageToBibList(f"sections/{fileName}", bibList, bibDict)
+addPageToBibList("outlook.md", bibList, bibDict)
+addPageToBibList("keep-looking.md", bibList, bibDict)
+
+# Generate search data
 searchData = {}
+addPageToSearchData("begin.md", bibList, bibDict, searchData)
+addPageToSearchData("introduction.md", bibList, bibDict, searchData)
+for fileName in sectionFileNames: addPageToSearchData(f"sections/{fileName}", bibList, bibDict, searchData)
+addPageToSearchData("outlook.md", bibList, bibDict, searchData)
+addPageToSearchData("keep-looking.md", bibList, bibDict, searchData)
+with open("{}/searchData.json".format(siteDirRegular), "w", encoding="utf-8") as f: json.dump(searchData, f, indent="\t")
 
 # Render landing page
-metadata = getMarkdownMetadata("index.md")
-metadata["firstPage"] = "begin"
-metadata["index"] = True
-writePage(SITEDIR, "index.md", "index","index", metadata)
+subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirRegular}/index.html", "--template=templates/index.html", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.html", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.html", "index.md"])
 
-# Render opening quote page for introduction
-metadata = getMarkdownMetadata("introQuote.md")
+# Render begin page
+metadata = getYAMLMetadata("begin.md")
+metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["nextSection"] = "introduction"
 metadata["typeChapter"] = True
-writePage(SITEDIR, "introQuote.md", "page", "begin", metadata)
+metadata["body"] = getFormattedBodyText("begin.md", "html", bibList, bibDict)
+writePage(siteDirRegular, "begin.md", "begin", metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "begin.md", "begin", metadata)
 
 # Render introduction page
-introFileMetaData = getMarkdownMetadata("introduction.md")
-introFileMetaData["typeSection"] = True
-introFileMetaData["prevSection"] = "begin"
-introFileMetaData["nextSection"] = sectionFiles[0][:-3].split("-")[0] + "-" + "".join(sectionFiles[0][:-3].split("-")[2:])
-introFileMetaData["subsectionsData"] = []
-introFileMetaData["thumbnail"] = "0_1_thumbnail"
-introFileMetaData["totalPages"] = totalPages
-introFileMetaData["currentPageNum"] = 1
-introFileMetaData["chapterPageNums"] = chapterPageValues
-introFileMetaData["progPercent"] = (introFileMetaData["currentPageNum"] / introFileMetaData["totalPages"]) * 100
-introFileMetaData["displayPercent"] = round(introFileMetaData["progPercent"])
-addSliderData(introFileMetaData, movieDict[introFileMetaData["doi"]])
-addSpeciesToDict(introFileMetaData["videoTitle"], "introduction.html", "", "", "Introduction")
-writePage(SITEDIR, "introduction.md", "page", "introduction", introFileMetaData)
+metadata = getYAMLMetadata("introduction.md")
+metadata["pageName"] = "introduction"
+metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
+metadata["prevSection"] = "begin"
+metadata["nextSection"] = getPageName(sectionFileNames[0])
+metadata["typeSection"] = True
+metadata["body"] = getFormattedBodyText("introduction.md", "html", bibList, bibDict)
+metadata["progressData"] = getProgressMetadata("introduction.md", navData)
+addMainSectionMetadata("introduction.md", metadata, bibDict)
+writePage(siteDirRegular, "introduction.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "introduction.md", metadata["pageName"], metadata)
 
-# Render section pages
-for i in range(len(sectionFiles)):
-    fileName = sectionFiles[i]
-    metadata = getMarkdownMetadata("sections/{}".format(fileName))
-    metadata["chapter"], metadata["section"], *title = fileName.split("-")
-    metadata["collectorProfile"] = False
-    metadata["prevSection"] = None
-    metadata["nextSection"] = None
-    metadata["totalPages"] = totalPages
-    metadata["currentPageNum"] = i + 2
-    metadata["chapterPageNums"] = chapterPageValues
-    metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
-    metadata["displayPercent"] = round(metadata["progPercent"])
-    if("doi" in metadata or "video" in metadata):
-        if "doi" in metadata and metadata["doi"] in movieDict:
-            addSliderData(metadata, movieDict[metadata["doi"]])
-        elif "video" in metadata:
-            addSliderData(metadata, metadata["video"])
-        else:
-            print("{} section file does not have DOI field".format(fileName)) 
-    if(title[0] == "summary.md"):
-        metadata["summaryData"] = {
-            "isSummary": True,
-            "isSection": True,
-            "chapter{}".format(metadata["chapter"]): True 
-        }
-        metadata["vidMetadata"] = { "isSection": True }
-    elif("video" in metadata):
-        metadata["thumbnail"] = "{}_thumbnail".format("_".join(metadata["video"].split("_")[:2]))
-    
-    # Add links to next and prev pages
-    # If we are not at the last file, then there is a next section
-    if i != len(sectionFiles) - 1:
-        nextFileName = sectionFiles[i+1][:-3]
-        # If the next section is the start of a chapter, need to drop the "0" on the link
-        if sectionFiles[i+1].split("-")[1] != "0":
-            metadata["nextSection"] = nextFileName
-        else:
-            nextChapter, nextSection, *title = nextFileName.split("-")
-            metadata["nextSection"] = nextChapter + "-" + "".join(title)
-    else:
-        metadata["nextSection"] = "outlook"
-    # If we are not at the beggining, then there is a previous section
-    if i != 0:
-        prevFileName = sectionFiles[i-1][:-3]
-        # If the previous section is the start of a chapter, need to drop the "0" on the link
-        if metadata["section"] != "1":
-            metadata["prevSection"] = prevFileName
-        else:
-            prevChapter, prevSection, *title = prevFileName.split("-")
-            metadata["prevSection"] = prevChapter + "-" + "".join(title)
-    else:
-        metadata["prevSection"] = "introduction"
+# Render pages in sections/
+for i, fileName in enumerate(sectionFileNames):
+    metadata = getYAMLMetadata(f"sections/{fileName}")
+    metadata["pageName"] = getPageName(fileName)
+    metadata["nav"] = navData["navList"]
+    metadata["navData"] = { "nav": True }
 
-    pageName = fileName[:-3] if metadata["section"] != "0" else metadata["chapter"] + "-" + "".join(title)[:-3]
-
-    if("videoTitle" in metadata): 
-        if "/" in metadata["videoTitle"]:
-            addSpeciesToDict(metadata["videoTitle"].split("/")[0].strip(), "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
-        else:
-            addSpeciesToDict(metadata["videoTitle"], "{}.html".format(pageName), metadata["chapter"], metadata["section"], metadata["title"])
-
-    if metadata["section"] != "0":
-        metadata["typeSection"] = True
-    else:
+    # Generate chapter/section metadata
+    metadata["chapter"] = fileName.split("-")[0]
+    if fileName.split("-")[1] == "0":
         metadata["typeChapter"] = True
-        del metadata["section"] # We don't want to register "0" as a section
-    writePage(SITEDIR, "sections/{}".format(fileName), "page", pageName, metadata)
+    else:
+        metadata["section"] = fileName.split("-")[1]
+        metadata["typeSection"] = True
 
-# Render opening quote page for "Keep Looking"
-metadata = getMarkdownMetadata("outlook.md")
-metadata["prevSection"] = sectionFiles[-1][:-3]
+    # Generate next/prev section metadata
+    metadata["prevSection"] = "introduction" if i == 0 else getPageName(sectionFileNames[i - 1])
+    metadata["nextSection"] = "outlook" if i == len(sectionFileNames) - 1 else getPageName(sectionFileNames[i + 1])
+
+    metadata["body"] = getFormattedBodyText(f"sections/{fileName}", "html", bibList, bibDict)
+
+    metadata["progressData"] = getProgressMetadata(f"sections/{fileName}", navData)
+
+    if "typeSection" in metadata and metadata["title"] != "Summary": addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
+
+    if metadata["title"] == "Summary": metadata["summaryData"] = getSummaryMenuMetadata(fileName)
+
+    writePage(siteDirRegular, f"sections/{fileName}", metadata["pageName"], metadata)
+    if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, f"sections/{fileName}", metadata["pageName"], metadata)
+
+# Render outlook page
+metadata = getYAMLMetadata("outlook.md")
+metadata["pageName"] = "outlook"
+metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
+metadata["prevSection"] = getPageName(sectionFileNames[-1])
 metadata["nextSection"] = "keep-looking"
 metadata["typeChapter"] = True
-metadata["totalPages"] = totalPages
-metadata["currentPageNum"] = len(sectionFiles) + 2
-metadata["chapterPageNums"] = chapterPageValues
-metadata["progPercent"] = (metadata["currentPageNum"] / metadata["totalPages"]) * 100
-metadata["displayPercent"] = round(metadata["progPercent"])
-writePage(SITEDIR, "outlook.md", "page", "outlook", metadata)
+metadata["body"] = getFormattedBodyText("outlook.md", "html", bibList, bibDict)
+metadata["progressData"] = getProgressMetadata("outlook.md", navData)
+writePage(siteDirRegular, "outlook.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "outlook.md", metadata["pageName"], metadata)
 
 # Render keep looking page
-keepLookingFileMetaData = {}
-keepLookingFileMetaData = getMarkdownMetadata("keepLooking.md")
-keepLookingFileMetaData["typeSection"] = True
-keepLookingFileMetaData["prevSection"] = "outlook"
-keepLookingFileMetaData["nextSection"] = "A-feature-index"
-keepLookingFileMetaData["subsectionsData"] = []
-keepLookingFileMetaData["thumbnail"] = "11_1_thumbnail"
-keepLookingFileMetaData["totalPages"] = totalPages
-keepLookingFileMetaData["currentPageNum"] = totalPages
-keepLookingFileMetaData["chapterPageNums"] = chapterPageValues
-keepLookingFileMetaData["progPercent"] = (keepLookingFileMetaData["currentPageNum"] / keepLookingFileMetaData["totalPages"]) * 100
-keepLookingFileMetaData["displayPercent"] = round(keepLookingFileMetaData["progPercent"])
-addSliderData(keepLookingFileMetaData, movieDict[keepLookingFileMetaData["doi"]])
-addSpeciesToDict(keepLookingFileMetaData["videoTitle"], "keep-looking.html", "", "", "Keep Looking")
-writePage(SITEDIR, "keepLooking.md", "page", "keep-looking", keepLookingFileMetaData)
+metadata = getYAMLMetadata("keep-looking.md")
+metadata["pageName"] = "keep-looking"
+metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
+metadata["prevSection"] = "outlook"
+metadata["nextSection"] = "A-feature-index"
+metadata["typeSection"] = True
+metadata["body"] = getFormattedBodyText("keep-looking.md", "html", bibList, bibDict)
+metadata["progressData"] = getProgressMetadata("keep-looking.md", navData)
+addMainSectionMetadata("keep-looking.md", metadata, bibDict)
+writePage(siteDirRegular, "keep-looking.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "keep-looking.md", metadata["pageName"], metadata)
 
-# Render feature index page
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeFeatures"] = True
-metadata["chapter"] = "A"
-metadata["title"] = "Feature Index"
-metadata["prevSection"] = "keep-looking"
-metadata["nextSection"] = "B-scientist-profiles"
-featureIndex = None
-with open("features.json", "r", encoding='utf-8') as f:
-    featureIndex = json.load(f)
-metadata["featureIndex"] = [{"name": key, "refs": featureIndex[key]} for key in featureIndex]
-writePage(SITEDIR, "features.md", "page", "A-feature-index", metadata)
+# Render appendix pages
+for i, fileName in enumerate(appendixFileNames):
+    metadata = getYAMLMetadata(f"appendix/{fileName}")
+    metadata["pageName"] = os.path.splitext(fileName)[0]
+    metadata["chapter"] = fileName.split("-")[0]
+    metadata["nav"] = navData["navList"]
+    metadata["navData"] = { "nav": True }
+    metadata["typeAppendix"] = True
 
-# Render profiles page
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeProfiles"] = True
-metadata["chapter"] = "B"
-metadata["title"] = "Scientist Profiles"
-metadata["prevSection"] = "A-feature-index"
-metadata["nextSection"] = "C-phylogenetic-tree"
-metadata["profiles"] = profiles
-writePage(SITEDIR, "profiles.md", "page", "B-scientist-profiles", metadata)
+    # Generate next/prev section metadata
+    if(i == 0):
+        metadata["prevSection"] = "keep-looking"
+    else: 
+        metadata["prevSection"] = os.path.splitext(appendixFileNames[i - 1])[0]
+    if(i != len(appendixFileNames) - 1):
+        metadata["nextSection"] = os.path.splitext(appendixFileNames[i + 1])[0]
 
-# Render phylogenetic tree page
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeTree"] = True
-metadata["chapter"] = "C"
-metadata["title"] = "Phylogenetic Tree"
-metadata["prevSection"] = "B-scientist-profiles"
-metadata["nextSection"] = "D-references"
-speciesList = []
-for species in speciesDict:
-    speciesObj = {}
-    speciesObj["species"] = speciesDict[species]["species"]
-    speciesObj["speciesObjs"] = speciesDict[species]["speciesObjs"]
-    speciesObj["id"] = speciesDict[species]["id"]
-    speciesList.append(speciesObj)
-metadata["speciesList"] = speciesList 
-writePage(SITEDIR, "phylogenetics.md", "page", "C-phylogenetic-tree", metadata)
+    if fileName == "A-feature-index.md":
+        metadata["appendixTypeFeatures"] = True
+        with open("features.json", "r", encoding="utf-8") as f:
+            featureIndexData = json.load(f)
+            metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key]} for key in featureIndexData]
+    elif fileName == "B-scientist-profiles.md":
+        metadata["appendixTypeProfiles"] = True
+        metadata["accordionData"] = list(profileData.values())
+    elif fileName == "C-phylogenetic-tree.md":
+        metadata["appendixTypeTree"] = True
+        metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
+        metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
+        metadata["treeViewerFsConfirmData"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
+    elif fileName == "D-references.md":
+        metadata["appendixTypeReferences"] = True
 
-# Render bibliography page 
-metadata = {}
-metadata["typeAppendix"] = True
-metadata["appendixTypeReferences"] = True
-metadata["chapter"] = "D"
-metadata["title"] = "References"
-metadata["prevSection"] = "C-phylogenetic-tree"
-with open("bib.json", "w", encoding='utf-8') as f:
-    json.dump(usedBibs, f)
-writePage(SITEDIR, "bib.json", "page", "D-references", metadata)
-os.remove("bib.json")
+    if fileName == "D-references.md":
+        with open("bib.json", "w", encoding='utf-8') as f: json.dump(bibList, f)
+        with open("metadata.json", "w", encoding='utf-8') as f: json.dump(metadata, f)
+        subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--to=html", f"--output={siteDirRegular}/{metadata['pageName']}.html", "--template=templates/page.html", "--metadata-file=metadata.json", "bib.json"])
+        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOffline}/{metadata['pageName']}.html", "--template=templates/page.html", "--metadata-file=metadata.json", "bib.json"])
+        if offlineAssetsExists: subprocess.run(["pandoc", "--from=csljson", "--citeproc", "--csl=springer-socpsych-brackets.csl", "--metadata=offline", "--to=html", f"--output={siteDirOfflineLite}/{metadata['pageName']}.html", "--template=templates/page.html", "--metadata-file=metadata.json", "bib.json"])
+        os.remove("metadata.json")
+        os.remove("bib.json")
+    else:
+        writePage(siteDirRegular, f"appendix/{fileName}", metadata["pageName"], metadata)
+        if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, f"appendix/{fileName}", metadata["pageName"], metadata)
 
 # Render about page
-metadata = getMarkdownMetadata("about.md")
+metadata = getYAMLMetadata("about.md")
+metadata["pageName"] = "about"
+metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
-aboutEntries = []
+metadata["feedbackData"] = { "id": "feedback", "feedback": True }
+metadata["accordionData"] = []
 with open("about.md", 'r', encoding='utf-8') as f:
     for line in f.readlines():
         if re.search(r"##", line):
             entry = {}
-            entry["name"] = line.split("##")[1].strip()
+            entry["title"] = line.split("##")[1].strip()
             entry["content"] = ""
-            entry["id"] = re.sub(r"[^\w\s]", "", entry["name"].replace(" ", "-"))
-            aboutEntries.append(entry)
+            entry["id"] = re.sub(r"[^\w\s]", "", entry["title"].replace(" ", "-"))
+            metadata["accordionData"].append(entry)
         elif not re.search(r"---", line) and not re.search("title: About this Book", line):
-            aboutEntries[-1]["content"] = aboutEntries[-1]["content"] + line    
-metadata["aboutEntries"] = aboutEntries
-writePage(SITEDIR, "about.md", "page", "about", metadata)
+            metadata["accordionData"][-1]["content"] = metadata["accordionData"][-1]["content"] + line    
+writePage(siteDirRegular, "about.md", metadata["pageName"], metadata)
+if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "about.md", metadata["pageName"], metadata)
 
 # Render download page
-metadata = getMarkdownMetadata("download.md")
+metadata = getYAMLMetadata("download.md")
+metadata["pageName"] = "download"
+metadata["nav"] = navData["navList"]
+metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeDownload"] = True
-writePage(SITEDIR, "download.md", "page", "download", metadata)
-
-# Render data dict for search index
-with open("{}/searchData.json".format(SITEDIR), "w", encoding="utf-8") as f:
-    json.dump(searchData, f, indent="\t")
-
-# Render search test page
-metadata = {}
-metadata["title"] = "Search Test"
-writePage(SITEDIR, "search-test.md", "search-test", "search-test", metadata)
+writePage(siteDirRegular, "download.md", metadata["pageName"], metadata)

@@ -1,11 +1,9 @@
 ---
 title: Coccoid
 doi: 10.22002/D1.1477
-videoTitle: Simkania negevensis
+species: Simkania negevensis
 video: 3_1_Snegevensis.mp4
-videoAlt: 3_1.png
 collector: Martin Pilhofer
-subsections: []
 description: Coccoid bacterial cells like Simkania negevensis are spherical and have maximal volume relative to surface area.
 ---
 

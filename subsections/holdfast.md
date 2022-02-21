@@ -3,7 +3,6 @@ title: Holdfast
 species: Prosthecobacter vanneervenii 
 doi: 10.22002/D1.1564
 video: 8_4a_Pvanneervenii.mp4
-videoAlt: 8_4a.png
 collector: Martin Pilhofer
 ---
 

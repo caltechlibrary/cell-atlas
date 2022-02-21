@@ -1,9 +1,8 @@
 ---
 title: Asynchronous Constriction
 doi: 10.22002/D1.1515
-videoTitle: Cupriavidus necator
+species: Cupriavidus necator
 video: 5_9_Cnecator.mp4
-videoAlt: 5_9.png
 collector: Morgan Beeby
 subsections: ['asymmetric-constriction', 'ftsz-structure']
 description: Archaea and bacteria like Cupriavidus necator use cytoskeletal filaments of FtsZ to constrict their cell envelope during cytokinesis

@@ -79,9 +79,12 @@ __pycache__
 
 # Project-specific things to ignore:
 # .............................................................................
-.Rproj.user
 
-videos
 site
 cell_atlas_offline
 cell_atlas_offline_lite
+redirects
+videos
+videos-480p
+stillimages
+narration

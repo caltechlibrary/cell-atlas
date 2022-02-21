@@ -1,5 +1,6 @@
 let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer) {
 
+    let modalContainer = root.querySelector(".modal__modal-container");
     let exitBtn = root.querySelector(".modal__exit-btn");
     let contentContainer = root.querySelector(".modal__content-container");
     let openProteinViewerBtn = root.querySelector(".vid-metadata__viewer-btn");
@@ -7,11 +8,14 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
 
     let show = function() {
         if(proteinMediaViewer && !proteinMediaViewer.proteinViewer.initialized) proteinMediaViewer.proteinViewer.init();
+        if(contentContainer) contentContainer.setAttribute("tabindex", 0);
         root.classList.remove("modal--hidden");
-        contentContainer.setAttribute("tabindex", 0);
-        if(mainMediaViewer && mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.root.classList.contains("video-player--hidden") && window.innerWidth > 900 && window.createImageBitmap) {
-            setTimeout(mainMediaViewer.videoPlayer.resizeScrubCanvas, 200);
-        }
+        root.focus();
+        document.addEventListener("keydown", onOpenModalKeyDown);
+    };
+
+    let onOpenModalKeyDown = function(event) {
+        if(event.key == "Escape") hide();
     };
 
     let hide = function() {
@@ -25,9 +29,15 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
                 mainMediaViewer.setFullscreenBtnState("minimized");
             }
         }
-        if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
+        if(mainMediaViewer && mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
+        if(narrationPlayer && !narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         root.classList.add("modal--hidden");
-        contentContainer.setAttribute("tabindex", -1);
+        if(contentContainer) contentContainer.setAttribute("tabindex", -1);
+        document.removeEventListener("keydown", onOpenModalKeyDown);
+    };
+
+    let onRootClick = function(event) {
+        if(!modalContainer.contains(event.target)) hide();
     };
 
     let toggleMainMediaViewerFs = function() {
@@ -71,14 +81,15 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
         }
     };
 
+    root.addEventListener("click", onRootClick);
+    if(exitBtn) exitBtn.addEventListener("click", hide);
     if (mainMediaViewer) mainMediaViewer.fullscreenBtn.addEventListener("click", toggleMainMediaViewerFs);
     if(openProteinViewerBtn) openProteinViewerBtn.addEventListener("click", openProteinViewer);
     if(proteinMediaViewer) proteinMediaViewer.fullscreenBtn.addEventListener("click", closeProteinViewer);
-    narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
+    if (narrationToggleBtn) narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
 
     return {
         root,
-        exitBtn,
         show,
         hide
     }

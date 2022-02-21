@@ -3,7 +3,6 @@ title: Mid-constriction
 species: Sphingopyxis alaskensis 
 doi: 10.22002/D1.1521
 video: 5_6a_Salaskensis.mp4
-videoAlt: 5_6a.png
 collector: Morgan Beeby
 ---
 

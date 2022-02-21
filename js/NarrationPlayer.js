@@ -5,55 +5,50 @@ let NarrationPlayer = function(root) {
     let currentTimeDisplay = root.querySelector(".narration-player__current-time-display");
     let totalTimeDisplay = root.querySelector(".narration-player__total-time-display");
     let audio = root.querySelector(".narration-player__audio-el");
+    let offline = root.getAttribute("data-offline");
     let initialized = false;
+    let totalTime;
 
     let init = function() {
         let audioSrcEl = audio.querySelector("source");
         audio.addEventListener("loadedmetadata", onLoadedmetadata, { once: true });
-        audioSrcEl.setAttribute("src", root.getAttribute("data-src"));
+        if(offline) {
+            audioSrcEl.setAttribute("src", `audio/${root.getAttribute("data-src")}`);
+        } else {
+            audioSrcEl.setAttribute("src", `https://www.cellstructureatlas.org/audio/${root.getAttribute("data-src")}`);
+        }
         audio.load();
         this.initialized = true;
     };
 
     let onLoadedmetadata = function() {
         seekBar.setAttribute("max", Math.round(audio.duration));
-        setSeekbarValue();
-        setTimeDisplay();
+        totalTime = getFormattedTime(audio.duration);
+        totalTimeDisplay.replaceChild(document.createTextNode(`/ ${totalTime}`), totalTimeDisplay.firstChild);
+        totalTimeDisplay.setAttribute("aria-label", `total time: ${totalTime}`);
+        updateCurrentTime();
+        attachEventListeners();
         playbackBtn.disabled = false;
         seekBar.disabled = false;
-        attachEventListeners();
     };
 
     let attachEventListeners = function() {
         audio.addEventListener("play", onPlaybackChange);
         audio.addEventListener("pause", onPlaybackChange);
-        audio.addEventListener("timeupdate", setSeekbarValue);
-        audio.addEventListener("timeupdate", setTimeDisplay);
+        audio.addEventListener("timeupdate", updateCurrentTime);
         playbackBtn.addEventListener("click", togglePlayback);
-        seekBar.addEventListener("mousedown", onSeekbarMousedown);
+        seekBar.addEventListener("pointerdown", onSeekbarPointerDown);
         seekBar.addEventListener("keydown", onSeekbarKeydown);
-        seekBar.addEventListener("touchstart", onSeekbarTouchstart);
         seekBar.addEventListener("input", onSeekbarInput);
     };
 
-    let setSeekbarValue = function() {
-        seekBar.value = audio.currentTime;
-        seekBar.setAttribute("aria-label", `audio time scrubber ${getFormattedTime(audio.currentTime)} / ${getFormattedTime(audio.duration)}`);
-        seekBar.setAttribute("aria-valuetext", `elapsed time: ${getFormattedTime(audio.currentTime)}`);
-    };
-
-    let setTimeDisplay = function() {
+    let updateCurrentTime = function() {
         let currentTime = getFormattedTime(audio.currentTime);
-        let currentTimeTextNode = document.createTextNode(`${currentTime} `);
-        if(currentTimeDisplay.firstChild) currentTimeDisplay.removeChild(currentTimeDisplay.firstChild);
-        currentTimeDisplay.appendChild(currentTimeTextNode);
+        currentTimeDisplay.replaceChild(document.createTextNode(`${currentTime} `), currentTimeDisplay.firstChild);
         currentTimeDisplay.setAttribute("aria-label", `elapsed time: ${currentTime}`);
-
-        let totalTime = getFormattedTime(audio.duration);
-        let totalTimeTextNode = document.createTextNode(`/ ${totalTime}`);
-        if(totalTimeDisplay.firstChild) totalTimeDisplay.removeChild(totalTimeDisplay.firstChild);
-        totalTimeDisplay.appendChild(totalTimeTextNode);
-        totalTimeDisplay.setAttribute("aria-label", `total time: ${totalTime}`);
+        seekBar.value = audio.currentTime;
+        seekBar.setAttribute("aria-label", `audio time scrubber ${currentTime} / ${totalTime}`);
+        seekBar.setAttribute("aria-valuetext", `elapsed time: ${currentTime}`);
     };
 
     let getFormattedTime = function(seconds) {
@@ -85,10 +80,10 @@ let NarrationPlayer = function(root) {
         }
     };
 
-    let onSeekbarMousedown = function() {
+    let onSeekbarPointerDown = function() {
         if(!audio.paused) {
             audio.pause();
-            seekBar.addEventListener("mouseup", togglePlayback, { once: true });
+            seekBar.addEventListener("pointerup", togglePlayback, { once: true });
         }
     };
 
@@ -96,13 +91,6 @@ let NarrationPlayer = function(root) {
         if( (event.code == "ArrowRight" || event.code == "ArrowUp" || event.code == "ArrowDown" || event.code == "ArrowLeft") && !audio.paused ) {
             audio.pause();
             seekBar.addEventListener("keyup", togglePlayback, { once: true });
-        }
-    };
-
-    let onSeekbarTouchstart = function() {
-        if(!audio.paused) {
-            audio.pause();
-            seekBar.addEventListener("touchend", togglePlayback, { once: true });
         }
     };
 

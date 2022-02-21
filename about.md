@@ -1,6 +1,5 @@
 ---
 title: About this Book
-description: Information about the Atlas of Bacterial & Archaeal Cell Structure, including how to reuse the open-access material and resources for educators
 ---
 ## About the Project
 
@@ -23,7 +22,7 @@ Videos can be downloaded from the [Caltech Data Repository](https://data.caltech
 
 We hope this book will help your students appreciate what bacterial and archaeal cells look like and the macromolecular machinery that underlies their diverse biological processes. The main narrative content is targeted to undergraduate-level students and requires nothing but a familiarity with basic concepts in biology. More advanced students, such as those in a microbiology course, will find additional details in the Learn More sections. The main content can be digested in several hours, and we recommend assigning it as a supplemental resource to accompany the first few sessions of a course, as an introduction to bacterial and archaeal cells before you dive into more specialized aspects of their biology such as metabolism or medical relevance. The summaries at the end of each chapter provide some concept check questions that can be used to test students’ retention of the content. As we add new content and features in future editions, we’ll highlight the changes in [What’s New](#WhatsNew) so you can keep your course materials up to date. 
 
-If you do use this book in a class, please give us some [Feedback](#feedbackForm){.feedbackLink} about what you and your students liked, what we could improve, and ideas for features you’d like to see in future editions. 
+If you do use this book in a class, please give us some [Feedback](#feedbackForm){.about-entry__feadback-link} about what you and your students liked, what we could improve, and ideas for features you’d like to see in future editions. 
 
 
 ## What’s New
@@ -31,24 +30,24 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 **Edition 2.1** introduces new interface features, improvements in site performance, and minor edits to videos and text to correct errors and incorporate new information from recent literature. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
 
 
-Major new features since Edition 2.0 include:
-- audio feature to listen to section text
-- site search function
-- PDF of text and images (available on the [download page](download.html)
+Major new features since Edition 2.0 include:  
+- audio feature to listen to section text    
+- site search function  
+- PDF of text and images (available on the [download page](download.html))  
 
 ***Previous updates***:
 
 *Edition 2.0 (August 2021) introduced several new interface features, along with minor improvements in clarity and consistency throughout the text and videos.*
 
-*Major new features since Edition 1.0 included:*
-- *480p video option for slower connections*
-- *mobile-optimized interface*
-- *downloadable packages for offline viewing*
-- *key images with interactive label slider*
-- *interactive protein structure viewer*
-- *interactive phylogenetic tree*
-- *interactive chapter summaries*
-- *progress bar*
+*Major new features since Edition 1.0 included:*    
+- *480p video option for slower connections*    
+- *mobile-optimized interface*  
+- *downloadable packages for offline viewing*   
+- *key images with interactive label slider*    
+- *interactive protein structure viewer*    
+- *interactive phylogenetic tree*   
+- *interactive chapter summaries*   
+- *progress bar*    
 
 
 ## Download this Book
@@ -58,4 +57,4 @@ Visit the [Download](download.html) page for instructions and download options.
 
 ## Contact
 
-We’d love to hear your thoughts on the book and how we can improve it in the future. Contact us through the [Feedback Form](#feedbackForm){.feedbackLink}.
+We’d love to hear your thoughts on the book and how we can improve it in the future. Contact us through the [Feedback Form](#feedbackForm){.about-entry__feadback-link}.

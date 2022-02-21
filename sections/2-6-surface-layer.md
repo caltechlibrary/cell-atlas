@@ -1,9 +1,8 @@
 ---
 title: Surface Layer
 doi: 10.22002/D1.1355
-videoTitle: Caulobacter crescentus
+species: Caulobacter crescentus
 video: 2_6_Ccrescentus.mp4
-videoAlt: 2_6.png
 collector: Ariane Briegel
 subsections: ['surface-layer-architecture', 'nanopods']
 description: An external surface layer of protein protects some bacteria like Caulobacter crescentus and Delftia acidovorans. S-layer around vesicles forms nanopods.

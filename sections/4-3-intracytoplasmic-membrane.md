@@ -1,9 +1,8 @@
 ---
 title: Intracytoplasmic Membrane
 doi: 10.22002/D1.1491
-videoTitle: Rhodopseudomonas palustris
+species: Rhodopseudomonas palustris
 video: 4_3_Rpalustris.mp4
-videoAlt: 4_3.png
 collector: Alasdair McDowall
 subsections: ['photocomplexes', 'icm-variety']
 description: Stacks of intracytoplasmic membrane expand the capacity of photosynthetic bacteria like Rhodopseudomonas palustris or Methyloprofundus sedimenti

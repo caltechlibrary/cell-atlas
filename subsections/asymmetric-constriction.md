@@ -3,7 +3,6 @@ title: Asymmetric constriction
 species: Cupriavidus necator 
 doi: 10.22002/D1.1524
 video: 5_9a_Cnecator.mp4
-videoAlt: 5_9a.png
 collector: Morgan Beeby
 ---
 

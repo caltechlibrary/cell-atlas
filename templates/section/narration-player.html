@@ -1,0 +1,26 @@
+<div
+    id="${if(it.isSection)}narrationPlayer-main${else}narrationPlayer-${it.id}${endif}"
+    class="narration-player narration-player--hidden ${if(it.isSection)}narration-player--section-text narration-player--light-theme${endif}"
+    data-src="${it.src}.mp3"
+    tabindex="0"
+    ${if(offline)}data-offline="true"${endif}
+>
+    <button class="narration-player__playback-btn" aria-label="Play" disabled>
+        <span class="narration-player__playback-btn-icon narration-player__playback-btn-play-icon">${svg/play.svg()}</span>
+        <span class="narration-player__playback-btn-icon narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon">${svg/pause.svg()}</span>
+    </button>
+    <input 
+        class="narration-player__seekbar"
+        aria-label="audio time scrubber 0:00 / 0:00"
+        aria-valuetext="elapsed time: 0:00"
+        type="range" value="0" min="0" disabled
+    />
+    <span class="narration-player__time-display">
+        <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
+        <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
+    </span>
+    <audio class="narration-player__audio-el">
+        <source type="audio/mpeg">
+        Your browser doesn't support HTML5 audio.
+    </audio>
+</div>

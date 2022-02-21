@@ -1,9 +1,8 @@
 ---
 title: Flagella Patterns
 doi: 10.22002/D1.1528
-videoTitle: Campylobacter jejuni
+species: Campylobacter jejuni
 video: 6_4_Cjejuni.mp4
-videoAlt: 6_4.png
 collector: Morgan Beeby
 subsections: ['lophotrichous-bacteria']
 description: Bacteria like Campylobacter jejuni have bipolar flagella, one at each end of the cell. Lophotrichous species like Helicobacter pylori have a tuft of flagella

@@ -1,9 +1,8 @@
 ---
 title: Contractile Weapons
 doi: 10.22002/D1.1577
-videoTitle: Vibrio cholerae
+species: Vibrio cholerae
 video: 9_7_Vcholerae.mp4
-videoAlt: 9_7.png
 collector: Martin Pilhofer
 subsections: ['fired-t6ss-structure', 't6ss-battery', 'macs',  'mac-array-structure']
 description: Bacteria like Vibrio cholerae, Amoebophilus asiaticus and Pseuodalteromonas luteoviolacea use various contractile weapons related to bacteriophage tails

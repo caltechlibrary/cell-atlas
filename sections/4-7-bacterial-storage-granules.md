@@ -1,9 +1,8 @@
 ---
 title: Bacterial Storage Granules
 doi: 10.22002/D1.1496
-videoTitle: Cupriavidus necator
+species: Cupriavidus necator
 video: 4_8_Cnecator.mp4
-videoAlt: 4_8.png
 collector: Morgan Beeby
 subsections: ['storage-granule-growth']
 description: Bacteria like Cupriavidus necator and Lysobacter antibioticus stockpile nutrients like phosphate or carbon in storage granules

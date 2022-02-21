@@ -4,110 +4,93 @@ let VideoPlayer = function(root) {
     let videoSrc = video.querySelector("source");
     let doi = root.getAttribute("data-doi");
     let vidName = root.getAttribute("data-vid-name");
-    let controlsContainer = root.querySelector(".video-player__controls-container");
     let playBackBtn = root.querySelector(".video-player__control-btn-playback");
     let playBackBtnMobile = root.querySelector(".video-player__playback-btn-mobile");
-    let playIcon = root.querySelector(".video-player__control-icon-play");
-    let playIconMobile = root.querySelector(".video-player__playback-btn-mobile-play-icon");
-    let pauseIcon = root.querySelector(".video-player__control-icon-pause");
-    let pauseIconMobile = root.querySelector(".video-player__playback-btn-mobile-pause-icon");
     let timeDisplay = root.querySelector(".video-player__time-display");
     let qualityChanger = root.querySelector(".video-player__quality-changer");
     let openQualityChangerBtn = root.querySelector(".video-player__quality-changer-open-btn");
     let openQualityChangerBtnText = root.querySelector(".video-player__quality-changer-open-btn-text");
-    let qualityOptionsMenu = root.querySelector(".video-player__quality-options-menu");
     let qualityOptionInputs = root.querySelectorAll(".video-player__quality-option-input");
     let fsBtn = root.querySelector(".video-player__control-btn-fs");
-    let fsIcon = root.querySelector(".video-player__control-icon-fs");
-    let exitFsIcon = root.querySelector(".video-player__control-icon-exit-fs");
     let seekBar = root.querySelector(".video-player__seek-bar");
-    let scrubCanvas = root.querySelector(".video-player__scrub-canvas");
-    let scrubContext = scrubCanvas.getContext("2d");
-    let src1080, src480, paintInterval, formattedDuration, hideMobileControlsTimeout, percentBuffered = 0, fps = 10, scrubImages = {};
+    let offline = root.getAttribute("data-offline");
+    let src1080, src480, hideMobileControlsTimeout, percentBuffered = 0, wasPlaying = false;
 
-    let init = function() {
-        src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
-        if(doi) {
-            fetch(`https://api.datacite.org/dois/${doi}/media`)
-                .then(res => res.json())
-                .then(function(data) {
-                    src1080 = data.data[0].attributes.url;
-                    initSrc();
-                });
+    let init = async function() {
+        // Add event listener to init player functionality when source is loaded
+        video.addEventListener("loadedmetadata", initPlayer, { once: true });
+
+        if(offline) {
+            loadSrc(`videos/${root.getAttribute("data-src")}`);
         } else {
-            src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
-            initSrc();
+            // Set default quality based on session storage variable
+            let vidQuality = (window.sessionStorage.getItem("vidQuality") == "480") ? "480" : "1080";
+
+            // Set variables for 1080/480 src
+            if(doi) { // If doi, generate source strings from that
+                let res = await fetch(`https://api.datacite.org/dois/${doi}/media`);
+                let data = await res.json();
+                src1080 = data.data[0].attributes.url;
+                src480 = `${src1080.substring(0, src1080.indexOf(".mp4"))}_480p.mp4`;
+            } else { // If no doi, fallback to vidName variable which is set by build script
+                src1080 = `https://www.cellstructureatlas.org/videos/${vidName}.mp4`;
+                src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
+            }
+
+            // Load source in video element
+            loadSrc((vidQuality == "480") ? src480 : src1080);
+
+            // Update quality changer text
+            updateQualityChanger(vidQuality);
         }
     };
-
-    let initSrc = function() {
-        if(window.sessionStorage.getItem("vidQuality") == "480") {
-            updateQualityChanger("480");
-            loadSrc(src480);
-        } else {
-            updateQualityChanger("1080");
-            loadSrc(src1080);
-        }
-    };
-
-    let updateQualityChanger = function(quality) {
-        let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
-        let qualityTextNode = document.createTextNode(`${quality}p`);
-        qualityInput.checked = true;
-        if(openQualityChangerBtnText.firstChild) openQualityChangerBtnText.removeChild(openQualityChangerBtnText.firstChild);
-        openQualityChangerBtnText.appendChild(qualityTextNode);
-    };
-
-    let loadSrc = function(source) {
-        videoSrc.setAttribute("src", source);
-        video.load();
-    }
 
     let initPlayer = function() {
-        formattedDuration = getFormattedTime(video.duration);
+        // Update time display now that we have video metadata
         updateTimeDisplay();
-        if(window.createImageBitmap) resizeScrubCanvas();
-        attachEventListeners();
-    };
 
-    let attachEventListeners = function() {
-        playBackBtn.addEventListener("click", togglePlayBack);
+        // Attach all player event listeners
+        root.addEventListener("fullscreenchange", onFullscreenChange);
+        root.addEventListener("webkitfullscreenchange", onFullscreenChange);
         video.addEventListener("play", onPlay);
         video.addEventListener("pause", onPause);
         video.addEventListener("timeupdate", updateTimeDisplay);
         video.addEventListener("timeupdate", updateSeekBar);
         video.addEventListener("progress", updatePercentBuffered);
+        playBackBtn.addEventListener("click", togglePlayBack);
+        fsBtn.addEventListener("click", toggleFullscreen);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
+        seekBar.addEventListener("touchstart", onSeekBarTouchstart);
         seekBar.addEventListener("input", onSeekBarInput);
-        openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
-        fsBtn.addEventListener("click", toggleFullscreen);
-        root.addEventListener("fullscreenchange", onFullscreenChange);
-        root.addEventListener("webkitfullscreenchange", onFullscreenChange);
         if(window.innerWidth > 900) {
             video.addEventListener("click", togglePlayBack);
         } else {
-            video.addEventListener("click", onVideoClickMobile);
+            root.addEventListener("fullscreenchange", onMobileFullscreenchange);
+            root.addEventListener("touchstart", onMobileTouchstart);
+            root.addEventListener("touchend", onMobileTouchend);
             video.addEventListener("play", forceFullscreenMobile);
             playBackBtnMobile.addEventListener("click", togglePlayBack);
-            playBackBtnMobile.addEventListener("transitionend", onPlayBackBtnMobileTransitionEnd);
-            controlsContainer.addEventListener("touchstart", onControlsContainerTouchStartMobile);
-            controlsContainer.addEventListener("touchend", onControlsContainerTouchEndMobile);
-            controlsContainer.addEventListener("transitionend", onControlsContainerTransitionEndMobile);
-            root.addEventListener("fullscreenchange", onMobileFullscreenchange);
         }
-        if(window.innerWidth > 900 && window.createImageBitmap) {
-            window.addEventListener("resize", resizeScrubCanvas);
-            video.addEventListener("playing", startPaintInterval);
-            video.addEventListener("pause", endPaintInterval);
-            video.addEventListener("seeked", paintCurrentFrame);
-            video.addEventListener("emptied", resetScrub);
-            seekBar.addEventListener("mousedown", showScrubCanvas);
-            seekBar.addEventListener("keydown", showScrubCanvas);
-            seekBar.addEventListener("mouseup", hideScrubCanvas);
-            seekBar.addEventListener("keyup", hideScrubCanvas);
-            seekBar.addEventListener("input", paintSeekedFrame);
-        }
+        
+        if(!offline) openQualityChangerBtn.addEventListener("click", toggleQualityOptionsMenu);
+    };
+
+    let onFullscreenChange = function() {
+        if (document.fullscreenElement || document.webkitFullscreenElement) root.classList.add("video-player--fullscreen");
+        else root.classList.remove("video-player--fullscreen");
+    };
+
+    let onPlay = function() {
+        root.classList.add("video-player--playing");
+    };
+
+    let onPause = function() {
+        root.classList.remove("video-player--playing");
+    };
+
+    let updateTimeDisplay = function() {
+        timeDisplay.textContent = `${getFormattedTime(video.currentTime)} / ${getFormattedTime(video.duration)}`;
     };
 
     let getFormattedTime = function(timeSeconds) {
@@ -117,49 +100,9 @@ let VideoPlayer = function(root) {
         return `${minutesFormatted}:${secondsFormatted}`;
     };
 
-    let updateTimeDisplay = function() {
-        let timeTextNode = document.createTextNode(`${getFormattedTime(video.currentTime)} / ${formattedDuration}`);
-        timeDisplay.removeChild(timeDisplay.firstChild);
-        timeDisplay.appendChild(timeTextNode);
-    };
-
-    let togglePlayBack = function() {
-        if (video.paused || video.ended) {
-            video.play();
-        } else {
-            video.pause();
-        }
-    };
-
-    let onPlay = function() {
-        playIcon.classList.add("video-player__control-icon--hidden");
-        playIconMobile.classList.add("video-player__playback-btn-mobile-icon--hidden");
-        pauseIcon.classList.remove("video-player__control-icon--hidden");
-        pauseIconMobile.classList.remove("video-player__playback-btn-mobile-icon--hidden");
-        controlsContainer.classList.add("video-player__controls-container--playing");
-        playBackBtnMobile.classList.add("video-player__playback-btn-mobile--playing");
-        hideMobileControls();
-    };
-
-    let onPause = function() {
-        playIcon.classList.remove("video-player__control-icon--hidden");
-        playIconMobile.classList.remove("video-player__playback-btn-mobile-icon--hidden");
-        pauseIcon.classList.add("video-player__control-icon--hidden");
-        pauseIconMobile.classList.add("video-player__playback-btn-mobile-icon--hidden");
-        controlsContainer.classList.remove("video-player__controls-container--hidden");
-        controlsContainer.classList.remove("video-player__controls-container--playing");
-        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--hidden-mobile");
-        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--playing");
-    };
-
     let updateSeekBar = function() {
         seekBar.value = Math.round((video.currentTime / video.duration) * parseInt(seekBar.max));
         updateSeekBarBackground();
-    };
-
-    let updateSeekBarBackground = function() {
-        let seekBarValuePercent = (seekBar.value / parseInt(seekBar.max)) * 100;
-        seekBar.style.background = `linear-gradient(90deg, #fff 0% ${seekBarValuePercent}%, #bfbfbf ${seekBarValuePercent + 0.1}% ${percentBuffered}%, #717171 ${percentBuffered + 0.1}%)`;
     };
 
     let updatePercentBuffered = function() {
@@ -172,46 +115,28 @@ let VideoPlayer = function(root) {
         }
     };
 
-    let onSeekBarMouseDown = function() {
-        if(!video.paused) {
-            video.pause();
-            seekBar.addEventListener("mouseup", togglePlayBack, { once: true });
-        }
+    let updateSeekBarBackground = function() {
+        let seekBarValuePercent = (seekBar.value / parseInt(seekBar.max)) * 100;
+        seekBar.style.background = `linear-gradient(90deg, #fff 0% ${seekBarValuePercent}%, #bfbfbf ${seekBarValuePercent + 0.1}% ${percentBuffered}%, #717171 ${percentBuffered + 0.1}%)`;
     };
 
-    let onSeekBarKeyDown = function() {
-        if(!video.paused) {
+    let togglePlayBack = function() {
+        if (video.paused || video.ended) {
+            video.play();
+        } else {
             video.pause();
-            seekBar.addEventListener("keyup", togglePlayBack, { once: true });
         }
-    };
-
-    let onSeekBarInput = function() {
-        video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
-        updateSeekBarBackground();
     };
 
     let toggleQualityOptionsMenu = function() {
-        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
-            openQualityChangerBtn.classList.add("video-player__quality-changer-open-btn--activated");
-            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-open");
-            qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-closed");
-            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--hidden");
+        if(qualityChanger.classList.contains("video-player__quality-changer--closed")) {
+            qualityChanger.classList.remove("video-player__quality-changer--closed");
             window.addEventListener("click", autoCloseQualityOptionsMenu);
             window.addEventListener("keyup", autoCloseQualityOptionsMenu);
         } else {
-            qualityOptionsMenu.addEventListener("transitionend", onQualityMenuClose, { once: true });
-            qualityOptionsMenu.classList.remove("video-player__quality-options-menu--transition-closed");
-            qualityOptionsMenu.classList.add("video-player__quality-options-menu--transition-open");
-            qualityOptionsMenu.classList.add("video-player__quality-options-menu--hidden");
+            qualityChanger.classList.add("video-player__quality-changer--closed");
             window.removeEventListener("click", autoCloseQualityOptionsMenu);
             window.removeEventListener("keyup", autoCloseQualityOptionsMenu);
-        }
-    };
-
-    let onQualityMenuClose = function() {
-        if(qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) {
-            openQualityChangerBtn.classList.remove("video-player__quality-changer-open-btn--activated");
         }
     };
 
@@ -220,185 +145,106 @@ let VideoPlayer = function(root) {
     };
 
     let changeQuality = function(quality) {
+        // Add any necessary quality switching styles
+        root.classList.add("video-player--quality-switching");
+
+        // Store video playstate to use after source switching
+        wasPlaying = !video.paused;
+
+        // Update quality changer to reflect new quality
         updateQualityChanger(quality);
 
+        // Disable player functionality that would be problematic during quality switching
         playBackBtn.disabled = true;
         playBackBtnMobile.disabled = true;
         seekBar.disabled = true;
-        video.removeEventListener("click", togglePlayBack);
+        for(let qualityOptionInput of qualityOptionInputs) qualityOptionInput.disabled = true;
+        if(window.innerWidth > 900) video.removeEventListener("click", togglePlayBack);
         video.removeEventListener("timeupdate", updateTimeDisplay);
         video.removeEventListener("timeupdate", updateSeekBar);
         seekBar.removeEventListener("mousedown", onSeekBarMouseDown);
         seekBar.removeEventListener("keydown", onSeekBarKeyDown);
-        if(window.createImageBitmap) {
-            video.removeEventListener("seeked", paintCurrentFrame);
-            seekBar.removeEventListener("mousedown", showScrubCanvas);
-            seekBar.removeEventListener("keydown", showScrubCanvas);
-        }
+        seekBar.removeEventListener("touchstart", onSeekBarTouchstart);
 
-        video.addEventListener("canplay", onSourceSwitchCanPlay, { once: true });
+        // Add event listener to resume player position after switching sources
+        video.addEventListener("loadedmetadata", onSourceSwitchLoadedmetadata, { once: true });
 
-        if(quality == "1080") loadSrc(src1080);
-        if(quality == "480") loadSrc(src480);
+        loadSrc(quality == "1080" ? src1080 : src480);
     };
 
-    let onSourceSwitchCanPlay = function() {
+    let updateQualityChanger = function(quality) {
+        let qualityInput = root.querySelector(`.video-player__quality-option-input[value='${quality}']`);
+        qualityInput.checked = true;
+        openQualityChangerBtnText.textContent = `${quality}p`;
+    };
+
+    let loadSrc = function(source) {
+        videoSrc.setAttribute("src", source);
+        video.load();
+    }
+
+    let onSourceSwitchLoadedmetadata = function() {
+        // Add event listener to resume player functionality after setting video time
         video.addEventListener("seeked", onSourceSwitchSeeked, { once: true });
+
+        // Set video currentTime to whatever the seekbar is at
         video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
     };
 
     let onSourceSwitchSeeked = function() {
-        video.addEventListener("click", togglePlayBack);
+        // Enable player functionality that was disabled before
+        playBackBtn.disabled = false;
+        playBackBtnMobile.disabled = false;
+        seekBar.disabled = false;
+        for(let qualityOptionInput of qualityOptionInputs) qualityOptionInput.disabled = false;
+        if(window.innerWidth > 900) video.addEventListener("click", togglePlayBack);
         video.addEventListener("timeupdate", updateTimeDisplay);
         video.addEventListener("timeupdate", updateSeekBar);
         seekBar.addEventListener("mousedown", onSeekBarMouseDown);
         seekBar.addEventListener("keydown", onSeekBarKeyDown);
-        if(window.createImageBitmap) {
-            video.addEventListener("seeked", paintCurrentFrame);
-            seekBar.addEventListener("mousedown", showScrubCanvas);
-            seekBar.addEventListener("keydown", showScrubCanvas);
-        }
-        if(playIcon.classList.contains("video-player__control-icon--hidden")) togglePlayBack();
-        playBackBtn.disabled = false;
-        playBackBtnMobile.disabled = false;
-        seekBar.disabled = false;
+        seekBar.addEventListener("touchstart", onSeekBarTouchstart);
+
+        // Remove any necessary quality switching styles
+        root.classList.remove("video-player--quality-switching");
+
+        // Resume video if it was playing before
+        if(wasPlaying) togglePlayBack();
     };
 
     let toggleFullscreen = function() {
-        if(document.fullscreenElement == root || document.webkitFullscreenElement == root) {
-            if(document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if(document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            }
-        } else if(!document.fullscreenElement || !document.webkitFullscreenElement) {
-            if (root.requestFullscreen) {
-                root.requestFullscreen();
-            } else if (root.webkitRequestFullscreen) {
-                root.webkitRequestFullscreen();
-            }
+        if (document.fullscreenElement == root || document.webkitFullscreenElement == root) {
+            if (document.exitFullscreen) document.exitFullscreen(); 
+            else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        } else if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+            if (root.requestFullscreen) root.requestFullscreen(); 
+            else if (root.webkitRequestFullscreen) root.webkitRequestFullscreen();
         }
     };
 
-    let onFullscreenChange = function() {
-        if(document.fullscreenElement || document.webkitFullscreenElement) {
-            fsBtn.classList.remove("video-player__control-btn-fs--hidden-mobile");
-            fsIcon.classList.add("video-player__control-icon--hidden");
-            exitFsIcon.classList.remove("video-player__control-icon--hidden");
-            video.classList.add("video-player__video--fullscreen");
-        } else {
-            fsBtn.classList.add("video-player__control-btn-fs--hidden-mobile");
-            fsIcon.classList.remove("video-player__control-icon--hidden");
-            exitFsIcon.classList.add("video-player__control-icon--hidden");
-            video.classList.remove("video-player__video--fullscreen");
+    let onSeekBarMouseDown = function() {
+        if(!video.paused) {
+            video.pause();
+            seekBar.addEventListener("mouseup", togglePlayBack, { once: true });
         }
     };
 
-    let resizeScrubCanvas = function() {
-        let height = video.getBoundingClientRect().height;
-        let width = video.getBoundingClientRect().width;
-        let intrinsicRatio = video.videoWidth / video.videoHeight;
-        let currentRatio = width / height;
-        if(currentRatio > intrinsicRatio) {
-            scrubCanvas.setAttribute("height", `${height}px`);
-            scrubCanvas.setAttribute("width", `${height * intrinsicRatio}px`);
-        } else {
-            scrubCanvas.setAttribute("width", `${width}px`);
-            scrubCanvas.setAttribute("height", `${width / intrinsicRatio}px`);
+    let onSeekBarKeyDown = function(event) {
+        if((event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") && !video.paused) {
+            video.pause();
+            seekBar.addEventListener("keyup", togglePlayBack, { once: true });
         }
     };
 
-    let startPaintInterval = function() {
-        paintInterval = setInterval(paintCurrentFrame, 1000 / fps);
-    };
-
-    let endPaintInterval = function() {
-        clearInterval(paintInterval);
-    };
-
-    let paintCurrentFrame = async function() {
-        let frameTime = Math.round(video.currentTime  * fps) / fps;
-        if(!scrubImages[frameTime]) {
-            scrubContext.drawImage(video, 0, 0, scrubCanvas.width, scrubCanvas.height);
-            imageData = scrubContext.getImageData(0, 0, scrubCanvas.width, scrubCanvas.height);
-            imageBitmap = await createImageBitmap(imageData);
-            scrubImages[frameTime] = imageBitmap;
+    let onSeekBarTouchstart = function() {
+        if(!video.paused) {
+            video.pause();
+            seekBar.addEventListener("touchend", togglePlayBack, { once: true });
         }
     };
 
-    let resetScrub = function() {
-        endPaintInterval();
-        scrubImages = {};
-    };
-
-    let showScrubCanvas = function() {
-        scrubCanvas.classList.remove("video-player__scrub-canvas--hidden");
-    };
-
-    let hideScrubCanvas = function() {
-        if(video.seeking) {
-            video.addEventListener("seeked", hideScrubCanvas, { once: true });
-        } else {
-            scrubCanvas.classList.add("video-player__scrub-canvas--hidden");
-        }
-    };
-
-    let paintSeekedFrame = function() {
-        let seekedTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
-        let frameTime = Math.round(seekedTime  * fps) / fps;
-        if(scrubImages[frameTime]) scrubContext.drawImage(scrubImages[frameTime], 0, 0, scrubCanvas.width, scrubCanvas.height);
-    };
-
-    let onVideoClickMobile = function() {
-        if(video.paused) return;
-        clearTimeout(hideMobileControlsTimeout);
-        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--hidden-mobile");
-        playBackBtnMobile.classList.add("video-player__playback-btn-mobile--show-mobile");
-        controlsContainer.classList.remove("video-player__controls-container--hidden");
-        controlsContainer.classList.add("video-player__controls-container--show-mobile");
-        hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
-    };
-
-    let hideMobileControls = function() {
-        if(!qualityOptionsMenu.classList.contains("video-player__quality-options-menu--hidden")) return;
-        playBackBtnMobile.classList.remove("video-player__playback-btn-mobile--show-mobile");
-        controlsContainer.classList.remove("video-player__controls-container--show-mobile");
-    };
-
-    let forceFullscreenMobile = function() {
-        if(!document.fullscreenElement || !video.webkitDisplayingFullscreen) {
-            if (root.requestFullscreen) {
-                root.requestFullscreen();
-            } else if (video.webkitEnterFullscreen) {
-                video.webkitEnterFullscreen();
-            }
-        }
-    };
-
-    let onPlayBackBtnMobileTransitionEnd = function() {
-        if(
-            playBackBtnMobile.classList.contains("video-player__playback-btn-mobile--playing") &&
-            !playBackBtnMobile.classList.contains("video-player__playback-btn-mobile--show-mobile")
-        ) {
-            playBackBtnMobile.classList.add("video-player__playback-btn-mobile--hidden-mobile");
-        }
-    };
-
-    let onControlsContainerTouchStartMobile = function() {
-        clearTimeout(hideMobileControlsTimeout);
-    };
-
-    let onControlsContainerTouchEndMobile = function() {
-        hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
-    };
-
-    let onControlsContainerTransitionEndMobile = function() {
-        if(
-            controlsContainer.classList.contains("video-player__controls-container--playing") &&
-            !controlsContainer.classList.contains("video-player__controls-container--show-mobile")
-        ) {
-            controlsContainer.classList.add("video-player__controls-container--hidden");
-        }
+    let onSeekBarInput = function() {
+        video.currentTime = (seekBar.value / parseInt(seekBar.max)) * video.duration;
+        updateSeekBarBackground();
     };
 
     let onMobileFullscreenchange = function() {
@@ -410,6 +256,24 @@ let VideoPlayer = function(root) {
         }
     };
 
+    let onMobileTouchstart = function() {
+        clearTimeout(hideMobileControlsTimeout);
+        root.classList.add("video-player--show-controls");
+    };
+
+    let onMobileTouchend = function() {
+        hideMobileControlsTimeout = setTimeout(hideMobileControls, 1000);
+    };
+
+    let hideMobileControls = function() {
+        if(qualityChanger.classList.contains("video-player__quality-changer--closed")) root.classList.remove("video-player--show-controls");
+    };
+
+    let forceFullscreenMobile = function() {
+        if (root.requestFullscreen) root.requestFullscreen();
+        else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+    };
+
     let hide = function() {
         root.classList.add("video-player--hidden");
     };
@@ -418,7 +282,6 @@ let VideoPlayer = function(root) {
         root.classList.remove("video-player--hidden");
     };
 
-    video.addEventListener("loadedmetadata", initPlayer, { once: true });
     init();
 
     return {
@@ -426,7 +289,6 @@ let VideoPlayer = function(root) {
         video,
         qualityOptionInputs,
         changeQuality,
-        resizeScrubCanvas,
         togglePlayBack,
         hide,
         show

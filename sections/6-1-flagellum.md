@@ -1,9 +1,8 @@
 ---
 title: Flagellum
 doi: 10.22002/D1.1525
-videoTitle: Campylobacter jejuni
+species: Campylobacter jejuni
 video: 6_1_Cjejuni.mp4
-videoAlt: 6_1.png
 collector: Morgan Beeby
 subsections: ['flagellum-structure']
 description: Bacteria like Campylobacter jejuni use a long helical propeller called a flagellum to swim through their liquid environment

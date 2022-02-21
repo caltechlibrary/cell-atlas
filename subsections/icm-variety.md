@@ -3,7 +3,6 @@ title: ICM variety
 species: Methyloprofundus sedimenti 
 doi: 10.22002/D1.1499
 video: 4_3a_Msedimenti.mp4
-videoAlt: 4_3a.png
 collector: Elitza Tocheva
 ---
 

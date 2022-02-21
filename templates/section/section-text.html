@@ -1,0 +1,36 @@
+<div class="section-text">
+    <div class="section-text__unshelve-btn-container section-text__unshelve-btn-container--hidden">
+        <button class="section-text__unshelve-btn" aria-label="Show text">&#8249;&#8249; Text</button>
+        <button class="section-text__stop-narration-btn section-text__stop-narration-btn--hidden" aria-label="Stop narration">
+            <div class="section-text__stop-narration-btn-icon">${svg/mute.svg()}</div>
+        </button>
+    </div>
+    <div class="section-text__main-container ${if(subsectionsData)}${else}section-text__main-container--no-learn-more${endif}">
+        <div class="section-text__text-container">
+            ${narration:section/narration-player.html()}
+            <div class="section-text__header-container">
+                <button class="section-text__shelve-btn" aria-label="Hide text">&#8250;&#8250; Text</button>
+                <div class="section-text__header-divider"></div>
+                <h1 class="section-text__title">${title}</h1>
+            </div>
+            <button class="section-text__toggle-narration-btn ${if(narration)}${else}section-text__toggle-narration-btn--hidden${endif}" aria-label="Open narration player">
+                <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
+                <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
+            </button>
+            <div class="section-text__content" tabindex="0">
+                ${body}
+            </div>
+        </div>
+        ${citation:section/vid-citation.html()}
+        ${if(subsectionsData)}
+            <div class="learn-more learn-more--in-section">
+                <h2 class="learn-more__title">Learn More:</h2>
+                <div class="learn-more__btn-container">
+                    ${for(subsectionsData)}
+                        <button class="learn-more__btn" value="${it.id}" aria-label="Open ${it.title} modal">${it.title}</button>
+                    ${endfor}
+                </div>
+            </div>
+        ${endif}
+    </div>
+</div>

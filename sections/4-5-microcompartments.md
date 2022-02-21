@@ -1,9 +1,8 @@
 ---
 title: Microcompartments
 doi: 10.22002/D1.1494
-videoTitle: Acetonema longum
+species: Acetonema longum
 video: 4_6_Alongum.mp4
-videoAlt: 4_6.png
 collector: Elitza Tocheva
 subsections: ['microcompartment-shells']
 description: Protein-shelled microcompartments serve as metabolic factories for bacteria like Acetonema longum
