@@ -487,15 +487,17 @@ metadata["appendixTypeAbout"] = True
 metadata["feedbackData"] = { "id": "feedback", "feedback": True }
 metadata["accordionData"] = []
 with open("about.md", 'r', encoding='utf-8') as f:
-    for line in f.readlines():
+    lines = f.readlines()
+    contentStartIndex = [i for i, line in enumerate(lines) if line.strip() == "---"][1] + 1
+    for line in lines[contentStartIndex:]:
         if re.search(r"##", line):
             entry = {}
             entry["title"] = line.split("##")[1].strip()
             entry["content"] = ""
             entry["id"] = re.sub(r"[^\w\s]", "", entry["title"].replace(" ", "-"))
             metadata["accordionData"].append(entry)
-        elif not re.search(r"---", line) and not re.search("title: About this Book", line):
-            metadata["accordionData"][-1]["content"] = metadata["accordionData"][-1]["content"] + line    
+        else:
+            metadata["accordionData"][-1]["content"] += line    
 writePage(siteDirRegular, "about.md", metadata["pageName"], metadata)
 if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "about.md", metadata["pageName"], metadata)
 
