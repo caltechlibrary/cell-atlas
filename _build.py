@@ -196,6 +196,34 @@ def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
         speciesData[species]["speciesRefs"] = [ speciesEntry ]
         speciesData[species]["id"] = species.replace(" ", "-")
 
+def addEntryToFeatureIndex(feature, entry, featureIndex):
+    if feature in featureIndex:
+        featureIndex[feature]["entries"].append(entry)
+    else:
+        featureIndex[feature] = {}
+        featureIndex[feature]["title"] = feature
+        featureIndex[feature]["id"] = feature.title().replace(" ", "")
+        featureIndex[feature]["entries"] = [ entry ]
+
+def addPageToFeatureIndex(fileName, featureIndex):
+    fileMetadata = getYAMLMetadata(fileName)
+    chapter = os.path.basename(fileName).split("-")[0]
+    section = os.path.basename(fileName).split("-")[1]
+    sectionLink = f"{getPageName(fileName)}.html"
+    sectionTitle = f"{chapter}.{section} {fileMetadata['title']}"
+    if "features" in fileMetadata:
+        entry = {"species": fileMetadata["species"], "link": sectionLink, "title": sectionTitle}
+        for feature in fileMetadata["features"]: addEntryToFeatureIndex(feature, entry, featureIndex)
+    
+    if "subsections" in fileMetadata:
+        for subsectionFileName in fileMetadata["subsections"]:
+            subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
+            subsectionLink = f"{sectionLink}#{subsectionFileName}"
+            subsectionTitle = f"{sectionTitle}: {subsectionData['title']}"
+            if "features" in subsectionData:
+                entry = {"species": subsectionData["species"], "link": subsectionLink, "title": subsectionTitle}
+                for feature in subsectionData["features"]: addEntryToFeatureIndex(feature, entry, featureIndex)
+
 def addMainSectionMetadata(fileName, metadata, bibDict):
     # Get media viewer metadata
     metadata["mediaViewer"] = {}
@@ -328,6 +356,10 @@ addPageToSpeciesData("introduction.md", speciesData)
 for fileName in sectionFileNames: addPageToSpeciesData(f"sections/{fileName}", speciesData)
 addPageToSpeciesData("keep-looking.md", speciesData)
 
+# Generate feature index data
+featureIndex = {}
+for fileName in sectionFileNames: addPageToFeatureIndex(f"sections/{fileName}", featureIndex)
+
 # Generate bibliography data
 bibDict = { ref["id"]: ref for ref in json.loads( subprocess.check_output(["pandoc", "--to=csljson", "AtlasBibTeX.bib"]) ) }
 bibList = []
@@ -451,9 +483,7 @@ for i, fileName in enumerate(appendixFileNames):
 
     if fileName == "A-feature-index.md":
         metadata["appendixTypeFeatures"] = True
-        with open("features.json", "r", encoding="utf-8") as f:
-            featureIndexData = json.load(f)
-            metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key]} for key in featureIndexData]
+        metadata["accordionData"] = list(featureIndex.values())
     elif fileName == "B-scientist-profiles.md":
         metadata["appendixTypeProfiles"] = True
         metadata["accordionData"] = list(profileData.values())
