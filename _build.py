@@ -453,10 +453,12 @@ for i, fileName in enumerate(appendixFileNames):
         metadata["appendixTypeFeatures"] = True
         with open("features.json", "r", encoding="utf-8") as f:
             featureIndexData = json.load(f)
-            metadata["accordionData"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key]} for key in featureIndexData]
+            metadata["features"] = {}
+            metadata["features"]["entries"] = [{"title": key, "id": key.title().replace(" ", ""), "refs": featureIndexData[key], "template": { "feature": True }} for key in featureIndexData]
     elif fileName == "B-scientist-profiles.md":
         metadata["appendixTypeProfiles"] = True
-        metadata["accordionData"] = list(profileData.values())
+        metadata["profiles"] = {}
+        metadata["profiles"]["entries"] = [{**profile, "template": {"profile": True}} for profile in profileData.values()]
     elif fileName == "C-phylogenetic-tree.md":
         metadata["appendixTypeTree"] = True
         metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
@@ -485,7 +487,8 @@ metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
 metadata["feedbackData"] = { "id": "feedback", "feedback": True }
-metadata["accordionData"] = []
+metadata["content"] = {}
+metadata["content"]["entries"] = []
 with open("about.md", 'r', encoding='utf-8') as f:
     lines = f.readlines()
     contentStartIndex = [i for i, line in enumerate(lines) if line.strip() == "---"][1] + 1
@@ -495,9 +498,10 @@ with open("about.md", 'r', encoding='utf-8') as f:
             entry["title"] = line.split("##")[1].strip()
             entry["content"] = ""
             entry["id"] = re.sub(r"[^\w\s]", "", entry["title"].replace(" ", "-"))
-            metadata["accordionData"].append(entry)
+            entry["template"] = { "about": True }
+            metadata["content"]["entries"].append(entry)
         else:
-            metadata["accordionData"][-1]["content"] += line    
+            metadata["content"]["entries"][-1]["content"] += line    
 writePage(siteDirRegular, "about.md", metadata["pageName"], metadata)
 if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, "about.md", metadata["pageName"], metadata)
 
