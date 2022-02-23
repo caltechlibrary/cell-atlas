@@ -17,12 +17,3 @@ for(let link of allLinks) {
         link.setAttribute("rel", "noopener");
     }
 }
-
-function addTypeFocusToggle(el) {
-    el.addEventListener("mousedown", function() {
-        el.classList.add("mouse-focus");
-    });
-    el.addEventListener("keydown", function() {
-        el.classList.remove("mouse-focus"); 
-    });
-}
