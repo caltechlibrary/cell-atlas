@@ -3,9 +3,9 @@
     <div class="appendix__content-container">
         <h1 class="appendix__title">${if(chapter)}<span class="appendix__title-chapter">${chapter}</span>${endif}${title}</h1>
         ${if(appendixTypeFeatures)}
-            ${features:appendix/appendix-accordion.html()}
+            ${appendix/features-page.html()}
         ${elseif(appendixTypeProfiles)}
-            ${profiles:appendix/appendix-accordion.html()}
+            ${appendix/profiles-page.html()}
         ${elseif(appendixTypeTree)}
             ${appendix/tree-page.html()}
         ${elseif(appendixTypeReferences)}
