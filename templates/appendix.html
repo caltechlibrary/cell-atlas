@@ -3,17 +3,17 @@
     <div class="appendix__content-container">
         <h1 class="appendix__title">${if(chapter)}<span class="appendix__title-chapter">${chapter}</span>${endif}${title}</h1>
         ${if(appendixTypeFeatures)}
-            ${appendix/features-page.html()}
+            ${features-page.html()}
         ${elseif(appendixTypeProfiles)}
-            ${appendix/profiles-page.html()}
+            ${profiles-page.html()}
         ${elseif(appendixTypeTree)}
-            ${appendix/tree-page.html()}
+            ${tree-page.html()}
         ${elseif(appendixTypeReferences)}
-            ${appendix/references-page.html()}
+            ${references-page.html()}
         ${elseif(appendixTypeAbout)}
-            ${appendix/about-page.html()}
+            ${about-page.html()}
         ${elseif(appendixTypeDownload)}
-            ${appendix/download-page.html()}
+            ${download-page.html()}
         ${endif}
     </div>
     <a href="${nextSection}.html" class="nav-arrow appendix__nav-arrow ${if(nextSection)}${else}appendix__nav-arrow--hidden${endif}" ${if(nextSection)}data-page="next"${endif} aria-label="Next section">${svg/right-nav.svg()}</a>

@@ -1,5 +1,5 @@
 <nav class="nav nav--collapsed" aria-label="Main Navigation">
-    ${if(offline)}${else} ${navData:search-widget.html()} ${endif}
+    ${if(offline)}${else} ${navData:components/search-widget.html()} ${endif}
     <ol class="nav__chapter-list">
         ${for(nav)}
             <li class="nav__entry">

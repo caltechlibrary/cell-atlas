@@ -1,9 +1,9 @@
 <div class="main-non-text-container main-non-text-container--hidden-mobile">
     <a href="${prevSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
     ${if(summaryData)}
-        ${summaryData:media-viewer.html()}
+        ${summaryData:components/media-viewer.html()}
     ${else}
-        ${mediaViewer:media-viewer.html()}
+        ${mediaViewer:components/media-viewer.html()}
     ${endif}
     <a href="${nextSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="next" aria-label="Next section">${svg/right-nav.svg()}</a>
 
@@ -12,8 +12,8 @@
     </button>
 </div>
 
-${section/section-text.html()}
+${components/section-text.html()}
 
 ${for(subsectionsData)}
-    ${it:modal.html()}
+    ${it:components/modal.html()}
 ${endfor}

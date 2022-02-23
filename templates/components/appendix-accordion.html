@@ -9,11 +9,11 @@
         </h2>
         <div id="${it.id}-panel" class="appendix-accordion__entry-panel appendix-accordion__entry-panel--collapsed" style="height:0px">
             ${if(it.template.feature)}
-                ${it:appendix/feature-index-entry.html()}
+                ${it:components/feature-index-entry.html()}
             ${elseif(it.template.profile)}
-                ${it:appendix/profile.html()}
+                ${it:components/profile.html()}
             ${elseif(it.template.about)}
-                ${it:appendix/about-entry.html()}
+                ${it:components/about-entry.html()}
             ${endif}
         </div>
     ${endfor}
