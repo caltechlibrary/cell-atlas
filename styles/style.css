@@ -320,61 +320,6 @@ file. These definitions will be defined mobile first.
     }
 
     /* || MODAL styles */
-    .subsection-modal-overlay {
-        display: none;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background: rgb(156 156 156 / 50%);
-        z-index: 2;
-    }
-
-    .subsection-modal-container {
-        display: none;
-        position: absolute;
-        box-sizing: border-box;
-        right: 0;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        flex-direction: column;
-        height: fit-content;
-        height: -moz-fit-content;
-        max-width: 52%;
-        max-height: 97%;
-        padding: 1em;
-        border: 4px solid rgb(0 0 0);
-        background: #ffffff;
-    }
-
-    .subsection-modal--min {
-        left:-10000px;
-        top:auto;
-        width:1px;
-        height:1px;
-        overflow:hidden;
-    }
-
-    .subsection-modal-container .book-section-video-player {
-        flex: 0 0 auto;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-    }
-
-    .subsection-modal-text {
-        margin-top: 1em;
-        overflow: auto;
-    }
-
-    .subsection-modal-text a {
-        text-decoration: underline;
-        color: #325c69;
-    }
-
-    .subsection-modal-text h1 {
-        font-size: 1.75em;
-    }
 
     #concept-check-questions, #further-reading {
         margin-top: 2em;
@@ -404,13 +349,6 @@ file. These definitions will be defined mobile first.
     }
 
     /* || ABOUT page styles */
-    .book-appendix-page .subsection-modal-container {
-        max-width: none;
-        max-height: none;
-        width: 640px;
-        height: 85%;
-        min-width: 640px;
-    }
 
     .book-appendix-page iframe {
         width: 100%;
