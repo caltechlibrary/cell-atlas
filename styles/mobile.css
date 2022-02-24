@@ -397,11 +397,6 @@ blockquote {
         fill: #ffffff;
     }
 
-    /* || MODAL styles */
-    .subsection-modal-overlay {
-        display: none;
-    }
-
     /* || SECTION styles */
     .book-section-non-text-content {
         display: flex;
@@ -483,38 +478,9 @@ blockquote {
         transform: scale(0);
     }
 
-    .subsection-modal-container .video-quality-changer-input input + .video-quality-changer-control::before {
-        transform: scale(0);
-    }
-
-    .subsection-modal-container .video-quality-changer-input input:checked + .video-quality-changer-control::before {
-        transform: scale(1);
-    }
-
     .video-quality-changer-label {
         font-size: 0.95em;
         line-height: 1.5;
-    }
-
-    .subsection-modal-container .video-quality-changer-mobile {
-        flex: 1 0 auto;
-        position: relative;
-        margin-top: 0;
-        margin-left: auto;
-        margin-bottom: -22px;
-        color: #000000;
-        transform: translateY(0);
-        flex-direction: row;
-        left: initial;
-        top: initial;
-    }
-
-    .subsection-modal-container .book-section-video-player .video-quality-changer-mobile {
-        display: none;
-    }
-
-    .subsection-modal-container .video-quality-changer-control {
-        border: 0.1em solid #000;
     }
 
     /* || SLIDER styles */
@@ -691,44 +657,6 @@ blockquote {
     }
 
     /* || MODAL styles */
-    .subsection-modal-overlay {
-        display: none;
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        background: rgba(156, 156, 156, 0.5);
-        z-index: 2;
-    }
-
-    .subsection-modal-container {
-        display: none;
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        box-sizing: border-box;
-        height: min-content;
-        width: 93%;
-        max-height: 94.5%;
-        flex-direction: column;
-        padding: 1em;
-        border: 4px solid #000000;
-        background: #ffffff;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .subsection-modal-container-slider-fullscreen {
-        top: initial !important;
-        left: initial !important;
-        transform: initial !important;
-        width: initial !important;
-        height: 100% !important;
-        max-height: initial !important;
-        border: initial !important;
-    }
 
     .modal-exit-button-mobile {
         position: absolute;
@@ -740,58 +668,6 @@ blockquote {
         font-size: 24px;
         font-weight: 900;
         padding: 0;
-    }
-
-    .subsection-modal-container .book-section-comparison-button-container {
-        display: block;
-        margin-top: -2em;
-    }
-
-    .subsection-modal-container .book-section-video-player {
-        position: relative;
-        background: #ffffff;
-        display: flex;
-        align-items: center;
-        flex: 0 1 auto;
-        height: auto;
-    }
-
-    .subsection-modal-container .book-section-video-player--hidden {
-        display: none;
-    }
-
-    .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
-        height: auto;
-    }
-
-    .subsection-modal-container .book-section-comparison-slider-fullscreen-container[data-state="fullscreen"] {
-        height: 100%;
-        width: 100%;
-    }
-
-    .subsection-modal-container .book-section-comparison-slider-container {
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-    }   
-
-    .subsection-modal-text {
-        margin-top: 22px;
-    }
-
-    .subsection-modal-text a {
-        text-decoration: underline;
-        color: rgb(50 92 105);
-    }
-
-    .subsection-modal-text h1 {
-        font-size: 1.75em;
-    }
-
-    .subsection-modal-img {
-        width: 100%;
-        max-height: 50vh;
-        object-fit: contain;
-        margin-bottom: 16px;
     }
 
     /* || CHAPTER styles */
@@ -1032,41 +908,16 @@ blockquote {
     }
 
     /* || SLIDER styles */
-    .subsection-modal-container .book-section-comparison-slider-fullscreen-container {
-        border: 7px #cccccc solid;
-        border-radius: 10px 10px 0 0;
-        box-sizing: border-box;
-        box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-    }
 
     .book-section-comparison-slider-container {
         height: 100%;
         box-sizing: border-box;
     }
 
-    .subsection-modal-container .book-section-comparison-go-fullscreen {
-        margin: 0;
-    }
-
     .book-section-comparison-before {
         height: auto;
         max-height: 100%;
         width: auto;
-    }
-
-    .subsection-modal-container .book-section-comparison-slider-container {
-        background: none;
-        border: none;
-        margin: auto;
-        width: fit-content;
-        box-shadow: none;
-    }
-
-    .subsection-modal-container .book-section-comparison-before {
-        max-height: 50vh;
-        flex: 0;
-        margin: auto;
-        height: 100%;
     }
 
     .book-section-comparison-fullscreen-polyfill {
@@ -1080,17 +931,6 @@ blockquote {
 
     .book-section-comparison-load-failed {
         width: auto;
-    }
-
-    .subsection-modal-container .book-section-comparison-load-failed {
-        width: 100%;
-        max-height: 50vh;
-    }
-
-    /* || MODAL styles */
-    .subsection-modal-container {
-        width: 96%;
-        max-height: 91%;
     }
 
     /* || CHAPTER styles */
