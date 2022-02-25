@@ -5,6 +5,7 @@ species: Caulobacter crescentus
 video: 10_6_Ccrescentus.mp4
 collector: Elizabeth Wright
 subsections: ['phicb13-infection']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage head fibers", "Phage tails", "Ribosomes", "Surface layer"]
 description: Viruses like φCb13 siphophage wrap their head fibers around the flagella of Caulobacter crescentus. Flagellar rotation draws them down to their receptors
 ---
 

@@ -4,6 +4,7 @@ doi: 10.22002/D1.1553
 species: Caulobacter crescentus
 video: 8_1_Ccrescentus.mp4
 collector: Prabha Dias
+features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Pili", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)"]
 description: Archaea and bacteria like Caulobacter crescentus enter a non-growing stationary phase to try to survive adverse conditions
 ---
 

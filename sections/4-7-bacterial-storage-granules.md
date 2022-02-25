@@ -5,6 +5,7 @@ species: Cupriavidus necator
 video: 4_8_Cnecator.mp4
 collector: Morgan Beeby
 subsections: ['storage-granule-growth']
+features: ["Cell wall (diderm)", "Division plane", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules"]
 description: Bacteria like Cupriavidus necator and Lysobacter antibioticus stockpile nutrients like phosphate or carbon in storage granules
 ---
 

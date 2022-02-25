@@ -4,6 +4,7 @@ doi: 10.22002/D1.1588
 species: Shewanella oneidensis
 video: 10_3_Soneidensis.mp4
 collector: Poorna Subramanian
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage tail fibers", "Phage tails", "Ribosomes", "Vesicles (cytoplasmic)"]
 description: Viruses like siphophage use long, non-contractile tails to deliver their genomes into bacteria like Shewanella oneidensis
 ---
 

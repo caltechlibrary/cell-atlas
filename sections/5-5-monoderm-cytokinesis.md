@@ -4,6 +4,7 @@ doi: 10.22002/D1.1511
 species: Tetrasphaera remsis
 video: 5_5_Tremsis.mp4
 collector: Ariane Briegel
+features: ["Cell wall (monoderm)", "Division septum", "Membrane (monoderm)", "Ribosomes", "Storage granules", ]
 description: Bacteria like Tetrasphaera remsis can divide into two or four daughter cells, by building one or two septa simultaneously
 ---
 

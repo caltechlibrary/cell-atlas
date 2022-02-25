@@ -5,6 +5,7 @@ species: Sulfolobus solfataricus
 video: 10_8_Ssolfataricus.mp4
 collector: Lu Gan
 subsections: ['stiv-structure']
+features: ["Membrane (monoderm)", "Phage capsids", "Pili", "Storage granules", "Surface layer", "Virus-associated pyramids"]
 description: Sulfolobus Turreted Icosahedral Virus makes a pyramid in the membrane of infected archaea like Sulfolobus solfataricus to release replicated copies
 ---
 

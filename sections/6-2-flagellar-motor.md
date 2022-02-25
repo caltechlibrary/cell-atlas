@@ -5,6 +5,7 @@ species: Bdellovibrio bacteriovorus
 video: 6_2_Bbacteriovorus.mp4
 collector: Yi-Wei Chang
 subsections: ['flagellar-motor-structure', 'flagellar-motor-diversity']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Pili", "Ribosomes", "Storage granules", "Unidentified structures"]
 description: The long propeller-like flagellum of bacteria like Bdellovibrio bacteriovorus is spun by a motor at its base embedded in the cell envelope
 ---
 

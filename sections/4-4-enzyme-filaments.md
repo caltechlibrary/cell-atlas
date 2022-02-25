@@ -5,6 +5,7 @@ species: Clostridium thermocellum
 video: 4_5_Cthermocellum.mp4
 collector: Elitza Tocheva
 subsections: ['adhe-spirosome-structure']
+features: ["AdhE spirosomes", "Cell wall (monoderm)", "Membrane (monoderm)", "Ribosomes", "Surface layer"]
 description: Polymerization can regulate enzyme activity, and provide cytoskeletal filaments, for bacteria like Clostridium thermocellum
 ---
 

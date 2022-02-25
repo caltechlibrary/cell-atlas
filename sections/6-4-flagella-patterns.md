@@ -5,6 +5,7 @@ species: Campylobacter jejuni
 video: 6_4_Cjejuni.mp4
 collector: Morgan Beeby
 subsections: ['lophotrichous-bacteria']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures"]
 description: Bacteria like Campylobacter jejuni have bipolar flagella, one at each end of the cell. Lophotrichous species like Helicobacter pylori have a tuft of flagella
 ---
 

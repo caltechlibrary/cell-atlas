@@ -5,6 +5,7 @@ species: Thiomonas intermedia
 video: 4_7_Tintermedia.mp4
 collector: Cristina Iancu
 subsections: ['rubisco', 'carboxysome-variety', 'long-carboxysomes']
+features: ["Carboxysomes", "Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Surface layer"]
 description: Bacteria like Thiomonas intermedia, Halothiobacillus neapolitanus and Hydrogenovibrio crunogenus use RuBisCO-packed carboxysomes to fix carbon
 ---
 

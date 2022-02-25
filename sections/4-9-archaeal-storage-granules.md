@@ -5,6 +5,7 @@ species: Halorubrum litoreum
 video: 4_10_Hlitoreum.mp4
 collector: Ariane Briegel
 subsections: ['haloferax-gibbonsii-granules', 'halohasta-litchfieldiae-granules']
+features: ["Archaella", "DNA", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer", "Unidentified structures"]
 description: Archaea like Halorubrum litoreum, Haloferax gibbonssii or Halohasta litchfieldiae use storage granules to stockpile nutrients
 ---
 

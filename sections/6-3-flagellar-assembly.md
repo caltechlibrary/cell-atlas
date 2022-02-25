@@ -5,6 +5,7 @@ species: Hylemonella gracilis
 video: 6_3_Hgracilis.mp4
 collector: Yi-Wei Chang
 subsections: ['flagellar-motor-disassembly']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motor (assembling)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Ribosomes"]
 description: The flagellum of bacteria like Hylemonella gracilis or Pseudomonas aeruginosa is assembled by a type III secretion system at its base
 ---
 

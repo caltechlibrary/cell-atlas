@@ -5,6 +5,7 @@ species: Hyphomonas neptunium
 video: 5_3_Hneptunium.mp4
 collector: Jian Shi
 subsections: ['hyphomonas-lifecycle']
+features: ["Cell wall (diderm)", "DNA", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]
 description: Budding bacteria like Hyphomonas neptunium pass one copy of their chromosomes through a narrow stalk in preparation for division
 ---
 

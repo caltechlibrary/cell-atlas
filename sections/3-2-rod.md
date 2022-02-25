@@ -5,6 +5,7 @@ species: Cupriavidus necator
 video: 3_2_Cnecator.mp4
 collector: Morgan Beeby
 subsections: ['rod-variety', 'archaeal-rods']
+features: ["Cell wall (diderm)", "Division plane", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Vesicles (extracellular)"]
 description: Most rod-shaped bacteria like Cupriavidus necator use the actin homolog MreB to dictate the shape of their peptidoglycan cell wall.
 ---
 

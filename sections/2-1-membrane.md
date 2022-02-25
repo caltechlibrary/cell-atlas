@@ -5,6 +5,7 @@ species: Mycoplasma genitalium
 video: 2_1_Mgenitalium.mp4
 collector: Gregory Henderson
 subsections: ['lipid-bilayer', 'atp-synthase', 'ribosome']
+features: ["Adhesion complexes and filaments", "Membrane (monoderm)", "Ribosomes", "Terminal organelles"]
 description: A phospholipid membrane encloses the contents of all cells, including monoderm Mycoplasma genitalium bacteria, and lets ATP synthase generate energy.
 ---
 

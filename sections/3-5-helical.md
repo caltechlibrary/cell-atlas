@@ -5,6 +5,7 @@ species: Campylobacter jejuni
 video: 3_5_Cjejuni.mp4
 collector: Morgan Beeby
 subsections: ['borrelia-burgdorferi-shape']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures"]
 description: Helical or wavy bacterial cells like Campylobacter jejuni and Borrelia burgdorferi use their corkscrew shape to burrow into host tissue.
 ---
 

@@ -5,6 +5,7 @@ species: Bacillus subtilis
 video: 8_6_Bsubtilis.mp4
 collector: Elitza Tocheva
 subsections: ['spore-engulfment', 'spore-coating']
+features: ["Cell wall (monoderm)", "Membrane (monoderm)", "Sporulation septum"]
 description: Endospore-forming bacteria like Bacillus subtilis develop their spores internally, then lyse to release them once they are mature
 ---
 

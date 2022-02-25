@@ -5,6 +5,7 @@ species: Myxococcus xanthus
 video: 9_6_Mxanthus.mp4
 collector: Yi-Wei Chang
 subsections: ['primed-t6ss-structure']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili (Type IV)", "Ribosomes", "Storage granules", "Type VI secretion systems", "Unidentified structures"]
 description: Bacteria like Myxococcus xanthus use contractile weapons called type VI secretion systems to shoot toxins into neighboring cells
 ---
 

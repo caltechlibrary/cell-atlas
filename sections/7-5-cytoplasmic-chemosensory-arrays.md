@@ -5,6 +5,7 @@ species: Methanoregula formicica
 video: 7_5_Mformicica.mp4
 collector: Ariane Briegel
 subsections: ['vibrio-cholerae-chemosensory-arrays']
+features: ["Chemosensory arrays (cytoplasmic)", "Membrane (monoderm)", "Surface layer", "Unidentified structures"]
 description: Bacteria like Vibrio cholerae and archaea like Methanoregula formicica have cytoplasmic chemosensory arrays that are not anchored to the membrane
 ---
 

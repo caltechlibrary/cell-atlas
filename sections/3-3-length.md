@@ -4,6 +4,7 @@ doi: 10.22002/D1.1479
 species: Hylemonella gracilis
 video: 3_3_Hgracilis.mp4
 collector: Yi-Wei Chang
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motor (disassembled)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Ribosomes", "Vesicles (extracellular)"]
 description: Rod-shaped archaeal and bacterial cells like Hylemonella gracilis can grow longer without significantly changing their ratio of surface area to volume.
 ---
 

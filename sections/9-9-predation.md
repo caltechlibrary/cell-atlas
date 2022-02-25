@@ -4,6 +4,7 @@ doi: 10.22002/D1.1579
 species: Bdellovibrio bacteriovorus / Vibrio cholerae
 video: 9_9_BbacteriovorusVcholerae.mp4
 collector: Yi-Wei Chang
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagellar motor (disassembled)", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Pili (Type IV)", "Ribosomes", "Storage granules"]
 description: Bdellovibrio bacteriovorus bacteria are predators of other diderm bacteria like Vibrio cholerae. They latch onto their prey with type IV pili
 ---
 

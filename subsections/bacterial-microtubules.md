@@ -4,6 +4,7 @@ species: Prosthecobacter vanneervenii
 doi: 10.22002/D1.1487
 video: 3_6a_Pvanneervenii.mp4
 collector: Martin Pilhofer
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Microtubules", "Ribosomes", Storage granules", "Vesicles (cytoplasmic)", "Vesicles (periplasmic")]
 ---
 
 Some bacterial species with prosthecae express structures similar to eukaryotic microtubules, made from two proteins called BtubA and BtubB to reflect their homology to eukaryotic tubulins. Eukaryotic microtubules are hollow tubes formed by 13 protofilaments; bacterial microtubules are smaller, with only ~5 protofilaments. Cells commonly contain a bundle of microtubules in their prosthecae, like this *Prosthecobacter vanneervenii* cell, which has a bundle of four.

@@ -5,6 +5,7 @@ species: Myxococcus xanthus
 video: 6_10_Mxanthus.mp4
 collector: Yi-Wei Chang
 subsections: ['type-iv-pilus-structure']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili (Type IV)", "Ribosomes", "Storage granules"]
 description: Some bacteria like Myxococcus xanthus extend, attach, and retract type IV pili for twitching motility across surfaces
 ---
 

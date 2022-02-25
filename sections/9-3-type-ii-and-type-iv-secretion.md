@@ -5,6 +5,7 @@ species: Legionella pneumophila
 video: 9_3_Lpneumophila.mp4
 collector: Debnath Ghosal
 subsections: ['legionella-t2ss-structure', 'legionella-t4ss-structure', 'helicobacter-pylori-tubes']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Type II secretion systems", "Type IV secretion systems", "Vesicles (cytoplasmic)"]
 description: Bacteria like Legionella pneumophila and Helicobacter pylori use type II and type IV secretion systems to pump out effector proteins for infection
 ---
 

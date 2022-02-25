@@ -5,6 +5,7 @@ species: Myxococcus xanthus
 video: 2_4_Mxanthus.mp4
 collector: Yi-Wei Chang
 subsections: ['pearled-vesicles', 'tubular-vesicles', 'cytoplasmic-vesicles', 'cytoplasmic-vesicle-variety', 'archaeal-vesicles']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili (Type IV)", "Unidentified structures", "Vesicles (extracellular)"]
 description: Vesicles bud from membranes of bacteria like Myxococcus xanthus and Borrelia burgdorferi and archaea like Halomicrobium mukohataei.
 ---
 
