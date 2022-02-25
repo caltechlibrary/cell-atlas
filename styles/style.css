@@ -332,7 +332,7 @@ file. These definitions will be defined mobile first.
     .index__text-container {
         width: 25%;
         min-width: 700px;
-        padding-left: 192px;
+        padding: 0 0 0 192px;
     }
 }
 
