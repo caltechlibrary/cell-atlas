@@ -484,7 +484,7 @@ for i, fileName in enumerate(appendixFileNames):
     if fileName == "A-feature-index.md":
         metadata["appendixTypeFeatures"] = True
         metadata["features"] = {}
-        metadata["features"]["entries"] = [{**entry, "template": {"feature": True}} for entry in featureIndex.values()]
+        metadata["features"]["entries"] = [{**entry, "template": {"feature": True}} for entry in sorted(featureIndex.values(), key=lambda entry: entry["title"].lower())]
     elif fileName == "B-scientist-profiles.md":
         metadata["appendixTypeProfiles"] = True
         metadata["profiles"] = {}
