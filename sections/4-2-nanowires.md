@@ -4,7 +4,7 @@ doi: 10.22002/D1.1490
 species: Shewanella oneidensis
 video: 4_2_Soneidensis.mp4
 collector: Poorna Subramanian
-features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", Membrane (inner)", "Membrane (outer)", "Metal deposits", "Nanowires", "Ribosomes", "Vesicles (cytoplasmic)"]
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Metal deposits", "Nanowires", "Ribosomes", "Vesicles (cytoplasmic)"]
 description: Nanowires allow bacteria like Shewanella oneidensis to grow anaerobically by using an insoluble mineral for respiration
 ---
 

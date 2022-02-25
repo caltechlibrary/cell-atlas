@@ -4,7 +4,7 @@ species: Thermococcus kodakaraensis
 doi: 10.22002/D1.1542
 video: 6_9a_Tkodakaraensis.mp4
 collector: Ariane Briegel
-features: ["Archealla", "Archaellar cone", "Chemosensory arrays (membrane-bound)", "DNA", "Membrane (monoderm)", "Ribosomes", "Surface layer", "Unidentified structures"]
+features: ["Archaella", "Archaellar cone", "Chemosensory arrays (membrane-bound)", "DNA", "Membrane (monoderm)", "Ribosomes", "Surface layer", "Unidentified structures"]
 ---
 
 The archaellar plate does not come to a point at the tip, but rather is a conical frustum (open at the top), resembling a lampshade. In the center of the tip is a small ring, as you can see in a top view in this lysed, and therefore flattened, *Thermococcus kodakaraensis* cell. The function of the ring remains unknown; perhaps it nucleates the rest of the structure?

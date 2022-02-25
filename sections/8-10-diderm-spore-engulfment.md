@@ -5,7 +5,7 @@ species: Acetonema longum
 video: 8_10_Alongum.mp4
 collector: Elitza Tocheva
 subsections: ['complete-engulfment', 'mature-spore', 'sporomusa-acidovorans-sporulation']
-features: ["Cell wall (diderm)", Membrane (inner)", "Membrane (outer)", "Spore cortex", "Spore membrane (inner)", "Spore membrane (outer)", "Storage granules"]
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Spore cortex", "Spore membrane (inner)", "Spore membrane (outer)", "Storage granules"]
 description: Diderm endospore-forming bacteria like Acetonema longum engulf their spores in two membranes, both of which come from the cell's inner membrane
 ---
 

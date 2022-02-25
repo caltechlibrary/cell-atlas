@@ -5,7 +5,7 @@ species: Borrelia burgdorferi
 video: 6_7_Bburgdorferi.mp4
 collector: Ariane Briegel
 subsections: ['treponema-primitia']
-features: ["Cell wall (diderm)", Flagella (periplasmic)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]
+features: ["Cell wall (diderm)", "Flagella (periplasmic)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]
 description: Spirochete bacteria like Borrelia burgdorferi and Treponema primitia burrow with periplasmic flagella built between the cell wall and outer membrane
 ---
 
