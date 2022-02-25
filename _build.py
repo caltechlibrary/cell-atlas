@@ -196,14 +196,14 @@ def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
         speciesData[species]["speciesRefs"] = [ speciesEntry ]
         speciesData[species]["id"] = species.replace(" ", "-")
 
-def addEntryToFeatureIndex(feature, entry, featureIndex):
+def addRefToFeatureIndex(feature, ref, featureIndex):
     if feature in featureIndex:
-        featureIndex[feature]["entries"].append(entry)
+        featureIndex[feature]["refs"].append(ref)
     else:
         featureIndex[feature] = {}
         featureIndex[feature]["title"] = feature
         featureIndex[feature]["id"] = feature.title().replace(" ", "")
-        featureIndex[feature]["entries"] = [ entry ]
+        featureIndex[feature]["refs"] = [ ref ]
 
 def addPageToFeatureIndex(fileName, featureIndex):
     fileMetadata = getYAMLMetadata(fileName)
@@ -212,8 +212,8 @@ def addPageToFeatureIndex(fileName, featureIndex):
     sectionLink = f"{getPageName(fileName)}.html"
     sectionTitle = f"{chapter}.{section} {fileMetadata['title']}"
     if "features" in fileMetadata:
-        entry = {"species": fileMetadata["species"], "link": sectionLink, "title": sectionTitle}
-        for feature in fileMetadata["features"]: addEntryToFeatureIndex(feature, entry, featureIndex)
+        ref = {"species": fileMetadata["species"], "link": sectionLink, "title": sectionTitle}
+        for feature in fileMetadata["features"]: addRefToFeatureIndex(feature, ref, featureIndex)
     
     if "subsections" in fileMetadata:
         for subsectionFileName in fileMetadata["subsections"]:
@@ -221,8 +221,8 @@ def addPageToFeatureIndex(fileName, featureIndex):
             subsectionLink = f"{sectionLink}#{subsectionFileName}"
             subsectionTitle = f"{sectionTitle}: {subsectionData['title']}"
             if "features" in subsectionData:
-                entry = {"species": subsectionData["species"], "link": subsectionLink, "title": subsectionTitle}
-                for feature in subsectionData["features"]: addEntryToFeatureIndex(feature, entry, featureIndex)
+                ref = {"species": subsectionData["species"], "link": subsectionLink, "title": subsectionTitle}
+                for feature in subsectionData["features"]: addRefToFeatureIndex(feature, ref, featureIndex)
 
 def addMainSectionMetadata(fileName, metadata, bibDict):
     # Get media viewer metadata
@@ -483,7 +483,8 @@ for i, fileName in enumerate(appendixFileNames):
 
     if fileName == "A-feature-index.md":
         metadata["appendixTypeFeatures"] = True
-        metadata["accordionData"] = list(featureIndex.values())
+        metadata["features"] = {}
+        metadata["features"]["entries"] = [{**entry, "template": {"feature": True}} for entry in featureIndex.values()]
     elif fileName == "B-scientist-profiles.md":
         metadata["appendixTypeProfiles"] = True
         metadata["profiles"] = {}
