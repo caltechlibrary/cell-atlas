@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    ${head.html()}
+    ${components/head.html()}
 
     <body class="page preload">
-        ${header.html()}
-        ${nav.html()}
+        ${components/header.html()}
+        ${components/nav.html()}
 
         <div class="page__content-container">
           ${if(typeChapter)}
             ${chapter.html()}
           ${elseif(typeSection)}
-            ${section/section.html()}
+            ${section.html()}
           ${elseif(typeAppendix)}
-            ${appendix/appendix.html()}
+            ${appendix.html()}
           ${endif}
         </div>
 
-        ${mobile-controls.html()}
-        ${footer.html()}
+        ${components/mobile-controls.html()}
+        ${components/footer.html()}
 
         <script src="js/script.js"></script>
         <script src="js/NavWidget.js"></script>

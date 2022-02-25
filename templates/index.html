@@ -1,39 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-${head.html()}
+    ${components/head.html()}
 
-<body class="index preload">
-    <div class="book-page-container">
-        <div class="landing-page-container ${if(banner)} landing-page-container--preview-banner ${endif}">
-            ${if(banner)}
-                <div class="landing-update-banner">
-                    <span>${banner}</span>
-                </div>
-            ${endif}
-            <div class="main-color-background landing-page-logo">
-                <img alt="Atlas of Bacterial and Archaeal Cell Structure Logo" src="img/AtlasLogoInvertedLong.svg">
+    <body class="index preload">
+        <div class="index__content-container">
+            <div class="index__logo">
+                <img class="index__logo-img" src="img/AtlasLogoInvertedLong.svg" alt="Atlas of Bacterial and Archaeal Cell Structure logo">
             </div>
-            <div class="landing-page-text">
-                <h1>${title}</h1>
-                <h2>by ${author}</h2>
-                <div class="landing-page-blurb">
-                    ${body}
-                </div>
-                <div class="landing-page-options-container">
-                    <a href="begin.html" id="readNowButton" class="landing-page-start-button">${svg/noun_Play.svg()}<span>READ ONLINE NOW</span></a>
-                    ${if(offline)}${else}
-                        <p class="landing-page-download-button">or <a href="download.html">DOWNLOAD</a></p>
-                    ${endif}
-                </div>
+            <div class="index__text-container">
+                <h1 class="index__title">${title}</h1>
+                <h2 class="index__author">by ${author}</h2>
+                <div class="index__body">${body}</div>
+                <a href="begin.html" class="index__link index__start-link"><span class="index__start-link-icon">${svg/play.svg()}</span>READ ONLINE NOW</a>
+                ${if(offline)}${else}
+                    <p class="index__link index__download-text">or<a href="download.html" class="index__download-link">DOWNLOAD</a></p>
+                ${endif}
             </div>
         </div>
-        <div class="footer-container">
-          ${footer.html()}
-        </div>
-    </div>
-
-  <script src="js/script.js"></script>
-</body>
+        ${components/footer.html()}
+        <script src="js/script.js"></script>
+    </body>
 
 </html>
