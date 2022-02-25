@@ -108,102 +108,6 @@ blockquote {
         -webkit-text-size-adjust: none;
     }
 
-    /* || LANDING styles*/
-    .landing-page-container {
-        position: fixed;
-        height: 100%;
-        padding: 20px 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        background-image: url(../img/backgroundImage.jpg);
-        background-blend-mode: color;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-
-    .landing-page-container--preview-banner {
-        position: relative;
-        height: 100vh;
-        padding: 0;
-    }
-
-    .landing-page-background-overlay {
-        height: 100%;
-        background-color: rgba(0,0,0,0.6);
-        box-sizing: border-box;
-        padding: 20px 0;
-    }
-
-    .landing-page-logo {
-        position: relative;
-        width: 350px;
-        height: 65px;
-        padding-left: env(safe-area-inset-left);
-    }
-
-    .landing-page-logo img {
-        position: absolute;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%, -60%);
-        height: 60%;
-    }
-
-    .landing-page-text {
-        position: relative;
-        color: #f5f5f5;
-        padding: 0 5%;
-        margin-top: 15%;
-    }
-    
-    .landing-page-text h1 {
-        font-family: serif;
-        font-size: 2.25em;
-        margin-bottom: 0.5em;
-        line-height: 1.05em;
-    }
-    
-    .landing-page-text h2 {
-        font-weight: 300;
-        font-size: 1.5em;
-    }
-
-    .landing-page-blurb {
-        line-height: 1.55em;
-        margin-bottom: 1em;
-        font-weight: 300;
-    }
-
-    .landing-page-start-button {
-        display: flex;
-        align-items: center;
-        color: #f5f5f5;
-        background-color: #24788f;
-        width: -moz-fit-content;
-        width: fit-content;
-        padding: 0.25em 1.5em;
-        font-family: system-ui;
-        font-size: 1em;
-        height: 40px;
-        line-height: 2.25;
-    }
-
-    .landing-page-start-button svg {
-        width: 1.7em;
-        fill: #fff;
-        margin-right: 0.5em;
-    }
-
-    #readNowButton {
-        font-weight: 600;
-        padding: 0.2em 0.8em;
-        font-size: 1.25em;
-    }
-
-    #readNowButton span {
-        line-height: 1
-    }
-
     /* || NAV styles */
     .nav-menu {
         top: 56px;
@@ -851,25 +755,6 @@ blockquote {
 }
 
 @media(min-width:480px) {
-
-    /* || LANDING styles*/
-    .landing-page-container {
-        position: relative;
-        height: 100vh;
-    }
-
-    .landing-page-container--preview-banner {
-        height: auto;
-        padding-bottom: 20px;
-    }
-
-    .landing-page-text {
-        margin-top: 1%;
-    }
-
-    .landing-page-background-overlay {
-        height: 100vh;
-    }
 
     /* || NAV styles */
     .nav-menu {
