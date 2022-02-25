@@ -5,6 +5,7 @@ species: Vibrio cholerae
 video: 7_4_Vcholerae.mp4
 collector: Ariane Briegel
 subsections: ['azospirillum-brasilense-aerotaxis']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motor (disassembled)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]
 description: Different chemoreceptors assemble into separate arrays based on length in bacteria like Vibrio cholerae and Azospirillum brasilense
 ---
 

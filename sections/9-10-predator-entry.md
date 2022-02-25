@@ -5,6 +5,7 @@ species: Bdellovibrio bacteriovorus / Escherichia coli
 video: 9_10_BbacteriovorusEcoli.mp4
 collector: Yi-Wei Chang
 subsections: ['bdellovibrio-bacteriovorus-entry']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Pili", "Ribosomes", "Storage granules", "Unidentified structures", "Vesicles (cytoplasmic)"]
 description: Bdellovibrio bacteriovorus breach the outer membrane and invade the periplasm of their prey, other diderm bacteria like Escherichia coli
 ---
 

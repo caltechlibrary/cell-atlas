@@ -5,6 +5,7 @@ species: Hydrogenovibrio crunogenus
 video: 2_3_Hcrunogenus.mp4
 collector: Cristina Iancu
 subsections: ['lipopolysaccharide', 'brauns-lipoprotein', 'diderm-peptidoglycan-architecture', 'cell-wall-remodeling']
+features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules"]
 description: Diderm bacteria like Hydrogenovibrio crunogenus have a thin cell wall and a second, outer membrane enclosing a periplasmic space.
 ---
 

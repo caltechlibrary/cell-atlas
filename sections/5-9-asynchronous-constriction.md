@@ -5,6 +5,7 @@ species: Cupriavidus necator
 video: 5_9_Cnecator.mp4
 collector: Morgan Beeby
 subsections: ['asymmetric-constriction', 'ftsz-structure']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Division plane", "FtsZ filaments", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Unidentified structures"]
 description: Archaea and bacteria like Cupriavidus necator use cytoskeletal filaments of FtsZ to constrict their cell envelope during cytokinesis
 ---
 

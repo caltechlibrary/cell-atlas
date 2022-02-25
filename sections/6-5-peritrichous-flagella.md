@@ -5,6 +5,7 @@ species: Pseudomonas flexibilis
 video: 6_5_Pflexibilis.mp4
 collector: Morgan Beeby
 subsections: ['proteus-mirabilis-flagella']
+features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)", "Vesicles (extracellular)"]
 description: Peritrichous bacteria like Pseudomonas flexibilis and Proteus mirabilis swim using flagella distributed around the cell
 ---
 

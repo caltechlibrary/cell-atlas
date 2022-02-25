@@ -5,6 +5,7 @@ species: Sulfolobus solfataricus
 video: 2_7_Ssolfataricus.mp4
 collector: Lu Gan
 subsections: ['methylomicrobium-alcaliphilum', 'clostridium-thermocellum', 'nitrosopumilus-maritimus', 'methanoregula-formicica']
+features: ["Membrane (monoderm)", "Pili", "Storage granules", "Surface layer", "Vesicles (extracellular)"]
 description: Protein surface layers look very different on various diderm and monoderm bacteria and archaea, like Sulfolobus solfataricus, N. maritimus or M. formicica.
 ---
 

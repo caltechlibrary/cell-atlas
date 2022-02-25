@@ -5,6 +5,7 @@ species: Haloquadratum walsbyi
 video: 3_7_Hwalsbyi.mp4
 collector: Zhuo Li
 subsections: ['gas-vesicles']
+features: ["Gas vesicles", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer"," Unidentified structures", "Vesicles (extracellular)"]
 description: Gas vesicles help bacteria and archaea like Halobacterium salinarum and thin, square-shaped Haloquadratum walsbyi float.
 ---
 

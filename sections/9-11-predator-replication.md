@@ -4,6 +4,7 @@ doi: 10.22002/D1.1581
 species: Bdellovibrio bacteriovorus / Vibrio cholerae
 video: 9_11_BbacteriovorusVcholerae.mp4
 collector: Yi-Wei Chang
+features: ["Cell wall (diderm)", Flagella (sheathed)", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Ribosomes", "Storage granules", "Vesicles (extracellular)", "Vesicles (periplasmic)"]
 description: Bdellovibrio bacteriovorus prey on other diderm bacteria like Vibrio cholerae. They digest the contents of the prey cytoplasm to fuel growth and division
 ---
 

@@ -5,6 +5,7 @@ species: Shewanella oneidensis
 video: 7_1_Soneidensis.mp4
 collector: Mohammed Kaplan
 subsections: ['chemoreceptor-structure']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Vesicles (extracellular)"]
 description: Archaea and bacteria like Shewanella oneidensis use chemosensory arrays to sense chemicals in the environment and direct motility through chemotaxis
 ---
 

@@ -5,6 +5,7 @@ species: Caulobacter crescentus
 video: 3_4_Ccrescentus.mp4
 collector: Prabha Dias
 subsections: ['ctp-synthase']
+features: ["Cell wall (diderm)", "CTP synthase filaments", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Surface layer", "Vesicles (cytoplasmic)"]
 description: Vibrioid cells of Caulobacter crescentus bacteria use cytoskeletal filaments of Crescentin and CTP synthase to make their curved shape.
 ---
 

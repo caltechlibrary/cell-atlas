@@ -4,6 +4,7 @@ doi: 10.22002/D1.1508
 species: Caulobacter crescentus
 video: 5_2_Ccrescentus.mp4
 collector: Ariane Briegel
+features: ["Cell wall (diderm)", "Division plane", "Membrane (inner)", "Membrane (outer)", "PopZ", "Ribosomes", "Storage granules", "Surface layer", "Vesicles (cytoplasmic)"]
 description: Caulobacter crescentus bacteria use a PopZ hub to tether the chromosome to one end of the asymmetric cell for division
 ---
 

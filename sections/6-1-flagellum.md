@@ -5,6 +5,7 @@ species: Campylobacter jejuni
 video: 6_1_Cjejuni.mp4
 collector: Morgan Beeby
 subsections: ['flagellum-structure']
+features: ["Flagella (external, unsheathed)", "Flagellar motors", "Membrane (outer)"]
 description: Bacteria like Campylobacter jejuni use a long helical propeller called a flagellum to swim through their liquid environment
 ---
 

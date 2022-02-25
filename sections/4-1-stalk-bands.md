@@ -4,6 +4,7 @@ doi: 10.22002/D1.1489
 species: Caulobacter crescentus
 video: 4_1_Ccrescentus.mp4
 collector: Zhuo Li
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Division plane", "Membrane (inner)", "Membrane (outer)", "PopZ", "Ribosomes", "Stalk bands", "Storage granules", "Surface layer"]
 description: Stalk bands allow Caulobacter crescentus to use long appendages to take up more nutrients without overly slowing diffusion
 ---
 

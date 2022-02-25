@@ -1,5 +1,5 @@
 <div class="appendix-accordion">
-    ${for(accordionData)}
+    ${for(it.entries)}
         <div id="${it.id}" class="appendix-accordion__entry-anchor"></div>
         <h2>
             <button class="appendix-accordion__entry-header" aria-expanded="false" aria-controls="${it.id}-panel">
@@ -8,12 +8,12 @@
             </button>
         </h2>
         <div id="${it.id}-panel" class="appendix-accordion__entry-panel appendix-accordion__entry-panel--collapsed" style="height:0px">
-            ${if(appendixTypeFeatures)}
-                ${it:appendix/feature-index-entry.html()}
-            ${elseif(appendixTypeProfiles)}
-                ${it:appendix/profile.html()}
-            ${elseif(appendixTypeAbout)}
-                ${it:appendix/about-entry.html()}
+            ${if(it.template.feature)}
+                ${it:components/feature-index-entry.html()}
+            ${elseif(it.template.profile)}
+                ${it:components/profile.html()}
+            ${elseif(it.template.about)}
+                ${it:components/about-entry.html()}
             ${endif}
         </div>
     ${endfor}

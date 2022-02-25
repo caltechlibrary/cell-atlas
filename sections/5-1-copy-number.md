@@ -4,6 +4,7 @@ doi: 10.22002/D1.1507
 species: Thiomonas intermedia
 video: 5_1_Tintermedia.mp4
 collector: Cristina Iancu
+features: ["Carboxysomes", "Cell wall (diderm)", "Division plane", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", Storage granules", "Surface layer"]
 description: Archaea and bacteria like Thiomonas intermedia have dedicated mechanisms to sort low copy-number components for division
 ---
 

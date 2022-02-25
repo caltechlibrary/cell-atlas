@@ -4,6 +4,7 @@ doi: 10.22002/D1.1359
 species: Bdellovibrio bacteriovorus
 video: 2_10_Bbacteriovorus.mp4
 collector: Yi-Wei Chang
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Pili (Type IV)", "Ribosomes", "Unidentified structures"]
 description: Archaea and bacteria, like Bdellovibrio bacteriovorus, contain huge amounts of DNA, which is packed into a concentrated region called the nucleoid.
 ---
 

@@ -5,6 +5,7 @@ species: Acetonema longum
 video: 4_6_Alongum.mp4
 collector: Elitza Tocheva
 subsections: ['microcompartment-shells']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Pdu microcompartments", "Ribosomes", "Unidentified structures", "Vesicles (extracellular)"]
 description: Protein-shelled microcompartments serve as metabolic factories for bacteria like Acetonema longum
 ---
 

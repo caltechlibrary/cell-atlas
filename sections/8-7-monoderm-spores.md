@@ -4,6 +4,7 @@ doi: 10.22002/D1.1559
 species: Bacillus subtilis
 video: 8_7_Bsubtilis.mp4
 collector: Elitza Tocheva
+features: ["Ribosomes", "Spore coat", "Spore cortex", "Spore membrane (inner)", "Spore membrane (outer)"]
 description: Spores of bacteria like Bacillus subtilis are encased in two membranes, a thick cortex, and a multilayered protein coat to protect from harsh conditions
 ---
 

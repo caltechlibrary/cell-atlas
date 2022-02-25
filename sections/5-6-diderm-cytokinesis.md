@@ -5,6 +5,7 @@ species: Idiomarina loihiensis
 video: 5_6_Iloihiensis.mp4
 collector: Morgan Beeby
 subsections: ['sphingopyxis-alaskensis-division']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Vesicles (extracellular)"]
 description: In cytokinesis, diderm bacteria like Idiomarina loihiensis and Sphingopyxis alaskensis constrict their inner membranes and cells walls to divide
 ---
 

@@ -5,6 +5,7 @@ species: Vibrio cholerae
 video: 9_7_Vcholerae.mp4
 collector: Martin Pilhofer
 subsections: ['fired-t6ss-structure', 't6ss-battery', 'macs',  'mac-array-structure']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Type VI secretion systems", "Unidentified structures", "Vesicles (cytoplasmic)"]
 description: Bacteria like Vibrio cholerae, Amoebophilus asiaticus and Pseuodalteromonas luteoviolacea use various contractile weapons related to bacteriophage tails
 ---
 

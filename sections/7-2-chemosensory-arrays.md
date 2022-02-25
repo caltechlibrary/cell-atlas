@@ -5,6 +5,7 @@ species: Salmonella typhimurium
 video: 7_2_Styphimurium.mp4
 collector: Morgan Beeby
 subsections: ['chemosensory-array-architecture']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]
 description: The hexagonal lattice of chemosensory arrays in archaea and bacteria like Salmonella typhimurium amplifies signal, making them highly sensitive
 ---
 

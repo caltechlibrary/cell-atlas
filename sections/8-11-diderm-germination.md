@@ -4,6 +4,7 @@ doi: 10.22002/D1.1563
 species: Acetonema longum
 video: 8_11_Alongum.mp4
 collector: Elitza Tocheva
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Spore coat", "Storage granules", "Vesicles (extracellular)"]
 description: Spores of diderm bacteria like Acetonema longum germinate by shedding their protein coat and remodeling their cortex into a thin cell wall
 ---
 

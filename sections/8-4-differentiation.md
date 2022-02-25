@@ -5,6 +5,7 @@ species: Caulobacter crescentus
 video: 8_4_Ccrescentus.mp4
 collector: Zhuo Li
 subsections: ['holdfast']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Division plane", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Surface layer", "Unidentified structures"]
 description: Caulobacter crescentus bacteria have a dimorphic lifecycle, dividing asymmetrically into a surface-attached stalked cell and a motile swarmer cell
 ---
 

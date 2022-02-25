@@ -5,6 +5,7 @@ species: Bacillus subtilis
 video: 8_5_Bsubtilis.mp4
 collector: Elitza Tocheva
 subsections: ['sporulation-septum-formation']
+features: ["Cell wall (monoderm)", "Chemosensory arrays (membrane-bound)", "Membrane (monoderm)", "Sporulation septum"]
 description: Bacteria like Bacillus subtilis can make specialized dormant cells called spores that are highly resistant to acid, heat and dehydration
 ---
 

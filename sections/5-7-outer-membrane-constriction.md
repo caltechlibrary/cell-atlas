@@ -5,6 +5,7 @@ species: Caulobacter crescentus
 video: 5_7_Ccrescentus.mp4
 collector: Zhuo Li
 subsections: ['caulobacter-division']
+features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "PopZ", "Ribosomes", "Storage granules", "Surface layer"]
 description: During cytokinesis, the outer membrane of diderm bacteria like Caulobacter crescentus constricts with, or after, the cell wall, depending on the species
 ---
 

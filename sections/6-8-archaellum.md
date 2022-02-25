@@ -5,6 +5,7 @@ species: Methanoregula formicica
 video: 6_8_Mformicica.mp4
 collector: Ariane Briegel
 subsections: ['archaellum-structure']
+features: ["Archaella", "Membrane (monoderm)", "Pili", "Surface layer", "Unidentified structures"]
 description: Archaea like Methanoregula formicica use long helical propellers called archaealla to swim. They are assembled and spun by a type II secretion system
 ---
 

@@ -4,6 +4,7 @@ doi: 10.22002/D1.1535
 species: Flavobacterium johnsoniae
 video: 6_11_Fjohnsoniae.mp4
 collector: Gregory Henderson
+features: ["Adhesion complexes and filaments", "Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures"]
 description: Flavobacterium johnsoniae bacteria use machinery including a type IX secretion system, a periplasmic track, and surface adhesins to glide across surfaces
 ---
 

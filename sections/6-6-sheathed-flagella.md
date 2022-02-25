@@ -4,6 +4,7 @@ doi: 10.22002/D1.1530
 species: Helicobacter hepaticus
 video: 6_6_Hhepaticus.mp4
 collector: Megan Dobro
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules"]
 description: Some pathogenic bacteria like Helicobacter pylori encase their flagella in a sheath of outer membrane
 ---
 

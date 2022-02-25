@@ -4,6 +4,7 @@ doi: 10.22002/D1.1554
 species: Helicobacter pylori
 video: 8_2_Hpylori.mp4
 collector: Yi-Wei Chang
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagellar motor (disassembled)", "Membrane (inner)", "Membrane (outer)", "RecA/RadA filaments", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)", "Vesicles (extracellular)"]
 description: In stationary phase, bacteria like Helicobacter pylori protect their genome with RecA, which forms nucleoprotein complexes and repairs DNA damage
 ---
 

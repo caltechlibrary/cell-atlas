@@ -5,6 +5,7 @@ species: Verrucomicrobium spinosum
 video: 3_6_Vspinosum.mp4
 collector: Martin Pilhofer
 subsections: ['bactofilin', 'bacterial-microtubules']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili", "Storage granules"]
 description: Bactofilin and bacterial microtubules are part of the cytoskeleton that lets bacteria like star-shaped Verrucomicrobium spinosum extend prosthecae.
 ---
 

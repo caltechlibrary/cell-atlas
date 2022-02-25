@@ -5,6 +5,7 @@ species: Rhodopseudomonas palustris
 video: 4_3_Rpalustris.mp4
 collector: Alasdair McDowall
 subsections: ['photocomplexes', 'icm-variety']
+features: ["Cell wall (diderm)", "Intracytoplasmic membrane", "Membrane (inner)", "Membrane (outer)", "Storage granules", ]
 description: Stacks of intracytoplasmic membrane expand the capacity of photosynthetic bacteria like Rhodopseudomonas palustris or Methyloprofundus sedimenti
 ---
 

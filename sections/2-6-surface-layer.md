@@ -5,6 +5,7 @@ species: Caulobacter crescentus
 video: 2_6_Ccrescentus.mp4
 collector: Ariane Briegel
 subsections: ['surface-layer-architecture', 'nanopods']
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagellar motor (disassembled)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Surface layer"]
 description: An external surface layer of protein protects some bacteria like Caulobacter crescentus and Delftia acidovorans. S-layer around vesicles forms nanopods.
 ---
 

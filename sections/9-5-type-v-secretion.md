@@ -5,6 +5,7 @@ species: Escherichia coli
 video: 9_5_Ecoli.mp4
 collector: Poorna Subramanian
 subsections: ['cdi-mechanism']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Type V secretion systems", "Vesicles (cytoplasmic)"]
 description: Bacteria like Escherichia coli use type V secretion systems to inhibit neighboring cell's growth through contact-dependent inhibition
 ---
 

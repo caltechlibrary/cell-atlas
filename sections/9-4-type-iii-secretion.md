@@ -5,6 +5,7 @@ species: Pseudomonas aeruginosa
 video: 9_4_Paeruginosa.mp4
 collector: Steven Wang
 subsections: ['injectisome-structure', 'secretin-channel-structure']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage tails", "Ribosomes", "Storage granules", "Type III secretion systems", "Vesicles (extracellular)"]
 description: Bacteria like Pseudomonas aeruginosa use type III secretion system injectisomes to pump effector proteins into other cells
 ---
 

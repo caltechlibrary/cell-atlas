@@ -5,6 +5,7 @@ species: Agrobacterium tumefaciens
 video: 4_9_Atumefaciens.mp4
 collector: Elitza Tocheva
 subsections: ['granule-containing-carboxysomes', 'carboxysome-granule-connections']
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)"]
 description: Bacteria like Agrobacterium tumefaciens or Halothiobacillus neapolitanus use various storage granules, which also interact with carboxysomes
 ---
 

@@ -4,6 +4,7 @@ species: Halobacterium salinarum
 doi: 10.22002/D1.1488
 video: 3_7a_Hsalinarum.mp4
 collector: Ariane Briegel
+features: ["Archaella", "Gas vesicles", "Membrane (monoderm)", "Ribosomes", "Surface layer"]
 ---
 
 Some species of archaea and bacteria use **gas vesicles** to control their buoyancy. This can allow them to rise or fall in a water column, which can be a great advantage. *Halobacterium salinarum* like this one produce gas vesicles in response to cues from the environment, lifting themselves out of the sediment and into more favorable conditions of oxygen or sunlight for photosynthesis. This cell has just started producing gas vesicles, so they are small and isolated. Later, vesicles elongate into larger spindles or cylinders with conical ends, as you saw in *Haloquadratum walsbyi*. Each cell might contain dozens of vesicles, and they often cluster together.

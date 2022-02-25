@@ -4,6 +4,7 @@ doi: 10.22002/D1.1358
 species: Haloarcula argentinensis
 video: 2_9_Hargentinensis.mp4
 collector: Ariane Briegel
+features: ["DNA", "Membrane (monoderm)", "Storage granules", "Surface layer"]
 description: The DNA in the genomes of bacteria and archaea, like Haloarcula argentinensis, is very thin (~2 nm wide), but can be seen when a cell lyses.
 ---
 

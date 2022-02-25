@@ -4,6 +4,7 @@ doi: 10.22002/D1.1533
 species: Thermococcus kodakaraensis
 video: 6_9_Tkodakaraensis.mp4
 collector: Ariane Briegel
+features: ["Archaella", "Archaellar cone", "Membrane (monoderm)", "Ribosomes", "Surface layer", "Unidentified structures"]
 subsections: ['cone-structure', 'organizing-center', 'lophotrichous-halobacteria']
 description: Some lophotrichous archaea like Thermococcus kodakaraensis, but not Halobacterium salinarum, anchor their archaella to a cytoplasmic cone
 ---

@@ -4,6 +4,7 @@ doi: 10.22002/D1.1592
 species: Vibrio cholerae
 video: 10_7_Vcholerae.mp4
 collector: Poorna Subramanian
+features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "DNA", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Phage capsids", "Phage tails", "Pili", "Ribosomes", "Unidentified structures"]
 description: Once they infect bacteria like Vibrio cholerae, phage use their host's machinery to replicate, producing many copies that may lyse the cell to escape
 ---
 

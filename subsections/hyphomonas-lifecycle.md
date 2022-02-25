@@ -4,6 +4,7 @@ species: Hyphomonas neptunium
 doi: 10.22002/D1.1519
 video: 5_3a_Hneptunium.mp4
 collector: Jian Shi
+features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules"]
 ---
 
 *Hyphomonas neptunium* grow a single stalk from one end of their cell body, similar to the *Caulobacter crescentus* you saw in Chapter 4.1. The function of the stalk, though, is different in this budding bacterium than in *C. crescentus*, which divides by more conventional fission.
