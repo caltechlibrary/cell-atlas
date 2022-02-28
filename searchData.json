@@ -130,6 +130,7 @@
 		"id": "1-10-putting-it-all-together.html#clem",
 		"title": "CLEM",
 		"content": "To identify what a macromolecular complex looks like in the cell, we can\nuse Correlated Light and Electron Microscopy, or CLEM, as demonstrated\nby this example in Caulobacter crescentus [13]. A structure\nof interest, in this case a \u201cstalk band\u201d in a cellular appendage (more\non that in Chapter 4), is genetically tagged with a fluorescent label.\nCells are plunge-frozen on an EM grid and first imaged by light\nmicroscopy, to locate the tagged structure within the cell. The sample\nis then transferred to the TEM and landmarks such as large fluorescent\nbeads are used to find the same location. Then we can zoom in and image\nthat location by cryo-ET to reveal the structure in detail.\n",
+		"species": "Caulobacter crescentus",
 		"titlePrefix": "1.10 Putting It All Together:"
 	},
 	"1-10-putting-it-all-together.html#difference-mapping": {
