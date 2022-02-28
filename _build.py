@@ -282,12 +282,11 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
 
             metadata["subsectionsData"].append(subsectionData)
 
-def getSummaryMenuMetadata(fileName):
-    summaryMetadata = {}
-    summaryMetadata["isSummary"] = True
-    summaryMetadata["isSection"] = True
-    summaryMetadata[f'chapter{os.path.basename(fileName).split("-")[0]}'] = True
-    return summaryMetadata
+def addSummaryMenuMetadata(fileName, metadata):
+    metadata["mediaViewer"] = {}
+    metadata["mediaViewer"]["isSection"] = True
+    metadata["mediaViewer"]["summaryMenu"] = {}
+    metadata["mediaViewer"]["summaryMenu"][f'chapter{os.path.basename(fileName).split("-")[0]}'] = True
 
 siteDirRegular = "site"
 siteDirOffline = "cell_atlas_offline"
@@ -430,9 +429,10 @@ for i, fileName in enumerate(sectionFileNames):
 
     metadata["progressData"] = getProgressMetadata(f"sections/{fileName}", navData)
 
-    if "typeSection" in metadata and metadata["title"] != "Summary": addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
-
-    if metadata["title"] == "Summary": metadata["summaryData"] = getSummaryMenuMetadata(fileName)
+    if "typeSection" in metadata and metadata["title"] != "Summary": 
+        addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
+    else:
+        addSummaryMenuMetadata(f"sections/{fileName}", metadata)
 
     writePage(siteDirRegular, f"sections/{fileName}", metadata["pageName"], metadata)
     if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, f"sections/{fileName}", metadata["pageName"], metadata)

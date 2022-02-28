@@ -1,10 +1,6 @@
 <div class="main-non-text-container main-non-text-container--hidden-mobile">
     <a href="${prevSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="prev" aria-label="Previous section">${svg/left-nav.svg()}</a>
-    ${if(summaryData)}
-        ${summaryData:components/media-viewer.html()}
-    ${else}
-        ${mediaViewer:components/media-viewer.html()}
-    ${endif}
+    ${mediaViewer:components/media-viewer.html()}
     <a href="${nextSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="next" aria-label="Next section">${svg/right-nav.svg()}</a>
 
     <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">

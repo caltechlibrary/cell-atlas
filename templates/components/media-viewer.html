@@ -5,7 +5,7 @@
         ${if(it.isSection)}media-viewer--main-section${endif}
         ${if(it.isSection)}${elseif(it.hasTabMenu)} media-viewer--subsection-has-tabmenu ${endif}
         ${if(it.isSection)}${elseif(it.citationAttached)}${else} media-viewer--subsection-no-citation ${endif}
-        ${if(it.isSummary)}media-viewer--summary-menu${endif}
+        ${if(it.summaryMenu)}media-viewer--summary-menu${endif}
         ${if(it.pdb)}media-viewer--protein-viewer media-viewer--hidden${endif}
     "
 >
@@ -15,11 +15,11 @@
             <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
-    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.isSummary)}media-viewer__media-container--summary-menu${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
+    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.summaryMenu)}media-viewer__media-container--summary-menu${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
         ${if(it.vidPlayer)} ${it.vidPlayer:components/video-player.html()} ${endif}
         ${if(it.compSlider)} ${it.compSlider:components/comp-slider.html()} ${endif}
         ${if(it.pdb)} ${it:components/protein-viewer.html()} ${endif}
-        ${if(it.isSummary)} ${it:components/summary-menu.html()} ${endif}
+        ${if(it.summaryMenu)} ${it.summaryMenu:components/summary-menu.html()} ${endif}
         ${if(it.speciesList)} ${it:components/tree-viewer.html()} ${endif}
         ${if(it.graphic)} <img class="media-viewer__graphic" src="img/schematics/${it.graphic}"> ${endif}
         <button class="media-viewer__fullscreen-btn ${if(it.vidPlayer)}media-viewer__fullscreen-btn--hidden${endif}" aria-label="Enter full screen" title="Enter full screen">
