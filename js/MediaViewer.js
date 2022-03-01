@@ -2,6 +2,7 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
+    let mediaComponents = root.querySelectorAll(".media-viewer__media-component")
     let graphic = root.querySelector(".media-viewer__graphic");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
 
@@ -17,14 +18,12 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     };
 
     let displayMediaType = function(mediaType) {
+        let mediaComponent = root.querySelector(`.media-viewer__media-component[data-media-type='${mediaType}']`);
+        for(let mediaComponent of mediaComponents) mediaComponent.classList.add("media-viewer__media-component--hidden");
+        mediaComponent.classList.remove("media-viewer__media-component--hidden");
         if(mediaType == "vid") {
-            if(compSlider) compSlider.hide();
-            videoPlayer.show();
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
-        } else if(mediaType == "img") {
-            if(!videoPlayer.video.paused) videoPlayer.togglePlayBack();
-            videoPlayer.hide();
-            compSlider.show();
+        } else {
             fullscreenBtn.classList.remove("media-viewer__fullscreen-btn--hidden");
         }
     };

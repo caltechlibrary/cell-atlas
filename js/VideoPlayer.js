@@ -274,14 +274,6 @@ let VideoPlayer = function(root) {
         else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
     };
 
-    let hide = function() {
-        root.classList.add("video-player--hidden");
-    };
-
-    let show = function() {
-        root.classList.remove("video-player--hidden");
-    };
-
     init();
 
     return {
@@ -289,9 +281,7 @@ let VideoPlayer = function(root) {
         video,
         qualityOptionInputs,
         changeQuality,
-        togglePlayBack,
-        hide,
-        show
+        togglePlayBack
     }
 
 }

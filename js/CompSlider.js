@@ -80,14 +80,6 @@ let CompSlider = function(root) {
         }
     };
 
-    let hide = function() {
-        root.classList.add("comp-slider--hidden");
-    };
-
-    let show = function() {
-        root.classList.remove("comp-slider--hidden");
-    };
-
     beforeImg.addEventListener("error", displayFailedMsg);
     afterImg.addEventListener("error", displayFailedMsg);
     init();
@@ -98,9 +90,7 @@ let CompSlider = function(root) {
 
     return {
         root,
-        toggleFullscreenStyles,
-        hide,
-        show
+        toggleFullscreenStyles
     }
 
 }

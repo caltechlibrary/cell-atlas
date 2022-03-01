@@ -1,7 +1,8 @@
 <div 
-    class="video-player ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" 
+    class="video-player media-viewer__media-component ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" 
     data-doi="${it.doi}" 
     data-vid-name="${it.vidName}" 
+    data-media-type="vid"
     ${if(offline)}
         data-offline="true" 
         data-src="${it.vidName}${if(offline.lite)}_480p${endif}.mp4"

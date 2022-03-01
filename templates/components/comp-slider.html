@@ -1,4 +1,4 @@
-<div class="comp-slider comp-slider--hidden ${if(it.isSection)}comp-slider--main-section${else}comp-slider--subsection${endif}" ${if(offline)}data-offline="true"${endif}>
+<div class="comp-slider media-viewer__media-component media-viewer__media-component--hidden ${if(it.isSection)}comp-slider--main-section${else}comp-slider--subsection${endif}" data-media-type="img" ${if(offline)}data-offline="true"${endif}>
     <picture class="comp-slider__before-picture" data-src="${it.imgName}_before">
         ${if(offline)}${else} <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.imgName}_before.webp"> ${endif}
         <source type="image/jpeg" srcset="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_before.jpg">

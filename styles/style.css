@@ -1055,6 +1055,10 @@ file. These definitions will be defined mobile first.
     height: 100%;
 }
 
+.media-viewer__media-component--hidden {
+    display: none;
+}
+
 .media-viewer__graphic {
     display: block;
     width: 100%;
@@ -1573,7 +1577,7 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
-    .video-player--main-section {
+    .video-player--main-section:not(.media-viewer__media-component--hidden) {
         flex: 1 1 auto;
         min-height: 0;
         width: 100%;
@@ -1584,10 +1588,6 @@ file. These definitions will be defined mobile first.
 
 .video-player--subsection {
     width: 100%;
-}
-
-.video-player--hidden {
-    display: none;
 }
 
 .video-player__video {
@@ -1964,10 +1964,6 @@ file. These definitions will be defined mobile first.
     .comp-slider--fullscreen {
         height: 100%;
     }
-}
-
-.comp-slider--hidden {
-    display: none;
 }
 
 .comp-slider__before-img {
