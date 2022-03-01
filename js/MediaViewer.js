@@ -63,38 +63,32 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     };
 
     let displayFullscreen = function() {
+        let mediaComponent = root.querySelector(`.media-viewer__media-component:not(.media-viewer__media-component--hidden)`);
         root.classList.add("media-viewer--fullscreen");
         if(tabContainer) tabContainer.classList.add("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.add("media-viewer__media-container--fullscreen");
-        if(proteinViewer) {
-            mediaContainer.classList.add("media-viewer__media-container--fullscreen-protein-viewer");
-            window.addEventListener("resize", proteinViewer.resizeViewer);
-        }
-        if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
-        if(graphic) graphic.classList.add("media-viewer__graphic--fullscreen");
+        mediaComponent.classList.add("media-viewer__media-component--fullscreen");
         if(root.requestFullscreen) {
             root.requestFullscreen();
         } else {
             root.classList.add("media-viewer--fullscreen-polyfill");
             if(proteinViewer) proteinViewer.resizeViewer();
         }
+        if(proteinViewer) window.addEventListener("resize", proteinViewer.resizeViewer);
     };
 
     let exitFullscreen = function() {
+        let mediaComponent = root.querySelector(`.media-viewer__media-component:not(.media-viewer__media-component--hidden)`);
         root.classList.remove("media-viewer--fullscreen");
         if(tabContainer) tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.remove("media-viewer__media-container--fullscreen");
-        if(proteinViewer) {
-            mediaContainer.classList.remove("media-viewer__media-container--fullscreen-protein-viewer");
-            window.removeEventListener("resize", proteinViewer.resizeViewer);
-        }
-        if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
-        if(graphic) graphic.classList.remove("media-viewer__graphic--fullscreen");
+        mediaComponent.classList.remove("media-viewer__media-component--fullscreen");
         if(root.requestFullscreen) {
             document.exitFullscreen();
         } else {
             root.classList.remove("media-viewer--fullscreen-polyfill");
         }
+        if(proteinViewer) window.removeEventListener("resize", proteinViewer.resizeViewer);
     };
 
     let onProteinMediaViewerFullscreenChange = function() {

@@ -15,13 +15,13 @@
             <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
-    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.summaryMenu)}media-viewer__media-container--summary-menu${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
+    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.summaryMenu)}media-viewer__media-container--summary-menu${endif} ${if(it.pdb)}media-viewer__media-container--protein-viewer${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
         ${if(it.vidPlayer)} ${it.vidPlayer:components/video-player.html()} ${endif}
         ${if(it.compSlider)} ${it.compSlider:components/comp-slider.html()} ${endif}
         ${if(it.pdb)} ${it:components/protein-viewer.html()} ${endif}
         ${if(it.summaryMenu)} ${it.summaryMenu:components/summary-menu.html()} ${endif}
         ${if(it.speciesList)} ${it:components/tree-viewer.html()} ${endif}
-        ${if(it.graphic)} <img class="media-viewer__graphic" src="img/schematics/${it.graphic}"> ${endif}
+        ${if(it.graphic)} <img class="media-viewer__graphic media-viewer__media-component" src="img/schematics/${it.graphic}"> ${endif}
         <button class="media-viewer__fullscreen-btn ${if(it.vidPlayer)}media-viewer__fullscreen-btn--hidden${endif}" aria-label="Enter full screen" title="Enter full screen">
             <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon">${svg/fullscreen.svg()}</div>
             <div class="media-viewer__fullscreen-btn-icon media-viewer__exit-fs-icon media-viewer__fullscreen-btn-icon--hidden">${svg/exit-fullscreen.svg()}</div>
