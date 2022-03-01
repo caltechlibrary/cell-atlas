@@ -2,8 +2,7 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
-    let mediaComponents = root.querySelectorAll(".media-viewer__media-component")
-    let graphic = root.querySelector(".media-viewer__graphic");
+    let mediaComponents = root.querySelectorAll(".media-viewer__media-component");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
 
     let handleTabContainerClick = function(event) {
