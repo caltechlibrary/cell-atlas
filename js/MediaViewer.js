@@ -1,4 +1,4 @@
-let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summaryMenu, treeViewer) {
+let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summaryMenu, treeViewer, resizeCallbacks = []) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
@@ -71,9 +71,8 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
             root.requestFullscreen();
         } else {
             root.classList.add("media-viewer--fullscreen-polyfill");
-            if(proteinViewer) proteinViewer.resizeViewer();
+            for(let resizeCallback of resizeCallbacks) resizeCallback();
         }
-        if(proteinViewer) window.addEventListener("resize", proteinViewer.resizeViewer);
     };
 
     let exitFullscreen = function() {
@@ -87,11 +86,6 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         } else {
             root.classList.remove("media-viewer--fullscreen-polyfill");
         }
-        if(proteinViewer) window.removeEventListener("resize", proteinViewer.resizeViewer);
-    };
-
-    let onProteinMediaViewerFullscreenChange = function() {
-        if(document.fullscreenElement || document.fullscreenElement == root) proteinViewer.resizeViewer();
     };
 
     let toggleFixedEnlarged = function() {
@@ -106,25 +100,21 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         mediaContainer.classList.add("media-viewer__media-container--fixed-enlarged");
         positionFixedEnlargedSlider();
         window.addEventListener("resize", positionFixedEnlargedSlider);
-        if(proteinViewer) proteinViewer.requestRedraw();
     };
 
     let positionFixedEnlargedSlider = function() {
-        let headerEl = document.querySelector("header");
-        let footerEl = document.querySelector("footer");
-        let headerFooterDistance = footerEl.getBoundingClientRect().top - headerEl.getBoundingClientRect().bottom;
-        let posTop = headerEl.offsetHeight + (headerFooterDistance / 2);
-        let availHeight = headerFooterDistance - 50;
-        let availWidth = window.innerWidth - 100;
+        // section content is in .page__content-container
+        let contentContainer = document.querySelector(".page__content-container");
+        let posTop = contentContainer.getBoundingClientRect().top + contentContainer.getBoundingClientRect().height / 2;
+        let availHeight = contentContainer.getBoundingClientRect().height - 50;
+        let availWidth = contentContainer.getBoundingClientRect().width - 100;
         let aspectRatio = 16 / 9;
-        let desiredWidth = availHeight * aspectRatio;
-        let correctWidth = (desiredWidth < availWidth) ? desiredWidth : availWidth;
-        mediaContainer.style.width = `${correctWidth}px`;
-        if(proteinViewer) {
-            mediaContainer.style.height = `${correctWidth / aspectRatio}px`;
-            proteinViewer.resizeViewer();
-        }
+        let width = Math.min(availWidth, availHeight * aspectRatio);
+        let height = width / aspectRatio;
         mediaContainer.style.top = `${posTop}px`;
+        mediaContainer.style.width = `${width + 14}px`;
+        mediaContainer.style.height = `${height + 14}px`;
+        for(let resizeCallback of resizeCallbacks) resizeCallback();
     };
 
     let minimizeFixedEnlarged = function() {
@@ -133,9 +123,13 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         window.removeEventListener("resize", positionFixedEnlargedSlider);
     };
 
-    if(proteinViewer) root.addEventListener("fullscreenchange", onProteinMediaViewerFullscreenChange);
     if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
     fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
+    
+    for(let resizeCallback of resizeCallbacks) {
+        window.addEventListener("resize", resizeCallback);
+        root.addEventListener("fullscreenchange", resizeCallback);
+    }
 
     return {
         root,
