@@ -126,10 +126,7 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
     fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
     
-    for(let resizeCallback of resizeCallbacks) {
-        window.addEventListener("resize", resizeCallback);
-        root.addEventListener("fullscreenchange", resizeCallback);
-    }
+    for(let resizeCallback of resizeCallbacks) root.addEventListener("fullscreenchange", resizeCallback);
 
     return {
         root,
