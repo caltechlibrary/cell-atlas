@@ -193,14 +193,12 @@
     }
 
     for(let mediaViewerEl of mediaViewerEls) {
-        let compSliderEl = mediaViewerEl.querySelector(".comp-slider");
         let proteinViewerEl = mediaViewerEl.querySelector(".protein-viewer");
         let summaryMenuEl = mediaViewerEl.querySelector(".summary-menu");
-        let compSlider = (compSliderEl) ? CompSlider(compSliderEl) : undefined;
         let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
         let summaryMenu = (summaryMenuEl) ? SummaryMenu(summaryMenuEl) : undefined;
         let resizeCallbacks = (proteinViewer) ? [proteinViewer.resizeViewer] : undefined;
-        let mediaViewer = MediaViewer(mediaViewerEl, compSlider, proteinViewer, summaryMenu, undefined, resizeCallbacks);
+        let mediaViewer = MediaViewer(mediaViewerEl, proteinViewer, summaryMenu, undefined, resizeCallbacks);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
     }
 
