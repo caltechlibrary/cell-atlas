@@ -4,6 +4,7 @@ import subprocess
 import json
 import re
 import copy
+import pathlib
 
 def createSiteDir(siteDir):
     if os.path.isdir(siteDir): shutil.rmtree(siteDir)
@@ -99,6 +100,7 @@ def createSearchDataDocument(fileName, id, bibList, bibDict, searchData, titlePr
 def getVidPlayerMetadata(fileName):
     fileMetadata = getYAMLMetadata(fileName)
     vidPlayerMetadata = {}
+    vidPlayerMetadata["id"] = pathlib.Path(fileName).stem
     vidPlayerMetadata["vidName"] = fileMetadata["video"].split(".")[0]
     if "doi" in fileMetadata:
         vidPlayerMetadata["thumbnail"] = f"{'_'.join(fileMetadata['video'].split('_', 2)[:2])}_thumbnail"

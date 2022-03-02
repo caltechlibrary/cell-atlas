@@ -1,4 +1,4 @@
-let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summaryMenu, treeViewer, resizeCallbacks = []) {
+let MediaViewer = function(root, compSlider, proteinViewer, summaryMenu, treeViewer, resizeCallbacks = []) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
@@ -131,7 +131,6 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     return {
         root,
         mediaContainer,
-        videoPlayer,
         compSlider,
         proteinViewer,
         summaryMenu,

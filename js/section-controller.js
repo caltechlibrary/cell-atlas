@@ -1,5 +1,6 @@
 (function() {
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
+    let videoPlayerEls = document.querySelectorAll(".video-player");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
@@ -9,7 +10,7 @@
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, modals = {}, narrationPlayers = {};
+        mediaViewers = {}, videoPlayers = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
 
@@ -45,9 +46,7 @@
 
         let handleVideoPlayerQualityInput = function(event) {
             let quality = event.target.value;
-            for(let mediaViewerId in mediaViewers) {
-                if(mediaViewers[mediaViewerId].videoPlayer) mediaViewers[mediaViewerId].videoPlayer.changeQuality(quality);
-            }
+            for(let id in videoPlayers) videoPlayers[id].changeQuality(quality);
             window.sessionStorage.setItem("vidQuality", quality);
         };
 
@@ -107,9 +106,17 @@
             if(!event.target.classList.contains("learn-more__btn")) return;
             let learnMoreBtn = event.target;
             let modal = modals[learnMoreBtn.value];
-            if(!mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
+            for(let id in videoPlayers) {
+                if(videoPlayers[id].root.getAttribute("data-main") && !videoPlayers[id].video.paused) videoPlayers[id].togglePlayBack();
+            }
             if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
             modal.show();
+        };
+
+        let onModalCloseCallback = function() {
+            let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            let videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`];
+            if(videoPlayer && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
         };
 
         let handleMobileControlClick = function(event) {
@@ -149,8 +156,15 @@
         let handleSpacebarPress = function(event) {
             if(event.target.tagName == "INPUT" || event.target.tagName == "BUTTON") return;
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
-            let mediaViewer = (modalEl) ? mediaViewers[`mediaViewer-${modalEl.id}`] : mainMediaViewer;
-            if(!mediaViewer.videoPlayer.root.classList.contains("video-player--hidden")) mediaViewer.videoPlayer.togglePlayBack();
+            let videoPlayer;
+            if(modalEl) {
+                videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`]
+            } else {
+                for(let id in videoPlayers) {
+                    if(videoPlayers[id].root.getAttribute("data-main")) videoPlayer = videoPlayers[id];
+                }
+            }
+            if(!videoPlayer.root.classList.contains("video-player--hidden")) videoPlayer.togglePlayBack();
         };
 
         return {
@@ -163,6 +177,7 @@
             shelveText,
             unshelveText,
             handleLearnMoreBtnContainerClick,
+            onModalCloseCallback,
             handleMobileControlClick,
             onDocumentKeydown
         };
@@ -171,31 +186,27 @@
 
     sectionController = SectionController();
 
+    for(let videoPlayerEl of videoPlayerEls) {
+        videoPlayers[videoPlayerEl.id] = VideoPlayer(videoPlayerEl);
+        if(videoPlayerEl.getAttribute("data-main")) videoPlayers[videoPlayerEl.id].video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
+        for(let qualityOptionInput of videoPlayers[videoPlayerEl.id].qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+    }
+
     for(let mediaViewerEl of mediaViewerEls) {
-        let videoPlayerEl = mediaViewerEl.querySelector(".video-player");
         let compSliderEl = mediaViewerEl.querySelector(".comp-slider");
         let proteinViewerEl = mediaViewerEl.querySelector(".protein-viewer");
         let summaryMenuEl = mediaViewerEl.querySelector(".summary-menu");
-        let videoPlayer = (videoPlayerEl) ? VideoPlayer(videoPlayerEl) : undefined;
         let compSlider = (compSliderEl) ? CompSlider(compSliderEl) : undefined;
         let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
         let summaryMenu = (summaryMenuEl) ? SummaryMenu(summaryMenuEl) : undefined;
         let resizeCallbacks = (proteinViewer) ? [proteinViewer.resizeViewer] : undefined;
-        let mediaViewer = MediaViewer(mediaViewerEl, videoPlayer, compSlider, proteinViewer, summaryMenu, undefined, resizeCallbacks);
+        let mediaViewer = MediaViewer(mediaViewerEl, compSlider, proteinViewer, summaryMenu, undefined, resizeCallbacks);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
-    }
-
-    for(let mediaViewerId in mediaViewers) {
-        if(!mediaViewers[mediaViewerId].videoPlayer) continue;
-        for(let qualityOptionInput of mediaViewers[mediaViewerId].videoPlayer.qualityOptionInputs) {
-            qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
-        }
     }
 
     mainMediaViewer = mediaViewers["mediaViewer-main"];
     mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
-    if(mainMediaViewer.videoPlayer) mainMediaViewer.videoPlayer.video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
-    
+        
     mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
@@ -219,7 +230,7 @@
         let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
         let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
         let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
-        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer);
+        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer, sectionController.onModalCloseCallback);
         modals[modal.root.id] = modal;
         if(modalEl.id == hash) modal.show();
     }
