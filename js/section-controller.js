@@ -220,7 +220,7 @@
     if(summaryMenuEl) summaryMenu = SummaryMenu(summaryMenuEl);
 
     for(let mediaViewerEl of mediaViewerEls) {
-        let mediaViewer = MediaViewer(mediaViewerEl, undefined, sectionController.onMediaViewerResizeCallback);
+        let mediaViewer = MediaViewer(mediaViewerEl, sectionController.onMediaViewerResizeCallback);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
     }
 

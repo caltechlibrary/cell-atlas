@@ -1,4 +1,4 @@
-let MediaViewer = function(root, treeViewer, resizeCallback = function(){}) {
+let MediaViewer = function(root, resizeCallback = function(){}) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
@@ -134,7 +134,6 @@ let MediaViewer = function(root, treeViewer, resizeCallback = function(){}) {
     return {
         root,
         mediaContainer,
-        treeViewer,
         fullscreenBtn,
         displayMediaType,
         setFullscreenBtnState,
