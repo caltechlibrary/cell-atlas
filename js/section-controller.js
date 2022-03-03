@@ -3,6 +3,7 @@
     let videoPlayerEls = document.querySelectorAll(".video-player");
     let compSliderEls = document.querySelectorAll(".comp-slider");
     let proteinViewerEls = document.querySelectorAll(".protein-viewer");
+    let summaryMenuEl = document.querySelector(".summary-menu");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
@@ -11,8 +12,8 @@
     let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
-    let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {}, modals = {}, narrationPlayers = {};
+    let sectionController, summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
+        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
 
@@ -71,8 +72,8 @@
         let expandMainNonTextContainer = function() {
             mainNonTextContainer.classList.add("main-non-text-container--expanded");
             if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
-            if(mainMediaViewer.summaryMenu) {
-                let resizeInterval = setInterval(mainMediaViewer.summaryMenu.resizeMenuContainer, 1000/60);
+            if(summaryMenu) {
+                let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
                 mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
             }
         };
@@ -80,8 +81,8 @@
         let minimizeMainNonTextContainer = function() {
             if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("minimized");
             mainNonTextContainer.classList.remove("main-non-text-container--expanded");
-            if(mainMediaViewer.summaryMenu) {
-                let resizeInterval = setInterval(mainMediaViewer.summaryMenu.resizeMenuContainer, 1000/60);
+            if(summaryMenu) {
+                let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
                 mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
             }
         };
@@ -147,7 +148,7 @@
                 if(tabBtn.value == "vid" || tabBtn.value == "img") {
                     mainMediaViewer.displayMediaType(tabBtn.value);
                 } else if(tabBtn.value == "sum") {
-                    mainMediaViewer.summaryMenu.resizeMenuContainer();
+                    summaryMenu.resizeMenuContainer();
                 }
             }
         };
@@ -216,10 +217,10 @@
         proteinViewers[proteinViewerEl.id] = ProteinViewer(proteinViewerEl);
     }
 
+    if(summaryMenuEl) summaryMenu = SummaryMenu(summaryMenuEl);
+
     for(let mediaViewerEl of mediaViewerEls) {
-        let summaryMenuEl = mediaViewerEl.querySelector(".summary-menu");
-        let summaryMenu = (summaryMenuEl) ? SummaryMenu(summaryMenuEl) : undefined;
-        let mediaViewer = MediaViewer(mediaViewerEl, summaryMenu, undefined, sectionController.onMediaViewerResizeCallback);
+        let mediaViewer = MediaViewer(mediaViewerEl, undefined, sectionController.onMediaViewerResizeCallback);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
     }
 
