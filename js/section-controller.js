@@ -1,6 +1,7 @@
 (function() {
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let videoPlayerEls = document.querySelectorAll(".video-player");
+    let compSliderEls = document.querySelectorAll(".comp-slider");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
@@ -10,7 +11,7 @@
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, videoPlayers = {}, modals = {}, narrationPlayers = {};
+        mediaViewers = {}, videoPlayers = {}, compSliders = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
 
@@ -190,6 +191,10 @@
         videoPlayers[videoPlayerEl.id] = VideoPlayer(videoPlayerEl);
         if(videoPlayerEl.getAttribute("data-main")) videoPlayers[videoPlayerEl.id].video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
         for(let qualityOptionInput of videoPlayers[videoPlayerEl.id].qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+    }
+
+    for(let compSliderEl of compSliderEls) {
+        compSliders[compSliderEl.id] = CompSlider(compSliderEl);
     }
 
     for(let mediaViewerEl of mediaViewerEls) {
