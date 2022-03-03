@@ -116,6 +116,16 @@ def getCompSliderMetadata(fileName):
     compSliderMetadata["imgName"] = fileMetadata["video"].split(".")[0]
     return compSliderMetadata
 
+def getProteinViewerMetadata(fileName):
+    fileMetadata = getYAMLMetadata(fileName)
+    proteinViewerMetadata = {}
+    proteinViewerMetadata["id"] = pathlib.Path(fileName).stem
+    for structure in fileMetadata["structure"]:
+        if "PDB" in structure["name"]: 
+            proteinViewerMetadata["pdb"] = structure["name"].split(" ")[1].lower()
+            if "modified" in structure: proteinViewerMetadata["modified"] = True
+    return proteinViewerMetadata
+
 def getCitationMetadata(fileName, bibDict):
     fileMetadata = getYAMLMetadata(fileName)
     citationMetadata = {}
@@ -230,6 +240,7 @@ def addPageToFeatureIndex(fileName, featureIndex):
 def addMainSectionMetadata(fileName, metadata, bibDict):
     # Get media viewer metadata
     metadata["mediaViewer"] = {}
+    metadata["mediaViewer"]["file"] = pathlib.Path(fileName).stem
     metadata["mediaViewer"]["isSection"] = True
     metadata["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(fileName)
     metadata["mediaViewer"]["vidPlayer"]["isSection"] = True
@@ -259,6 +270,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 subsectionData["hasMainMediaViewer"] = True
                 subsectionData["mediaViewer"] = {}
                 subsectionData["mediaViewer"]["id"] = subsectionData["id"]
+                subsectionData["mediaViewer"]["file"] = subsectionData['id']
                 if "doi" in subsectionData or "video" in  subsectionData:
                     subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(f"subsections/{subsectionFileName}.md")
                     if "noSlider" not in subsectionData:
@@ -275,13 +287,11 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 subsectionData["citation"] = getCitationMetadata(f"subsections/{subsectionFileName}.md", bibDict)
                 subsectionData["mediaViewer"]["citationAttached"] = True
             # Create protein viewer data
-            if "structure" in subsectionData:
-                for structure in subsectionData["structure"]:
-                    if "PDB" in structure["name"]: 
-                        subsectionData["viewer"] = {}
-                        subsectionData["viewer"]["id"] = f"pv-{subsectionData['id']}"
-                        subsectionData["viewer"]["pdb"] = structure["name"].split(" ")[1].lower()
-                        if "modified" in structure: subsectionData["viewer"]["modified"] = True
+            if "structure" in subsectionData and any("PDB" in structure["name"] for structure in subsectionData["structure"]):
+                subsectionData["proteinMediaViewer"] = {}
+                subsectionData["proteinMediaViewer"]["id"] = f"pv-{subsectionData['id']}" 
+                subsectionData["proteinMediaViewer"]["file"] = subsectionData['id']
+                subsectionData["proteinMediaViewer"]["viewer"] = getProteinViewerMetadata(f"subsections/{subsectionFileName}.md")
 
             metadata["subsectionsData"].append(subsectionData)
 

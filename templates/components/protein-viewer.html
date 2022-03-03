@@ -1,16 +1,14 @@
-<div class="protein-viewer media-viewer__media-component" data-pdb="${it.pdb}">
+<div id="proteinViewer-${it.id}" class="protein-viewer media-viewer__media-component" data-pdb="${it.pdb}">
     <div class="protein-viewer__menu">
         <label class="protein-viewer__menu-label">
             Model:
             <select class="protein-viewer__menu-select protein-viewer__model-select">
                 <option value="cartoon" selected>Secondary Structure</option>
-                ${if(it.modified)}
-                ${else}
+                ${if(it.modified)}${else}
                     <option value="spheres">Volume Filling</option>
                 ${endif}
                 <option value="tube">Backbone</option>
-                ${if(it.modified)}
-                ${else}
+                ${if(it.modified)}${else}
                     <option value="ballsAndSticks">Ball and Stick</option>
                 ${endif}
             </select>

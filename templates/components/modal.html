@@ -15,8 +15,8 @@
         ${endif}
 
         ${if(offline)}${else}
-            ${if(it.viewer)}
-                ${it.viewer:components/media-viewer.html()}
+            ${if(it.proteinMediaViewer)}
+                ${it.proteinMediaViewer:components/media-viewer.html()}
             ${endif}
         ${endif}
 

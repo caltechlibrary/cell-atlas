@@ -1,9 +1,13 @@
-let MediaViewer = function(root, proteinViewer, summaryMenu, treeViewer, resizeCallbacks = []) {
+let MediaViewer = function(root, summaryMenu, treeViewer, resizeCallback = function(){}) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
     let mediaComponents = root.querySelectorAll(".media-viewer__media-component");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
+
+    let handleRootFullscreenChange = function() {
+        resizeCallback(root);
+    };
 
     let handleTabContainerClick = function(event) {
         let tabBtn = event.target.closest(".media-viewer__tab-btn");
@@ -71,7 +75,7 @@ let MediaViewer = function(root, proteinViewer, summaryMenu, treeViewer, resizeC
             root.requestFullscreen();
         } else {
             root.classList.add("media-viewer--fullscreen-polyfill");
-            for(let resizeCallback of resizeCallbacks) resizeCallback();
+            resizeCallback(root);
         }
     };
 
@@ -114,7 +118,7 @@ let MediaViewer = function(root, proteinViewer, summaryMenu, treeViewer, resizeC
         mediaContainer.style.top = `${posTop}px`;
         mediaContainer.style.width = `${width + 14}px`;
         mediaContainer.style.height = `${height + 14}px`;
-        for(let resizeCallback of resizeCallbacks) resizeCallback();
+        resizeCallback(root);
     };
 
     let minimizeFixedEnlarged = function() {
@@ -123,15 +127,13 @@ let MediaViewer = function(root, proteinViewer, summaryMenu, treeViewer, resizeC
         window.removeEventListener("resize", positionFixedEnlargedSlider);
     };
 
+    root.addEventListener("fullscreenchange", handleRootFullscreenChange);
     if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
     fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
-    
-    for(let resizeCallback of resizeCallbacks) root.addEventListener("fullscreenchange", resizeCallback);
 
     return {
         root,
         mediaContainer,
-        proteinViewer,
         summaryMenu,
         treeViewer,
         fullscreenBtn,

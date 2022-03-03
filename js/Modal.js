@@ -1,4 +1,4 @@
-let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer, onCloseCallback = function(){}) {
+let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer, onOpenCallback = function(){},  onCloseCallback = function(){}) {
 
     let modalContainer = root.querySelector(".modal__modal-container");
     let exitBtn = root.querySelector(".modal__exit-btn");
@@ -7,11 +7,11 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer,
     let narrationToggleBtn = root.querySelector(".modal__toggle-narration-btn");
 
     let show = function() {
-        if(proteinMediaViewer && !proteinMediaViewer.proteinViewer.initialized) proteinMediaViewer.proteinViewer.init();
         if(contentContainer) contentContainer.setAttribute("tabindex", 0);
         root.classList.remove("modal--hidden");
         root.focus();
         document.addEventListener("keydown", onOpenModalKeyDown);
+        onOpenCallback();
     };
 
     let onOpenModalKeyDown = function(event) {

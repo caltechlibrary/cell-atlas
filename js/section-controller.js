@@ -2,6 +2,7 @@
     let mediaViewerEls = document.querySelectorAll(".media-viewer");
     let videoPlayerEls = document.querySelectorAll(".video-player");
     let compSliderEls = document.querySelectorAll(".comp-slider");
+    let proteinViewerEls = document.querySelectorAll(".protein-viewer");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
@@ -11,9 +12,15 @@
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
     let sectionController, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, videoPlayers = {}, compSliders = {}, modals = {}, narrationPlayers = {};
+        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {}, modals = {}, narrationPlayers = {};
     
     let SectionController = function() {
+
+        let onMediaViewerResizeCallback = function(mediaViewerEl) {
+            let file = mediaViewerEl.getAttribute("data-file");
+            let proteinViewer = proteinViewers[`proteinViewer-${file}`];
+            if(proteinViewer) proteinViewer.resizeViewer();
+        };
 
         let handleMainMediaViewerFsBtnClick = function() {
             if(window.innerWidth < 900) {
@@ -114,6 +121,12 @@
             modal.show();
         };
 
+        let onModalOpenCallback = function() {
+            let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            let proteinViewer = proteinViewers[`proteinViewer-${modalEl.id}`];
+            if(proteinViewer && !proteinViewer.initialized) proteinViewer.init();
+        };
+
         let onModalCloseCallback = function() {
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
             let videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`];
@@ -169,6 +182,7 @@
         };
 
         return {
+            onMediaViewerResizeCallback,
             handleMainMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
             stopMainNarration,
@@ -178,6 +192,7 @@
             shelveText,
             unshelveText,
             handleLearnMoreBtnContainerClick,
+            onModalOpenCallback,
             onModalCloseCallback,
             handleMobileControlClick,
             onDocumentKeydown
@@ -197,13 +212,14 @@
         compSliders[compSliderEl.id] = CompSlider(compSliderEl);
     }
 
+    for(let proteinViewerEl of proteinViewerEls) {
+        proteinViewers[proteinViewerEl.id] = ProteinViewer(proteinViewerEl);
+    }
+
     for(let mediaViewerEl of mediaViewerEls) {
-        let proteinViewerEl = mediaViewerEl.querySelector(".protein-viewer");
         let summaryMenuEl = mediaViewerEl.querySelector(".summary-menu");
-        let proteinViewer = (proteinViewerEl) ? ProteinViewer(proteinViewerEl) : undefined;
         let summaryMenu = (summaryMenuEl) ? SummaryMenu(summaryMenuEl) : undefined;
-        let resizeCallbacks = (proteinViewer) ? [proteinViewer.resizeViewer] : undefined;
-        let mediaViewer = MediaViewer(mediaViewerEl, proteinViewer, summaryMenu, undefined, resizeCallbacks);
+        let mediaViewer = MediaViewer(mediaViewerEl, summaryMenu, undefined, sectionController.onMediaViewerResizeCallback);
         mediaViewers[mediaViewer.root.id] = mediaViewer;
     }
 
@@ -233,7 +249,7 @@
         let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
         let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
         let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
-        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer, sectionController.onModalCloseCallback);
+        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
         modals[modal.root.id] = modal;
         if(modalEl.id == hash) modal.show();
     }
