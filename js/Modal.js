@@ -1,4 +1,4 @@
-let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer) {
+let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer, onOpenCallback = function(){},  onCloseCallback = function(){}) {
 
     let modalContainer = root.querySelector(".modal__modal-container");
     let exitBtn = root.querySelector(".modal__exit-btn");
@@ -7,11 +7,11 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
     let narrationToggleBtn = root.querySelector(".modal__toggle-narration-btn");
 
     let show = function() {
-        if(proteinMediaViewer && !proteinMediaViewer.proteinViewer.initialized) proteinMediaViewer.proteinViewer.init();
         if(contentContainer) contentContainer.setAttribute("tabindex", 0);
         root.classList.remove("modal--hidden");
         root.focus();
         document.addEventListener("keydown", onOpenModalKeyDown);
+        onOpenCallback();
     };
 
     let onOpenModalKeyDown = function(event) {
@@ -19,6 +19,7 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
     };
 
     let hide = function() {
+        onCloseCallback();
         let openViewerMediaContainerEl = root.querySelector(".media-viewer__media-container--fixed-enlarged");
         if(openViewerMediaContainerEl) {
             if(openViewerMediaContainerEl.parentElement.classList.contains("media-viewer--protein-viewer")) {
@@ -29,7 +30,6 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer)
                 mainMediaViewer.setFullscreenBtnState("minimized");
             }
         }
-        if(mainMediaViewer && mainMediaViewer.videoPlayer && !mainMediaViewer.videoPlayer.video.paused) mainMediaViewer.videoPlayer.togglePlayBack();
         if(narrationPlayer && !narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         root.classList.add("modal--hidden");
         if(contentContainer) contentContainer.setAttribute("tabindex", -1);

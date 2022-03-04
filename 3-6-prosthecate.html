@@ -981,6 +981,7 @@
                       </svg></a>
                           <div
                               id="mediaViewer-main"
+                              data-file="3-6-prosthecate"
                               class="
                                   media-viewer 
                                   media-viewer--main-section
@@ -1001,12 +1002,15 @@
                               <path d="M343,238a49,49,0,1,1,49,49A49,49,0,0,1,343,238ZM512.2,525l-14-14H98v14ZM284.35,297.148a21,21,0,0,0-29.7,0L98,469v42H498.2ZM651,119V553a35,35,0,0,1-35,35H56a35,35,0,0,1-35-35V119A35,35,0,0,1,56,84H616A35,35,0,0,1,651,119Zm-49,14H70V539H602ZM518.85,342.648a21,21,0,0,0-29.7,0l-59.383,60.32L537.8,511H574V397.8Z"/>
                           </svg></button>
                                   </div>
-                                  <div class="media-viewer__media-container media-viewer__media-container--main-section  ">
+                                  <div class="media-viewer__media-container media-viewer__media-container--main-section   ">
                                    <div 
-                              class="video-player video-player--main-section" 
+                              id="videoPlayer-3-6-prosthecate"
+                              class="video-player media-viewer__media-component video-player--main-section" 
                               data-doi="10.22002/D1.1482" 
                               data-vid-name="3_6_Vspinosum" 
-                              >
+                              data-media-type="vid"
+                                      data-main="true"
+                                  >
                               <video class="video-player__video video-player__video--main-section" poster="img/thumbnails/3_6_thumbnail.jpg" width="1920px" height="1080px" muted playsinline>
                                   <source>
                                   Your browser does not support the video tag.
@@ -1109,7 +1113,7 @@
                                   <input class="video-player__seek-bar" type="range" value="0" max="1000">
                               </div>
                           </div> 
-                                   <div class="comp-slider comp-slider--hidden comp-slider--main-section" >
+                                   <div id="compSlider-3-6-prosthecate" class="comp-slider media-viewer__media-component media-viewer__media-component--hidden comp-slider--main-section" data-media-type="img" >
                               <picture class="comp-slider__before-picture" data-src="3_6_Vspinosum_before">
                                    <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/3_6_Vspinosum_before.webp"> 
                                   <source type="image/jpeg" srcset="https://www.cellstructureatlas.org/img/stillimages/3_6_Vspinosum_before.jpg">
@@ -1357,6 +1361,7 @@
 
                                               <div
                                                   id="mediaViewer-bactofilin"
+                                                  data-file="bactofilin"
                                                   class="
                                                       media-viewer 
                                                       
@@ -1377,12 +1382,14 @@
                                                   <path d="M343,238a49,49,0,1,1,49,49A49,49,0,0,1,343,238ZM512.2,525l-14-14H98v14ZM284.35,297.148a21,21,0,0,0-29.7,0L98,469v42H498.2ZM651,119V553a35,35,0,0,1-35,35H56a35,35,0,0,1-35-35V119A35,35,0,0,1,56,84H616A35,35,0,0,1,651,119Zm-49,14H70V539H602ZM518.85,342.648a21,21,0,0,0-29.7,0l-59.383,60.32L537.8,511H574V397.8Z"/>
                                               </svg></button>
                                                       </div>
-                                                      <div class="media-viewer__media-container media-viewer__media-container--citation-attached  ">
+                                                      <div class="media-viewer__media-container media-viewer__media-container--citation-attached   ">
                                                        <div 
-                                                  class="video-player video-player--subsection" 
+                                                  id="videoPlayer-bactofilin"
+                                                  class="video-player media-viewer__media-component video-player--subsection" 
                                                   data-doi="" 
                                                   data-vid-name="3_6_1" 
-                                                  >
+                                                  data-media-type="vid"
+                                                      >
                                                   <video class="video-player__video video-player__video--subsection" poster="img/thumbnails/3_6_1_thumbnail.jpg" width="1920px" height="1080px" muted playsinline>
                                                       <source>
                                                       Your browser does not support the video tag.
@@ -1485,7 +1492,7 @@
                                                       <input class="video-player__seek-bar" type="range" value="0" max="1000">
                                                   </div>
                                               </div> 
-                                                       <div class="comp-slider comp-slider--hidden comp-slider--subsection" >
+                                                       <div id="compSlider-bactofilin" class="comp-slider media-viewer__media-component media-viewer__media-component--hidden comp-slider--subsection" data-media-type="img" >
                                                   <picture class="comp-slider__before-picture" data-src="3_6_1_before">
                                                        <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/3_6_1_before.webp"> 
                                                       <source type="image/jpeg" srcset="https://www.cellstructureatlas.org/img/stillimages/3_6_1_before.jpg">
@@ -1584,6 +1591,7 @@
                                   
                                                       <div
                                                           id="mediaViewer-pv-bactofilin"
+                                                          data-file="bactofilin"
                                                           class="
                                                               media-viewer 
                                                               
@@ -1593,19 +1601,23 @@
                                                               media-viewer--protein-viewer media-viewer--hidden
                                                           "
                                                       >
-                                                              <div class="media-viewer__media-container   ">
+                                                              <div class="media-viewer__media-container   media-viewer__media-container--protein-viewer ">
                                                               
                                                               
-                                                               <div class="protein-viewer" data-pdb="6rib">
+                                                               <div id="proteinViewer-bactofilin" class="protein-viewer media-viewer__media-component" data-pdb="6rib">
                                                           <div class="protein-viewer__menu">
                                                               <label class="protein-viewer__menu-label">
                                                                   Model:
                                                                   <select class="protein-viewer__menu-select protein-viewer__model-select">
                                                                       <option value="cartoon" selected>Secondary Structure</option>
-                                                                                          <option value="spheres">Volume Filling</option>
-                                                                                      <option value="tube">Backbone</option>
-                                                                                          <option value="ballsAndSticks">Ball and Stick</option>
-                                                                                  </select>
+                                                                      
+                                                                          <option value="spheres">Volume Filling</option>
+                                                                      
+                                                                      <option value="tube">Backbone</option>
+                                                                      
+                                                                          <option value="ballsAndSticks">Ball and Stick</option>
+                                                                      
+                                                                  </select>
                                                               </label>
                                                               <label class="protein-viewer__menu-label">
                                                                   Color:
@@ -1741,6 +1753,7 @@
 
                                               <div
                                                   id="mediaViewer-bacterial-microtubules"
+                                                  data-file="bacterial-microtubules"
                                                   class="
                                                       media-viewer 
                                                       
@@ -1761,12 +1774,14 @@
                                                   <path d="M343,238a49,49,0,1,1,49,49A49,49,0,0,1,343,238ZM512.2,525l-14-14H98v14ZM284.35,297.148a21,21,0,0,0-29.7,0L98,469v42H498.2ZM651,119V553a35,35,0,0,1-35,35H56a35,35,0,0,1-35-35V119A35,35,0,0,1,56,84H616A35,35,0,0,1,651,119Zm-49,14H70V539H602ZM518.85,342.648a21,21,0,0,0-29.7,0l-59.383,60.32L537.8,511H574V397.8Z"/>
                                               </svg></button>
                                                       </div>
-                                                      <div class="media-viewer__media-container media-viewer__media-container--citation-attached  ">
+                                                      <div class="media-viewer__media-container media-viewer__media-container--citation-attached   ">
                                                        <div 
-                                                  class="video-player video-player--subsection" 
+                                                  id="videoPlayer-bacterial-microtubules"
+                                                  class="video-player media-viewer__media-component video-player--subsection" 
                                                   data-doi="10.22002/D1.1487" 
                                                   data-vid-name="3_6a_Pvanneervenii" 
-                                                  >
+                                                  data-media-type="vid"
+                                                      >
                                                   <video class="video-player__video video-player__video--subsection" poster="img/thumbnails/3_6a_thumbnail.jpg" width="1920px" height="1080px" muted playsinline>
                                                       <source>
                                                       Your browser does not support the video tag.
@@ -1869,7 +1884,7 @@
                                                       <input class="video-player__seek-bar" type="range" value="0" max="1000">
                                                   </div>
                                               </div> 
-                                                       <div class="comp-slider comp-slider--hidden comp-slider--subsection" >
+                                                       <div id="compSlider-bacterial-microtubules" class="comp-slider media-viewer__media-component media-viewer__media-component--hidden comp-slider--subsection" data-media-type="img" >
                                                   <picture class="comp-slider__before-picture" data-src="3_6a_Pvanneervenii_before">
                                                        <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/3_6a_Pvanneervenii_before.webp"> 
                                                       <source type="image/jpeg" srcset="https://www.cellstructureatlas.org/img/stillimages/3_6a_Pvanneervenii_before.jpg">

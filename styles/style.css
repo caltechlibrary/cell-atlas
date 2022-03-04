@@ -1024,6 +1024,11 @@ file. These definitions will be defined mobile first.
     height: 100%;
 }
 
+.media-viewer__media-container--protein-viewer {
+    width: 100%;
+    height: 100%;
+}
+
 .media-viewer__media-container--fixed-enlarged {
     position: fixed;
     top: 50%;
@@ -1050,9 +1055,8 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.media-viewer__media-container--fullscreen-protein-viewer {
-    width: 100%;
-    height: 100%;
+.media-viewer__media-component--hidden {
+    display: none;
 }
 
 .media-viewer__graphic {
@@ -1067,20 +1071,20 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.media-viewer__graphic--fullscreen {
+.media-viewer__graphic.media-viewer__media-component--fullscreen {
     width: auto;
     height: auto;
     max-height: none;
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
-    .media-viewer__graphic--fullscreen {
+    .media-viewer__graphic.media-viewer__media-component--fullscreen {
         height: 100%;
     }
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
-    .media-viewer__graphic--fullscreen {
+    .media-viewer__graphic.media-viewer__media-component--fullscreen {
         width: 100%;
     }
 }
@@ -1573,7 +1577,7 @@ file. These definitions will be defined mobile first.
 }
 
 @media (min-width:900px) {
-    .video-player--main-section {
+    .video-player--main-section:not(.media-viewer__media-component--hidden) {
         flex: 1 1 auto;
         min-height: 0;
         width: 100%;
@@ -1584,10 +1588,6 @@ file. These definitions will be defined mobile first.
 
 .video-player--subsection {
     width: 100%;
-}
-
-.video-player--hidden {
-    display: none;
 }
 
 .video-player__video {
@@ -1949,25 +1949,21 @@ file. These definitions will be defined mobile first.
     width: 100%;
 }
 
-.comp-slider--fullscreen {
+.comp-slider.media-viewer__media-component--fullscreen {
     height: auto;
     width: auto;
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
-    .comp-slider--fullscreen {
+    .comp-slider.media-viewer__media-component--fullscreen {
         width: 100%;
     }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
-    .comp-slider--fullscreen {
+    .comp-slider.media-viewer__media-component--fullscreen {
         height: 100%;
     }
-}
-
-.comp-slider--hidden {
-    display: none;
 }
 
 .comp-slider__before-img {
@@ -1999,18 +1995,18 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.comp-slider__before-img--fullscreen {
+.media-viewer__media-component--fullscreen .comp-slider__before-img {
     max-height: initial;
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
-    .comp-slider__before-img--fullscreen {
+    .media-viewer__media-component--fullscreen .comp-slider__before-img {
         width: 100%;
     }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
-    .comp-slider__before-img--fullscreen {
+    .media-viewer__media-component--fullscreen .comp-slider__before-img {
         height: 100%;
     }
 }

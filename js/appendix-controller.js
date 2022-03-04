@@ -4,11 +4,12 @@
     let rightNav = document.querySelector(".appendix__nav-arrow:last-child");
     let appendixAccordionEl = document.querySelector(".appendix-accordion");
     let treeMediaViewerEl = document.querySelector(".media-viewer");
+    let treeViewerEl = document.querySelector(".tree-viewer");
     let treeViewerFsConfirmEl = document.getElementById("treeViewerFsConfirm");
     let feedbackLinks = document.querySelectorAll(".about-entry__feadback-link");
     let feedbackModalEl = document.getElementById("feedback");
     let hash = window.location.hash.substring(1);
-    let appendixController, appendixAccordion, treeMediaViewer, treeViewerFsConfirm, feedbackModal;
+    let appendixController, appendixAccordion, treeMediaViewer, treeViewer, treeViewerFsConfirm, feedbackModal;
 
     let AppendixController = function() {
 
@@ -29,7 +30,7 @@
             treeViewerFsConfirm.hide();
             treeMediaViewer.toggleFullscreen();
             treeMediaViewer.setFullscreenBtnState("expanded");
-            setTimeout(() => treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash), 200);
+            setTimeout(() => treeViewer.activateSpeciesEntryHash(hash), 200);
         };
 
         return {
@@ -47,9 +48,8 @@
         window.addEventListener("hashchange", appendixController.onAccordionHashChange);
     }
     if(treeMediaViewerEl) {
-        let treeViewerEl = treeMediaViewerEl.querySelector(".tree-viewer");
-        let treeViewer = TreeViewer(treeViewerEl);
-        treeMediaViewer = MediaViewer(treeMediaViewerEl, undefined, undefined, undefined, undefined, treeViewer);
+        treeViewer = TreeViewer(treeViewerEl);
+        treeMediaViewer = MediaViewer(treeMediaViewerEl);
         treeViewerFsConfirm = Modal(treeViewerFsConfirmEl, undefined, undefined, undefined);
         treeMediaViewer.fullscreenBtn.addEventListener("click", appendixController.handleTreeMediaViewerFsBtnClick);
         treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-cancel").addEventListener("click", treeViewerFsConfirm.hide);
@@ -60,7 +60,7 @@
             } else {
                 treeMediaViewer.toggleFixedEnlarged();
                 treeMediaViewer.setFullscreenBtnState("expanded");
-                treeMediaViewer.treeViewer.activateSpeciesEntryHash(hash);
+                treeViewer.activateSpeciesEntryHash(hash);
             }
         }
     }

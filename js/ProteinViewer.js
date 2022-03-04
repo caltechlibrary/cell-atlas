@@ -137,10 +137,6 @@ let ProteinViewer = function(root) {
         } else {
             atomLabel.classList.add("protein-viewer__atom-label--hidden");
         }
-        requestRedraw();
-    };
-
-    let requestRedraw = function() {
         viewerObj.requestRedraw();
     };
 
@@ -185,9 +181,10 @@ let ProteinViewer = function(root) {
                 geomObj.colorBy(pv.color.bySS(ssGradient));
             }
         });
-        requestRedraw();
+        viewerObj.requestRedraw();
     };
 
+    window.addEventListener("resize", resizeViewer);
     root.addEventListener("touchstart", handleTouch);
     root.addEventListener("mousedown", handleMouseDown);
     modelSelect.addEventListener("change", changeModel);
@@ -196,7 +193,6 @@ let ProteinViewer = function(root) {
     return {
         initialized,
         init,
-        resizeViewer,
-        requestRedraw
+        resizeViewer
     }
 };

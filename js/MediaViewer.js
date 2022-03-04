@@ -1,9 +1,13 @@
-let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summaryMenu, treeViewer) {
+let MediaViewer = function(root, resizeCallback = function(){}) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
-    let graphic = root.querySelector(".media-viewer__graphic");
+    let mediaComponents = root.querySelectorAll(".media-viewer__media-component");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
+
+    let handleRootFullscreenChange = function() {
+        resizeCallback(root);
+    };
 
     let handleTabContainerClick = function(event) {
         let tabBtn = event.target.closest(".media-viewer__tab-btn");
@@ -17,14 +21,12 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     };
 
     let displayMediaType = function(mediaType) {
+        let mediaComponent = root.querySelector(`.media-viewer__media-component[data-media-type='${mediaType}']`);
+        for(let mediaComponent of mediaComponents) mediaComponent.classList.add("media-viewer__media-component--hidden");
+        mediaComponent.classList.remove("media-viewer__media-component--hidden");
         if(mediaType == "vid") {
-            if(compSlider) compSlider.hide();
-            videoPlayer.show();
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
-        } else if(mediaType == "img") {
-            if(!videoPlayer.video.paused) videoPlayer.togglePlayBack();
-            videoPlayer.hide();
-            compSlider.show();
+        } else {
             fullscreenBtn.classList.remove("media-viewer__fullscreen-btn--hidden");
         }
     };
@@ -64,42 +66,30 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
     };
 
     let displayFullscreen = function() {
+        let mediaComponent = root.querySelector(`.media-viewer__media-component:not(.media-viewer__media-component--hidden)`);
         root.classList.add("media-viewer--fullscreen");
         if(tabContainer) tabContainer.classList.add("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.add("media-viewer__media-container--fullscreen");
-        if(proteinViewer) {
-            mediaContainer.classList.add("media-viewer__media-container--fullscreen-protein-viewer");
-            window.addEventListener("resize", proteinViewer.resizeViewer);
-        }
-        if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
-        if(graphic) graphic.classList.add("media-viewer__graphic--fullscreen");
+        mediaComponent.classList.add("media-viewer__media-component--fullscreen");
         if(root.requestFullscreen) {
             root.requestFullscreen();
         } else {
             root.classList.add("media-viewer--fullscreen-polyfill");
-            if(proteinViewer) proteinViewer.resizeViewer();
+            resizeCallback(root);
         }
     };
 
     let exitFullscreen = function() {
+        let mediaComponent = root.querySelector(`.media-viewer__media-component:not(.media-viewer__media-component--hidden)`);
         root.classList.remove("media-viewer--fullscreen");
         if(tabContainer) tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
         mediaContainer.classList.remove("media-viewer__media-container--fullscreen");
-        if(proteinViewer) {
-            mediaContainer.classList.remove("media-viewer__media-container--fullscreen-protein-viewer");
-            window.removeEventListener("resize", proteinViewer.resizeViewer);
-        }
-        if(compSlider && !compSlider.root.classList.contains("comp-slider--hidden")) compSlider.toggleFullscreenStyles();
-        if(graphic) graphic.classList.remove("media-viewer__graphic--fullscreen");
+        mediaComponent.classList.remove("media-viewer__media-component--fullscreen");
         if(root.requestFullscreen) {
             document.exitFullscreen();
         } else {
             root.classList.remove("media-viewer--fullscreen-polyfill");
         }
-    };
-
-    let onProteinMediaViewerFullscreenChange = function() {
-        if(document.fullscreenElement || document.fullscreenElement == root) proteinViewer.resizeViewer();
     };
 
     let toggleFixedEnlarged = function() {
@@ -114,25 +104,21 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         mediaContainer.classList.add("media-viewer__media-container--fixed-enlarged");
         positionFixedEnlargedSlider();
         window.addEventListener("resize", positionFixedEnlargedSlider);
-        if(proteinViewer) proteinViewer.requestRedraw();
     };
 
     let positionFixedEnlargedSlider = function() {
-        let headerEl = document.querySelector("header");
-        let footerEl = document.querySelector("footer");
-        let headerFooterDistance = footerEl.getBoundingClientRect().top - headerEl.getBoundingClientRect().bottom;
-        let posTop = headerEl.offsetHeight + (headerFooterDistance / 2);
-        let availHeight = headerFooterDistance - 50;
-        let availWidth = window.innerWidth - 100;
+        // section content is in .page__content-container
+        let contentContainer = document.querySelector(".page__content-container");
+        let posTop = contentContainer.getBoundingClientRect().top + contentContainer.getBoundingClientRect().height / 2;
+        let availHeight = contentContainer.getBoundingClientRect().height - 50;
+        let availWidth = contentContainer.getBoundingClientRect().width - 100;
         let aspectRatio = 16 / 9;
-        let desiredWidth = availHeight * aspectRatio;
-        let correctWidth = (desiredWidth < availWidth) ? desiredWidth : availWidth;
-        mediaContainer.style.width = `${correctWidth}px`;
-        if(proteinViewer) {
-            mediaContainer.style.height = `${correctWidth / aspectRatio}px`;
-            proteinViewer.resizeViewer();
-        }
+        let width = Math.min(availWidth, availHeight * aspectRatio);
+        let height = width / aspectRatio;
         mediaContainer.style.top = `${posTop}px`;
+        mediaContainer.style.width = `${width + 14}px`;
+        mediaContainer.style.height = `${height + 14}px`;
+        resizeCallback(root);
     };
 
     let minimizeFixedEnlarged = function() {
@@ -141,18 +127,13 @@ let MediaViewer = function(root, videoPlayer, compSlider, proteinViewer, summary
         window.removeEventListener("resize", positionFixedEnlargedSlider);
     };
 
-    if(proteinViewer) root.addEventListener("fullscreenchange", onProteinMediaViewerFullscreenChange);
+    root.addEventListener("fullscreenchange", handleRootFullscreenChange);
     if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
     fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
 
     return {
         root,
         mediaContainer,
-        videoPlayer,
-        compSlider,
-        proteinViewer,
-        summaryMenu,
-        treeViewer,
         fullscreenBtn,
         displayMediaType,
         setFullscreenBtnState,
