@@ -198,6 +198,10 @@ def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
 
 def addRefToFeatureIndex(feature, ref, featureIndex):
     if feature in featureIndex:
+        for i, featureRef in enumerate(featureIndex[feature]["refs"]):
+            if ref["species"] < featureRef["species"]: 
+                featureIndex[feature]["refs"].insert(i, ref)
+                return
         featureIndex[feature]["refs"].append(ref)
     else:
         featureIndex[feature] = {}
