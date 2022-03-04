@@ -44,6 +44,16 @@
             }
         };
 
+        let handleSubMediaViewerFsBtnClick = function(event) {
+            let mediaViewerEl = event.target.closest(".media-viewer");
+            let mediaViewer = mediaViewers[mediaViewerEl.id];
+            if(window.innerWidth < 900) {
+                mediaViewer.toggleFullscreen();
+            } else {
+                mediaViewer.toggleFixedEnlarged();
+            }
+        };
+
         let onMainVideoPlayerFirstPlay = function() {
             if(
                 window.getComputedStyle(sectionText.shelveBtn).display != "none" && 
@@ -130,7 +140,12 @@
 
         let onModalCloseCallback = function() {
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
             let videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`];
+            if(mediaViewer && mediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+                mediaViewer.toggleFixedEnlarged();
+                mediaViewer.setFullscreenBtnState("minimized");
+            }
             if(videoPlayer && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
         };
 
@@ -185,6 +200,7 @@
         return {
             onMediaViewerResizeCallback,
             handleMainMediaViewerFsBtnClick,
+            handleSubMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
             stopMainNarration,
             showStopNarrationBtn,
@@ -221,11 +237,14 @@
 
     for(let mediaViewerEl of mediaViewerEls) {
         let mediaViewer = MediaViewer(mediaViewerEl, sectionController.onMediaViewerResizeCallback);
-        mediaViewers[mediaViewer.root.id] = mediaViewer;
+        mediaViewers[mediaViewerEl.id] = mediaViewer;
+        if(mediaViewerEl.getAttribute("data-main")) {
+            mainMediaViewer = mediaViewer;
+            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
+        } else {
+            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
+        }
     }
-
-    mainMediaViewer = mediaViewers["mediaViewer-main"];
-    mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
         
     mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
@@ -247,10 +266,9 @@
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
     for(let modalEl of modalEls) {
-        let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
         let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
         let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
-        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
+        let modal = Modal(modalEl, proteinMediaViewer, narrationPlayer, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
         modals[modal.root.id] = modal;
         if(modalEl.id == hash) modal.show();
     }

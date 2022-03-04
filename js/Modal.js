@@ -1,4 +1,4 @@
-let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer, onOpenCallback = function(){},  onCloseCallback = function(){}) {
+let Modal = function(root, proteinMediaViewer, narrationPlayer, onOpenCallback = function(){},  onCloseCallback = function(){}) {
 
     let modalContainer = root.querySelector(".modal__modal-container");
     let exitBtn = root.querySelector(".modal__exit-btn");
@@ -25,9 +25,6 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer,
             if(openViewerMediaContainerEl.parentElement.classList.contains("media-viewer--protein-viewer")) {
                 closeProteinViewer();
                 proteinMediaViewer.setFullscreenBtnState("minimized");
-            } else {
-                toggleMainMediaViewerFs();
-                mainMediaViewer.setFullscreenBtnState("minimized");
             }
         }
         if(narrationPlayer && !narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
@@ -38,10 +35,6 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer,
 
     let onRootClick = function(event) {
         if(!modalContainer.contains(event.target)) hide();
-    };
-
-    let toggleMainMediaViewerFs = function() {
-        toggleMediaViewerFs(mainMediaViewer);
     };
 
     let openProteinViewer = function(event) {
@@ -83,7 +76,6 @@ let Modal = function(root, mainMediaViewer, proteinMediaViewer, narrationPlayer,
 
     root.addEventListener("click", onRootClick);
     if(exitBtn) exitBtn.addEventListener("click", hide);
-    if (mainMediaViewer) mainMediaViewer.fullscreenBtn.addEventListener("click", toggleMainMediaViewerFs);
     if(openProteinViewerBtn) openProteinViewerBtn.addEventListener("click", openProteinViewer);
     if(proteinMediaViewer) proteinMediaViewer.fullscreenBtn.addEventListener("click", closeProteinViewer);
     if (narrationToggleBtn) narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);

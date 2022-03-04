@@ -50,7 +50,7 @@
     if(treeMediaViewerEl) {
         treeViewer = TreeViewer(treeViewerEl);
         treeMediaViewer = MediaViewer(treeMediaViewerEl);
-        treeViewerFsConfirm = Modal(treeViewerFsConfirmEl, undefined, undefined, undefined);
+        treeViewerFsConfirm = Modal(treeViewerFsConfirmEl, undefined, undefined);
         treeMediaViewer.fullscreenBtn.addEventListener("click", appendixController.handleTreeMediaViewerFsBtnClick);
         treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-cancel").addEventListener("click", treeViewerFsConfirm.hide);
         treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-ok").addEventListener("click", appendixController.onTreeViewerFsConfirmOK);
@@ -65,7 +65,7 @@
         }
     }
     if(feedbackLinks.length > 0) {
-        feedbackModal = Modal(feedbackModalEl, undefined, undefined, undefined);
+        feedbackModal = Modal(feedbackModalEl, undefined, undefined);
         for(let feedbackLink of feedbackLinks) feedbackLink.addEventListener("click", feedbackModal.show);
     }
     if(appendixContainer.offsetWidth > appendixContainer.clientWidth) {

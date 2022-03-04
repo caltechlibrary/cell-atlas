@@ -9,6 +9,9 @@
         ${if(it.summaryMenu)}media-viewer--summary-menu${endif}
         ${if(it.viewer)}media-viewer--protein-viewer media-viewer--hidden${endif}
     "
+    ${if(it.isSection)}
+        data-main="true"
+    ${endif}
 >
     ${if(it.hasTabMenu)}
         <div class="media-viewer__tab-container ${if(it.isSection)}media-viewer__tab-container--main-section${endif}">
