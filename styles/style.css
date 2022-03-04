@@ -330,9 +330,14 @@ file. These definitions will be defined mobile first.
 
 @media(min-width:900px) {
     .index__text-container {
-        width: 25%;
-        min-width: 700px;
         padding: 0 0 0 192px;
+    }
+
+    @media(min-height:700px) {
+        .index__text-container {
+            width: 25%;
+            min-width: 700px;
+        }
     }
 }
 
