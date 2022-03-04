@@ -211,6 +211,10 @@ def addSpeciesEntryToSpeciesData(species, speciesEntry, speciesData):
 
 def addRefToFeatureIndex(feature, ref, featureIndex):
     if feature in featureIndex:
+        for i, featureRef in enumerate(featureIndex[feature]["refs"]):
+            if ref["species"] < featureRef["species"]: 
+                featureIndex[feature]["refs"].insert(i, ref)
+                return
         featureIndex[feature]["refs"].append(ref)
     else:
         featureIndex[feature] = {}
@@ -295,7 +299,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
 
             metadata["subsectionsData"].append(subsectionData)
 
-def addSummaryMenuMetadata(fileName, metadata):
+def addSummarySectionMetadata(fileName, metadata):
     metadata["mediaViewer"] = {}
     metadata["mediaViewer"]["isSection"] = True
     metadata["mediaViewer"]["summaryMenu"] = {}
@@ -442,10 +446,10 @@ for i, fileName in enumerate(sectionFileNames):
 
     metadata["progressData"] = getProgressMetadata(f"sections/{fileName}", navData)
 
-    if "typeSection" in metadata and metadata["title"] != "Summary": 
+    if metadata["title"] == "Summary":
+        addSummarySectionMetadata(f"sections/{fileName}", metadata)
+    elif "typeSection" in metadata:
         addMainSectionMetadata(f"sections/{fileName}", metadata, bibDict)
-    else:
-        addSummaryMenuMetadata(f"sections/{fileName}", metadata)
 
     writePage(siteDirRegular, f"sections/{fileName}", metadata["pageName"], metadata)
     if offlineAssetsExists: writePageOffline(siteDirOffline, siteDirOfflineLite, f"sections/{fileName}", metadata["pageName"], metadata)
