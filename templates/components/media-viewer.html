@@ -7,7 +7,7 @@
         ${if(it.isSection)}${elseif(it.hasTabMenu)} media-viewer--subsection-has-tabmenu ${endif}
         ${if(it.isSection)}${elseif(it.citationAttached)}${else} media-viewer--subsection-no-citation ${endif}
         ${if(it.summaryMenu)}media-viewer--summary-menu${endif}
-        ${if(it.viewer)}media-viewer--protein-viewer media-viewer--hidden${endif}
+        ${if(it.viewer)}modal__protein-media-viewer modal__protein-media-viewer--hidden${endif}
     "
     ${if(it.isSection)}
         data-main="true"

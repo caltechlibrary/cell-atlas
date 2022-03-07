@@ -924,10 +924,6 @@ file. These definitions will be defined mobile first.
     z-index: 100;
 }
 
-.media-viewer--hidden {
-    display: none;
-}
-
 .media-viewer__tab-container {
     position: relative;
     left: 10px;
@@ -2257,6 +2253,10 @@ file. These definitions will be defined mobile first.
     flex: 1 1 auto;
     position: relative;
     overflow: auto;
+}
+
+.modal__protein-media-viewer--hidden {
+    display: none;
 }
 
 .modal__header {

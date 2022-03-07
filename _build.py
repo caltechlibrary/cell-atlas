@@ -154,7 +154,7 @@ def getCitationMetadata(fileName, bibDict):
     if "structure" in fileMetadata:
         citationMetadata["structures"] = []
         for structure in fileMetadata["structure"]:
-            if "PDB" in structure["name"]: structure["viewerId"] = structure["name"].split(" ")[1].lower()
+            if "PDB" in structure["name"]: structure["viewerId"] = pathlib.Path(fileName).stem
             citationMetadata["structures"].append(structure)
         citationMetadata["structures"][-1]["last"] = True
     return citationMetadata

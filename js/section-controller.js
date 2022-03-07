@@ -6,6 +6,7 @@
     let summaryMenuEl = document.querySelector(".summary-menu");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
+    let openProteinViewerBtnEls = document.querySelectorAll(".vid-metadata__viewer-btn");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
@@ -141,12 +142,36 @@
         let onModalCloseCallback = function() {
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
             let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
+            let proteinViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
             let videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`];
             if(mediaViewer && mediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
                 mediaViewer.toggleFixedEnlarged();
                 mediaViewer.setFullscreenBtnState("minimized");
             }
+            if(proteinViewer && proteinViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+                proteinViewer.root.classList.add("modal__protein-media-viewer--hidden");
+                proteinViewer.toggleFixedEnlarged();
+                proteinViewer.setFullscreenBtnState("minimized");
+            }
             if(videoPlayer && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
+        };
+
+        let openProteinViewer = function(event) {
+            let id = event.target.value;
+            let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${id}`];
+            proteinMediaViewer.root.classList.remove("modal__protein-media-viewer--hidden");
+            proteinMediaViewer.setFullscreenBtnState("expanded");
+            if(window.innerWidth < 900) {
+                proteinMediaViewer.toggleFullscreen();
+            } else {
+                proteinMediaViewer.toggleFixedEnlarged();
+            }
+        };
+
+        let closeProteinViewer = function(event) {
+            let mediaViewerEl = event.target.closest(".media-viewer");
+            let proteinMediaViewer = mediaViewers[mediaViewerEl.id];
+            proteinMediaViewer.root.classList.add("modal__protein-media-viewer--hidden");
         };
 
         let handleMobileControlClick = function(event) {
@@ -211,6 +236,8 @@
             handleLearnMoreBtnContainerClick,
             onModalOpenCallback,
             onModalCloseCallback,
+            openProteinViewer,
+            closeProteinViewer,
             handleMobileControlClick,
             onDocumentKeydown
         };
@@ -243,6 +270,7 @@
             mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
         } else {
             mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
+            if(mediaViewer.root.querySelector(".protein-viewer")) mediaViewer.fullscreenBtn.addEventListener("click", sectionController.closeProteinViewer);
         }
     }
         
@@ -266,12 +294,13 @@
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
     for(let modalEl of modalEls) {
-        let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
         let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
-        let modal = Modal(modalEl, proteinMediaViewer, narrationPlayer, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
+        let modal = Modal(modalEl, narrationPlayer, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
         modals[modal.root.id] = modal;
         if(modalEl.id == hash) modal.show();
     }
+
+    for(let openProteinViewerBtnEl of openProteinViewerBtnEls) openProteinViewerBtnEl.addEventListener("click", sectionController.openProteinViewer);
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
