@@ -2243,6 +2243,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.modal--tree-viewer-fs-confirm .modal__exit-btn {
+    display: none;
+}
+
 .modal__exit-btn-icon {
     width: 100%;
     height: 100%;

@@ -271,7 +271,6 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
 
             # Get media viewer metadata
             if "doi" in subsectionData or "video" in  subsectionData or "graphic" in subsectionData:
-                subsectionData["hasMainMediaViewer"] = True
                 subsectionData["mediaViewer"] = {}
                 subsectionData["mediaViewer"]["id"] = subsectionData["id"]
                 subsectionData["mediaViewer"]["file"] = subsectionData['id']
@@ -510,7 +509,7 @@ for i, fileName in enumerate(appendixFileNames):
         metadata["appendixTypeTree"] = True
         metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
         metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
-        metadata["treeViewerFsConfirmData"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
+        metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
     elif fileName == "D-references.md":
         metadata["appendixTypeReferences"] = True
 

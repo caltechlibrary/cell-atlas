@@ -48,7 +48,7 @@ let Modal = function(root, narrationPlayer, onOpenCallback = function(){},  onCl
     };
 
     root.addEventListener("click", onRootClick);
-    if(exitBtn) exitBtn.addEventListener("click", hide);
+    exitBtn.addEventListener("click", hide);
     if (narrationToggleBtn) narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
 
     return {
