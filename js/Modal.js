@@ -19,7 +19,6 @@ let Modal = function(root, narrationPlayer, onOpenCallback = function(){},  onCl
 
     let hide = function() {
         onCloseCallback();
-        if(narrationPlayer && !narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         root.classList.add("modal--hidden");
         if(contentContainer) contentContainer.setAttribute("tabindex", -1);
         document.removeEventListener("keydown", onOpenModalKeyDown);

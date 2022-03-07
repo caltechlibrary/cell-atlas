@@ -144,6 +144,7 @@
             let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
             let proteinViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
             let videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`];
+            let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
             if(mediaViewer && mediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
                 mediaViewer.toggleFixedEnlarged();
                 mediaViewer.setFullscreenBtnState("minimized");
@@ -154,6 +155,7 @@
                 proteinViewer.setFullscreenBtnState("minimized");
             }
             if(videoPlayer && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
+            if(narrationPlayer && !narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         };
 
         let openProteinViewer = function(event) {
