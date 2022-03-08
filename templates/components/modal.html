@@ -1,5 +1,5 @@
 <div id="${it.id}" class="modal modal--hidden ${if(it.treeViewerFsConfirm)}modal--tree-viewer-fs-confirm${endif}" tabindex="-1" role="dialog" ${if(it.title)}aria-labelledby="${it.title}-header"${endif} aria-modal="true">
-    <div class="modal__modal-container ${if(it.feedback)}modal--feedback${endif}">
+    <div class="modal__modal-container ${if(it.feedback)}modal__modal-container--feedback${endif}">
         <button class="modal__exit-btn">
             <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
         </button>

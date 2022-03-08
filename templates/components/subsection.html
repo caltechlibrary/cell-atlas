@@ -15,7 +15,7 @@
 
     <div class="subsection__content-container" tabindex="-1">
         ${it.narration:components/narration-player.html()}
-        <button class="subsection__toggle-narration-btn ${if(it.narration)}${else}subsection__toggle-narration-btn--postponed${endif}" aria-label="Open narration player">
+        <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
             <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
             <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
         </button>

@@ -26,6 +26,7 @@ file. These definitions will be defined mobile first.
 - search-bar: Search bar that will be available on all pages
 - section-text: Block that contains main readable material for a section
 - modal: Modals that contain subsection content
+- subsection: Block that contains subsection content
 - vid-metadata: Video citation information displayed in sections/modals 
 - learn-more: Block hold learn more buttons that open subsection modals
 - video-player: Video player with custom controls and scrubbing
@@ -2222,7 +2223,7 @@ file. These definitions will be defined mobile first.
     }
 }
 
-.modal--feedback {
+.modal__modal-container--feedback {
     height: 100%;
 }
 
@@ -2265,21 +2266,14 @@ file. These definitions will be defined mobile first.
 }
 
 /* subsection */
-.subsection__content-container {
-    flex: 1 1 auto;
-    position: relative;
-    overflow: auto;
-}
-
 .subsection__protein-media-viewer--hidden {
     display: none;
 }
 
-.subsection__header {
-    margin-top: calc(0.4rem + 2px);
-    margin-right: 1.75em;
-    line-height: 1;
-    font-size: 1.75em;
+.subsection__content-container {
+    flex: 1 1 auto;
+    position: relative;
+    overflow: auto;
 }
 
 .subsection__toggle-narration-btn {
@@ -2307,10 +2301,6 @@ file. These definitions will be defined mobile first.
     border: 2px solid #000;
 }
 
-.subsection__toggle-narration-btn--postponed {
-    display: none;
-}
-
 .subsection__toggle-narration-btn-icon--hidden {
     display: none;    
 }
@@ -2323,6 +2313,13 @@ file. These definitions will be defined mobile first.
 
 .subsection__toggle-narration-btn-hide-icon {
     fill: #000;
+}
+
+.subsection__header {
+    margin-top: calc(0.4rem + 2px);
+    margin-right: 1.75em;
+    line-height: 1;
+    font-size: 1.75em;
 }
 
 .subsection__text-content {
