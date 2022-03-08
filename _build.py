@@ -288,7 +288,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
             # Create citation data
             if "doi" in subsectionData or "source" in subsectionData:
                 subsectionData["citation"] = getCitationMetadata(f"subsections/{subsectionFileName}.md", bibDict)
-                subsectionData["mediaViewer"]["citationAttached"] = True
+                subsectionData["mediaViewer"]["hasCitation"] = True
             # Create protein viewer data
             if "structure" in subsectionData and any("PDB" in structure["name"] for structure in subsectionData["structure"]):
                 subsectionData["proteinMediaViewer"] = {}

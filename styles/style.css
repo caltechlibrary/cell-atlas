@@ -887,16 +887,6 @@ file. These definitions will be defined mobile first.
     }
 }
 
-@media (max-width: 900px) {
-    .media-viewer--subsection-has-tabmenu {
-        margin-top: calc(-1.25em - 8px);
-    }
-}
-
-.media-viewer--subsection-no-citation {
-    margin-bottom: 1em;
-}
-
 .media-viewer--summary-menu {
     width: 95%;
     height: 90%;
@@ -992,11 +982,6 @@ file. These definitions will be defined mobile first.
     .media-viewer__media-container {
         width: 100%;
     }
-}
-
-.media-viewer__media-container--citation-attached {
-    box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
-    border-radius: 10px 10px 0px 0px;
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
@@ -2266,6 +2251,26 @@ file. These definitions will be defined mobile first.
 }
 
 /* subsection */
+.subsection__media-viewer:not(.subsection__media-viewer--has-citation) {
+    margin-bottom: 16px;
+}
+
+@media (max-width: 899px) {
+    .subsection__media-viewer--has-tabmenu {
+        margin-top: calc(-1.25em - 8px);
+    }
+}
+
+.subsection__media-viewer--has-citation .media-viewer__media-container  {
+    box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.subsection__vid-metadata {
+    margin-bottom: 14px;
+    box-shadow: 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
+}
+
 .subsection__protein-media-viewer--hidden {
     display: none;
 }
@@ -2347,12 +2352,6 @@ file. These definitions will be defined mobile first.
 .vid-metadata--in-section {
     flex: 0 0 auto;
     order: 1;
-}
-
-.vid-metadata--in-modal {
-    flex: 0 0 auto;
-    margin-bottom: 1em;
-    box-shadow: 1px 0px 0 0px #444, 0px 1px 0 0px #444, -1px 0px 0 0px #444;
 }
 
 .vid-metadata__item {

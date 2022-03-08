@@ -3,9 +3,9 @@
     data-file="${it.file}"
     class="
         media-viewer 
-        ${if(it.isSection)}media-viewer--main-section${endif}
-        ${if(it.isSection)}${elseif(it.hasTabMenu)} media-viewer--subsection-has-tabmenu ${endif}
-        ${if(it.isSection)}${elseif(it.citationAttached)}${else} media-viewer--subsection-no-citation ${endif}
+        ${if(it.isSection)}media-viewer--main-section${else}subsection__media-viewer${endif}
+        ${if(it.isSection)}${elseif(it.hasTabMenu)} subsection__media-viewer--has-tabmenu ${endif}
+        ${if(it.isSection)}${elseif(it.hasCitation)} subsection__media-viewer--has-citation ${endif}
         ${if(it.summaryMenu)}media-viewer--summary-menu${endif}
         ${if(it.viewer)}subsection__protein-media-viewer subsection__protein-media-viewer--hidden${endif}
     "
@@ -19,7 +19,7 @@
             <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
-    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${elseif(it.citationAttached)}media-viewer__media-container--citation-attached${endif} ${if(it.summaryMenu)}media-viewer__media-container--summary-menu${endif} ${if(it.viewer)}media-viewer__media-container--protein-viewer${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
+    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${endif} ${if(it.summaryMenu)}media-viewer__media-container--summary-menu${endif} ${if(it.viewer)}media-viewer__media-container--protein-viewer${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
         ${if(it.vidPlayer)} ${it.vidPlayer:components/video-player.html()} ${endif}
         ${if(it.compSlider)} ${it.compSlider:components/comp-slider.html()} ${endif}
         ${if(it.viewer)} ${it.viewer:components/protein-viewer.html()} ${endif}
