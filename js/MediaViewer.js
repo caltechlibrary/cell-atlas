@@ -1,4 +1,4 @@
-let MediaViewer = function(root, resizeCallback = function(){}) {
+let MediaViewer = function(root, mediaSwitchCallback = function(){}, resizeCallback = function(){}) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
@@ -29,6 +29,7 @@ let MediaViewer = function(root, resizeCallback = function(){}) {
         } else {
             fullscreenBtn.classList.remove("media-viewer__fullscreen-btn--hidden");
         }
+        mediaSwitchCallback(root, mediaType);
     };
 
     let handleFullscreenBtnClick = function(event) {
