@@ -990,7 +990,8 @@
                                   
                                   
                               "
-                          >
+                                      data-main="true"
+                              >
                                       <div class="media-viewer__tab-container media-viewer__tab-container--main-section">
                                       <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 100" x="0px" y="0px">
                               <g>
@@ -1349,146 +1350,146 @@
                                   </div>
                                   </div>
                       </div>
-                          <div id="missing-wedge" class="modal modal--hidden" tabindex="-1" role="dialog" aria-labelledby="Missing wedge-header" aria-modal="true">
+                          <div id="missing-wedge" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Missing wedge-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  
-                                      <button class="modal__exit-btn">
-                                          <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                  <button class="modal__exit-btn">
+                                      <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
                           	</g>
                           </svg></div>
-                                      </button>
-                                  
+                                  </button>
 
-                                              <div
-                                                  id="mediaViewer-missing-wedge"
-                                                  data-file="missing-wedge"
-                                                  class="
-                                                      media-viewer 
-                                                      
-                                                      
-                                                       media-viewer--subsection-no-citation 
-                                                      
-                                                      
-                                                  "
-                                              >
-                                                      <div class="media-viewer__media-container    ">
-                                                      
-                                                      
-                                                      
-                                                      
-                                                      
-                                                       <img class="media-viewer__graphic media-viewer__media-component" src="img/schematics/1_6_1.jpg"> 
-                                                      <button class="media-viewer__fullscreen-btn " aria-label="Enter full screen" title="Enter full screen">
-                                                          <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                              <div id="subsection-missing-wedge" class="subsection modal__subsection">
+                                                          <div
+                                                              id="mediaViewer-missing-wedge"
+                                                              data-file="missing-wedge"
+                                                              class="
+                                                                  media-viewer 
+                                                                  subsection__media-viewer
+                                                                  
+                                                                  
+                                                                  
+                                                                  
+                                                              "
+                                                              >
+                                                                  <div class="media-viewer__media-container    ">
+                                                                  
+                                                                  
+                                                                  
+                                                                  
+                                                                  
+                                                                   <img class="media-viewer__graphic media-viewer__media-component" src="img/schematics/1_6_1.jpg"> 
+                                                                  <button class="media-viewer__fullscreen-btn " aria-label="Enter full screen" title="Enter full screen">
+                                                                      <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                                          	<g>
+                                                          		<g stroke-width="1.625">
+                                                          			<path d="m.75.75v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
+                                                          			<path d="m31.25.75h-13v3.25h9.75v9.75h3.25v-9.75z"/>
+                                                          			<path d="m31.25 31.25v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
+                                                          			<path d="m.75 31.25h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
+                                                          		</g>
+                                                          	</g>
+                                                          </svg></div>
+                                                                      <div class="media-viewer__fullscreen-btn-icon media-viewer__exit-fs-icon media-viewer__fullscreen-btn-icon--hidden"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                                          	<g>
+                                                          		<g stroke-width="1.625">
+                                                          			<path d="m13.75 13.75v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
+                                                          			<path d="m18.25 13.75h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
+                                                          			<path d="m18.25 18.25v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
+                                                          			<path d="m13.75 18.25h-13v3.25h9.75v9.75h3.25v-9.75z"/>
+                                                          		</g>
+                                                          	</g>
+                                                          </svg></div>
+                                                                  </button>
+                                                              </div>
+                                                          </div>
+                                                  
+                                                  
+                                                  
+                                                          
+
+                                                  <div class="subsection__content-container" tabindex="-1">
+                                                      <div
+                                                          id="narrationPlayer-missing-wedge"
+                                                          class="narration-player narration-player--hidden "
+                                                          data-src="missing-wedge.mp3"
+                                                          tabindex="0"
+                                                          
+                                                      >
+                                                          <button class="narration-player__playback-btn" aria-label="Play" disabled>
+                                                              <span class="narration-player__playback-btn-icon narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                      	<g>
+                                                      		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
+                                                      	</g>
+                                                      </svg></span>
+                                                              <span class="narration-player__playback-btn-icon narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                                      	<g>
+                                                      		<g transform="translate(2,1)">
+                                                      			<rect x="3" y="2" width="8" height="26"/>
+                                                      			<rect x="17" y="2" width="8" height="26"/>
+                                                      		</g>
+                                                      	</g>
+                                                      </svg></span>
+                                                          </button>
+                                                          <input 
+                                                              class="narration-player__seekbar"
+                                                              aria-label="audio time scrubber 0:00 / 0:00"
+                                                              aria-valuetext="elapsed time: 0:00"
+                                                              type="range" value="0" min="0" disabled
+                                                          />
+                                                          <span class="narration-player__time-display">
+                                                              <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
+                                                              <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
+                                                          </span>
+                                                          <audio class="narration-player__audio-el">
+                                                              <source type="audio/mpeg">
+                                                              Your browser doesn't support HTML5 audio.
+                                                          </audio>
+                                                      </div>
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                               	<g>
-                                              		<g stroke-width="1.625">
-                                              			<path d="m.75.75v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
-                                              			<path d="m31.25.75h-13v3.25h9.75v9.75h3.25v-9.75z"/>
-                                              			<path d="m31.25 31.25v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
-                                              			<path d="m.75 31.25h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
                                               		</g>
                                               	</g>
                                               </svg></div>
-                                                          <div class="media-viewer__fullscreen-btn-icon media-viewer__exit-fs-icon media-viewer__fullscreen-btn-icon--hidden"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                               	<g>
-                                              		<g stroke-width="1.625">
-                                              			<path d="m13.75 13.75v-13h-3.25v9.75h-9.75v3.25h9.75z"/>
-                                              			<path d="m18.25 13.75h13v-3.25h-9.75v-9.75h-3.25v9.75z"/>
-                                              			<path d="m18.25 18.25v13h3.25v-9.75h9.75v-3.25h-9.75z"/>
-                                              			<path d="m13.75 18.25h-13v3.25h9.75v9.75h3.25v-9.75z"/>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
                                               		</g>
                                               	</g>
                                               </svg></div>
                                                       </button>
+                                                      <div class="subsection__text-container">
+                                                          <h1 id="Missing wedge-header" class="subsection__header">Missing wedge</h1>
+                                                          <div class="subsection__text-content">
+                                                              <p>
+                                                              Think again about how a tilt-series is made: by taking images from different angles. If we could tilt the sample all the way to 90º, we would have information from every angle. But the sample gets effectively thicker as we tilt it, since the beam has to pass through more and more of the surrounding material. This effect, illustrated on the left, usually becomes prohibitive beyond 60º, so a typical tilt-series spans only ~2/3 of the possible angles, leaving a “missing wedge” of information corresponding to those high tilt angles, as you can see on the right. The missing wedge blurs densities in the direction of the imaging beam. In practice it means that if we look at a cross-section of a cell, we cannot trace thin features like membranes all the way around. You will see an example of this effect in Chapter 5.10.
+                                                              </p>
+                                                          </div>
+                                                      </div>
                                                   </div>
-                                              </div>
-                                  
-                                  
-                                  
-                                              
-
-                                              <div class="modal__content-container" tabindex="-1">
-                                          <div
-                                              id="narrationPlayer-missing-wedge"
-                                              class="narration-player narration-player--hidden "
-                                              data-src="missing-wedge.mp3"
-                                              tabindex="0"
-                                              
-                                          >
-                                              <button class="narration-player__playback-btn" aria-label="Play" disabled>
-                                                  <span class="narration-player__playback-btn-icon narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                          	<g>
-                                          		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
-                                          	</g>
-                                          </svg></span>
-                                                  <span class="narration-player__playback-btn-icon narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                                          	<g>
-                                          		<g transform="translate(2,1)">
-                                          			<rect x="3" y="2" width="8" height="26"/>
-                                          			<rect x="17" y="2" width="8" height="26"/>
-                                          		</g>
-                                          	</g>
-                                          </svg></span>
-                                              </button>
-                                              <input 
-                                                  class="narration-player__seekbar"
-                                                  aria-label="audio time scrubber 0:00 / 0:00"
-                                                  aria-valuetext="elapsed time: 0:00"
-                                                  type="range" value="0" min="0" disabled
-                                              />
-                                              <span class="narration-player__time-display">
-                                                  <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
-                                                  <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
-                                              </span>
-                                              <audio class="narration-player__audio-el">
-                                                  <source type="audio/mpeg">
-                                                  Your browser doesn't support HTML5 audio.
-                                              </audio>
-                                          </div>
-                                          <button class="modal__toggle-narration-btn " aria-label="Open narration player">
-                                              <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                          	<g>
-                          		<g transform="translate(1.9998 1)">
-                          			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                          				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                          					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                          					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                          					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                          					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                          				</g>
-                          			</g>
-                          		</g>
-                          	</g>
-                          </svg></div>
-                                              <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                          	<g>
-                          		<g transform="translate(1.9998 1)">
-                          			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                          				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                          					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                          					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                          					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                          						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                          						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                          					</g>
-                          				</g>
-                          			</g>
-                          		</g>
-                          	</g>
-                          </svg></div>
-                                          </button>
-                                          <div class="modal__text-container">
-                                              <h1 id="Missing wedge-header" class="modal__header">Missing wedge</h1>
-                                              <div class="modal__text-content">
-                                                  <p>
-                                                  Think again about how a tilt-series is made: by taking images from different angles. If we could tilt the sample all the way to 90º, we would have information from every angle. But the sample gets effectively thicker as we tilt it, since the beam has to pass through more and more of the surrounding material. This effect, illustrated on the left, usually becomes prohibitive beyond 60º, so a typical tilt-series spans only ~2/3 of the possible angles, leaving a “missing wedge” of information corresponding to those high tilt angles, as you can see on the right. The missing wedge blurs densities in the direction of the imaging beam. In practice it means that if we look at a cross-section of a cell, we cannot trace thin features like membranes all the way around. You will see an example of this effect in Chapter 5.10.
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      </div>
+                                              </div>                
+                              </div>
                           </div>
                   </div>
 
@@ -1590,6 +1591,7 @@
           <script src="js/NarrationPlayer.js"></script>
           <script src="js/SectionText.js"></script>
           <script src="js/Modal.js"></script>
+          <script src="js/Subsection.js"></script>
           <script src="js/SummaryMenu.js"></script>
            <script src="js/bio-pv/bio-pv.min.js"></script> 
            <script src="js/ProteinViewer.js"></script> 

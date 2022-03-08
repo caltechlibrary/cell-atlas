@@ -990,7 +990,8 @@
                                   
                                   
                               "
-                          >
+                                      data-main="true"
+                              >
                                   <div class="media-viewer__media-container media-viewer__media-container--main-section   ">
                                    <div 
                               id="videoPlayer-introduction"
@@ -1298,112 +1299,112 @@
                                   </div>
                                   </div>
                       </div>
-                          <div id="acknowledgements" class="modal modal--hidden" tabindex="-1" role="dialog" aria-labelledby="Acknowledgments-header" aria-modal="true">
+                          <div id="acknowledgements" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Acknowledgments-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  
-                                      <button class="modal__exit-btn">
-                                          <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                  <button class="modal__exit-btn">
+                                      <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
                           	</g>
                           </svg></div>
-                                      </button>
-                                  
+                                  </button>
 
-                                  
-                                  
-                                  
-                                              
+                                              <div id="subsection-acknowledgements" class="subsection modal__subsection">
+                                                  
+                                                  
+                                                  
+                                                          
 
-                                              <div class="modal__content-container" tabindex="-1">
-                                          <div
-                                              id="narrationPlayer-acknowledgements"
-                                              class="narration-player narration-player--hidden "
-                                              data-src="acknowledgements.mp3"
-                                              tabindex="0"
-                                              
-                                          >
-                                              <button class="narration-player__playback-btn" aria-label="Play" disabled>
-                                                  <span class="narration-player__playback-btn-icon narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                          	<g>
-                                          		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
-                                          	</g>
-                                          </svg></span>
-                                                  <span class="narration-player__playback-btn-icon narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                                          	<g>
-                                          		<g transform="translate(2,1)">
-                                          			<rect x="3" y="2" width="8" height="26"/>
-                                          			<rect x="17" y="2" width="8" height="26"/>
-                                          		</g>
-                                          	</g>
-                                          </svg></span>
-                                              </button>
-                                              <input 
-                                                  class="narration-player__seekbar"
-                                                  aria-label="audio time scrubber 0:00 / 0:00"
-                                                  aria-valuetext="elapsed time: 0:00"
-                                                  type="range" value="0" min="0" disabled
-                                              />
-                                              <span class="narration-player__time-display">
-                                                  <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
-                                                  <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
-                                              </span>
-                                              <audio class="narration-player__audio-el">
-                                                  <source type="audio/mpeg">
-                                                  Your browser doesn't support HTML5 audio.
-                                              </audio>
-                                          </div>
-                                          <button class="modal__toggle-narration-btn " aria-label="Open narration player">
-                                              <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                          	<g>
-                          		<g transform="translate(1.9998 1)">
-                          			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                          				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                          					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                          					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                          					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                          					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                          				</g>
-                          			</g>
-                          		</g>
-                          	</g>
-                          </svg></div>
-                                              <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                          	<g>
-                          		<g transform="translate(1.9998 1)">
-                          			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                          				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                          					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                          					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                          					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                          						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                          						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                          					</g>
-                          				</g>
-                          			</g>
-                          		</g>
-                          	</g>
-                          </svg></div>
-                                          </button>
-                                          <div class="modal__text-container">
-                                              <h1 id="Acknowledgments-header" class="modal__header">Acknowledgments</h1>
-                                              <div class="modal__text-content">
-                                                  <p>
-                                                  We are grateful to Rob Phillips, our colleague at Caltech, for impressing Grant with the lasting value of Fawcett’s <em>Atlas</em> and encouraging him to create another. Readers of early drafts, including Lydia Jensen and Natalie Jensen, gave us useful feedback to improve this experience. We particularly thank Grigorios Oikonomou and past and present Jensen Lab members for advice and feedback. We are grateful to Ashley Jensen and Tony Kukavica for help with research, and to Travis Alvarez, Camille Ogilvie, Natalie Jensen and Aditee Prabhutendolkar, who created most of the videos. We are most grateful of all to our colleagues whose work at the microscope filled these pages. Click on their names throughout the book to learn a little bit more about them.
-                                                  </p>
-                                                  <p>
-                                                  All of the images in this book were acquired in the course of research projects. Major funding for these projects in the Jensen Lab has come from the National Institutes of Health (NIH), Howard Hughes Medical Institute (HHMI), Beckman Institute, Gordon and Betty Moore Foundation, Agouron Institute, and John Templeton Foundation. Cryo-electron microscopy was performed in the Beckman Institute Resource Center for Transmission Electron Microscopy at Caltech and the HHMI Janelia Farm CryoEM Facility. Most of these projects were also collaborative, and we thank the researchers who provided the cells we imaged, from the groups of Gladys Alexandre, Yannick Bomble, Sean Crosson, Mike Dyall-Smith, Moh El-Naggar, Robert Gunsalus, Alan Hauser, Chris Hayes, Bill Hickey, Matthias Horn, Jack Johnson, Marina Kalyuzhnaya, Arash Komeili, Jared Leadbetter, Eric Matson, Sarkis Mazmanian, John Mekalanos, Dianne Newman, Victoria Orphan, Tracy Palmer, Kit Pogliano, Eric Reynolds, Carrie Shaffer, Nicholas Shikuma, Liz Sockett, Lotte Sogaard-Andersen, David Stahl, Ronald Taylor, Martin Thanbichler, Kasthuri Venkateswaran, Joseph Vogel, Matthew Waldor, Kylie Watts, Douglas Weibel, and Patricia Zambryski.
-                                                  </p>
-                                                  <p>
-                                                  We used the IMOD software package (developed by David Mastronarde, Rick Gaudette, Sue Held, Jim Kremer, Quanren Xiong, John Heumann and others at the University of Colorado with support from the NIH) to create and visualize tomographic datasets, and we are grateful to David Mastronarde for his tireless support of the software, including improving a function to help us make these videos. We used UCSF Chimera (developed by the Resource for Biocomputing, Visualization, and Informatics at the University of California, San Francisco, with support from NIH grant P41 GM103311) to create the visualizations of atomic models from the Worldwide Protein Data Bank (wwPDB). We generated and visualized the phylogenetic tree with phyloT and iTOL [<a href="D-references.html#ref-letunic2019">5</a>]. We thank Jane Ding, Andrew Jewett, Yi-Wei Chang, Ariane Briegel and Min Xu for 3D segmentations. High-resolution structures of proteins and complexes are the work of many labs; see references for full details. Likewise, our understanding of the functions of cellular structures derives from the enormous body of work of generations of scientists.
-                                                  </p>
-                                                  <p>
-                                                  The Caltech Library, including Kristin Briney, Robert Doiel, Donna Wrublewski and Gail Clement, supported and enabled our vision of open access publishing and we are enormously grateful for their work and ingenuity in creating a platform tailored to the content and our shared vision of open accessibility. We are particularly grateful to Thomas Morrell for coordinating the technical infrastructure. We thank Vicki Chiu for design advice. Last but certainly not least, we are deeply grateful to the talented web developer <a href="https://www.linkedin.com/in/kian-badie-1b8829151/" target="_blank">Kian Badie</a> who created, maintains and continues to improve this digital interface.
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      </div>
+                                                  <div class="subsection__content-container" tabindex="-1">
+                                                      <div
+                                                          id="narrationPlayer-acknowledgements"
+                                                          class="narration-player narration-player--hidden "
+                                                          data-src="acknowledgements.mp3"
+                                                          tabindex="0"
+                                                          
+                                                      >
+                                                          <button class="narration-player__playback-btn" aria-label="Play" disabled>
+                                                              <span class="narration-player__playback-btn-icon narration-player__playback-btn-play-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                      	<g>
+                                                      		<path transform="matrix(1.2159 0 0 1.3364 5.9284 -4.0138)" d="m18.043 14.987-9.7609 5.6462-9.7475 5.595.0005988-11.192-.012431-11.314 9.7243 5.6544z"/>
+                                                      	</g>
+                                                      </svg></span>
+                                                              <span class="narration-player__playback-btn-icon narration-player__playback-btn-icon--hidden narration-player__playback-btn-pause-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                                      	<g>
+                                                      		<g transform="translate(2,1)">
+                                                      			<rect x="3" y="2" width="8" height="26"/>
+                                                      			<rect x="17" y="2" width="8" height="26"/>
+                                                      		</g>
+                                                      	</g>
+                                                      </svg></span>
+                                                          </button>
+                                                          <input 
+                                                              class="narration-player__seekbar"
+                                                              aria-label="audio time scrubber 0:00 / 0:00"
+                                                              aria-valuetext="elapsed time: 0:00"
+                                                              type="range" value="0" min="0" disabled
+                                                          />
+                                                          <span class="narration-player__time-display">
+                                                              <span class="narration-player__current-time-display" aria-label="elapsed time: 0:00">0:00</span>
+                                                              <span class="narration-player__total-time-display" aria-label="total time: / 0:00">/ 0:00</span>
+                                                          </span>
+                                                          <audio class="narration-player__audio-el">
+                                                              <source type="audio/mpeg">
+                                                              Your browser doesn't support HTML5 audio.
+                                                          </audio>
+                                                      </div>
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
+                                                      <div class="subsection__text-container">
+                                                          <h1 id="Acknowledgments-header" class="subsection__header">Acknowledgments</h1>
+                                                          <div class="subsection__text-content">
+                                                              <p>
+                                                              We are grateful to Rob Phillips, our colleague at Caltech, for impressing Grant with the lasting value of Fawcett’s <em>Atlas</em> and encouraging him to create another. Readers of early drafts, including Lydia Jensen and Natalie Jensen, gave us useful feedback to improve this experience. We particularly thank Grigorios Oikonomou and past and present Jensen Lab members for advice and feedback. We are grateful to Ashley Jensen and Tony Kukavica for help with research, and to Travis Alvarez, Camille Ogilvie, Natalie Jensen and Aditee Prabhutendolkar, who created most of the videos. We are most grateful of all to our colleagues whose work at the microscope filled these pages. Click on their names throughout the book to learn a little bit more about them.
+                                                              </p>
+                                                              <p>
+                                                              All of the images in this book were acquired in the course of research projects. Major funding for these projects in the Jensen Lab has come from the National Institutes of Health (NIH), Howard Hughes Medical Institute (HHMI), Beckman Institute, Gordon and Betty Moore Foundation, Agouron Institute, and John Templeton Foundation. Cryo-electron microscopy was performed in the Beckman Institute Resource Center for Transmission Electron Microscopy at Caltech and the HHMI Janelia Farm CryoEM Facility. Most of these projects were also collaborative, and we thank the researchers who provided the cells we imaged, from the groups of Gladys Alexandre, Yannick Bomble, Sean Crosson, Mike Dyall-Smith, Moh El-Naggar, Robert Gunsalus, Alan Hauser, Chris Hayes, Bill Hickey, Matthias Horn, Jack Johnson, Marina Kalyuzhnaya, Arash Komeili, Jared Leadbetter, Eric Matson, Sarkis Mazmanian, John Mekalanos, Dianne Newman, Victoria Orphan, Tracy Palmer, Kit Pogliano, Eric Reynolds, Carrie Shaffer, Nicholas Shikuma, Liz Sockett, Lotte Sogaard-Andersen, David Stahl, Ronald Taylor, Martin Thanbichler, Kasthuri Venkateswaran, Joseph Vogel, Matthew Waldor, Kylie Watts, Douglas Weibel, and Patricia Zambryski.
+                                                              </p>
+                                                              <p>
+                                                              We used the IMOD software package (developed by David Mastronarde, Rick Gaudette, Sue Held, Jim Kremer, Quanren Xiong, John Heumann and others at the University of Colorado with support from the NIH) to create and visualize tomographic datasets, and we are grateful to David Mastronarde for his tireless support of the software, including improving a function to help us make these videos. We used UCSF Chimera (developed by the Resource for Biocomputing, Visualization, and Informatics at the University of California, San Francisco, with support from NIH grant P41 GM103311) to create the visualizations of atomic models from the Worldwide Protein Data Bank (wwPDB). We generated and visualized the phylogenetic tree with phyloT and iTOL [<a href="D-references.html#ref-letunic2019">5</a>]. We thank Jane Ding, Andrew Jewett, Yi-Wei Chang, Ariane Briegel and Min Xu for 3D segmentations. High-resolution structures of proteins and complexes are the work of many labs; see references for full details. Likewise, our understanding of the functions of cellular structures derives from the enormous body of work of generations of scientists.
+                                                              </p>
+                                                              <p>
+                                                              The Caltech Library, including Kristin Briney, Robert Doiel, Donna Wrublewski and Gail Clement, supported and enabled our vision of open access publishing and we are enormously grateful for their work and ingenuity in creating a platform tailored to the content and our shared vision of open accessibility. We are particularly grateful to Thomas Morrell for coordinating the technical infrastructure. We thank Vicki Chiu for design advice. Last but certainly not least, we are deeply grateful to the talented web developer <a href="https://www.linkedin.com/in/kian-badie-1b8829151/" target="_blank">Kian Badie</a> who created, maintains and continues to improve this digital interface.
+                                                              </p>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>                
+                              </div>
                           </div>
                   </div>
 
@@ -1501,6 +1502,7 @@
           <script src="js/NarrationPlayer.js"></script>
           <script src="js/SectionText.js"></script>
           <script src="js/Modal.js"></script>
+          <script src="js/Subsection.js"></script>
           <script src="js/SummaryMenu.js"></script>
            <script src="js/bio-pv/bio-pv.min.js"></script> 
            <script src="js/ProteinViewer.js"></script> 

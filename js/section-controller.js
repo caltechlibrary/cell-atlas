@@ -6,6 +6,8 @@
     let summaryMenuEl = document.querySelector(".summary-menu");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
+    let subsectionEls = document.querySelectorAll(".subsection");
+    let openProteinViewerBtnEls = document.querySelectorAll(".vid-metadata__viewer-btn");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let mainNonTextContainer = document.querySelector(".main-non-text-container");
@@ -13,7 +15,7 @@
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
     let sectionController, summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, narrationPlayers = {};
+        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
     
     let SectionController = function() {
 
@@ -41,6 +43,16 @@
                 } else {
                     unshelveText();
                 }
+            }
+        };
+
+        let handleSubMediaViewerFsBtnClick = function(event) {
+            let mediaViewerEl = event.target.closest(".media-viewer");
+            let mediaViewer = mediaViewers[mediaViewerEl.id];
+            if(window.innerWidth < 900) {
+                mediaViewer.toggleFullscreen();
+            } else {
+                mediaViewer.toggleFixedEnlarged();
             }
         };
 
@@ -87,6 +99,16 @@
             }
         };
 
+        let onNarrationOpen = function(narrationPlayerEl) {
+            let narrationPlayer = narrationPlayers[narrationPlayerEl.id];
+            if(!narrationPlayer.initialized) narrationPlayer.init();
+        };
+
+        let onNarrationClose = function(narrationPlayerEl) {
+            let narrationPlayer = narrationPlayers[narrationPlayerEl.id];
+            if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
+        };
+
         let stopMainNarration = function() {
             if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
         };
@@ -130,8 +152,39 @@
 
         let onModalCloseCallback = function() {
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
+            let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
+            let proteinViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
             let videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`];
+            let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
+            if(mediaViewer && mediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+                mediaViewer.toggleFixedEnlarged();
+                mediaViewer.setFullscreenBtnState("minimized");
+            }
+            if(proteinViewer && proteinViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+                proteinViewer.root.classList.add("subsection__protein-media-viewer--hidden");
+                proteinViewer.toggleFixedEnlarged();
+                proteinViewer.setFullscreenBtnState("minimized");
+            }
             if(videoPlayer && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
+            if(narrationPlayer && !narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
+        };
+
+        let openProteinViewer = function(event) {
+            let id = event.target.value;
+            let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${id}`];
+            proteinMediaViewer.root.classList.remove("subsection__protein-media-viewer--hidden");
+            proteinMediaViewer.setFullscreenBtnState("expanded");
+            if(window.innerWidth < 900) {
+                proteinMediaViewer.toggleFullscreen();
+            } else {
+                proteinMediaViewer.toggleFixedEnlarged();
+            }
+        };
+
+        let closeProteinViewer = function(event) {
+            let mediaViewerEl = event.target.closest(".media-viewer");
+            let proteinMediaViewer = mediaViewers[mediaViewerEl.id];
+            proteinMediaViewer.root.classList.add("subsection__protein-media-viewer--hidden");
         };
 
         let handleMobileControlClick = function(event) {
@@ -164,7 +217,7 @@
         let handleUpDownArrowPress = function(event) {
             if(event.target.tagName == "INPUT") return;
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
-            let textContent = (modalEl) ? modalEl.querySelector(".modal__content-container") : sectionText.root.querySelector(".section-text__content");
+            let textContent = (modalEl) ? modalEl.querySelector(".subsection__content-container") : sectionText.root.querySelector(".section-text__content");
             textContent.focus();
         };
 
@@ -185,7 +238,10 @@
         return {
             onMediaViewerResizeCallback,
             handleMainMediaViewerFsBtnClick,
+            handleSubMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
+            onNarrationOpen,
+            onNarrationClose,
             stopMainNarration,
             showStopNarrationBtn,
             hideStopNarrationBtn,
@@ -195,6 +251,8 @@
             handleLearnMoreBtnContainerClick,
             onModalOpenCallback,
             onModalCloseCallback,
+            openProteinViewer,
+            closeProteinViewer,
             handleMobileControlClick,
             onDocumentKeydown
         };
@@ -221,11 +279,15 @@
 
     for(let mediaViewerEl of mediaViewerEls) {
         let mediaViewer = MediaViewer(mediaViewerEl, sectionController.onMediaViewerResizeCallback);
-        mediaViewers[mediaViewer.root.id] = mediaViewer;
+        mediaViewers[mediaViewerEl.id] = mediaViewer;
+        if(mediaViewerEl.getAttribute("data-main")) {
+            mainMediaViewer = mediaViewer;
+            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
+        } else {
+            mediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleSubMediaViewerFsBtnClick);
+            if(mediaViewer.root.querySelector(".protein-viewer")) mediaViewer.fullscreenBtn.addEventListener("click", sectionController.closeProteinViewer);
+        }
     }
-
-    mainMediaViewer = mediaViewers["mediaViewer-main"];
-    mainMediaViewer.fullscreenBtn.addEventListener("click", sectionController.handleMainMediaViewerFsBtnClick);
         
     mainStopNarrationButtonMobile.addEventListener("click", sectionController.stopMainNarration);
 
@@ -247,13 +309,16 @@
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
     for(let modalEl of modalEls) {
-        let mediaViewer = mediaViewers[`mediaViewer-${modalEl.id}`];
-        let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
-        let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
-        let modal = Modal(modalEl, mediaViewer, proteinMediaViewer, narrationPlayer, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
+        let modal = Modal(modalEl, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
         modals[modal.root.id] = modal;
         if(modalEl.id == hash) modal.show();
     }
+
+    for(let subsectionEl of subsectionEls) {
+        subsections[subsectionEl.id] = Subsection(subsectionEl, sectionController.onNarrationOpen, sectionController.onNarrationClose);
+    }
+
+    for(let openProteinViewerBtnEl of openProteinViewerBtnEls) openProteinViewerBtnEl.addEventListener("click", sectionController.openProteinViewer);
 
     mobileControls = MobileControls(mobileControlsEl);
     mobileControls.root.addEventListener("click", sectionController.handleMobileControlClick);
