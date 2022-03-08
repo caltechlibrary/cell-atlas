@@ -99,6 +99,16 @@
             }
         };
 
+        let onNarrationOpen = function(narrationPlayerEl) {
+            let narrationPlayer = narrationPlayers[narrationPlayerEl.id];
+            if(!narrationPlayer.initialized) narrationPlayer.init();
+        };
+
+        let onNarrationClose = function(narrationPlayerEl) {
+            let narrationPlayer = narrationPlayers[narrationPlayerEl.id];
+            if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
+        };
+
         let stopMainNarration = function() {
             if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
         };
@@ -230,6 +240,8 @@
             handleMainMediaViewerFsBtnClick,
             handleSubMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
+            onNarrationOpen,
+            onNarrationClose,
             stopMainNarration,
             showStopNarrationBtn,
             hideStopNarrationBtn,
@@ -303,7 +315,7 @@
     }
 
     for(let subsectionEl of subsectionEls) {
-        subsections[subsectionEl.id] = Subsection(subsectionEl);
+        subsections[subsectionEl.id] = Subsection(subsectionEl, sectionController.onNarrationOpen, sectionController.onNarrationClose);
     }
 
     for(let openProteinViewerBtnEl of openProteinViewerBtnEls) openProteinViewerBtnEl.addEventListener("click", sectionController.openProteinViewer);
