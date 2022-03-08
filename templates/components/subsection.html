@@ -1,0 +1,29 @@
+<div id="subsection-${it.id}" class="subsection modal__subsection">
+    ${if(it.mediaViewer)}
+        ${it.mediaViewer:components/media-viewer.html()}
+    ${endif}
+
+    ${if(it.citation)}
+        ${it.citation:components/vid-citation.html()}
+    ${endif}
+
+    ${if(offline)}${else}
+        ${if(it.proteinMediaViewer)}
+            ${it.proteinMediaViewer:components/media-viewer.html()}
+        ${endif}
+    ${endif}
+
+    <div class="subsection__content-container" tabindex="-1">
+        ${it.narration:components/narration-player.html()}
+        <button class="subsection__toggle-narration-btn ${if(it.narration)}${else}subsection__toggle-narration-btn--postponed${endif}" aria-label="Open narration player">
+            <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
+            <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
+        </button>
+        <div class="subsection__text-container">
+            <h1 id="${it.title}-header" class="subsection__header">${it.title}</h1>
+            <div class="subsection__text-content">
+                ${it.body}
+            </div>
+        </div>
+    </div>
+</div>

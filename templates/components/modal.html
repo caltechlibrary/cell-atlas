@@ -4,38 +4,13 @@
             <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
         </button>
 
-        ${if(it.mediaViewer)}
-            ${it.mediaViewer:components/media-viewer.html()}
-        ${endif}
-
-        ${if(it.citation)}
-            ${it.citation:components/vid-citation.html()}
-        ${endif}
-
-        ${if(offline)}${else}
-            ${if(it.proteinMediaViewer)}
-                ${it.proteinMediaViewer:components/media-viewer.html()}
-            ${endif}
-        ${endif}
-
         ${if(it.feedback)}
             ${components/feedback.html()}
         ${elseif(it.treeViewerFsConfirm)}
             ${components/tree-viewer-fs-confirm.html()}
         ${else}
-            <div class="modal__content-container" tabindex="-1">
-                ${it.narration:components/narration-player.html()}
-                <button class="modal__toggle-narration-btn ${if(it.narration)}${else}modal__toggle-narration-btn--postponed${endif}" aria-label="Open narration player">
-                    <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
-                    <div class="modal__toggle-narration-btn-icon modal__toggle-narration-btn-icon--hidden modal__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
-                </button>
-                <div class="modal__text-container">
-                    <h1 id="${it.title}-header" class="modal__header">${it.title}</h1>
-                    <div class="modal__text-content">
-                        ${it.body}
-                    </div>
-                </div>
-            </div>
+            ${components/subsection.html()}
         ${endif}
+        
     </div>
 </div>

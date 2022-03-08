@@ -6,6 +6,7 @@
     let summaryMenuEl = document.querySelector(".summary-menu");
     let sectionTextEl = document.querySelector(".section-text");
     let modalEls = document.querySelectorAll(".modal");
+    let subsectionEls = document.querySelectorAll(".subsection");
     let openProteinViewerBtnEls = document.querySelectorAll(".vid-metadata__viewer-btn");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
@@ -14,7 +15,7 @@
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
     let sectionController, summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, narrationPlayers = {};
+        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
     
     let SectionController = function() {
 
@@ -150,7 +151,7 @@
                 mediaViewer.setFullscreenBtnState("minimized");
             }
             if(proteinViewer && proteinViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
-                proteinViewer.root.classList.add("modal__protein-media-viewer--hidden");
+                proteinViewer.root.classList.add("subsection__protein-media-viewer--hidden");
                 proteinViewer.toggleFixedEnlarged();
                 proteinViewer.setFullscreenBtnState("minimized");
             }
@@ -161,7 +162,7 @@
         let openProteinViewer = function(event) {
             let id = event.target.value;
             let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${id}`];
-            proteinMediaViewer.root.classList.remove("modal__protein-media-viewer--hidden");
+            proteinMediaViewer.root.classList.remove("subsection__protein-media-viewer--hidden");
             proteinMediaViewer.setFullscreenBtnState("expanded");
             if(window.innerWidth < 900) {
                 proteinMediaViewer.toggleFullscreen();
@@ -173,7 +174,7 @@
         let closeProteinViewer = function(event) {
             let mediaViewerEl = event.target.closest(".media-viewer");
             let proteinMediaViewer = mediaViewers[mediaViewerEl.id];
-            proteinMediaViewer.root.classList.add("modal__protein-media-viewer--hidden");
+            proteinMediaViewer.root.classList.add("subsection__protein-media-viewer--hidden");
         };
 
         let handleMobileControlClick = function(event) {
@@ -206,7 +207,7 @@
         let handleUpDownArrowPress = function(event) {
             if(event.target.tagName == "INPUT") return;
             let modalEl = document.querySelector(".modal:not(.modal--hidden)");
-            let textContent = (modalEl) ? modalEl.querySelector(".modal__content-container") : sectionText.root.querySelector(".section-text__content");
+            let textContent = (modalEl) ? modalEl.querySelector(".subsection__content-container") : sectionText.root.querySelector(".section-text__content");
             textContent.focus();
         };
 
@@ -296,10 +297,13 @@
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", sectionController.handleLearnMoreBtnContainerClick);
 
     for(let modalEl of modalEls) {
-        let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
-        let modal = Modal(modalEl, narrationPlayer, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
+        let modal = Modal(modalEl, sectionController.onModalOpenCallback, sectionController.onModalCloseCallback);
         modals[modal.root.id] = modal;
         if(modalEl.id == hash) modal.show();
+    }
+
+    for(let subsectionEl of subsectionEls) {
+        subsections[subsectionEl.id] = Subsection(subsectionEl);
     }
 
     for(let openProteinViewerBtnEl of openProteinViewerBtnEls) openProteinViewerBtnEl.addEventListener("click", sectionController.openProteinViewer);
