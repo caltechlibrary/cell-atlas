@@ -25,6 +25,12 @@
             if(proteinViewer) proteinViewer.resizeViewer();
         };
 
+        let onMediaViewerMediaSwitchCallback = function(mediaViewerEl, mediaType) {
+            let file = mediaViewerEl.getAttribute("data-file");
+            let videoPlayer = videoPlayers[`videoPlayer-${file}`];
+            if(mediaType != "vid" && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
+        };
+
         let handleMainMediaViewerFsBtnClick = function() {
             if(window.innerWidth < 900) {
                 if(!mainMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
@@ -237,6 +243,7 @@
 
         return {
             onMediaViewerResizeCallback,
+            onMediaViewerMediaSwitchCallback,
             handleMainMediaViewerFsBtnClick,
             handleSubMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
@@ -278,7 +285,7 @@
     if(summaryMenuEl) summaryMenu = SummaryMenu(summaryMenuEl);
 
     for(let mediaViewerEl of mediaViewerEls) {
-        let mediaViewer = MediaViewer(mediaViewerEl, sectionController.onMediaViewerResizeCallback);
+        let mediaViewer = MediaViewer(mediaViewerEl, sectionController.onMediaViewerMediaSwitchCallback, sectionController.onMediaViewerResizeCallback);
         mediaViewers[mediaViewerEl.id] = mediaViewer;
         if(mediaViewerEl.getAttribute("data-main")) {
             mainMediaViewer = mediaViewer;
