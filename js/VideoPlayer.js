@@ -77,16 +77,25 @@ let VideoPlayer = function(root) {
     };
 
     let onFullscreenChange = function() {
-        if (document.fullscreenElement || document.webkitFullscreenElement) root.classList.add("video-player--fullscreen");
-        else root.classList.remove("video-player--fullscreen");
+        if (document.fullscreenElement || document.webkitFullscreenElement) {
+            root.classList.add("video-player--fullscreen");
+            fsBtn.setAttribute("aria-label", "Exit full screen");
+        } else {
+            root.classList.remove("video-player--fullscreen");
+            fsBtn.setAttribute("aria-label", "Enter full screen");
+        }
     };
 
     let onPlay = function() {
         root.classList.add("video-player--playing");
+        playBackBtn.setAttribute("aria-label", "Pause");
+        playBackBtnMobile.setAttribute("aria-label", "Pause");
     };
 
     let onPause = function() {
         root.classList.remove("video-player--playing");
+        playBackBtn.setAttribute("aria-label", "Play");
+        playBackBtnMobile.setAttribute("aria-label", "Play");
     };
 
     let updateTimeDisplay = function() {

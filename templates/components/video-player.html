@@ -16,13 +16,13 @@
         <source>
         Your browser does not support the video tag.
     </video>
-    <button class="video-player__playback-btn-mobile">
+    <button class="video-player__playback-btn-mobile" aria-label="Play">
         <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-play-icon">${svg/play.svg()}</div>
         <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-pause-icon">${svg/pause.svg()}</div>
     </button>
     <div class="video-player__controls-container">
         <div class="video-player__top-controls-container">
-            <button class="video-player__control-btn video-player__control-btn-playback">
+            <button class="video-player__control-btn video-player__control-btn-playback" aria-label="Play">
                 <div class="video-player__control-icon video-player__control-icon-play">${svg/play.svg()}</div>
                 <div class="video-player__control-icon video-player__control-icon-pause">${svg/pause.svg()}</div>
             </button>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             ${endif}
-            <button class="video-player__control-btn video-player__control-btn-fs video-player__control-btn-fs">
+            <button class="video-player__control-btn video-player__control-btn-fs video-player__control-btn-fs" aria-label="Enter full screen">
                 <div class="video-player__control-icon video-player__control-icon-fs">${svg/fullscreen.svg()}</div>
                 <div class="video-player__control-icon video-player__control-icon-exit-fs">${svg/exit-fullscreen.svg()}</div>
             </button>
