@@ -1547,359 +1547,116 @@ file. These definitions will be defined mobile first.
 }
 
 /* video-player */
-.video-player {
+.video-player.video-js:not(.vjs-fullscreen) {
     background: #fff;
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
-    .video-player--main-section {
+    .video-player--main-section.video-js:not(.vjs-fullscreen) {
         height: 100%;
+        width: auto;
     }
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
-    .video-player--main-section {
+    .video-player--main-section.video-js:not(.vjs-fullscreen) {
         width: 100%;
+        height: auto;
     }
 }
 
 @media (min-width:900px) {
-    .video-player--main-section:not(.media-viewer__media-component--hidden) {
+    .video-player--main-section.video-js:not(.media-viewer__media-component--hidden):not(.vjs-fullscreen) {
         flex: 1 1 auto;
         min-height: 0;
         width: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
     }
 }
 
-.video-player--subsection {
-    width: 100%;
-}
-
-.video-player__video {
-    width: auto;
-    height: auto;
-    display: block;
+.video-player:not(.vjs-fullscreen) .vjs-tech {
+    position: relative;
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
-    .video-player__video--main-section {
+    .video-player--main-section:not(.vjs-fullscreen) .vjs-tech {
         height: 100%;
+        width: auto;
     }
 }
 
 @media (max-width: 900px) and (orientation: portrait) {
-    .video-player__video--main-section {
+    .video-player--main-section:not(.vjs-fullscreen) .vjs-tech {
         width: 100%;
+        height: auto;
     }
 }
 
 @media (min-width:900px) {
-    .video-player__video--main-section {
+    .video-player--main-section:not(.vjs-fullscreen) .vjs-tech {
         flex: 1;
         min-height: 0;
         width: 100%;
     }
 }
 
-.video-player__video--subsection {
-    width: 100%;
-    max-height: 50vh;
+.video-player .vjs-poster {
+    background-color: inherit;
 }
 
-@media (min-width:900px) {
-    .video-player__video--subsection {
-        max-height: initial;
-    }
-}
-
-.video-player--fullscreen .video-player__video {
-    width: 100%;
-    height: 100%;
-    max-height: none;
-}
-
-.video-player--quality-switching .video-player__video {
-    visibility: hidden;
-}
-
-.video-player__playback-btn-mobile {
-    position: absolute;
-    top: -1em;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    box-sizing: border-box;
-    width: 4em;
-    height: 4em;
-    padding: 1.3em;
-    border: none;
-    border-radius: 100%;
-    box-shadow: 0px 0px 10px 0px #aaa;
-    background: #fff;
-    z-index: 3;
-    opacity: 1;
-    transition: opacity 0.25s;
-}
-
-@media (min-width: 900px) {
-    .video-player__playback-btn-mobile {
-        display: none;
-    }
-}
-
-.video-player--playing .video-player__playback-btn-mobile {
-    left: -10000px;
-    opacity: 0;
-    transition: opacity 0.25s, left 0s 0.25s;
-}
-
-.video-player--show-controls .video-player__playback-btn-mobile {
-    left: 0px;
-    opacity: 1;
-    transition: opacity 0.25s;
-}
-
-.video-player__playback-btn-mobile-icon {
-    width: 100%;
-    height: 100%;
-    fill: #000;
-}
-
-.video-player--playing .video-player__playback-btn-mobile-play-icon {
-    display: none;
-}
-
-.video-player:not(.video-player--playing) .video-player__playback-btn-mobile-pause-icon {
-    display: none;
-}
-
-.video-player__controls-container {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 24px 16px 16px;
+.video-player .vjs-control-bar {
+    height: auto;
+    padding: 24px 16px;
     background: linear-gradient(#00000000, #000000);
-    opacity: 1;
-    transition: opacity 0.25s;
+    font-size: 0.85rem;
 }
 
-.video-player--playing .video-player__controls-container {
-    opacity: 0;
-}
-
-@media (max-width: 900px) {
-    .video-player--playing .video-player__controls-container {
-        transform: translateY(100%);
-        transition: opacity 0.25s, transform 0s 0.25s;
-    }
-}
-
-@media (min-width: 900px) {
-    .video-player--playing:hover .video-player__controls-container {
-        opacity: 1;
-    }
-}
-
-.video-player--show-controls .video-player__controls-container {
-    opacity: 1;
-    transform: none;
-    transition: opacity 0.25s;
-}
-
-.video-player__top-controls-container {
-    display: flex;
-    align-items: center;
-}
-
-.video-player__control-btn {
-    margin: 0;
-    box-sizing: border-box;
+.video-player .vjs-button {
     width: 2em;
-    height: 2em;
-    padding: 0.5em;
-    border: none;
-    background: none;
 }
 
-.video-player__control-btn-playback {
-    margin-right: 0.75em;   
+.video-player .vjs-play-control {
+    margin-right: 16px;
+} 
+
+.video-player .vjs-time-control {
+    min-width: 0;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
 }
 
-@media (max-width: 900px) {
-    .video-player__control-btn-playback {
-       display: none;
-    }
-}
-
-.video-player__quality-changer {
-    position: relative;
-}
-
-.video-player__quality-changer--hidden {
-    visibility: hidden;
-}
-
-.video-player__quality-changer-open-btn {
-    position: relative;
-    box-sizing: border-box;
-    height: 1.5em;
-    width: 5.5em;
-    border: none;
-    border-radius: 6px;
-    box-shadow: 0px 0px 0px 2px #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.5em;
-    background: #363636;
-    color: #fff;
-    font-size: 0.85em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.1s, box-shadow 0.1s;
-    z-index: 2;
-}
-
-.video-player__quality-changer--closed .video-player__quality-changer-open-btn:not(:hover) {
-    box-shadow: 0px 0px 0px 0px #fff;
-    background: none;
-    transition: background 0.1s 0.5s, box-shadow 0.1s 0.5s;
-}
-
-.video-player__quality-changer-open-btn-icon {
-    box-sizing: border-box;
-    width: 1em;
-    height: 1em;
-    fill: #fff;
-}
-
-.video-player__quality-options-menu {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    width: 100%;
-    height: 4.25em;
-    border-radius: 6px;
-    padding: 0.25em 0.5em 1.25em;
-    background: #363636;
-    z-index: 1;
-    overflow: hidden;
-    transition: height 0.5s, padding 0.5s;
-}
-
-.video-player__quality-changer--closed .video-player__quality-options-menu {
-    height: 0em;
-    padding: 0em 0.5em 0em;
-    visibility: hidden;
-    transition: height 0.5s, padding 0.5s, visibility 0s ease 0.5s;
-}
-
-.video-player__quality-option {
-    margin-bottom: 0.5em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    font-size: 0.85em;
-    font-weight: 600;
-}
-
-.video-player__quality-option:focus-within {
-    outline: 1px auto Highlight;
-    outline: 1px auto -webkit-focus-ring-color;
-}
-
-.video-player__quality-option-input-container {
-    width: 1em;
-    height: 1em;
-}
-
-.video-player__quality-option-input {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-
-.video-player__quality-option-check-icon {
-    box-sizing: border-box;
-    width: 1em;
-    height: 1em;
-    fill: #fff;
-    opacity: 0;
-}
-
-.video-player__quality-option-input:checked + .video-player__quality-option-check-icon {
-    opacity: 1;
-}
-
-.video-player__control-btn-fs {
-    margin-left: 0.75em;
-}
-
-@media (max-width:900px) {
-    .video-player:not(.video-player--fullscreen) .video-player__control-btn-fs {
-        display: none;
-    }
-}
-
-.video-player--fullscreen .video-player__control-icon-fs {
-    display: none;
-}
-
-.video-player:not(.video-player--fullscreen) .video-player__control-icon-exit-fs {
-    display: none;
-}
-
-.video-player__control-icon {
-    width: 100%;
-    height: 100%;
-    fill: #fff;
-}
-
-.video-player__control-icon svg {
+.video-player .vjs-current-time {
     display: block;
 }
 
-.video-player--playing .video-player__control-icon-play {
-    display: none;
+.video-player .vjs-time-divider {
+    display: block
 }
 
-.video-player:not(.video-player--playing) .video-player__control-icon-pause {
-    display: none;
-}
-
-.video-player__time-display {
+.video-player .vjs-duration {
     margin-right: auto;
-    color: #fff;
-    font-size: 0.85em;
-    font-family: sans-serif;
+    display: block;
 }
 
-.video-player__seek-bar {
-    -webkit-appearance: none;
+.video-player .vjs-progress-control {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    height: auto;
+}
+
+.video-player .vjs-progress-control .vjs-progress-holder {
     margin: 0;
-    width: 100%;
-    height: 4px;
-    border-radius: 100px;
-    background: #717171;
-    cursor: pointer;
+    background-color: #717171;
 }
 
-.video-player__seek-bar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 0.85em;
-    height: 0.85em;
-    border-radius: 100%;
-    background: #fff;
+.video-js .vjs-load-progress div {
+    background: #bfbfbf;
 }
 
 /* comp-slider */
@@ -2264,6 +2021,21 @@ file. These definitions will be defined mobile first.
 .subsection__media-viewer--has-citation .media-viewer__media-container  {
     box-shadow: 0px -1px 0 0px #444, 1px 0px 0 0px #444, 0px 1px 0 0px #ccc, -1px 0px 0 0px #444;
     border-radius: 10px 10px 0px 0px;
+}
+
+.subsection__video-player:not(.vjs-fullscreen) {
+    width: 100%;
+    height: auto;
+}
+
+.subsection__video-player:not(.vjs-fullscreen) .vjs-tech {
+    width: 100%;
+}
+
+@media (max-width:899px) {
+    .subsection__video-player:not(.vjs-fullscreen) .vjs-tech {
+        max-height: 50vh;
+    }
 }
 
 .subsection__vid-metadata {

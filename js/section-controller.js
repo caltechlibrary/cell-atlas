@@ -28,7 +28,7 @@
         let onMediaViewerMediaSwitchCallback = function(mediaViewerEl, mediaType) {
             let file = mediaViewerEl.getAttribute("data-file");
             let videoPlayer = videoPlayers[`videoPlayer-${file}`];
-            if(mediaType != "vid" && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
+            if(mediaType != "vid" && !videoPlayer.paused()) videoPlayer.pause();
         };
 
         let handleMainMediaViewerFsBtnClick = function() {
@@ -144,7 +144,7 @@
             let learnMoreBtn = event.target;
             let modal = modals[learnMoreBtn.value];
             for(let id in videoPlayers) {
-                if(videoPlayers[id].root.getAttribute("data-main") && !videoPlayers[id].video.paused) videoPlayers[id].togglePlayBack();
+                if(videoPlayers[id].getAttribute("data-main") && !videoPlayers[id].paused()) videoPlayers[id].pause();
             }
             if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
             modal.show();
@@ -171,7 +171,7 @@
                 proteinViewer.toggleFixedEnlarged();
                 proteinViewer.setFullscreenBtnState("minimized");
             }
-            if(videoPlayer && !videoPlayer.video.paused) videoPlayer.togglePlayBack();
+            if(videoPlayer && !videoPlayer.paused()) videoPlayer.pause();
             if(narrationPlayer && !narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         };
 
@@ -235,10 +235,12 @@
                 videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`]
             } else {
                 for(let id in videoPlayers) {
-                    if(videoPlayers[id].root.getAttribute("data-main")) videoPlayer = videoPlayers[id];
+                    if(videoPlayers[id].getAttribute("data-main")) videoPlayer = videoPlayers[id];
                 }
             }
-            if(!videoPlayer.root.classList.contains("video-player--hidden")) videoPlayer.togglePlayBack();
+            if(!videoPlayer.hasClass("video-player--hidden")) {
+                videoPlayer.paused() ? videoPlayer.play() : videoPlayer.pause();
+            }
         };
 
         return {
@@ -269,9 +271,22 @@
     sectionController = SectionController();
 
     for(let videoPlayerEl of videoPlayerEls) {
-        videoPlayers[videoPlayerEl.id] = VideoPlayer(videoPlayerEl);
-        if(videoPlayerEl.getAttribute("data-main")) videoPlayers[videoPlayerEl.id].video.addEventListener("play", sectionController.onMainVideoPlayerFirstPlay, { once: true });
-        for(let qualityOptionInput of videoPlayers[videoPlayerEl.id].qualityOptionInputs) qualityOptionInput.addEventListener("input", sectionController.handleVideoPlayerQualityInput);
+        let videoPlayer = videojs(videoPlayerEl, {
+            controls: true,
+            controlBar: {
+                playToggle: true,
+                currentTimeDisplay: true,
+                timeDivider: true,
+                durationDisplay: true,
+                fullscreenToggle: true,
+                progressControl: true,
+                volumePanel: false,
+                pictureInPictureToggle: false,
+                remainingTimeDisplay: false
+            }
+        });
+        videoPlayers[videoPlayer.id()] = videoPlayer;
+        if(videoPlayer.getAttribute("data-main")) videoPlayer.one("play", sectionController.onMainVideoPlayerFirstPlay);
     }
 
     for(let compSliderEl of compSliderEls) {

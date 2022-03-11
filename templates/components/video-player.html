@@ -1,61 +1,26 @@
-<div 
-    id="videoPlayer-${it.id}"
-    class="video-player media-viewer__media-component ${if(it.isSection)}video-player--main-section${else}video-player--subsection${endif}" 
-    data-doi="${it.doi}" 
-    data-vid-name="${it.vidName}" 
-    data-media-type="vid"
-    ${if(it.isSection)}
-        data-main="true"
-    ${endif}
-    ${if(offline)}
-        data-offline="true" 
-        data-src="${it.vidName}${if(offline.lite)}_480p${endif}.mp4"
-    ${endif}
->
-    <video class="video-player__video ${if(it.isSection)}video-player__video--main-section${else}video-player__video--subsection${endif}" poster="img/thumbnails/${it.thumbnail}.jpg" width="1920px" height="1080px" muted playsinline>
-        <source>
-        Your browser does not support the video tag.
-    </video>
-    <button class="video-player__playback-btn-mobile" aria-label="Play">
-        <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-play-icon">${svg/play.svg()}</div>
-        <div class="video-player__playback-btn-mobile-icon video-player__playback-btn-mobile-pause-icon">${svg/pause.svg()}</div>
-    </button>
-    <div class="video-player__controls-container">
-        <div class="video-player__top-controls-container">
-            <button class="video-player__control-btn video-player__control-btn-playback" aria-label="Play">
-                <div class="video-player__control-icon video-player__control-icon-play">${svg/play.svg()}</div>
-                <div class="video-player__control-icon video-player__control-icon-pause">${svg/pause.svg()}</div>
-            </button>
-            <span class="video-player__time-display">0:00</span>
-            ${if(offline)}${else}
-                <div class="video-player__quality-changer video-player__quality-changer--closed">
-                    <button class="video-player__quality-changer-open-btn">
-                        <span class="video-player__quality-changer-open-btn-text"></span>
-                        <div class="video-player__quality-changer-open-btn-icon">${svg/expand.svg()}</div>
-                    </button>
-                    <div class="video-player__quality-options-menu">
-                        <label class="video-player__quality-option">
-                            <span class="video-player__quality-option-title">1080p</span>
-                            <span class="video-player__quality-option-input-container">
-                                <input class="video-player__quality-option-input" type="radio" name="${it.vidName}" value="1080">
-                                <span class="video-player__quality-option-check-icon">${svg/check.svg()}</span>
-                            </span>
-                        </label>
-                        <label class="video-player__quality-option">
-                            <span class="video-player__quality-option-title">480p</span>
-                            <span class="video-player__quality-option-input-container">
-                                <input class="video-player__quality-option-input" type="radio" name="${it.vidName}" value="480">
-                                <span class="video-player__quality-option-check-icon">${svg/check.svg()}</span>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-            ${endif}
-            <button class="video-player__control-btn video-player__control-btn-fs video-player__control-btn-fs" aria-label="Enter full screen">
-                <div class="video-player__control-icon video-player__control-icon-fs">${svg/fullscreen.svg()}</div>
-                <div class="video-player__control-icon video-player__control-icon-exit-fs">${svg/exit-fullscreen.svg()}</div>
-            </button>
-        </div>
-        <input class="video-player__seek-bar" type="range" value="0" max="1000">
-    </div>
-</div>
+<video
+        id="videoPlayer-${it.id}"
+        class="
+            video-js 
+            video-player 
+            media-viewer__media-component 
+            ${if(it.isSection)}video-player--main-section${else}subsection__video-player${endif}
+        "
+        poster="img/thumbnails/${it.thumbnail}.jpg"
+        width="1920px" 
+        height="1080px" 
+        muted
+        data-doi="${it.doi}" 
+        data-vid-name="${it.vidName}" 
+        data-media-type="vid"
+        ${if(it.isSection)}
+            data-main="true"
+        ${endif}
+        ${if(offline)}
+            data-offline="true" 
+            data-src="${it.vidName}${if(offline.lite)}_480p${endif}.mp4"
+        ${endif}
+    >
+    <source src="https://www.cellstructureatlas.org/videos/${it.vidName}.mp4" type="video/mp4"/>
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+</video>
