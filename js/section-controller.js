@@ -285,6 +285,8 @@
                 remainingTimeDisplay: false
             }
         });
+        videoPlayer.controlBar.addChild("QualityChanger", {}, 13);
+
         videoPlayers[videoPlayer.id()] = videoPlayer;
         if(videoPlayer.getAttribute("data-main")) videoPlayer.one("play", sectionController.onMainVideoPlayerFirstPlay);
     }
