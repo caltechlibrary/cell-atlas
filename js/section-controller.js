@@ -271,23 +271,8 @@
     sectionController = SectionController();
 
     for(let videoPlayerEl of videoPlayerEls) {
-        let videoPlayer = videojs(videoPlayerEl, {
-            controls: true,
-            controlBar: {
-                playToggle: true,
-                currentTimeDisplay: true,
-                timeDivider: true,
-                durationDisplay: true,
-                fullscreenToggle: true,
-                progressControl: true,
-                volumePanel: false,
-                pictureInPictureToggle: false,
-                remainingTimeDisplay: false
-            }
-        });
-        videoPlayer.controlBar.addChild("QualityChanger", {}, 13);
-
-        videoPlayers[videoPlayer.id()] = videoPlayer;
+        let videoPlayer = VideoPlayer(videoPlayerEl);
+        videoPlayers[videoPlayerEl.id] = videoPlayer;
         if(videoPlayer.getAttribute("data-main")) videoPlayer.one("play", sectionController.onMainVideoPlayerFirstPlay);
     }
 

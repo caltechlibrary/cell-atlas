@@ -6,6 +6,7 @@
 
         constructor: function(player, options) {
             const quality = options.quality;
+            const src = options.src;
 
             options.label = `${quality}p`;
             options.selected = quality === "1080";
@@ -15,11 +16,7 @@
             MenuItem.call(this, player, options);
 
             this.quality = quality;
-            if(quality == "1080") {
-                this.src = `https://www.cellstructureatlas.org/videos/${this.player().getAttribute("data-vid-name")}.mp4`;
-            } else {
-                this.src = `https://www.cellstructureatlas.org/videos/${this.player().getAttribute("data-vid-name")}_${quality}p.mp4`;
-            }
+            this.src = src;
 
             this.on(player, "loadstart", this.update);
         },
@@ -96,9 +93,11 @@
         },
 
         createItems: function() {
-            let item1 = new QualityItem(this.player(), { quality: "1080" });
-            let item2 = new QualityItem(this.player(), { quality: "480" });
-            return [item1, item2];
+            let qualities = []
+            for(let quality of this.options().qualities) {
+                qualities.push(new QualityItem(this.player(), quality));
+            }
+            return qualities;
         },
 
         updateLabel: function(e) {
