@@ -58,7 +58,7 @@
             for(let id in videoPlayers) {
                 if(id != event.target.id) {
                     for(let quality of videoPlayers[id].qualityChanger.qualities_) {
-                        if(quality.quality == currQuality) videoPlayers[id].src(quality.src);
+                        if(quality.quality == currQuality) videoPlayers[id].qualityChanger.changeQuality(quality.src);
                     }
                 }
             }

@@ -36,19 +36,7 @@
         handleClick: function(event) {
             MenuItem.prototype.handleClick.call(this, event);
 
-            let player = this.player();
-            let currentTime = player.currentTime();
-            let paused = player.paused();
-
-            player.one("loadedmetadata", function() {
-                player.hasStarted(true);
-                player.currentTime(currentTime);
-                if(!paused) player.play(); 
-            });
-
-            player.src({ src: this.src, type: "video/mp4" });
-
-            player.trigger("qualitychange");
+            this.player().qualityChanger.changeQuality(this.src);
         },
 
         update: function(event) {
@@ -113,6 +101,24 @@
 
         updateLabel: function(e) {
             this.labelEl_.textContent = `${this.quality()}p`
+        },
+
+        changeQuality: function(src) {
+            let player = this.player();
+            let currentTime = player.currentTime();
+            let paused = player.paused();
+
+            if(player.src() == src) return;
+
+            player.one("loadedmetadata", function() {
+                player.hasStarted(true);
+                player.currentTime(currentTime);
+                if(!paused) player.play(); 
+            });
+            
+            player.src({ src, type: "video/mp4" });
+
+            player.trigger("qualitychange");
         },
 
         quality: function() {
