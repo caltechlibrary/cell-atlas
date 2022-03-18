@@ -52,6 +52,15 @@
             }
         };
 
+        let handleVideoPlayerQualityChange = function(event) {
+            let videoPlayer = videoPlayers[event.target.id];
+            window.sessionStorage.setItem("vidQuality", videoPlayer.quality_);
+            for(let id in videoPlayers) {
+                videoPlayers[id].quality_ = videoPlayer.quality_;
+                if(id != event.target.id) videoPlayers[id].src(videoPlayers[id].qualities_[videoPlayer.quality_]);
+            }
+        };
+
         let handleSubMediaViewerFsBtnClick = function(event) {
             let mediaViewerEl = event.target.closest(".media-viewer");
             let mediaViewer = mediaViewers[mediaViewerEl.id];
@@ -69,12 +78,6 @@
             ) {
                 shelveText();
             }
-        };
-
-        let handleVideoPlayerQualityInput = function(event) {
-            let quality = event.target.value;
-            for(let id in videoPlayers) videoPlayers[id].changeQuality(quality);
-            window.sessionStorage.setItem("vidQuality", quality);
         };
 
         let shelveText = function() {
@@ -249,12 +252,12 @@
             handleMainMediaViewerFsBtnClick,
             handleSubMediaViewerFsBtnClick,
             onMainVideoPlayerFirstPlay,
+            handleVideoPlayerQualityChange,
             onNarrationOpen,
             onNarrationClose,
             stopMainNarration,
             showStopNarrationBtn,
             hideStopNarrationBtn,
-            handleVideoPlayerQualityInput,
             shelveText,
             unshelveText,
             handleLearnMoreBtnContainerClick,
@@ -272,8 +275,9 @@
 
     for(let videoPlayerEl of videoPlayerEls) {
         let videoPlayer = VideoPlayer(videoPlayerEl);
-        videoPlayers[videoPlayerEl.id] = videoPlayer;
+        videoPlayers[videoPlayer.id()] = videoPlayer;
         if(videoPlayer.getAttribute("data-main")) videoPlayer.one("play", sectionController.onMainVideoPlayerFirstPlay);
+        videoPlayer.on("qualitychange", sectionController.handleVideoPlayerQualityChange);
     }
 
     for(let compSliderEl of compSliderEls) {

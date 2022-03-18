@@ -46,7 +46,12 @@
                 if(!paused) player.play(); 
             });
 
+            player.quality_ = this.quality;
+
             player.src({ src: this.src, type: "video/mp4" });
+
+
+            player.trigger("qualitychange");
         },
 
         update: function(event) {
@@ -101,7 +106,7 @@
         },
 
         updateLabel: function(e) {
-            this.labelEl_.textContent = (this.player().src().includes("480p")) ? "480p" : "1080p";
+            this.labelEl_.textContent = `${this.player().quality_}p`;
         }
     });
 

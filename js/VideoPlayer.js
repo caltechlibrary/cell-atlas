@@ -35,6 +35,10 @@ let VideoPlayer = function(root) {
                 src480 = `https://www.cellstructureatlas.org/videos/${vidName}_480p.mp4`;
             }
 
+            // Add quality related properties
+            videoPlayer.quality_ = vidQuality;
+            videoPlayer.qualities_ = { "1080": src1080, "480": src480 };
+
             // Load source in video element
             videoPlayer.src((vidQuality == "480") ? src480 : src1080);
 
