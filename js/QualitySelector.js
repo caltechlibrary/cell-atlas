@@ -81,14 +81,20 @@
                 textContent: "1080p"
             });
 
+            let labelWrapper = videojs.dom.createEl("div", {
+                className: "vjs-quality-value-wrapper"
+            });
+
             let expandIcon = videojs.dom.createEl("span", {
                 className: "vjs-icon-placeholder"
             }, {
                 "aria-hidden": true
             });
 
-            el.appendChild(this.labelEl_);
-            el.appendChild(expandIcon);
+
+            labelWrapper.appendChild(this.labelEl_);
+            labelWrapper.appendChild(expandIcon);
+            el.appendChild(labelWrapper);
 
             return el;
         },
