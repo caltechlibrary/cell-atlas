@@ -53,11 +53,14 @@
         };
 
         let handleVideoPlayerQualityChange = function(event) {
-            let videoPlayer = videoPlayers[event.target.id];
-            window.sessionStorage.setItem("vidQuality", videoPlayer.quality_);
+            let currQuality = videoPlayers[event.target.id].qualityChanger.quality();
+            window.sessionStorage.setItem("vidQuality", currQuality);
             for(let id in videoPlayers) {
-                videoPlayers[id].quality_ = videoPlayer.quality_;
-                if(id != event.target.id) videoPlayers[id].src(videoPlayers[id].qualities_[videoPlayer.quality_]);
+                if(id != event.target.id) {
+                    for(let quality of videoPlayers[id].qualityChanger.qualities_) {
+                        if(quality.quality == currQuality) videoPlayers[id].src(quality.src);
+                    }
+                }
             }
         };
 

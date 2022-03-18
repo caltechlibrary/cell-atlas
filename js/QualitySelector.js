@@ -46,10 +46,7 @@
                 if(!paused) player.play(); 
             });
 
-            player.quality_ = this.quality;
-
             player.src({ src: this.src, type: "video/mp4" });
-
 
             player.trigger("qualitychange");
         },
@@ -65,7 +62,10 @@
         constructor: function(player, options) {
             MenuButton.call(this, player, options);
 
+            this.qualities_ = options.qualities;
             this.menuButton_.el_.setAttribute('aria-describedby', this.labelElId_);
+
+            this.updateLabel();
 
             this.on(player, "loadstart", this.updateLabel);
         },
@@ -106,7 +106,13 @@
         },
 
         updateLabel: function(e) {
-            this.labelEl_.textContent = `${this.player().quality_}p`;
+            this.labelEl_.textContent = `${this.quality()}p`
+        },
+
+        quality: function() {
+            for(let quality of this.qualities_) {
+                if(this.player().src() == quality.src) return quality.quality;
+            }
         }
     });
 
