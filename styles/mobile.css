@@ -252,67 +252,6 @@ blockquote {
     }
 
     /* || APPENDIX styles */
-    .book-appendix-page {
-        min-height: 100vh;
-    }
-
-    .book-appendix-page-fullscreen-polyfill {
-        min-height: 0;
-        height: 0;
-        overflow: hidden;
-    }
-
-    .book-appendix-inner {
-        padding: 16px;
-    }
-
-    @supports(padding: max(0px)) {
-        .book-appendix-inner {
-            padding: 16px max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
-        }
-    }
-
-    .book-appendix-inner h1 {
-        font-size: 28px;
-        margin-bottom: 16px;
-    }
-
-    .book-appendix-chapter-heading {
-        margin-right: 16px;
-    }
-
-    .book-appendix-li-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-        padding-bottom: 8px;
-        margin-bottom: 16px;
-        border-bottom: 1px solid #ffffff;
-    }
-
-    .book-appendix-li-header h2 {
-        font-size: 20px;
-    }
-
-    .book-appendix-li-header button{
-        color: #4B889B;
-        border: none;
-        padding: 0;
-        font-size: 2em;
-        font-weight: 600;
-        transition: transform 1s;
-    }
-
-    .book-appendix-li-header button:focus{
-        outline: none;
-    }
-
-    .book-appendix-li-dropdown {
-        overflow: hidden;
-        height: 0;
-        transition: height 1s;
-    }
 
     .book-features-ref-list {
         padding-left: 16px;
