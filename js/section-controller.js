@@ -53,14 +53,10 @@
         };
 
         let handleVideoPlayerQualityChange = function(event) {
-            let currQuality = videoPlayers[event.target.id].qualityChanger.quality();
-            window.sessionStorage.setItem("vidQuality", currQuality);
+            let quality = videoPlayers[event.target.id].qualityChanger.quality();
+            window.sessionStorage.setItem("vidQuality", quality);
             for(let id in videoPlayers) {
-                if(id != event.target.id) {
-                    for(let quality of videoPlayers[id].qualityChanger.qualities_) {
-                        if(quality.quality == currQuality) videoPlayers[id].qualityChanger.changeQuality(quality.src);
-                    }
-                }
+                if(id != event.target.id) videoPlayers[id].qualityChanger.changeQuality(quality);
             }
         };
 

@@ -6,7 +6,6 @@
 
         constructor: function(player, options) {
             const quality = options.quality;
-            const src = options.src;
 
             options.label = `${quality}p`;
             options.selected = quality === "1080";
@@ -16,7 +15,6 @@
             MenuItem.call(this, player, options);
 
             this.quality = quality;
-            this.src = src;
 
             this.on(player, "loadstart", this.update);
         },
@@ -36,11 +34,11 @@
         handleClick: function(event) {
             MenuItem.prototype.handleClick.call(this, event);
 
-            this.player().qualityChanger.changeQuality(this.src);
+            this.player().qualityChanger.changeQuality(this.quality);
         },
 
         update: function(event) {
-            this.selected(this.player().src() == this.src);
+            this.selected(this.player().qualityChanger.quality() == this.quality);
         },
 
     });
@@ -103,12 +101,17 @@
             this.labelEl_.textContent = `${this.quality()}p`
         },
 
-        changeQuality: function(src) {
+        changeQuality: function(requestedQuality) {
             let player = this.player();
             let currentTime = player.currentTime();
             let paused = player.paused();
+            let src;
 
-            if(player.src() == src) return;
+            if(this.quality() == requestedQuality) return;
+
+            for(let quality of this.qualities_) {
+                if(requestedQuality == quality.quality) src = quality.src;
+            }
 
             player.one("loadedmetadata", function() {
                 player.hasStarted(true);
