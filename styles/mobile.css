@@ -61,34 +61,6 @@ blockquote {
     -o-transition: none !important;
 }
 
-/* Recommended styling for screen readers by webaim.org */
-.sr-only {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-}
-
-.main-color-background {
-    background-color: #15404e;
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-.dark-background-text {
-    background-color: #363636;
-    color: #f5f5f5;
-}
-
-.dark-background-text a {
-    color: #5caac5;
-    text-decoration: underline;
-}
-
 .book-text-content, .csl-entry {
     line-height: 1.34em;
 }
@@ -106,28 +78,6 @@ blockquote {
     /* || GENERAL styles */
     html {
         -webkit-text-size-adjust: none;
-    }
-
-    #nav {
-        opacity: 0.3;
-    }
-
-    .nav-menu__section-list--searching {
-        display: none;
-    }
-
-    /* || MODAL styles */
-
-    .modal-exit-button-mobile {
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        line-height: 1;
-        background: #ffffff;
-        border: none;
-        font-size: 24px;
-        font-weight: 900;
-        padding: 0;
     }
 
     /* || APPENDIX styles */
