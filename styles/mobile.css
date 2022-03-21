@@ -131,46 +131,6 @@ blockquote {
         margin-bottom: 12px;
     }
 
-    /* || CONTROLS styles */
-    .page-controls-mobile {
-        position: fixed;
-        bottom: 0;
-        box-sizing: border-box;
-        height: 56px;
-        width: 100%;
-        padding: 8px 16px;
-        display: flex;
-        justify-content: space-between;
-        background: #505050;
-        z-index: 1;
-    }
-
-    .page-controls-nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        line-height: 1;
-        font-size: 33.5px;
-        color: #c2c2c2;
-    }
-
-    .page-controls-button {
-        width: 35px;
-        height: 100%;
-        background: #505050;
-        border: none;
-        padding: 0;
-    }
-
-    .page-controls-button svg {
-        fill: #c2c2c2;
-        width: 100%;
-    }
-
-    .page-controls-selected svg {
-        fill: #ffffff;
-    }
-
     /* || SECTION styles */
     .book-section-non-text-content {
         display: flex;
@@ -225,11 +185,6 @@ blockquote {
 }
 
 @media(min-width:480px) {
-
-    /* || CONTROLS styles */
-    .page-controls-mobile:not([data-chapter="true"]) {
-        position: relative;
-    }
 
     /* || SECTION styles */
 
