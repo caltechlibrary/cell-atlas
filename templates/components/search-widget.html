@@ -1,6 +1,6 @@
 <div class="search-widget ${if(it.nav)}search-widget--nav-menu${else}search-widget--header${endif}">
     ${if(it.nav)}${else}
-        <button class="search-widget__open-btn" aria-controls="search-bar${if(it.nav)}-nav${else}-header${endif}" aria-expanded="false">
+        <button class="search-widget__open-btn" aria-label="Open search" aria-controls="search-bar${if(it.nav)}-nav${else}-header${endif}" aria-expanded="false">
             <div class="search-widget__search-icon search-widget__search-icon--header">${svg/search.svg()}</div>
         </button>
     ${endif}

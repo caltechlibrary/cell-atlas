@@ -4,22 +4,22 @@
     ${endif}
 
     ${if(typeSection)}
-        <button class="mobile-controls__btn mobile-controls__btn--selected" value="text">
+        <button class="mobile-controls__btn mobile-controls__btn--selected" value="text" aria-label="Show text">
             ${svg/noun_File.svg()}
         </button>
     ${endif}
     ${if(mediaViewer.vidPlayer)}
-        <button class="mobile-controls__btn" value="vid">
+        <button class="mobile-controls__btn" value="vid" aria-label="Show video">
             ${svg/noun_Video.svg()}
         </button>
     ${endif}
     ${if(mediaViewer.compSlider)}
-        <button class="mobile-controls__btn" value="img" >
+        <button class="mobile-controls__btn" value="img" aria-label="Show comparison slider">
             ${svg/noun_Image.svg()}
         </button>
     ${endif}
     ${if(mediaViewer.summaryMenu)}
-        <button class="mobile-controls__btn" value="sum">
+        <button class="mobile-controls__btn" value="sum" aria-label="Show summary menu">
             ${svg/noun_Cycle.svg()}
         </button>
     ${endif}

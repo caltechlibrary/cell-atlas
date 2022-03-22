@@ -15,8 +15,8 @@
 >
     ${if(it.hasTabMenu)}
         <div class="media-viewer__tab-container ${if(it.isSection)}media-viewer__tab-container--main-section${endif}">
-            <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid">${svg/noun_Video.svg()}</button>
-            <button class="media-viewer__tab-btn" value="img">${svg/noun_Image.svg()}</button>
+            <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid" aria-label="Show video">${svg/noun_Video.svg()}</button>
+            <button class="media-viewer__tab-btn" value="img" aria-label="Show comparison slider">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
     <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${endif} ${if(it.summaryMenu)}media-viewer__media-container--summary-menu${endif} ${if(it.viewer)}media-viewer__media-container--protein-viewer${endif} ${if(it.speciesList)}media-viewer__media-container--tree-viewer${endif}">
