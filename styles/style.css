@@ -21,10 +21,6 @@
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
-a {
-    text-decoration: none;
-}
-
 ol, ul {
     padding-inline-start: 0;
     margin-block-start: 0;
@@ -201,6 +197,7 @@ blockquote {
     background: #24788f;
     font-size: 1.25em;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .index__start-link-icon {
