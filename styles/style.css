@@ -21,14 +21,14 @@
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
-h2, h3 {
+h3 {
     margin-block-start: 0;
     margin-block-end: 0;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
 }
 
-h2, h3, button {
+h3, button {
     font-size: 100%;
 }
 
@@ -161,7 +161,7 @@ blockquote {
 }
 
 .index__author {
-    margin-bottom: 16px;
+    margin: 0 0 16px;
     font-size: 1.5em;
     font-weight: 300;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -169,7 +169,7 @@ blockquote {
 
 @media(min-width:900px) {
     .index__author {
-        margin-bottom: 22px;
+        margin: 0 0 22px;
         font-size: 2em;
     }
 }
@@ -3198,6 +3198,11 @@ blockquote {
         position: absolute;
         margin-top: -56px;
     }
+}
+
+.appendix-accordion__header-container {
+    margin: 0;
+    font-size: 1em;
 }
 
 .appendix-accordion__entry-header {
