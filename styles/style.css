@@ -28,10 +28,6 @@
     -o-transition: none !important;
 }
 
-#concept-check-questions, #further-reading {
-    margin-top: 2em;
-}
-
 /* index */
 .index {
     margin: 0;
@@ -1328,6 +1324,11 @@
     .section-text__content {
         padding: 0 1em;
     }
+}
+
+.section-text__content #concept-check-questions, .section-text__content #further-reading {
+    margin-top: 2em;
+    font-size: 1em;
 }
 
 .section-text__content a {
