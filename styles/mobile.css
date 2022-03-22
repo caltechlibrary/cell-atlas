@@ -1,22 +1,3 @@
-/* Index (search "|| <style>" to find associated styles) */
-/* || MOBILE - Styles that remove components not used in mobile */
-/* || GENERAL - Definitions for base behavior of HTML elements */ 
-/* || SITE - Classes that are used on almost all pages throughout site */
-/* || LANDING - Index landing page */
-/* || NAV - Styles for the top nav bar */
-/* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
-/* || HEADER - Header for all pages besides landing page */
-/* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
-/* || CHAPTER - Chapter landing pages */
-/* || SECTION -  Styles for every page of the book that is a section */
-/* || QUALITY - Styles for the quality changer */
-/* || SLIDER - Styles for the image comparison slider element */
-/* || MODAL - "Learn more" modals (also used in about project page) */
-/* || CONTROLS - Styles that apply to the view/nav controls at the bottom of mobile screens */
-/* || APPENDIX - Appendix pages at end of book */
-/* || PROFILES - Classes specific to profiles appendix page */
-/* || REFERENCES - Classes specific to references appendix page */
-
 @media(max-width: 899px) {
 
 /* || GENERAL styles */
@@ -59,27 +40,6 @@ blockquote {
     -moz-transition: none !important;
     -ms-transition: none !important;
     -o-transition: none !important;
-}
-
-.book-text-content, .csl-entry {
-    line-height: 1.34em;
-}
-
-.footer-container, .book-page-nav, .header-logo, .book-section-text-close-button, 
-.book-section-text-divider, .book-section-text-open-button, .header-nav-button-desk,
-.nav-menu-footer, .landing-page-download-button, .book-section-video-player-scrub-canvas,
-.book-section-video-player-paint-canvas, .book-section-video-player-controls,
-.book-section-comparison-button-container, .video-quality-player-control,
-.book-section-comparison-exit-fullscreen-desktop, #customBookProgress {
-    display: none;
-}
-
-@media(min-width:320px) {
-    /* || GENERAL styles */
-    html {
-        -webkit-text-size-adjust: none;
-    }
-
 }
 
 }
