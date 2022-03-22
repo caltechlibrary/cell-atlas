@@ -1,26 +1,4 @@
-/* Index (search "|| <style>" to find associated styles) */
-/* || GENERAL - Definitions for base behavior of HTML elements */ 
-/* || SITE - Classes that are used on almost all pages throughout site */
-/* || HEADER - Header for all pages besides landing page */
-/* || LANDING - Index landing page */
-/* || PAGE - Classes that define layout for the containers of the book pages and the nav bar */
-/* || CHAPTER - Chapter landing pages */
-/* || SECTION - Section/Summary pages of book */
-/* || PLAYER - Styles for the custom video player */
-/* || QUALITY - Styles for the quality changer */
-/* || SLIDER - Styles for the image comparison slider element */
-/* || MODAL - "Learn more" modals (also used in about project page) */
-/* || FOOTER - Footer used on all pages */
-/* || APPENDIX - Appendix pages at end of book */
-/* || REFERENCES - Classes specific to references appendix page */
-/* || PROFILES - Classes specific to profiles appendix page */
-/* || FEATURES - Classes specific to features appendix page */
-/* || ABOUT - About this project page */
-/* || MOBILE - Styles that apply to mobile components */
-
-/* In the process of converting to BEM. The following is a list of inprogress/complete 
-BEM blocks that are defined in this file. These blocks can be found at the end of the 
-file. These definitions will be defined mobile first.
+/*
 - main-non-text-container: Container to hold media viewer and and section navigation  
 - media-viewer: Widget that contains video/comparison slider and the controls needed to toggle them
 - search-bar: Search bar that will be available on all pages
@@ -43,223 +21,11 @@ file. These definitions will be defined mobile first.
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
-@media (min-width:900px) {
-    /* || GENERAL styles */
-
-    h1, h2, h3, button {
-        font-size: 100%;
-    }
-
-    h1, h2, h3 {
-        margin-block-start: 0;
-        margin-block-end: 0;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-    }
-
-    ol, ul {
-        padding-inline-start: 0;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-        -webkit-padding-start: 0;
-        list-style: none;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    blockquote {
-        margin-inline-end: 0;
-        margin-inline-start: 0;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-        -webkit-margin-start: 0;
-        -webkit-margin-end: 0;
-    }
-
-    /* || SITE wide */
-    .preload * {
-        -webkit-transition: none !important;
-        -moz-transition: none !important;
-        -ms-transition: none !important;
-        -o-transition: none !important;
-    }
-
-    /* Recommended styling for screen readers by webaim.org */
-    .sr-only {
-        position:absolute;
-        left:-10000px;
-        top:auto;
-        width:1px;
-        height:1px;
-        overflow:hidden;
-    }
-
-    .main-color-background {
-        background-color: #15404e;
-    }
-
-    .hidden {
-        visibility: hidden;
-    }
-
-    .appendix-hidden {
-        display: none;
-    }
-
-    .dark-background-text {
-        background-color: #363636;
-        color: #f5f5f5;
-    }
-
-    .dark-background-text a {
-        color: #5caac5;
-        text-decoration: underline;
-    }
-
-    .book-text-content, .csl-entry {
-        line-height: 1.34em;
-    }
-
-    .mouse-focus {
-        outline: none !important;
-    }
-
-    /* || PAGE styles (styles for every page of the book) */
-    .book-page-container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .book-page-content {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background: #717171;
-        overflow: hidden;
-    }
-
-    .book-page-nonheader-container {
-        position: relative;
-        min-height: 0;
-        flex: 1;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .book-page-nav {
-        font-size: 5em;
-        color: #f5f5f5;
-        margin: 0 1rem;
-        text-decoration: none;
-        transition: color 0.25s;
-    }
-
-    .book-page-nav:hover {
-        color: #262626;
-    }
-
-    /* || SECTION page styles (styles for every page of the book that is a section) */
-
-    .book-section-non-text-content {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 62%;
-        margin: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 62%;
-        transition: width 1s, right 1s;
-    }
-
-    .book-section-non-text-content-empty {
-        justify-content: space-between;
-    }
-
-    /* || MODAL styles */
-
-    #concept-check-questions, #further-reading {
-        margin-top: 2em;
-    }
-
-    .book-appendix-download a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: rgb(245 245 245);
-        width: 300px;
-        height: 56px;
-        text-decoration: none;
-        margin: 2em 0;
-        padding: 0em 2.5em;
-    }
-
-    /* || REFERENCES styles */
-    .csl-entry {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: .9375em;
-    }
-
-    .csl-left-margin {
-        margin-right: 0.5em;
-    }
-
-    /* || ABOUT page styles */
-
-    .book-appendix-page iframe {
-        width: 100%;
-        height: 100%;
-    }
-
-    .feedback-offline-message {
-        display: none;
-        color: #000000;
-        height: fit-content;
-        margin-top: auto;
-        margin-bottom: auto;
-        text-align: center;
-    }
-
-    /* || MOBILE page styles */
-    .page-controls-mobile {
-        display: none;
-    }
-
-    .modal-exit-button-mobile {
-        display: none;
-    }
-
-    .header-nav-button-mobile {
-        display: none;
-    }
-
-    .mobile-footer-data {
-        display: none;
-    }
-
-    .book-section-comparison-exit-fullscreen {
-        display: none;
-    }
-
-    .video-quality-changer-mobile {
-        display: none;
-    }
-}
-
-.book-section-non-text-content--fs-polyfill {
-    z-index: 100;
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
 }
 
 /* index */
@@ -343,7 +109,7 @@ file. These definitions will be defined mobile first.
 }
 
 .index__title {
-    margin-bottom: 18px;
+    margin: 0 0 18px;
     font-size: 2.25em;
     font-family: serif;
     line-height: 1.05;
@@ -351,13 +117,13 @@ file. These definitions will be defined mobile first.
 
 @media(min-width:900px) {
     .index__title {
-        margin-bottom: 36px;
+        margin: 0 0 36px;
         font-size: 4.5em;
     }
 }
 
 .index__author {
-    margin-bottom: 16px;
+    margin: 0 0 16px;
     font-size: 1.5em;
     font-weight: 300;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -365,7 +131,7 @@ file. These definitions will be defined mobile first.
 
 @media(min-width:900px) {
     .index__author {
-        margin-bottom: 22px;
+        margin: 0 0 22px;
         font-size: 2em;
     }
 }
@@ -408,6 +174,7 @@ file. These definitions will be defined mobile first.
     background: #24788f;
     font-size: 1.25em;
     font-weight: 600;
+    text-decoration: none;
 }
 
 .index__start-link-icon {
@@ -503,6 +270,7 @@ file. These definitions will be defined mobile first.
     border: none;
     padding: 0;
     background: none;
+    font-size: 1em;
 }
 
 @media (min-width:900px) {
@@ -700,6 +468,7 @@ file. These definitions will be defined mobile first.
     border: none;
     padding: 0.75em;
     background: none;
+    font-size: 1em;
 }
 
 .nav__section-list-toggle-icon {
@@ -717,6 +486,7 @@ file. These definitions will be defined mobile first.
 .nav__section-list {
     height: auto;
     padding-left: 16px;
+    list-style: none;
     overflow: hidden;
     transition: height 1s;
 }
@@ -841,6 +611,7 @@ file. These definitions will be defined mobile first.
     box-shadow: 0px 0px 0 2px #fff;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
 }
 
 .main-non-text-container__stop-narration-btn--hidden {
@@ -941,6 +712,7 @@ file. These definitions will be defined mobile first.
     border: 1px solid #444;
     border-radius: 10px 10px 0 0;
     background: #cccccc;
+    font-size: 1em;
 }
 
 .media-viewer__tab-btn-vid--selected {
@@ -1088,6 +860,7 @@ file. These definitions will be defined mobile first.
     border: none;
     border-radius: 10px 0 0 0;
     background: #ffffff87;
+    font-size: 1em;
     z-index: 2;
 }
 
@@ -1141,6 +914,7 @@ file. These definitions will be defined mobile first.
     border-radius: 100px;
     padding: 0.5em;
     background: none;
+    font-size: 1em;
     opacity: 1;
     transition: border 0.25s, opacity 0.25s, visibility 0.25s;
 }
@@ -1240,6 +1014,7 @@ file. These definitions will be defined mobile first.
     height: 1.25em;
     border: none;
     padding: 0.15em;
+    font-size: 1em;
     background: none;
 }
 
@@ -1254,9 +1029,11 @@ file. These definitions will be defined mobile first.
 }
 
 .search-widget__result-list {
+    margin: 0;
     box-sizing: border-box;
     width: 100%;
     padding: 1em;
+    list-style: none;
 }
 
 .search-widget__result-list--header {
@@ -1386,6 +1163,7 @@ file. These definitions will be defined mobile first.
     box-shadow: 0px 0px 0 2px #fff;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
 }
 
 .section-text__stop-narration-btn--hidden {
@@ -1459,6 +1237,7 @@ file. These definitions will be defined mobile first.
     border: none;
     color: inherit;
     background: inherit;
+    font-size: 1em;
     font-weight: 600;
     white-space: nowrap;
 }
@@ -1482,6 +1261,11 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.section-text__title {
+    margin: 0;
+    font-size: inherit;
+}
+
 .section-text__toggle-narration-btn {
     position: absolute;
     top: 1em;
@@ -1493,6 +1277,7 @@ file. These definitions will be defined mobile first.
     border: 2px solid #0000;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
     transition: border 0.25s;
 }
 
@@ -1539,6 +1324,11 @@ file. These definitions will be defined mobile first.
     .section-text__content {
         padding: 0 1em;
     }
+}
+
+.section-text__content #concept-check-questions, .section-text__content #further-reading {
+    margin-top: 2em;
+    font-size: 1em;
 }
 
 .section-text__content a {
@@ -2058,6 +1848,7 @@ file. These definitions will be defined mobile first.
     border: none;
     padding: 0;
     background: none;
+    font-size: 1em;
 }
 
 @media (min-width: 900px) {
@@ -2144,11 +1935,11 @@ file. These definitions will be defined mobile first.
     border: 2px solid #0000;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
     transition: border 0.25s;
 }
 
 @media (min-width:900px) {
-
     .subsection__toggle-narration-btn:hover {
         border: 2px solid #000;
     }
@@ -2173,8 +1964,7 @@ file. These definitions will be defined mobile first.
 }
 
 .subsection__header {
-    margin-top: calc(0.4rem + 2px);
-    margin-right: 1.75em;
+    margin: calc(0.4rem + 2px) 1.75em 0 0;
     line-height: 1;
     font-size: 1.75em;
 }
@@ -2925,6 +2715,7 @@ file. These definitions will be defined mobile first.
     padding: 0.75em;
     background: none;
     transition: border 0.25s;
+    font-size: 1em;
 }
 
 @media (min-width:900px) {
@@ -3272,6 +3063,10 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.chapter-content__quote blockquote {
+    margin: 0;
+}
+
 .chapter-content__quote a {
     margin: 0 0.15em;
     color: inherit;
@@ -3279,6 +3074,7 @@ file. These definitions will be defined mobile first.
 }
 
 .chapter-content__title {
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -3330,7 +3126,7 @@ file. These definitions will be defined mobile first.
 }
 
 .appendix__title {
-    margin-bottom: 16px;
+    margin: 0 0 16px;
     font-size: 1.75em;
 }
 
@@ -3391,6 +3187,11 @@ file. These definitions will be defined mobile first.
     }
 }
 
+.appendix-accordion__header-container {
+    margin: 0;
+    font-size: 1em;
+}
+
 .appendix-accordion__entry-header {
     margin: 0 0 20px 0;
     width: 100%;
@@ -3402,6 +3203,7 @@ file. These definitions will be defined mobile first.
     align-items: center;
     background: none;
     color: inherit;
+    font-size: 1em;
 }
 
 @media (min-width: 900px) {
@@ -3589,6 +3391,7 @@ file. These definitions will be defined mobile first.
 }
 
 .tree-viewer__pup-up-list {
+    margin: 0;
     padding-left: 10px;
     list-style-type: disc;
     list-style-position: inside;
@@ -3693,4 +3496,20 @@ file. These definitions will be defined mobile first.
     background: none;
     color: #15404e;
     font-size: 1.25em;
+}
+
+/* csl */
+.csl-entry {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .9375em;
+    line-height: 1.34em;
+}
+
+.csl-left-margin {
+    margin-right: 0.5em;
+}
+
+.csl-right-inline a {
+    word-break: break-all;
 }
