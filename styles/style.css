@@ -46,48 +46,6 @@ file. These definitions will be defined mobile first.
 @media (min-width:900px) {
     /* || GENERAL styles */
 
-    h1, h2, h3, button {
-        font-size: 100%;
-    }
-
-    h1, h2, h3 {
-        margin-block-start: 0;
-        margin-block-end: 0;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-    }
-
-    ol, ul {
-        padding-inline-start: 0;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-        -webkit-padding-start: 0;
-        list-style: none;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    blockquote {
-        margin-inline-end: 0;
-        margin-inline-start: 0;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-        -webkit-margin-start: 0;
-        -webkit-margin-end: 0;
-    }
-
-    /* || SITE wide */
-    .preload * {
-        -webkit-transition: none !important;
-        -moz-transition: none !important;
-        -ms-transition: none !important;
-        -o-transition: none !important;
-    }
-
     /* Recommended styling for screen readers by webaim.org */
     .sr-only {
         position:absolute;
@@ -245,6 +203,47 @@ file. These definitions will be defined mobile first.
     .video-quality-changer-mobile {
         display: none;
     }
+}
+
+h1, h2, h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+h1, h2, h3, button {
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ol, ul {
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
+    list-style: none;
+}
+
+blockquote {
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
 }
 
 .book-section-non-text-content--fs-polyfill {
