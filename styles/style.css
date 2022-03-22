@@ -21,16 +21,6 @@
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
-ol, ul {
-    padding-inline-start: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-    -webkit-padding-start: 0;
-    list-style: none;
-}
-
 blockquote {
     margin-inline-end: 0;
     margin-inline-start: 0;
@@ -509,6 +499,7 @@ blockquote {
 .nav__section-list {
     height: auto;
     padding-left: 16px;
+    list-style: none;
     overflow: hidden;
     transition: height 1s;
 }
@@ -1051,9 +1042,11 @@ blockquote {
 }
 
 .search-widget__result-list {
+    margin: 0;
     box-sizing: border-box;
     width: 100%;
     padding: 1em;
+    list-style: none;
 }
 
 .search-widget__result-list--header {
@@ -3402,6 +3395,7 @@ blockquote {
 }
 
 .tree-viewer__pup-up-list {
+    margin: 0;
     padding-left: 10px;
     list-style-type: disc;
     list-style-position: inside;
