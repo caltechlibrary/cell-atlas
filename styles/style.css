@@ -21,14 +21,7 @@
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
-h3 {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-}
-
-h3, button {
+button {
     font-size: 100%;
 }
 
