@@ -21,10 +21,6 @@
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
-button {
-    font-size: 100%;
-}
-
 a {
     text-decoration: none;
 }
@@ -300,6 +296,7 @@ blockquote {
     border: none;
     padding: 0;
     background: none;
+    font-size: 1em;
 }
 
 @media (min-width:900px) {
@@ -497,6 +494,7 @@ blockquote {
     border: none;
     padding: 0.75em;
     background: none;
+    font-size: 1em;
 }
 
 .nav__section-list-toggle-icon {
@@ -638,6 +636,7 @@ blockquote {
     box-shadow: 0px 0px 0 2px #fff;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
 }
 
 .main-non-text-container__stop-narration-btn--hidden {
@@ -738,6 +737,7 @@ blockquote {
     border: 1px solid #444;
     border-radius: 10px 10px 0 0;
     background: #cccccc;
+    font-size: 1em;
 }
 
 .media-viewer__tab-btn-vid--selected {
@@ -885,6 +885,7 @@ blockquote {
     border: none;
     border-radius: 10px 0 0 0;
     background: #ffffff87;
+    font-size: 1em;
     z-index: 2;
 }
 
@@ -938,6 +939,7 @@ blockquote {
     border-radius: 100px;
     padding: 0.5em;
     background: none;
+    font-size: 1em;
     opacity: 1;
     transition: border 0.25s, opacity 0.25s, visibility 0.25s;
 }
@@ -1037,6 +1039,7 @@ blockquote {
     height: 1.25em;
     border: none;
     padding: 0.15em;
+    font-size: 1em;
     background: none;
 }
 
@@ -1183,6 +1186,7 @@ blockquote {
     box-shadow: 0px 0px 0 2px #fff;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
 }
 
 .section-text__stop-narration-btn--hidden {
@@ -1256,6 +1260,7 @@ blockquote {
     border: none;
     color: inherit;
     background: inherit;
+    font-size: 1em;
     font-weight: 600;
     white-space: nowrap;
 }
@@ -1295,6 +1300,7 @@ blockquote {
     border: 2px solid #0000;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
     transition: border 0.25s;
 }
 
@@ -1860,6 +1866,7 @@ blockquote {
     border: none;
     padding: 0;
     background: none;
+    font-size: 1em;
 }
 
 @media (min-width: 900px) {
@@ -1946,11 +1953,11 @@ blockquote {
     border: 2px solid #0000;
     padding: 0.4em;
     background: none;
+    font-size: 1em;
     transition: border 0.25s;
 }
 
 @media (min-width:900px) {
-
     .subsection__toggle-narration-btn:hover {
         border: 2px solid #000;
     }
@@ -2726,6 +2733,7 @@ blockquote {
     padding: 0.75em;
     background: none;
     transition: border 0.25s;
+    font-size: 1em;
 }
 
 @media (min-width:900px) {
@@ -3209,6 +3217,7 @@ blockquote {
     align-items: center;
     background: none;
     color: inherit;
+    font-size: 1em;
 }
 
 @media (min-width: 900px) {
