@@ -21,14 +21,14 @@
 - mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
 */
 
-h1, h2, h3 {
+h2, h3 {
     margin-block-start: 0;
     margin-block-end: 0;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
 }
 
-h1, h2, h3, button {
+h2, h3, button {
     font-size: 100%;
 }
 
@@ -1286,6 +1286,11 @@ blockquote {
     }
 }
 
+.section-text__title {
+    margin: 0;
+    font-size: inherit;
+}
+
 .section-text__toggle-narration-btn {
     position: absolute;
     top: 1em;
@@ -1977,8 +1982,7 @@ blockquote {
 }
 
 .subsection__header {
-    margin-top: calc(0.4rem + 2px);
-    margin-right: 1.75em;
+    margin: calc(0.4rem + 2px) 1.75em 0 0;
     line-height: 1;
     font-size: 1.75em;
 }
@@ -3083,6 +3087,7 @@ blockquote {
 }
 
 .chapter-content__title {
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -3134,7 +3139,7 @@ blockquote {
 }
 
 .appendix__title {
-    margin-bottom: 16px;
+    margin: 0 0 16px;
     font-size: 1.75em;
 }
 
