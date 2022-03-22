@@ -80,22 +80,6 @@ blockquote {
         -webkit-text-size-adjust: none;
     }
 
-    /* || APPENDIX styles */
-
-    .csl-entry {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: .9375em;
-    }
-
-    .csl-left-margin {
-        margin-right: 8px;
-    }
-
-    .csl-right-inline a {
-        word-break: break-all;
-    }
-
 }
 
 }

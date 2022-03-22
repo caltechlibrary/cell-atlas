@@ -120,7 +120,7 @@ file. These definitions will be defined mobile first.
         text-decoration: underline;
     }
 
-    .book-text-content, .csl-entry {
+    .book-text-content {
         line-height: 1.34em;
     }
 
@@ -203,17 +203,6 @@ file. These definitions will be defined mobile first.
         text-decoration: none;
         margin: 2em 0;
         padding: 0em 2.5em;
-    }
-
-    /* || REFERENCES styles */
-    .csl-entry {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: .9375em;
-    }
-
-    .csl-left-margin {
-        margin-right: 0.5em;
     }
 
     /* || ABOUT page styles */
@@ -3693,4 +3682,20 @@ file. These definitions will be defined mobile first.
     background: none;
     color: #15404e;
     font-size: 1.25em;
+}
+
+/* csl */
+.csl-entry {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .9375em;
+    line-height: 1.34em;
+}
+
+.csl-left-margin {
+    margin-right: 0.5em;
+}
+
+.csl-right-inline a {
+    word-break: break-all;
 }
