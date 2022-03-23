@@ -10,34 +10,24 @@
             gtag('config', 'G-LHYBMHF2E8');
         </script>
     ${endif}
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover">
     <meta name="description" content="${description}">
     <meta name="author" content="Catherine M. Oikonomou and Grant J. Jensen">
-    ${if(noindex)}
-        <meta name="robots" content="noindex">
-    ${endif}
-    ${if(index)}
-        <title>${title}</title>
+
+    ${if(typeChapter)}
+        <title>${chapter} ${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
+    ${elseif(typeSection)}
+        <title>${if(chapter)}${chapter}${endif}${if(section)}.${section}${endif} ${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
     ${elseif(typeAppendix)}
         <title>${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
     ${else}
-        <title>${if(chapter)}${chapter}${endif}${if(section)}.${section}${endif} ${title} | Atlas of Bacterial and Archaeal Cell Structure</title>
+        <title>${title}</title>
     ${endif}
+
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet"/>
     <link href="styles/style.css" rel="stylesheet">
-    ${if(structuredVidData)}
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "VideoObject",
-                "name": "Putting It All Together",
-                "description": "Microbiology textbook video highlighting Putting It All Together.",
-                "thumbnailUrl": "https://caltechlibrary.github.io/cell-atlas/img/thumbnails/1_10_thumbnail.jpg",
-                "uploadDate": "2021-08-26T00:12:01.000Z",
-                "contentUrl": "https://www.cellstructureatlas.org/videos/1_10_Bbacteriovorus.mp4"
-            }
-        </script>
-    ${endif}
+
 </head>
