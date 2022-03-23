@@ -1,6 +1,8 @@
 ---
 title: Diversity
-graphic: 6_2_1.jpg
+graphic: 
+    img: 6_2_1.jpg
+    alt: ""
 source: "[@murphy2006], [@chen2011], [@zhao2014], [@beeby2016], [@qin2017], [@chaban2018], [@kaplan2019], [@ferreira2019], [@chang2019]"
 ---
 
