@@ -3,6 +3,9 @@ title: Rod
 doi: 10.22002/D1.1478
 species: Cupriavidus necator
 video: 3_2_Cnecator.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['rod-variety', 'archaeal-rods']
 features: ["Cell wall (diderm)", "Division plane", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Vesicles (extracellular)"]

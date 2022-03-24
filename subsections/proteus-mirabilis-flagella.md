@@ -3,6 +3,9 @@ title: Swarming
 species: Proteus mirabilis 
 doi: 10.22002/D1.1540
 video: 6_5a_Pmirabilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Qing Yao
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Type VI secretion systems", "Vesicles (cytoplasmic)"]
 ---

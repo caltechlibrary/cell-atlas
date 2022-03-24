@@ -3,6 +3,9 @@ title: Outer Membrane Constriction
 doi: 10.22002/D1.1513
 species: Caulobacter crescentus
 video: 5_7_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Zhuo Li
 subsections: ['caulobacter-division']
 features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "PopZ", "Ribosomes", "Storage granules", "Surface layer"]

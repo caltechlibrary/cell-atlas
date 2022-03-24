@@ -3,6 +3,9 @@ title: Single Particle Reconstruction
 doi: 10.22002/D1.1470
 species: Salmonella typhimurium
 video: 1_8_Styphimurium.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Susan Lea Lab
 description: An introduction to cryo-EM single particle reconstruction and how it can reveal structures like the MS-ring of the Salmonella typhimurium flagellar motor
 ---

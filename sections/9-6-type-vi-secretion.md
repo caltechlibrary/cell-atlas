@@ -3,6 +3,9 @@ title: Type VI Secretion
 doi: 10.22002/D1.1576
 species: Myxococcus xanthus
 video: 9_6_Mxanthus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 subsections: ['primed-t6ss-structure']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili (Type IV)", "Ribosomes", "Storage granules", "Type VI secretion systems", "Unidentified structures"]

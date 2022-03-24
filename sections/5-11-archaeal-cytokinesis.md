@@ -3,6 +3,9 @@ title: Archaeal Cytokinesis
 doi: 10.22002/D1.1517
 species: Sulfolobus acidocaldarius
 video: 5_11_Sacidocaldarius.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Shrawan Mageswaran
 features: ["Archaella", "Cdv belt", "Division plane", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer"]
 description: Some archaea of the Crenarchaeota phylum like Sulfolobus acidocaldarius use a belt of Cdv cytoskeletal filaments to constrict the cell in cytokinesis

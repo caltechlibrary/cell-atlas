@@ -3,6 +3,9 @@ title: Engulfment
 species: Bacillus subtilis 
 doi: 10.22002/D1.1566
 video: 8_6a_Bsubtilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (monoderm)", "Flagella (external, unsheathed)", "Membrane (monoderm)", "Ribosomes", "Sporulation septum", "Unidentified structures"]
 ---

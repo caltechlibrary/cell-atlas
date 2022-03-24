@@ -3,6 +3,9 @@ title: Ovoid
 species: Sporomusa acidovorans 
 doi: 10.22002/D1.1570
 video: 8_10c_Sacidovorans.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Unidentified structures", "Vesicles (cytoplasmic)"]
 ---

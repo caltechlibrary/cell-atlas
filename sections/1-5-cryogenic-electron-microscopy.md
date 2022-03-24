@@ -3,6 +3,9 @@ title: Cryogenic Electron Microscopy
 doi: 10.22002/D1.1467
 species: Caulobacter crescentus
 video: 1_5_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Steven Wang
 description: A simple introduction to cryo-EM and how it's used to make high-resolution projection images through archaea and bacteria like Caulobacter crescentus
 ---

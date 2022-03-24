@@ -3,6 +3,9 @@ title: Holdfast
 species: Prosthecobacter vanneervenii 
 doi: 10.22002/D1.1564
 video: 8_4a_Pvanneervenii.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Martin Pilhofer
 features: ["Cell wall (diderm)", "Holdfast", "Membrane (inner)", "Membrane (outer)", "Microtubules", "Pili", "Ribosomes", "Storage granules"]
 ---

@@ -3,6 +3,9 @@ title: Variety
 species: Halothiobacillus neapolitanus 
 doi: 10.22002/D1.1500
 video: 4_7a_Hneapolitanus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Cristina Iancu
 features: ["Carboxysomes", "Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules"]
 ---

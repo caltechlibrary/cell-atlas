@@ -3,6 +3,9 @@ title: Archaeal Storage Granules
 doi: 10.22002/D1.1498
 species: Halorubrum litoreum
 video: 4_10_Hlitoreum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 subsections: ['haloferax-gibbonsii-granules', 'halohasta-litchfieldiae-granules']
 features: ["Archaella", "DNA", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer", "Unidentified structures"]

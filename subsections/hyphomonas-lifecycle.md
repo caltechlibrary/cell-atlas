@@ -3,6 +3,9 @@ title: Lifecycle
 species: Hyphomonas neptunium 
 doi: 10.22002/D1.1519
 video: 5_3a_Hneptunium.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Jian Shi
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules"]
 ---

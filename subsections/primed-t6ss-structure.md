@@ -1,6 +1,9 @@
 ---
 title: Loaded T6SS
 video: 9_6_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@chang2017]"
 structure:
     - name: PDB 5URW

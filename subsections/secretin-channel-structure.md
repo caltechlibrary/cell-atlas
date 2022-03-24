@@ -1,6 +1,9 @@
 ---
 title: Secretin channel
 video: 9_4_2.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@yan2017a]"
 structure:
     - name: PDB 5WQ8

@@ -3,6 +3,9 @@ title: Monoderm Sporulation
 doi: 10.22002/D1.1557
 species: Bacillus subtilis
 video: 8_5_Bsubtilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 subsections: ['sporulation-septum-formation']
 features: ["Cell wall (monoderm)", "Chemosensory arrays (membrane-bound)", "Membrane (monoderm)", "Sporulation septum"]

@@ -1,6 +1,9 @@
 ---
 title: Structure
 video: 9_4_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@tachiyama2019]"
 structure:
     - name: EMD-20611

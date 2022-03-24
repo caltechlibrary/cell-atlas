@@ -3,6 +3,9 @@ title: Connections
 species: Halothiobacillus neapolitanus 
 doi: 10.22002/D1.1504
 video: 4_9b_Hneapolitanus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Cristina Iancu
 features: ["Carboxysomes", "Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures"]
 ---

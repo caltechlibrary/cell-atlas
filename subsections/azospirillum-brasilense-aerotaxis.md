@@ -3,6 +3,9 @@ title: Aerotaxis
 species: Azospirillum brasilense 
 doi: 10.22002/D1.1551
 video: 7_4a_Abrasilense.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)"]
 ---

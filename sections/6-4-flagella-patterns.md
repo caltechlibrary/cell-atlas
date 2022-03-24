@@ -3,6 +3,9 @@ title: Flagella Patterns
 doi: 10.22002/D1.1528
 species: Campylobacter jejuni
 video: 6_4_Cjejuni.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['lophotrichous-bacteria']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures"]

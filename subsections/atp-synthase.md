@@ -1,6 +1,9 @@
 ---
 title: ATP Synthase
 video: 2_1_2.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@sobti2016]"
 structure:
     - name: PDB 5T4O

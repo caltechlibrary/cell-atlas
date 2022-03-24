@@ -3,6 +3,9 @@ title: Cell Wall
 doi: 10.22002/D1.1351
 species: Listeria monocytogenes
 video: 2_2_Lmonocytogenes.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 subsections: ['peptidoglycan-architecture', 'archaeal-cell-walls']
 features: ["Cell wall (monoderm)", "Division plane", "Flagella (external, unsheathed)", "Membrane (monoderm)", "Ribosomes", "Unidentified structures", "Vesicles (cytoplasmic)"]

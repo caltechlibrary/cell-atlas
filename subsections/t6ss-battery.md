@@ -3,6 +3,9 @@ title: Battery
 species: Amoebophilus asiaticus 
 doi: 10.22002/D1.1583
 video: 9_7a_Aasiaticus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Martin Pilhofer
 features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Type VI secretion systems", "Unidentified structures", "Vesicles (cytoplasmic)"]
 ---

@@ -3,6 +3,9 @@ title: Flagellar Assembly
 doi: 10.22002/D1.1527
 species: Hylemonella gracilis
 video: 6_3_Hgracilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 subsections: ['flagellar-motor-disassembly']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motor (assembling)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Ribosomes"]

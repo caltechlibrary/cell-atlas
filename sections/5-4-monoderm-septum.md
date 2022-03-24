@@ -3,6 +3,9 @@ title: Monoderm Septum
 doi: 10.22002/D1.1510
 species: Staphylococcus aureus
 video: 5_4_Saureus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Georges Chreifi
 features: ["Cell wall (monoderm)", "Division plane", "Division septum", "Membrane (monoderm)", "Ribosomes"]
 description: In cytokinesis, bacteria like Staphylococcus aureus build a septum of cell wall to divide into two daughter cells

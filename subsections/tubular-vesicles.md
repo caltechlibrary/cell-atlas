@@ -3,6 +3,9 @@ title: Tubular
 species: Borrelia burgdorferi 
 doi: 10.22002/D1.1353
 video: 2_4b_Bburgdorferi.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Cell wall (diderm)", "Flagella (periplasmic)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Vesicles (extracellular)"]
 ---

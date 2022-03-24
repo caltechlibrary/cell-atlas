@@ -3,6 +3,9 @@ title: Cellular Defense
 doi: 10.22002/D1.1595
 species: Shewanella oneidensis
 video: 10_10_Soneidensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Lauren Ann Metskas
 features: ["Flagella (external, unsheathed)", "Phage capsids", "Phage tail fibers", "Phage tails", "Vesicles (extracellular)"]
 description: Bacteria like Shewanella oneidensis may use outer membrane vesicles as decoys to prevent infection by viruses like myophage

@@ -3,6 +3,9 @@ title: Archaeal walls
 species: Methanobacterium formicicum 
 doi: 10.22002/D1.1361
 video: 2_2b_Mformicicum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (monoderm)", "Membrane (monoderm)", "Ribosomes"]
 ---

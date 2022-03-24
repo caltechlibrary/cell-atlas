@@ -1,6 +1,9 @@
 ---
 title: Filament
 video: 6_1_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@wang2017]"
 structure:
     - name: PDB 5WJT

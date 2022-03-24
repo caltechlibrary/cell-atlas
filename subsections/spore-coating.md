@@ -3,6 +3,9 @@ title: Separation
 species: Bacillus subtilis 
 doi: 10.22002/D1.1567
 video: 8_6b_Bsubtilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (monoderm)", "Membrane (monoderm)", "Spore cortex", "Spore membrane (inner)", "Spore membrane (outer)", "Unidentified structures"]
 ---

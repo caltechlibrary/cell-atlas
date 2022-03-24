@@ -3,6 +3,9 @@ title: Bacterial Storage Granules
 doi: 10.22002/D1.1496
 species: Cupriavidus necator
 video: 4_8_Cnecator.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['storage-granule-growth']
 features: ["Cell wall (diderm)", "Division plane", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules"]

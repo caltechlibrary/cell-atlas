@@ -3,6 +3,9 @@ title: Microcompartments
 doi: 10.22002/D1.1494
 species: Acetonema longum
 video: 4_6_Alongum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 subsections: ['microcompartment-shells']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Pdu microcompartments", "Ribosomes", "Unidentified structures", "Vesicles (extracellular)"]

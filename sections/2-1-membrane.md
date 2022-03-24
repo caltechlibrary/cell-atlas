@@ -3,6 +3,9 @@ title: Membrane
 doi: 10.22002/D1.1350
 species: Mycoplasma genitalium
 video: 2_1_Mgenitalium.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Gregory Henderson
 subsections: ['lipid-bilayer', 'atp-synthase', 'ribosome']
 features: ["Adhesion complexes and filaments", "Membrane (monoderm)", "Ribosomes", "Terminal organelles"]

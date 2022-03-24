@@ -3,6 +3,9 @@ title: Motor structure
 species: Bdellovibrio bacteriovorus 
 doi: 10.22002/D1.1537
 video: 6_2a_Bbacteriovorus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 features: ["Cell wall (diderm)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)"]
 ---

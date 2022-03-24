@@ -3,6 +3,9 @@ title: Diderm Cytokinesis
 doi: 10.22002/D1.1512
 species: Idiomarina loihiensis
 video: 5_6_Iloihiensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['sphingopyxis-alaskensis-division']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Vesicles (extracellular)"]

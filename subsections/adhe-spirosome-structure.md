@@ -1,6 +1,9 @@
 ---
 title: Spirosome
 video: 4_4_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@pony2020]"
 structure:
     - name: EMD-10552

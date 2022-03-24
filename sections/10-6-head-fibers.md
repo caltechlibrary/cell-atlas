@@ -3,6 +3,9 @@ title: Head Fibers
 doi: 10.22002/D1.1591
 species: Caulobacter crescentus
 video: 10_6_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elizabeth Wright
 subsections: ['phicb13-infection']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage head fibers", "Phage tails", "Ribosomes", "Surface layer"]

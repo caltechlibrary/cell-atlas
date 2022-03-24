@@ -3,6 +3,9 @@ title: Chemosensory Arrays
 doi: 10.22002/D1.1546
 species: Salmonella typhimurium
 video: 7_2_Styphimurium.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['chemosensory-array-architecture']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]

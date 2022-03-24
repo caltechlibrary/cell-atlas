@@ -3,6 +3,9 @@ title: Asynchronous Constriction
 doi: 10.22002/D1.1515
 species: Cupriavidus necator
 video: 5_9_Cnecator.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['asymmetric-constriction', 'ftsz-structure']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Division plane", "FtsZ filaments", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Unidentified structures"]

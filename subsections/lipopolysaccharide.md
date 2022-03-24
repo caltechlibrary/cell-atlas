@@ -1,6 +1,9 @@
 ---
 title: LPS
 video: 2_3_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@tang2019]"
 strucutre:
     - name: PDB 6S8H

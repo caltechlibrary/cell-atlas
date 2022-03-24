@@ -3,6 +3,9 @@ title: Cytoplasmic
 species: Myxococcus xanthus 
 doi: 10.22002/D1.1364
 video: 2_4c_Mxanthus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Matthew Swulius
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)", "Vesicles (extracellular)"]
 ---

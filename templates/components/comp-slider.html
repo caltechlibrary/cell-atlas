@@ -5,6 +5,7 @@
         <img 
             class="comp-slider__before-img ${if(it.isSection)}comp-slider__before-img--main-section${else}comp-slider__before-img--subsection${endif}"
             src="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_before.jpg"
+            alt="${it.beforeAlt}"
         >
     </picture>
     <div class="comp-slider__after-img-container">
@@ -14,6 +15,7 @@
             <img 
                 class="comp-slider__after-img"
                 src="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_after.jpg"
+                alt="${it.afterAlt}"
             >
         </picture>
     </div>

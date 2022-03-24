@@ -3,6 +3,9 @@ title: Peritrichous Flagella
 doi: 10.22002/D1.1529
 species: Pseudomonas flexibilis
 video: 6_5_Pflexibilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['proteus-mirabilis-flagella']
 features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)", "Vesicles (extracellular)"]

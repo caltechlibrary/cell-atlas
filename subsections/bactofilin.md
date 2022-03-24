@@ -1,6 +1,9 @@
 ---
 title: Bactofilin
 video: 3_6_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@deng2019]"
 structure:
     - name: PDB 6RIB

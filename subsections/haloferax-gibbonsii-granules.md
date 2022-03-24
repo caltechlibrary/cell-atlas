@@ -3,6 +3,9 @@ title: Light
 species: Haloferax gibbonsii 
 doi: 10.22002/D1.1505
 video: 4_10a_Hgibbonsii.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Archaella", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer", "Vesicles (extracellular)"]
 ---

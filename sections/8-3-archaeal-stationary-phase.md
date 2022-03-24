@@ -3,6 +3,9 @@ title: Archaeal Stationary Phase
 doi: 10.22002/D1.1555
 species: Thermococcus kodakaraensis
 video: 8_3_Tkodakaraensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Debnath Ghosal
 features: ["Archaellar cone", "Membrane (monoderm)", "RecA/RadA filaments", "Ribosomes", "Surface layer", "Vesicles (extracellular)"]
 description: In stationary phase, archaea like Thermococcus kodakaraensis protect their DNA with RadA, which forms nucleoprotein filaments and repairs damage

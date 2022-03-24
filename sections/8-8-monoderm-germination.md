@@ -3,6 +3,9 @@ title: Monoderm Germination
 doi: 10.22002/D1.1560
 species: Bacillus subtilis
 video: 8_8_Bsubtilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Spore coat", "Spore cortex", "Spore membrane (inner)", "Spore membrane (outer)"]
 description: Spores of monoderm bacteria like Bacillus subtilis germinate by shedding their protein coat and outer membrane as well as the outer cortex

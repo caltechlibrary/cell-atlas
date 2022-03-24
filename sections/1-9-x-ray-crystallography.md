@@ -3,6 +3,9 @@ title: X-Ray Crystallography
 doi: 10.22002/D1.1471
 species: Helicobacter pylori
 video: 1_9_Hpylori.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Shannon Au Lab
 subsections: ['structural-biology-timeline']
 description: A simple introduction to X-ray crystallography and how it's used to solve high-resolution structures of proteins like those in the Helicobacter pylori flagellum

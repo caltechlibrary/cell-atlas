@@ -3,6 +3,9 @@ title: Transmission Electron Microscopy
 doi: 10.22002/D1.1466
 species: Shewanella oneidensis
 video: 1_4_Soneidensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Mohammed Kaplan
 description: A simple introduction to negative-stain TEM and how it's used to see projection images through archaea and bacteria like Shewanella oneidensis
 ---

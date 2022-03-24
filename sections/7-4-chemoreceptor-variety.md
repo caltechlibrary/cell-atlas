@@ -3,6 +3,9 @@ title: Chemoreceptor Variety
 doi: 10.22002/D1.1548
 species: Vibrio cholerae
 video: 7_4_Vcholerae.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 subsections: ['azospirillum-brasilense-aerotaxis']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motor (disassembled)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]

@@ -3,6 +3,9 @@ title: Differentiation
 doi: 10.22002/D1.1556
 species: Caulobacter crescentus
 video: 8_4_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Zhuo Li
 subsections: ['holdfast']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Division plane", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Surface layer", "Unidentified structures"]

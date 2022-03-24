@@ -2,6 +2,9 @@
 title: CLEM
 species: Caulobacter crescentus
 video: 1_10_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@schlimpert2012]"
 features: ["Stalk bands"]
 ---

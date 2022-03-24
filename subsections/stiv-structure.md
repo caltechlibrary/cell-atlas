@@ -1,6 +1,9 @@
 ---
 title: Structure
 video: 10_8_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@veesler2013]"
 structure:
     - name: PDB 3J31

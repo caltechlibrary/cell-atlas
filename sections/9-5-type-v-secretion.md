@@ -3,6 +3,9 @@ title: Type V Secretion
 doi: 10.22002/D1.1575
 species: Escherichia coli
 video: 9_5_Ecoli.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Poorna Subramanian
 subsections: ['cdi-mechanism']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Type V secretion systems", "Vesicles (cytoplasmic)"]

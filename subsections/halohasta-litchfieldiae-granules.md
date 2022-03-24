@@ -3,6 +3,9 @@ title: Dark
 species: Halohasta litchfieldiae 
 doi: 10.22002/D1.1506
 video: 4_10b_Hlitchfieldiae.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Zhuo Li
 features: ["Archaella", "Division plane", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer", "Unidentified structures"]
 ---

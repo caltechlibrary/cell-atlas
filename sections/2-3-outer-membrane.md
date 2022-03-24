@@ -3,6 +3,9 @@ title: Outer Membrane
 doi: 10.22002/D1.1352
 species: Hydrogenovibrio crunogenus
 video: 2_3_Hcrunogenus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Cristina Iancu
 subsections: ['lipopolysaccharide', 'brauns-lipoprotein', 'diderm-peptidoglycan-architecture', 'cell-wall-remodeling']
 features: ["Cell wall (diderm)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules"]

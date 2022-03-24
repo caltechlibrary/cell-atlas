@@ -1,6 +1,9 @@
 ---
 title: RuBisCO
 video: 4_7_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@oltrogge2020]"
 structure:
     - name: PDB 6UEW

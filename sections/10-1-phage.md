@@ -3,6 +3,9 @@ title: Phage
 doi: 10.22002/D1.1586
 species: Shewanella oneidensis
 video: 10_1_Soneidensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Poorna Subramanian
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage tail fibers", "Phage tails", "Pili (Type IV)", "Ribosomes", "Vesicles (cytoplasmic)"]
 description: Viruses like myophage infect bacterial cells like Shewanella oneidensis. They recognize and dock onto cells using their tail fibers

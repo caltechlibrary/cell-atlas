@@ -3,6 +3,9 @@ title: Budding
 doi: 10.22002/D1.1509
 species: Hyphomonas neptunium
 video: 5_3_Hneptunium.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Jian Shi
 subsections: ['hyphomonas-lifecycle']
 features: ["Cell wall (diderm)", "DNA", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]

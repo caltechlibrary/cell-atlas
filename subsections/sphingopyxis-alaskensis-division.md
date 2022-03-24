@@ -3,6 +3,9 @@ title: Mid-constriction
 species: Sphingopyxis alaskensis 
 doi: 10.22002/D1.1521
 video: 5_6a_Salaskensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 features: ["Cell wall (diderm)", "Division plane", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules"]
 ---

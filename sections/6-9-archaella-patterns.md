@@ -3,6 +3,9 @@ title: Archaella Patterns
 doi: 10.22002/D1.1533
 species: Thermococcus kodakaraensis
 video: 6_9_Tkodakaraensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Archaella", "Archaellar cone", "Membrane (monoderm)", "Ribosomes", "Surface layer", "Unidentified structures"]
 subsections: ['cone-structure', 'organizing-center', 'lophotrichous-halobacteria']

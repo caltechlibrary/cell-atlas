@@ -1,6 +1,9 @@
 ---
 title: Filament structure
 video: 6_8_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@poweleit2016]"
 structure:
     - name: PDB 5TFY

@@ -1,6 +1,9 @@
 ---
 title: Architecture
 video: 2_6_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@bharat2017]"
 structure:
     - name: PDB 5N97

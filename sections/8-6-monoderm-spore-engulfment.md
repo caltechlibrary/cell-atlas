@@ -3,6 +3,9 @@ title: Monoderm Spore Engulfment
 doi: 10.22002/D1.1558
 species: Bacillus subtilis
 video: 8_6_Bsubtilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 subsections: ['spore-engulfment', 'spore-coating']
 features: ["Cell wall (monoderm)", "Membrane (monoderm)", "Sporulation septum"]

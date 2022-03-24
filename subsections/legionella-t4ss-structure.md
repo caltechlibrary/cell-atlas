@@ -1,6 +1,9 @@
 ---
 title: T4SS
 video: 9_3_2.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@ghosal2019a]"
 structure:
     - name: EMD-0566

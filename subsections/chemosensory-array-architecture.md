@@ -1,6 +1,9 @@
 ---
 title: Architecture
 video: 7_2_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@cassidy2020]"
 structure:
     - name: PDB 6S1K

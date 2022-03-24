@@ -3,6 +3,9 @@ title: Organizer
 species: Thermococcus kodakaraensis 
 doi: 10.22002/D1.1543
 video: 6_9b_Tkodakaraensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Archaella", "Archaellar cone", "Chemosensory arrays (membrane-bound)", "Membrane (monoderm)", "Ribosomes", "Surface layer", "Unidentified structures"]
 ---

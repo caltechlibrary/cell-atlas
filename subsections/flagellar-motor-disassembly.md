@@ -3,6 +3,9 @@ title: Disassembly
 species: Pseudomonas aeruginosa 
 doi: 10.22002/D1.1538
 video: 6_3a_Paeruginosa.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagellar motor (disassembled)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)"]
 ---

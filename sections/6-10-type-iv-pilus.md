@@ -3,6 +3,9 @@ title: Type IV Pilus
 doi: 10.22002/D1.1534
 species: Myxococcus xanthus
 video: 6_10_Mxanthus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 subsections: ['type-iv-pilus-structure']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili (Type IV)", "Ribosomes", "Storage granules"]

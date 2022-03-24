@@ -3,6 +3,9 @@ title: Surface Layer
 doi: 10.22002/D1.1355
 species: Caulobacter crescentus
 video: 2_6_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 subsections: ['surface-layer-architecture', 'nanopods']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagellar motor (disassembled)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Surface layer"]

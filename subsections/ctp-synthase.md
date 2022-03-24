@@ -1,6 +1,9 @@
 ---
 title: CTP synthase
 video: 3_4_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@lynch2017]"
 structure:
     - name: PDB 5U3C

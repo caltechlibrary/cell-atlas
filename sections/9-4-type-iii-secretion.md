@@ -3,6 +3,9 @@ title: Type III Secretion
 doi: 10.22002/D1.1574
 species: Pseudomonas aeruginosa
 video: 9_4_Paeruginosa.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Steven Wang
 subsections: ['injectisome-structure', 'secretin-channel-structure']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage tails", "Ribosomes", "Storage granules", "Type III secretion systems", "Vesicles (extracellular)"]

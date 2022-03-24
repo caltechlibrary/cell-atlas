@@ -1,6 +1,9 @@
 ---
 title: Lpp
 video: 2_3_2.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@shu2000]"
 structure:
     - name: PDB 1EQ7

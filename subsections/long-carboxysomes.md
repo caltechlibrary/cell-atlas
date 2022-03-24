@@ -3,6 +3,9 @@ title: Length
 species: Hydrogenovibrio crunogenus 
 doi: 10.22002/D1.1501
 video: 4_7b_Hcrunogenus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Cristina Iancu
 features: ["Carboxysomes", "Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures", "Vesicles (periplasmic)"]
 ---

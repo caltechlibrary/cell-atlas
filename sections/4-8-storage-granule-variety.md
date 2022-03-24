@@ -3,6 +3,9 @@ title: Storage Granule Variety
 doi: 10.22002/D1.1497
 species: Agrobacterium tumefaciens
 video: 4_9_Atumefaciens.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 subsections: ['granule-containing-carboxysomes', 'carboxysome-granule-connections']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)"]

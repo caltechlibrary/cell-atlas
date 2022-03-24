@@ -3,6 +3,9 @@ title: Vibrioid
 doi: 10.22002/D1.1480
 species: Caulobacter crescentus
 video: 3_4_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Prabha Dias
 subsections: ['ctp-synthase']
 features: ["Cell wall (diderm)", "CTP synthase filaments", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Surface layer", "Vesicles (cytoplasmic)"]

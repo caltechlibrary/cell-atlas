@@ -3,6 +3,9 @@ title: Tubes
 species: Helicobacter pylori 
 doi: 10.22002/D1.1582
 video: 9_3a_Hpylori.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Type IV secretion systems", "Unidentified structures"]
 ---

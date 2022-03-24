@@ -3,6 +3,9 @@ title: Type II and Type IV Secretion
 doi: 10.22002/D1.1573
 species: Legionella pneumophila
 video: 9_3_Lpneumophila.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Debnath Ghosal
 subsections: ['legionella-t2ss-structure', 'legionella-t4ss-structure', 'helicobacter-pylori-tubes']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Type II secretion systems", "Type IV secretion systems", "Vesicles (cytoplasmic)"]

@@ -3,6 +3,9 @@ title: Infection
 species: Caulobacter crescentus 
 doi: 10.22002/D1.1596
 video: 10_6a_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elizabeth Wright
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage tails", "Pili", "Ribosomes", "Surface layer", "Vesicles (cytoplasmic)"]
 ---

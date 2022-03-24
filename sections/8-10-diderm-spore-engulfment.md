@@ -3,6 +3,9 @@ title: Diderm Spore Engulfment
 doi: 10.22002/D1.1562
 species: Acetonema longum
 video: 8_10_Alongum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 subsections: ['complete-engulfment', 'mature-spore', 'sporomusa-acidovorans-sporulation']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Spore cortex", "Spore membrane (inner)", "Spore membrane (outer)", "Storage granules"]

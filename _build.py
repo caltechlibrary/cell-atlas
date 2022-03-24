@@ -111,7 +111,7 @@ def getVidPlayerMetadata(fileName):
 
 def getCompSliderMetadata(fileName):
     fileMetadata = getYAMLMetadata(fileName)
-    compSliderMetadata = {}
+    compSliderMetadata = fileMetadata["compSlider"]
     compSliderMetadata["id"] = pathlib.Path(fileName).stem
     compSliderMetadata["imgName"] = fileMetadata["video"].split(".")[0]
     return compSliderMetadata

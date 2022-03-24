@@ -3,6 +3,9 @@ title: Diderm Sporulation
 doi: 10.22002/D1.1561
 species: Acetonema longum
 video: 8_9_Alongum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Pdu microcompartments", "Ribosomes", "Sporulation septum", "Storage granules", "Unidentified structures", "Vesicles (cytoplasmic)"]
 description: Diderm bacteria like Acetonema longum make spores through a specialized division process that starts with formation of a sporulation septum

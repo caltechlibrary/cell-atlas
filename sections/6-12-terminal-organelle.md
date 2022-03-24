@@ -3,6 +3,9 @@ title: Terminal Organelle
 doi: 10.22002/D1.1536
 species: Mycoplasma pneumoniae
 video: 6_12_Mpneumoniae.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Gregory Henderson
 features: ["Adhesion complexes and filaments", "Membrane (monoderm)", "Ribosomes", "Terminal organelles"]
 description: Bacteria like Mycoplasma pneumoniae use an internal terminal organelle and external adhesin proteins to glide across surfaces

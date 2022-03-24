@@ -1,6 +1,9 @@
 ---
 title: Growth
 video: 2_3_3.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@nguyen2015]"
 noSlider: true
 ---

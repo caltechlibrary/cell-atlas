@@ -3,6 +3,9 @@ title: Microtubules
 species: Prosthecobacter vanneervenii 
 doi: 10.22002/D1.1487
 video: 3_6a_Pvanneervenii.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Martin Pilhofer
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Microtubules", "Ribosomes", "Storage granules", "Vesicles (cytoplasmic)", "Vesicles (periplasmic)"]
 ---

@@ -1,6 +1,9 @@
 ---
 title: Photocomplexes
 video: 4_3_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@ma2020]"
 structure:
     - name: PDB 6KGX

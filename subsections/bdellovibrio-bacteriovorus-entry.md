@@ -3,6 +3,9 @@ title: Entry
 species: Bdellovibrio bacteriovorus / Escherichia coli 
 doi: 10.22002/D1.1585
 video: 9_10a_BbacteriovorusEcoli.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 features: ["Cell wall (diderm)", "Flagella (sheathed)", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Pili", "Ribosomes", "Storage granules", "Vesicles (periplasmic)", "Invasion portal"]
 ---

@@ -3,6 +3,9 @@ title: Periplasmic Flagella
 doi: 10.22002/D1.1531
 species: Borrelia burgdorferi
 video: 6_7_Bburgdorferi.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 subsections: ['treponema-primitia']
 features: ["Cell wall (diderm)", "Flagella (periplasmic)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]

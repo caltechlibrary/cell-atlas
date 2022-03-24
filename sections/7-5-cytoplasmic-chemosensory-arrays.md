@@ -3,6 +3,9 @@ title: Cytoplasmic Chemosensory Arrays
 doi: 10.22002/D1.1549
 species: Methanoregula formicica
 video: 7_5_Mformicica.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 subsections: ['vibrio-cholerae-chemosensory-arrays']
 features: ["Chemosensory arrays (cytoplasmic)", "Membrane (monoderm)", "Surface layer", "Unidentified structures"]

@@ -3,6 +3,9 @@ title: Square
 doi: 10.22002/D1.1483
 species: Haloquadratum walsbyi
 video: 3_7_Hwalsbyi.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Zhuo Li
 subsections: ['gas-vesicles']
 features: ["Gas vesicles", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer"," Unidentified structures", "Vesicles (extracellular)"]

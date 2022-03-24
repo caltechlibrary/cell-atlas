@@ -3,6 +3,9 @@ title: Contractile Weapons
 doi: 10.22002/D1.1577
 species: Vibrio cholerae
 video: 9_7_Vcholerae.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Martin Pilhofer
 subsections: ['fired-t6ss-structure', 't6ss-battery', 'macs',  'mac-array-structure']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Type VI secretion systems", "Unidentified structures", "Vesicles (cytoplasmic)"]

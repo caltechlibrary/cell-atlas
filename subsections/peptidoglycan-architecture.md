@@ -3,6 +3,9 @@ title: Wall architecture
 species: Bacillus subtilis 
 doi: 10.22002/D1.1360
 video: 2_2a_Bsubtilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 features: ["Cell wall (monoderm)"]
 ---

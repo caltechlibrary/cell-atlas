@@ -3,6 +3,9 @@ title: Forespore
 species: Acetonema longum 
 doi: 10.22002/D1.1568
 video: 8_10a_Alongum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Spore cortex", "Spore membrane (inner)", "Spore membrane (outer)", "Storage granules"]
 ---

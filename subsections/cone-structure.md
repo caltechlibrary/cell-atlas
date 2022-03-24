@@ -3,6 +3,9 @@ title: Cone
 species: Thermococcus kodakaraensis 
 doi: 10.22002/D1.1542
 video: 6_9a_Tkodakaraensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Archaella", "Archaellar cone", "Chemosensory arrays (membrane-bound)", "DNA", "Membrane (monoderm)", "Ribosomes", "Surface layer", "Unidentified structures"]
 ---

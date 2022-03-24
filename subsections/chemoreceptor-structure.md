@@ -1,6 +1,9 @@
 ---
 title: Chemoreceptor
 video: 7_1_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@park2006]"
 structure:
     - name: PDB 2CH7

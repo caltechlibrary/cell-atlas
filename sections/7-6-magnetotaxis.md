@@ -3,6 +3,9 @@ title: Magnetotaxis
 doi: 10.22002/D1.1550
 species: Magnetospirillum magneticum
 video: 7_6_Mmagneticum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Zhuo Li
 subsections: ['mamk-structure']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Magnetosomes", "MamK filaments", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules"]

@@ -3,6 +3,9 @@ title: Gas vesicles
 species: Halobacterium salinarum 
 doi: 10.22002/D1.1488
 video: 3_7a_Hsalinarum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Archaella", "Gas vesicles", "Membrane (monoderm)", "Ribosomes", "Surface layer"]
 ---

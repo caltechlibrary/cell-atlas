@@ -1,6 +1,9 @@
 ---
 title: Structure
 video: 5_9_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@wagstaff2017]"
 structure:
     - name: PDB 5MN4

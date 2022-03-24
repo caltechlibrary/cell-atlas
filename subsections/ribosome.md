@@ -1,6 +1,9 @@
 ---
 title: Ribosome
 video: 2_1_3.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@kaledhonkar2019]"
 structure:
     - name: PDB 6O9J

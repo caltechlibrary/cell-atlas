@@ -3,6 +3,9 @@ title: Nanopods
 species: Delftia acidovorans 
 doi: 10.22002/D1.1366
 video: 2_6a_Dacidovorans.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Nanopods", "Surface layer"]
 ---

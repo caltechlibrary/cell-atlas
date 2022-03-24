@@ -3,6 +3,9 @@ title: Carboxysomes
 doi: 10.22002/D1.1495
 species: Thiomonas intermedia
 video: 4_7_Tintermedia.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Cristina Iancu
 subsections: ['rubisco', 'carboxysome-variety', 'long-carboxysomes']
 features: ["Carboxysomes", "Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Storage granules", "Surface layer"]

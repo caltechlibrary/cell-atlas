@@ -3,6 +3,9 @@ title: Chemotaxis
 doi: 10.22002/D1.1545
 species: Shewanella oneidensis
 video: 7_1_Soneidensis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Mohammed Kaplan
 subsections: ['chemoreceptor-structure']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Pili", "Ribosomes", "Vesicles (extracellular)"]

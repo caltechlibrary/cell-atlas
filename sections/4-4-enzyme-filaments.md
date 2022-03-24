@@ -3,6 +3,9 @@ title: Enzyme Filaments
 doi: 10.22002/D1.1493
 species: Clostridium thermocellum
 video: 4_5_Cthermocellum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 subsections: ['adhe-spirosome-structure']
 features: ["AdhE spirosomes", "Cell wall (monoderm)", "Membrane (monoderm)", "Ribosomes", "Surface layer"]

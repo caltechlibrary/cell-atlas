@@ -3,6 +3,9 @@ title: Monoderm
 species: Clostridium thermocellum 
 doi: 10.22002/D1.1476
 video: 2_7b_Cthermocellum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: William Nicolas
 features: ["Cell wall (monoderm)", "Membrane (monoderm)", "Pili", "Ribosomes", "Surface layer"]
 ---

@@ -3,6 +3,9 @@ title: Archaellum
 doi: 10.22002/D1.1532
 species: Methanoregula formicica
 video: 6_8_Mformicica.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 subsections: ['archaellum-structure']
 features: ["Archaella", "Membrane (monoderm)", "Pili", "Surface layer", "Unidentified structures"]

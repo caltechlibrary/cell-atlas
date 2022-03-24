@@ -3,6 +3,9 @@ title: Diversity
 species: Halobacterium salinarum 
 doi: 10.22002/D1.1544
 video: 6_9c_Hsalinarum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Archaella", "Membrane (monoderm)", "Ribosomes", "Surface layer", "Vesicles (cytoplasmic)"]
 ---

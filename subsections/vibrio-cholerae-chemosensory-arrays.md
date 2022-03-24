@@ -3,6 +3,9 @@ title: Multiple arrays
 species: Vibrio cholerae 
 doi: 10.22002/D1.1552
 video: 7_5a_Vcholerae.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Cell wall (diderm)", "Chemosensory arrays (cytoplasmic)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Flagellar motor (disassembled)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes"]
 ---

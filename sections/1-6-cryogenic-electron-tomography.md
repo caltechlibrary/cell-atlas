@@ -3,6 +3,9 @@ title: Cryogenic Electron Tomography
 doi: 10.22002/D1.1468
 species: Caulobacter crescentus
 video: 1_6_Ccrescentus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Steven Wang
 subsections: ['missing-wedge']
 description: A simple introduction to cryo-ET and how it can image archaea and bacteria like Caulobacter crescentus at high resolution in 3D

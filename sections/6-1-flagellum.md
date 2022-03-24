@@ -3,6 +3,9 @@ title: Flagellum
 doi: 10.22002/D1.1525
 species: Campylobacter jejuni
 video: 6_1_Cjejuni.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['flagellum-structure']
 features: ["Flagella (external, unsheathed)", "Flagellar motors", "Membrane (outer)"]

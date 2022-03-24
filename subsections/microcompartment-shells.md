@@ -1,6 +1,9 @@
 ---
 title: Shells
 video: 4_5_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@sutter2008]"
 structure:
     - name: PDB 3DKT

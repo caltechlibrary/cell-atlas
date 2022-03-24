@@ -3,6 +3,9 @@ title: Fluorescence Light Microscopy
 doi: 10.22002/D1.1464
 species: Escherichia coli
 video: 1_2_Ecoli.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Howard Berg
 description: A simple introduction to fluorescence light microscopy and how it's used to image components of archaea and bacteria like Escherichia coli flagella
 ---

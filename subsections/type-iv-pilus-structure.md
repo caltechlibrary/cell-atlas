@@ -1,6 +1,9 @@
 ---
 title: Structure
 video: 6_10_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@chang2016]"
 structure:
     - name: EMD-3247

@@ -3,6 +3,9 @@ title: Septum formation
 species: Bacillus subtilis 
 doi: 10.22002/D1.1565
 video: 8_5a_Bsubtilis.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (monoderm)", "Membrane (monoderm)", "Sporulation plane"]
 ---

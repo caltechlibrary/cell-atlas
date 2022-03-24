@@ -3,6 +3,9 @@ title: Virus-Associated Pyramids
 doi: 10.22002/D1.1593
 species: Sulfolobus solfataricus
 video: 10_8_Ssolfataricus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Lu Gan
 subsections: ['stiv-structure']
 features: ["Membrane (monoderm)", "Phage capsids", "Pili", "Storage granules", "Surface layer", "Virus-associated pyramids"]

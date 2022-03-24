@@ -3,6 +3,9 @@ title: Predator Entry
 doi: 10.22002/D1.1580
 species: Bdellovibrio bacteriovorus / Escherichia coli
 video: 9_10_BbacteriovorusEcoli.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 subsections: ['bdellovibrio-bacteriovorus-entry']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (sheathed)", "Membrane (inner)", "Membrane (outer)", "Nucleoid", "Pili", "Ribosomes", "Storage granules", "Unidentified structures", "Vesicles (cytoplasmic)"]

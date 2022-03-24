@@ -1,6 +1,9 @@
 ---
 title: T2SS
 video: 9_3_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@ghosal2019]"
 structure:
     - name: EMD-20712

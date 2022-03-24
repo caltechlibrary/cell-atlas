@@ -1,6 +1,9 @@
 ---
 title: MamK
 video: 7_6_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@bergeron2017]"
 structure:
     - name: PDB 5JYG

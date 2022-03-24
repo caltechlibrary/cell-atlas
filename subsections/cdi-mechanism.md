@@ -1,6 +1,9 @@
 ---
 title: Mechanism
 video: 9_5_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@ruhe2018]"
 noSlider: true
 ---

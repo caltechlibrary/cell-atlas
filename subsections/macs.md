@@ -3,6 +3,9 @@ title: MACs
 species: Pseudoalteromonas luteoviolacea 
 doi: 10.22002/D1.1584
 video: 9_7b_Pluteoviolacea.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Martin Pilhofer
 features: ["MACs", "Unidentified structures"]
 ---

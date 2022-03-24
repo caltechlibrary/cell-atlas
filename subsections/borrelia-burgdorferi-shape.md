@@ -3,6 +3,9 @@ title: Borrelia shape
 species: Borrelia burgdorferi 
 doi: 10.22002/D1.1486
 video: 3_5a_Bburgdorferi.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Ariane Briegel
 features: ["Cell wall (diderm)", "Flagella (periplasmic)", "Flagellar motors", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Unidentified structures"]
 ---

@@ -1,6 +1,9 @@
 ---
 title: Fired T6SS
 video: 9_7_1.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 source: "[@chang2017]"
 structure:
     - name: PDB 5URX

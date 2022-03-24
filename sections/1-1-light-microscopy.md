@@ -3,6 +3,9 @@ title: Light Microscopy
 doi: 10.22002/D1.1463
 species: Staphylococcus aureus
 video: 1_1_Saureus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: David Rogers
 subsections: ['structural-biology-toolkit']
 description: A simple introduction to light microscopy and how it's used to image archaea and bacteria like Staphylococcus aureus

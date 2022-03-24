@@ -3,6 +3,9 @@ title: Contractile Tails
 doi: 10.22002/D1.1587
 species: Bacteroidetes JT5
 video: 10_2_Bacteroidetes.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Phage tail fibers", "Phage tails", "Pili", "Ribosomes", "Storage granules"]
 description: Viruses like myophage use their contractile tails to inject their genomes into bacteria like Bacteroidetes. Not all phage have contractile tails

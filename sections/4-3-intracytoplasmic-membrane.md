@@ -3,6 +3,9 @@ title: Intracytoplasmic Membrane
 doi: 10.22002/D1.1491
 species: Rhodopseudomonas palustris
 video: 4_3_Rpalustris.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Alasdair McDowall
 subsections: ['photocomplexes', 'icm-variety']
 features: ["Cell wall (diderm)", "Intracytoplasmic membrane", "Membrane (inner)", "Membrane (outer)", "Storage granules", ]

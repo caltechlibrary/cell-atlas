@@ -3,6 +3,9 @@ title: Helical
 doi: 10.22002/D1.1481
 species: Campylobacter jejuni
 video: 3_5_Cjejuni.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Morgan Beeby
 subsections: ['borrelia-burgdorferi-shape']
 features: ["Cell wall (diderm)", "Chemosensory arrays (membrane-bound)", "Flagella (external, unsheathed)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures"]

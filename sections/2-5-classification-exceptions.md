@@ -3,6 +3,9 @@ title: Classification Exceptions
 doi: 10.22002/D1.1354
 species: Mycobacterium marinum
 video: 2_5_Mmarinum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Elitza Tocheva
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Ribosomes", "Storage granules", "Unidentified structures"]
 description: Not all bacteria can be classified as Gram-positive or Gram-negative. Mycobacterium marinum have a unique outer membrane and a multi-layered cell wall

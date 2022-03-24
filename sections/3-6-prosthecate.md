@@ -3,6 +3,9 @@ title: Prosthecate
 doi: 10.22002/D1.1482
 species: Verrucomicrobium spinosum
 video: 3_6_Vspinosum.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Martin Pilhofer
 subsections: ['bactofilin', 'bacterial-microtubules']
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Pili", "Storage granules"]

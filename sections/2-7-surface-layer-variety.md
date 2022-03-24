@@ -3,6 +3,9 @@ title: Surface Layer Variety
 doi: 10.22002/D1.1356
 species: Sulfolobus solfataricus
 video: 2_7_Ssolfataricus.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Lu Gan
 subsections: ['methylomicrobium-alcaliphilum', 'clostridium-thermocellum', 'nitrosopumilus-maritimus', 'methanoregula-formicica']
 features: ["Membrane (monoderm)", "Pili", "Storage granules", "Surface layer", "Vesicles (extracellular)"]

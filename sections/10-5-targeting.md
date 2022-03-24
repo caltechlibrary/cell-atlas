@@ -3,6 +3,9 @@ title: Targeting
 doi: 10.22002/D1.1590
 species: Escherichia coli
 video: 10_5_Ecoli.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: Yi-Wei Chang
 features: ["Cell wall (diderm)", "Membrane (inner)", "Membrane (outer)", "Phage capsids", "Pili", "Ribosomes", "Vesicles (cytoplasmic)"]
 description: Viruses like MS2 leviphage target the competence pili of bacteria like Escherichia coli, injecting their genomes into the DNA-conducting channel
