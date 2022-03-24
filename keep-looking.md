@@ -3,6 +3,9 @@ title: Keep Looking
 doi: 10.22002/D1.1789
 species: Escherichia coli
 video: 11_1_Ecoli.mp4
+compSlider:
+    beforeAlt: ""
+    afterAlt: ""
 collector: David Goodsell
 description: Conclusion of the Atlas of Bacterial & Archaeal Cell Structure, reminding us that our knowledge of microbiology is still a work in progress
 ---
