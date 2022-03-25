@@ -22,17 +22,15 @@
 
         <script src="js/script.js"></script>
         <script src="js/NavWidget.js"></script>
+        <script src="js/ProgressBar.js"></script>
+        <script src="js/Footer.js"></script>
         <script src="js/page-controller.js"></script>
         <script src="js/lunr/lunr.min.js"></script>
         ${if(offline)}${else} <script src="js/SearchWidget.js"></script> ${endif}
         ${if(offline)}${else} <script src="js/search.js"></script> ${endif}
         <script src="js/MobileControls.js"></script>
         <script src="js/navShortcuts.js"></script>
-        ${if(typeChapter)}
-          <script src="js/ProgressBar.js"></script>
-          <script src="js/Footer.js"></script>
-          <script src="js/footer-controller.js"></script>
-        ${elseif(typeSection)}
+        ${if(typeSection)}
           <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
           <script src="js/QualitySelector.js"></script>
           <script src="js/VideoPlayer.js"></script>
@@ -45,9 +43,6 @@
           <script src="js/SummaryMenu.js"></script>
           ${if(offline)}${else} <script src="js/bio-pv/bio-pv.min.js"></script> ${endif}
           ${if(offline)}${else} <script src="js/ProteinViewer.js"></script> ${endif}
-          <script src="js/ProgressBar.js"></script>
-          <script src="js/Footer.js"></script>
-          <script src="js/footer-controller.js"></script>
           <script src="js/section-controller.js"></script>
         ${elseif(typeAppendix)}
           <script src="js/AppendixAccordion.js"></script>

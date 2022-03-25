@@ -282,6 +282,17 @@
     }
 }
 
+.page__footer {
+    flex: 0 0 auto;
+    z-index: 1;
+}
+
+@media (max-width:899px) {
+    .page__footer {
+        display: none;
+    }
+}
+
 /* header */
 .header {
     box-sizing: border-box;
@@ -2884,17 +2895,6 @@
 }
 
 /* footer */
-.footer {
-    flex: 0 0 auto;
-    z-index: 1;
-}
-
-@media (max-width:900px) {
-    .footer {
-        display: none;
-    }
-}
-
 .footer__progress-bar {
     transition: transform 0.25s;
 }

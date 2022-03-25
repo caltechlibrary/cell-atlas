@@ -1,7 +1,9 @@
 (function() {
     let navEl = document.querySelector(".nav");
     let navBtn = document.querySelector(".header__nav-btn");
-    let nav;
+    let progressBarEl = document.querySelector(".progress-bar");
+    let footerEl = document.querySelector(".footer");
+    let nav, progressBar, footer;
 
     let PageController = function() {
         let toggleNav = function() {
@@ -47,5 +49,9 @@
     } else {
         window.sessionStorage.setItem("navOpened", false);
     }
+
+    if(progressBarEl) progressBar = ProgressBar(progressBarEl);
+
+    footer = Footer(footerEl);
 
 })();
