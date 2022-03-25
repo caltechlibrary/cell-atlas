@@ -2784,16 +2784,6 @@
 /* progress-bar */
 .progress-bar {
     position: relative;
-    width: 100%;
-    z-index: 1;
-    visibility: inherit;
-    transition: transform 0.25s;
-}
-
-.progress-bar--shelved {
-    transform: translateY(400%);
-    visibility: hidden;
-    transition: transform 0.25s, visibility 0s ease 0.25s;
 }
 
 .progress-bar__progress-bar {
@@ -2891,6 +2881,16 @@
     .footer {
         display: none;
     }
+}
+
+.footer__progress-bar {
+    transition: transform 0.25s;
+}
+
+.footer__progress-bar--shelved {
+    transform: translateY(400%);
+    visibility: hidden;
+    transition: transform 0.25s, visibility 0s ease 0.25s;
 }
 
 .footer__footer {

@@ -5,5 +5,5 @@
 
     if(progressBarEl) progressBar = ProgressBar(progressBarEl);
 
-    footer = Footer(footerEl, progressBar);
+    footer = Footer(footerEl);
 })();

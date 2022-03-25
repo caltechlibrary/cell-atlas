@@ -1,6 +1,7 @@
-let Footer = function(root, progressBar) {
+let Footer = function(root) {
 
     let progressToggle = root.querySelector(".footer__progress-toggle");
+    let progressBar = root.querySelector(".footer__progress-bar");
 
     let init = function() {
         if (typeof(Storage) !== "undefined") {
@@ -14,12 +15,12 @@ let Footer = function(root, progressBar) {
         if(progressToggle.getAttribute("aria-checked") == "false") {
             progressToggle.setAttribute("aria-checked", "true");
             progressToggle.classList.add("footer__progress-toggle--on");
-            progressBar.root.classList.remove("progress-bar--shelved");
+            progressBar.classList.remove("footer__progress-bar--shelved");
             window.sessionStorage.setItem("showProgress", true);
         } else {
             progressToggle.setAttribute("aria-checked", "false");
             progressToggle.classList.remove("footer__progress-toggle--on");
-            progressBar.root.classList.add("progress-bar--shelved");
+            progressBar.classList.add("footer__progress-bar--shelved");
             window.sessionStorage.setItem("showProgress", false);
         }
     };
