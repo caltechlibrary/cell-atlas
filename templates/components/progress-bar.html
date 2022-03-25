@@ -1,5 +1,5 @@
-<div class="progress-bar progress-bar--shelved" data-percent="${it.progPercent}">
-    <div class="progress-bar__progress-bar-container">
+<div class="progress-bar progress-bar--shelved">
+    <div class="progress-bar__progress-bar">
         <progress 
             class="progress-bar__progress-el" 
             value="${it.currentPageNum}" 
@@ -11,21 +11,19 @@
             <span class="progress-bar__chapter-indicator" style="left:${it.progPercent}%"></span>
         ${endfor}
     </div>
-    <div class="progress-bar__label-container">
+    <div 
+        class="progress-bar__current-position-label" 
+        style="left:${it.progPercent}%"
+        tabindex="0"
+    >
+        ${svg/caret.svg()}
         <div 
-            class="progress-bar__current-position-indicator" 
-            style="left:${it.progPercent}%"
-            tabindex="0"
+            class="progress-bar__current-position-popup progress-bar__current-position-popup--hidden"
+            id="progress-tooltip"
+            role="tooltip"
         >
-            ${svg/caret.svg()}
-            <div 
-                class="progress-bar__progress-pop-up progress-bar__progress-pop-up--hidden"
-                id="progress-tooltip"
-                role="tooltip"
-            >
-                <span>${it.displayPercent}%</span>
-                <span>Page ${it.currentPageNum} of ${it.totalPages}</span>
-            </div>
+            <span>${it.displayPercent}%</span>
+            <span>Page ${it.currentPageNum} of ${it.totalPages}</span>
         </div>
     </div>
 </div>

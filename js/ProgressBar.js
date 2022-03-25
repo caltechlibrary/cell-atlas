@@ -1,26 +1,24 @@
 let ProgressBar = function(root) {
 
-    let labelContainer = root.querySelector(".progress-bar__label-container");
-    let progressPopUp = root.querySelector(".progress-bar__progress-pop-up");
-    let positionIndicator = root.querySelector(".progress-bar__current-position-indicator");
+    let currPosLabel = root.querySelector(".progress-bar__current-position-label");
+    let currPosPopUp = root.querySelector(".progress-bar__current-position-popup");
     let hidePopUpTimeout;
 
     let init = function() {
-        let popUpHalfLength = progressPopUp.getBoundingClientRect().width / 2;
-        let positionIndicatorDimensions = positionIndicator.getBoundingClientRect();
-        if(positionIndicatorDimensions.left - popUpHalfLength <= 0) {
-            progressPopUp.classList.add("progress-bar__progress-pop-up--left-aligned");
-        } else if(positionIndicatorDimensions.right + popUpHalfLength >= window.innerWidth) {
-            progressPopUp.classList.add("progress-bar__progress-pop-up--right-aligned");
+        let popUpHalfLength = currPosPopUp.getBoundingClientRect().width / 2;
+        let currPosLabelDimensions = currPosLabel.getBoundingClientRect();
+        if(currPosLabelDimensions.left - popUpHalfLength <= 0) {
+            currPosPopUp.classList.add("progress-bar__current-position-popup--left-aligned");
+        } else if(currPosLabelDimensions.right + popUpHalfLength >= window.innerWidth) {
+            currPosPopUp.classList.add("progress-bar__current-position-popup--right-aligned");
         } else {
-            progressPopUp.style.left = `${root.getAttribute("data-percent")}%`;
-            progressPopUp.classList.add("progress-bar__progress-pop-up--centered");
+            currPosPopUp.classList.add("progress-bar__current-position-popup--centered");
         }
     };
 
     let showPopUp = function() {
         window.clearTimeout(hidePopUpTimeout);
-        progressPopUp.classList.remove("progress-bar__progress-pop-up--hidden");
+        currPosPopUp.classList.remove("progress-bar__current-position-popup--hidden");
         window.addEventListener("keydown", forceClosePopUp);
     };
 
@@ -34,13 +32,13 @@ let ProgressBar = function(root) {
 
     let hidePopUp = function() {
         window.removeEventListener("keydown", forceClosePopUp);
-        progressPopUp.classList.add("progress-bar__progress-pop-up--hidden");
+        currPosPopUp.classList.add("progress-bar__current-position-popup--hidden");
     };
 
-    labelContainer.addEventListener("mouseenter", showPopUp);
-    labelContainer.addEventListener("mouseleave", initHidePopUp);
-    labelContainer.addEventListener("focusin", showPopUp);
-    labelContainer.addEventListener("focusout", hidePopUp);
+    currPosLabel.addEventListener("mouseenter", showPopUp);
+    currPosLabel.addEventListener("mouseleave", initHidePopUp);
+    currPosLabel.addEventListener("focusin", showPopUp);
+    currPosLabel.addEventListener("focusout", hidePopUp);
 
     init();
 
