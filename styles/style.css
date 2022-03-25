@@ -203,96 +203,6 @@
     text-decoration: underline;
 }
 
-/* section */
-.page {
-    margin: 0;
-    padding: 56px 0;
-    font-family: sans-serif;
-    background: #717171;
-}
-
-@media (min-width:480px) {
-    .page {
-        padding: 56px 0 0;
-    }
-}
-
-@media (min-width:900px) {
-    .page {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-        overflow: hidden;
-    }
-}
-
-.page__header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 56px;
-    z-index: 2;
-}
-
-@media (min-width:900px) {
-    .page__header {
-        flex: 0 0 auto;
-        position: static;
-        height: 80px;
-        z-index: 4;
-    }
-}
-
-.page__nav {
-    position: fixed;
-    top: 56px;
-    bottom: 0;
-    left: 0;
-    height: auto;
-    max-height: calc(100vh - 56px);
-    width: 65%;
-    z-index: 101;
-    transition: max-height 0.5s, padding 0.5s, width 0.25s;
-}
-
-@media (min-width:900px) {
-    .page__nav {
-        top: 80px;
-        bottom: initial;
-        max-height: calc(100vh - 80px);
-        width: 21.75em;
-    }
-}
-
-.page__nav--collapsed {
-    max-height: 0px;
-    padding: 0em 0em 0em max(0.75em, env(safe-area-inset-left));
-    visibility: hidden;
-    transition: max-height 0.5s, padding 0.5s, visibility 0s 0.5s;
-}
-
-@media (min-width:900px) {
-    .page__content-container {
-        flex: 1;
-        min-height: 0;
-        position: relative;
-        overflow: hidden;
-    }
-}
-
-.page__footer {
-    flex: 0 0 auto;
-    z-index: 1;
-}
-
-@media (max-width:899px) {
-    .page__footer {
-        display: none;
-    }
-}
-
 /* header */
 .header {
     box-sizing: border-box;
@@ -2637,27 +2547,11 @@
 
 /* mobile-controls */
 .mobile-controls {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     box-sizing: border-box;
-    height: 56px;
-    width: 100%;
     padding: 8px 16px;
     display: flex;
     align-items: center;
     background: #505050;
-    z-index: 2;
-}
-
-@media (orientation: landscape) {
-    .mobile-controls--relative-landscape {
-        position: relative;
-    }
-}
-
-.mobile-controls--hidden {
-    display: none;
 }
 
 .mobile-controls__nav {
@@ -2692,12 +2586,6 @@
 
 .mobile-controls__btn svg {
     vertical-align: middle;
-}
-
-@media (min-width:900px) {
-    .mobile-controls {
-        display: none;
-    }
 }
 
 /* narration-player */
@@ -3524,4 +3412,119 @@
 
 .csl-right-inline a {
     word-break: break-all;
+}
+
+/* section */
+.page {
+    margin: 0;
+    padding: 56px 0;
+    font-family: sans-serif;
+    background: #717171;
+}
+
+@media (min-width:480px) {
+    .page {
+        padding: 56px 0 0;
+    }
+}
+
+@media (min-width:900px) {
+    .page {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
+.page__header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    z-index: 2;
+}
+
+@media (min-width:900px) {
+    .page__header {
+        flex: 0 0 auto;
+        position: static;
+        height: 80px;
+        z-index: 4;
+    }
+}
+
+.page__nav {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    max-height: calc(100vh - 56px);
+    width: 65%;
+    z-index: 101;
+    transition: max-height 0.5s, padding 0.5s, width 0.25s;
+}
+
+@media (min-width:900px) {
+    .page__nav {
+        top: 80px;
+        bottom: initial;
+        max-height: calc(100vh - 80px);
+        width: 21.75em;
+    }
+}
+
+.page__nav--collapsed {
+    max-height: 0px;
+    padding: 0em 0em 0em max(0.75em, env(safe-area-inset-left));
+    visibility: hidden;
+    transition: max-height 0.5s, padding 0.5s, visibility 0s 0.5s;
+}
+
+@media (min-width:900px) {
+    .page__content-container {
+        flex: 1;
+        min-height: 0;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.page__mobile-controls {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 56px;
+    width: 100%;
+    z-index: 2;
+}
+
+@media (orientation: landscape) {
+    .page__mobile-controls--relative-landscape {
+        position: relative;
+    }
+}
+
+.page__mobile-controls--hidden {
+    display: none;
+}
+
+@media (min-width:900px) {
+    .page__mobile-controls {
+        display: none;
+    }
+}
+
+.page__footer {
+    flex: 0 0 auto;
+    z-index: 1;
+}
+
+@media (max-width:899px) {
+    .page__footer {
+        display: none;
+    }
 }

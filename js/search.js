@@ -18,12 +18,12 @@
             let chapterList = document.querySelector(".nav__chapter-list");
             navMenu.classList.add("nav--searching");
             chapterList.classList.add("nav__chapter-list--searching");
-            mobileControlsEl.classList.add("mobile-controls--hidden");
+            mobileControlsEl.classList.add("page__mobile-controls--hidden");
         };
 
         let handleNavSearchBarBlur = function(event) {
             if(searchWidgetNavMenu.searchBarInput.value.length == 0) exitNavSearch();
-            mobileControlsEl.classList.remove("mobile-controls--hidden");
+            mobileControlsEl.classList.remove("page__mobile-controls--hidden");
         };
 
         let exitNavSearch = function() {
@@ -31,7 +31,7 @@
             let chapterList = document.querySelector(".nav__chapter-list");
             navMenu.classList.remove("nav--searching");
             chapterList.classList.remove("nav__chapter-list--searching");
-            mobileControlsEl.classList.remove("mobile-controls--hidden");
+            mobileControlsEl.classList.remove("page__mobile-controls--hidden");
         };
 
         return {
