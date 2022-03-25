@@ -2784,21 +2784,10 @@
 /* progress-bar */
 .progress-bar {
     position: relative;
-    width: 100%;
-    z-index: 1;
-    visibility: inherit;
-    transition: transform 0.25s;
 }
 
-.progress-bar--shelved {
-    transform: translateY(400%);
-    visibility: hidden;
-    transition: transform 0.25s, visibility 0s ease 0.25s;
-}
-
-.progress-bar__progress-bar-container {
+.progress-bar__progress-bar {
     position: relative;
-    width: 100%;
     overflow: hidden;
 }
 
@@ -2833,23 +2822,24 @@
     box-shadow: 0 0 10px 1px #000;
 }
 
-.progress-bar__current-position-indicator {
+.progress-bar__current-position-label {
     position: absolute;
-    top: -11px;
-    transform: translateX(-50%);
+    top: 0;
+    transform: translate(-50%, -100%);
     width: 0.7em;
     height: 0.7em;
     filter: drop-shadow(0px 0px 3px #000);
     fill: #ccc;
 }
 
-.progress-bar__current-position-indicator svg {
+.progress-bar__current-position-label svg {
     display: block;
 }
 
-.progress-bar__progress-pop-up {
+.progress-bar__current-position-popup {
     position: absolute;
-    bottom: 16px;
+    top: 0;
+    transform: translateY(-110%);
     border: 1px solid #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 2px #8f8f8f;
@@ -2865,32 +2855,43 @@
     white-space: nowrap;
 }
 
-.progress-bar__progress-pop-up--left-aligned {
+.progress-bar__current-position-popup--left-aligned {
     left: 0;
 }
 
-.progress-bar__progress-pop-up--centered {
+.progress-bar__current-position-popup--centered {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -110%);
 }
 
-.progress-bar__progress-pop-up--right-aligned {
+.progress-bar__current-position-popup--right-aligned {
     right: 0;
 }
 
-.progress-bar__progress-pop-up--hidden {
+.progress-bar__current-position-popup--hidden {
     visibility: hidden;
 }
 
 /* footer */
 .footer {
     flex: 0 0 auto;
+    z-index: 1;
 }
 
 @media (max-width:900px) {
     .footer {
         display: none;
     }
+}
+
+.footer__progress-bar {
+    transition: transform 0.25s;
+}
+
+.footer__progress-bar--shelved {
+    transform: translateY(400%);
+    visibility: hidden;
+    transition: transform 0.25s, visibility 0s ease 0.25s;
 }
 
 .footer__footer {
