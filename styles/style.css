@@ -308,10 +308,6 @@
     overflow-y: scroll;
 }
 
-.nav--searching {
-    width: 85%;
-}
-
 .nav__chapter-list {
     padding-inline-start: 0;
     margin-block-start: 0;
@@ -3475,6 +3471,10 @@
         max-height: calc(100vh - 80px);
         width: 21.75em;
     }
+}
+
+.page__nav--searching {
+    width: 85%;
 }
 
 .page__nav--collapsed {
