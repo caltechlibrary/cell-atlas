@@ -1,5 +1,5 @@
 --- 
-title: Introduction
+title: Intro
 doi: 10.22002/D1.1462
 species: Campylobacter jejuni
 video: 0_1_Cjejuni.mp4
