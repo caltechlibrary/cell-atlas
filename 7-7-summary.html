@@ -27,7 +27,7 @@
 
     </head>
     <body class="page preload">
-        <header class="header">
+        <header class="header page__header">
             <button class="header__nav-btn" aria-label="Open navigation">
                 <span class="header__nav-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         	<g stroke-linejoin="round" stroke-width="1.5689">
@@ -68,7 +68,7 @@
                 <img class="header__logo header__logo--mobile" alt="Atlas of Bacterial and Archaeal Cell Structure home" src="img/MinimalLogoAInverted.png">
                 <img class="header__logo header__logo--desktop" alt="Atlas of Bacterial and Archaeal Cell Structure home" src="img/AtlasLogoInvertedLong.svg">
             </a>
-        </header>        <nav class="nav nav--collapsed" aria-label="Main Navigation">
+        </header>        <nav class="nav page__nav page__nav--collapsed" aria-label="Main Navigation">
                       <div class="search-widget search-widget--nav-menu">
                      
                      <div id="search-bar-nav" class="search-widget__search-bar ">
@@ -1170,7 +1170,7 @@
                       </div>
                   </div>
 
-        <div class="mobile-controls mobile-controls--relative-landscape">
+        <div class="mobile-controls page__mobile-controls page__mobile-controls--relative-landscape">
                     <a class="mobile-controls__nav mobile-controls__nav--prev" href="7-6-magnetotaxis.html" aria-label="Previous section"><svg version="1.1" viewBox="0 0 16 32" xmlns="http://www.w3.org/2000/svg">
         	<g>
         		<path d="M 15.25,1.5 H 8 L 0.75,16 8,30.5 h 7.25 L 8,16 15.25,1.5"/>
@@ -1192,7 +1192,7 @@
         		<path d="M 0.75,1.5 H 8 L 15.25,16 8,30.5 H 0.75 L 8,16 0.75,1.5"/>
         	</g>
         </svg></a>
-            </div>        <div class="footer">
+            </div>        <div class="footer page__footer">
                        <div class="progress-bar footer__progress-bar footer__progress-bar--shelved">
                       <div class="progress-bar__progress-bar">
                           <progress 
@@ -1244,13 +1244,14 @@
                               </footer>
                   </div>
         <script src="js/script.js"></script>
+        <script src="js/navShortcuts.js"></script>
         <script src="js/NavWidget.js"></script>
-        <script src="js/nav-controller.js"></script>
+        <script src="js/ProgressBar.js"></script>
+        <script src="js/Footer.js"></script>
         <script src="js/lunr/lunr.min.js"></script>
          <script src="js/SearchWidget.js"></script> 
-         <script src="js/search.js"></script> 
         <script src="js/MobileControls.js"></script>
-        <script src="js/navShortcuts.js"></script>
+        <script src="js/page-controller.js"></script>
                   <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
           <script src="js/QualitySelector.js"></script>
           <script src="js/VideoPlayer.js"></script>
@@ -1263,9 +1264,6 @@
           <script src="js/SummaryMenu.js"></script>
            <script src="js/bio-pv/bio-pv.min.js"></script> 
            <script src="js/ProteinViewer.js"></script> 
-          <script src="js/ProgressBar.js"></script>
-          <script src="js/Footer.js"></script>
-          <script src="js/footer-controller.js"></script>
           <script src="js/section-controller.js"></script>
             </body>
 
