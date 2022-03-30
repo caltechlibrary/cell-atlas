@@ -1400,7 +1400,7 @@
     z-index: 2;
 }
 
-.vjs-workinghover .vjs-menu-button-popup.vjs-hover.vjs-quality-changer .vjs-quality-value-wrapper {
+.video-js .vjs-quality-changer.vjs-hover .vjs-quality-value-wrapper {
     box-shadow: 0px 0px 0px 2px #fff;
     background: #363636;
 }

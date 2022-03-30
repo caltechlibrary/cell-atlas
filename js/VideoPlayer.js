@@ -39,17 +39,26 @@ let VideoPlayer = function(root) {
             videoPlayer.src((vidQuality == "480") ? src480 : src1080);
 
             // Add quality switcher
-            let qualityChanger = videoPlayer.controlBar.addChild("QualityChanger", {
+            videoPlayer.qualityChanger = videoPlayer.controlBar.addChild("QualityChanger", {
                 qualities: [
                     { quality: "1080", src: src1080 },
                     { quality: "480", src: src480 },
                 ]
             }, 13);
-            videoPlayer.qualityChanger = qualityChanger;
         }
     };
 
+    let onPlay = function() {
+        if(window.innerWidth < 900) videoPlayer.requestFullscreen();
+    };
+
+    let onFullscreenchange = function() {
+        if(window.innerWidth < 900 && !videoPlayer.isFullscreen()) videoPlayer.pause();
+    };
+
     init();
+    videoPlayer.on("play", onPlay);
+    videoPlayer.on("fullscreenchange", onFullscreenchange);
 
     return videoPlayer;
 };
