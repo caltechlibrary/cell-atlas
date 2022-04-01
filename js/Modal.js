@@ -6,18 +6,26 @@ let Modal = function(root, onOpenCallback = function(){},  onCloseCallback = fun
     let lastFocused;
 
     let show = function() {
-        lastFocused = document.activeElement;
-        let firstFocusable = focusableEls[(window.innerWidth < 900) ? 0 : 1];
-        
+        lastFocused = document.activeElement;        
         root.classList.remove("modal--hidden");
-        firstFocusable.focus();
+        focusableEls[(window.innerWidth < 900) ? 0 : 1].focus();
         document.addEventListener("keydown", onOpenModalKeyDown);
 
         onOpenCallback();
     };
 
     let onOpenModalKeyDown = function(event) {
-        if(event.key == "Escape") hide();
+        if(event.key == "Escape") {
+            hide();
+        } else if(event.key == "Tab") {
+            if(!root.contains(event.target) || (event.target == focusableEls[focusableEls.length - 1] && !event.shiftKey)) {
+                focusableEls[window.innerWidth < 900 ? 0 : 1].focus();
+                event.preventDefault();
+            } else if(event.target == focusableEls[window.innerWidth < 900 ? 0 : 1] && event.shiftKey) {
+                focusableEls[focusableEls.length - 1].focus();
+                event.preventDefault();
+            }
+        }
     };
 
     let hide = function() {
@@ -32,19 +40,7 @@ let Modal = function(root, onOpenCallback = function(){},  onCloseCallback = fun
         if(!modalContainer.contains(event.target)) hide();
     };
 
-    let onRootKeydown = function(event) {
-        if(event.key != "Tab") return;
-        if(event.target == focusableEls[focusableEls.length - 1] && !event.shiftKey) {
-            focusableEls[window.innerWidth < 900 ? 0 : 1].focus();
-            event.preventDefault();
-        } else if(event.target == focusableEls[window.innerWidth < 900 ? 0 : 1] && event.shiftKey) {
-            focusableEls[focusableEls.length - 1].focus();
-            event.preventDefault();
-        }
-    };
-
     root.addEventListener("click", onRootClick);
-    root.addEventListener("keydown", onRootKeydown);
     exitBtn.addEventListener("click", hide);
 
     return {
