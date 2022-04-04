@@ -11,12 +11,14 @@ let Subsection = function(root, onNarrationOpenCallback = function(){},  onNarra
             showIcon.classList.add("subsection__toggle-narration-btn-icon--hidden");
             hideIcon.classList.remove("subsection__toggle-narration-btn-icon--hidden");
             narrationToggleBtn.classList.add("subsection__toggle-narration-btn--activated");
+            narrationToggleBtn.setAttribute("aria-label", "Close narration player");
             onNarrationOpenCallback(narrationPlayerEl);
         } else {
             narrationPlayerEl.classList.add("narration-player--hidden");
             showIcon.classList.remove("subsection__toggle-narration-btn-icon--hidden");
             hideIcon.classList.add("subsection__toggle-narration-btn-icon--hidden");
             narrationToggleBtn.classList.remove("subsection__toggle-narration-btn--activated");
+            narrationToggleBtn.setAttribute("aria-label", "Open narration player");
             onNarrationCloseCallback(narrationPlayerEl);
         }
     };
