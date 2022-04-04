@@ -1,6 +1,6 @@
 <div id="${it.id}" class="modal modal--hidden ${if(it.template.treeViewerFsConfirm)}modal--tree-viewer-fs-confirm${endif}" role="dialog" ${if(it.title)}aria-labelledby="${it.title}-header"${else}aria-label="${it.label}"${endif} aria-modal="true">
     <div class="modal__modal-container ${if(it.template.feedback)}modal__modal-container--feedback${endif}">
-        <button class="modal__exit-btn">
+        <button class="modal__exit-btn" aria-label="Close">
             <div class="modal__exit-btn-icon">${svg/x.svg()}</div>
         </button>
 
