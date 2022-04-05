@@ -1623,7 +1623,7 @@
 .comp-slider__slider-btn-arrow {
     margin: 0px -5px;
     width: 55%;
-    display: flex;
+    height: 55%;
     fill: #ccc;
 }
 
