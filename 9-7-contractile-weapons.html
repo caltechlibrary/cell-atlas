@@ -1050,7 +1050,7 @@
                                       >
                                   </picture>
                               </div>
-                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                               <div class="comp-slider__slider">
                                   <div class="comp-slider__slider-btn">
                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1112,7 +1112,7 @@
                       	</g>
                       </svg></a>
 
-                          <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
+                          <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop" aria-label="Pause narration">
                               <div class="main-non-text-container__stop-narration-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       	<g>
                       		<g transform="translate(1.9998 1)">
@@ -1156,11 +1156,42 @@
                           </div>
                           <div class="section-text__main-container ">
                               <div class="section-text__text-container">
+                                  <button class="section-text__toggle-narration-btn " aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-main">
+                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      	<g>
+                      		<g transform="translate(1.9998 1)">
+                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                      					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                      					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                      				</g>
+                      			</g>
+                      		</g>
+                      	</g>
+                      </svg></div>
+                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      	<g>
+                      		<g transform="translate(1.9998 1)">
+                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                      					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                      						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                      						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                      					</g>
+                      				</g>
+                      			</g>
+                      		</g>
+                      	</g>
+                      </svg></div>
+                                  </button>
                                   <div
                                       id="narrationPlayer-main"
                                       class="narration-player narration-player--hidden narration-player--section-text narration-player--light-theme"
                                       data-src="9-7-contractile-weapons.mp3"
-                                      tabindex="0"
                                       
                                   >
                                       <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -1198,38 +1229,6 @@
                                       <div class="section-text__header-divider"></div>
                                       <h1 class="section-text__title">Contractile Weapons</h1>
                                   </div>
-                                  <button class="section-text__toggle-narration-btn " aria-label="Open narration player">
-                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      	<g>
-                      		<g transform="translate(1.9998 1)">
-                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                      					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                      					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                      				</g>
-                      			</g>
-                      		</g>
-                      	</g>
-                      </svg></div>
-                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      	<g>
-                      		<g transform="translate(1.9998 1)">
-                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                      					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                      						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                      						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                      					</g>
-                      				</g>
-                      			</g>
-                      		</g>
-                      	</g>
-                      </svg></div>
-                                  </button>
                                   <div class="section-text__content" tabindex="0">
                                       <p>
                                       When the T6SS fires, the helical outer sheath twists into a shorter, wider form, a conformational change that provides the energy to explosively propel the inner dart, cargo-first, out and into its target (⇩). In some species, like this <em>Vibrio cholerae</em>, the outer sheath will then be recycled, broken down into building blocks that can be used to rapidly assemble a new machine. Other species build again from scratch, translating new protein building blocks. Warfare is dynamic, with cells rapidly assembling and firing T6SSs. Cells have even been observed to engage in T6SS duels, with an attacked cell building and firing a T6SS back in the direction from which it was hit. (You can see fluorescence microscopy of these duels on <a href="https://youtu.be/nP4Ou2eoq4c">YouTube</a>.) Some species assemble batteries of parallel T6SSs (⇩).
@@ -1267,9 +1266,9 @@
                                   </div>
                                   </div>
                       </div>
-                          <div id="fired-t6ss-structure" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Fired T6SS-header" aria-modal="true">
+                          <div id="fired-t6ss-structure" class="modal modal--hidden " role="dialog" aria-labelledby="Fired T6SS-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -1343,7 +1342,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1491,11 +1490,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-fired-t6ss-structure">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-fired-t6ss-structure"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="fired-t6ss-structure.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -1528,38 +1558,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Fired T6SS-header" class="subsection__header">Fired T6SS</h3>
                                                           <div class="subsection__text-content">
@@ -1572,9 +1570,9 @@
                                               </div>                
                               </div>
                           </div>
-                          <div id="t6ss-battery" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Battery-header" aria-modal="true">
+                          <div id="t6ss-battery" class="modal modal--hidden " role="dialog" aria-labelledby="Battery-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -1648,7 +1646,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1727,11 +1725,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-t6ss-battery">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-t6ss-battery"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="t6ss-battery.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -1764,38 +1793,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Battery-header" class="subsection__header">Battery</h3>
                                                           <div class="subsection__text-content">
@@ -1808,9 +1805,9 @@
                                               </div>                
                               </div>
                           </div>
-                          <div id="macs" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="MACs-header" aria-modal="true">
+                          <div id="macs" class="modal modal--hidden " role="dialog" aria-labelledby="MACs-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -1884,7 +1881,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1963,11 +1960,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-macs">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-macs"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="macs.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -2000,38 +2028,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="MACs-header" class="subsection__header">MACs</h3>
                                                           <div class="subsection__text-content">
@@ -2047,9 +2043,9 @@
                                               </div>                
                               </div>
                           </div>
-                          <div id="mac-array-structure" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Arrays-header" aria-modal="true">
+                          <div id="mac-array-structure" class="modal modal--hidden " role="dialog" aria-labelledby="Arrays-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -2123,7 +2119,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -2196,11 +2192,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-mac-array-structure">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-mac-array-structure"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="mac-array-structure.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -2233,38 +2260,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Arrays-header" class="subsection__header">Arrays</h3>
                                                           <div class="subsection__text-content">

@@ -104,7 +104,26 @@ let MediaViewer = function(root, mediaSwitchCallback = function(){}, resizeCallb
     let displayFixedEnlarged = function() {
         mediaContainer.classList.add("media-viewer__media-container--fixed-enlarged");
         positionFixedEnlargedSlider();
+        mediaContainer.setAttribute("role", "dialog");
+        mediaContainer.setAttribute("aria-label", "Media container");
+        mediaContainer.setAttribute("aria-modal", "true");
+        window.addEventListener("keydown", onFixedEnlargedKeydown);
         window.addEventListener("resize", positionFixedEnlargedSlider);
+    };
+
+    let onFixedEnlargedKeydown = function(event) {
+        let visibleMediaComponent = mediaContainer.querySelector(".media-viewer__media-component:not(.media-viewer__media-component--hidden)");
+        let focusableEls = visibleMediaComponent.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
+        
+        if(event.key == "Tab") {
+            if(!mediaContainer.contains(event.target) || focusableEls.length == 0 || (event.target == focusableEls[0] && event.shiftKey)) {
+                fullscreenBtn.focus();
+                event.preventDefault();
+            } else if(event.target == fullscreenBtn && !event.shiftKey) {
+                focusableEls[0].focus();
+                event.preventDefault();
+            }
+        }
     };
 
     let positionFixedEnlargedSlider = function() {
@@ -123,8 +142,12 @@ let MediaViewer = function(root, mediaSwitchCallback = function(){}, resizeCallb
     };
 
     let minimizeFixedEnlarged = function() {
-        mediaContainer.classList.remove("media-viewer__media-container--fixed-enlarged");
         mediaContainer.removeAttribute("style");
+        mediaContainer.classList.remove("media-viewer__media-container--fixed-enlarged");
+        mediaContainer.removeAttribute("role");
+        mediaContainer.removeAttribute("aria-label");
+        mediaContainer.removeAttribute("aria-modal");
+        window.removeEventListener("keydown", onFixedEnlargedKeydown);
         window.removeEventListener("resize", positionFixedEnlargedSlider);
     };
 

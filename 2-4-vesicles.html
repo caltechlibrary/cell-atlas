@@ -1050,7 +1050,7 @@
                                       >
                                   </picture>
                               </div>
-                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                               <div class="comp-slider__slider">
                                   <div class="comp-slider__slider-btn">
                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1112,7 +1112,7 @@
                       	</g>
                       </svg></a>
 
-                          <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop">
+                          <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop" aria-label="Pause narration">
                               <div class="main-non-text-container__stop-narration-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                       	<g>
                       		<g transform="translate(1.9998 1)">
@@ -1156,11 +1156,42 @@
                           </div>
                           <div class="section-text__main-container ">
                               <div class="section-text__text-container">
+                                  <button class="section-text__toggle-narration-btn " aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-main">
+                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      	<g>
+                      		<g transform="translate(1.9998 1)">
+                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                      					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                      					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                      				</g>
+                      			</g>
+                      		</g>
+                      	</g>
+                      </svg></div>
+                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      	<g>
+                      		<g transform="translate(1.9998 1)">
+                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                      					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                      						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                      						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                      					</g>
+                      				</g>
+                      			</g>
+                      		</g>
+                      	</g>
+                      </svg></div>
+                                  </button>
                                   <div
                                       id="narrationPlayer-main"
                                       class="narration-player narration-player--hidden narration-player--section-text narration-player--light-theme"
                                       data-src="2-4-vesicles.mp3"
-                                      tabindex="0"
                                       
                                   >
                                       <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -1198,38 +1229,6 @@
                                       <div class="section-text__header-divider"></div>
                                       <h1 class="section-text__title">Vesicles</h1>
                                   </div>
-                                  <button class="section-text__toggle-narration-btn " aria-label="Open narration player">
-                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      	<g>
-                      		<g transform="translate(1.9998 1)">
-                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                      					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                      					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                      				</g>
-                      			</g>
-                      		</g>
-                      	</g>
-                      </svg></div>
-                                      <div class="section-text__toggle-narration-btn-icon section-text__toggle-narration-btn-icon--hidden section-text__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                      	<g>
-                      		<g transform="translate(1.9998 1)">
-                      			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                      				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                      					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                      					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                      					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                      						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                      						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                      					</g>
-                      				</g>
-                      			</g>
-                      		</g>
-                      	</g>
-                      </svg></div>
-                                  </button>
                                   <div class="section-text__content" tabindex="0">
                                       <p>
                                       What else can your cell do with an extra membrane? Since membranes make such excellent containers for molecules, why not get into the shipping business? In the coming chapters (especially Chapter 9), you will see some of the ways that cells interact with each other and their environment. For diderm bacteria, many of these interactions are made possible by outer membrane <strong>vesicles</strong> (“little bladders”)–self-contained pockets budded off the membrane. The vesicles may carry cargo of antibiotics to inhibit competitors’ growth, or toxins to lyse neighboring cells, or enzymes to digest those lysed remains into nutrients that your cell can use. Alternatively, they may carry emergency kits, first aid and survival factors for other members of a biofilm community. The appearance of these vesicles can vary as much as their contents (⇩). They are usually spherical, though, of a fairly consistent size, and often come off the cell at one or a few sites, forming chains, as you can see in this <em>Myxococcus xanthus</em>.
@@ -1268,9 +1267,9 @@
                                   </div>
                                   </div>
                       </div>
-                          <div id="pearled-vesicles" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Pearled-header" aria-modal="true">
+                          <div id="pearled-vesicles" class="modal modal--hidden " role="dialog" aria-labelledby="Pearled-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -1344,7 +1343,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1423,11 +1422,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-pearled-vesicles">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-pearled-vesicles"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="pearled-vesicles.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -1460,38 +1490,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Pearled-header" class="subsection__header">Pearled</h3>
                                                           <div class="subsection__text-content">
@@ -1504,9 +1502,9 @@
                                               </div>                
                               </div>
                           </div>
-                          <div id="tubular-vesicles" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Tubular-header" aria-modal="true">
+                          <div id="tubular-vesicles" class="modal modal--hidden " role="dialog" aria-labelledby="Tubular-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -1580,7 +1578,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1659,11 +1657,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-tubular-vesicles">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-tubular-vesicles"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="tubular-vesicles.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -1696,38 +1725,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Tubular-header" class="subsection__header">Tubular</h3>
                                                           <div class="subsection__text-content">
@@ -1740,9 +1737,9 @@
                                               </div>                
                               </div>
                           </div>
-                          <div id="cytoplasmic-vesicles" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Cytoplasmic-header" aria-modal="true">
+                          <div id="cytoplasmic-vesicles" class="modal modal--hidden " role="dialog" aria-labelledby="Cytoplasmic-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -1816,7 +1813,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -1895,11 +1892,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-cytoplasmic-vesicles">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-cytoplasmic-vesicles"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="cytoplasmic-vesicles.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -1932,38 +1960,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Cytoplasmic-header" class="subsection__header">Cytoplasmic</h3>
                                                           <div class="subsection__text-content">
@@ -1976,9 +1972,9 @@
                                               </div>                
                               </div>
                           </div>
-                          <div id="cytoplasmic-vesicle-variety" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Variety-header" aria-modal="true">
+                          <div id="cytoplasmic-vesicle-variety" class="modal modal--hidden " role="dialog" aria-labelledby="Variety-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -2052,7 +2048,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -2131,11 +2127,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-cytoplasmic-vesicle-variety">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-cytoplasmic-vesicle-variety"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="cytoplasmic-vesicle-variety.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -2168,38 +2195,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Variety-header" class="subsection__header">Variety</h3>
                                                           <div class="subsection__text-content">
@@ -2215,9 +2210,9 @@
                                               </div>                
                               </div>
                           </div>
-                          <div id="archaeal-vesicles" class="modal modal--hidden " tabindex="-1" role="dialog" aria-labelledby="Archaeal-header" aria-modal="true">
+                          <div id="archaeal-vesicles" class="modal modal--hidden " role="dialog" aria-labelledby="Archaeal-header" aria-modal="true">
                               <div class="modal__modal-container ">
-                                  <button class="modal__exit-btn">
+                                  <button class="modal__exit-btn" aria-label="Close">
                                       <div class="modal__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                           	<g>
                           		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
@@ -2291,7 +2286,7 @@
                                                                       >
                                                                   </picture>
                                                               </div>
-                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100">
+                                                              <input class="comp-slider__input comp-slider__input--sr-only" type="range" value="50" max="100" aria-label="Image comparison overlay percentage">
                                                               <div class="comp-slider__slider">
                                                                   <div class="comp-slider__slider-btn">
                                                                       <div class="comp-slider__slider-btn-arrow"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -2370,11 +2365,42 @@
                                                           
 
                                                   <div class="subsection__content-container" tabindex="-1">
+                                                      <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-archaeal-vesicles">
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
+                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                              	<g>
+                                              		<g transform="translate(1.9998 1)">
+                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
+                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
+                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
+                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
+                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
+                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
+                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
+                                              					</g>
+                                              				</g>
+                                              			</g>
+                                              		</g>
+                                              	</g>
+                                              </svg></div>
+                                                      </button>
                                                       <div
                                                           id="narrationPlayer-archaeal-vesicles"
                                                           class="narration-player narration-player--hidden "
                                                           data-src="archaeal-vesicles.mp3"
-                                                          tabindex="0"
                                                           
                                                       >
                                                           <button class="narration-player__playback-btn" aria-label="Play" disabled>
@@ -2407,38 +2433,6 @@
                                                               Your browser doesn't support HTML5 audio.
                                                           </audio>
                                                       </div>
-                                                      <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" fill="none" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<path d="m25.051 11.978a3.0227 3.0227 0 012.9802 3.0224 3.0227 3.0227 0 01-2.9804 3.0224" stroke-width=".86363"/>
-                                              					<path d="m27.236 9.7628a5.6973 5.6973 0 013.4548 5.2374 5.6973 5.6973 0 01-3.454 5.2371" stroke-width=".86363"/>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                          <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                              	<g>
-                                              		<g transform="translate(1.9998 1)">
-                                              			<g transform="matrix(1.1579 0 0 1.1579 -2.2106 -2.3685)">
-                                              				<g transform="matrix(1.2631 0 0 1.2631 -12.817 -3.9462)" stroke-linejoin="round">
-                                              					<rect x="11.841" y="10.682" width="4.3182" height="8.6363" stroke-width="1.0001"/>
-                                              					<path d="m18.339 10.272v9.4557l5.1413 3.4384v-16.332z" stroke-width=".9405"/>
-                                              					<g transform="matrix(-.57143 .57143 -.57143 -.57143 57.369 3.2339)" stroke-width=".79179">
-                                              						<rect x="35.591" y="10.897" width=".68375" height="8.8888"/>
-                                              						<rect transform="rotate(90)" x="15" y="-40.377" width=".68375" height="8.8888"/>
-                                              					</g>
-                                              				</g>
-                                              			</g>
-                                              		</g>
-                                              	</g>
-                                              </svg></div>
-                                                      </button>
                                                       <div class="subsection__text-container">
                                                           <h3 id="Archaeal-header" class="subsection__header">Archaeal</h3>
                                                           <div class="subsection__text-content">
