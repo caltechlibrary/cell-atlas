@@ -1,7 +1,5 @@
 let SearchWidget = function(root) {
 
-    let openBtn = root.querySelector(".search-widget__open-btn");
-    let searchBar = root.querySelector(".search-widget__search-bar");
     let searchBarInput = root.querySelector(".search-widget__search-bar-input");
     let searchExitBtn = root.querySelector(".search-widget__exit-btn");
     let resultList = root.querySelector(".search-widget__result-list");
@@ -38,7 +36,7 @@ let SearchWidget = function(root) {
         if(searchBarInput.value.trim().length != 0) {
             searchTimeout = setTimeout(querySearchBarInput, 250);
         } else {
-            resetSearch();
+            clearResultsList();
         }
     };
 
@@ -66,15 +64,6 @@ let SearchWidget = function(root) {
                 resultList.appendChild(resultEntrySeparatorEl);
             }
         }
-        resultList.classList.remove("search-widget__result-list--hidden");
-        if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
-    };
-
-    let resetSearch = function() {
-        searchBarInput.value = "";
-        clearResultsList();
-        resultList.classList.add("search-widget__result-list--hidden");
-        searchBar.classList.remove("search-widget__search-bar--results-showing-header");
     };
 
     let clearResultsList = function() {
@@ -214,32 +203,11 @@ let SearchWidget = function(root) {
         return metadataEntryEl;
     };
 
-    let openSearchBar = function() {
-        openBtn.classList.add("search-widget__open-btn--hidden");
-        searchBar.classList.remove("search-widget__search-bar--hidden");
-        openBtn.setAttribute("aria-expanded", "true");
-        searchBarInput.disabled = false;
-        window.addEventListener("click", autoCloseSearchWidget);
-    };
-
-    let autoCloseSearchWidget = function(event) {
-        if(!root.contains(event.target)) closeSearchWidget();
-    };
-
-    let closeSearchWidget = function() {
-        window.removeEventListener("click", autoCloseSearchWidget);
-        searchBarInput.disabled = true;
-        resultList.classList.add("search-widget__result-list--hidden");
-        searchBar.classList.remove("search-widget__search-bar--results-showing-header");
-        openBtn.classList.remove("search-widget__open-btn--hidden");
-        searchBar.classList.add("search-widget__search-bar--hidden");
-        openBtn.setAttribute("aria-expanded", "false");
-    };
-
-    let handleSearchBarInputFocus = function() {
-        if(searchBarInput.value.trim().length != 0 && resultList.childElementCount > 0) {
+    let showResultList = function() {
+        if(searchBarInput.value.trim().length != 0) {
             resultList.classList.remove("search-widget__result-list--hidden");
-            if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
+        } else {
+            resultList.classList.add("search-widget__result-list--hidden");
         }
     };
 
@@ -249,19 +217,18 @@ let SearchWidget = function(root) {
 
     let onSearchExitBtnClick = function() {
         searchExitBtn.classList.add("search-widget__exit-btn--hidden");
-        resetSearch();
+        resultList.classList.add("search-widget__result-list--hidden");
+        searchBarInput.value = "";
+        clearResultsList();
     };
 
-    if(openBtn) openBtn.addEventListener("click", openSearchBar);
-    searchBarInput.addEventListener("focus", handleSearchBarInputFocus);
-    if(searchExitBtn) {
-        searchBarInput.addEventListener("focus", autoShowSearchExitBtn);
-        searchExitBtn.addEventListener("click", onSearchExitBtnClick);
-    }
+    searchBarInput.addEventListener("focus", init, { once: true });
+    searchBarInput.addEventListener("input", showResultList);
+    searchBarInput.addEventListener("focus", autoShowSearchExitBtn);
+    searchExitBtn.addEventListener("click", onSearchExitBtnClick);
 
     return {
         root,
-        openBtn,
         searchBarInput,
         searchExitBtn,
         init

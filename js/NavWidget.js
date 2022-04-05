@@ -1,5 +1,8 @@
 let NavWidget = function(root) {
     
+    let searchBarInput = root.querySelector(".nav__search-bar-input");
+    let searchExitBtn = root.querySelector(".nav__exit-btn");
+    let chapterList = root.querySelector(".nav__chapter-list");
     let sectionListToggles = root.querySelectorAll(".nav__section-list-toggle");
 
     let init = function() {
@@ -18,6 +21,18 @@ let NavWidget = function(root) {
                 currSectionListToggle.setAttribute("aria-expanded", "true");
             }
         }
+    };
+
+    let handleSearchInputFocus = function() {
+        chapterList.classList.add("nav__chapter-list--searching");
+    };
+
+    let handleSearchInputBlur = function() {
+        if(searchBarInput.value.length == 0) exitSearch();
+    };
+
+    let exitSearch = function() {
+        chapterList.classList.remove("nav__chapter-list--searching");
     };
 
     let toggleSectionList = function(event) {
@@ -64,6 +79,9 @@ let NavWidget = function(root) {
     };
 
     init();
+    searchBarInput.addEventListener("focus", handleSearchInputFocus);
+    searchBarInput.addEventListener("blur", handleSearchInputBlur);
+    searchExitBtn.addEventListener("click", exitSearch);
     for(let sectionListToggle of sectionListToggles) sectionListToggle.addEventListener("click", toggleSectionList);
 
     return {

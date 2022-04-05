@@ -1,17 +1,10 @@
-<div class="search-widget ${if(it.nav)}search-widget--nav-menu${else}search-widget--header${endif}">
-    ${if(it.nav)}${else}
-        <button class="search-widget__open-btn" aria-label="Open search" aria-controls="search-bar${if(it.nav)}-nav${else}-header${endif}" aria-expanded="false">
-            <div class="search-widget__search-icon search-widget__search-icon--header">${svg/search.svg()}</div>
+<div class="search-widget ${if(it.nav)}nav__search-widget${else}header__search-widget${endif}">
+    <div class="search-widget__search-bar ${if(it.nav)}nav__search-bar${else}header__search-bar${endif}">
+        <div class="search-widget__search-icon ${if(it.nav)}nav__search-icon${else}header__search-icon${endif}">${svg/search.svg()}</div>
+        <input class="search-widget__search-bar-input ${if(it.nav)}nav__search-bar-input${else}header__search-bar-input${endif}" type="search" placeholder="Search..." aria-label="Search...">
+        <button class="search-widget__exit-btn search-widget__exit-btn--hidden ${if(it.nav)}nav__exit-btn${else}header__exit-btn${endif}" aria-label="Exit Search">
+            <div class="search-widget__exit-btn-icon">${svg/x.svg()}</div>
         </button>
-    ${endif}
-    <div id="search-bar${if(it.nav)}-nav${else}-header${endif}" class="search-widget__search-bar ${if(it.nav)}${else}search-widget__search-bar--header search-widget__search-bar--hidden${endif}">
-        <div class="search-widget__search-icon search-widget__search-icon--search-bar ${if(it.nav)}search-widget__search-icon--nav-menu${else}search-widget__search-icon--header${endif}">${svg/search.svg()}</div>
-        <input class="search-widget__search-bar-input ${if(it.nav)}search-widget__search-bar-input--nav-menu${else}search-widget__search-bar-input--header${endif}" type="search" placeholder="Search..." aria-label="Search..." ${if(it.nav)}${else}disabled${endif}>
-        ${if(it.nav)}
-            <button class="search-widget__exit-btn search-widget__exit-btn--hidden" aria-label="Exit Search">
-                <div class="search-widget__exit-btn-icon">${svg/x.svg()}</div>
-            </button>
-        ${endif}
     </div>
-    <ol class="search-widget__result-list ${if(it.nav)}search-widget__result-list--nav-menu${else}search-widget__result-list--header${endif} search-widget__result-list--hidden"></ol>
+    <ol class="search-widget__result-list search-widget__result-list--hidden ${if(it.nav)}nav__result-list${else}header__result-list header__result-list--hidden${endif}"></ol>
 </div>

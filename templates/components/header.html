@@ -2,7 +2,16 @@
     <button class="header__nav-btn" aria-label="Open navigation">
         <span class="header__nav-icon">${svg/hamburger.svg()}</span>
     </button>
-    ${if(offline)}${else} ${components/search-widget.html()} ${endif}
+    ${if(offline)}${else} 
+        <div class="header__search-container">
+            <button class="header__open-search-btn" aria-label="Open search" aria-controls="header-search-container" aria-expanded="false">
+                <div class="header__open-search-btn-icon">${svg/search.svg()}</div>
+            </button>
+            <div id="header-search-widget-container" class="header__search-widget-container header__search-widget-container--hidden">
+                ${components/search-widget.html()} 
+            </div>
+        </div>
+    ${endif}
     <span class="header__title">${chapter}${if(section)}.${section}${endif} ${title}</span>
     <a class="header__home-link" href="index.html">
         <img class="header__logo header__logo--mobile" alt="Atlas of Bacterial and Archaeal Cell Structure home" src="img/MinimalLogoAInverted.png">
