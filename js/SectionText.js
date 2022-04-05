@@ -16,13 +16,13 @@ let SectionText = function(root, narrationPlayer) {
             showIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
             hideIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
             narrationToggleBtn.classList.add("section-text__toggle-narration-btn--activated");
-            narrationToggleBtn.setAttribute("aria-label", "Close narration player");
+            narrationToggleBtn.setAttribute("aria-expanded", "true");
         } else {
             narrationPlayer.root.classList.add("narration-player--hidden");
             showIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
             hideIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
             narrationToggleBtn.classList.remove("section-text__toggle-narration-btn--activated");
-            narrationToggleBtn.setAttribute("aria-label", "Open narration player");
+            narrationToggleBtn.setAttribute("aria-expanded", "false");
             if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
         }
     };
