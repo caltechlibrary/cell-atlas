@@ -37,6 +37,7 @@ let SearchWidget = function(root) {
             searchTimeout = setTimeout(querySearchBarInput, 250);
         } else {
             clearResultsList();
+            resultList.classList.add("search-widget__result-list--hidden");
         }
     };
 
@@ -64,6 +65,7 @@ let SearchWidget = function(root) {
                 resultList.appendChild(resultEntrySeparatorEl);
             }
         }
+        resultList.classList.remove("search-widget__result-list--hidden");
     };
 
     let clearResultsList = function() {
@@ -203,14 +205,6 @@ let SearchWidget = function(root) {
         return metadataEntryEl;
     };
 
-    let showResultList = function() {
-        if(searchBarInput.value.trim().length != 0) {
-            resultList.classList.remove("search-widget__result-list--hidden");
-        } else {
-            resultList.classList.add("search-widget__result-list--hidden");
-        }
-    };
-
     let autoShowSearchExitBtn = function() {
         searchExitBtn.classList.remove("search-widget__exit-btn--hidden");
     };
@@ -223,15 +217,7 @@ let SearchWidget = function(root) {
     };
 
     searchBarInput.addEventListener("focus", init, { once: true });
-    searchBarInput.addEventListener("input", showResultList);
     searchBarInput.addEventListener("focus", autoShowSearchExitBtn);
     searchExitBtn.addEventListener("click", onSearchExitBtnClick);
-
-    return {
-        root,
-        searchBarInput,
-        searchExitBtn,
-        init
-    }
 
 };
