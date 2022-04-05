@@ -1,4 +1,4 @@
-<div class="search-widget ${if(it.nav)}nav__search-widget${else}header__search-widget${endif}">
+<div id="${if(it.nav)}nav${else}header${endif}-search-widget" class="search-widget ${if(it.nav)}nav__search-widget${else}header__search-widget header__search-widget--hidden${endif}">
     <div class="search-widget__search-bar ${if(it.nav)}nav__search-bar${else}header__search-bar${endif}">
         <div class="search-widget__search-icon ${if(it.nav)}nav__search-icon${else}header__search-icon${endif}">${svg/search.svg()}</div>
         <input class="search-widget__search-bar-input ${if(it.nav)}nav__search-bar-input${else}header__search-bar-input${endif}" type="search" placeholder="Search..." aria-label="Search...">

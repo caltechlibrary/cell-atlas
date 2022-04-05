@@ -1,13 +1,13 @@
 let Header = function(root) {
 
     let openSearchBtn = root.querySelector(".header__open-search-btn");
-    let searchWidgetContainer = root.querySelector(".header__search-widget-container");
+    let searchWidget = root.querySelector(".header__search-widget");
     let searchBarInput = root.querySelector(".header__search-bar-input");
     let searchResultList = root.querySelector(".header__result-list")
 
-    let openSearchWidgetContainer = function() {
+    let openSearchWidget = function() {
         openSearchBtn.classList.add("header__open-search-btn--hidden");
-        searchWidgetContainer.classList.remove("header__search-widget-container--hidden");
+        searchWidget.classList.remove("header__search-widget--hidden");
         openSearchBtn.setAttribute("aria-expanded", "true");
         window.addEventListener("click", autoCloseSearchWidget);
     };
@@ -20,7 +20,7 @@ let Header = function(root) {
         window.removeEventListener("click", autoCloseSearchWidget);
         openSearchBtn.setAttribute("aria-expanded", "false");
         searchResultList.classList.add("header__result-list--hidden");
-        searchWidgetContainer.classList.add("header__search-widget-container--hidden");
+        searchWidget.classList.add("header__search-widget--hidden");
         openSearchBtn.classList.remove("header__open-search-btn--hidden");
     };
 
@@ -28,7 +28,7 @@ let Header = function(root) {
         searchResultList.classList.remove("header__result-list--hidden");
     };
 
-    openSearchBtn.addEventListener("click", openSearchWidgetContainer);
+    openSearchBtn.addEventListener("click", openSearchWidget);
     searchBarInput.addEventListener("focus", showSearchResults);
 
     return {

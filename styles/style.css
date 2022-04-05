@@ -299,20 +299,17 @@
     fill: #fff;
 }
 
-.header__search-widget-container {
+.header__search-widget {
+    position: relative;
     width: 45em;
     max-width: 100%;
     transition: width 0.75s;
 }
 
-.header__search-widget-container--hidden {
+.header__search-widget--hidden {
     width: 3em;
     visibility: hidden;
     transition: width 0.75s, visibility 0s 0.75s;
-}
-
-.header__search-widget {
-    position: relative;
 }
 
 .header__search-bar {
