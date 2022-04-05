@@ -2,11 +2,10 @@
     let headerEl = document.querySelector(".header");
     let navEl = document.querySelector(".nav");
     let navBtn = document.querySelector(".header__nav-btn");
-    let searchWidgetHeaderEl = document.querySelector(".header__search-widget");
-    let searchWidgetNavMenuEl = document.querySelector(".nav__search-widget");
+    let searchWidgetEls = document.querySelectorAll(".search-widget");
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
-    let header, nav, searchWidgetHeader, searchWidgetNavMenu, progressBar, footer;
+    let header, nav, progressBar, footer;
 
     let PageController = function() {
         let toggleNav = function() {
@@ -33,29 +32,26 @@
             if(event.code == "Escape") toggleNav();
         };
 
-        let handleNavSearchBarFocus = function(event) {
+        let searchInputFocusCallback = function(event) {
             let mobileControlsEl = document.querySelector(".page__mobile-controls");
             nav.root.classList.add("page__nav--searching");
             mobileControlsEl.classList.add("page__mobile-controls--hidden");
         };
 
-        let handleNavSearchBarBlur = function(event) {
+        let searchInputBlurCallback = function(event) {
             let mobileControlsEl = document.querySelector(".page__mobile-controls");
-            if(searchWidgetNavMenu.searchBarInput.value.length == 0) exitNavSearch();
             mobileControlsEl.classList.remove("page__mobile-controls--hidden");
         };
 
-        let exitNavSearch = function() {
-            let mobileControlsEl = document.querySelector(".page__mobile-controls");
+        let searchExitCallback = function() {
             nav.root.classList.remove("page__nav--searching");
-            mobileControlsEl.classList.remove("page__mobile-controls--hidden");
         };
 
         return {
             toggleNav,
-            handleNavSearchBarFocus,
-            handleNavSearchBarBlur,
-            exitNavSearch
+            searchInputFocusCallback,
+            searchInputBlurCallback,
+            searchExitCallback
         };
     };
 
@@ -63,7 +59,7 @@
 
     header = Header(headerEl);
 
-    nav = NavWidget(navEl);
+    nav = NavWidget(navEl, pageController.searchInputFocusCallback, pageController.searchInputBlurCallback, pageController.searchExitCallback);
     navBtn.addEventListener("click", pageController.toggleNav);
     if(
         document.querySelector("[aria-current='page']") &&
@@ -76,11 +72,7 @@
         window.sessionStorage.setItem("navOpened", false);
     }
 
-    searchWidgetHeader = SearchWidget(searchWidgetHeaderEl);
-    searchWidgetNavMenu = SearchWidget(searchWidgetNavMenuEl);
-    searchWidgetNavMenu.searchBarInput.addEventListener("focus", pageController.handleNavSearchBarFocus);
-    searchWidgetNavMenu.searchBarInput.addEventListener("blur", pageController.handleNavSearchBarBlur);
-    searchWidgetNavMenu.searchExitBtn.addEventListener("click", pageController.exitNavSearch);
+    for(let searchWidgetEl of searchWidgetEls) SearchWidget(searchWidgetEl);
 
     if(progressBarEl) progressBar = ProgressBar(progressBarEl);
 

@@ -1,4 +1,4 @@
-let NavWidget = function(root) {
+let NavWidget = function(root, onSearchInputFocusCallback = function(){}, onSearchInputBlurCallback = function(){}, onSearchExitCallback = function(){}) {
     
     let searchBarInput = root.querySelector(".nav__search-bar-input");
     let searchExitBtn = root.querySelector(".nav__exit-btn");
@@ -25,14 +25,17 @@ let NavWidget = function(root) {
 
     let handleSearchInputFocus = function() {
         chapterList.classList.add("nav__chapter-list--searching");
+        onSearchInputFocusCallback();
     };
 
     let handleSearchInputBlur = function() {
         if(searchBarInput.value.length == 0) exitSearch();
+        onSearchInputBlurCallback();
     };
 
     let exitSearch = function() {
         chapterList.classList.remove("nav__chapter-list--searching");
+        onSearchExitCallback();
     };
 
     let toggleSectionList = function(event) {
