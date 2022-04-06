@@ -5,15 +5,16 @@ let SearchWidget = function(root) {
     let resultList = root.querySelector(".search-widget__result-list");
     let maxResults = 15;
     let maxResultChars = 150;
+    let initialized = false;
     let searchData, index, searchTimeout;
 
     let init = function() {
         fetch("searchData.json")
             .then(function(res) { return res.json() })
-            .then(function(data) { initSearchFunctionality(data) });
+            .then(createSearchData);
     };
 
-    let initSearchFunctionality = function(data) {
+    let createSearchData = function(data) {
         searchData = data;
         index = lunr(function() {
             this.ref("id");
@@ -27,18 +28,17 @@ let SearchWidget = function(root) {
             this.searchPipeline.remove(lunr.stemmer);
             for(let doc in data) this.add(data[doc]);
         });
-
-        searchBarInput.addEventListener("input", onSearchBarInput);
+        initialized = true;
     };
 
     let onSearchBarInput = function() {
-        clearTimeout(searchTimeout);
-        if(searchBarInput.value.trim().length != 0) {
-            searchTimeout = setTimeout(querySearchBarInput, 250);
-        } else {
-            clearResultsList();
-            resultList.classList.add("search-widget__result-list--hidden");
-            root.classList.remove("search-widget--showing-results");
+        if(initialized) {
+            clearTimeout(searchTimeout);
+            if(searchBarInput.value.trim().length != 0) {
+                searchTimeout = setTimeout(querySearchBarInput, 250);
+            } else {
+                resetResultList();
+            }
         }
     };
 
@@ -68,6 +68,12 @@ let SearchWidget = function(root) {
         }
         resultList.classList.remove("search-widget__result-list--hidden");
         root.classList.add("search-widget--showing-results");
+    };
+
+    let resetResultList = function() {
+        clearResultsList();
+        resultList.classList.add("search-widget__result-list--hidden");
+        root.classList.remove("search-widget--showing-results");
     };
 
     let clearResultsList = function() {
@@ -212,14 +218,13 @@ let SearchWidget = function(root) {
     };
 
     let onSearchExitBtnClick = function() {
+        resetResultList();
         searchExitBtn.classList.add("search-widget__exit-btn--hidden");
-        resultList.classList.add("search-widget__result-list--hidden");
-        root.classList.remove("search-widget--showing-results");
         searchBarInput.value = "";
-        clearResultsList();
     };
 
     searchBarInput.addEventListener("focus", init, { once: true });
+    searchBarInput.addEventListener("input", onSearchBarInput);
     searchBarInput.addEventListener("focus", autoShowSearchExitBtn);
     searchExitBtn.addEventListener("click", onSearchExitBtnClick);
 
