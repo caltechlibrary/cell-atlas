@@ -317,6 +317,10 @@
     padding: 0.5em;
 }
 
+.header__search-widget--active.search-widget--showing-results .header__search-bar {
+    border-radius: 16px 16px 0 0;
+}
+
 .header__search-icon {
     width: 1.75em;
     height: 1.75em;

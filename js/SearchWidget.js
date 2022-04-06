@@ -38,6 +38,7 @@ let SearchWidget = function(root) {
         } else {
             clearResultsList();
             resultList.classList.add("search-widget__result-list--hidden");
+            root.classList.remove("search-widget--showing-results");
         }
     };
 
@@ -66,6 +67,7 @@ let SearchWidget = function(root) {
             }
         }
         resultList.classList.remove("search-widget__result-list--hidden");
+        root.classList.add("search-widget--showing-results");
     };
 
     let clearResultsList = function() {
@@ -212,6 +214,7 @@ let SearchWidget = function(root) {
     let onSearchExitBtnClick = function() {
         searchExitBtn.classList.add("search-widget__exit-btn--hidden");
         resultList.classList.add("search-widget__result-list--hidden");
+        root.classList.remove("search-widget--showing-results");
         searchBarInput.value = "";
         clearResultsList();
     };

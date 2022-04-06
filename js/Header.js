@@ -20,16 +20,18 @@ let Header = function(root) {
         window.removeEventListener("click", autoCloseSearchWidget);
         openSearchBtn.setAttribute("aria-expanded", "false");
         searchResultList.classList.add("header__result-list--hidden");
+        searchWidget.classList.remove("header__search-widget--active");
         searchWidget.classList.add("header__search-widget--hidden");
         openSearchBtn.classList.remove("header__open-search-btn--hidden");
     };
 
-    let showSearchResults = function() {
+    let onSearchInputFocus = function() {
+        searchWidget.classList.add("header__search-widget--active");
         searchResultList.classList.remove("header__result-list--hidden");
     };
 
     openSearchBtn.addEventListener("click", openSearchWidget);
-    searchBarInput.addEventListener("focus", showSearchResults);
+    searchBarInput.addEventListener("focus", onSearchInputFocus);
 
     return {
         root
