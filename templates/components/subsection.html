@@ -14,11 +14,11 @@
     ${endif}
 
     <div class="subsection__content-container" tabindex="-1">
-        ${it.narration:components/narration-player.html()}
-        <button class="subsection__toggle-narration-btn" aria-label="Open narration player">
+        <button class="subsection__toggle-narration-btn" aria-label="Narration player" aria-expanded="false" aria-controls="narrationPlayer-${it.id}">
             <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-show-icon">${svg/sound.svg()}</div>
             <div class="subsection__toggle-narration-btn-icon subsection__toggle-narration-btn-icon--hidden subsection__toggle-narration-btn-hide-icon">${svg/mute.svg()}</div>
         </button>
+        ${it.narration:components/narration-player.html()}
         <div class="subsection__text-container">
             <h3 id="${it.title}-header" class="subsection__header">${it.title}</h3>
             <div class="subsection__text-content">

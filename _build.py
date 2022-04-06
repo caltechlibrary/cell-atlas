@@ -265,6 +265,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
         for subsectionFileName in metadata["subsections"]:
             subsectionData = getYAMLMetadata(f"subsections/{subsectionFileName}.md")
             subsectionData["id"] = subsectionFileName
+            subsectionData["template"] = { "subsection": True }
 
             # Format body text to insert links
             subsectionData["body"] = getFormattedBodyText(f"subsections/{subsectionFileName}.md", "html", bibList, bibDict)
@@ -509,7 +510,7 @@ for i, fileName in enumerate(appendixFileNames):
         metadata["appendixTypeTree"] = True
         metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
         metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
-        metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirm", "treeViewerFsConfirm": True }
+        metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirm", "label": "Allow Phylogenetic Tree full screen", "template": { "treeViewerFsConfirm": True } }
     elif fileName == "D-references.md":
         metadata["appendixTypeReferences"] = True
 
@@ -532,7 +533,7 @@ metadata["nav"] = navData["navList"]
 metadata["navData"] = { "nav": True }
 metadata["typeAppendix"] = True
 metadata["appendixTypeAbout"] = True
-metadata["feedbackData"] = { "id": "feedback", "feedback": True }
+metadata["feedbackData"] = { "id": "feedback", "label": "Feedback", "template": { "feedback": True } }
 metadata["content"] = {}
 metadata["content"]["entries"] = []
 with open("about.md", 'r', encoding='utf-8') as f:
