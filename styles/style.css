@@ -411,6 +411,12 @@
     margin: 0.25em 0.25em 0.25em 0em;
 }
 
+@media(min-width:900px) {
+    .nav__search-widget {
+        display: none;
+    }
+}
+
 .nav__search-bar {
     height: 2.25em;
     padding: 0.25em;
