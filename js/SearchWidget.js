@@ -1,21 +1,20 @@
 let SearchWidget = function(root) {
 
-    let openBtn = root.querySelector(".search-widget__open-btn");
-    let searchBar = root.querySelector(".search-widget__search-bar");
     let searchBarInput = root.querySelector(".search-widget__search-bar-input");
     let searchExitBtn = root.querySelector(".search-widget__exit-btn");
     let resultList = root.querySelector(".search-widget__result-list");
     let maxResults = 15;
     let maxResultChars = 150;
+    let initialized = false;
     let searchData, index, searchTimeout;
 
     let init = function() {
         fetch("searchData.json")
             .then(function(res) { return res.json() })
-            .then(function(data) { initSearchFunctionality(data) });
+            .then(createSearchData);
     };
 
-    let initSearchFunctionality = function(data) {
+    let createSearchData = function(data) {
         searchData = data;
         index = lunr(function() {
             this.ref("id");
@@ -29,16 +28,17 @@ let SearchWidget = function(root) {
             this.searchPipeline.remove(lunr.stemmer);
             for(let doc in data) this.add(data[doc]);
         });
-
-        searchBarInput.addEventListener("input", onSearchBarInput);
+        initialized = true;
     };
 
     let onSearchBarInput = function() {
-        clearTimeout(searchTimeout);
-        if(searchBarInput.value.trim().length != 0) {
-            searchTimeout = setTimeout(querySearchBarInput, 250);
-        } else {
-            resetSearch();
+        if(initialized) {
+            clearTimeout(searchTimeout);
+            if(searchBarInput.value.trim().length != 0) {
+                searchTimeout = setTimeout(querySearchBarInput, 250);
+            } else {
+                resetResultList();
+            }
         }
     };
 
@@ -67,14 +67,13 @@ let SearchWidget = function(root) {
             }
         }
         resultList.classList.remove("search-widget__result-list--hidden");
-        if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
+        root.classList.add("search-widget--showing-results");
     };
 
-    let resetSearch = function() {
-        searchBarInput.value = "";
+    let resetResultList = function() {
         clearResultsList();
         resultList.classList.add("search-widget__result-list--hidden");
-        searchBar.classList.remove("search-widget__search-bar--results-showing-header");
+        root.classList.remove("search-widget--showing-results");
     };
 
     let clearResultsList = function() {
@@ -214,57 +213,19 @@ let SearchWidget = function(root) {
         return metadataEntryEl;
     };
 
-    let openSearchBar = function() {
-        openBtn.classList.add("search-widget__open-btn--hidden");
-        searchBar.classList.remove("search-widget__search-bar--hidden");
-        openBtn.setAttribute("aria-expanded", "true");
-        searchBarInput.disabled = false;
-        window.addEventListener("click", autoCloseSearchWidget);
-    };
-
-    let autoCloseSearchWidget = function(event) {
-        if(!root.contains(event.target)) closeSearchWidget();
-    };
-
-    let closeSearchWidget = function() {
-        window.removeEventListener("click", autoCloseSearchWidget);
-        searchBarInput.disabled = true;
-        resultList.classList.add("search-widget__result-list--hidden");
-        searchBar.classList.remove("search-widget__search-bar--results-showing-header");
-        openBtn.classList.remove("search-widget__open-btn--hidden");
-        searchBar.classList.add("search-widget__search-bar--hidden");
-        openBtn.setAttribute("aria-expanded", "false");
-    };
-
-    let handleSearchBarInputFocus = function() {
-        if(searchBarInput.value.trim().length != 0 && resultList.childElementCount > 0) {
-            resultList.classList.remove("search-widget__result-list--hidden");
-            if(root.classList.contains("search-widget--header")) searchBar.classList.add("search-widget__search-bar--results-showing-header");
-        }
-    };
-
     let autoShowSearchExitBtn = function() {
         searchExitBtn.classList.remove("search-widget__exit-btn--hidden");
     };
 
     let onSearchExitBtnClick = function() {
+        resetResultList();
         searchExitBtn.classList.add("search-widget__exit-btn--hidden");
-        resetSearch();
+        searchBarInput.value = "";
     };
 
-    if(openBtn) openBtn.addEventListener("click", openSearchBar);
-    searchBarInput.addEventListener("focus", handleSearchBarInputFocus);
-    if(searchExitBtn) {
-        searchBarInput.addEventListener("focus", autoShowSearchExitBtn);
-        searchExitBtn.addEventListener("click", onSearchExitBtnClick);
-    }
-
-    return {
-        root,
-        openBtn,
-        searchBarInput,
-        searchExitBtn,
-        init
-    }
+    searchBarInput.addEventListener("focus", init, { once: true });
+    searchBarInput.addEventListener("input", onSearchBarInput);
+    searchBarInput.addEventListener("focus", autoShowSearchExitBtn);
+    searchExitBtn.addEventListener("click", onSearchExitBtnClick);
 
 };

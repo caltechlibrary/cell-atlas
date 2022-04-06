@@ -37,42 +37,50 @@
         	</g>
         </svg></span>
             </button>
-             <div class="search-widget search-widget--header">
-            
-                <button class="search-widget__open-btn" aria-label="Open search" aria-controls="search-bar-header" aria-expanded="false">
-                    <div class="search-widget__search-icon search-widget__search-icon--header"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+             
+                <div class="header__search-container">
+                    <button class="header__open-search-btn" aria-label="Open search" aria-controls="header-search-widget" aria-expanded="false">
+                        <div class="header__open-search-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         	<g>
         		<g transform="rotate(-45.823 18.258 15.188)">
         			<circle cx="16" cy="11.438" r="10.836" fill="none" stroke-width="1.204"/>
         			<rect x="15" y="22" width="2" height="10"/>
         		</g>
+        	</g>
+        </svg></div>
+                    </button>
+                    <div id="header-search-widget" class="search-widget header__search-widget header__search-widget--hidden">
+            <div class="search-widget__search-bar header__search-bar">
+                <div class="search-widget__search-icon header__search-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<g transform="rotate(-45.823 18.258 15.188)">
+        			<circle cx="16" cy="11.438" r="10.836" fill="none" stroke-width="1.204"/>
+        			<rect x="15" y="22" width="2" height="10"/>
+        		</g>
+        	</g>
+        </svg></div>
+                <input class="search-widget__search-bar-input header__search-bar-input" type="search" placeholder="Search..." aria-label="Search...">
+                <button class="search-widget__exit-btn search-widget__exit-btn--hidden header__exit-btn" aria-label="Exit Search">
+                    <div class="search-widget__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        	<g>
+        		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
         	</g>
         </svg></div>
                 </button>
-            
-            <div id="search-bar-header" class="search-widget__search-bar search-widget__search-bar--header search-widget__search-bar--hidden">
-                <div class="search-widget__search-icon search-widget__search-icon--search-bar search-widget__search-icon--header"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-        	<g>
-        		<g transform="rotate(-45.823 18.258 15.188)">
-        			<circle cx="16" cy="11.438" r="10.836" fill="none" stroke-width="1.204"/>
-        			<rect x="15" y="22" width="2" height="10"/>
-        		</g>
-        	</g>
-        </svg></div>
-                <input class="search-widget__search-bar-input search-widget__search-bar-input--header" type="search" placeholder="Search..." aria-label="Search..." disabled>
-                    </div>
-            <ol class="search-widget__result-list search-widget__result-list--header search-widget__result-list--hidden"></ol>
+            </div>
+            <ol class="search-widget__result-list search-widget__result-list--hidden header__result-list header__result-list--hidden"></ol>
         </div> 
+                </div>
+            
             <span class="header__title">1.2 Fluorescence Light Microscopy</span>
             <a class="header__home-link" href="index.html">
                 <img class="header__logo header__logo--mobile" alt="Atlas of Bacterial and Archaeal Cell Structure home" src="img/MinimalLogoAInverted.png">
                 <img class="header__logo header__logo--desktop" alt="Atlas of Bacterial and Archaeal Cell Structure home" src="img/AtlasLogoInvertedLong.svg">
             </a>
         </header>        <nav class="nav page__nav page__nav--collapsed" aria-label="Main Navigation">
-                      <div class="search-widget search-widget--nav-menu">
-                     
-                     <div id="search-bar-nav" class="search-widget__search-bar ">
-                         <div class="search-widget__search-icon search-widget__search-icon--search-bar search-widget__search-icon--nav-menu"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      <div id="nav-search-widget" class="search-widget nav__search-widget">
+                     <div class="search-widget__search-bar nav__search-bar">
+                         <div class="search-widget__search-icon nav__search-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                  	<g>
                  		<g transform="rotate(-45.823 18.258 15.188)">
                  			<circle cx="16" cy="11.438" r="10.836" fill="none" stroke-width="1.204"/>
@@ -80,16 +88,16 @@
                  		</g>
                  	</g>
                  </svg></div>
-                         <input class="search-widget__search-bar-input search-widget__search-bar-input--nav-menu" type="search" placeholder="Search..." aria-label="Search..." >
-                                     <button class="search-widget__exit-btn search-widget__exit-btn--hidden" aria-label="Exit Search">
-                                 <div class="search-widget__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                         <input class="search-widget__search-bar-input nav__search-bar-input" type="search" placeholder="Search..." aria-label="Search...">
+                         <button class="search-widget__exit-btn search-widget__exit-btn--hidden nav__exit-btn" aria-label="Exit Search">
+                             <div class="search-widget__exit-btn-icon"><svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                  	<g>
                  		<path d="m27.491 1.2623-11.44 11.127-11.127-11.44-3.6609 3.5606 11.127 11.44-11.44 11.127 3.5606 3.6609 11.44-11.127 11.127 11.44 3.6609-3.5606-11.127-11.44 11.44-11.127z" stroke-width=".65243"/>
                  	</g>
                  </svg></div>
-                             </button>
-                             </div>
-                     <ol class="search-widget__result-list search-widget__result-list--nav-menu search-widget__result-list--hidden"></ol>
+                         </button>
+                     </div>
+                     <ol class="search-widget__result-list search-widget__result-list--hidden nav__result-list"></ol>
                  </div> 
                      <ol class="nav__chapter-list">
                                      <li class="nav__entry">
@@ -1341,6 +1349,7 @@
                   </div>
         <script src="js/script.js"></script>
         <script src="js/navShortcuts.js"></script>
+        <script src="js/Header.js"></script>
         <script src="js/NavWidget.js"></script>
         <script src="js/ProgressBar.js"></script>
         <script src="js/Footer.js"></script>

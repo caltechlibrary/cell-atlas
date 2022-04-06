@@ -1,11 +1,11 @@
 (function() {
+    let headerEl = document.querySelector(".header");
     let navEl = document.querySelector(".nav");
     let navBtn = document.querySelector(".header__nav-btn");
-    let searchWidgetHeaderEl = document.querySelector(".search-widget.search-widget--header");
-    let searchWidgetNavMenuEl = document.querySelector(".search-widget.search-widget--nav-menu");
+    let searchWidgetEls = document.querySelectorAll(".search-widget");
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
-    let nav, searchWidgetHeader, searchWidgetNavMenu, progressBar, footer;
+    let header, nav, progressBar, footer;
 
     let PageController = function() {
         let toggleNav = function() {
@@ -32,48 +32,34 @@
             if(event.code == "Escape") toggleNav();
         };
 
-        let initSearchWidget = function(event) {
-            if(event.currentTarget.classList.contains("search-widget__open-btn")) {
-                searchWidgetHeader.init();
-            } else {
-                searchWidgetNavMenu.init();
-            }
-        };
-
-        let handleNavSearchBarFocus = function(event) {
-            let chapterList = document.querySelector(".nav__chapter-list");
+        let searchInputFocusCallback = function(event) {
             let mobileControlsEl = document.querySelector(".page__mobile-controls");
             nav.root.classList.add("page__nav--searching");
-            chapterList.classList.add("nav__chapter-list--searching");
             mobileControlsEl.classList.add("page__mobile-controls--hidden");
         };
 
-        let handleNavSearchBarBlur = function(event) {
+        let searchInputBlurCallback = function(event) {
             let mobileControlsEl = document.querySelector(".page__mobile-controls");
-            if(searchWidgetNavMenu.searchBarInput.value.length == 0) exitNavSearch();
             mobileControlsEl.classList.remove("page__mobile-controls--hidden");
         };
 
-        let exitNavSearch = function() {
-            let chapterList = document.querySelector(".nav__chapter-list");
-            let mobileControlsEl = document.querySelector(".page__mobile-controls");
+        let searchExitCallback = function() {
             nav.root.classList.remove("page__nav--searching");
-            chapterList.classList.remove("nav__chapter-list--searching");
-            mobileControlsEl.classList.remove("page__mobile-controls--hidden");
         };
 
         return {
             toggleNav,
-            initSearchWidget,
-            handleNavSearchBarFocus,
-            handleNavSearchBarBlur,
-            exitNavSearch
+            searchInputFocusCallback,
+            searchInputBlurCallback,
+            searchExitCallback
         };
     };
 
     let pageController = PageController();
 
-    nav = NavWidget(navEl);
+    header = Header(headerEl);
+
+    nav = NavWidget(navEl, pageController.searchInputFocusCallback, pageController.searchInputBlurCallback, pageController.searchExitCallback);
     navBtn.addEventListener("click", pageController.toggleNav);
     if(
         document.querySelector("[aria-current='page']") &&
@@ -86,13 +72,7 @@
         window.sessionStorage.setItem("navOpened", false);
     }
 
-    searchWidgetHeader = SearchWidget(searchWidgetHeaderEl);
-    searchWidgetHeader.openBtn.addEventListener("click", pageController.initSearchWidget, { once: true });
-    searchWidgetNavMenu = SearchWidget(searchWidgetNavMenuEl);
-    searchWidgetNavMenu.searchBarInput.addEventListener("focus", pageController.initSearchWidget, { once: true });
-    searchWidgetNavMenu.searchBarInput.addEventListener("focus", pageController.handleNavSearchBarFocus);
-    searchWidgetNavMenu.searchBarInput.addEventListener("blur", pageController.handleNavSearchBarBlur);
-    searchWidgetNavMenu.searchExitBtn.addEventListener("click", pageController.exitNavSearch);
+    for(let searchWidgetEl of searchWidgetEls) SearchWidget(searchWidgetEl);
 
     if(progressBarEl) progressBar = ProgressBar(progressBarEl);
 
