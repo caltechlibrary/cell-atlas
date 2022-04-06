@@ -9,51 +9,40 @@
     let feedbackLinks = document.querySelectorAll(".about-entry__feadback-link");
     let feedbackModalEl = document.getElementById("feedback");
     let hash = window.location.hash.substring(1);
-    let appendixController, appendixAccordion, treeMediaViewer, treeViewer, treeViewerFsConfirm, feedbackModal;
+    let appendixAccordion, treeMediaViewer, treeViewer, treeViewerFsConfirm, feedbackModal;
 
-    let AppendixController = function() {
-
-        let onAccordionHashChange = function() {
-            hash = window.location.hash.substring(1);
-            if(hash) appendixAccordion.manuallyOpenPanel(hash);
-        };
-        
-        let handleTreeMediaViewerFsBtnClick = function() {
-            if(window.innerWidth < 900) {
-                treeMediaViewer.toggleFullscreen();
-            } else {
-                treeMediaViewer.toggleFixedEnlarged();
-            }
-        };
-
-        let onTreeViewerFsConfirmOK = function() {
-            treeViewerFsConfirm.hide();
-            treeMediaViewer.toggleFullscreen();
-            treeMediaViewer.setFullscreenBtnState("expanded");
-            setTimeout(() => treeViewer.activateSpeciesEntryHash(hash), 200);
-        };
-
-        return {
-            onAccordionHashChange,
-            handleTreeMediaViewerFsBtnClick,
-            onTreeViewerFsConfirmOK,
-        }
-
+    let onAccordionHashChange = function() {
+        hash = window.location.hash.substring(1);
+        if(hash) appendixAccordion.manuallyOpenPanel(hash);
     };
     
-    appendixController = AppendixController();
+    let handleTreeMediaViewerFsBtnClick = function() {
+        if(window.innerWidth < 900) {
+            treeMediaViewer.toggleFullscreen();
+        } else {
+            treeMediaViewer.toggleFixedEnlarged();
+        }
+    };
+
+    let onTreeViewerFsConfirmOK = function() {
+        treeViewerFsConfirm.hide();
+        treeMediaViewer.toggleFullscreen();
+        treeMediaViewer.setFullscreenBtnState("expanded");
+        setTimeout(() => treeViewer.activateSpeciesEntryHash(hash), 200);
+    };
+    
     if(appendixAccordionEl) {
         appendixAccordion = AppendixAccordion(appendixAccordionEl);
         if(hash) appendixAccordion.manuallyOpenPanel(hash);
-        window.addEventListener("hashchange", appendixController.onAccordionHashChange);
+        window.addEventListener("hashchange", onAccordionHashChange);
     }
     if(treeMediaViewerEl) {
         treeViewer = TreeViewer(treeViewerEl);
         treeMediaViewer = MediaViewer(treeMediaViewerEl);
         treeViewerFsConfirm = Modal(treeViewerFsConfirmEl);
-        treeMediaViewer.fullscreenBtn.addEventListener("click", appendixController.handleTreeMediaViewerFsBtnClick);
+        treeMediaViewer.fullscreenBtn.addEventListener("click", handleTreeMediaViewerFsBtnClick);
         treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-cancel").addEventListener("click", treeViewerFsConfirm.hide);
-        treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-ok").addEventListener("click", appendixController.onTreeViewerFsConfirmOK);
+        treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-ok").addEventListener("click", onTreeViewerFsConfirmOK);
         if(hash) {
             if(window.innerWidth < 900) {
                 treeViewerFsConfirm.show();
