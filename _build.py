@@ -147,7 +147,7 @@ def getCitationMetadata(fileName, bibDict):
                 name = bibDict[id]["author"][0]["family"] 
                 if len(bibDict[id]["author"]) > 1: name = f"{name} et al."
                 year = bibDict[id]["issued"]["date-parts"][0][0]
-                citationMetadata["sources"].append({"text": f"{name} ({year})", "link": f"D-references.html#ref-{id}.html"})
+                citationMetadata["sources"].append({"text": f"{name} ({year})", "link": f"D-references.html#ref-{id}"})
             elif id in profileData:
                 citationMetadata["sources"].append({"text": id, "link": f"B-scientist-profiles.html#{profileData[id]['id']}"})
         if(len(citationMetadata["sources"]) >= 1): citationMetadata["sources"][-1]["last"] = True
