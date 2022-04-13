@@ -1,6 +1,6 @@
 <div class="mobile-controls page__mobile-controls ${if(typeChapter)}${else}page__mobile-controls--relative-landscape${endif}">
     ${if(prevSection)}
-        <a class="mobile-controls__nav mobile-controls__nav--prev" href="${prevSection}.html" aria-label="Previous section">${svg/left-nav.svg()}</a>
+        <a class="mobile-controls__nav mobile-controls__nav--prev" href="${prevSection}.html">${svg/left-nav.svg()}</a>
     ${endif}
 
     ${if(typeSection)}
@@ -25,6 +25,6 @@
     ${endif}
 
     ${if(nextSection)}
-        <a class="mobile-controls__nav mobile-controls__nav--next" href="${nextSection}.html" aria-label="Next section">${svg/right-nav.svg()}</a>
+        <a class="mobile-controls__nav mobile-controls__nav--next" href="${nextSection}.html">${svg/right-nav.svg()}</a>
     ${endif}
 </div>
