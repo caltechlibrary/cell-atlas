@@ -116,6 +116,14 @@ def getCompSliderMetadata(fileName):
     compSliderMetadata["imgName"] = fileMetadata["video"].split(".")[0]
     return compSliderMetadata
 
+def getNarrationMetadata(fileName):
+    fileMetadata = getYAMLMetadata(fileName)
+    narrationMetadata = {}
+    narrationMetadata["id"] = pathlib.Path(fileName).stem
+    narrationMetadata["title"] = fileMetadata["title"]
+    narrationMetadata["src"] = pathlib.Path(fileName).stem
+    return narrationMetadata
+
 def getProteinViewerMetadata(fileName):
     fileMetadata = getYAMLMetadata(fileName)
     proteinViewerMetadata = {}
@@ -253,8 +261,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
         metadata["mediaViewer"]["compSlider"] = getCompSliderMetadata(fileName)
         metadata["mediaViewer"]["compSlider"]["isSection"] = True
     # Create narration metadata
-    metadata["narration"] = {}
-    metadata["narration"]["src"] = metadata["pageName"]
+    metadata["narration"] = getNarrationMetadata(fileName)
     metadata["narration"]["isSection"] = True
     # Create citation data
     metadata["citation"] = getCitationMetadata(fileName, bibDict)
@@ -283,9 +290,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 elif "graphic" in subsectionData:
                     subsectionData["mediaViewer"]["graphic"] = subsectionData["graphic"]
             # Create narration metadata
-            subsectionData["narration"] = {}
-            subsectionData["narration"]["id"] = subsectionData["id"]
-            subsectionData["narration"]["src"] = subsectionData["id"]
+            subsectionData["narration"] = getNarrationMetadata(f"subsections/{subsectionFileName}.md")
             # Create citation data
             if "doi" in subsectionData or "source" in subsectionData:
                 subsectionData["citation"] = getCitationMetadata(f"subsections/{subsectionFileName}.md", bibDict)

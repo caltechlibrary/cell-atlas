@@ -1,7 +1,10 @@
 <div
-    id="${if(it.isSection)}narrationPlayer-main${else}narrationPlayer-${it.id}${endif}"
+    id="narrationPlayer-${it.id}"
     class="narration-player narration-player--hidden ${if(it.isSection)}narration-player--section-text narration-player--light-theme${endif}"
     data-src="${it.src}.mp3"
+    role="region"
+    aria-label="${it.title} narration"
+    ${if(it.isSection)}data-main="true"${endif}
     ${if(offline)}data-offline="true"${endif}
 >
     <button class="narration-player__playback-btn" aria-label="Play" disabled>
