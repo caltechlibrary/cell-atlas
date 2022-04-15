@@ -1,4 +1,4 @@
-let SectionText = function(root, narrationPlayer) {
+let SectionText = function(root, shelveCallback = function(){}, unshelveCallback = function(){}, narrationPlayer) {
 
     let mainContainer = root.querySelector(".section-text .section-text__main-container");
     let shelveBtn = root.querySelector(".section-text .section-text__shelve-btn");
@@ -6,6 +6,14 @@ let SectionText = function(root, narrationPlayer) {
     let unshelveBtn = root.querySelector(".section-text__unshelve-btn");
     let stopNarrationBtn = root.querySelector(".section-text__stop-narration-btn");
     let narrationToggleBtn = root.querySelector(".section-text__toggle-narration-btn");
+
+    let shelveText = function() {
+        shelveCallback();
+    };
+
+    let unshelveText = function() {
+        unshelveCallback();
+    };
 
     let toggleNarrationPlayer = function() {
         let showIcon = root.querySelector(".section-text__toggle-narration-btn-show-icon");
@@ -39,6 +47,8 @@ let SectionText = function(root, narrationPlayer) {
         if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();
     };
 
+    shelveBtn.addEventListener("click", shelveText);
+    unshelveBtn.addEventListener("click", unshelveText);
     narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
     if(narrationPlayer) {
         narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
@@ -49,8 +59,6 @@ let SectionText = function(root, narrationPlayer) {
     return {
         root,
         mainContainer,
-        shelveBtn,
-        unshelveBtnContainer,
-        unshelveBtn
+        unshelveBtnContainer
     }
 }
