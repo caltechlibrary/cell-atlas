@@ -44,9 +44,9 @@
             mainMediaViewer.toggleFullscreen();
         } else {
             if(!mainNonTextContainer.classList.contains("main-non-text-container--expanded")) {
-                shelveText();
+                shelveTextCallback();
             } else {
-                unshelveText();
+                unshelveTextCallback();
             }
         }
     };
@@ -71,19 +71,19 @@
 
     let onMainVideoPlayerFirstPlay = function() {
         if(
-            window.getComputedStyle(sectionText.shelveBtn).display != "none" && 
+            window.innerWidth >= 900 && 
             !sectionText.mainContainer.classList.contains("section-text__main-container--hidden")
         ) {
-            shelveText();
+            shelveTextCallback();
         }
     };
 
-    let shelveText = function() {
+    let shelveTextCallback = function() {
         expandMainNonTextContainer();
         shelveTextWidget();
     };
 
-    let unshelveText = function() {
+    let unshelveTextCallback = function() {
         minimizeMainNonTextContainer();
         unShelveTextWidget();
     };
@@ -130,13 +130,9 @@
 
     let shelveTextWidget = function() {
         sectionText.root.classList.add("section-text--shelved");
-        sectionText.mainContainer.classList.add("section-text__main-container--hidden");
-        sectionText.unshelveBtnContainer.classList.remove("section-text__unshelve-btn-container--hidden");
     };
 
     let unShelveTextWidget = function() {
-        sectionText.unshelveBtnContainer.classList.add("section-text__unshelve-btn-container--hidden");
-        sectionText.mainContainer.classList.remove("section-text__main-container--hidden");
         sectionText.root.classList.remove("section-text--shelved");
     };
 
@@ -285,9 +281,7 @@
         narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
     };
 
-    sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
-    sectionText.shelveBtn.addEventListener("click", shelveText);
-    sectionText.unshelveBtn.addEventListener("click", unshelveText);
+    sectionText = SectionText(sectionTextEl, shelveTextCallback, unshelveTextCallback, mainNarrationPlayer);
 
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", handleLearnMoreBtnContainerClick);
 
