@@ -1,6 +1,6 @@
 let Subsection = function(root, onNarrationOpenCallback = function(){},  onNarrationCloseCallback = function(){}) {
 
-    let narrationPlayerEl = root.querySelector(".narration-player");
+    let narrationPlayerEl = root.querySelector(".subsection__narration-player");
     let narrationToggleBtn = root.querySelector(".subsection__toggle-narration-btn");
 
     let toggleNarrationPlayer = function() {

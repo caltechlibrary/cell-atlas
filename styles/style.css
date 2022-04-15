@@ -1208,6 +1208,12 @@
     }
 }
 
+@media (min-width:900px) {
+    .section-text__narration-player {
+        padding-left: 1rem;
+    }
+}
+
 .section-text__header-divider {
     margin: 0 1em;
     width: .1em;
@@ -2629,12 +2635,6 @@
     align-items: center;
     visibility: inherit;
     transition: height 0.75s;
-}
-
-@media (min-width:900px) {
-    .narration-player--section-text {
-        padding-left: 1rem;
-    }
 }
 
 .narration-player--hidden {
