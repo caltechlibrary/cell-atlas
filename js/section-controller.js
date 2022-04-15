@@ -277,14 +277,13 @@
 
     for(let narrationPlayerEl of narrationPlayerEls) {
         let narrationPlayer = NarrationPlayer(narrationPlayerEl);
+        if(narrationPlayerEl.getAttribute("data-main")) {
+            mainNarrationPlayer = narrationPlayer;
+            narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
+            narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);
+        }
         narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
     };
-
-    mainNarrationPlayer = narrationPlayers["narrationPlayer-main"];
-    if(mainNarrationPlayer) {
-        mainNarrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
-        mainNarrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);
-    }
 
     sectionText = SectionText(sectionTextEl, mainNarrationPlayer);
     sectionText.shelveBtn.addEventListener("click", shelveText);
