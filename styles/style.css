@@ -637,7 +637,7 @@
     width: 85%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 899px) {
     .section__non-text-container--hidden-mobile {
         display: none;
     }
@@ -655,7 +655,7 @@
     margin: 0 1em;
 }
 
-@media (max-width:900px) {
+@media (max-width:899px) {
     .section__nav-arrow {
         display: none;
     }
@@ -676,14 +676,14 @@
     font-size: 1em;
 }
 
-.section__stop-narration-btn--hidden {
-    display: none;
-}
-
 @media (min-width:900px) {
-    .section__stop-narration-btn--hidden-desktop {
+    .section__stop-narration-btn {
         display: none;
     }
+}
+
+.section__stop-narration-btn--hidden {
+    display: none;
 }
 
 .section__stop-narration-btn-icon {
