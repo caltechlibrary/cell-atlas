@@ -1,15 +1,17 @@
-<div class="main-non-text-container main-non-text-container--hidden-mobile">
-    <a href="${prevSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="prev">${svg/left-nav.svg()}</a>
-    ${mediaViewer:components/media-viewer.html()}
-    <a href="${nextSection}.html" class="nav-arrow main-non-text-container__nav-arrow" data-page="next">${svg/right-nav.svg()}</a>
+<div class="page__section section">
+    <div class="section__non-text-container section__non-text-container--hidden-mobile">
+        <a href="${prevSection}.html" class="nav-arrow section__nav-arrow" data-page="prev">${svg/left-nav.svg()}</a>
+        ${mediaViewer:components/media-viewer.html()}
+        <a href="${nextSection}.html" class="nav-arrow section__nav-arrow" data-page="next">${svg/right-nav.svg()}</a>
 
-    <button class="main-non-text-container__stop-narration-btn main-non-text-container__stop-narration-btn--hidden main-non-text-container__stop-narration-btn--hidden-desktop" aria-label="Pause narration">
-        <div class="main-non-text-container__stop-narration-btn-icon">${svg/mute.svg()}</div>
-    </button>
+        <button class="section__stop-narration-btn section__stop-narration-btn--hidden section__stop-narration-btn--hidden-desktop" aria-label="Pause narration">
+            <div class="section__stop-narration-btn-icon">${svg/mute.svg()}</div>
+        </button>
+    </div>
+
+    ${components/section-text.html()}
+
+    ${for(subsectionsData)}
+        ${it:components/modal.html()}
+    ${endfor}
 </div>
-
-${components/section-text.html()}
-
-${for(subsectionsData)}
-    ${it:components/modal.html()}
-${endfor}

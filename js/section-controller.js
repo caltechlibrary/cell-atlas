@@ -11,8 +11,8 @@
     let openProteinViewerBtnEls = document.querySelectorAll(".vid-metadata__viewer-btn");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
-    let mainNonTextContainer = document.querySelector(".main-non-text-container");
-    let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
+    let sectionNonTextContainer = document.querySelector(".section__non-text-container");
+    let sectionStopNarrationButtonMobile = document.querySelector(".section__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
     let summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
@@ -33,17 +33,17 @@
     let handleMainMediaViewerFsBtnClick = function() {
         if(window.innerWidth < 900) {
             if(!mainMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
-                // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
+                // Need to use "section__non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
                 // Will delete when HTML is structured well
-                mainNonTextContainer.classList.add("main-non-text-container--fullscreen-polyfill-badfix");
+                sectionNonTextContainer.classList.add("section__non-text-container--fullscreen-polyfill-badfix");
             } else {
-                // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
+                // Need to use "section__non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
                 // Will delete when HTML is structured well
-                mainNonTextContainer.classList.remove("main-non-text-container--fullscreen-polyfill-badfix");
+                sectionNonTextContainer.classList.remove("section__non-text-container--fullscreen-polyfill-badfix");
             }
             mainMediaViewer.toggleFullscreen();
         } else {
-            if(!mainNonTextContainer.classList.contains("main-non-text-container--expanded")) {
+            if(!sectionNonTextContainer.classList.contains("section__non-text-container--expanded")) {
                 shelveTextCallback();
             } else {
                 unshelveTextCallback();
@@ -79,30 +79,30 @@
     };
 
     let shelveTextCallback = function() {
-        expandMainNonTextContainer();
+        expandSectionNonTextContainer();
         shelveTextWidget();
     };
 
     let unshelveTextCallback = function() {
-        minimizeMainNonTextContainer();
+        minimizeSectionNonTextContainer();
         unShelveTextWidget();
     };
 
-    let expandMainNonTextContainer = function() {
-        mainNonTextContainer.classList.add("main-non-text-container--expanded");
+    let expandSectionNonTextContainer = function() {
+        sectionNonTextContainer.classList.add("section__non-text-container--expanded");
         if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
         if(summaryMenu) {
             let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
-            mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
+            sectionNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
         }
     };
 
-    let minimizeMainNonTextContainer = function() {
+    let minimizeSectionNonTextContainer = function() {
         if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("minimized");
-        mainNonTextContainer.classList.remove("main-non-text-container--expanded");
+        sectionNonTextContainer.classList.remove("section__non-text-container--expanded");
         if(summaryMenu) {
             let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
-            mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
+            sectionNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
         }
     };
 
@@ -121,11 +121,11 @@
     };
 
     let showStopNarrationBtn = function() {
-        mainStopNarrationButtonMobile.classList.remove("main-non-text-container__stop-narration-btn--hidden");
+        sectionStopNarrationButtonMobile.classList.remove("section__stop-narration-btn--hidden");
     };
 
     let hideStopNarrationBtn = function() {
-        mainStopNarrationButtonMobile.classList.add("main-non-text-container__stop-narration-btn--hidden");
+        sectionStopNarrationButtonMobile.classList.add("section__stop-narration-btn--hidden");
     };
 
     let shelveTextWidget = function() {
@@ -195,11 +195,11 @@
         if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
         if(tabBtn.value == "text") {
             sectionTextEl.classList.remove("section-text--hidden");
-            mainNonTextContainer.classList.add("main-non-text-container--hidden-mobile");
+            sectionNonTextContainer.classList.add("section__non-text-container--hidden-mobile");
             mobileControls.root.classList.add("page__mobile-controls--relative-landscape");
         } else {
             sectionTextEl.classList.add("section-text--hidden");
-            mainNonTextContainer.classList.remove("main-non-text-container--hidden-mobile");
+            sectionNonTextContainer.classList.remove("section__non-text-container--hidden-mobile");
             mobileControls.root.classList.remove("page__mobile-controls--relative-landscape");
             if(tabBtn.value == "vid" || tabBtn.value == "img") {
                 mainMediaViewer.displayMediaType(tabBtn.value);
@@ -269,7 +269,7 @@
         }
     }
         
-    mainStopNarrationButtonMobile.addEventListener("click", stopMainNarration);
+    sectionStopNarrationButtonMobile.addEventListener("click", stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
         let narrationPlayer = NarrationPlayer(narrationPlayerEl);
