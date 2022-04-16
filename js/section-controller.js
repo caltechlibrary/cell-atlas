@@ -44,9 +44,9 @@
             mainMediaViewer.toggleFullscreen();
         } else {
             if(!sectionNonTextContainer.classList.contains("section__non-text-container--expanded")) {
-                shelveTextCallback();
+                expandAndShelveCallback();
             } else {
-                unshelveTextCallback();
+                contractAndUnshelveCallback();
             }
         }
     };
@@ -74,32 +74,27 @@
             window.innerWidth >= 900 && 
             !sectionText.mainContainer.classList.contains("section-text__main-container--hidden")
         ) {
-            shelveTextCallback();
+            expandAndShelveCallback();
         }
     };
 
-    let shelveTextCallback = function() {
-        expandSectionNonTextContainer();
-        shelveTextWidget();
-    };
-
-    let unshelveTextCallback = function() {
-        minimizeSectionNonTextContainer();
-        unShelveTextWidget();
-    };
-
-    let expandSectionNonTextContainer = function() {
+    let expandAndShelveCallback = function() {
+        sectionTextEl.classList.add("section-text--shelved");
         sectionNonTextContainer.classList.add("section__non-text-container--expanded");
-        if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
+
+        mainMediaViewer.setFullscreenBtnState("expanded");
         if(summaryMenu) {
             let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
             sectionNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
         }
+
     };
 
-    let minimizeSectionNonTextContainer = function() {
-        if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("minimized");
+    let contractAndUnshelveCallback = function() {
+        sectionTextEl.classList.remove("section-text--shelved");
         sectionNonTextContainer.classList.remove("section__non-text-container--expanded");
+
+        mainMediaViewer.setFullscreenBtnState("minimized");
         if(summaryMenu) {
             let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
             sectionNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
@@ -126,14 +121,6 @@
 
     let hideStopNarrationBtn = function() {
         sectionStopNarrationButtonMobile.classList.add("section__stop-narration-btn--hidden");
-    };
-
-    let shelveTextWidget = function() {
-        sectionText.root.classList.add("section-text--shelved");
-    };
-
-    let unShelveTextWidget = function() {
-        sectionText.root.classList.remove("section-text--shelved");
     };
 
     let handleLearnMoreBtnContainerClick = function(event) {
@@ -281,7 +268,7 @@
         narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
     };
 
-    sectionText = SectionText(sectionTextEl, shelveTextCallback, unshelveTextCallback, mainNarrationPlayer);
+    sectionText = SectionText(sectionTextEl, expandAndShelveCallback, contractAndUnshelveCallback, mainNarrationPlayer);
 
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", handleLearnMoreBtnContainerClick);
 
