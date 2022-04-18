@@ -11,8 +11,8 @@
     let openProteinViewerBtnEls = document.querySelectorAll(".vid-metadata__viewer-btn");
     let narrationPlayerEls = document.querySelectorAll(".narration-player");
     let mobileControlsEl = document.querySelector(".mobile-controls");
-    let mainNonTextContainer = document.querySelector(".main-non-text-container");
-    let mainStopNarrationButtonMobile = document.querySelector(".main-non-text-container__stop-narration-btn");
+    let sectionNonTextContainer = document.querySelector(".section__non-text-container");
+    let sectionStopNarrationButtonMobile = document.querySelector(".section__stop-narration-btn");
     let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
     let hash = window.location.hash.substring(1);
     let summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
@@ -30,23 +30,15 @@
         if(mediaType != "vid" && !videoPlayer.paused()) videoPlayer.pause();
     };
 
-    let handleMainMediaViewerFsBtnClick = function() {
+    let onMainMediaViewerRequestFullscreenChangeCallback = function() {
         if(window.innerWidth < 900) {
-            if(!mainMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
-                // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
-                // Will delete when HTML is structured well
-                mainNonTextContainer.classList.add("main-non-text-container--fullscreen-polyfill-badfix");
-            } else {
-                // Need to use "main-non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
-                // Will delete when HTML is structured well
-                mainNonTextContainer.classList.remove("main-non-text-container--fullscreen-polyfill-badfix");
-            }
+            sectionNonTextContainer.classList.toggle("section__non-text-container--fullscreen-polyfill-badfix");
             mainMediaViewer.toggleFullscreen();
         } else {
-            if(!mainNonTextContainer.classList.contains("main-non-text-container--expanded")) {
-                shelveTextCallback();
+            if(sectionNonTextContainer.classList.contains("section__non-text-container--expanded")) {
+                contractAndUnshelveCallback();
             } else {
-                unshelveTextCallback();
+                expandAndShelveCallback();
             }
         }
     };
@@ -59,14 +51,13 @@
         }
     };
 
-    let handleSubMediaViewerFsBtnClick = function(event) {
-        let mediaViewerEl = event.target.closest(".media-viewer");
-        let mediaViewer = mediaViewers[mediaViewerEl.id];
+    let onSubMediaViewerRequestFullscreenChangeCallback = function(id) {
         if(window.innerWidth < 900) {
-            mediaViewer.toggleFullscreen();
+            mediaViewers[id].toggleFullscreen();
         } else {
-            mediaViewer.toggleFixedEnlarged();
+            mediaViewers[id].toggleFixedEnlarged();
         }
+        if(mediaViewers[id].root.classList.contains("subsection__protein-media-viewer")) mediaViewers[id].root.classList.add("subsection__protein-media-viewer--hidden");
     };
 
     let onMainVideoPlayerFirstPlay = function() {
@@ -74,35 +65,30 @@
             window.innerWidth >= 900 && 
             !sectionText.mainContainer.classList.contains("section-text__main-container--hidden")
         ) {
-            shelveTextCallback();
+            expandAndShelveCallback();
         }
     };
 
-    let shelveTextCallback = function() {
-        expandMainNonTextContainer();
-        shelveTextWidget();
-    };
+    let expandAndShelveCallback = function() {
+        sectionTextEl.classList.add("section-text--shelved");
+        sectionNonTextContainer.classList.add("section__non-text-container--expanded");
 
-    let unshelveTextCallback = function() {
-        minimizeMainNonTextContainer();
-        unShelveTextWidget();
-    };
-
-    let expandMainNonTextContainer = function() {
-        mainNonTextContainer.classList.add("main-non-text-container--expanded");
-        if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("expanded");
+        mainMediaViewer.setFullscreenBtnState("expanded");
         if(summaryMenu) {
             let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
-            mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
+            sectionNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
         }
+
     };
 
-    let minimizeMainNonTextContainer = function() {
-        if(mainMediaViewer) mainMediaViewer.setFullscreenBtnState("minimized");
-        mainNonTextContainer.classList.remove("main-non-text-container--expanded");
+    let contractAndUnshelveCallback = function() {
+        sectionTextEl.classList.remove("section-text--shelved");
+        sectionNonTextContainer.classList.remove("section__non-text-container--expanded");
+
+        mainMediaViewer.setFullscreenBtnState("minimized");
         if(summaryMenu) {
             let resizeInterval = setInterval(summaryMenu.resizeMenuContainer, 1000/60);
-            mainNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
+            sectionNonTextContainer.addEventListener("transitionend", () => clearInterval(resizeInterval));
         }
     };
 
@@ -121,19 +107,11 @@
     };
 
     let showStopNarrationBtn = function() {
-        mainStopNarrationButtonMobile.classList.remove("main-non-text-container__stop-narration-btn--hidden");
+        sectionStopNarrationButtonMobile.classList.remove("section__stop-narration-btn--hidden");
     };
 
     let hideStopNarrationBtn = function() {
-        mainStopNarrationButtonMobile.classList.add("main-non-text-container__stop-narration-btn--hidden");
-    };
-
-    let shelveTextWidget = function() {
-        sectionText.root.classList.add("section-text--shelved");
-    };
-
-    let unShelveTextWidget = function() {
-        sectionText.root.classList.remove("section-text--shelved");
+        sectionStopNarrationButtonMobile.classList.add("section__stop-narration-btn--hidden");
     };
 
     let handleLearnMoreBtnContainerClick = function(event) {
@@ -184,22 +162,16 @@
         }
     };
 
-    let closeProteinViewer = function(event) {
-        let mediaViewerEl = event.target.closest(".media-viewer");
-        let proteinMediaViewer = mediaViewers[mediaViewerEl.id];
-        proteinMediaViewer.root.classList.add("subsection__protein-media-viewer--hidden");
-    };
-
     let handleMobileControlClick = function(event) {
         let tabBtn = event.target.closest(".mobile-controls__btn");
         if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
         if(tabBtn.value == "text") {
             sectionTextEl.classList.remove("section-text--hidden");
-            mainNonTextContainer.classList.add("main-non-text-container--hidden-mobile");
+            sectionNonTextContainer.classList.add("section__non-text-container--hidden-mobile");
             mobileControls.root.classList.add("page__mobile-controls--relative-landscape");
         } else {
             sectionTextEl.classList.add("section-text--hidden");
-            mainNonTextContainer.classList.remove("main-non-text-container--hidden-mobile");
+            sectionNonTextContainer.classList.remove("section__non-text-container--hidden-mobile");
             mobileControls.root.classList.remove("page__mobile-controls--relative-landscape");
             if(tabBtn.value == "vid" || tabBtn.value == "img") {
                 mainMediaViewer.displayMediaType(tabBtn.value);
@@ -258,18 +230,15 @@
     if(summaryMenuEl) summaryMenu = SummaryMenu(summaryMenuEl);
 
     for(let mediaViewerEl of mediaViewerEls) {
-        let mediaViewer = MediaViewer(mediaViewerEl, onMediaViewerMediaSwitchCallback, onMediaViewerResizeCallback);
-        mediaViewers[mediaViewerEl.id] = mediaViewer;
         if(mediaViewerEl.getAttribute("data-main")) {
-            mainMediaViewer = mediaViewer;
-            mediaViewer.fullscreenBtn.addEventListener("click", handleMainMediaViewerFsBtnClick);
+            mediaViewers[mediaViewerEl.id] = MediaViewer(mediaViewerEl, onMainMediaViewerRequestFullscreenChangeCallback, onMediaViewerResizeCallback, onMediaViewerMediaSwitchCallback);
+            mainMediaViewer = mediaViewers[mediaViewerEl.id];
         } else {
-            mediaViewer.fullscreenBtn.addEventListener("click", handleSubMediaViewerFsBtnClick);
-            if(mediaViewer.root.querySelector(".protein-viewer")) mediaViewer.fullscreenBtn.addEventListener("click", closeProteinViewer);
+            mediaViewers[mediaViewerEl.id] = MediaViewer(mediaViewerEl, onSubMediaViewerRequestFullscreenChangeCallback, onMediaViewerResizeCallback, onMediaViewerMediaSwitchCallback);
         }
     }
         
-    mainStopNarrationButtonMobile.addEventListener("click", stopMainNarration);
+    sectionStopNarrationButtonMobile.addEventListener("click", stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
         let narrationPlayer = NarrationPlayer(narrationPlayerEl);
@@ -281,7 +250,7 @@
         narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
     };
 
-    sectionText = SectionText(sectionTextEl, shelveTextCallback, unshelveTextCallback, mainNarrationPlayer);
+    sectionText = SectionText(sectionTextEl, expandAndShelveCallback, contractAndUnshelveCallback, mainNarrationPlayer);
 
     if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", handleLearnMoreBtnContainerClick);
 

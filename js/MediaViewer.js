@@ -1,4 +1,4 @@
-let MediaViewer = function(root, mediaSwitchCallback = function(){}, resizeCallback = function(){}) {
+let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){}, resizeCallback = function(){}, mediaSwitchCallback = function(){}) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
@@ -39,6 +39,7 @@ let MediaViewer = function(root, mediaSwitchCallback = function(){}, resizeCallb
         } else {
             setFullscreenBtnState("minimized");
         }
+        onRequestFullscreenChangeCallback(root.id);
     };
 
     let setFullscreenBtnState = function(state) {

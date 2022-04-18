@@ -1,5 +1,5 @@
 /*
-- main-non-text-container: Container to hold media viewer and and section navigation  
+- section: Container to hold media viewer and and section navigation  
 - media-viewer: Widget that contains video/comparison slider and the controls needed to toggle them
 - search-bar: Search bar that will be available on all pages
 - section-text: Block that contains main readable material for a section
@@ -602,8 +602,12 @@
     fill: #262626;
 }
 
-/* main-non-text-container */
-.main-non-text-container {
+/* section */
+.section {
+    position: relative;
+}
+
+.section__non-text-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -617,7 +621,7 @@
 }
 
 @media (min-width: 900px) {
-    .main-non-text-container {
+    .section__non-text-container {
         position: absolute;
         right: 62%;
         bottom: 0;
@@ -628,36 +632,36 @@
     }
 }
 
-.main-non-text-container--expanded {
+.section__non-text-container--expanded {
     right: 0;
     width: 85%;
 }
 
-@media (max-width: 900px) {
-    .main-non-text-container--hidden-mobile {
+@media (max-width: 899px) {
+    .section__non-text-container--hidden-mobile {
         display: none;
     }
 }
 
 
-.main-non-text-container--fullscreen-polyfill-badfix {
+.section__non-text-container--fullscreen-polyfill-badfix {
     /* Need to increase container z index because of poorly constructed HTML */
     /* Will delete when HTML is structured well */
     z-index: 100;
 }
 
-.main-non-text-container__nav-arrow {
+.section__nav-arrow {
     flex: 0 0 auto;
     margin: 0 1em;
 }
 
-@media (max-width:900px) {
-    .main-non-text-container__nav-arrow {
+@media (max-width:899px) {
+    .section__nav-arrow {
         display: none;
     }
 }
 
-.main-non-text-container__stop-narration-btn {
+.section__stop-narration-btn {
     position: absolute;
     left: 1em;
     bottom: 4.5em;
@@ -672,17 +676,17 @@
     font-size: 1em;
 }
 
-.main-non-text-container__stop-narration-btn--hidden {
-    display: none;
-}
-
 @media (min-width:900px) {
-    .main-non-text-container__stop-narration-btn--hidden-desktop {
+    .section__stop-narration-btn {
         display: none;
     }
 }
 
-.main-non-text-container__stop-narration-btn-icon {
+.section__stop-narration-btn--hidden {
+    display: none;
+}
+
+.section__stop-narration-btn-icon {
     fill: #fff;
 }
 
@@ -3524,9 +3528,12 @@
     .page__content-container {
         flex: 1;
         min-height: 0;
-        position: relative;
         overflow: hidden;
     }
+}
+
+.page__section {
+    height: 100%;
 }
 
 .page__mobile-controls {
