@@ -30,23 +30,15 @@
         if(mediaType != "vid" && !videoPlayer.paused()) videoPlayer.pause();
     };
 
-    let handleMainMediaViewerFsBtnClick = function() {
+    let onMainMediaViewerRequestFullscreenChangeCallback = function() {
         if(window.innerWidth < 900) {
-            if(!mainMediaViewer.root.classList.contains("media-viewer--fullscreen")) {
-                // Need to use "section__non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
-                // Will delete when HTML is structured well
-                sectionNonTextContainer.classList.add("section__non-text-container--fullscreen-polyfill-badfix");
-            } else {
-                // Need to use "section__non-text-container--fullscreen-polyfill-badfix" because of poorly constructed HTML
-                // Will delete when HTML is structured well
-                sectionNonTextContainer.classList.remove("section__non-text-container--fullscreen-polyfill-badfix");
-            }
+            sectionNonTextContainer.classList.toggle("section__non-text-container--fullscreen-polyfill-badfix");
             mainMediaViewer.toggleFullscreen();
         } else {
-            if(!sectionNonTextContainer.classList.contains("section__non-text-container--expanded")) {
-                expandAndShelveCallback();
-            } else {
+            if(sectionNonTextContainer.classList.contains("section__non-text-container--expanded")) {
                 contractAndUnshelveCallback();
+            } else {
+                expandAndShelveCallback();
             }
         }
     };
@@ -59,14 +51,13 @@
         }
     };
 
-    let handleSubMediaViewerFsBtnClick = function(event) {
-        let mediaViewerEl = event.target.closest(".media-viewer");
-        let mediaViewer = mediaViewers[mediaViewerEl.id];
+    let onSubMediaViewerRequestFullscreenChangeCallback = function(id) {
         if(window.innerWidth < 900) {
-            mediaViewer.toggleFullscreen();
+            mediaViewers[id].toggleFullscreen();
         } else {
-            mediaViewer.toggleFixedEnlarged();
+            mediaViewers[id].toggleFixedEnlarged();
         }
+        if(mediaViewers[id].root.classList.contains("subsection__protein-media-viewer")) mediaViewers[id].root.classList.add("subsection__protein-media-viewer--hidden");
     };
 
     let onMainVideoPlayerFirstPlay = function() {
@@ -171,12 +162,6 @@
         }
     };
 
-    let closeProteinViewer = function(event) {
-        let mediaViewerEl = event.target.closest(".media-viewer");
-        let proteinMediaViewer = mediaViewers[mediaViewerEl.id];
-        proteinMediaViewer.root.classList.add("subsection__protein-media-viewer--hidden");
-    };
-
     let handleMobileControlClick = function(event) {
         let tabBtn = event.target.closest(".mobile-controls__btn");
         if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
@@ -245,14 +230,11 @@
     if(summaryMenuEl) summaryMenu = SummaryMenu(summaryMenuEl);
 
     for(let mediaViewerEl of mediaViewerEls) {
-        let mediaViewer = MediaViewer(mediaViewerEl, onMediaViewerMediaSwitchCallback, onMediaViewerResizeCallback);
-        mediaViewers[mediaViewerEl.id] = mediaViewer;
         if(mediaViewerEl.getAttribute("data-main")) {
-            mainMediaViewer = mediaViewer;
-            mediaViewer.fullscreenBtn.addEventListener("click", handleMainMediaViewerFsBtnClick);
+            mediaViewers[mediaViewerEl.id] = MediaViewer(mediaViewerEl, onMainMediaViewerRequestFullscreenChangeCallback, onMediaViewerResizeCallback, onMediaViewerMediaSwitchCallback);
+            mainMediaViewer = mediaViewers[mediaViewerEl.id];
         } else {
-            mediaViewer.fullscreenBtn.addEventListener("click", handleSubMediaViewerFsBtnClick);
-            if(mediaViewer.root.querySelector(".protein-viewer")) mediaViewer.fullscreenBtn.addEventListener("click", closeProteinViewer);
+            mediaViewers[mediaViewerEl.id] = MediaViewer(mediaViewerEl, onSubMediaViewerRequestFullscreenChangeCallback, onMediaViewerResizeCallback, onMediaViewerMediaSwitchCallback);
         }
     }
         

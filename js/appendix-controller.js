@@ -16,7 +16,7 @@
         if(hash) appendixAccordion.manuallyOpenPanel(hash);
     };
     
-    let handleTreeMediaViewerFsBtnClick = function() {
+    let onTreeMediaViewerRequestFullscreenChangeCallback = function() {
         if(window.innerWidth < 900) {
             treeMediaViewer.toggleFullscreen();
         } else {
@@ -38,9 +38,8 @@
     }
     if(treeMediaViewerEl) {
         treeViewer = TreeViewer(treeViewerEl);
-        treeMediaViewer = MediaViewer(treeMediaViewerEl);
+        treeMediaViewer = MediaViewer(treeMediaViewerEl, onTreeMediaViewerRequestFullscreenChangeCallback);
         treeViewerFsConfirm = Modal(treeViewerFsConfirmEl);
-        treeMediaViewer.fullscreenBtn.addEventListener("click", handleTreeMediaViewerFsBtnClick);
         treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-cancel").addEventListener("click", treeViewerFsConfirm.hide);
         treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-ok").addEventListener("click", onTreeViewerFsConfirmOK);
         if(hash) {
