@@ -68,11 +68,7 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     };
 
     let displayFullscreen = function() {
-        let mediaComponent = root.querySelector(`.media-viewer__media-component:not(.media-viewer__media-component--hidden)`);
         root.classList.add("media-viewer--fullscreen");
-        if(tabContainer) tabContainer.classList.add("media-viewer__tab-container--fullscreen");
-        mediaContainer.classList.add("media-viewer__media-container--fullscreen");
-        mediaComponent.classList.add("media-viewer__media-component--fullscreen");
         if(root.requestFullscreen) {
             root.requestFullscreen();
         } else {
@@ -82,11 +78,7 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     };
 
     let exitFullscreen = function() {
-        let mediaComponent = root.querySelector(`.media-viewer__media-component:not(.media-viewer__media-component--hidden)`);
         root.classList.remove("media-viewer--fullscreen");
-        if(tabContainer) tabContainer.classList.remove("media-viewer__tab-container--fullscreen");
-        mediaContainer.classList.remove("media-viewer__media-container--fullscreen");
-        mediaComponent.classList.remove("media-viewer__media-component--fullscreen");
         if(root.requestFullscreen) {
             document.exitFullscreen();
         } else {
