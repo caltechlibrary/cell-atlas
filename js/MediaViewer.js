@@ -1,6 +1,7 @@
 let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){}, resizeCallback = function(){}, mediaSwitchCallback = function(){}) {
     
     let tabContainer = root.querySelector(".media-viewer__tab-container");
+    let tabBtns = root.querySelectorAll(".media-viewer__tab-btn");
     let mediaContainer = root.querySelector(".media-viewer__media-container");
     let mediaComponents = root.querySelectorAll(".media-viewer__media-component");
     let fullscreenBtn = root.querySelector(".media-viewer__fullscreen-btn");
@@ -9,11 +10,12 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
         resizeCallback(root);
     };
 
-    let handleTabContainerClick = function(event) {
-        let tabBtn = event.target.closest(".media-viewer__tab-btn");
-        if(!tabBtn || !tabContainer.contains(tabBtn) || tabBtn.classList.contains("media-viewer__tab-btn-vid--selected")) return;
+    let handleTabBtnClick = function(event) {
+        let tabBtn = event.currentTarget;
         let currSelectedBtn = tabContainer.querySelector(".media-viewer__tab-btn-vid--selected");
         let mediaType = tabBtn.getAttribute("value");
+
+        if(tabBtn == currSelectedBtn) return;
 
         currSelectedBtn.classList.remove("media-viewer__tab-btn-vid--selected");
         tabBtn.classList.add("media-viewer__tab-btn-vid--selected");
@@ -21,9 +23,9 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     };
 
     let displayMediaType = function(mediaType) {
-        let mediaComponent = root.querySelector(`.media-viewer__media-component[data-media-type='${mediaType}']`);
+        let targetMediaComponent = root.querySelector(`.media-viewer__media-component[data-media-type='${mediaType}']`);
         for(let mediaComponent of mediaComponents) mediaComponent.classList.add("media-viewer__media-component--hidden");
-        mediaComponent.classList.remove("media-viewer__media-component--hidden");
+        targetMediaComponent.classList.remove("media-viewer__media-component--hidden");
         if(mediaType == "vid") {
             fullscreenBtn.classList.add("media-viewer__fullscreen-btn--hidden");
         } else {
@@ -145,7 +147,7 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     };
 
     root.addEventListener("fullscreenchange", handleRootFullscreenChange);
-    if(tabContainer) tabContainer.addEventListener("click", handleTabContainerClick);
+    for(let tabBtn of tabBtns) tabBtn.addEventListener("click", handleTabBtnClick);
     fullscreenBtn.addEventListener("click", handleFullscreenBtnClick);
 
     return {
