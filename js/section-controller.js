@@ -15,7 +15,7 @@
     let sectionStopNarrationButtonMobile = document.querySelector(".section__stop-narration-btn");
     let learnMoreBtns = document.querySelectorAll(".learn-more__btn")
     let hash = window.location.hash.substring(1);
-    let summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
+    let summaryMenu, sectionText, mainMediaViewer, mainNarrationPlayer,
         mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
     
     let onMediaViewerResizeCallback = function(mediaViewerEl) {
@@ -166,11 +166,11 @@
         if(btnValue == "text") {
             sectionTextEl.classList.remove("section-text--hidden");
             sectionNonTextContainer.classList.add("section__non-text-container--hidden-mobile");
-            mobileControls.root.classList.add("page__mobile-controls--relative-landscape");
+            mobileControlsEl.classList.add("page__mobile-controls--relative-landscape");
         } else {
             sectionTextEl.classList.add("section-text--hidden");
             sectionNonTextContainer.classList.remove("section__non-text-container--hidden-mobile");
-            mobileControls.root.classList.remove("page__mobile-controls--relative-landscape");
+            mobileControlsEl.classList.remove("page__mobile-controls--relative-landscape");
             if(btnValue == "vid" || btnValue == "img") {
                 mainMediaViewer.displayMediaType(btnValue);
             } else if(btnValue == "sum") {
@@ -263,7 +263,7 @@
 
     for(let openProteinViewerBtnEl of openProteinViewerBtnEls) openProteinViewerBtnEl.addEventListener("click", openProteinViewer);
 
-    mobileControls = MobileControls(mobileControlsEl, onMobileControlClickCallback);
+    MobileControls(mobileControlsEl, onMobileControlClickCallback);
 
     document.addEventListener("keydown", onDocumentKeydown);
 

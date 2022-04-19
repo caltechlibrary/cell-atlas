@@ -14,8 +14,4 @@ let MobileControls = function(root, onControlClickCallback) {
 
     for(let controlBtn of controlBtns) controlBtn.addEventListener("click", handleControlsClick);
 
-    return {
-        root
-    }
-
 };
