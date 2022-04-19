@@ -117,16 +117,17 @@
     let handleLearnMoreBtnClick = function(event) {
         let learnMoreBtn = event.currentTarget;
         let modal = modals[learnMoreBtn.value];
-        for(let id in videoPlayers) {
-            if(videoPlayers[id].getAttribute("data-main") && !videoPlayers[id].paused()) videoPlayers[id].pause();
-        }
-        if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
         modal.show();
     };
 
     let onModalOpenCallback = function() {
         let modalEl = document.querySelector(".modal:not(.modal--hidden)");
         let proteinViewer = proteinViewers[`proteinViewer-${modalEl.id}`];
+
+        for(let id in videoPlayers) {
+            if(videoPlayers[id].getAttribute("data-main") && !videoPlayers[id].paused()) videoPlayers[id].pause();
+        }
+        if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
         if(proteinViewer && !proteinViewer.initialized) proteinViewer.init();
     };
 
