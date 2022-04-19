@@ -1935,6 +1935,14 @@
     fill: #000;
 }
 
+.subsection__toggle-narration-btn--activated .subsection__toggle-narration-btn-show-icon {
+    display: none;
+}
+
+.subsection__toggle-narration-btn:not(.subsection__toggle-narration-btn--activated) .subsection__toggle-narration-btn-hide-icon {
+    display: none;
+}
+
 .subsection__header {
     margin: calc(0.4rem + 2px) 1.75em 0 0;
     line-height: 1;
