@@ -16,19 +16,13 @@ let SectionText = function(root, shelveCallback = function(){}, unshelveCallback
     };
 
     let toggleNarrationPlayer = function() {
-        let showIcon = root.querySelector(".section-text__toggle-narration-btn-show-icon");
-        let hideIcon = root.querySelector(".section-text__toggle-narration-btn-hide-icon");
         if(narrationPlayer.root.classList.contains("narration-player--hidden")) {
             if(!narrationPlayer.initialized) narrationPlayer.init();
             narrationPlayer.root.classList.remove("narration-player--hidden");
-            showIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
-            hideIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
             narrationToggleBtn.classList.add("section-text__toggle-narration-btn--activated");
             narrationToggleBtn.setAttribute("aria-expanded", "true");
         } else {
             narrationPlayer.root.classList.add("narration-player--hidden");
-            showIcon.classList.remove("section-text__toggle-narration-btn-icon--hidden");
-            hideIcon.classList.add("section-text__toggle-narration-btn-icon--hidden");
             narrationToggleBtn.classList.remove("section-text__toggle-narration-btn--activated");
             narrationToggleBtn.setAttribute("aria-expanded", "false");
             if(!narrationPlayer.audio.paused) narrationPlayer.togglePlayback();

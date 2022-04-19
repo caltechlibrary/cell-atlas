@@ -1295,20 +1295,6 @@
     border: 2px solid #fff;
 }
 
-.section-text__toggle-narration-btn--hidden {
-    display: none;
-}
-
-.section-text__toggle-narration-btn-icon--hidden {
-    display: none;    
-}
-
-.section-text__toggle-narration-btn-show-icon {
-    fill: none;
-    stroke-width: 1;
-    stroke: #fff;
-}
-
 .section-text__toggle-narration-btn-show-icon {
     fill: none;
     stroke-width: 1;
@@ -1317,6 +1303,14 @@
 
 .section-text__toggle-narration-btn-hide-icon {
     fill: #fff;
+}
+
+.section-text__toggle-narration-btn--activated .section-text__toggle-narration-btn-show-icon {
+    display: none;
+}
+
+.section-text__toggle-narration-btn:not(.section-text__toggle-narration-btn--activated) .section-text__toggle-narration-btn-hide-icon {
+    display: none;
 }
 
 .section-text__content {
