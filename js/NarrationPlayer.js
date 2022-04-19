@@ -1,4 +1,4 @@
-let NarrationPlayer = function(root) {
+let NarrationPlayer = function(root, onPlayCallback = function(){}, onPauseCallback = function(){}) {
 
     let playbackBtn = root.querySelector(".narration-player__playback-btn");
     let seekBar = root.querySelector(".narration-player__seekbar");
@@ -75,8 +75,10 @@ let NarrationPlayer = function(root) {
     let togglePlayback = function() {
         if(audio.paused) {
             audio.play();
+            onPlayCallback();
         } else {
             audio.pause();
+            onPauseCallback();
         }
     };
 
