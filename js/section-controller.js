@@ -241,8 +241,12 @@
     sectionStopNarrationButtonMobile.addEventListener("click", stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
-        narrationPlayers[narrationPlayerEl.id] = NarrationPlayer(narrationPlayerEl, onMainNarrationPlayCallback, onMainNarrationPauseCallback);
-        if(narrationPlayerEl.getAttribute("data-main")) mainNarrationPlayer = narrationPlayers[narrationPlayerEl.id];
+        if(narrationPlayerEl.getAttribute("data-main")) {
+            narrationPlayers[narrationPlayerEl.id] = NarrationPlayer(narrationPlayerEl, onMainNarrationPlayCallback, onMainNarrationPauseCallback);
+            mainNarrationPlayer = narrationPlayers[narrationPlayerEl.id];
+        } else {
+            narrationPlayers[narrationPlayerEl.id] = NarrationPlayer(narrationPlayerEl);
+        }
     };
 
     sectionText = SectionText(sectionTextEl, expandAndShelveCallback, contractAndUnshelveCallback, mainNarrationPlayer);
