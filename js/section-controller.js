@@ -106,11 +106,11 @@
         if(!mainNarrationPlayer.audio.paused) mainNarrationPlayer.togglePlayback();
     };
 
-    let showStopNarrationBtn = function() {
+    let onMainNarrationPlayCallback = function() {
         sectionStopNarrationButtonMobile.classList.remove("section__stop-narration-btn--hidden");
     };
 
-    let hideStopNarrationBtn = function() {
+    let onMainNarrationPauseCallback = function() {
         sectionStopNarrationButtonMobile.classList.add("section__stop-narration-btn--hidden");
     };
 
@@ -241,13 +241,12 @@
     sectionStopNarrationButtonMobile.addEventListener("click", stopMainNarration);
 
     for(let narrationPlayerEl of narrationPlayerEls) {
-        let narrationPlayer = NarrationPlayer(narrationPlayerEl);
         if(narrationPlayerEl.getAttribute("data-main")) {
-            mainNarrationPlayer = narrationPlayer;
-            narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
-            narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);
+            narrationPlayers[narrationPlayerEl.id] = NarrationPlayer(narrationPlayerEl, onMainNarrationPlayCallback, onMainNarrationPauseCallback);
+            mainNarrationPlayer = narrationPlayers[narrationPlayerEl.id];
+        } else {
+            narrationPlayers[narrationPlayerEl.id] = NarrationPlayer(narrationPlayerEl);
         }
-        narrationPlayers[narrationPlayer.root.id] = narrationPlayer;
     };
 
     sectionText = SectionText(sectionTextEl, expandAndShelveCallback, contractAndUnshelveCallback, mainNarrationPlayer);
