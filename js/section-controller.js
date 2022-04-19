@@ -15,7 +15,7 @@
     let sectionStopNarrationButtonMobile = document.querySelector(".section__stop-narration-btn");
     let learnMoreBtns = document.querySelectorAll(".learn-more__btn")
     let hash = window.location.hash.substring(1);
-    let summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
+    let summaryMenu, sectionText, mainMediaViewer, mainNarrationPlayer,
         mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
     
     let onMediaViewerResizeCallback = function(mediaViewerEl) {
@@ -162,20 +162,18 @@
         }
     };
 
-    let handleMobileControlClick = function(event) {
-        let tabBtn = event.target.closest(".mobile-controls__btn");
-        if(!tabBtn || !mobileControls.root.contains(tabBtn)) return;
-        if(tabBtn.value == "text") {
+    let onMobileControlClickCallback = function(btnValue) {
+        if(btnValue == "text") {
             sectionTextEl.classList.remove("section-text--hidden");
             sectionNonTextContainer.classList.add("section__non-text-container--hidden-mobile");
-            mobileControls.root.classList.add("page__mobile-controls--relative-landscape");
+            mobileControlsEl.classList.add("page__mobile-controls--relative-landscape");
         } else {
             sectionTextEl.classList.add("section-text--hidden");
             sectionNonTextContainer.classList.remove("section__non-text-container--hidden-mobile");
-            mobileControls.root.classList.remove("page__mobile-controls--relative-landscape");
-            if(tabBtn.value == "vid" || tabBtn.value == "img") {
-                mainMediaViewer.displayMediaType(tabBtn.value);
-            } else if(tabBtn.value == "sum") {
+            mobileControlsEl.classList.remove("page__mobile-controls--relative-landscape");
+            if(btnValue == "vid" || btnValue == "img") {
+                mainMediaViewer.displayMediaType(btnValue);
+            } else if(btnValue == "sum") {
                 summaryMenu.resizeMenuContainer();
             }
         }
@@ -265,8 +263,7 @@
 
     for(let openProteinViewerBtnEl of openProteinViewerBtnEls) openProteinViewerBtnEl.addEventListener("click", openProteinViewer);
 
-    mobileControls = MobileControls(mobileControlsEl);
-    mobileControls.root.addEventListener("click", handleMobileControlClick);
+    MobileControls(mobileControlsEl, onMobileControlClickCallback);
 
     document.addEventListener("keydown", onDocumentKeydown);
 
