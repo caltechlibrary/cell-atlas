@@ -2684,7 +2684,11 @@
     stroke: #fff;
 }
 
-.narration-player__playback-btn-icon--hidden {
+.narration-player--playing .narration-player__playback-btn-play-icon {
+    display: none;
+}
+
+.narration-player:not(.narration-player--playing) .narration-player__playback-btn-pause-icon {
     display: none;
 }
 

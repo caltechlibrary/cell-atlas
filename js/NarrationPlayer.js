@@ -59,16 +59,12 @@ let NarrationPlayer = function(root, onPlayCallback = function(){}, onPauseCallb
     };
 
     let onPlaybackChange = function() {
-        let playIcon = root.querySelector(".narration-player__playback-btn-play-icon");
-        let pauseIcon = root.querySelector(".narration-player__playback-btn-pause-icon");
         if(audio.paused) {
             playbackBtn.setAttribute("aria-label", "Play");
-            playIcon.classList.remove("narration-player__playback-btn-icon--hidden");
-            pauseIcon.classList.add("narration-player__playback-btn-icon--hidden");
+            root.classList.remove("narration-player--playing");
         } else {
             playbackBtn.setAttribute("aria-label", "Pause");
-            playIcon.classList.add("narration-player__playback-btn-icon--hidden");
-            pauseIcon.classList.remove("narration-player__playback-btn-icon--hidden");
+            root.classList.add("narration-player--playing");
         }
     };
 
