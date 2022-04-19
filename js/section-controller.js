@@ -13,7 +13,7 @@
     let mobileControlsEl = document.querySelector(".mobile-controls");
     let sectionNonTextContainer = document.querySelector(".section__non-text-container");
     let sectionStopNarrationButtonMobile = document.querySelector(".section__stop-narration-btn");
-    let learnMoreBtnContainer = document.querySelector(".learn-more__btn-container");
+    let learnMoreBtns = document.querySelectorAll(".learn-more__btn")
     let hash = window.location.hash.substring(1);
     let summaryMenu, sectionText, mobileControls, mainMediaViewer, mainNarrationPlayer,
         mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
@@ -114,9 +114,8 @@
         sectionStopNarrationButtonMobile.classList.add("section__stop-narration-btn--hidden");
     };
 
-    let handleLearnMoreBtnContainerClick = function(event) {
-        if(!event.target.classList.contains("learn-more__btn")) return;
-        let learnMoreBtn = event.target;
+    let handleLearnMoreBtnClick = function(event) {
+        let learnMoreBtn = event.currentTarget;
         let modal = modals[learnMoreBtn.value];
         for(let id in videoPlayers) {
             if(videoPlayers[id].getAttribute("data-main") && !videoPlayers[id].paused()) videoPlayers[id].pause();
@@ -251,7 +250,7 @@
 
     sectionText = SectionText(sectionTextEl, expandAndShelveCallback, contractAndUnshelveCallback, mainNarrationPlayer);
 
-    if(learnMoreBtnContainer) learnMoreBtnContainer.addEventListener("click", handleLearnMoreBtnContainerClick);
+    for(let learnMoreBtn of learnMoreBtns) learnMoreBtn.addEventListener("click", handleLearnMoreBtnClick);
 
     for(let modalEl of modalEls) {
         let modal = Modal(modalEl, onModalOpenCallback, onModalCloseCallback);
