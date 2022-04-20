@@ -89,7 +89,7 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     };
 
     let toggleFixedEnlarged = function() {
-        if(!mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+        if(!root.classList.contains("media-viewer--fixed-enlarged")) {
             displayFixedEnlarged();
         } else {
             minimizeFixedEnlarged();
@@ -97,11 +97,11 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     };
 
     let displayFixedEnlarged = function() {
-        mediaContainer.classList.add("media-viewer__media-container--fixed-enlarged");
+        root.classList.add("media-viewer--fixed-enlarged");
         positionFixedEnlargedSlider();
-        mediaContainer.setAttribute("role", "dialog");
-        mediaContainer.setAttribute("aria-label", "Media container");
-        mediaContainer.setAttribute("aria-modal", "true");
+        root.setAttribute("role", "dialog");
+        root.setAttribute("aria-label", "Media container");
+        root.setAttribute("aria-modal", "true");
         window.addEventListener("keydown", onFixedEnlargedKeydown);
         window.addEventListener("resize", positionFixedEnlargedSlider);
     };
@@ -130,18 +130,18 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
         let aspectRatio = 16 / 9;
         let width = Math.min(availWidth, availHeight * aspectRatio);
         let height = width / aspectRatio;
-        mediaContainer.style.top = `${posTop}px`;
-        mediaContainer.style.width = `${width + 14}px`;
-        mediaContainer.style.height = `${height + 14}px`;
+        root.style.top = `${posTop}px`;
+        root.style.width = `${width + 14}px`;
+        root.style.height = `${height + 14}px`;
         resizeCallback(root);
     };
 
     let minimizeFixedEnlarged = function() {
-        mediaContainer.removeAttribute("style");
-        mediaContainer.classList.remove("media-viewer__media-container--fixed-enlarged");
-        mediaContainer.removeAttribute("role");
-        mediaContainer.removeAttribute("aria-label");
-        mediaContainer.removeAttribute("aria-modal");
+        root.classList.remove("media-viewer--fixed-enlarged");
+        root.removeAttribute("style");
+        root.removeAttribute("role");
+        root.removeAttribute("aria-label");
+        root.removeAttribute("aria-modal");
         window.removeEventListener("keydown", onFixedEnlargedKeydown);
         window.removeEventListener("resize", positionFixedEnlargedSlider);
     };
