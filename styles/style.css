@@ -750,9 +750,11 @@
 
 .media-viewer--fixed-enlarged {
     position: fixed;
-    top: 50%;
+    top: calc( 80px + (0.5 * (100vh - (115px + 0.3125rem))) );
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 92%;
+    max-width: calc( (100vh - (115px + 0.3125rem) - 2.5em) * (16/9));
     border-radius: 10px;
     z-index: 100;
 }

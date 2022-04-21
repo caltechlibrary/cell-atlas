@@ -98,12 +98,11 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
 
     let displayFixedEnlarged = function() {
         root.classList.add("media-viewer--fixed-enlarged");
-        positionFixedEnlargedSlider();
+        resizeCallback(root);
         root.setAttribute("role", "dialog");
         root.setAttribute("aria-label", "Media container");
         root.setAttribute("aria-modal", "true");
         window.addEventListener("keydown", onFixedEnlargedKeydown);
-        window.addEventListener("resize", positionFixedEnlargedSlider);
     };
 
     let onFixedEnlargedKeydown = function(event) {
@@ -121,21 +120,6 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
         }
     };
 
-    let positionFixedEnlargedSlider = function() {
-        // section content is in .page__content-container
-        let contentContainer = document.querySelector(".page__content-container");
-        let posTop = contentContainer.getBoundingClientRect().top + contentContainer.getBoundingClientRect().height / 2;
-        let availHeight = contentContainer.getBoundingClientRect().height - 50;
-        let availWidth = contentContainer.getBoundingClientRect().width - 100;
-        let aspectRatio = 16 / 9;
-        let width = Math.min(availWidth, availHeight * aspectRatio);
-        let height = width / aspectRatio;
-        root.style.top = `${posTop}px`;
-        root.style.width = `${width + 14}px`;
-        root.style.height = `${height + 14}px`;
-        resizeCallback(root);
-    };
-
     let minimizeFixedEnlarged = function() {
         root.classList.remove("media-viewer--fixed-enlarged");
         root.removeAttribute("style");
@@ -143,7 +127,6 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
         root.removeAttribute("aria-label");
         root.removeAttribute("aria-modal");
         window.removeEventListener("keydown", onFixedEnlargedKeydown);
-        window.removeEventListener("resize", positionFixedEnlargedSlider);
     };
 
     root.addEventListener("fullscreenchange", handleRootFullscreenChange);
