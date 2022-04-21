@@ -75,6 +75,7 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
             root.requestFullscreen();
         } else {
             root.classList.add("media-viewer--fullscreen-polyfill");
+            makeRootModal();
             resizeCallback(root);
         }
     };
@@ -85,11 +86,13 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
             document.exitFullscreen();
         } else {
             root.classList.remove("media-viewer--fullscreen-polyfill");
+            revertRootModal();
+            resizeCallback(root);
         }
     };
 
     let toggleFixedEnlarged = function() {
-        if(!mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+        if(!root.classList.contains("media-viewer--fixed-enlarged")) {
             displayFixedEnlarged();
         } else {
             minimizeFixedEnlarged();
@@ -97,16 +100,25 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     };
 
     let displayFixedEnlarged = function() {
-        mediaContainer.classList.add("media-viewer__media-container--fixed-enlarged");
-        positionFixedEnlargedSlider();
-        mediaContainer.setAttribute("role", "dialog");
-        mediaContainer.setAttribute("aria-label", "Media container");
-        mediaContainer.setAttribute("aria-modal", "true");
-        window.addEventListener("keydown", onFixedEnlargedKeydown);
-        window.addEventListener("resize", positionFixedEnlargedSlider);
+        root.classList.add("media-viewer--fixed-enlarged");
+        resizeCallback(root);
+        makeRootModal();
     };
 
-    let onFixedEnlargedKeydown = function(event) {
+    let minimizeFixedEnlarged = function() {
+        root.classList.remove("media-viewer--fixed-enlarged");
+        resizeCallback(root);
+        revertRootModal();
+    };
+
+    let makeRootModal = function() {
+        root.setAttribute("role", "dialog");
+        root.setAttribute("aria-label", "Media container");
+        root.setAttribute("aria-modal", "true");
+        window.addEventListener("keydown", onRootModalKeydown);
+    };
+
+    let onRootModalKeydown = function(event) {
         let visibleMediaComponent = mediaContainer.querySelector(".media-viewer__media-component:not(.media-viewer__media-component--hidden)");
         let focusableEls = visibleMediaComponent.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
         
@@ -121,29 +133,11 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
         }
     };
 
-    let positionFixedEnlargedSlider = function() {
-        // section content is in .page__content-container
-        let contentContainer = document.querySelector(".page__content-container");
-        let posTop = contentContainer.getBoundingClientRect().top + contentContainer.getBoundingClientRect().height / 2;
-        let availHeight = contentContainer.getBoundingClientRect().height - 50;
-        let availWidth = contentContainer.getBoundingClientRect().width - 100;
-        let aspectRatio = 16 / 9;
-        let width = Math.min(availWidth, availHeight * aspectRatio);
-        let height = width / aspectRatio;
-        mediaContainer.style.top = `${posTop}px`;
-        mediaContainer.style.width = `${width + 14}px`;
-        mediaContainer.style.height = `${height + 14}px`;
-        resizeCallback(root);
-    };
-
-    let minimizeFixedEnlarged = function() {
-        mediaContainer.removeAttribute("style");
-        mediaContainer.classList.remove("media-viewer__media-container--fixed-enlarged");
-        mediaContainer.removeAttribute("role");
-        mediaContainer.removeAttribute("aria-label");
-        mediaContainer.removeAttribute("aria-modal");
-        window.removeEventListener("keydown", onFixedEnlargedKeydown);
-        window.removeEventListener("resize", positionFixedEnlargedSlider);
+    let revertRootModal = function() {
+        root.removeAttribute("role");
+        root.removeAttribute("aria-label");
+        root.removeAttribute("aria-modal");
+        window.removeEventListener("keydown", onRootModalKeydown);
     };
 
     root.addEventListener("fullscreenchange", handleRootFullscreenChange);
