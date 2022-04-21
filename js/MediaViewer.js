@@ -75,6 +75,7 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
             root.requestFullscreen();
         } else {
             root.classList.add("media-viewer--fullscreen-polyfill");
+            makeRootModal();
             resizeCallback(root);
         }
     };
@@ -85,6 +86,8 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
             document.exitFullscreen();
         } else {
             root.classList.remove("media-viewer--fullscreen-polyfill");
+            revertRootModal();
+            resizeCallback(root);
         }
     };
 
@@ -99,13 +102,23 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
     let displayFixedEnlarged = function() {
         root.classList.add("media-viewer--fixed-enlarged");
         resizeCallback(root);
+        makeRootModal();
+    };
+
+    let minimizeFixedEnlarged = function() {
+        root.classList.remove("media-viewer--fixed-enlarged");
+        resizeCallback(root);
+        revertRootModal();
+    };
+
+    let makeRootModal = function() {
         root.setAttribute("role", "dialog");
         root.setAttribute("aria-label", "Media container");
         root.setAttribute("aria-modal", "true");
-        window.addEventListener("keydown", onFixedEnlargedKeydown);
+        window.addEventListener("keydown", onRootModalKeydown);
     };
 
-    let onFixedEnlargedKeydown = function(event) {
+    let onRootModalKeydown = function(event) {
         let visibleMediaComponent = mediaContainer.querySelector(".media-viewer__media-component:not(.media-viewer__media-component--hidden)");
         let focusableEls = visibleMediaComponent.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
         
@@ -120,13 +133,11 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
         }
     };
 
-    let minimizeFixedEnlarged = function() {
-        root.classList.remove("media-viewer--fixed-enlarged");
-        root.removeAttribute("style");
+    let revertRootModal = function() {
         root.removeAttribute("role");
         root.removeAttribute("aria-label");
         root.removeAttribute("aria-modal");
-        window.removeEventListener("keydown", onFixedEnlargedKeydown);
+        window.removeEventListener("keydown", onRootModalKeydown);
     };
 
     root.addEventListener("fullscreenchange", handleRootFullscreenChange);
