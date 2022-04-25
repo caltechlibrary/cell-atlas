@@ -1862,7 +1862,7 @@
 }
 
 @media (max-width: 899px) {
-    .subsection__media-viewer--has-tabmenu {
+    .subsection__tab-container {
         margin-top: calc(-1.25em - 8px);
     }
 }
