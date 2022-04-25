@@ -643,7 +643,6 @@
     }
 }
 
-
 .section__non-text-container--fullscreen-polyfill-badfix {
     /* Need to increase container z index because of poorly constructed HTML */
     /* Will delete when HTML is structured well */
@@ -680,6 +679,12 @@
         max-height: 98%;
         display: flex;
         flex-direction: column;
+    }
+}
+
+@media (max-width:899px) {
+    .section__tab-container {
+        display: none !important;
     }
 }
 
@@ -833,12 +838,6 @@
     left: 10px;
     display: inline-block;
     z-index: 2;
-}
-
-@media (max-width:900px) {
-    .media-viewer__tab-container--main-section {
-        display: none;
-    }
 }
 
 .media-viewer--fullscreen .media-viewer__tab-container {
