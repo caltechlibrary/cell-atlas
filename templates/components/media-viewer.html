@@ -19,7 +19,7 @@
             <button class="media-viewer__tab-btn" value="img" aria-label="Show comparison slider">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
-    <div class="media-viewer__media-container ${if(it.isSection)}media-viewer__media-container--main-section${endif}">
+    <div class="media-viewer__media-container ${if(it.isSection)}section__media-container${else}subsection__media-container${endif}">
         ${if(it.vidPlayer)} ${it.vidPlayer:components/video-player.html()} ${endif}
         ${if(it.compSlider)} ${it.compSlider:components/comp-slider.html()} ${endif}
         ${if(it.viewer)} ${it.viewer:components/protein-viewer.html()} ${endif}
