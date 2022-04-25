@@ -882,11 +882,6 @@
     }
 }
 
-.media-viewer--fullscreen.media-viewer--fill-on-fs .media-viewer__media-container {
-    width: 100%;
-    height: 100%;
-}
-
 .media-viewer__media-component--hidden {
     display: none;
 }
