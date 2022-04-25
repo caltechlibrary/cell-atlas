@@ -3,7 +3,7 @@
     data-file="${it.file}"
     class="
         media-viewer 
-        ${if(it.isSection)}media-viewer--main-section${else}subsection__media-viewer${endif}
+        ${if(it.isSection)}media-viewer--main-section section__media-viewer${else}subsection__media-viewer${endif}
         ${if(it.isSection)}${elseif(it.hasTabMenu)} subsection__media-viewer--has-tabmenu ${endif}
         ${if(it.isSection)}${elseif(it.hasCitation)} subsection__media-viewer--has-citation ${endif}
         ${if(it.summaryMenu)}media-viewer--summary-menu${endif}
