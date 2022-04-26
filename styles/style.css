@@ -3143,6 +3143,16 @@
     text-decoration: underline;
 }
 
+.media-viewer--fullscreen .appendix__media-container {
+    width: 100%;
+    height: 100%;
+}
+
+.media-viewer--fullscreen .appendix__tree-viewer {
+    width: 100%;
+    height: 100%;
+}
+
 /* appendix-accordion */
 .appendix-accordion {
     color: #fff;
@@ -3301,8 +3311,7 @@
 /* tree-viewer */
 .tree-viewer {
     position: relative;
-    width: 100%;
-    height: 100%;
+    background: #363636;
     cursor: grab;
 }
 

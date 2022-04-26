@@ -6,19 +6,19 @@
         ${if(it.hasCitation)}media-viewer--has-citation${endif}
         ${if(it.summaryMenu)}section__media-viewer--summary-menu${endif}
         ${if(it.viewer)}subsection__media-viewer--protein-viewer subsection__media-viewer--hidden${endif}
-        ${if(it.isSection)}section__media-viewer${else}subsection__media-viewer${endif}
+        ${if(it.isSection)}section__media-viewer${elseif(it.isSubsection)}subsection__media-viewer${elseif(it.isAppendix)}appendix__media-viewer${endif}
     "
     ${if(it.isSection)}
         data-main="true"
     ${endif}
 >
     ${if(it.hasTabMenu)}
-        <div class="media-viewer__tab-container ${if(it.isSection)}section__tab-container${else}subsection__tab-container${endif}">
+        <div class="media-viewer__tab-container ${if(it.isSection)}section__tab-container${elseif(it.isSubsection)}subsection__tab-container${elseif(it.isAppendix)}appendix__tab-container${endif}">
             <button class="media-viewer__tab-btn media-viewer__tab-btn-vid--selected" value="vid" aria-label="Show video">${svg/noun_Video.svg()}</button>
             <button class="media-viewer__tab-btn" value="img" aria-label="Show comparison slider">${svg/noun_Image.svg()}</button>
         </div>
     ${endif}
-    <div class="media-viewer__media-container ${if(it.isSection)}section__media-container${else}subsection__media-container${endif}">
+    <div class="media-viewer__media-container ${if(it.isSection)}section__media-container${elseif(it.isSubsection)}subsection__media-container${elseif(it.isAppendix)}appendix__media-container${endif}">
         ${if(it.vidPlayer)} ${it.vidPlayer:components/video-player.html()} ${endif}
         ${if(it.compSlider)} ${it.compSlider:components/comp-slider.html()} ${endif}
         ${if(it.viewer)} ${it.viewer:components/protein-viewer.html()} ${endif}

@@ -282,6 +282,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 subsectionData["mediaViewer"] = {}
                 subsectionData["mediaViewer"]["id"] = subsectionData["id"]
                 subsectionData["mediaViewer"]["file"] = subsectionData['id']
+                subsectionData["mediaViewer"]["isSubsection"] = True
                 if "doi" in subsectionData or "video" in  subsectionData:
                     subsectionData["mediaViewer"]["vidPlayer"] = getVidPlayerMetadata(f"subsections/{subsectionFileName}.md")
                     if "noSlider" not in subsectionData:
@@ -300,6 +301,7 @@ def addMainSectionMetadata(fileName, metadata, bibDict):
                 subsectionData["proteinMediaViewer"] = {}
                 subsectionData["proteinMediaViewer"]["id"] = f"pv-{subsectionData['id']}" 
                 subsectionData["proteinMediaViewer"]["file"] = subsectionData['id']
+                subsectionData["proteinMediaViewer"]["isSubsection"] = True
                 subsectionData["proteinMediaViewer"]["viewer"] = getProteinViewerMetadata(f"subsections/{subsectionFileName}.md")
 
             metadata["subsectionsData"].append(subsectionData)
@@ -514,7 +516,7 @@ for i, fileName in enumerate(appendixFileNames):
     elif fileName == "C-phylogenetic-tree.md":
         metadata["appendixTypeTree"] = True
         metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
-        metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"] }
+        metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"], "isAppendix": True }
         metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirm", "label": "Allow Phylogenetic Tree full screen", "template": { "treeViewerFsConfirm": True } }
     elif fileName == "D-references.md":
         metadata["appendixTypeReferences"] = True
