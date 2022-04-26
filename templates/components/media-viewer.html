@@ -3,9 +3,9 @@
     data-file="${it.file}"
     class="
         media-viewer 
-        ${if(it.isSection)}section__media-viewer${else}subsection__media-viewer${endif}
-        ${if(it.isSection)}${elseif(it.hasCitation)} subsection__media-viewer--has-citation ${endif}
+        ${if(it.hasCitation)}media-viewer--has-citation${endif}
         ${if(it.summaryMenu)}media-viewer--summary-menu${endif}
+        ${if(it.isSection)}section__media-viewer${else}subsection__media-viewer${endif}
         ${if(it.viewer)}subsection__protein-media-viewer subsection__protein-media-viewer--hidden${endif}
     "
     ${if(it.isSection)}
