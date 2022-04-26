@@ -5,8 +5,8 @@
         media-viewer 
         ${if(it.hasCitation)}media-viewer--has-citation${endif}
         ${if(it.summaryMenu)}section__media-viewer--summary-menu${endif}
+        ${if(it.viewer)}subsection__media-viewer--protein-viewer subsection__media-viewer--hidden${endif}
         ${if(it.isSection)}section__media-viewer${else}subsection__media-viewer${endif}
-        ${if(it.viewer)}subsection__protein-media-viewer subsection__protein-media-viewer--hidden${endif}
     "
     ${if(it.isSection)}
         data-main="true"

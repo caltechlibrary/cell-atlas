@@ -57,7 +57,7 @@
         } else {
             mediaViewers[id].toggleFixedEnlarged();
         }
-        if(mediaViewers[id].root.classList.contains("subsection__protein-media-viewer")) mediaViewers[id].root.classList.add("subsection__protein-media-viewer--hidden");
+        if(mediaViewers[id].root.classList.contains("subsection__media-viewer--protein-viewer")) mediaViewers[id].root.classList.add("subsection__media-viewer--hidden");
     };
 
     let onMainVideoPlayerFirstPlay = function() {
@@ -142,7 +142,7 @@
             mediaViewer.setFullscreenBtnState("minimized");
         }
         if(proteinViewer && proteinViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
-            proteinViewer.root.classList.add("subsection__protein-media-viewer--hidden");
+            proteinViewer.root.classList.add("subsection__media-viewer--hidden");
             proteinViewer.toggleFixedEnlarged();
             proteinViewer.setFullscreenBtnState("minimized");
         }
@@ -153,7 +153,7 @@
     let openProteinViewer = function(event) {
         let id = event.target.value;
         let proteinMediaViewer = mediaViewers[`mediaViewer-pv-${id}`];
-        proteinMediaViewer.root.classList.remove("subsection__protein-media-viewer--hidden");
+        proteinMediaViewer.root.classList.remove("subsection__media-viewer--hidden");
         proteinMediaViewer.setFullscreenBtnState("expanded");
         if(window.innerWidth < 900) {
             proteinMediaViewer.toggleFullscreen();
