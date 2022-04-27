@@ -73,10 +73,7 @@
     };
 
     let onMainVideoPlayerFirstPlay = function() {
-        if(
-            window.innerWidth >= 900 && 
-            !sectionText.mainContainer.classList.contains("section-text__main-container--hidden")
-        ) {
+        if(window.innerWidth >= 900 && !sectionTextEl.classList.contains("section-text--shelved")) {
             expandAndShelveCallback();
         }
     };
