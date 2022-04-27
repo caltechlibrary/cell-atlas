@@ -1576,34 +1576,9 @@
     position: relative;
 }
 
-@media (max-width: 900px) {
-    .comp-slider--subsection {
-        margin: auto;
-        width: fit-content;
-    }   
-}
-
-@media (min-width: 900px) {
-    .comp-slider--subsection {
-        width: 100%;
-    }   
-}
-
 .comp-slider__before-img {
     display: block;
     width: 100%;
-}
-
-@media (max-width: 900px) {
-    .comp-slider__before-img--subsection {
-        max-height: 50vh;
-    }
-}
-
-@media (min-width: 900px) {
-    .comp-slider__before-img--subsection {
-        width: 100%;
-    }
 }
 
 .comp-slider__before-img--hidden {
@@ -1893,6 +1868,18 @@
     .subsection__video-player:not(.vjs-fullscreen) .vjs-tech {
         max-height: 50vh;
     }
+}
+
+@media (max-width: 899px) {
+    .subsection__comp-slider {
+        margin: auto;
+        max-width: 88.85vh;
+    }
+    
+    .media-viewer--fullscreen .subsection__comp-slider {
+        margin: initial;
+        max-width: initial;
+    }  
 }
 
 .subsection__protein-viewer {

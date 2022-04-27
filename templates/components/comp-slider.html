@@ -1,9 +1,9 @@
-<div id="compSlider-${it.id}" class="comp-slider media-viewer__comp-slider media-viewer__media-component media-viewer__media-component--hidden ${if(it.isSection)}section__comp-slider${else}comp-slider--subsection${endif}" data-media-type="img" ${if(offline)}data-offline="true"${endif}>
+<div id="compSlider-${it.id}" class="comp-slider media-viewer__comp-slider media-viewer__media-component media-viewer__media-component--hidden ${if(it.isSection)}section__comp-slider${else}subsection__comp-slider${endif}" data-media-type="img" ${if(offline)}data-offline="true"${endif}>
     <picture class="comp-slider__before-picture" data-src="${it.imgName}_before">
         ${if(offline)}${else} <source type="image/webp" srcset="https://www.cellstructureatlas.org/img/stillimages/${it.imgName}_before.webp"> ${endif}
         <source type="image/jpeg" srcset="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_before.jpg">
         <img 
-            class="comp-slider__before-img ${if(it.isSection)}section__before-img${else}comp-slider__before-img--subsection${endif}"
+            class="comp-slider__before-img ${if(it.isSection)}section__before-img${else}subsection__before-img${endif}"
             src="${if(offline)}${else}https://www.cellstructureatlas.org/${endif}img/stillimages/${it.imgName}_before.jpg"
             alt="${it.beforeAlt}"
         >
