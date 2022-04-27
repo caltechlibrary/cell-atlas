@@ -16,7 +16,7 @@
     let learnMoreBtns = document.querySelectorAll(".learn-more__btn")
     let hash = window.location.hash.substring(1);
     let summaryMenu, sectionText, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, videoPlayers = {}, compSliders = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
+        mediaViewers = {}, videoPlayers = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
     
     let onMediaViewerResizeCallback = function(mediaViewerEl) {
         let file = mediaViewerEl.getAttribute("data-file");
@@ -49,6 +49,18 @@
         for(let id in videoPlayers) {
             if(id != event.target.id) videoPlayers[id].qualityChanger.changeQuality(quality);
         }
+    };
+
+    let adjustMainCompSliderMaxHeight = function() {
+        let sectionEl = document.querySelector(".section");
+        let sectionMediaViewer = document.querySelector(".section__media-viewer");
+        let sectionTabContainer = document.querySelector(".section__tab-container");
+        let sectionMediaContainer = document.querySelector(".section__media-container");
+        let sectionCompSider = document.querySelector(".section__comp-slider");
+        let sectionMediaViewerMaxHeightPercent = parseFloat(window.getComputedStyle(sectionMediaViewer)["max-height"]) / 100;
+        let totalBorderHeight = parseFloat(window.getComputedStyle(sectionMediaContainer)["borderTopWidth"]) + parseFloat(window.getComputedStyle(sectionMediaContainer)["borderBottomWidth"]);
+        let maxHeight = (sectionEl.offsetHeight * sectionMediaViewerMaxHeightPercent) - (sectionTabContainer.offsetHeight + totalBorderHeight);
+        sectionCompSider.style["max-width"] = `${maxHeight * (16 / 9)}px`;
     };
 
     let onSubMediaViewerRequestFullscreenChangeCallback = function(id) {
@@ -217,9 +229,10 @@
         videoPlayer.on("qualitychange", handleVideoPlayerQualityChange);
     }
 
-    for(let compSliderEl of compSliderEls) {
-        compSliders[compSliderEl.id] = CompSlider(compSliderEl);
-    }
+    for(let compSliderEl of compSliderEls) CompSlider(compSliderEl);
+    
+    adjustMainCompSliderMaxHeight();
+    window.addEventListener("resize", adjustMainCompSliderMaxHeight);
 
     for(let proteinViewerEl of proteinViewerEls) {
         proteinViewers[proteinViewerEl.id] = ProteinViewer(proteinViewerEl);

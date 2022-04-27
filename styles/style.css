@@ -773,6 +773,30 @@
     }
 }
 
+@media (max-width: 900px) and (orientation: portrait) {
+    .section__comp-slider {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .section__comp-slider {
+        height: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+    .section__before-img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .section__before-img {
+        height: 100%;
+    }
+}
+
 .section__summary-menu {
     width: 100%;
     height: 100%;
@@ -1552,62 +1576,9 @@
     position: relative;
 }
 
-@media (max-width: 900px) and (orientation: portrait) {
-    .comp-slider--main-section {
-        width: 100%;
-    }
-}
-
-@media (max-width: 900px) and (orientation: landscape) {
-    .comp-slider--main-section {
-        height: 100%;
-    }
-}
-
-@media (max-width: 900px) {
-    .comp-slider--subsection {
-        margin: auto;
-        width: fit-content;
-    }   
-}
-
-@media (min-width: 900px) {
-    .comp-slider--subsection {
-        width: 100%;
-    }   
-}
-
-.comp-slider--main-section-failed {
-    width: 100%;
-}
-
 .comp-slider__before-img {
     display: block;
-    max-width: 100%;
-}
-
-@media (max-width: 900px) and (orientation: portrait) {
-    .comp-slider__before-img--main-section {
-        width: 100%;
-    }
-}
-
-@media (max-width: 900px) and (orientation: landscape) {
-    .comp-slider__before-img--main-section {
-        height: 100%;
-    }
-}
-
-@media (max-width: 900px) {
-    .comp-slider__before-img--subsection {
-        max-height: 50vh;
-    }
-}
-
-@media (min-width: 900px) {
-    .comp-slider__before-img--subsection {
-        width: 100%;
-    }
+    width: 100%;
 }
 
 .comp-slider__before-img--hidden {
@@ -1897,6 +1868,18 @@
     .subsection__video-player:not(.vjs-fullscreen) .vjs-tech {
         max-height: 50vh;
     }
+}
+
+@media (max-width: 899px) {
+    .subsection__comp-slider {
+        margin: auto;
+        max-width: 88.85vh;
+    }
+    
+    .media-viewer--fullscreen .subsection__comp-slider {
+        margin: initial;
+        max-width: initial;
+    }  
 }
 
 .subsection__protein-viewer {
@@ -3143,6 +3126,16 @@
     text-decoration: underline;
 }
 
+.media-viewer--fullscreen .appendix__media-container {
+    width: 100%;
+    height: 100%;
+}
+
+.media-viewer--fullscreen .appendix__tree-viewer {
+    width: 100%;
+    height: 100%;
+}
+
 /* appendix-accordion */
 .appendix-accordion {
     color: #fff;
@@ -3301,8 +3294,7 @@
 /* tree-viewer */
 .tree-viewer {
     position: relative;
-    width: 100%;
-    height: 100%;
+    background: #363636;
     cursor: grab;
 }
 

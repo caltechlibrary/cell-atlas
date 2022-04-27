@@ -1,34 +1,8 @@
 let CompSlider = function(root) {
     
-    let beforeImg = root.querySelector(".comp-slider__before-img");
     let afterImgContainer = root.querySelector(".comp-slider__after-img-container");
-    let afterImg = root.querySelector(".comp-slider__after-img");
     let slider = root.querySelector(".comp-slider__slider");
     let sliderInput = root.querySelector(".comp-slider__input");
-    let failMsgContainer = root.querySelector(".comp-slider__fail-msg-container");
-
-    let init = function() {
-        if(root.classList.contains("comp-slider--main-section") && window.innerWidth >= 900) updateBeforeImgMaxHeight();
-    };
-
-    let displayFailedMsg = function(event) {
-        beforeImg.classList.add("comp-slider__before-img--hidden");
-        afterImgContainer.classList.add("comp-slider__after-img-container--hidden");
-        slider.classList.add("comp-slider__slider--hidden");
-        if(root.classList.contains("comp-slider--main-section")) root.classList.add("comp-slider--main-section-failed");
-        failMsgContainer.classList.remove("comp-slider__fail-msg-container--hidden");
-    };
-
-    let updateBeforeImgMaxHeight = function() {
-        let sectionContainer = document.querySelector(".page__content-container");
-        let parentMediaContainer = root.parentElement;
-        let parentMediaViewer = parentMediaContainer.parentElement;
-        let mediaViewerTabContainer = parentMediaViewer.querySelector(".media-viewer__tab-container");
-        let mediaViewerMaxHeightPercent = parseFloat(window.getComputedStyle(parentMediaViewer)["max-height"]) / 100;
-        let totalBorderHeight = parseFloat(window.getComputedStyle(parentMediaContainer)["borderTopWidth"]) + parseFloat(window.getComputedStyle(parentMediaContainer)["borderBottomWidth"]);
-        let maxHeight = (sectionContainer.offsetHeight * mediaViewerMaxHeightPercent) - (mediaViewerTabContainer.offsetHeight + totalBorderHeight);
-        beforeImg.style["max-height"] = `${maxHeight}px`;
-    };
 
     let initImgSliding = function(event) {
         event.preventDefault();
@@ -70,16 +44,8 @@ let CompSlider = function(root) {
         window.removeEventListener("touchend", endImgSliding);
     };
 
-    beforeImg.addEventListener("error", displayFailedMsg);
-    afterImg.addEventListener("error", displayFailedMsg);
-    init();
-    if(root.classList.contains("comp-slider--main-section") && window.innerWidth >= 900) window.addEventListener("resize", updateBeforeImgMaxHeight);
     slider.addEventListener("mousedown", initImgSliding);
     slider.addEventListener("touchstart", initImgSliding);
     sliderInput.addEventListener("input", onSliderManualInput);
-
-    return {
-        root
-    }
 
 }
