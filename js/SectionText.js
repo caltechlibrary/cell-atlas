@@ -1,7 +1,6 @@
 let SectionText = function(root, shelveCallback = function(){}, unshelveCallback = function(){}, narrationPlayer) {
 
     let shelveBtn = root.querySelector(".section-text .section-text__shelve-btn");
-    let unshelveBtnContainer = root.querySelector(".section-text__unshelve-btn-container");
     let unshelveBtn = root.querySelector(".section-text__unshelve-btn");
     let stopNarrationBtn = root.querySelector(".section-text__stop-narration-btn");
     let narrationToggleBtn = root.querySelector(".section-text__toggle-narration-btn");
@@ -51,6 +50,5 @@ let SectionText = function(root, shelveCallback = function(){}, unshelveCallback
 
     return {
         root,
-        unshelveBtnContainer
     }
 }
