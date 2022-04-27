@@ -5,7 +5,7 @@
     let searchWidgetEls = document.querySelectorAll(".search-widget");
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
-    let header, nav, progressBar;
+    let header, nav;
 
     let toggleNav = function() {
         if(nav.root.classList.contains("page__nav--collapsed")) {
@@ -63,7 +63,7 @@
 
     for(let searchWidgetEl of searchWidgetEls) SearchWidget(searchWidgetEl);
 
-    if(progressBarEl) progressBar = ProgressBar(progressBarEl);
+    if(progressBarEl) ProgressBar(progressBarEl);
 
     Footer(footerEl);
 

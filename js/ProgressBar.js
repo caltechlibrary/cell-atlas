@@ -42,7 +42,4 @@ let ProgressBar = function(root) {
 
     init();
 
-    return {
-        root
-    };
 };
