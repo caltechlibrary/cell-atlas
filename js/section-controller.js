@@ -15,7 +15,7 @@
     let sectionStopNarrationButtonMobile = document.querySelector(".section__stop-narration-btn");
     let learnMoreBtns = document.querySelectorAll(".learn-more__btn")
     let hash = window.location.hash.substring(1);
-    let summaryMenu, sectionText, mainMediaViewer, mainNarrationPlayer,
+    let summaryMenu, mainMediaViewer, mainNarrationPlayer,
         mediaViewers = {}, videoPlayers = {}, proteinViewers = {},  modals = {}, narrationPlayers = {};
     
     let onMediaViewerResizeCallback = function(mediaViewerEl) {
@@ -199,7 +199,7 @@
     let handleUpDownArrowPress = function(event) {
         if(event.target.tagName == "INPUT") return;
         let modalEl = document.querySelector(".modal:not(.modal--hidden)");
-        let textContent = (modalEl) ? modalEl.querySelector(".subsection__content-container") : sectionText.root.querySelector(".section-text__content");
+        let textContent = (modalEl) ? modalEl.querySelector(".subsection__content-container") : sectionTextEl.querySelector(".section-text__content");
         textContent.focus();
     };
 
@@ -257,7 +257,7 @@
         }
     };
 
-    sectionText = SectionText(sectionTextEl, expandAndShelveCallback, contractAndUnshelveCallback, mainNarrationPlayer);
+    SectionText(sectionTextEl, expandAndShelveCallback, contractAndUnshelveCallback, mainNarrationPlayer);
 
     for(let learnMoreBtn of learnMoreBtns) learnMoreBtn.addEventListener("click", handleLearnMoreBtnClick);
 

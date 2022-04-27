@@ -48,7 +48,4 @@ let SectionText = function(root, shelveCallback = function(){}, unshelveCallback
     }
     stopNarrationBtn.addEventListener("click", onStopNarrationBtnClick);
 
-    return {
-        root,
-    }
 }
