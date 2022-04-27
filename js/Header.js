@@ -33,7 +33,4 @@ let Header = function(root) {
     openSearchBtn.addEventListener("click", openSearchWidget);
     searchBarInput.addEventListener("focus", onSearchInputFocus);
 
-    return {
-        root
-    }
 };

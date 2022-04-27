@@ -5,7 +5,7 @@
     let searchWidgetEls = document.querySelectorAll(".search-widget");
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
-    let header, nav;
+    let nav;
 
     let toggleNav = function() {
         if(nav.root.classList.contains("page__nav--collapsed")) {
@@ -46,7 +46,7 @@
         nav.root.classList.remove("page__nav--searching");
     };
 
-    header = Header(headerEl);
+    Header(headerEl);
 
     nav = NavWidget(navEl, searchInputFocusCallback, searchInputBlurCallback, searchExitCallback);
     navBtn.addEventListener("click", toggleNav);
