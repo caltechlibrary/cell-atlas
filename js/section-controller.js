@@ -16,7 +16,7 @@
     let learnMoreBtns = document.querySelectorAll(".learn-more__btn")
     let hash = window.location.hash.substring(1);
     let summaryMenu, sectionText, mainMediaViewer, mainNarrationPlayer,
-        mediaViewers = {}, videoPlayers = {}, proteinViewers = {},  modals = {}, subsections = {}, narrationPlayers = {};
+        mediaViewers = {}, videoPlayers = {}, proteinViewers = {},  modals = {}, narrationPlayers = {};
     
     let onMediaViewerResizeCallback = function(mediaViewerEl) {
         let file = mediaViewerEl.getAttribute("data-file");
@@ -270,9 +270,7 @@
         if(modalEl.id == hash) modal.show();
     }
 
-    for(let subsectionEl of subsectionEls) {
-        subsections[subsectionEl.id] = Subsection(subsectionEl, onNarrationOpen, onNarrationClose);
-    }
+    for(let subsectionEl of subsectionEls) Subsection(subsectionEl, onNarrationOpen, onNarrationClose);
 
     for(let openProteinViewerBtnEl of openProteinViewerBtnEls) openProteinViewerBtnEl.addEventListener("click", openProteinViewer);
 
