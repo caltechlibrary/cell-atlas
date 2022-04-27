@@ -29,8 +29,5 @@ let Footer = function(root) {
         progressToggle.addEventListener("click", toggleProgressBar);
         init();
     }
-
-    return {
-        root
-    }
+    
 };
