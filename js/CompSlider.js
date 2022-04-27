@@ -48,8 +48,4 @@ let CompSlider = function(root) {
     slider.addEventListener("touchstart", initImgSliding);
     sliderInput.addEventListener("input", onSliderManualInput);
 
-    return {
-        root
-    }
-
 }
