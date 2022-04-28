@@ -102,10 +102,7 @@ def getVidPlayerMetadata(fileName):
     vidPlayerMetadata = {}
     vidPlayerMetadata["id"] = pathlib.Path(fileName).stem
     vidPlayerMetadata["vidName"] = fileMetadata["video"].split(".")[0]
-    if "doi" in fileMetadata:
-        vidPlayerMetadata["thumbnail"] = f"{'_'.join(fileMetadata['video'].split('_', 2)[:2])}_thumbnail"
-    else:
-        vidPlayerMetadata["thumbnail"] = f"{os.path.splitext(fileMetadata['video'])[0]}_thumbnail"
+    vidPlayerMetadata["thumbnail"] = f"{vidPlayerMetadata['vidName']}_thumbnail"
     if "doi" in fileMetadata: vidPlayerMetadata["doi"] = fileMetadata["doi"]
     return vidPlayerMetadata
 
