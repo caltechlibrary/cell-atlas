@@ -54,8 +54,4 @@ let AppendixAccordion = function(root) {
     window.addEventListener("hashchange", onHashChange);
     for(let entryHeader of entryHeaders) entryHeader.addEventListener("click", onHeaderClick);
 
-    return {
-        root
-    }
-
 };
