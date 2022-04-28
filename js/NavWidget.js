@@ -87,8 +87,4 @@ let NavWidget = function(root, onSearchInputFocusCallback = function(){}, onSear
     searchExitBtn.addEventListener("click", exitSearch);
     for(let sectionListToggle of sectionListToggles) sectionListToggle.addEventListener("click", toggleSectionList);
 
-    return {
-        root
-    };
-
 };

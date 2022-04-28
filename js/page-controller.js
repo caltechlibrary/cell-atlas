@@ -5,17 +5,20 @@
     let searchWidgetEls = document.querySelectorAll(".search-widget");
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
-    let header, nav, progressBar, footer;
+
+    let navBtnClickCallback = function() {
+        toggleNav();
+    };
 
     let toggleNav = function() {
-        if(nav.root.classList.contains("page__nav--collapsed")) {
-            nav.root.classList.remove("page__nav--collapsed");
-            if(window.innerWidth > 900) nav.root.querySelector("a").focus();
+        if(navEl.classList.contains("page__nav--collapsed")) {
+            navEl.classList.remove("page__nav--collapsed");
+            if(window.innerWidth > 900) navEl.querySelector("a").focus();
             window.sessionStorage.setItem("navOpened", true);
             window.addEventListener("click", clickCloseNav);
             window.addEventListener("keydown", keydownCloseNav);
         } else {
-            nav.root.classList.add("page__nav--collapsed");
+            navEl.classList.add("page__nav--collapsed");
             navBtn.focus();
             window.sessionStorage.setItem("navOpened", false);
             window.removeEventListener("click", clickCloseNav);
@@ -24,7 +27,7 @@
     };
 
     let clickCloseNav = function(event) {
-        if(!nav.root.contains(event.target) && !navBtn.contains(event.target)) toggleNav();
+        if(!navEl.contains(event.target) && !navBtn.contains(event.target)) toggleNav();
     };
 
     let keydownCloseNav = function(event) {
@@ -33,7 +36,7 @@
 
     let searchInputFocusCallback = function(event) {
         let mobileControlsEl = document.querySelector(".page__mobile-controls");
-        nav.root.classList.add("page__nav--searching");
+        navEl.classList.add("page__nav--searching");
         mobileControlsEl.classList.add("page__mobile-controls--hidden");
     };
 
@@ -43,13 +46,12 @@
     };
 
     let searchExitCallback = function() {
-        nav.root.classList.remove("page__nav--searching");
+        navEl.classList.remove("page__nav--searching");
     };
 
-    header = Header(headerEl);
+    Header(headerEl, navBtnClickCallback);
 
-    nav = NavWidget(navEl, searchInputFocusCallback, searchInputBlurCallback, searchExitCallback);
-    navBtn.addEventListener("click", toggleNav);
+    NavWidget(navEl, searchInputFocusCallback, searchInputBlurCallback, searchExitCallback);
     if(
         document.querySelector("[aria-current='page']") &&
         document.querySelector("[aria-current='page']").classList.contains("nav__has-section-list") && 
@@ -63,8 +65,8 @@
 
     for(let searchWidgetEl of searchWidgetEls) SearchWidget(searchWidgetEl);
 
-    if(progressBarEl) progressBar = ProgressBar(progressBarEl);
+    if(progressBarEl) ProgressBar(progressBarEl);
 
-    footer = Footer(footerEl);
+    Footer(footerEl);
 
 })();
