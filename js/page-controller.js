@@ -6,6 +6,10 @@
     let progressBarEl = document.querySelector(".progress-bar");
     let footerEl = document.querySelector(".footer");
 
+    let navBtnClickCallback = function() {
+        toggleNav();
+    };
+
     let toggleNav = function() {
         if(navEl.classList.contains("page__nav--collapsed")) {
             navEl.classList.remove("page__nav--collapsed");
@@ -45,10 +49,9 @@
         navEl.classList.remove("page__nav--searching");
     };
 
-    Header(headerEl);
+    Header(headerEl, navBtnClickCallback);
 
     NavWidget(navEl, searchInputFocusCallback, searchInputBlurCallback, searchExitCallback);
-    navBtn.addEventListener("click", toggleNav);
     if(
         document.querySelector("[aria-current='page']") &&
         document.querySelector("[aria-current='page']").classList.contains("nav__has-section-list") && 
