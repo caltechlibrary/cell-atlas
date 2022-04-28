@@ -2,8 +2,13 @@ let AppendixAccordion = function(root) {
 
     let entryHeaders = root.querySelectorAll(".appendix-accordion__entry-header");
 
-    let manuallyOpenPanel = function(entryId) {
-        let entryHeader = root.querySelector(`.appendix-accordion__entry-header[aria-controls='${entryId}-panel']`);
+    let init = function() {
+        onHashChange();
+    };
+
+    let onHashChange = function() {
+        let hash = window.location.hash.substring(1);
+        let entryHeader = root.querySelector(`.appendix-accordion__entry-header[aria-controls='${hash}-panel']`);
         if(entryHeader && entryHeader.getAttribute("aria-expanded") == "false") toggleEntryPanel(entryHeader);
     };
 
@@ -45,11 +50,8 @@ let AppendixAccordion = function(root) {
         });
     };
 
+    init();
+    window.addEventListener("hashchange", onHashChange);
     for(let entryHeader of entryHeaders) entryHeader.addEventListener("click", onHeaderClick);
-
-    return {
-        root,
-        manuallyOpenPanel
-    }
 
 };

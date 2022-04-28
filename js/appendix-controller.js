@@ -9,12 +9,7 @@
     let feedbackLinks = document.querySelectorAll(".about-entry__feadback-link");
     let feedbackModalEl = document.getElementById("feedback");
     let hash = window.location.hash.substring(1);
-    let appendixAccordion, treeMediaViewer, treeViewer, treeViewerFsConfirm, feedbackModal;
-
-    let onAccordionHashChange = function() {
-        hash = window.location.hash.substring(1);
-        if(hash) appendixAccordion.manuallyOpenPanel(hash);
-    };
+    let treeMediaViewer, treeViewer, treeViewerFsConfirm, feedbackModal;
     
     let onTreeMediaViewerRequestFullscreenChangeCallback = function() {
         if(window.innerWidth < 900) {
@@ -31,11 +26,7 @@
         setTimeout(() => treeViewer.activateSpeciesEntryHash(hash), 200);
     };
     
-    if(appendixAccordionEl) {
-        appendixAccordion = AppendixAccordion(appendixAccordionEl);
-        if(hash) appendixAccordion.manuallyOpenPanel(hash);
-        window.addEventListener("hashchange", onAccordionHashChange);
-    }
+    if(appendixAccordionEl) AppendixAccordion(appendixAccordionEl);
     if(treeMediaViewerEl) {
         treeViewer = TreeViewer(treeViewerEl);
         treeMediaViewer = MediaViewer(treeMediaViewerEl, onTreeMediaViewerRequestFullscreenChangeCallback);
