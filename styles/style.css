@@ -1425,6 +1425,17 @@
     text-decoration: underline;
 }
 
+.section-text__vid-metadata {
+    flex: 0 0 auto;
+    order: 1;
+}
+
+@media (min-width:900px) {
+    .section-text__vid-metadata {
+        order: initial;
+    }
+}
+
 .section-text__learn-more {
     flex: 0 0 auto;
     margin-bottom: 1em;
@@ -1982,11 +1993,6 @@
     line-height: 1.2em;
 }
 
-.vid-metadata--in-section {
-    flex: 0 0 auto;
-    order: 1;
-}
-
 .vid-metadata__item {
     display: flex;
     justify-content: center;
@@ -2044,9 +2050,6 @@
 }
 
 @media (min-width:900px) {
-    .vid-metadata--in-section {
-        order: initial;
-    }
 
     .vid-metadata__viewer-btn {
         margin: 0 0 0 0.8em;
