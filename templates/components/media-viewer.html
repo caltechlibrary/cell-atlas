@@ -23,7 +23,7 @@
         ${if(it.compSlider)} ${it.compSlider:components/comp-slider.html()} ${endif}
         ${if(it.viewer)} ${it.viewer:components/protein-viewer.html()} ${endif}
         ${if(it.summaryMenu)} ${it.summaryMenu:components/summary-menu.html()} ${endif}
-        ${if(it.speciesList)} ${it:components/tree-viewer.html()} ${endif}
+        ${if(it.treeViewer)} ${it.treeViewer:components/tree-viewer.html()} ${endif}
         ${if(it.graphic)} ${it:components/graphic.html()} ${endif}
         <button class="media-viewer__fullscreen-btn ${if(it.vidPlayer)}media-viewer__fullscreen-btn--hidden${endif}" aria-label="Enter full screen" title="Enter full screen">
             <div class="media-viewer__fullscreen-btn-icon media-viewer__enter-fs-icon">${svg/fullscreen.svg()}</div>

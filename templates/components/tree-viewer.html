@@ -2,13 +2,13 @@
     <div class="tree-viewer__svg-container">
         ${svg/phylogenetic-tree.svg()}
     </div>
-    ${for(speciesList)}
-        <div class="tree-viewer__pop-up tree-viewer__pop-up--hidden" id="${speciesList.id}">
-            <h2 class="tree-viewer__pop-up-title">${speciesList.species}</h2>
+    ${for(it.speciesList)}
+        <div class="tree-viewer__pop-up tree-viewer__pop-up--hidden" id="${it.id}">
+            <h2 class="tree-viewer__pop-up-title">${it.species}</h2>
             <div class="tree-viewer__pop-up-body">
                 <h3 class="tree-viewer__pop-up-body-header">Examples:</h3>
                 <ol class="tree-viewer__pup-up-list">
-                    ${for(speciesList.speciesRefs)}
+                    ${for(it.speciesRefs)}
                         <li class="tree-viewer__pup-up-entry">
                             <a class="tree-viewer__pup-up-link" href="${it.page}">${if(it.chapter)}${it.chapter}.${endif}${it.section} ${it.title}</a>
                         </li>

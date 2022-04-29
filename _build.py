@@ -512,8 +512,12 @@ for i, fileName in enumerate(appendixFileNames):
         metadata["profiles"]["entries"] = [{**profile, "template": {"profile": True}} for profile in profileData.values()]
     elif fileName == "C-phylogenetic-tree.md":
         metadata["appendixTypeTree"] = True
-        metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
-        metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"], "isAppendix": True }
+        metadata["mediaViewer"] = {}
+        metadata["mediaViewer"]["id"] = "treeViewer"
+        metadata["mediaViewer"]["file"] = pathlib.Path(fileName).stem
+        metadata["mediaViewer"]["isAppendix"] = True
+        metadata["mediaViewer"]["treeViewer"] = {}
+        metadata["mediaViewer"]["treeViewer"]["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
         metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirmModal", "label": "Allow Phylogenetic Tree full screen", "template": { "treeViewerFsConfirm": True } }
     elif fileName == "D-references.md":
         metadata["appendixTypeReferences"] = True
