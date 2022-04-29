@@ -1814,7 +1814,7 @@
     }
 }
 
-.modal--tree-viewer-fs-confirm .modal__exit-btn {
+.modal--no-exit-btn .modal__exit-btn {
     display: none;
 }
 
