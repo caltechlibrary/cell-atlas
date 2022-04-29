@@ -1792,7 +1792,7 @@
     }
 }
 
-.modal__modal-container--feedback {
+.modal--iframe .modal__modal-container {
     height: 100%;
 }
 
@@ -1814,7 +1814,7 @@
     }
 }
 
-.modal--tree-viewer-fs-confirm .modal__exit-btn {
+.modal--no-exit-btn .modal__exit-btn {
     display: none;
 }
 
@@ -1824,7 +1824,7 @@
     fill: #000;
 }
 
-.modal__feedback-iframe {
+.modal__iframe {
     width: 100%;
     height: 100%;
 }
