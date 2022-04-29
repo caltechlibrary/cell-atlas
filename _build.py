@@ -514,7 +514,7 @@ for i, fileName in enumerate(appendixFileNames):
         metadata["appendixTypeTree"] = True
         metadata["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
         metadata["treeData"] = { "id": "treeViewer", "speciesList": metadata["speciesList"], "isAppendix": True }
-        metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirm", "label": "Allow Phylogenetic Tree full screen", "template": { "treeViewerFsConfirm": True } }
+        metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirmModal", "label": "Allow Phylogenetic Tree full screen", "template": { "treeViewerFsConfirm": True } }
     elif fileName == "D-references.md":
         metadata["appendixTypeReferences"] = True
 
