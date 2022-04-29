@@ -5,11 +5,12 @@
     let appendixAccordionEl = document.querySelector(".appendix-accordion");
     let treeMediaViewerEl = document.querySelector(".media-viewer");
     let treeViewerEl = document.querySelector(".tree-viewer");
-    let treeViewerFsConfirmEl = document.getElementById("treeViewerFsConfirm");
+    let treeViewerFsConfirmEl = document.querySelector(".tree-viewer-fs-confirm");
+    let treeViewerFsConfirmModalEl = document.getElementById("treeViewerFsConfirmModal");
     let feedbackLinks = document.querySelectorAll(".about-entry__feadback-link");
     let feedbackModalEl = document.getElementById("feedback");
     let hash = window.location.hash.substring(1);
-    let treeMediaViewer, treeViewer, treeViewerFsConfirm, feedbackModal;
+    let treeMediaViewer, treeViewer, treeViewerFsConfirmModal, feedbackModal;
     
     let onTreeMediaViewerRequestFullscreenChangeCallback = function() {
         if(window.innerWidth < 900) {
@@ -19,23 +20,26 @@
         }
     };
 
-    let onTreeViewerFsConfirmOK = function() {
-        treeViewerFsConfirm.hide();
+    let onTreeViewerFsConfirmOkCallback = function() {
+        treeViewerFsConfirmModal.hide();
         treeMediaViewer.toggleFullscreen();
         treeMediaViewer.setFullscreenBtnState("expanded");
         setTimeout(() => treeViewer.activateSpeciesEntryHash(hash), 200);
+    };
+
+    let onTreeViewerFsConfirmCancelCallback = function() {
+        treeViewerFsConfirmModal.hide();
     };
     
     if(appendixAccordionEl) AppendixAccordion(appendixAccordionEl);
     if(treeMediaViewerEl) {
         treeViewer = TreeViewer(treeViewerEl);
         treeMediaViewer = MediaViewer(treeMediaViewerEl, onTreeMediaViewerRequestFullscreenChangeCallback);
-        treeViewerFsConfirm = Modal(treeViewerFsConfirmEl);
-        treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-cancel").addEventListener("click", treeViewerFsConfirm.hide);
-        treeViewerFsConfirmEl.querySelector(".tree-viewer-fs-confirm__btn-ok").addEventListener("click", onTreeViewerFsConfirmOK);
+        treeViewerFsConfirmModal = Modal(treeViewerFsConfirmModalEl);
+        TreeViewerFsConfirm(treeViewerFsConfirmEl, onTreeViewerFsConfirmOkCallback, onTreeViewerFsConfirmCancelCallback);
         if(hash) {
             if(window.innerWidth < 900) {
-                treeViewerFsConfirm.show();
+                treeViewerFsConfirmModal.show();
             } else {
                 treeMediaViewer.toggleFixedEnlarged();
                 treeMediaViewer.setFullscreenBtnState("expanded");
