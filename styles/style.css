@@ -1677,38 +1677,6 @@
     fill: #ccc;
 }
 
-.comp-slider__fail-msg-container {
-    width: 100%;
-    padding-bottom: 56.25%;
-}
-
-.comp-slider__fail-msg-container--hidden {
-    display: none;
-}
-
-.comp-slider__fail-msg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #575757;
-    fill: #575757;
-    font-size: 1em;
-    text-align: center;
-}
-
-.comp-slider__fail-msg-icon {
-    width: 6em;
-}
-
-.comp-slider__fail-msg-text {
-    margin: 0;
-    font-weight: 600;
-}
-
 /* learn-more */
 .learn-more {
     padding: 1em;
