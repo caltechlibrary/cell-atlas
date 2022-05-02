@@ -3,7 +3,7 @@
         <div id="${it.id}" class="appendix-accordion__entry-anchor"></div>
         <h2 class="appendix-accordion__header-container">
             <button class="appendix-accordion__entry-header" aria-expanded="false" aria-controls="${it.id}-panel">
-                <span class="appendix-accordion__entry-title">${it.title}</span>
+                <span class="appendix-accordion__entry-title ${if(it.template.species)}appendix-accordion__entry-title--italicized${endif}">${it.title}</span>
                 <span class="appendix-accordion__entry-toggle-icon">${svg/plus.svg()}</span>
             </button>
         </h2>

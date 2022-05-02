@@ -3236,6 +3236,10 @@
     }
 }
 
+.appendix-accordion__entry-title--italicized {
+    font-style: italic;
+}
+
 .appendix-accordion__entry-toggle-icon {
     width: 1.25em;
     height: 1.25em;
