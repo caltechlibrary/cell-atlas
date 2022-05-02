@@ -17,6 +17,29 @@ let TreeViewer = function(root) {
     let curTranslateY = 0;
     let prevMidPoint, prevDist;
 
+    let activateKeyboardPanning = function() {
+        document.addEventListener("keydown", onKeyboardPan);
+    };
+
+    let onKeyboardPan = function(event) {
+        if(event.key == "ArrowUp" || event.key == "ArrowRight" || event.key == "ArrowDown" || event.key == "ArrowLeft") {
+            event.preventDefault();
+            if(event.key == "ArrowUp") {
+                panTree(0, 5);
+            } else if (event.key == "ArrowRight") {
+                panTree(-5, 0);
+            } else if (event.key == "ArrowDown") {
+                panTree(0, -5);
+            } else if (event.key == "ArrowLeft") {
+                panTree(5, 0);
+            }
+        }
+    };
+
+    let deactivateKeyboardPanning = function() {
+        document.removeEventListener("keydown", onKeyboardPan);
+    };
+
     let onSpeciesAnchorFocus = function(event) {
         activateSpeciesEntry(event.currentTarget.getAttribute("data-species"), event.clientX, event.clientY);
     };
@@ -188,6 +211,8 @@ let TreeViewer = function(root) {
         return { x, y };
     };
 
+    svgContainer.addEventListener("focus", activateKeyboardPanning);
+    svgContainer.addEventListener("blur", deactivateKeyboardPanning);
     for(let speciesAnchor of speciesAnchors) {
         speciesAnchor.addEventListener("mouseenter", onSpeciesAnchorFocus);
         speciesAnchor.addEventListener("click", onSpeciesAnchorFocus);
