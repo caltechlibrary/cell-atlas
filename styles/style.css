@@ -3282,10 +3282,10 @@
 .tree-viewer {
     position: relative;
     background: #363636;
-    cursor: grab;
 }
 
 .tree-viewer__svg-container {
+    cursor: grab;
     overflow: hidden;
     touch-action: none;
 }
@@ -3305,7 +3305,6 @@
     background: #fff;
     font-size: 1em;
     overflow: hidden;
-    cursor: default;
 }
 
 .tree-viewer__pop-up--hidden {
