@@ -1,0 +1,9 @@
+<ul class="species-entry">
+    ${for(it.speciesRefs)}
+        <li class="species-entry__page">
+            <a class="species-entry__page-link" href="${it.page}">
+                ${if(it.chapter)}${it.chapter}.${endif}${it.section} ${it.title}
+            </a>
+        </li>
+    ${endfor}
+</ul>

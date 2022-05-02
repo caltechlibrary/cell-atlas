@@ -518,6 +518,8 @@ for i, fileName in enumerate(appendixFileNames):
         metadata["mediaViewer"]["isAppendix"] = True
         metadata["mediaViewer"]["treeViewer"] = {}
         metadata["mediaViewer"]["treeViewer"]["speciesList"] = [speciesEntry for speciesEntry in speciesData.values()]
+        metadata["speciesList"] = {}
+        metadata["speciesList"]["entries"] = [{**entry, "title": entry["species"], "template": {"species": True}} for entry in sorted(speciesData.values(), key=lambda entry: entry["species"].lower())]
         metadata["treeViewerFsConfirmModal"] = { "id": "treeViewerFsConfirmModal", "label": "Allow Phylogenetic Tree full screen", "template": { "treeViewerFsConfirm": True } }
     elif fileName == "D-references.md":
         metadata["appendixTypeReferences"] = True

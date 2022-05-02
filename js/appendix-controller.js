@@ -7,6 +7,8 @@
     let treeViewerEl = document.querySelector(".tree-viewer");
     let treeViewerFsConfirmEl = document.querySelector(".tree-viewer-fs-confirm");
     let treeViewerFsConfirmModalEl = document.getElementById("treeViewerFsConfirmModal");
+    let phylogeneticListToggleBtn = document.querySelector(".appendix__phylogenetic-list-toggle-btn");
+    let phylogeneticListPanel = document.querySelector(".appendix__phylogenetic-list-panel");
     let feedbackLinks = document.querySelectorAll(".about-entry__feadback-link");
     let feedbackModalEl = document.getElementById("feedback");
     let hash = window.location.hash.substring(1);
@@ -30,6 +32,30 @@
     let onTreeViewerFsConfirmCancelCallback = function() {
         treeViewerFsConfirmModal.hide();
     };
+
+    let onPhylogeneticListToggleBtnClick = function() {
+        if(phylogeneticListToggleBtn.getAttribute("aria-expanded") == "false") {
+            phylogeneticListPanel.classList.remove("appendix__phylogenetic-list-panel--collapsed");
+            if(!document.querySelector("body").classList.contains("preload")) {
+                phylogeneticListPanel.style.height = `${phylogeneticListPanel.scrollHeight}px`;
+                phylogeneticListPanel.addEventListener("transitionend", onPhylogeneticListPanelExpanded, { once: true });
+            } else {
+                phylogeneticListPanel.style.height = null;
+            }
+            phylogeneticListToggleBtn.setAttribute("aria-expanded", "true");
+        } else {
+            phylogeneticListPanel.style.height = `${phylogeneticListPanel.scrollHeight}px`;
+            window.requestAnimationFrame(() => {
+                phylogeneticListPanel.classList.add("appendix__phylogenetic-list-panel--collapsed");
+                phylogeneticListPanel.style.height = "0px";
+            });
+            phylogeneticListToggleBtn.setAttribute("aria-expanded", "false");
+        }
+    };
+
+    let onPhylogeneticListPanelExpanded = function(event) {
+        if(!event.target.classList.contains("appendix__phylogenetic-list-panel--collapsed")) event.target.style.height = null;
+    };
     
     if(appendixAccordionEl) AppendixAccordion(appendixAccordionEl);
     if(treeMediaViewerEl) {
@@ -46,6 +72,7 @@
                 treeViewer.activateSpeciesEntryHash(hash);
             }
         }
+        phylogeneticListToggleBtn.addEventListener("click", onPhylogeneticListToggleBtnClick);
     }
     if(feedbackLinks.length > 0) {
         feedbackModal = Modal(feedbackModalEl);

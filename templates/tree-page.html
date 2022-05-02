@@ -3,3 +3,12 @@
 </div>
 ${treeViewerFsConfirmModal:components/modal.html()}
 ${mediaViewer:components/media-viewer.html()}
+<h2 class="appendix__phylogenetic-list-header">
+    <button class="appendix__phylogenetic-list-toggle-btn" aria-expanded="false" aria-controls="phylogenetic-panel">
+        <span class="appendix__phylogenetic-list-title">Species List</span>
+        <span class="appendix__phylogenetic-list-toggle-icon">${svg/plus.svg()}</span>
+    </button>
+</h2>
+<div id="phylogenetic-panel" class="appendix__phylogenetic-list-panel appendix__phylogenetic-list-panel--collapsed" style="height:0px">
+    ${speciesList:components/appendix-accordion.html()}
+</div>
