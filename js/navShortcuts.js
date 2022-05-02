@@ -4,9 +4,11 @@
     let minSwipeDist = 150;
     let vertSwipeThreshold = 100;
     let blacklistedSwipeEls = [".protein-viewer", ".tree-viewer", ".summary-menu", ".comp-slider__slider", ".media-viewer--fullscreen-polyfill"];
+    let blacklistedKeyNavEls = [".tree-viewer"];
     let touchStartTime, touchStartX, touchStartY;
 
     let onDocumentKeydown = function(event) {
+        for(let blacklistedKeyNavEl of blacklistedKeyNavEls) if(event.target.closest(blacklistedKeyNavEl)) return;
         if((event.key != "ArrowLeft" && event.key != "ArrowRight") || event.target.tagName == "INPUT") return;
         redirectPage((event.key == "ArrowLeft") ? "prev" : "next");
     };
