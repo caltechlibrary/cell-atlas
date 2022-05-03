@@ -935,26 +935,10 @@
     border-radius: 10px;
 }
 
-.media-viewer__media-container--tree-viewer {
-    background: #363636;
-}
-
-@media (max-width:900px) {
-    .media-viewer__media-container--tree-viewer {
-        width: 100%;
-        height: 100%;
-    }
-}
-
 @media (min-width:900px) {
     .media-viewer__media-container {
         width: 100%;
     }
-}
-
-.media-viewer__media-container--summary-menu {
-    width: 100%;
-    height: 100%;
 }
 
 .media-viewer--fullscreen .media-viewer__media-container {
