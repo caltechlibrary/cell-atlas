@@ -8,6 +8,7 @@
 */
 
 /* 
+    nav-arrow: prev/next section links found in chapter, section, and appendix pages on desktop
     search-widget: site search widget found in .header and .nav
 */
 
@@ -37,6 +38,17 @@
     -moz-transition: none !important;
     -ms-transition: none !important;
     -o-transition: none !important;
+}
+
+/* nav-arrow */
+.nav-arrow {
+    width: 1.25em;
+    fill: #f5f5f5;
+    transition: fill 0.25s;
+}
+
+.nav-arrow:hover {
+    fill: #262626;
 }
 
 /* search-widget */
@@ -717,18 +729,6 @@
     }
 }
 
-/* nav-arrow */
-.nav-arrow {
-    width: 1.25em;
-    fill: #f5f5f5;
-    text-decoration: none;
-    transition: fill 0.25s;
-}
-
-.nav-arrow:hover {
-    fill: #262626;
-}
-
 /* section */
 .section {
     position: relative;
@@ -779,6 +779,7 @@
 .section__nav-arrow {
     flex: 0 0 auto;
     margin: 0 1em;
+    width: 1.25em;
 }
 
 @media (max-width:899px) {
@@ -2862,6 +2863,7 @@
 
 .chapter-content__nav-arrow {
     flex: 0 0 auto;
+    width: 1.25em;
 }
 
 @media (max-width: 900px) {
@@ -3013,10 +3015,11 @@
     position: fixed;
     top: 50%;
     margin: 0 16px;
+    width: 1.25em;
     transform: translateY(-50%);
 }
 
-@media (max-width:900px) {
+@media (max-width:899px) {
     .appendix__nav-arrow {
         display: none;
     }
