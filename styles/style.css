@@ -37,6 +37,9 @@
     footer: sitewide footer used in .chapter-content, .section, and .appendix pages
     index: landing page of site
     chapter-content: chapter pages of site
+    section: section pages of site
+    appendix: appendix pages of site
+    page: sitewide page container
 */
 
 /*
@@ -3093,11 +3096,6 @@
     white-space: nowrap;
 }
 
-
-
-
-
-
 /* section */
 .section {
     position: relative;
@@ -3492,7 +3490,7 @@
     transition: height 1s, visibility 0s 1s;
 }
 
-/* section */
+/* page */
 .page {
     margin: 0;
     padding: 56px 0;
