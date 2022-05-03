@@ -24,6 +24,7 @@
     species-entry: species example list used in .appendix-accordion
     csl: reference list page
     about-entry: about this book content used in .appendix-accordion
+    download-btn: offline version download button used in download page
     mobile-controls: navigation controls used in mobile
     progress-bar: Reading progress widget used in .footer desktop
 */
@@ -1361,6 +1362,28 @@
 .about-entry a {
     color: #5caac5;
     text-decoration: underline;
+}
+
+/* download-btn */
+.download-btn {
+    margin: 32px 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #24788f;
+    color: #fff;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+@media (min-width:900px) {
+    .download-btn {
+        width: 380px;
+    }
 }
 
 /* mobile-controls */
@@ -3457,28 +3480,6 @@
 .appendix-accordion__entry-panel--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
-}
-
-/* download-btn */
-.download-btn {
-    margin: 32px 0;
-    box-sizing: border-box;
-    width: 100%;
-    height: 56px;
-    padding: 0 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #24788f;
-    color: #fff;
-    white-space: nowrap;
-    text-decoration: none;
-}
-
-@media (min-width:900px) {
-    .download-btn {
-        width: 380px;
-    }
 }
 
 /* section */
