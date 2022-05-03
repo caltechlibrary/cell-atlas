@@ -1,6 +1,4 @@
 import os
-import subprocess
-import json
 import pathlib
 
 sectionFiles = sorted(os.listdir('sections'), key=lambda s: (int(s.split('-')[0]), int(s.split('-')[1])))
