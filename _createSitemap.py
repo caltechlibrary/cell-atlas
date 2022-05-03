@@ -4,7 +4,7 @@ import subprocess
 import json
 
 sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
-host = 'https://caltechlibrary.github.io/cell-atlas'
+host = 'https://www.cellstructureatlas.org'
 videoHost = 'https://www.cellstructureatlas.org'
 lines = []
 doiFileNameDict = {}
