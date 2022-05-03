@@ -17,6 +17,7 @@
     narration-player: narration audio player widget used in .section-text
     vid-metadata: video citation metadata displayed in .section-text and .subsection
     learn-more: subsection modal button container used in .section-text
+    feature-index-entry: feature list used in .appendix-accordion
     mobile-controls: navigation controls used in mobile
     progress-bar: Reading progress widget used in .footer desktop
 */
@@ -1099,6 +1100,32 @@
         margin: 0.3125em;
         padding: 0.625em 2.5em;
     }
+}
+
+/* feature-index-entry */
+.feature-index-entry {
+    margin: 0;
+    padding-left: 16px;
+    list-style: none;
+}
+
+@media (min-width:900px) {
+    .feature-index-entry {
+        padding-left: 24px;
+    }
+}
+
+.feature-index-entry__ref {
+    margin-bottom: 16px;
+}
+
+.feature-index-entry__ref-name {
+    font-style: italic;
+}
+
+.feature-index-entry__ref-link {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 /* mobile-controls */
@@ -3195,32 +3222,6 @@
 .appendix-accordion__entry-panel--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
-}
-
-/* feature-index-entry */
-.feature-index-entry {
-    margin: 0;
-    padding-left: 16px;
-    list-style: none;
-}
-
-@media (min-width:900px) {
-    .feature-index-entry {
-        padding-left: 24px;
-    }
-}
-
-.feature-index-entry__ref {
-    margin-bottom: 16px;
-}
-
-.feature-index-entry__ref-name {
-    font-style: italic;
-}
-
-.feature-index-entry__ref-link {
-    color: #5caac5;
-    text-decoration: underline;
 }
 
 /* profile */
