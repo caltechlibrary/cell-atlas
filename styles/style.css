@@ -19,6 +19,7 @@
     learn-more: subsection modal button container used in .section-text
     feature-index-entry: feature list used in .appendix-accordion
     profile: scientist profile used in .appendix-accordion
+    tree-viewer: phylogenetic tree viewer used in .appendix and .media-viewer
     mobile-controls: navigation controls used in mobile
     progress-bar: Reading progress widget used in .footer desktop
 */
@@ -1185,6 +1186,109 @@
 
 .profile__description p {
     margin-top: 0;
+}
+
+/* tree-viewer */
+.tree-viewer {
+    position: relative;
+    background: #363636;
+}
+
+.tree-viewer__svg-container {
+    cursor: grab;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.tree-viewer__species-anchor--active text {
+    outline: 1px solid #003b4c;
+}
+
+.tree-viewer__pop-up {
+    position: absolute;
+    width: fit-content;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-shadow: #363636bf 5px 8px 7px 1px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    font-size: 1em;
+    overflow: hidden;
+}
+
+.tree-viewer__pop-up--hidden {
+    display: none;
+}
+
+.tree-viewer__pop-up-title {
+    margin: 0;
+    padding: 5px 22px;
+    background: #dcdcdc;
+    color: #000;
+    font-size: 1.375em;
+    text-align: center;
+}
+
+.tree-viewer__pop-up-body {
+    padding: 8px 16px;
+    overflow: auto;
+}
+
+.tree-viewer__pop-up-body-header {
+    margin: 0;
+    color: #000;
+    font-size: 1.15em;
+}
+
+.tree-viewer__pup-up-list {
+    margin: 0;
+    padding-left: 10px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.tree-viewer__pup-up-entry {
+    margin: 8px 0;
+}
+
+.tree-viewer__pup-up-entry::marker {
+    color: #000;
+}
+
+.tree-viewer__pup-up-link {
+    color: #325c69;
+    text-decoration: underline;
+}
+
+.tree-viewer__zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-sizing: border-box;
+    width: 30px;
+    height: 70px;
+    border: 3px solid #363636;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0 2px #252525;
+    display: flex;
+    flex-direction: column;
+    background: #4b889b;
+    overflow: hidden;
+}
+
+.tree-viewer__zoom-btn {
+    flex: 1;
+    margin: 0;
+    padding: 3px;
+    border: none;
+    box-shadow: inset 0px 0px 3px 0px #ffffff4d;
+    background: none;
+    fill: #fff;
+}
+
+.tree-viewer__zoom-btn:first-child {
+    border-bottom: 1px solid #fff;
 }
 
 /* mobile-controls */
@@ -3303,109 +3407,6 @@
 .species-entry__page-link {
     color: #5caac5;
     text-decoration: underline;
-}
-
-/* tree-viewer */
-.tree-viewer {
-    position: relative;
-    background: #363636;
-}
-
-.tree-viewer__svg-container {
-    cursor: grab;
-    overflow: hidden;
-    touch-action: none;
-}
-
-.tree-viewer__species-anchor--active text {
-    outline: 1px solid #003b4c;
-}
-
-.tree-viewer__pop-up {
-    position: absolute;
-    width: fit-content;
-    border: 3px solid #000;
-    border-radius: 10px;
-    box-shadow: #363636bf 5px 8px 7px 1px;
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    font-size: 1em;
-    overflow: hidden;
-}
-
-.tree-viewer__pop-up--hidden {
-    display: none;
-}
-
-.tree-viewer__pop-up-title {
-    margin: 0;
-    padding: 5px 22px;
-    background: #dcdcdc;
-    color: #000;
-    font-size: 1.375em;
-    text-align: center;
-}
-
-.tree-viewer__pop-up-body {
-    padding: 8px 16px;
-    overflow: auto;
-}
-
-.tree-viewer__pop-up-body-header {
-    margin: 0;
-    color: #000;
-    font-size: 1.15em;
-}
-
-.tree-viewer__pup-up-list {
-    margin: 0;
-    padding-left: 10px;
-    list-style-type: disc;
-    list-style-position: inside;
-}
-
-.tree-viewer__pup-up-entry {
-    margin: 8px 0;
-}
-
-.tree-viewer__pup-up-entry::marker {
-    color: #000;
-}
-
-.tree-viewer__pup-up-link {
-    color: #325c69;
-    text-decoration: underline;
-}
-
-.tree-viewer__zoom-controls {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    box-sizing: border-box;
-    width: 30px;
-    height: 70px;
-    border: 3px solid #363636;
-    border-radius: 10px;
-    box-shadow: 0px 0px 0 2px #252525;
-    display: flex;
-    flex-direction: column;
-    background: #4b889b;
-    overflow: hidden;
-}
-
-.tree-viewer__zoom-btn {
-    flex: 1;
-    margin: 0;
-    padding: 3px;
-    border: none;
-    box-shadow: inset 0px 0px 3px 0px #ffffff4d;
-    background: none;
-    fill: #fff;
-}
-
-.tree-viewer__zoom-btn:first-child {
-    border-bottom: 1px solid #fff;
 }
 
 /* references */
