@@ -18,6 +18,7 @@
     vid-metadata: video citation metadata displayed in .section-text and .subsection
     learn-more: subsection modal button container used in .section-text
     feature-index-entry: feature list used in .appendix-accordion
+    profile: scientist profile used in .appendix-accordion
     mobile-controls: navigation controls used in mobile
     progress-bar: Reading progress widget used in .footer desktop
 */
@@ -1126,6 +1127,64 @@
 .feature-index-entry__ref-link {
     color: #5caac5;
     text-decoration: underline;
+}
+
+/* profile */
+.profile {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width:480px) {
+    .profile {
+        max-height: 200px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width:900px) {
+    .profile {
+        max-height: 267px;
+    }
+}
+
+.profile__img {
+    height: 200px;
+    margin: 0 0 16px 0;
+}
+
+@media (min-width:480px) {
+    .profile__img {
+        margin: 0 16px 0 0;
+    }
+}
+
+@media (min-width:900px) {
+    .profile__img {
+        margin: 0 32px 0 0;
+        height: auto;
+    }
+}
+
+.profile__description {
+    width: 100%;
+    max-height: inherit;
+    line-height: 1.34;
+    overflow: auto;
+}
+
+@media (min-width:900px) {
+    .profile__description {
+        padding-right: 16px;
+        text-align: right;
+    }
+}
+
+.profile__description p {
+    margin-top: 0;
 }
 
 /* mobile-controls */
@@ -3222,64 +3281,6 @@
 .appendix-accordion__entry-panel--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
-}
-
-/* profile */
-.profile {
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-@media (min-width:480px) {
-    .profile {
-        max-height: 200px;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-}
-
-@media (min-width:900px) {
-    .profile {
-        max-height: 267px;
-    }
-}
-
-.profile__img {
-    height: 200px;
-    margin: 0 0 16px 0;
-}
-
-@media (min-width:480px) {
-    .profile__img {
-        margin: 0 16px 0 0;
-    }
-}
-
-@media (min-width:900px) {
-    .profile__img {
-        margin: 0 32px 0 0;
-        height: auto;
-    }
-}
-
-.profile__description {
-    width: 100%;
-    max-height: inherit;
-    line-height: 1.34;
-    overflow: auto;
-}
-
-@media (min-width:900px) {
-    .profile__description {
-        padding-right: 16px;
-        text-align: right;
-    }
-}
-
-.profile__description p {
-    margin-top: 0;
 }
 
 /* species-entry */
