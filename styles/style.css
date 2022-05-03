@@ -1,3 +1,12 @@
+/* 
+    This project uses the bem methodology. Styles are grouped into blocks that describe
+    their components/entities. The list below describes the blocks on the site.
+
+    The order of block defentitions is important. Components are redefined in certain contexts
+    accordion to the bem methodology. Those defenitions need to appear after their original 
+    defenitions (ex: "narration-player" is modified in "section-text__narration-player").
+*/
+
 /*
 - section: Container to hold media viewer and and section navigation  
 - media-viewer: Widget that contains video/comparison slider and the controls needed to toggle them
