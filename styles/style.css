@@ -3182,7 +3182,7 @@
     transition: height 1s;
 }
 
-.appendix-accordion__entry-panel--collapsed {
+.appendix__phylogenetic-list-panel--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
 }
