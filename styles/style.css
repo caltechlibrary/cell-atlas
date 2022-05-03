@@ -8,10 +8,11 @@
 */
 
 /* 
-    nav-arrow: prev/next section links found in chapter, section, and appendix pages on desktop
+    nav-arrow: prev/next section links found in .chapter-content, .section, and .appendix pages on desktop
     search-widget: site search widget found in .header and .nav
+    vid-metadata: video citation metadata displayed in .section-text and .subsection
     mobile-controls: navigation controls used in mobile
-    progress-bar: Reading progress widget used in footer desktop
+    progress-bar: Reading progress widget used in .footer desktop
 */
 
 /*
@@ -158,6 +159,124 @@
     background: #000;
 }
 
+/* vid-metadata */
+.vid-metadata {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background: #cccccc;
+    padding: 0.5em;
+    font-weight: 600;
+    font-size: 0.85em;
+    line-height: 1.2em;
+}
+
+.vid-metadata__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 3px;
+    text-align: center;
+}
+
+.vid-metadata__key, .vid-metadata__text {
+    color: #545454;
+}
+
+.vid-metadata__key {
+    margin-right: 0.25em;
+}
+
+.vid-metadata__text {
+    margin: 0 0.25em;
+}
+
+.vid-metadata__value {
+    color: #325c69;
+}
+
+.vid-metadata__link {
+    padding: 8px 0;
+    text-decoration: underline;
+}
+
+@media (min-width:900px) {
+    .vid-metadata__link {
+        padding: 0;
+    }
+}
+
+.vid-metadata__link--italicize {
+    font-style: italic;
+}
+
+.vid-metadata__viewer-btn {
+    box-sizing: border-box;
+    height: 1.75em;
+    width: 2.75em;
+    margin: 1.5px 0 01.5px 0.8em;
+    margin: 3px 0 01.5px 0.8em;
+    transform: translateY(-0.1em);
+    padding: 0;
+    border: none;
+    background-image: url(../img/viewerIcon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #fff0;
+    cursor: pointer;
+}
+
+@media (min-width:900px) {
+    .vid-metadata__viewer-btn {
+        margin: 0 0 0 0.8em;
+    }
+}
+
+/* mobile-controls */
+.mobile-controls {
+    box-sizing: border-box;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    background: #505050;
+}
+
+.mobile-controls__nav {
+    width: 15px;
+    fill: #c2c2c2;
+}
+
+.mobile-controls__nav--prev {
+    margin-right: auto;
+}
+
+.mobile-controls__nav--next {
+    margin-left: auto;
+}
+
+.mobile-controls__nav svg {
+    vertical-align: middle;
+}
+
+.mobile-controls__btn {
+    width: 35px;
+    margin: auto;
+    padding: 0;
+    border: none;
+    background: none;
+    fill: #c2c2c2;
+}
+
+.mobile-controls__btn--selected {
+    fill: #fff;
+}
+
+.mobile-controls__btn svg {
+    vertical-align: middle;
+}
+
 /* progress-bar */
 .progress-bar {
     position: relative;
@@ -247,49 +366,6 @@
 
 .progress-bar__current-position-popup--hidden {
     visibility: hidden;
-}
-
-/* mobile-controls */
-.mobile-controls {
-    box-sizing: border-box;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    background: #505050;
-}
-
-.mobile-controls__nav {
-    width: 15px;
-    fill: #c2c2c2;
-}
-
-.mobile-controls__nav--prev {
-    margin-right: auto;
-}
-
-.mobile-controls__nav--next {
-    margin-left: auto;
-}
-
-.mobile-controls__nav svg {
-    vertical-align: middle;
-}
-
-.mobile-controls__btn {
-    width: 35px;
-    margin: auto;
-    padding: 0;
-    border: none;
-    background: none;
-    fill: #c2c2c2;
-}
-
-.mobile-controls__btn--selected {
-    fill: #fff;
-}
-
-.mobile-controls__btn svg {
-    vertical-align: middle;
 }
 
 
@@ -2083,82 +2159,6 @@
 .subsection__text-content a {
     color: #325c69;
     text-decoration: underline;
-}
-
-/* vid-metadata */
-.vid-metadata {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    background: #cccccc;
-    padding: 0.5em;
-    font-weight: 600;
-    font-size: 0.85em;
-    line-height: 1.2em;
-}
-
-.vid-metadata__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0 3px;
-    text-align: center;
-}
-
-.vid-metadata__key, .vid-metadata__text {
-    color: #545454;
-}
-
-.vid-metadata__key {
-    margin-right: 0.25em;
-}
-
-.vid-metadata__text {
-    margin: 0 0.25em;
-}
-
-.vid-metadata__value {
-    color: #325c69;
-}
-
-.vid-metadata__link {
-    padding: 8px 0;
-    text-decoration: underline;
-}
-
-@media (min-width:900px) {
-    .vid-metadata__link {
-        padding: 0;
-    }
-}
-
-.vid-metadata__link--italicize {
-    font-style: italic;
-}
-
-.vid-metadata__viewer-btn {
-    box-sizing: border-box;
-    height: 1.75em;
-    width: 2.75em;
-    margin: 1.5px 0 01.5px 0.8em;
-    margin: 3px 0 01.5px 0.8em;
-    transform: translateY(-0.1em);
-    padding: 0;
-    border: none;
-    background-image: url(../img/viewerIcon.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #fff0;
-    cursor: pointer;
-}
-
-@media (min-width:900px) {
-
-    .vid-metadata__viewer-btn {
-        margin: 0 0 0 0.8em;
-    }
 }
 
 /* protein-viewer */
