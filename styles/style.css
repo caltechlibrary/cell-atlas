@@ -11,6 +11,7 @@
     nav-arrow: prev/next section links found in .chapter-content, .section, and .appendix pages on desktop
     search-widget: site search widget found in .header and .nav
     vid-metadata: video citation metadata displayed in .section-text and .subsection
+    learn-more: subsection modal button container used in .section-text
     mobile-controls: navigation controls used in mobile
     progress-bar: Reading progress widget used in .footer desktop
 */
@@ -231,6 +232,61 @@
 @media (min-width:900px) {
     .vid-metadata__viewer-btn {
         margin: 0 0 0 0.8em;
+    }
+}
+
+/* learn-more */
+.learn-more {
+    padding: 1em;
+    padding: 1em max(1em, env(safe-area-inset-right)) 1em max(1em, env(safe-area-inset-left));
+    color: #fff;
+    background-color: #858585;
+}
+
+@media (min-width:900px) {
+    .learn-more {
+        display: flex;
+        align-items: baseline;
+    }
+}
+
+.learn-more__title {
+    margin: 0 0 1rem;
+    font-size: 1.35em;
+}
+
+@media (min-width:900px) {
+    .learn-more__title {
+        flex: 0 0 auto;
+        margin: 0;
+    }
+}
+
+@media (min-width:900px) {
+    .learn-more__btn-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex: 1;
+    }
+}
+
+.learn-more__btn {
+    margin: 0.3125em 0.65em 0.3125em 0;
+    border: none;
+    border-radius: 10px;
+    padding: 0.6255em 2em;
+    color: #f5f5f5;
+    background-color: #15404e;
+    font-size: 0.95em;
+    font-weight: 600;
+    font-family: Arial;
+}
+
+@media (min-width:900px) {
+    .learn-more__btn {
+        margin: 0.3125em;
+        padding: 0.625em 2.5em;
     }
 }
 
@@ -1386,61 +1442,6 @@
 
 .media-viewer__fullscreen-btn-icon--hidden {
     display: none;
-}
-
-/* learn-more */
-.learn-more {
-    padding: 1em;
-    padding: 1em max(1em, env(safe-area-inset-right)) 1em max(1em, env(safe-area-inset-left));
-    color: #fff;
-    background-color: #858585;
-}
-
-@media (min-width:900px) {
-    .learn-more {
-        display: flex;
-        align-items: baseline;
-    }
-}
-
-.learn-more__title {
-    margin: 0 0 1rem;
-    font-size: 1.35em;
-}
-
-@media (min-width:900px) {
-    .learn-more__title {
-        flex: 0 0 auto;
-        margin: 0;
-    }
-}
-
-@media (min-width:900px) {
-    .learn-more__btn-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        flex: 1;
-    }
-}
-
-.learn-more__btn {
-    margin: 0.3125em 0.65em 0.3125em 0;
-    border: none;
-    border-radius: 10px;
-    padding: 0.6255em 2em;
-    color: #f5f5f5;
-    background-color: #15404e;
-    font-size: 0.95em;
-    font-weight: 600;
-    font-family: Arial;
-}
-
-@media (min-width:900px) {
-    .learn-more__btn {
-        margin: 0.3125em;
-        padding: 0.625em 2.5em;
-    }
 }
 
 /* section-text */
