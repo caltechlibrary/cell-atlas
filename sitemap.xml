@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 	<url>
+		<loc>https://www.cellstructureatlas.org/index.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/begin.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/introduction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/0_1_Cjejuni_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Intro</video:title>
+			<video:description>Introduction to the Atlas of Bacterial & Archaeal Cell Structure, a free multimedia microbiology textbook showcasing real images of bacteria and archaea</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/0_1_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-methods.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-1-light-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_1_Saureus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Light Microscopy</video:title>
+			<video:description>A simple introduction to light microscopy and how it’s used to image archaea and bacteria like Staphylococcus aureus</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_1_Saureus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-2-fluorescence-light-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_2_Ecoli_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Fluorescence Light Microscopy</video:title>
+			<video:description>A simple introduction to fluorescence light microscopy and how it’s used to image components of archaea and bacteria like Escherichia coli flagella</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_2_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-3-scanning-electron-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_3_Soneidensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Scanning Electron Microscopy</video:title>
+			<video:description>A simple introduction to electron microscopy and how SEM is used to image the surfaces of archaea and bacteria like Shewanella oneidensis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_3_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-4-transmission-electron-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_4_Soneidensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Transmission Electron Microscopy</video:title>
+			<video:description>A simple introduction to negative-stain TEM and how it’s used to see projection images through archaea and bacteria like Shewanella oneidensis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_4_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-5-cryogenic-electron-microscopy.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_5_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cryogenic Electron Microscopy</video:title>
+			<video:description>A simple introduction to cryo-EM and how it’s used to make high-resolution projection images through archaea and bacteria like Caulobacter crescentus</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_5_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-6-cryogenic-electron-tomography.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_6_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cryogenic Electron Tomography</video:title>
+			<video:description>A simple introduction to cryo-ET and how it can image archaea and bacteria like Caulobacter crescentus at high resolution in 3D</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_6_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-7-sub-tomogram-averaging.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_7_Cjejuni_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Sub-Tomogram Averaging</video:title>
+			<video:description>A simple introduction to cryo-ET subtomogram averaging and how it can boost the resolution of bacterial structures like Campylobacter jejuni flagella</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_7_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-8-single-particle-reconstruction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_8_Styphimurium_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Single Particle Reconstruction</video:title>
+			<video:description>An introduction to cryo-EM single particle reconstruction and how it can reveal structures like the MS-ring of the Salmonella typhimurium flagellar motor</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_8_Styphimurium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-9-x-ray-crystallography.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_9_Hpylori_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>X-Ray Crystallography</video:title>
+			<video:description>A simple introduction to X-ray crystallography and how it’s used to solve high-resolution structures of proteins like those in the Helicobacter pylori flagellum</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/1_9_Hpylori.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
 		<loc>https://www.cellstructureatlas.org/1-10-putting-it-all-together.html</loc>
 		<video:video>
 			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/1_10_Bbacteriovorus_thumbnail.jpg</video:thumbnail_loc>
@@ -8,5 +107,884 @@
 			<video:description>How biology techniques, including CLEM and cryo-ET mutant analysis, can combine to create maps of archaea and bacteria like Bdellovibrio bacteriovorus</video:description>
 			<video:content_loc>https://www.cellstructureatlas.org/videos/1_10_Bbacteriovorus.mp4</video:content_loc>
 		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/1-11-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-cells.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-1-membrane.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_1_Mgenitalium_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Membrane</video:title>
+			<video:description>A phospholipid membrane encloses the contents of all cells, including monoderm Mycoplasma genitalium bacteria, and lets ATP synthase generate energy.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_1_Mgenitalium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-2-cell-wall.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_2_Lmonocytogenes_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cell Wall</video:title>
+			<video:description>A rigid peptidoglycan cell wall supports bacteria like Listeria monocytogenes. Some archaea like Methanobacterium formicicum use a related structure.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_2_Lmonocytogenes.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-3-outer-membrane.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_3_Hcrunogenus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Outer Membrane</video:title>
+			<video:description>Diderm bacteria like Hydrogenovibrio crunogenus have a thin cell wall and a second, outer membrane enclosing a periplasmic space.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_3_Hcrunogenus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-4-vesicles.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_4_Mxanthus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Vesicles</video:title>
+			<video:description>Vesicles bud from membranes of bacteria like Myxococcus xanthus and Borrelia burgdorferi and archaea like Halomicrobium mukohataei.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_4_Mxanthus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-5-classification-exceptions.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_5_Mmarinum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Classification Exceptions</video:title>
+			<video:description>Not all bacteria can be classified as Gram-positive or Gram-negative. Mycobacterium marinum have a unique outer membrane and a multi-layered cell wall</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_5_Mmarinum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-6-surface-layer.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_6_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Surface Layer</video:title>
+			<video:description>An external surface layer of protein protects some bacteria like Caulobacter crescentus and Delftia acidovorans. S-layer around vesicles forms nanopods.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_6_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-7-surface-layer-variety.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_7_Ssolfataricus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Surface Layer Variety</video:title>
+			<video:description>Protein surface layers look very different on various diderm and monoderm bacteria and archaea, like Sulfolobus solfataricus, N. maritimus or M. formicica.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_7_Ssolfataricus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-8-sheath.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_8_Mhungatei_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Sheath</video:title>
+			<video:description>Methanospirillum hungatei archaea make an external protein sheath that’s highly resistant to pressure. Cells can form long chains with connected sheaths.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_8_Mhungatei.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-9-dna.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_9_Hargentinensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>DNA</video:title>
+			<video:description>The DNA in the genomes of bacteria and archaea, like Haloarcula argentinensis, is very thin (~2 nm wide), but can be seen when a cell lyses.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_9_Hargentinensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-10-nucleoid.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/2_10_Bbacteriovorus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Nucleoid</video:title>
+			<video:description>Archaea and bacteria, like Bdellovibrio bacteriovorus, contain huge amounts of DNA, which is packed into a concentrated region called the nucleoid.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/2_10_Bbacteriovorus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/2-11-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-shape.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-1-coccoid.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_1_Snegevensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Coccoid</video:title>
+			<video:description>Coccoid bacterial cells like Simkania negevensis are spherical and have maximal volume relative to surface area.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_1_Snegevensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-2-rod.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_2_Cnecator_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Rod</video:title>
+			<video:description>Most rod-shaped bacteria like Cupriavidus necator use the actin homolog MreB to dictate the shape of their peptidoglycan cell wall.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_2_Cnecator.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-3-length.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_3_Hgracilis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Length</video:title>
+			<video:description>Rod-shaped archaeal and bacterial cells like Hylemonella gracilis can grow longer without significantly changing their ratio of surface area to volume.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_3_Hgracilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-4-vibrioid.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_4_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Vibrioid</video:title>
+			<video:description>Vibrioid cells of Caulobacter crescentus bacteria use cytoskeletal filaments of Crescentin and CTP synthase to make their curved shape.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_4_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-5-helical.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_5_Cjejuni_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Helical</video:title>
+			<video:description>Helical or wavy bacterial cells like Campylobacter jejuni and Borrelia burgdorferi use their corkscrew shape to burrow into host tissue.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_5_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-6-prosthecate.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_6_Vspinosum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Prosthecate</video:title>
+			<video:description>Bactofilin and bacterial microtubules are part of the cytoskeleton that lets bacteria like star-shaped Verrucomicrobium spinosum extend prosthecae.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_6_Vspinosum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-7-square.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/3_7_Hwalsbyi_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Square</video:title>
+			<video:description>Gas vesicles help bacteria and archaea like Halobacterium salinarum and thin, square-shaped Haloquadratum walsbyi float.</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/3_7_Hwalsbyi.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/3-8-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-growth.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-1-stalk-bands.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_1_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Stalk Bands</video:title>
+			<video:description>Stalk bands allow Caulobacter crescentus to use long appendages to take up more nutrients without overly slowing diffusion</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_1_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-2-nanowires.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_2_Soneidensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Nanowires</video:title>
+			<video:description>Nanowires allow bacteria like Shewanella oneidensis to grow anaerobically by using an insoluble mineral for respiration</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_2_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-3-intracytoplasmic-membrane.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_3_Rpalustris_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Intracytoplasmic Membrane</video:title>
+			<video:description>Stacks of intracytoplasmic membrane expand the capacity of photosynthetic bacteria like Rhodopseudomonas palustris or Methyloprofundus sedimenti</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_3_Rpalustris.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-4-enzyme-filaments.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_5_Cthermocellum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Enzyme Filaments</video:title>
+			<video:description>Polymerization can regulate enzyme activity, and provide cytoskeletal filaments, for bacteria like Clostridium thermocellum</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_5_Cthermocellum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-5-microcompartments.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_6_Alongum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Microcompartments</video:title>
+			<video:description>Protein-shelled microcompartments serve as metabolic factories for bacteria like Acetonema longum</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_6_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-6-carboxysomes.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_7_Tintermedia_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Carboxysomes</video:title>
+			<video:description>Bacteria like Thiomonas intermedia, Halothiobacillus neapolitanus and Hydrogenovibrio crunogenus use RuBisCO-packed carboxysomes to fix carbon</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_7_Tintermedia.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-7-bacterial-storage-granules.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_8_Cnecator_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Bacterial Storage Granules</video:title>
+			<video:description>Bacteria like Cupriavidus necator and Lysobacter antibioticus stockpile nutrients like phosphate or carbon in storage granules</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_8_Cnecator.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-8-storage-granule-variety.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_9_Atumefaciens_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Storage Granule Variety</video:title>
+			<video:description>Bacteria like Agrobacterium tumefaciens or Halothiobacillus neapolitanus use various storage granules, which also interact with carboxysomes</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_9_Atumefaciens.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-9-archaeal-storage-granules.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/4_10_Hlitoreum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaeal Storage Granules</video:title>
+			<video:description>Archaea like Halorubrum litoreum, Haloferax gibbonssii or Halohasta litchfieldiae use storage granules to stockpile nutrients</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/4_10_Hlitoreum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/4-10-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-division.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-1-copy-number.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_1_Tintermedia_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Copy Number</video:title>
+			<video:description>Archaea and bacteria like Thiomonas intermedia have dedicated mechanisms to sort low copy-number components for division</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_1_Tintermedia.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-2-fission.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_2_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Fission</video:title>
+			<video:description>Caulobacter crescentus bacteria use a PopZ hub to tether the chromosome to one end of the asymmetric cell for division</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_2_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-3-budding.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_3_Hneptunium_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Budding</video:title>
+			<video:description>Budding bacteria like Hyphomonas neptunium pass one copy of their chromosomes through a narrow stalk in preparation for division</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_3_Hneptunium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-4-monoderm-septum.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_4_Saureus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Septum</video:title>
+			<video:description>In cytokinesis, bacteria like Staphylococcus aureus build a septum of cell wall to divide into two daughter cells</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_4_Saureus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-5-monoderm-cytokinesis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_5_Tremsis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Cytokinesis</video:title>
+			<video:description>Bacteria like Tetrasphaera remsis can divide into two or four daughter cells, by building one or two septa simultaneously</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_5_Tremsis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-6-diderm-cytokinesis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_6_Iloihiensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Cytokinesis</video:title>
+			<video:description>In cytokinesis, diderm bacteria like Idiomarina loihiensis and Sphingopyxis alaskensis constrict their inner membranes and cells walls to divide</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_6_Iloihiensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-7-outer-membrane-constriction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_7_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Outer Membrane Constriction</video:title>
+			<video:description>During cytokinesis, the outer membrane of diderm bacteria like Caulobacter crescentus constricts with, or after, the cell wall, depending on the species</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_7_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-8-asymmetric-division.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_8_Atumefaciens_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Asymmetric Division</video:title>
+			<video:description>Some bacteria like Agrobacterium tumefaciens reproduce by budding, with division producing two cells of unequal size</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_8_Atumefaciens.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-9-asynchronous-constriction.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_9_Cnecator_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Asynchronous Constriction</video:title>
+			<video:description>Archaea and bacteria like Cupriavidus necator use cytoskeletal filaments of FtsZ to constrict their cell envelope during cytokinesis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_9_Cnecator.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-10-ftsz.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_10_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>FtsZ</video:title>
+			<video:description>Archaea and bacteria like Caulobacter crescentus use cytoskeletal filaments of FtsZ to constrict their cell envelope during cytokinesis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_10_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-11-archaeal-cytokinesis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_11_Sacidocaldarius_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaeal Cytokinesis</video:title>
+			<video:description>Some archaea of the Crenarchaeota phylum like Sulfolobus acidocaldarius use a belt of Cdv cytoskeletal filaments to constrict the cell in cytokinesis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_11_Sacidocaldarius.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-12-cdv.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/5_12_Sacidocaldarius_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cdv</video:title>
+			<video:description>Some archaea of the Crenarchaeota phylum like Sulfolobus acidocaldarius use a belt of Cdv cytoskeletal filaments that cinch down the cell to divide</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/5_12_Sacidocaldarius.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/5-13-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-motility.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-1-flagellum.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_1_Cjejuni_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagellum</video:title>
+			<video:description>Bacteria like Campylobacter jejuni use a long helical propeller called a flagellum to swim through their liquid environment</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_1_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-2-flagellar-motor.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_2_Bbacteriovorus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagellar Motor</video:title>
+			<video:description>The long propeller-like flagellum of bacteria like Bdellovibrio bacteriovorus is spun by a motor at its base embedded in the cell envelope</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_2_Bbacteriovorus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-3-flagellar-assembly.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_3_Hgracilis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagellar Assembly</video:title>
+			<video:description>The flagellum of bacteria like Hylemonella gracilis or Pseudomonas aeruginosa is assembled by a type III secretion system at its base</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_3_Hgracilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-4-flagella-patterns.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_4_Cjejuni_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Flagella Patterns</video:title>
+			<video:description>Bacteria like Campylobacter jejuni have bipolar flagella, one at each end of the cell. Lophotrichous species like Helicobacter pylori have a tuft of flagella</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_4_Cjejuni.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-5-peritrichous-flagella.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_5_Pflexibilis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Peritrichous Flagella</video:title>
+			<video:description>Peritrichous bacteria like Pseudomonas flexibilis and Proteus mirabilis swim using flagella distributed around the cell</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_5_Pflexibilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-6-sheathed-flagella.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_6_Hhepaticus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Sheathed Flagella</video:title>
+			<video:description>Some pathogenic bacteria like Helicobacter pylori encase their flagella in a sheath of outer membrane</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_6_Hhepaticus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-7-periplasmic-flagella.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_7_Bburgdorferi_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Periplasmic Flagella</video:title>
+			<video:description>Spirochete bacteria like Borrelia burgdorferi and Treponema primitia burrow with periplasmic flagella built between the cell wall and outer membrane</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_7_Bburgdorferi.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-8-archaellum.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_8_Mformicica_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaellum</video:title>
+			<video:description>Archaea like Methanoregula formicica use long helical propellers called archaealla to swim. They are assembled and spun by a type II secretion system</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_8_Mformicica.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-9-archaella-patterns.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_9_Tkodakaraensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaella Patterns</video:title>
+			<video:description>Some lophotrichous archaea like Thermococcus kodakaraensis, but not Halobacterium salinarum, anchor their archaella to a cytoplasmic cone</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_9_Tkodakaraensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-10-type-iv-pilus.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_10_Mxanthus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type IV Pilus</video:title>
+			<video:description>Some bacteria like Myxococcus xanthus extend, attach, and retract type IV pili for twitching motility across surfaces</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_10_Mxanthus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-11-type-ix-secretion-system.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_11_Fjohnsoniae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type IX Secretion System</video:title>
+			<video:description>Flavobacterium johnsoniae bacteria use machinery including a type IX secretion system, a periplasmic track, and surface adhesins to glide across surfaces</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_11_Fjohnsoniae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-12-terminal-organelle.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/6_12_Mpneumoniae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Terminal Organelle</video:title>
+			<video:description>Bacteria like Mycoplasma pneumoniae use an internal terminal organelle and external adhesin proteins to glide across surfaces</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/6_12_Mpneumoniae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/6-13-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-navigation.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-1-chemotaxis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_1_Soneidensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemotaxis</video:title>
+			<video:description>Archaea and bacteria like Shewanella oneidensis use chemosensory arrays to sense chemicals in the environment and direct motility through chemotaxis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_1_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-2-chemosensory-arrays.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_2_Styphimurium_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemosensory Arrays</video:title>
+			<video:description>The hexagonal lattice of chemosensory arrays in archaea and bacteria like Salmonella typhimurium amplifies signal, making them highly sensitive</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_2_Styphimurium.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-3-chemosensory-array-conservation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_3_Mhungatei_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemosensory Array Conservation</video:title>
+			<video:description>Chemosensory arrays have the same architecture in archaea like Methanospirillum hungatei as in bacteria: a tightly-packed hexagonal lattice of receptors</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_3_Mhungatei.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-4-chemoreceptor-variety.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_4_Vcholerae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Chemoreceptor Variety</video:title>
+			<video:description>Different chemoreceptors assemble into separate arrays based on length in bacteria like Vibrio cholerae and Azospirillum brasilense</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_4_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-5-cytoplasmic-chemosensory-arrays.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_5_Mformicica_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cytoplasmic Chemosensory Arrays</video:title>
+			<video:description>Bacteria like Vibrio cholerae and archaea like Methanoregula formicica have cytoplasmic chemosensory arrays that are not anchored to the membrane</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_5_Mformicica.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-6-magnetotaxis.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/7_6_Mmagneticum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Magnetotaxis</video:title>
+			<video:description>Iron-filled membrane pockets called magnetosomes enable magnetotactic bacteria like Magnetospirillum magneticum to orient in a magnetic field</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/7_6_Mmagneticum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/7-7-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-lifecycle.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-1-stationary-phase.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_1_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Stationary Phase</video:title>
+			<video:description>Archaea and bacteria like Caulobacter crescentus enter a non-growing stationary phase to try to survive adverse conditions</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_1_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-2-genome-protection.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_2_Hpylori_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Genome Protection</video:title>
+			<video:description>In stationary phase, bacteria like Helicobacter pylori protect their genome with RecA, which forms nucleoprotein complexes and repairs DNA damage</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_2_Hpylori.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-3-archaeal-stationary-phase.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_3_Tkodakaraensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Archaeal Stationary Phase</video:title>
+			<video:description>In stationary phase, archaea like Thermococcus kodakaraensis protect their DNA with RadA, which forms nucleoprotein filaments and repairs damage</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_3_Tkodakaraensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-4-differentiation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_4_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Differentiation</video:title>
+			<video:description>Caulobacter crescentus bacteria have a dimorphic lifecycle, dividing asymmetrically into a surface-attached stalked cell and a motile swarmer cell</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_4_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-5-monoderm-sporulation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_5_Bsubtilis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Sporulation</video:title>
+			<video:description>Bacteria like Bacillus subtilis can make specialized dormant cells called spores that are highly resistant to acid, heat and dehydration</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_5_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-6-monoderm-spore-engulfment.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_6_Bsubtilis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Spore Engulfment</video:title>
+			<video:description>Endospore-forming bacteria like Bacillus subtilis develop their spores internally, then lyse to release them once they are mature</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_6_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-7-monoderm-spores.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_7_Bsubtilis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Spores</video:title>
+			<video:description>Spores of bacteria like Bacillus subtilis are encased in two membranes, a thick cortex, and a multilayered protein coat to protect from harsh conditions</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_7_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-8-monoderm-germination.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_8_Bsubtilis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Monoderm Germination</video:title>
+			<video:description>Spores of monoderm bacteria like Bacillus subtilis germinate by shedding their protein coat and outer membrane as well as the outer cortex</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_8_Bsubtilis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-9-diderm-sporulation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_9_Alongum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Sporulation</video:title>
+			<video:description>Diderm bacteria like Acetonema longum make spores through a specialized division process that starts with formation of a sporulation septum</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_9_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-10-diderm-spore-engulfment.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_10_Alongum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Spore Engulfment</video:title>
+			<video:description>Diderm endospore-forming bacteria like Acetonema longum engulf their spores in two membranes, both of which come from the cell’s inner membrane</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_10_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-11-diderm-germination.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/8_11_Alongum_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Diderm Germination</video:title>
+			<video:description>Spores of diderm bacteria like Acetonema longum germinate by shedding their protein coat and remodeling their cortex into a thin cell wall</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/8_11_Alongum.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/8-12-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-interaction.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-1-biofilm.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_1_Atumefaciens_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Biofilm</video:title>
+			<video:description>Bacteria like Agrobacterium tumefaciens attach to other cells in a biofilm with pili, holdfast, or unipolar polysaccharide, and secrete cellulose for the matrix</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_1_Atumefaciens.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-2-biofilm-matrix.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_2_Ghansenii_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Biofilm Matrix</video:title>
+			<video:description>Bacteria like Gluconacetobacter hansenii secrete cellulose that forms bundles that contribute to the extracellular matrix of their biofilms</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_2_Ghansenii.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-3-type-ii-and-type-iv-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_3_Lpneumophila_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type II and Type IV Secretion</video:title>
+			<video:description>Bacteria like Legionella pneumophila and Helicobacter pylori use type II and type IV secretion systems to pump out effector proteins for infection</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_3_Lpneumophila.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-4-type-iii-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_4_Paeruginosa_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type III Secretion</video:title>
+			<video:description>Bacteria like Pseudomonas aeruginosa use type III secretion system injectisomes to pump effector proteins into other cells</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_4_Paeruginosa.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-5-type-v-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_5_Ecoli_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type V Secretion</video:title>
+			<video:description>Bacteria like Escherichia coli use type V secretion systems to inhibit neighboring cell’s growth through contact-dependent inhibition</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_5_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-6-type-vi-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_6_Mxanthus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type VI Secretion</video:title>
+			<video:description>Bacteria like Myxococcus xanthus use contractile weapons called type VI secretion systems to shoot toxins into neighboring cells</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_6_Mxanthus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-7-contractile-weapons.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_7_Vcholerae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Contractile Weapons</video:title>
+			<video:description>Bacteria like Vibrio cholerae, Amoebophilus asiaticus and Pseuodalteromonas luteoviolacea use various contractile weapons related to bacteriophage tails</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_7_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-8-type-ix-secretion.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_8_Pgingivalis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Type IX Secretion</video:title>
+			<video:description>Porphyromonas gingivalis bacteria use a type IX secretion system to cover themselves in gingipains, which cause the host tissue damage of periodontitis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_8_Pgingivalis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-9-predation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_9_BbacteriovorusVcholerae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Predation</video:title>
+			<video:description>Bdellovibrio bacteriovorus bacteria are predators of other diderm bacteria like Vibrio cholerae. They latch onto their prey with type IV pili</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_9_BbacteriovorusVcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-10-predator-entry.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_10_BbacteriovorusEcoli_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Predator Entry</video:title>
+			<video:description>Bdellovibrio bacteriovorus breach the outer membrane and invade the periplasm of their prey, other diderm bacteria like Escherichia coli</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_10_BbacteriovorusEcoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-11-predator-replication.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/9_11_BbacteriovorusVcholerae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Predator Replication</video:title>
+			<video:description>Bdellovibrio bacteriovorus prey on other diderm bacteria like Vibrio cholerae. They digest the contents of the prey cytoplasm to fuel growth and division</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/9_11_BbacteriovorusVcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/9-12-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-viruses.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-1-phage.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_1_Soneidensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Phage</video:title>
+			<video:description>Viruses like myophage infect bacterial cells like Shewanella oneidensis. They recognize and dock onto cells using their tail fibers</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_1_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-2-contractile-tails.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_2_Bacteroidetes_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Contractile Tails</video:title>
+			<video:description>Viruses like myophage use their contractile tails to inject their genomes into bacteria like Bacteroidetes. Not all phage have contractile tails</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_2_Bacteroidetes.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-3-noncontractile-tails.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_3_Soneidensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Noncontractile Tails</video:title>
+			<video:description>Viruses like siphophage use long, non-contractile tails to deliver their genomes into bacteria like Shewanella oneidensis</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_3_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-4-structural-variation.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_4_Vcholerae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Structural Variation</video:title>
+			<video:description>Podophage use short tails that extend after docking to deliver their genomes into bacteria like Vibrio cholerae. Phage capsids have a variety of shapes</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_4_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-5-targeting.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_5_Ecoli_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Targeting</video:title>
+			<video:description>Viruses like MS2 leviphage target the competence pili of bacteria like Escherichia coli, injecting their genomes into the DNA-conducting channel</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_5_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-6-head-fibers.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_6_Ccrescentus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Head Fibers</video:title>
+			<video:description>Viruses like φCb13 siphophage wrap their head fibers around the flagella of Caulobacter crescentus. Flagellar rotation draws them down to their receptors</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_6_Ccrescentus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-7-replication.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_7_Vcholerae_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Replication</video:title>
+			<video:description>Once they infect bacteria like Vibrio cholerae, phage use their host’s machinery to replicate, producing many copies that may lyse the cell to escape</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_7_Vcholerae.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-8-virus-associated-pyramids.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_8_Ssolfataricus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Virus-Associated Pyramids</video:title>
+			<video:description>Sulfolobus Turreted Icosahedral Virus makes a pyramid in the membrane of infected archaea like Sulfolobus solfataricus to release replicated copies</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_8_Ssolfataricus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-9-pyramid-release.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_9_Ssolfataricus_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Pyramid Release</video:title>
+			<video:description>Virus-associated pyramids open the membrane of Sulfolobus solfataricus archaea to release Sulfolobus Turreted Icosahedral Virus</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_9_Ssolfataricus.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-10-cellular-defense.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/10_10_Soneidensis_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Cellular Defense</video:title>
+			<video:description>Bacteria like Shewanella oneidensis may use outer membrane vesicles as decoys to prevent infection by viruses like myophage</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/10_10_Soneidensis.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/10-11-summary.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/outlook.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/keep-looking.html</loc>
+		<video:video>
+			<video:thumbnail_loc>https://www.cellstructureatlas.org/img/thumbnails/11_1_Ecoli_thumbnail.jpg</video:thumbnail_loc>
+			<video:title>Keep Looking</video:title>
+			<video:description>Conclusion of the Atlas of Bacterial & Archaeal Cell Structure, reminding us that our knowledge of microbiology is still a work in progress</video:description>
+			<video:content_loc>https://www.cellstructureatlas.org/videos/11_1_Ecoli.mp4</video:content_loc>
+		</video:video>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/A-feature-index.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/B-scientist-profiles.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/C-phylogenetic-tree.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/D-references.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/about.html</loc>
+	</url>
+	<url>
+		<loc>https://www.cellstructureatlas.org/download.html</loc>
 	</url>
 </urlset>
