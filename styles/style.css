@@ -23,6 +23,7 @@
     tree-viewer: phylogenetic tree viewer used in .appendix and .media-viewer
     species-entry: species example list used in .appendix-accordion
     csl: reference list page
+    about-entry: about this book content used in .appendix-accordion
     mobile-controls: navigation controls used in mobile
     progress-bar: Reading progress widget used in .footer desktop
 */
@@ -1350,6 +1351,16 @@
 
 .csl-right-inline a {
     word-break: break-all;
+}
+
+/* about-entry */
+.about-entry {
+    line-height: 1.34;
+}
+
+.about-entry a {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 /* mobile-controls */
@@ -3446,16 +3457,6 @@
 .appendix-accordion__entry-panel--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
-}
-
-/* about-entry */
-.about-entry {
-    line-height: 1.34;
-}
-
-.about-entry a {
-    color: #5caac5;
-    text-decoration: underline;
 }
 
 /* download-btn */
