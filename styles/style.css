@@ -7,6 +7,10 @@
     defenitions (ex: "narration-player" is modified in "section-text__narration-player").
 */
 
+/* 
+    search-widget: site search widget found in .header and .nav
+*/
+
 /*
 - section: Container to hold media viewer and and section navigation  
 - media-viewer: Widget that contains video/comparison slider and the controls needed to toggle them
@@ -34,6 +38,116 @@
     -ms-transition: none !important;
     -o-transition: none !important;
 }
+
+/* search-widget */
+.search-widget__search-bar {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid #cfcfcf;
+    border-radius: 100px;
+}
+
+.search-widget__search-icon {
+    flex: 0 0 auto;
+    margin-right: 1em;
+}
+
+.search-widget__search-bar-input {
+    -webkit-appearance: textfield;
+    width: 100%;
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.search-widget__search-bar-input:focus {
+    outline: none;
+}
+
+.search-widget__search-bar-input::placeholder {
+    color: inherit;
+}
+
+.search-widget__search-bar-input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.search-widget__exit-btn {
+    flex: 0 0 auto;
+    margin: 0;
+    box-sizing: border-box;
+    width: 1.25em;
+    height: 1.25em;
+    border: none;
+    padding: 0.15em;
+    font-size: 1em;
+    background: none;
+}
+
+.search-widget__exit-btn--hidden {
+    display: none;
+}
+
+.search-widget__exit-btn-icon {
+    width: 100%;
+    height: 100%;
+    fill: #363636;
+}
+
+.search-widget__result-list {
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+    list-style: none;
+}
+
+.search-widget__result-list--hidden {
+    display: none;
+}
+
+.search-widget__result-link {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.15em;
+    color: inherit;
+    text-decoration: underline;
+}
+
+.search-widget__result-metadata-container {
+    margin-bottom: 0.5em;
+}
+
+.search-widget__metadata-entry--header {
+    margin-right: 1em;
+}
+
+.search-widget__metadata-entry--nav-menu {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.search-widget__result-content {
+    margin: 0 0 0.5em 0;
+}
+
+.search-widget__result-highlight {
+    color: #15404E;
+    font-weight: bold;
+}
+
+.search-widget__result-separator {
+    margin: 1em 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
+}
+
+
+
+
+
 
 /* index */
 .index {
@@ -1059,121 +1173,6 @@
 
 .media-viewer__fullscreen-btn-icon--hidden {
     display: none;
-}
-
-/* search-bar */
-.search-widget__search-bar {
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    border: 2px solid #cfcfcf;
-    border-radius: 100px;
-}
-
-.search-widget__search-icon {
-    flex: 0 0 auto;
-    margin-right: 1em;
-}
-
-.search-widget__search-bar-input {
-    -webkit-appearance: textfield;
-    width: 100%;
-    border: none;
-    padding: 0;
-    background: none;
-}
-
-.search-widget__search-bar-input--nav-menu {
-    font-size: 1em;
-    color: #363636;
-}
-
-.search-widget__search-bar-input--header {
-    font-size: 1.25em;
-    color: #fff;
-}
-
-.search-widget__search-bar-input:focus {
-    outline: none;
-}
-
-.search-widget__search-bar-input::placeholder {
-    color: inherit;
-}
-
-.search-widget__search-bar-input::-webkit-search-cancel-button {
-    display: none;
-}
-
-.search-widget__exit-btn {
-    flex: 0 0 auto;
-    margin: 0;
-    box-sizing: border-box;
-    width: 1.25em;
-    height: 1.25em;
-    border: none;
-    padding: 0.15em;
-    font-size: 1em;
-    background: none;
-}
-
-.search-widget__exit-btn--hidden {
-    display: none;
-}
-
-.search-widget__exit-btn-icon {
-    width: 100%;
-    height: 100%;
-    fill: #363636;
-}
-
-.search-widget__result-list {
-    margin: 0;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 1em;
-    list-style: none;
-}
-
-.search-widget__result-list--hidden {
-    display: none;
-}
-
-.search-widget__result-link {
-    display: block;
-    margin-bottom: 0.5em;
-    font-size: 1.15em;
-    color: inherit;
-    text-decoration: underline;
-}
-
-.search-widget__result-metadata-container {
-    margin-bottom: 0.5em;
-}
-
-.search-widget__metadata-entry--header {
-    margin-right: 1em;
-}
-
-.search-widget__metadata-entry--nav-menu {
-    display: block;
-    margin-bottom: 0.5em;
-}
-
-.search-widget__result-content {
-    margin: 0 0 0.5em 0;
-}
-
-.search-widget__result-highlight {
-    color: #15404E;
-    font-weight: bold;
-}
-
-.search-widget__result-separator {
-    margin: 1em 0;
-    width: 100%;
-    height: 2px;
-    background: #000;
 }
 
 /* learn-more */
