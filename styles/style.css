@@ -12,6 +12,7 @@
     search-widget: site search widget found in .header and .nav
     video-player: videojs based video player used in .section, .subsection, and .media-viewer
     comp-slider: before/after image slider used in .section, .subsection, and .media-viewer
+    protein-viewer: interactive protein viewer used in .subsection and .media-viewer
     summary-menu: interactive summary menu used in .section and .media-viewer
     narration-player: narration audio player widget used in .section-text
     vid-metadata: video citation metadata displayed in .section-text and .subsection
@@ -380,6 +381,64 @@
     width: 55%;
     height: 55%;
     fill: #ccc;
+}
+
+/* protein-viewer */
+.protein-viewer {
+    position: relative;
+}
+
+.protein-viewer__menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0.75em;
+    background: #ffffffe6;
+    border-radius: 0px 0px 10px 0px;
+    font-size: 1rem;
+    z-index: 2;
+}
+
+@media (min-width:480px) {
+    .protein-viewer__menu {
+        flex-direction: row;
+    }
+}
+
+.protein-viewer__menu-label {
+    color: #15404e;
+    font-weight: 600;
+    margin: 0.5em 0;
+}
+
+@media (min-width:480px) {
+    .protein-viewer__menu-label {
+        margin: 0 0.5em;
+    }
+}
+
+.protein-viewer__menu-select {
+    font-size: 1em;
+}
+
+.protein-viewer__atom-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 1em;
+    width: fit-content;
+    width: -moz-fit-content;
+    background: #ffffff87;
+    border-radius: 10px 10px 0 0;
+    font-size: 1em;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.protein-viewer__atom-label--hidden {
+    display: none;
 }
 
 /* summary-menu */
@@ -2682,64 +2741,6 @@
 .subsection__text-content a {
     color: #325c69;
     text-decoration: underline;
-}
-
-/* protein-viewer */
-.protein-viewer {
-    position: relative;
-}
-
-.protein-viewer__menu {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    padding: 0.75em;
-    background: #ffffffe6;
-    border-radius: 0px 0px 10px 0px;
-    font-size: 1rem;
-    z-index: 2;
-}
-
-@media (min-width:480px) {
-    .protein-viewer__menu {
-        flex-direction: row;
-    }
-}
-
-.protein-viewer__menu-label {
-    color: #15404e;
-    font-weight: 600;
-    margin: 0.5em 0;
-}
-
-@media (min-width:480px) {
-    .protein-viewer__menu-label {
-        margin: 0 0.5em;
-    }
-}
-
-.protein-viewer__menu-select {
-    font-size: 1em;
-}
-
-.protein-viewer__atom-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding: 1em;
-    width: fit-content;
-    width: -moz-fit-content;
-    background: #ffffff87;
-    border-radius: 10px 10px 0 0;
-    font-size: 1em;
-    font-weight: 600;
-    z-index: 2;
-}
-
-.protein-viewer__atom-label--hidden {
-    display: none;
 }
 
 /* footer */
