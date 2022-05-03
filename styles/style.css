@@ -42,27 +42,6 @@
     page: sitewide page container
 */
 
-/*
-- section: Container to hold media viewer and and section navigation  
-- media-viewer: Widget that contains video/comparison slider and the controls needed to toggle them
-- search-bar: Search bar that will be available on all pages
-- section-text: Block that contains main readable material for a section
-- modal: Modals that contain subsection content
-- subsection: Block that contains subsection content
-- vid-metadata: Video citation information displayed in sections/modals 
-- learn-more: Block hold learn more buttons that open subsection modals
-- video-player: Video player with custom controls and scrubbing
-- comp-slider: Slider widget to compare 2 sets of images
-- protein-viewer: Interactive PDB viewer
-- appendix-accordion-group: Accordion dropdown menus found in appendix pages
-- feature-index-section-list: List of species for a given feature
-- profile-bio: Profile for a given scientist
-- tree-viewer: Interactive phylogenetic tree viewer found in appendix page
-- species-example-list: List of example sections for a given species
-- summary-menu: Summary menu widget that displays interactive chapter menu.
-- mobile-controls: Refactored version of mobile controls used to switch between section text/media and navigation.
-*/
-
 .preload * {
     -webkit-transition: none !important;
     -moz-transition: none !important;
