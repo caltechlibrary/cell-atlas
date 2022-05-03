@@ -20,6 +20,7 @@
     feature-index-entry: feature list used in .appendix-accordion
     profile: scientist profile used in .appendix-accordion
     tree-viewer: phylogenetic tree viewer used in .appendix and .media-viewer
+    species-entry: species example list used in .appendix-accordion
     mobile-controls: navigation controls used in mobile
     progress-bar: Reading progress widget used in .footer desktop
 */
@@ -1289,6 +1290,28 @@
 
 .tree-viewer__zoom-btn:first-child {
     border-bottom: 1px solid #fff;
+}
+
+/* species-entry */
+.species-entry {
+    margin: 0;
+    padding-left: 16px;
+    list-style: none;
+}
+
+@media (min-width:900px) {
+    .species-entry {
+        padding-left: 24px;
+    }
+}
+
+.species-entry__page {
+    margin-bottom: 16px;
+}
+
+.species-entry__page-link {
+    color: #5caac5;
+    text-decoration: underline;
 }
 
 /* mobile-controls */
@@ -3385,28 +3408,6 @@
 .appendix-accordion__entry-panel--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
-}
-
-/* species-entry */
-.species-entry {
-    margin: 0;
-    padding-left: 16px;
-    list-style: none;
-}
-
-@media (min-width:900px) {
-    .species-entry {
-        padding-left: 24px;
-    }
-}
-
-.species-entry__page {
-    margin-bottom: 16px;
-}
-
-.species-entry__page-link {
-    color: #5caac5;
-    text-decoration: underline;
 }
 
 /* references */
