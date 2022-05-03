@@ -33,6 +33,7 @@
     section-text: main section text content container used in .section
     subsection: subsection text content used in .modals
     modal: modal widget
+    appendix-accordion: disclosure pattern accordion display used in .appendix pages
     footer: sitewide footer used in .chapter-content, .section, and .appendix pages
 */
 
@@ -2619,6 +2620,81 @@
     min-height: 0;
 }
 
+/* appendix-accordion */
+.appendix-accordion {
+    color: #fff;
+}
+
+@media (max-width:900px) {
+    .appendix-accordion__entry-anchor {
+        position: absolute;
+        margin-top: -56px;
+    }
+}
+
+.appendix-accordion__header-container {
+    margin: 0;
+    font-size: 1em;
+}
+
+.appendix-accordion__entry-header {
+    margin: 0 0 20px 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 8.5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    color: inherit;
+    font-size: 1em;
+}
+
+@media (min-width: 900px) {
+    .appendix-accordion__entry-header {
+        margin: 0 0 24px 0;
+    }
+}
+
+.appendix-accordion__entry-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    text-align: left;
+}
+
+@media (min-width: 900px) {
+    .appendix-accordion__entry-title {
+        font-size: 1.5em;
+    }
+}
+
+.appendix-accordion__entry-title--italicized {
+    font-style: italic;
+}
+
+.appendix-accordion__entry-toggle-icon {
+    width: 1.25em;
+    height: 1.25em;
+    fill: #4b889b;;
+    transition: transform 1s;
+}
+
+.appendix-accordion__entry-header[aria-expanded="true"] .appendix-accordion__entry-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.appendix-accordion__entry-panel {
+    height: auto;
+    overflow: hidden;
+    transition: height 1s;
+}
+
+.appendix-accordion__entry-panel--collapsed {
+    visibility: hidden;
+    transition: height 1s, visibility 0s 1s;
+}
+
 /* footer */
 .footer__progress-bar {
     transition: transform 0.25s;
@@ -3410,81 +3486,6 @@
 }
 
 .appendix__phylogenetic-list-panel--collapsed {
-    visibility: hidden;
-    transition: height 1s, visibility 0s 1s;
-}
-
-/* appendix-accordion */
-.appendix-accordion {
-    color: #fff;
-}
-
-@media (max-width:900px) {
-    .appendix-accordion__entry-anchor {
-        position: absolute;
-        margin-top: -56px;
-    }
-}
-
-.appendix-accordion__header-container {
-    margin: 0;
-    font-size: 1em;
-}
-
-.appendix-accordion__entry-header {
-    margin: 0 0 20px 0;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid white;
-    padding: 8.5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: none;
-    color: inherit;
-    font-size: 1em;
-}
-
-@media (min-width: 900px) {
-    .appendix-accordion__entry-header {
-        margin: 0 0 24px 0;
-    }
-}
-
-.appendix-accordion__entry-title {
-    font-size: 1.25em;
-    font-weight: 700;
-    text-align: left;
-}
-
-@media (min-width: 900px) {
-    .appendix-accordion__entry-title {
-        font-size: 1.5em;
-    }
-}
-
-.appendix-accordion__entry-title--italicized {
-    font-style: italic;
-}
-
-.appendix-accordion__entry-toggle-icon {
-    width: 1.25em;
-    height: 1.25em;
-    fill: #4b889b;;
-    transition: transform 1s;
-}
-
-.appendix-accordion__entry-header[aria-expanded="true"] .appendix-accordion__entry-toggle-icon {
-    transform: rotate(180deg);
-}
-
-.appendix-accordion__entry-panel {
-    height: auto;
-    overflow: hidden;
-    transition: height 1s;
-}
-
-.appendix-accordion__entry-panel--collapsed {
     visibility: hidden;
     transition: height 1s, visibility 0s 1s;
 }
