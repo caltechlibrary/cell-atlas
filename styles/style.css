@@ -10,6 +10,7 @@
 /* 
     nav-arrow: prev/next section links found in .chapter-content, .section, and .appendix pages on desktop
     search-widget: site search widget found in .header and .nav
+    narration-player: narration audio player widget used in .section-text
     vid-metadata: video citation metadata displayed in .section-text and .subsection
     learn-more: subsection modal button container used in .section-text
     mobile-controls: navigation controls used in mobile
@@ -158,6 +159,107 @@
     width: 100%;
     height: 2px;
     background: #000;
+}
+
+/* narration-player */
+.narration-player {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    margin-right: 4.5rem;
+    height: 2.75em;
+    max-width: 25em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    visibility: inherit;
+    transition: height 0.75s;
+}
+
+.narration-player--hidden {
+    height: 0px;
+    visibility: hidden;
+    overflow: hidden;
+    transition: height 0.75s, visibility 0s ease 0.75s;
+}
+
+.narration-player__playback-btn {
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    width: 2.75em;
+    height: 2.75em;
+    border-radius: 100px;
+    border: 2px solid #0000;
+    padding: 0.75em;
+    background: none;
+    transition: border 0.25s;
+    font-size: 1em;
+}
+
+@media (min-width:900px) {
+    .narration-player__playback-btn:hover {
+        border: 2px solid #000;
+    }
+
+    .narration-player--light-theme .narration-player__playback-btn:hover {
+        border: 2px solid #fff;
+    }
+}
+
+.narration-player__playback-btn-icon {
+    width: 100%;
+    height: 100%;
+    stroke-width: 2;
+    stroke: #000;
+    fill: none;
+}
+
+.narration-player--light-theme .narration-player__playback-btn-icon {
+    stroke: #fff;
+}
+
+.narration-player--playing .narration-player__playback-btn-play-icon {
+    display: none;
+}
+
+.narration-player:not(.narration-player--playing) .narration-player__playback-btn-pause-icon {
+    display: none;
+}
+
+.narration-player__seekbar {
+    flex: 1;
+    min-width: 0;
+    margin: 0 1em;
+    -webkit-appearance: none;
+    width: 15.5em;
+    height: 2px;
+    background: #000;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.narration-player--light-theme .narration-player__seekbar {
+    background: #fff;
+}
+
+.narration-player__seekbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0.85em;
+    height: 0.85em;
+    border-radius: 100px;
+    background: #000;
+}
+
+.narration-player--light-theme .narration-player__seekbar::-webkit-slider-thumb {
+    background: #fff;
+}
+
+.narration-player__time-display {
+    flex: 0 0 auto;
+    color: #000
+}
+
+.narration-player--light-theme .narration-player__time-display {
+    color: #fff
 }
 
 /* vid-metadata */
@@ -2651,107 +2753,6 @@
         box-sizing: border-box;
         outline: revert;
     }
-}
-
-/* narration-player */
-.narration-player {
-    flex: 0 0 auto;
-    box-sizing: border-box;
-    margin-right: 4.5rem;
-    height: 2.75em;
-    max-width: 25em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    visibility: inherit;
-    transition: height 0.75s;
-}
-
-.narration-player--hidden {
-    height: 0px;
-    visibility: hidden;
-    overflow: hidden;
-    transition: height 0.75s, visibility 0s ease 0.75s;
-}
-
-.narration-player__playback-btn {
-    flex: 0 0 auto;
-    box-sizing: border-box;
-    width: 2.75em;
-    height: 2.75em;
-    border-radius: 100px;
-    border: 2px solid #0000;
-    padding: 0.75em;
-    background: none;
-    transition: border 0.25s;
-    font-size: 1em;
-}
-
-@media (min-width:900px) {
-    .narration-player__playback-btn:hover {
-        border: 2px solid #000;
-    }
-
-    .narration-player--light-theme .narration-player__playback-btn:hover {
-        border: 2px solid #fff;
-    }
-}
-
-.narration-player__playback-btn-icon {
-    width: 100%;
-    height: 100%;
-    stroke-width: 2;
-    stroke: #000;
-    fill: none;
-}
-
-.narration-player--light-theme .narration-player__playback-btn-icon {
-    stroke: #fff;
-}
-
-.narration-player--playing .narration-player__playback-btn-play-icon {
-    display: none;
-}
-
-.narration-player:not(.narration-player--playing) .narration-player__playback-btn-pause-icon {
-    display: none;
-}
-
-.narration-player__seekbar {
-    flex: 1;
-    min-width: 0;
-    margin: 0 1em;
-    -webkit-appearance: none;
-    width: 15.5em;
-    height: 2px;
-    background: #000;
-    font-size: 0.85em;
-    cursor: pointer;
-}
-
-.narration-player--light-theme .narration-player__seekbar {
-    background: #fff;
-}
-
-.narration-player__seekbar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 0.85em;
-    height: 0.85em;
-    border-radius: 100px;
-    background: #000;
-}
-
-.narration-player--light-theme .narration-player__seekbar::-webkit-slider-thumb {
-    background: #fff;
-}
-
-.narration-player__time-display {
-    flex: 0 0 auto;
-    color: #000
-}
-
-.narration-player--light-theme .narration-player__time-display {
-    color: #fff
 }
 
 /* footer */
