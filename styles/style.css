@@ -10,6 +10,7 @@
 /* 
     nav-arrow: prev/next section links found in chapter, section, and appendix pages on desktop
     search-widget: site search widget found in .header and .nav
+    mobile-controls: navigation controls used in mobile
 */
 
 /*
@@ -154,6 +155,49 @@
     width: 100%;
     height: 2px;
     background: #000;
+}
+
+/* mobile-controls */
+.mobile-controls {
+    box-sizing: border-box;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    background: #505050;
+}
+
+.mobile-controls__nav {
+    width: 15px;
+    fill: #c2c2c2;
+}
+
+.mobile-controls__nav--prev {
+    margin-right: auto;
+}
+
+.mobile-controls__nav--next {
+    margin-left: auto;
+}
+
+.mobile-controls__nav svg {
+    vertical-align: middle;
+}
+
+.mobile-controls__btn {
+    width: 35px;
+    margin: auto;
+    padding: 0;
+    border: none;
+    background: none;
+    fill: #c2c2c2;
+}
+
+.mobile-controls__btn--selected {
+    fill: #fff;
+}
+
+.mobile-controls__btn svg {
+    vertical-align: middle;
 }
 
 
@@ -2514,49 +2558,6 @@
         box-sizing: border-box;
         outline: revert;
     }
-}
-
-/* mobile-controls */
-.mobile-controls {
-    box-sizing: border-box;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    background: #505050;
-}
-
-.mobile-controls__nav {
-    width: 15px;
-    fill: #c2c2c2;
-}
-
-.mobile-controls__nav--prev {
-    margin-right: auto;
-}
-
-.mobile-controls__nav--next {
-    margin-left: auto;
-}
-
-.mobile-controls__nav svg {
-    vertical-align: middle;
-}
-
-.mobile-controls__btn {
-    width: 35px;
-    margin: auto;
-    padding: 0;
-    border: none;
-    background: none;
-    fill: #c2c2c2;
-}
-
-.mobile-controls__btn--selected {
-    fill: #fff;
-}
-
-.mobile-controls__btn svg {
-    vertical-align: middle;
 }
 
 /* narration-player */
