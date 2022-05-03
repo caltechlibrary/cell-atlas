@@ -7,12 +7,17 @@ host = 'https://www.cellstructureatlas.org'
 lines = []
 
 def addSiteMapEntry(sourceFile):
+    # get final path component with section "0"s removed from chapter pages
     pageName = pathlib.Path(sourceFile).stem.replace('-0-', '-')
+
+    # get output html page. use "blank" page for index
     outFile = f'{pageName}.html' if pageName != 'index' else ''
+
     lines.append('\t<url>\n')
     lines.append(f'\t\t<loc>{host}/{outFile}</loc>\n')
     lines.append('\t</url>\n')
 
+# start writing sitemap lines
 lines.append('<?xml version="1.0" encoding="UTF-8"?>\n')
 lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
 addSiteMapEntry('index.md')
