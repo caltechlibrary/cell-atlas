@@ -80,30 +80,6 @@ Library and the Jensen Lab.
 
 "[Video](https://thenounproject.com/search/?q=video&i=2567858)" icon by i cons from [the Noun Project](https://thenounproject.com/).
 
-"[play button](https://thenounproject.com/search/?q=play+button&i=2467761)" by Assyifa Art from [the Noun Project](https://thenounproject.com/).
-
-"[pause](https://thenounproject.com/search/?q=pause+button&i=1738044)" by amantaka from [the Noun Project](https://thenounproject.com/).
-
-"[Fullscreen](https://thenounproject.com/search/?q=fullscreen&i=1953799)" by Nociconist from [the Noun Project](https://thenounproject.com/).
-
-"[chevron](https://thenounproject.com/search/?q=chevron&i=933246)" by Numero Uno from [the Noun Project](https://thenounproject.com/).
-
 "[Image](https://thenounproject.com/search/?q=image&i=3776456)" by Dooder from [the Noun Project](https://thenounproject.com/).
-
-"[triangle](https://thenounproject.com/term/triangle/2309918/)" by Nawicon from [the Noun Project](https://thenounproject.com/).
-
-"[X](https://thenounproject.com/search/?q=x&i=2222119)" by Imam from [the Noun Project](https://thenounproject.com/).
-
-"[play](https://thenounproject.com/search/?q=play&i=86420)" by Slicon from [the Noun Project](https://thenounproject.com/).
-
-"[Plus](https://thenounproject.com/search/?q=plus&i=705287)" by Eagle Eye from [the Noun Project](https://thenounproject.com/).
-
-"[Minus](https://thenounproject.com/term/minus/705290/)" by Eagle Eye from [the Noun Project](https://thenounproject.com/).
-
-"[Check](https://thenounproject.com/search/?q=check&i=3850095)" by Justin Henry from [the Noun Project](https://thenounproject.com/).
-
-"[up and down](https://thenounproject.com/search/?q=up+and+down&i=3861732)" by Mas Dhimas from [the Noun Project](https://thenounproject.com/).
-
-"[broken image](https://thenounproject.com/search/?q=broken+image&i=3157423)" by Pelin Kahraman from [the Noun Project](https://thenounproject.com/).
 
 "[cycle](https://thenounproject.com/term/cycle/406578/)" by ImageCatalog from [the Noun Project](https://thenounproject.com/).
