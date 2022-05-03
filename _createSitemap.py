@@ -9,23 +9,14 @@ host = 'https://www.cellstructureatlas.org'
 lines = []
 
 def addSiteMapEntry(sourceFile):
-    metadata = json.loads(subprocess.check_output(['pandoc', '--from=markdown', '--to=plain', '--template=templates/metadata.txt', sourceFile]))
-    pageName = pathlib.Path(sourceFile).stem.replace("-0-", "-")
-
+    pageName = pathlib.Path(sourceFile).stem.replace('-0-', '-')
+    outFile = f'{pageName}.html' if pageName != 'index' else ''
     lines.append('\t<url>\n')
-    lines.append(f'\t\t<loc>{host}/{pageName}.html</loc>\n')
-    if("doi" in metadata):
-        videoName = pathlib.Path(metadata['video']).stem
-        lines.append('\t\t<video:video>\n')
-        lines.append(f'\t\t\t<video:thumbnail_loc>{host}/img/thumbnails/{videoName}_thumbnail.jpg</video:thumbnail_loc>\n')
-        lines.append(f'\t\t\t<video:title>{metadata["title"]}</video:title>\n')
-        lines.append(f'\t\t\t<video:description>{metadata["description"]}</video:description>\n')
-        lines.append(f'\t\t\t<video:content_loc>{host}/videos/{metadata["video"]}</video:content_loc>\n')
-        lines.append('\t\t</video:video>\n')
+    lines.append(f'\t\t<loc>{host}/{outFile}</loc>\n')
     lines.append('\t</url>\n')
 
 lines.append('<?xml version="1.0" encoding="UTF-8"?>\n')
-lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n')
+lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
 addSiteMapEntry('index.md')
 addSiteMapEntry('begin.md')
 addSiteMapEntry('introduction.md')
