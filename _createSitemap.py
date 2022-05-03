@@ -2,6 +2,7 @@ import os
 import csv
 import subprocess
 import json
+import pathlib
 
 sectionFiles = sorted(os.listdir("sections"), key=lambda s: (int(s.split("-")[0]), int(s.split("-")[1])))
 host = 'https://www.cellstructureatlas.org'
@@ -17,14 +18,14 @@ def addSiteMapEntry(sourceFile, outFileName):
     metadata = getMarkdownMetadata(sourceFile) if sourceFile else None
     if(not metadata or metadata["title"] != "Putting It All Together"): return
     lines.append('\t<url>\n')
-    lines.append('\t\t<loc>{}/{}</loc>\n'.format(host, outFileName))
+    lines.append(f'\t\t<loc>{host}/{outFileName}</loc>\n')
     if(metadata and "doi" in metadata):
         videoFile = doiFileNameDict[metadata["doi"]]
         lines.append('\t\t<video:video>\n')
-        lines.append('\t\t\t<video:thumbnail_loc>{}/img/thumbnails/{}_thumbnail.jpg</video:thumbnail_loc>\n'.format(host, "_".join(videoFile.split("_")[:2])))
-        lines.append('\t\t\t<video:title>{}</video:title>\n'.format(metadata["title"]))
-        lines.append('\t\t\t<video:description>Microbiology textbook video highlighting {}</video:description>\n'.format(metadata["title"]))
-        lines.append('\t\t\t<video:content_loc>{}/videos/{}</video:content_loc>\n'.format(videoHost, videoFile))
+        lines.append(f'\t\t\t<video:thumbnail_loc>{host}/img/thumbnails/{pathlib.Path(videoFile).stem}_thumbnail.jpg</video:thumbnail_loc>\n')
+        lines.append(f'\t\t\t<video:title>{metadata["title"]}</video:title>\n')
+        lines.append(f'\t\t\t<video:description>{metadata["description"]}</video:description>\n')
+        lines.append(f'\t\t\t<video:content_loc>{videoHost}/videos/{videoFile}</video:content_loc>\n')
         lines.append('\t\t</video:video>\n')
     lines.append('\t</url>\n')
 
@@ -36,7 +37,7 @@ lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:
 addSiteMapEntry(sourceFile=None, outFileName="")
 addSiteMapEntry(sourceFile=None, outFileName="begin.html")
 addSiteMapEntry("introduction.md", "introduction.html")
-for file in sectionFiles: addSiteMapEntry("sections/{}".format(file), "{}.html".format(file.split(".")[0].replace("-0", "")))
+for file in sectionFiles: addSiteMapEntry(f"sections/{file}", f'{file.split(".")[0].replace("-0", "")}.html')
 addSiteMapEntry(sourceFile=None, outFileName="outlook.html")
 addSiteMapEntry("keep-looking.md", "keep-looking.html")
 addSiteMapEntry(sourceFile=None, outFileName="A-feature-index.html")
