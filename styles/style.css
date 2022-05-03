@@ -19,6 +19,7 @@
     learn-more: subsection modal button container used in .section-text
     feature-index-entry: feature list used in .appendix-accordion
     profile: scientist profile used in .appendix-accordion
+    tree-viewer-fs-confirm: fullscreen confirm prompt used for phylognetic tree on mobile
     tree-viewer: phylogenetic tree viewer used in .appendix and .media-viewer
     species-entry: species example list used in .appendix-accordion
     csl: reference list page
@@ -1188,6 +1189,26 @@
 
 .profile__description p {
     margin-top: 0;
+}
+
+/* tree-viewer-fs-confirm */
+.tree-viewer-fs-confirm__prompt {
+    margin: 0 0 1em 0;
+    font-size: 1.75em;
+    color: #000;
+}
+
+.tree-viewer-fs-confirm__btn-container {
+    float: right;
+}
+
+.tree-viewer-fs-confirm__btn {
+    margin: 0 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #15404e;
+    font-size: 1.25em;
 }
 
 /* tree-viewer */
@@ -3457,26 +3478,6 @@
     .download-btn {
         width: 380px;
     }
-}
-
-/* tree-viewer-fs-confirm */
-.tree-viewer-fs-confirm__prompt {
-    margin: 0 0 1em 0;
-    font-size: 1.75em;
-    color: #000;
-}
-
-.tree-viewer-fs-confirm__btn-container {
-    float: right;
-}
-
-.tree-viewer-fs-confirm__btn {
-    margin: 0 10px;
-    padding: 0;
-    border: none;
-    background: none;
-    color: #15404e;
-    font-size: 1.25em;
 }
 
 /* section */
