@@ -399,9 +399,9 @@ addPageToSearchData("keep-looking.md", bibList, bibDict, searchData)
 with open("{}/searchData.json".format(siteDirRegular), "w", encoding="utf-8") as f: json.dump(searchData, f, indent="\t")
 
 # Render landing page
-subprocess.run(["pandoc", "--from=markdown", "--to=html", f"--output={siteDirRegular}/index.html", "--template=templates/index.html", "index.md"])
-if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.html", "index.md"])
-if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.html", "index.md"])
+subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=index", f"--output={siteDirRegular}/index.html", "--template=templates/index.html", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=index", "--metadata=offline", f"--output={siteDirOffline}/index.html", "--template=templates/index.html", "index.md"])
+if offlineAssetsExists: subprocess.run(["pandoc", "--from=markdown", "--to=html", "--metadata=index", "--metadata=offline", f"--output={siteDirOfflineLite}/index.html", "--template=templates/index.html", "index.md"])
 
 # Render begin page
 metadata = getYAMLMetadata("begin.md")

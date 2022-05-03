@@ -210,6 +210,12 @@
     text-decoration: underline;
 }
 
+@media (max-width:899px) {
+    .index__footer {
+        display: none;
+    }
+}
+
 /* header */
 .header {
     box-sizing: border-box;

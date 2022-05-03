@@ -1,4 +1,4 @@
-<div class="footer page__footer">
+<div class="footer ${if(index)}index__footer${else}page__footer${endif}">
     ${if(progressData)} ${progressData:components/progress-bar.html()} ${endif}
     <footer class="footer__footer">
         <a class="footer__footer-item footer__footer-link" href="https://www.library.caltech.edu/" target="_blank">A PUBLICATION OF THE CALTECH LIBRARY</a>
