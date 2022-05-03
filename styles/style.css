@@ -10,7 +10,8 @@
 /* 
     nav-arrow: prev/next section links found in .chapter-content, .section, and .appendix pages on desktop
     search-widget: site search widget found in .header and .nav
-    video-player: videojs based video player used in .section and .subsection, and .media-viewer
+    video-player: videojs based video player used in .section, .subsection, and .media-viewer
+    comp-slider: before/after image slider used in .section, .subsection, and .media-viewer
     narration-player: narration audio player widget used in .section-text
     vid-metadata: video citation metadata displayed in .section-text and .subsection
     learn-more: subsection modal button container used in .section-text
@@ -306,6 +307,78 @@
 
 .video-js .vjs-quality-changer .vjs-menu li.vjs-selected .vjs-icon-placeholder {
     visibility: visible;
+}
+
+/* comp-slider */
+.comp-slider {
+    position: relative;
+}
+
+.comp-slider__before-img {
+    display: block;
+    width: 100%;
+}
+
+.comp-slider__after-img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+
+.comp-slider__after-img {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.comp-slider__input--sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.comp-slider__slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 0.3125em;
+    cursor: ew-resize;
+    background: #cccccc;
+}
+
+.comp-slider__slider-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3.125em;
+    height: 3.125em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #15404e;
+    border-radius: 100%;
+    box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
+}
+
+.comp-slider__input:focus + .comp-slider__slider .comp-slider__slider-btn {
+    outline: 1px auto Highlight;
+    outline: 1px auto -webkit-focus-ring-color;
+}
+
+.comp-slider__slider-btn-arrow {
+    margin: 0px -5px;
+    width: 55%;
+    height: 55%;
+    fill: #ccc;
 }
 
 /* narration-player */
@@ -1959,90 +2032,6 @@
     .section-text__learn-more {
         margin: 0;
     }
-}
-
-/* comp-slider */
-.comp-slider {
-    position: relative;
-}
-
-.comp-slider__before-img {
-    display: block;
-    width: 100%;
-}
-
-.comp-slider__before-img--hidden {
-    display: none;
-}
-
-.comp-slider__after-img-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    overflow: hidden;
-}
-
-.comp-slider__after-img-container--hidden {
-    display: none;
-}
-
-.comp-slider__after-img {
-    display: block;
-    height: 100%;
-    width: auto;
-}
-
-.comp-slider__input--sr-only {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-
-.comp-slider__slider {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-    width: 0.3125em;
-    cursor: ew-resize;
-    background: #cccccc;
-}
-
-.comp-slider__slider--hidden {
-    display: none;
-}
-
-.comp-slider__slider-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 3.125em;
-    height: 3.125em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #15404e;
-    border-radius: 100%;
-    box-shadow: 0 0 0 2px rgb(0 0 0 / 20%), 0 0 20px rgb(0 0 0 / 60%), inset 0px 1px 2px 1px rgb(255 255 255 / 30%);
-}
-
-.comp-slider__input:focus + .comp-slider__slider .comp-slider__slider-btn {
-    outline: 1px auto Highlight;
-    outline: 1px auto -webkit-focus-ring-color;
-}
-
-.comp-slider__slider-btn-arrow {
-    margin: 0px -5px;
-    width: 55%;
-    height: 55%;
-    fill: #ccc;
 }
 
 /* modal */
