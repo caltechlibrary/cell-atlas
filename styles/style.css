@@ -36,6 +36,7 @@
     appendix-accordion: disclosure pattern accordion display used in .appendix pages
     footer: sitewide footer used in .chapter-content, .section, and .appendix pages
     index: landing page of site
+    chapter-content: chapter pages of site
 */
 
 /*
@@ -2966,6 +2967,132 @@
     }
 }
 
+/* chapter-content */
+.chapter-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .chapter-content {
+        position: static;
+        padding: 0;
+    }
+}
+
+.chapter-content__nav-arrow {
+    flex: 0 0 auto;
+    width: 1.25em;
+}
+
+@media (max-width: 900px) {
+    .chapter-content__nav-arrow {
+        display: none;
+    }
+}
+
+.chapter-content__nav-arrow--hidden {
+    visibility: hidden;
+}
+
+.chapter-content__text-container {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    color: #fff;
+}
+
+@media (min-width: 480px) {
+    .chapter-content__text-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 900px) {
+    .chapter-content__text-container {
+        width: 75%;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+}
+
+@media (min-width: 1400px) {
+    .chapter-content__text-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.chapter-content__quote {
+    flex: 0 1 auto;
+    line-height: 1.34em;
+    text-align: right;
+    font-size: 1em;
+}
+
+@media (min-width: 480px) {
+    .chapter-content__quote {
+        width: 45%;
+    }
+}
+
+@media (min-width: 900px) {
+    .chapter-content__quote {
+        width: auto;
+        font-size: 1.25em;
+    }
+}
+
+@media (min-width: 1400px) {
+    .chapter-content__quote {
+        width: 40%;
+    }
+}
+
+.chapter-content__quote blockquote {
+    margin: 0;
+}
+
+.chapter-content__quote a {
+    margin: 0 0.15em;
+    color: inherit;
+    text-decoration: underline;
+}
+
+.chapter-content__title {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 3.75em;
+}
+
+.chapter-content__title--Introduction {
+    font-size: 3.375em;
+}
+
+@media (min-width: 900px) {
+    .chapter-content__title {
+        margin-left: 1em;
+        font-size: 7em;
+    }
+}
+
+.chapter-content__title-line {
+    white-space: nowrap;
+}
+
 
 
 
@@ -3199,132 +3326,6 @@
 
 .section__stop-narration-btn-icon {
     fill: #fff;
-}
-
-/* chapter-content */
-.chapter-content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-@media (min-width: 900px) {
-    .chapter-content {
-        position: static;
-        padding: 0;
-    }
-}
-
-.chapter-content__nav-arrow {
-    flex: 0 0 auto;
-    width: 1.25em;
-}
-
-@media (max-width: 900px) {
-    .chapter-content__nav-arrow {
-        display: none;
-    }
-}
-
-.chapter-content__nav-arrow--hidden {
-    visibility: hidden;
-}
-
-.chapter-content__text-container {
-    flex: 0 0 auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    color: #fff;
-}
-
-@media (min-width: 480px) {
-    .chapter-content__text-container {
-        flex-direction: row;
-        align-items: center;
-    }
-}
-
-@media (min-width: 900px) {
-    .chapter-content__text-container {
-        width: 75%;
-        flex-direction: column-reverse;
-        align-items: flex-end;
-    }
-}
-
-@media (min-width: 1400px) {
-    .chapter-content__text-container {
-        flex-direction: row;
-        align-items: center;
-    }
-}
-
-.chapter-content__quote {
-    flex: 0 1 auto;
-    line-height: 1.34em;
-    text-align: right;
-    font-size: 1em;
-}
-
-@media (min-width: 480px) {
-    .chapter-content__quote {
-        width: 45%;
-    }
-}
-
-@media (min-width: 900px) {
-    .chapter-content__quote {
-        width: auto;
-        font-size: 1.25em;
-    }
-}
-
-@media (min-width: 1400px) {
-    .chapter-content__quote {
-        width: 40%;
-    }
-}
-
-.chapter-content__quote blockquote {
-    margin: 0;
-}
-
-.chapter-content__quote a {
-    margin: 0 0.15em;
-    color: inherit;
-    text-decoration: underline;
-}
-
-.chapter-content__title {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 3.75em;
-}
-
-.chapter-content__title--Introduction {
-    font-size: 3.375em;
-}
-
-@media (min-width: 900px) {
-    .chapter-content__title {
-        margin-left: 1em;
-        font-size: 7em;
-    }
-}
-
-.chapter-content__title-line {
-    white-space: nowrap;
 }
 
 /* appendix */
