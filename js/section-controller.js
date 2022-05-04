@@ -146,11 +146,11 @@
         let proteinViewer = mediaViewers[`mediaViewer-pv-${modalEl.id}`];
         let videoPlayer = videoPlayers[`videoPlayer-${modalEl.id}`];
         let narrationPlayer = narrationPlayers[`narrationPlayer-${modalEl.id}`];
-        if(mediaViewer && mediaViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+        if(mediaViewer && mediaViewer.root.classList.contains("media-viewer--fixed-enlarged")) {
             mediaViewer.toggleFixedEnlarged();
             mediaViewer.setFullscreenBtnState("minimized");
         }
-        if(proteinViewer && proteinViewer.mediaContainer.classList.contains("media-viewer__media-container--fixed-enlarged")) {
+        if(proteinViewer && proteinViewer.root.classList.contains("media-viewer--fixed-enlarged")) {
             proteinViewer.root.classList.add("subsection__media-viewer--hidden");
             proteinViewer.toggleFixedEnlarged();
             proteinViewer.setFullscreenBtnState("minimized");
