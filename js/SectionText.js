@@ -41,11 +41,11 @@ let SectionText = function(root, shelveCallback = function(){}, unshelveCallback
 
     shelveBtn.addEventListener("click", shelveText);
     unshelveBtn.addEventListener("click", unshelveText);
-    narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
     if(narrationPlayer) {
+        narrationToggleBtn.addEventListener("click", toggleNarrationPlayer);
         narrationPlayer.audio.addEventListener("play", showStopNarrationBtn);
-        narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);   
+        narrationPlayer.audio.addEventListener("pause", hideStopNarrationBtn);
+        stopNarrationBtn.addEventListener("click", onStopNarrationBtnClick);
     }
-    stopNarrationBtn.addEventListener("click", onStopNarrationBtnClick);
 
 }
