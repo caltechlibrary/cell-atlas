@@ -228,8 +228,10 @@
 
     for(let compSliderEl of compSliderEls) CompSlider(compSliderEl);
     
-    adjustMainCompSliderMaxHeight();
-    window.addEventListener("resize", adjustMainCompSliderMaxHeight);
+    if(compSliderEls.length > 0) {
+        adjustMainCompSliderMaxHeight();
+        window.addEventListener("resize", adjustMainCompSliderMaxHeight);
+    }
 
     for(let proteinViewerEl of proteinViewerEls) {
         proteinViewers[proteinViewerEl.id] = ProteinViewer(proteinViewerEl);
