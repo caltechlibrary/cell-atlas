@@ -82,9 +82,11 @@ let NavWidget = function(root, onSearchInputFocusCallback = function(){}, onSear
     };
 
     init();
-    searchBarInput.addEventListener("focus", handleSearchInputFocus);
-    searchBarInput.addEventListener("blur", handleSearchInputBlur);
-    searchExitBtn.addEventListener("click", exitSearch);
+    if(searchBarInput) {
+        searchBarInput.addEventListener("focus", handleSearchInputFocus);
+        searchBarInput.addEventListener("blur", handleSearchInputBlur);
+        searchExitBtn.addEventListener("click", exitSearch);
+    }
     for(let sectionListToggle of sectionListToggles) sectionListToggle.addEventListener("click", toggleSectionList);
 
 };

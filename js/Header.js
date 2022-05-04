@@ -36,7 +36,9 @@ let Header = function(root, navBtnClickCallback = function() {}) {
     };
 
     navBtn.addEventListener("click", onNavBtnClick);
-    openSearchBtn.addEventListener("click", openSearchWidget);
-    searchBarInput.addEventListener("focus", onSearchInputFocus);
+    if(searchWidget) {
+        openSearchBtn.addEventListener("click", openSearchWidget);
+        searchBarInput.addEventListener("focus", onSearchInputFocus);
+    }
 
 };
