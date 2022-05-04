@@ -146,8 +146,6 @@ let MediaViewer = function(root, onRequestFullscreenChangeCallback = function(){
 
     return {
         root,
-        mediaContainer,
-        fullscreenBtn,
         displayMediaType,
         setFullscreenBtnState,
         toggleFullscreen,
