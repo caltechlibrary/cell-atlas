@@ -531,7 +531,9 @@
 }
 
 .summary-menu__li-text--hidden {
+    left:-10000px;
     opacity: 0;
+    transition: opacity 0.25s, left 0s 0.25s;
 }
 
 .summary-menu__li--ch1-item1 {
