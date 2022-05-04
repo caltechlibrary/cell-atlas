@@ -3146,6 +3146,10 @@
     .section__media-viewer {
         height: 95%;
     }
+
+    .section__media-viewer.media-viewer--fullscreen {
+        height: 100%;
+    }
 }
 
 @media (min-width: 900px) {
@@ -3264,11 +3268,13 @@
 @media (max-width: 900px) and (orientation: portrait) {
     .section__before-img {
         width: 100%;
+        height: auto;
     }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
     .section__before-img {
+        width: auto;
         height: 100%;
     }
 }
