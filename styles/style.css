@@ -3170,6 +3170,11 @@
     }
 }
 
+.section__media-viewer--summary-menu.media-viewer--fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
 @media (max-width:899px) {
     .section__tab-container {
         display: none !important;
