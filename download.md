@@ -7,7 +7,7 @@ for mobile devices), choose one of the options below. The full version (13.5GB)
 contains full-resolution 1080p videos; the light version (5.4GB) contains
 reduced-size 480p videos. These packages are also available from the Caltech
 DATA repository at
-[https://doi.org/10.22002/D1.20041](https://doi.org/10.22002/D1.20041). Once the selected package has downloaded, unzip it and open the folder. Double-click the file named "index.html" to start reading the book in your browser (offline). 
+[https://doi.org/10.22002/D1.20167](https://doi.org/10.22002/D1.20167). Once the selected package has downloaded, unzip it and open the folder. Double-click the file named "index.html" to start reading the book in your browser (offline). 
 
 The PDF version (0.22GB) contains only the text and static images, and we recommend viewing it in a two-page layout. It is also available from the Caltech DATA repository at [https://doi.org/10.22002/D1.2210](https://doi.org/10.22002/D1.2210).
 
