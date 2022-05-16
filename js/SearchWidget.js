@@ -1,5 +1,12 @@
+/**
+ * Creates a site search widget. Uses lunr (https://lunrjs.com/)
+ * internally to facilitate search functionality.
+ *
+ * @param root The dom element being registered as a search widget.
+ */
 let SearchWidget = function(root) {
 
+    // Create frequently used variables and references to frequently used dom elements.
     let searchBarInput = root.querySelector(".search-widget__search-bar-input");
     let searchExitBtn = root.querySelector(".search-widget__exit-btn");
     let resultList = root.querySelector(".search-widget__result-list");
@@ -8,48 +15,93 @@ let SearchWidget = function(root) {
     let initialized = false;
     let searchData, index, searchTimeout;
 
+    /**
+     * Initialize search widget by fetching search data. Fired when
+     * search bar input is focused for the first time.
+     */
     let init = function() {
         fetch("searchData.json")
             .then(function(res) { return res.json() })
             .then(createSearchData);
     };
 
+    /**
+     * Set searchData and index variables defined in the freq used
+     * variables above. Sets index varibale to a lunr index. Sets 
+     * search widget state to initialized. Fired after search data
+     * is fetched in init().
+     * 
+     * For more info on how lunr works, you can check the 
+     * documentation: https://lunrjs.com/guides/getting_started.html
+     *
+     * @param data search data object.
+     */
     let createSearchData = function(data) {
         searchData = data;
         index = lunr(function() {
+            // Set the id of index entries and searchable fields.
             this.ref("id");
             this.field("title");
             this.field("species");
             this.field("collector");
             this.field("structure");
             this.field("content");
+
+            // Add position of matched tokens to search results to use in result highlighting.
             this.metadataWhitelist = ['position'];
+
+            // Remove stemming from the indexing and searching. Stemming reduces common terms
+            // (ex: "searching" and "searched" -> "search").
             this.pipeline.remove(lunr.stemmer);
             this.searchPipeline.remove(lunr.stemmer);
+
+            // Add data to index.
             for(let doc in data) this.add(data[doc]);
         });
+
         initialized = true;
     };
 
+    /**
+     * Either initialize a search query or remove result list based on
+     * value of text in input element. Fired on input event of search 
+     * input elem.
+     */
     let onSearchBarInput = function() {
+        // Only search if searchData and index are defined. AKA initialized == true.
         if(initialized) {
+            // Clear possible timeout that would have searched old input values.
             clearTimeout(searchTimeout);
             if(searchBarInput.value.trim().length != 0) {
+                // Set a timeout to search input .25s to prevent unecessary searches if user is
+                // rapidly typing.
                 searchTimeout = setTimeout(querySearchBarInput, 250);
             } else {
+                // Remove/reset search result list if there is no input.
                 resetResultList();
             }
         }
     };
 
+    /**
+     * Query search index with whatever is in search bar input and display results. 
+     * Fired in search timeout created in onSearchBarInput().
+     */
     let querySearchBarInput = function() {
+        
+        // Create query tokens to be passed to lunr query
         let queryTokens = lunr.tokenizer(searchBarInput.value);
         resultData = index.query(function(query) {
+            // Search the tokens as is
             query.term(queryTokens);
+            // Search the tokens with trailing wildcards
             query.term(queryTokens, { wildcard: lunr.Query.wildcard.TRAILING });
+            // Search the tokens for results that have 1 letter difference
             query.term(queryTokens, { editDistance: 1 });
         });
 
+        // Only display results if there are results. This prevents empty result list from being shown
+        // and existing results from previous queries to stay displayed.
         if(resultData.length >= 1) displayResults(resultData);
     };
 
