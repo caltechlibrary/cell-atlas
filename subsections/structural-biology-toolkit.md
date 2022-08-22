@@ -1,5 +1,5 @@
 ---
-title: Structural biology toolkit
+title: Toolkit
 graphic: 
     img: 1_1_1.jpg
     alt: ""

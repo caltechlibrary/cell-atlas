@@ -28,15 +28,17 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 ## What’s New
 
-**Edition 2.1** introduces new interface features, improvements in site performance, and minor edits to videos and text to correct errors and incorporate new information from recent literature. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
+**Edition 2.2** introduces minor content changes and expanded scientist profiles. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
 
-
-Major new features since Edition 2.0 include:  
-- audio feature to listen to section text    
-- site search function  
-- PDF of text and images (available on the [download page](download.html))  
 
 ***Previous updates***:
+
+*Edition 2.1 (December 2021) introduced new interface features, improvements in site performance, and minor edits to videos and text to correct errors and incorporate new information from recent literature.*
+
+*Major new features since Edition 2.0 included:*
+- *audio feature to listen to section text*    
+- *site search function*  
+- *PDF of text and images (available on the [download page](download.html))*
 
 *Edition 2.0 (August 2021) introduced several new interface features, along with minor improvements in clarity and consistency throughout the text and videos.*
 

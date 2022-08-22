@@ -1,7 +1,6 @@
 ---
 title: Zhiheng Yu
-img:
+img: zhiheng_yu.jpg
 ---
 
-Zhiheng Yu was a postdoc in Grant Jensen's lab at Caltech from 2004 to 2009. Full bio to follow....
-
+Zhiheng received his BS in physics from Peking University and received his MS and PhD degrees from Physics Department at Cornell University. At Cornell he worked with Professor John Silcox to characterize various nano-materials using high resolution transmission electron microscopy (TEM), high resolution scanning transmission electron microscopy (STEM), electron energy loss spectroscopy (EELS), electron nano-diffraction and computer simulation. After obtaining his PhD in 2004, he switched field from physics to biology and worked as a postdoc researcher in Professor Grant Jensen’s lab at Caltech. There he learned and used cryogenic electron microscopy (cryoEM) to study the structure of various biological samples, including protein complexes, HIV virus and small bacterial cells with either single particle or cryo electron tomography techniques. In 2009 he joined FEI Company as a Research Scientist to work on the very early version of the now popular and powerful cryo electron microscope, the Titan Krios. In January 2011 he joined HHMI Janelia Research Campus to become the inaugural director of the CryoEM Shared Resource and has helped many HHMI users from various geographic locations.

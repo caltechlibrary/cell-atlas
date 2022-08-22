@@ -1,7 +1,6 @@
 ---
 title: Shrawan Mageswaran
-img: 
+img: shrawan_mageswaran.jpg
 ---
 
-Shrawan Mageswaran was a postdoc in Grant Jensen's lab at Caltech from 2015 to 2019. Full bio to follow....
-
+Shrawan Kumar Mageswaran is Cryo-ET Technical Director of the Beckman Cryo-EM Center at the University of Pennsylvania. He performed his graduate studies under the mentorship of Dr. Markus Babst at University of Utah. There he studied ESCRT (endosomal sorting complexes required for transport)-mediated biogenesis of multivesicular bodies (MVBs) using baker’s yeast as a model system with implications in different cancers, neurodegenerative diseases and AIDS. He then underwent his postdoctoral training in cryo-electron tomography (cryo-ET), first with Dr. Grant Jensen at Caltech and subsequently with Dr. Yi-Wei Chang at University of Pennsylvania. During this period, he studied several membrane remodeling systems including the ESCRTs (in archaea, yeast and mammalian cells), plasma membrane and mitochondrial damage response (in mammalian cells), and rhoptry secretion system (in apicomplexan parasites). He used cryo-electron tomography as the principal method for these studies. He also developed/utilized other ancillary techniques for cryo-ET such as: (1) cryogenic correlative light and electron microscopy (to locate scarce/transient targets by cryo-ET and to provide molecular annotations for structures in tomograms using fluorescence) and, (2) cryogenic focused ion beam milling (to aid in artifact-free thinning of thicker samples). His interests in all of the above research topics continue to this day.

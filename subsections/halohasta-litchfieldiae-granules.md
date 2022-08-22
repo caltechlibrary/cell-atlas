@@ -10,5 +10,5 @@ collector: Zhuo Li
 features: ["Archaella", "Division plane", "Membrane (monoderm)", "Ribosomes", "Storage granules", "Surface layer", "Unidentified structures"]
 ---
 
-This *Halohasta litchfieldiae* cell has more unusual granules. The high electron density (darkness) of these punctate structures suggests that they contain metal.
+This *Halohasta litchfieldiae* cell has more unusual granules. The high electron density (darkness) of these punctate structures suggests that they are iron storage granules, known as ferrosomes.
 
