@@ -1,11 +1,12 @@
 /**
- * Creates a tree viewer widget and returns tree viewer object.
+ * Truns a dom element into a tree viewer widget 
+ * and returns tree viewer object.
  *
  * @param root The dom element being registered as a tree viewer.
  */
 let TreeViewer = function(root) {
 
-    // Create references to frequently used dom elements.
+    // Create frequently used variables and references to frequently used dom elements.
     let svgContainer = root.querySelector(".tree-viewer__svg-container");
     let treeSvg = root.querySelector(".tree-viewer__tree-svg");
     let speciesAnchors = root.querySelectorAll(".tree-viewer__species-anchor");
@@ -13,39 +14,14 @@ let TreeViewer = function(root) {
     let zoomControlscontainer = root.querySelector(".tree-viewer__zoom-controls");
     let zoomInBtn = root.querySelector(".tree-viewer__zoom-btn-in");
     let zoomOutBtn = root.querySelector(".tree-viewer__zoom-btn-out");
-
-    // Timeout used to close pop up windows after inactivity.
     let deactivatePopUp;
-
-    /**
-     * Variables used for menu panning and zooming.
-     * 
-     * The method for touch zooming and panning is modeled after mdn's Pinch zoom gestures
-     * article: https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events/Pinch_zoom_gestures
-     */
     let eventCache = [];
-
-    // Variables used to determine degree of zoom distance during zoom operations.
     let btnZoomWeight = 1.3;
     let wheelZoomWeight = 1.05;
     let touchZoomWeight = 1.025;
-    
-    /**
-     * Variables used to keep track of curr tree 
-     * translations during zoom/pan. This is done 
-     * to prevent calculating curr translations
-     * using Window.getComputedStyle(), which would 
-     * use messy string manipulation.
-     * 
-     * Using getComputedStyle is less management. 
-     * But using globals removes dependency on
-     * getComputedStyle() string format.
-     */
     let curScale = 1;
     let curTranslateX = 0;
     let curTranslateY = 0;
-
-    // Variables used to calculate zoom destination/direction during zoom operations.
     let prevMidPoint, prevDist;
 
     /**
@@ -88,18 +64,19 @@ let TreeViewer = function(root) {
 
     /**
      * Called on speciesAnchor mouseenter/click. Activates 
-     * species entry at mouse position.
+     * species entry pop up.
      *
      * @param event mouseenter/click event that initiated this function.
      */
     let onSpeciesAnchorFocus = function(event) {
+        // Activate pop up at position of mouse at event time.
         activateSpeciesEntry(event.currentTarget.getAttribute("data-species"), event.clientX, event.clientY);
     };
 
     /**
-     * Activates a species entry anchor and pop up.
+     * Activates a species entry pop up.
      *
-     * @param id id/species value of the species popup elem/anchor elem.
+     * @param id id of popup elem.
      * @param posX x position to open popup relative to viewport.
      * @param posY y position to open popup relative to viewport.
      */
@@ -107,14 +84,17 @@ let TreeViewer = function(root) {
         let speciesAnchor = root.querySelector(`.tree-viewer__species-anchor[data-species='${id}']`);
         let popUp = root.querySelector(`#${id}`);
 
-        // Clear possible entry deactivation timeout and instead:
-        // If current entry is already activated, return. Timeout was cleared so menu won't undesirably close.
-        // If other entry is activated, deactivate it manually now and activate new entry.
+        /**
+         * Clear possible entry deactivation timeout. We either want to deactivate entry now or keep it open 
+         * based on the currently activated species entry. 
+         */
         clearTimeout(deactivatePopUp);
+        // If current entry is already activated, return as it is already opened.
         if(root.querySelector(".tree-viewer__species-anchor--active") == speciesAnchor) return;
+        
         deactivateCurSpeciesEntry();
 
-        // Highlight anchor and open pop up if they both exists (some anchors have no pop up). 
+        // Some species entry ids have anchors with no associated pop up. Activate only when we have both. 
         if(speciesAnchor && popUp) {
             speciesAnchor.classList.add("tree-viewer__species-anchor--active");
             positionPopUp(popUp, posX, posY);
@@ -132,13 +112,12 @@ let TreeViewer = function(root) {
     let positionPopUp = function(popUp, posX, posY) {
         let rootDimensions = root.getBoundingClientRect();
 
-        // Get coordinates of root midpoint relative to viewport.
+        // Get coordinates of tree viewer midpoint relative to viewport.
         let rootMidPoint = getMidpoint(root);
         // Translate menu so it is always oriented towards root center.
         let translateX = (posX > rootMidPoint.clientX) ? -100 : 0;
         let translateY = (posY > rootMidPoint.clientY) ? -100 : 0;
-        // Modify max width/height so it is always within the window.
-        // 16 is an arbitrary padding distance from viewport edge.
+        // Modify max width/height so pop up is always within the window. 16px is an arbitrary window padding distance.
         let maxWidth = (posX > rootMidPoint.clientX) ? posX - 16 : window.innerWidth - posX - 16;
         let maxHeight = (posY > rootMidPoint.clientY) ? posY - 16 : window.innerHeight - posY - 16;
 
@@ -151,8 +130,8 @@ let TreeViewer = function(root) {
     };
 
     /**
-     * Calculates and returns midpoint position of a dom element 
-     * relative to the viewport.
+     * Returns midpoint position of a dom element relative to 
+     * the viewport.
      *
      * @param el dom element to find midpoint of.
      */
@@ -165,21 +144,18 @@ let TreeViewer = function(root) {
     };
 
     /**
-     * Called on popUp mouseenter. Clears timeout that deactivates
-     * currently activated species entry.
+     * Called on popUp mouseenter. Cancels species entry 
+     * deactivation timeout.
      *
      * @param event mouseenter event that initiated this function.
      */
     let onPopUpFocus = function(event) {
-        // Safe to clear timeout since we assume mouse over will only happen on pop up that is currently opened.
-        // When a new species entry is activated, the old pop up is closed manually. See documentation on
-        // deactivateCurSpeciesEntry method for more. 
         clearTimeout(deactivatePopUp);
     };
 
     /**
-     * Called on speciesAnchor and popUp mouseleave. Starts timeout
-     * to deactivtae species entry.
+     * Called on speciesAnchor and popUp mouseleave. Initializes 
+     * species entry deactivation timeout.
      */
     let initSpeciesEntryDeactivation = function() {
         // Timeout allows for 1 second of mousing out before closing.
@@ -188,16 +164,9 @@ let TreeViewer = function(root) {
 
     /**
      * Deactivates the currently activated species entry.
-     * 
-     * This requires careful species activation management as
-     * it assumes only 1 pop up will be opened. This is the 
-     * only method where entries are deactivated, so tracing
-     * calls to this method hopefully makes that management
-     * easier. It would also be useful to track the 
-     * deactivatePopUp timeout. This could probably be 
-     * refacted in a much better system.
      */
     let deactivateCurSpeciesEntry = function() {
+        // Assumes that there will be only be one species entry activated at a time.
         let speciesAnchor = root.querySelector(".tree-viewer__species-anchor--active");
         let popUp = root.querySelector(".tree-viewer__pop-up:not(.tree-viewer__pop-up--hidden)");
         if(speciesAnchor) speciesAnchor.classList.remove("tree-viewer__species-anchor--active");
@@ -211,32 +180,34 @@ let TreeViewer = function(root) {
      * @param event click event that initiated this function.
      */
     let onWindowClick = function(event) {
-        // Do nothing if the root contains click event or if user is confirming fullscreen.
-        // We don't want the menu to close when the user opens the viewer in fullscreen.
+        /**
+         * Only close pop up if click is outside tree viewer and click is not from confirming tree viewer to go 
+         * fullscreen (otherwise pop ups would close on mobile when users visited them through links).
+         */
         if(root.contains(event.target) || event.target.classList.contains("tree-viewer-fs-confirm__btn-ok")) return;
         forceClosePopUp();
     };
 
     /**
-     * Called on svgContainer wheel. Zooms tree based on wheel
-     * direction.
+     * Called on svgContainer wheel. Modifies zoom of level 
+     * of tree viewer.
      *
      * @param event wheel event that initiated this function.
      */
     let onWheel = function(event) {
-        // Necessary to prevent default behavior to prevent page scrolling on zoom attempts.
+        // Necessary to prevent default behavior to prevent page scrolling.
         event.preventDefault();
 
-        // Close any existing pop up as the anchor elements will be changing position during zoom.
+        // Close any existing pop up as their fixed position will look strange during zoom.
         forceClosePopUp();
 
-        // Zoom tree according to wheel direction (in/out) at mouse position.
+        // Zoom tree according to wheel direction at mouse position.
         zoomTree(event.clientX, event.clientY, (event.deltaY <= 0) ? wheelZoomWeight : 1 / wheelZoomWeight);
     };
 
     /**
      * Called on svgContainer pointerdown. Adds pointer event 
-     * to cache that is used for zomming/panning.
+     * to cache.
      * 
      * The method for touch zooming and panning is modeled after mdn's Pinch zoom gestures
      * article: https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events/Pinch_zoom_gestures
@@ -249,15 +220,13 @@ let TreeViewer = function(root) {
 
         eventCache.push(event);
 
-        // Deactivate current species entry as the anchor elements will be changing position during zoom.
+        // Deactivate current species entry as tree viewer will be either zooming or panning.
         forceClosePopUp();
     };
 
     /**
      * Called on svgContainer pointermove. Pans/zooms tree 
-     * based on pointer event cache.
-     * 
-     * This handler is convoluted and could be be refactored.
+     * based on event cache.
      * 
      * The method for touch zooming and panning is modeled after mdn's Pinch zoom gestures
      * article: https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events/Pinch_zoom_gestures
@@ -265,10 +234,8 @@ let TreeViewer = function(root) {
      * @param event pointermove event that initiated this function.
      */
     let onPointermove = function(event) {
-        // Create reference to prev pointer event associated with the id of pointer event that initiated this function.
+        // Find/update this event in the event cache and obtain reference to its previous value.
         let prevPointerEvent;
-
-        // Find this event in the cache and store reference to it and update its record with this event.
         for (let i = 0; i < eventCache.length; i++) {
             if (event.pointerId == eventCache[i].pointerId) {
                 prevPointerEvent = eventCache[i];
@@ -277,44 +244,48 @@ let TreeViewer = function(root) {
             }
         }
 
-        // If one event in cache, we are panning. If two events we are zooming.
         if(eventCache.length == 1) {
-            // Pan tree based on change in pointer position of current and previous events.
+            // If 1 event in cache, pan tree based on change in pointer position.
             panTree(eventCache[0].clientX - prevPointerEvent.clientX, eventCache[0].clientY - prevPointerEvent.clientY);
         } else if(eventCache.length == 2) {
-            // Calculate distance between the 2 pointers.
+            // If 2 events in chache, zoom tree based on change in midpoint and distance of the 2 pointers.
             let dist = Math.hypot(eventCache[1].clientX - eventCache[0].clientX, eventCache[1].clientY - eventCache[0].clientY);
-            // Calculate the midpoint between the 2 pointers relative to the viewport.
             let midPoint = { 
                 clientX: (eventCache[1].clientX + eventCache[0].clientX) / 2, 
                 clientY: (eventCache[1].clientY + eventCache[0].clientY) / 2
             };
 
-            // Only zoom tree if a prev midpoint/distance exists.
+            // Only zoom tree if a prev global midpoint/distance values exists.
             if(prevMidPoint && prevDist) {
                 // Pan tree based on change in midpoint position.
                 panTree(midPoint.clientX - prevMidPoint.clientX, midPoint.clientY - prevMidPoint.clientY);
-                // Zoom tree if arbitrary distance threshold is reached. Prevents unintentional zooming if using 2 fingers to pan.
+                /**
+                 * Use arbitrary distance threshold to determine when to zoom tree. This prevents unwanted behavior where zooming would 
+                 * be triggered too much at the slightest movement of pointers.
+                 * 
+                 * When threshold is reached, zoom in/out tree towards midpoint of pointers.
+                 */
                 if(Math.abs(dist - prevDist) > 0.998) zoomTree(midPoint.clientX, midPoint.clientY, (dist >= prevDist) ? touchZoomWeight : 1 / touchZoomWeight);
             }
 
-            // Update prev midpoint/distance for future zoom calculations.
+            // Update global prev midpoint/distance for future zoom calculations.
             prevMidPoint = midPoint;
             prevDist = dist;
         }
     };
 
     /**
-     * Pans tree a given offset x/y values.
+     * Pans tree a given offset
      *
      * @param offsetX X distance to pan tree.
      * @param offsetY Y distance to pan tree.
      */
     let panTree = function(offsetX, offsetY) {
-        // Update curr x/y translation vals based on desired offset.
+        // Update global x/y translation vals based on desired offset.
         curTranslateX+= offsetX;
         curTranslateY+= offsetY;
 
+        // Reflect updated values on tree.
         treeSvg.style.transform = `matrix(${curScale}, 0, 0, ${curScale}, ${curTranslateX}, ${curTranslateY})`;
     };
 
@@ -331,7 +302,7 @@ let TreeViewer = function(root) {
         let rootMidPoint = getMidpoint(root);
         
         /**
-         * The following translation pans the image to maintain the same point underneath the cursor after zooming.
+         * The following translation pans the tree to try maintain the zoom point in the same spot after zooming.
          * 
          * I wrote this long ago, but I believe this SO answer was the main source for this logic:
          * https://stackoverflow.com/a/30039971/9174232
@@ -342,13 +313,13 @@ let TreeViewer = function(root) {
         // Update curr scale scale val based on desired zoomFactor.
         curScale*= zoomFactor;
 
+        // Reflect updated values on tree.
         treeSvg.style.transform = `matrix(${curScale}, 0, 0, ${curScale}, ${curTranslateX}, ${curTranslateY})`;
     };
 
     /**
      * Called on svgContainer pointerup/cancel/leave. Removes 
-     * pointer event from cache that is used for 
-     * zomming/panning and resets zooming variables.
+     * pointer event from cache and performs cleanup.
      * 
      * The method for touch zooming and panning is modeled after mdn's Pinch zoom gestures
      * article: https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events/Pinch_zoom_gestures
@@ -364,7 +335,7 @@ let TreeViewer = function(root) {
             }
         }
 
-        // If the number of pointers down is less than two then reset zoom vars.
+        // If the number of pointers down is less than two then reset global zoom vars.
         if (eventCache.length < 2) {
             prevMidPoint = undefined;
             prevDist = undefined;
@@ -373,39 +344,74 @@ let TreeViewer = function(root) {
     };
 
     /**
-     * Deactivates the currently activated species entry.
+     * Called on zoomControlscontainer click. Closes currently 
+     * activated species pop up.
      */
     let forceClosePopUp = function () {
-        // Clear possible entry deactivation timeout.
+        // Clear possible timeout that will close currently opened pop up.
         clearTimeout(deactivatePopUp);
-        // Deactivate currently opened pop up.
+        // Manually deactivate currently opened pop up.
         deactivateCurSpeciesEntry();
     };
 
+    /**
+     * Called on zoomInBtn click. Zooms tree in towards 
+     * the center of the tree viewer.
+     * 
+     * @param event click event that initiated this function. 
+     */
     let onZoomInBtnClick = function(event) {
+        // Use tree viewer viewport relative midpoint as zoom point.
         let rootMidPoint = getMidpoint(root);
         zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, btnZoomWeight);
     };
 
+    /**
+     * Called on zoomOutBtn click. Zooms tree out away 
+     * from the center of the tree viewer.
+     * 
+     * @param event click event that initiated this function. 
+     */
     let onZoomOutBtnClick = function(event) {
+        // Use tree viewer viewport relative midpoint as zoom point.
         let rootMidPoint = getMidpoint(root);
         zoomTree(rootMidPoint.clientX, rootMidPoint.clientY, 1 / btnZoomWeight);
     };
 
+    /**
+     * Returned as method of tree viewer object. Zooms tree towrads 
+     * species anchor and opens species pop up associated with a 
+     * given id.
+     * 
+     * @param id The id of the species anchor/pop up.
+     */
     let activateSpeciesEntryHash = function(id) {
         let speciesAnchor = root.querySelector(`.tree-viewer__species-anchor[data-species='${id}']`);
         let speciesAnchorDimensions = speciesAnchor.getBoundingClientRect();
         let pos;
+
+        // Zoom tree in towards top left of species anchor.
         zoomTree(speciesAnchorDimensions.left, speciesAnchorDimensions.top, (window.innerWidth > 480) ? btnZoomWeight * 3 :  btnZoomWeight * 8);
+        // Obtain midpoint of spencies anchor after zooming.
         pos = calcSimulatedClick(speciesAnchor);
+        
         activateSpeciesEntry(id, pos.x, pos.y);
     };
 
+    /**
+     * Returns midpoint of species anchor relative to viewport.
+     * 
+     * 
+     * @param anchor dom element species anchor.
+     */
     let calcSimulatedClick = function(anchor) {
         let speciesAnchorDimensions = anchor.getBoundingClientRect();
         let rootDimensions = root.getBoundingClientRect();
+
+        // Get midpoint of species anchor relative to viewport.
         let x = (speciesAnchorDimensions.left + speciesAnchorDimensions.right) / 2;
         let y = (speciesAnchorDimensions.top + speciesAnchorDimensions.bottom) / 2;
+        // Midpoint of anchor might be beyond bounds of tree viewer. Clamp x and y values if so.
         if(x > rootDimensions.right - 8) {
             x = rootDimensions.right - 8;
         } else if(x < rootDimensions.left + 8) {
@@ -417,9 +423,11 @@ let TreeViewer = function(root) {
         } else if(y < rootDimensions.top + 8) {
             y = rootDimensions.top + 8;
         }
+
         return { x, y };
     };
 
+    // Add neccessary event listeners to dom elements.
     svgContainer.addEventListener("focus", activateKeyboardPanning);
     svgContainer.addEventListener("blur", deactivateKeyboardPanning);
     for(let speciesAnchor of speciesAnchors) {
@@ -442,6 +450,7 @@ let TreeViewer = function(root) {
     zoomInBtn.addEventListener("click", onZoomInBtnClick);
     zoomOutBtn.addEventListener("click", onZoomOutBtnClick);
 
+    // Return public properties/methods.
     return {
         root,
         activateSpeciesEntryHash
