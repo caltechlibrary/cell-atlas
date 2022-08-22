@@ -32,7 +32,7 @@
 	},
 	"1-1-light-microscopy.html#structural-biology-toolkit": {
 		"id": "1-1-light-microscopy.html#structural-biology-toolkit",
-		"title": "Structural biology toolkit",
+		"title": "Toolkit",
 		"content": "Cell biology occurs on a length scale that spans seven orders of\nmagnitude. Different visualization techniques cover various sections of\nthis span, as shown here with a few examples. Keep in mind that there\nare more techniques than these; we touch only on those you will see in\nthe coming pages.\n",
 		"titlePrefix": "1.1 Light Microscopy:"
 	},
@@ -676,7 +676,7 @@
 	"4-9-archaeal-storage-granules.html#halohasta-litchfieldiae-granules": {
 		"id": "4-9-archaeal-storage-granules.html#halohasta-litchfieldiae-granules",
 		"title": "Dark",
-		"content": "This Halohasta litchfieldiae cell has more unusual granules. The high\nelectron density (darkness) of these punctate structures suggests that\nthey contain metal.\n",
+		"content": "This Halohasta litchfieldiae cell has more unusual granules. The high\nelectron density (darkness) of these punctate structures suggests that\nthey are iron storage granules, known as ferrosomes.\n",
 		"species": "Halohasta litchfieldiae",
 		"collector": "Zhuo Li",
 		"titlePrefix": "4.9 Archaeal Storage Granules:"
