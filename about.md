@@ -28,10 +28,12 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 ## What’s New
 
-**Edition 2.2** introduces minor content changes and expanded scientist profiles. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
+**Edition 2.3** introduces minor content changes and expanded scientist profiles. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
 
 
 ***Previous updates***:
+
+*Edition 2.2 (July 2022) optimized interface performance and added a species list feature to the Phylogenetic Tree."
 
 *Edition 2.1 (December 2021) introduced new interface features, improvements in site performance, and minor edits to videos and text to correct errors and incorporate new information from recent literature.*
 
