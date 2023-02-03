@@ -21,17 +21,19 @@ Videos can be downloaded from the [Caltech Data Repository](https://data.caltech
 
 ## For Educators
 
-We hope this book will help your students appreciate what bacterial and archaeal cells look like and the macromolecular machinery that underlies their diverse biological processes. The main narrative content is targeted to undergraduate-level students and requires nothing but a familiarity with basic concepts in biology. More advanced students, such as those in a microbiology course, will find additional details in the Learn More sections. The main content can be digested in several hours, and we recommend assigning it as a supplemental resource to accompany the first few sessions of a course, as an introduction to bacterial and archaeal cells before you dive into more specialized aspects of their biology such as metabolism or medical relevance. The summaries at the end of each chapter provide some concept check questions that can be used to test students’ retention of the content. As we add new content and features in future editions, we’ll highlight the changes in [What’s New](#WhatsNew) so you can keep your course materials up to date. 
+We hope this book will help your students appreciate what bacterial and archaeal cells look like and the macromolecular machinery that underlies their diverse biological processes. The main narrative content is targeted to undergraduate-level students and requires nothing but a familiarity with basic concepts in biology. More advanced students, such as those in a microbiology course, will find additional details in the Learn More sections. The main content can be digested in several hours, and we recommend assigning it as a supplemental resource to accompany the first few sessions of a course, as an introduction to bacterial and archaeal cells before you dive into more specialized aspects of their biology such as metabolism or medical relevance. The summaries at the end of each chapter provide some concept check questions that can be used to test students’ retention of the content. To aid study and testing, a Review Pack of images with and without labels is available on the [Download page](download.html). As we add new content and features in future editions, we’ll highlight the changes in [What’s New](#WhatsNew) so you can keep your course materials up to date. 
 
 If you do use this book in a class, please give us some [Feedback](#feedbackForm){.about-entry__feadback-link} about what you and your students liked, what we could improve, and ideas for features you’d like to see in future editions. 
 
 
 ## What’s New
 
-**Edition 2.3** introduces minor content changes and expanded scientist profiles. If you use the [offline version](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
+**Edition 2.4** (February 2023) introduces new animated videos to illustrate methods concepts in Chapter 1, as well as a Review Pack to aid in study and testing, available from the [Download page](download.html). If you use any of the [offline versions](download.html), download the latest file to get the new content. Similarly, if you have downloaded any individual videos we encourage you to check for a new version.
 
 
 ***Previous updates***:
+
+*Edition 2.3 (August 2022) introduced minor content changes and expanded scientist profiles.*
 
 *Edition 2.2 (July 2022) optimized interface performance and added a species list feature to the Phylogenetic Tree."
 
