@@ -35,7 +35,7 @@ If you do use this book in a class, please give us some [Feedback](#feedbackForm
 
 *Edition 2.3 (August 2022) introduced minor content changes and expanded scientist profiles.*
 
-*Edition 2.2 (July 2022) optimized interface performance and added a species list feature to the Phylogenetic Tree."
+*Edition 2.2 (July 2022) optimized interface performance and added a species list feature to the Phylogenetic Tree."*
 
 *Edition 2.1 (December 2021) introduced new interface features, improvements in site performance, and minor edits to videos and text to correct errors and incorporate new information from recent literature.*
 
