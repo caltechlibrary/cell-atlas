@@ -6,7 +6,7 @@
   "codeRepository": "https://github.com/caltechlibrary/cell-atlas",
   "issueTracker": "https://github.com/caltechlibrary/cell-atlas/issues",
   "license": "https://data.caltech.edu/license",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "author": [
     {
       "@type": "Person",

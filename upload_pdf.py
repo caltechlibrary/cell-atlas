@@ -9,6 +9,6 @@ metadata = json.load(metaf)
 
 production = True
 
-response = caltechdata_write(metadata, token, ['AtlasEdition2.1.pdf'], production)
+response = caltechdata_write(metadata, token, ['Atlas.pdf'], production)
 print(response)
 

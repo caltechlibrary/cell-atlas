@@ -2,13 +2,13 @@
   "descriptions": [
     {
       "descriptionType": "Abstract",
-      "description": "The offline version 2.2 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
+      "description": "The offline version 2.3 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
     }
   ],
   "relatedIdentifiers": [
     {
       "relatedIdentifier":
-      "https://github.com/caltechlibrary/cell-atlas/releases/tag/v2.2",
+      "https://github.com/caltechlibrary/cell-atlas/releases/tag/v2.3",
       "relationType": "IsDerivedFrom",
       "relatedIdentifierType": "URL"
     }
@@ -33,15 +33,15 @@
       "subject": "Jensen Lab"
     }
   ],
-  "version": "v2.2",
+  "version": "v2.3",
   "titles": [
     {
-      "title": "Atlas of Bacterial and Archaeal Cell Structure - Offline Version 2.2"
+      "title": "Atlas of Bacterial and Archaeal Cell Structure - Offline Version 2.3"
     }
   ],
   "dates": [
     {
-      "date": "2022-05-09",
+      "date": "2022-08-26",
       "dateType": "Issued"
     }
   ],
@@ -85,11 +85,11 @@
         }
       ],
       "contributorName": "Morrell, Thomas E",
-      "contributorType": "Data Manager"
+      "contributorType": "DataManager"
     },
     {
       "contributorName": "Badie, Kian",
-      "contributorType": "Project Member"
+      "contributorType": "ProjectMember"
     }
   ]
 }
