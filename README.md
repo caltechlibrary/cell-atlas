@@ -38,7 +38,6 @@ Supplemental files (video preview images, narration, and pdb files) are required
 site to function completely and are available to
 [download from CaltechDATA](https://doi.org/10.22002/n91mg-zc832)
 
-
 Offline versions of the cell atlas are automatically generated in the
 `cell_atlas_offline` and `cell_atlas_offline_lite` directories, assuming you
 have "video", "videos-480p", "narration", and "stillimages" directories present. 
@@ -59,9 +58,9 @@ You can submit change requests by submitting a pull request through GitHub.
 License
 -------
 
-Software produced by the Caltech Library is Copyright (C) 2022, Caltech.  This software is freely distributed under a BSD/MIT type license.  Please see the [LICENSE](LICENSE) file for more information.
+Software produced by the Caltech Library is Copyright (C) 2023, Caltech.  This software is freely distributed under a BSD/MIT type license.  Please see the [LICENSE](LICENSE) file for more information.
 
-The book text is (C) 2022, Caltech.
+The book text is (C) 2023, Caltech.
 
 Authors and Acknowledgments
 ---------------------------
