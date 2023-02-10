@@ -36,7 +36,7 @@ Videos are will not be included in the site build and need to be moved to a `vid
 in 'site' directory.
 Supplemental files (video preview images, narration, and pdb files) are required for the
 site to function completely and are available to
-[download from CaltechDATA](https://doi.org/10.22002/D1.20040)
+[download from CaltechDATA](https://doi.org/10.22002/n91mg-zc832)
 
 
 Offline versions of the cell atlas are automatically generated in the

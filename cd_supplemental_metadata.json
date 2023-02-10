@@ -1,95 +1,91 @@
 {
-  "descriptions": [
-    {
-      "descriptionType": "Abstract",
-      "description": "Supplemental materials (pdb files, images, and narration) for version 2.1 of \"The Atlas of Bacterial & Archaeal Cell Structure\" by Catherine M. Oikonomou & Grant J. Jensen"
-    }
-  ],
-  "relatedIdentifiers": [
-    {
-      "relatedIdentifier":
-      "https://github.com/caltechlibrary/cell-atlas/releases/tag/v2.1",
-      "relationType": "IsSupplementTo",
-      "relatedIdentifierType": "URL"
-    }
-  ],
-  "resourceType": {
-    "resourceTypeGeneral": "Dataset"
-  },
-  "rightsList": [
-    {
-      "rights": "CC-BY-NC",
-      "rightsURI": "https://creativecommons.org/licenses/by-nc/4.0/"
-    }
-  ],
-  "subjects": [
-    {
-      "subject": "Atlas of Bacterial and Archaeal Cell Structure"
-    },
-    {
-      "subject": "CryoEM"
-    },
-    {
-      "subject": "Jensen Lab"
-    }
-  ],
-  "version": "v2.1",
-  "titles": [
-    {
-      "title": "Supplemental Materials for the Atlas of Bacterial and Archaeal Cell Structure"
-    }
-  ],
-  "dates": [
-    {
-      "date": "2022-02-18",
-      "dateType": "Issued"
-    }
-  ],
-  "publicationYear": "2021",
-  "publisher": "CaltechDATA",
-  "creators": [
-    {
-      "affiliations": [
-        "Caltech"
-      ],
-      "nameIdentifiers": [
+    "descriptions": [
         {
-          "nameIdentifier": "0000-0003-2312-4746",
-          "nameIdentifierScheme": "ORCID"
+            "descriptionType": "Abstract",
+            "description": "Supplemental materials (pdb files, images, and narration) updated with version 2.4 of 'The Atlas of Bacterial & Archaeal Cell Structure' by Catherine M. Oikonomou & Grant J. Jensen"
         }
-      ],
-      "creatorName": "Oikonomou, Catherine"
-    },
-    {
-      "affiliations": [
-        "Caltech"
-      ],
-      "nameIdentifiers": [
+    ],
+    "relatedIdentifiers": [
         {
-          "nameIdentifier": "0000-0003-1556-4864",
-          "nameIdentifierScheme": "ORCID"
+            "relatedIdentifier": "https://github.com/caltechlibrary/cell-atlas/releases/tag/v2.4",
+            "relationType": "IsSupplementTo",
+            "relatedIdentifierType": "URL"
         }
-      ],
-      "creatorName": "Jensen, Grant"
-    }
-  ],
-  "contributors":[
-    {
-      "affiliations": [
-        "Caltech Library"
-      ],
-      "nameIdentifiers": [
+    ],
+    "types": {"resourceTypeGeneral": "Text"},
+    "rightsList": [
         {
-          "nameIdentifier": "0000-0001-9266-5146",
-          "nameIdentifierScheme": "ORCID"
+            "rights": "CC-BY-NC",
+            "rightsURI": "https://creativecommons.org/licenses/by-nc/4.0/"
         }
-      ],
-      "contributorName": "Morrell, Thomas E",
-      "contributorType": "DataManager"
-    },
-    {
-      "contributorName": "Badie, Kian",
-      "contributorType": "ProjectMember"
-    }
-  ]
+    ],
+    "subjects": [
+        {"subject": "Atlas of Bacterial and Archaeal Cell Structure"},
+        {"subject": "CryoEM"},
+        {"subject": "Jensen Lab"}
+    ],
+    "version": "v2.4",
+    "titles": [
+        {"title": "Supplemental Materials for the Atlas of Bacterial and Archaeal Cell Structure"}
+    ],
+    "dates": [{"date": "2023-02-09", "dateType": "Issued"}],
+    "publicationYear": "2023",
+    "publisher": "CaltechDATA",
+    "creators": [
+        {
+            "affiliation": [
+                {
+                    "name": "Caltech",
+                    "affiliationIdentifier": "https://ror.org/05dxps055",
+                    "affiliationIdentifierScheme": "ROR"
+                }
+            ],
+            "nameIdentifiers": [
+                {
+                    "nameIdentifier": "0000-0003-2312-4746",
+                    "nameIdentifierScheme": "ORCID"
+                }
+            ],
+            "familyName": "Oikonomou",
+            "givenName": "Catherine"
+        },
+        {
+            "affiliation": [
+                {
+                    "name": "Brigham Young University",
+                    "affiliationIdentifier": "https://ror.org/047rhhm47",
+                    "affiliationIdentifierScheme": "ROR"
+                }
+            ],
+            "nameIdentifiers": [
+                {
+                    "nameIdentifier": "0000-0003-1556-4864",
+                    "nameIdentifierScheme": "ORCID"
+                }
+            ],
+            "familyName": "Jensen",
+            "givenName": "Grant"
+        }
+    ],
+    "contributors": [
+        {
+            "affiliation": [
+                {
+                    "name": "Caltech",
+                    "affiliationIdentifier": "https://ror.org/05dxps055",
+                    "affiliationIdentifierScheme": "ROR"
+                }
+            ],
+            "nameIdentifiers": [
+                {
+                    "nameIdentifier": "0000-0001-9266-5146",
+                    "nameIdentifierScheme": "ORCID"
+                }
+            ],
+            "familyName": "Morrell",
+            "givenName": "Thomas E",
+            "contributorType": "DataManager"
+        },
+        {"familyName": "Badie","givenName":"Kian", "contributorType": "ProjectMember"}
+    ]
 }

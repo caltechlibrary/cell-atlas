@@ -11,10 +11,12 @@ if os.path.exists(outFile):
 
 with open(fileName, "r") as file:
     for line in file:
-        if re.search(r"<text" , line):
-            speciesName = re.sub("</text>" , "", line.split(">", 1)[1].strip()).strip()
+        if re.search(r"<text", line):
+            speciesName = re.sub("</text>", "", line.split(">", 1)[1].strip()).strip()
             speciesId = speciesName.replace(" ", "-").replace("/", "-")
-            newLine = '\t\t\t<a class="tree-viewer__species-anchor" data-species="{}">{}</a>\n'.format(speciesId, line.strip())
+            newLine = '\t\t\t<a class="tree-viewer__species-anchor" data-species="{}">{}</a>\n'.format(
+                speciesId, line.strip()
+            )
             newFileLines.append(newLine)
         else:
             newFileLines.append(line)

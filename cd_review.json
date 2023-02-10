@@ -2,7 +2,7 @@
     "descriptions": [
         {
             "descriptionType": "Abstract",
-            "description": "Offline version 2.4 of 'The Atlas of Bacterial & Archaeal Cell Structure' by Catherine M. Oikonomou & Grant J. Jensen"
+            "description": "Review pack for version 2.4 of 'The Atlas of Bacterial & Archaeal Cell Structure' by Catherine M. Oikonomou & Grant J. Jensen.  It contains static images from the book, with and without labels, to serve as an aid for study and testing"
         }
     ],
     "relatedIdentifiers": [
@@ -13,7 +13,7 @@
         },
         {
             "relatedIdentifier": "https://cellstructureatlas.org",
-            "relationType": "IsVariantFormOf",
+            "relationType": "IsSupplementTo",
             "relatedIdentifierType": "URL"
         }
     ],
@@ -31,7 +31,7 @@
     ],
     "version": "v2.4",
     "titles": [
-        {"title": "Atlas of Bacterial and Archaeal Cell Structure - Offline Version 2.4"}
+        {"title": "Review pack for the Atlas of Bacterial and Archaeal Cell Structure"}
     ],
     "dates": [{"date": "2023-02-09", "dateType": "Issued"}],
     "publicationYear": "2023",
@@ -90,7 +90,6 @@
             "familyName": "Morrell",
             "givenName": "Thomas E",
             "contributorType": "DataManager"
-        },
-        {"familyName": "Badie","givenName":"Kian", "contributorType": "ProjectMember"}
+        }
     ]
 }
