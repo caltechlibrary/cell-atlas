@@ -44,6 +44,11 @@ have "video", "videos-480p", "narration", and "stillimages" directories present.
 In order to zip up the offline version, navigate to `cell_atlas_offline` and `cell_atlas_offline_lite` directories 
 and use the command `zip -rX cell_atlas_offline_lite.zip *`
 
+You can optionally create .webp version of image files by installing
+[cwebp](https://developers.google.com/speed/webp/download) and running `python
+_webp.py stillimages`. The site will always fall back to the .jpg images if the
+.webp versions are not available or not suported.
+
 Getting help
 ------------
 

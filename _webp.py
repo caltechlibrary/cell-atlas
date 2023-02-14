@@ -23,5 +23,5 @@ for entry in os.scandir(inDir):
         convertSubDirToWebp(entry.path, entry.name)
     else:
         subprocess.run(
-            f"cwebp {entry.path} -m 6 -q 90 -o {outDir}/{entry.name.split('.')[0]}.webp"
+            ["cwebp",f"{entry.path}","-m","6","-q","90","-o",f"{outDir}/{entry.name.split('.')[0]}.webp"]
         )
